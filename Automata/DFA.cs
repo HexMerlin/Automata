@@ -4,7 +4,7 @@ namespace Automata;
 
 public class DFA : IFsa
 {
-    #region Instance
+    #region Data
     public Alphabet Alphabet { get; }
    
     private readonly SortedDictionary<long, int> transitions;

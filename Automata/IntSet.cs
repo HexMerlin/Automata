@@ -8,7 +8,7 @@ namespace Automata;
 public class IntSet : IEquatable<IntSet>
 {
 
-    #region Instance
+    #region Data
     public FrozenSet<int> Members { get; }
     
     #endregion

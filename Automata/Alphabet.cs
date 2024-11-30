@@ -1,7 +1,7 @@
 ﻿namespace Automata;
 public class Alphabet
 {
-    #region Instance
+    #region Data
     private readonly List<string> indexToStringMap = new();
 
     private readonly Dictionary<string, int> stringToIndexMap = new();

@@ -3,22 +3,9 @@ using System.Linq;
 
 namespace Automata;
 
-public interface IFsa
-{
-    Alphabet Alphabet { get; }
-    bool EpsilonFree { get; }
-
-    bool IsInitial(int state);
-    bool IsFinal(int state);
-
-    IEnumerable<Transition> Transitions { get; }
-
-    IEnumerable<EpsilonTransition> EpsilonTransitions { get; }
-}
-
 public class NFA : IFsa
 {
-    #region Instance
+    #region Data
     public Alphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> nonEpsilonTransitions;
