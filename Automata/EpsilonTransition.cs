@@ -9,15 +9,28 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
     /// </summary>
     public const string Epsilon = "ε";
 
+    /// <summary>
+    /// Reverses the epsilon transition.
+    /// </summary>
+    /// <returns>A new <see cref="EpsilonTransition"/> with the from and to states swapped.</returns>
     public EpsilonTransition Reverse() => new EpsilonTransition(ToState, FromState);
 
 
+    /// <summary>
+    /// Compares the current epsilon transition to another epsilon transition.
+    /// </summary>
+    /// <param name="other">The other epsilon transition to compare to.</param>
+    /// <returns>An integer that indicates the relative order of the objects being compared.</returns>
     public int CompareTo(EpsilonTransition other)
     {
         int fromStateComparison = FromState.CompareTo(other.FromState);
         return fromStateComparison != 0 ? fromStateComparison : ToState.CompareTo(other.ToState);
     }
 
+    /// <summary>
+    /// Gets a comparer that compares epsilon transitions by their to states.
+    /// </summary>
+    /// <returns>A comparer that compares epsilon transitions by their to states.</returns>
     public static Comparer<EpsilonTransition> CompareByToState() => Comparer<EpsilonTransition>.Create((t1, t2) =>
     {
         int c = t1.ToState.CompareTo(t2.ToState);
