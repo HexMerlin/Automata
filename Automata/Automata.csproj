@@ -7,12 +7,18 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Automata</Title>
     <Description>A simple library for creating and manipulating Finite-State-Automata</Description>
+    <PackageTags>Automata</PackageTags>
+    <RepositoryUrl>https://github.com/HexMerlin/Automata</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="bin\**" />
     <EmbeddedResource Remove="bin\**" />
     <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Automata.1.0.0.nupkg" />
   </ItemGroup>
 
 </Project>
