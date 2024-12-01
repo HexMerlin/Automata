@@ -4,37 +4,33 @@ using Microsoft.Msagl.Drawing;
 namespace Automata.Visualization;
 
 ///<summary>
-///Static class for creating displayable graph from finite state automata
+/// Static class for creating displayable graph from finite state automata.
 ///</summary>
 public static class GraphFactory
 {
-
     /// <summary>
     /// Helper method that creates a displayable graph from a collection of sequences.
     /// </summary>
-    /// <param name="sequences"></param>
-    /// <param name="minimize"></param>
-    /// <returns></returns>
-    //public static Graph CreateGraph(IEnumerable<IEnumerable<string>> sequences, bool minimize)
-    //{
-    //    IFsa nfa = new NFA(sequences);
+    /// <param name="sequences">The collection of sequences to create the graph from.</param>
+    /// <param name="minimize">Indicates whether to minimize the DFA.</param>
+    /// <returns>A graph representing the finite state automaton.</returns>
+    public static Graph CreateGraph(IEnumerable<IEnumerable<string>> sequences, bool minimize = true)
+    {
+        NFA nfa = new NFA(sequences); //create an NFA from the sequences
 
-    //    var dfa = nfa.ToDFA(); //determinize the nfa
-    //    dfa = dfa.Minimized(); //minimize the dfa
+        var dfa = nfa.ToDFA(); //determinize to DFA
+        if (minimize)
+            dfa = dfa.Minimized(); //minimize the DFA
 
-    //    var graph = GraphFactory.CreateGraph(dfa);
-
-
-    //    return graph;
-    //}
-
+        return GraphFactory.CreateGraph(dfa);
+    }
 
     /// <summary>
-    /// Creates a displayable graph from of a finite state automaton (FSA).
+    /// Creates a displayable graph from a finite state automaton (FSA).
     /// </summary>
     /// <param name="fsa">The finite state automaton to represent as a graph.</param>
     /// <param name="layerDirection">The layout direction of the graph (default: left-to-right).</param>
-    /// <param name="directed">Indicates whether the graph is directed  (default: true).</param>
+    /// <param name="directed">Indicates whether the graph is directed (default: true).</param>
     /// <returns>A graph representing the finite state automaton.</returns>
     public static Graph CreateGraph(IFsa fsa, LayerDirection layerDirection = LayerDirection.LR, bool directed = true)
     {
@@ -90,6 +86,4 @@ public static class GraphFactory
             node.Label.Text = " ";
         }
     }
-
-
 }

@@ -3,21 +3,27 @@ using Microsoft.Msagl.GraphViewerGdi;
 using Color = System.Drawing.Color;
 
 namespace Automata.Visualization;
-public partial class GraphView : Form
+
+///<summary>
+/// A form that displays a graph using the MSAGL library.
+///</summary>
+internal partial class GraphView : Form
 {
-    
+    ///<summary>
+    /// Gets the GViewer control used to display the graph.
+    ///</summary>
     internal GViewer GViewer => gViewer;
 
+    ///<summary>
+    /// Initializes a new instance of the <see cref="GraphView"/> class.
+    ///</summary>
     public GraphView()
     {
         InitializeComponent();
         GViewer.PanButtonPressed = true;
     }
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    ///<inheritdoc/>
     protected override void Dispose(bool disposing)
     {
         if (disposing)
@@ -25,9 +31,7 @@ public partial class GraphView : Form
             GViewer?.Dispose();
             components?.Dispose();
         }
-       
+
         base.Dispose(disposing);
     }
-
-   
 }

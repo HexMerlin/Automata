@@ -112,7 +112,7 @@ public class NFA : IFsa
     /// <param name="transitions">The transitions to add.</param>
     public void AddAll(IEnumerable<Transition> transitions)
     {
-        foreach (var transition in transitions)
+        foreach (Transition transition in transitions)
         {
             nonEpsilonTransitions.Add(transition);
             nonEpsilonTransitions_ByToState.Add(transition);
@@ -125,7 +125,7 @@ public class NFA : IFsa
     /// <param name="transitions">The transitions to add.</param>
     public void AddAll(IEnumerable<EpsilonTransition> transitions)
     {
-        foreach (var transition in transitions)
+        foreach (EpsilonTransition transition in transitions)
         {
             epsilonTransitions.Add(transition);
             epsilonTransitions_ByToState.Add(transition);
@@ -166,7 +166,7 @@ public class NFA : IFsa
     /// <param name="sequences">The sequences to add to the NFA.</param>
     public void AddAll(IEnumerable<IEnumerable<string>> sequences)
     {
-        foreach (var sequence in sequences)
+        foreach (IEnumerable<string> sequence in sequences)
             Add(sequence);
     }
 
@@ -266,6 +266,19 @@ public class NFA : IFsa
     IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions => EpsilonTransitions;
 
     /// <summary>
+    /// Converts this NFA to a DFA.
+    /// </summary>
+    /// <returns>A DFA representing the NFA.</returns>
+    public DFA ToDFA() => ToDFA(this);
+    
+    /// <summary>
+    /// Converts the NFA to a minimized DFA.
+    /// </summary>
+    /// <returns>A minimized DFA representing the NFA.</returns>
+    public DFA ToMinimizedDFA() => ToDFA(this).Minimized();
+
+
+    /// <summary>
     /// Finds the maximum state in the NFA.
     /// </summary>
     /// <returns>The maximum state in the NFA.</returns>
@@ -295,7 +308,7 @@ public class NFA : IFsa
     /// </summary>
     /// <param name="fromState">The state from which to start.</param>
     /// <returns>The states reachable from the given state on a single epsilon transition.</returns>
-    private IEnumerable<int> TraverseOnEpsilonOneStep(int fromState)
+    private static IEnumerable<int> TraverseOnEpsilonOneStep(int fromState, SortedSet<EpsilonTransition> epsilonTransitions)
         => epsilonTransitions.GetViewBetween(new EpsilonTransition(fromState, int.MinValue), new EpsilonTransition(fromState, int.MaxValue)).Select(t => t.ToState);
 
     /// <summary>
@@ -304,21 +317,21 @@ public class NFA : IFsa
     /// </summary>
     /// <param name="fromStates">The states from which to start.</param>
     /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
-    private IntSet GetAvailableSymbols(IEnumerable<int> fromStates)
-        => new IntSet(fromStates.SelectMany(s => nonEpsilonTransitions.GetViewBetween(new Transition(s, int.MinValue, int.MinValue), new Transition(s, int.MaxValue, int.MaxValue)).Select(t => t.Symbol)));
+    private static IntSet GetAvailableSymbols(IEnumerable<int> fromStates, SortedSet<Transition> nonEpsilonTransitions)
+        => new(fromStates.SelectMany(s => nonEpsilonTransitions.GetViewBetween(new Transition(s, int.MinValue, int.MinValue), new Transition(s, int.MaxValue, int.MaxValue)).Select(t => t.Symbol)));
 
     /// <summary>
     /// Extends the set of states with their epsilon closure in place.
     /// </summary>
     /// <param name="fromStates">The set of states to extend.</param>
-    private void ExtendWithEpsilonClosureInPlace(HashSet<int> fromStates)
+    private static void ExtendWithEpsilonClosureInPlace(HashSet<int> fromStates, SortedSet<EpsilonTransition> epsilonTransitions)
     {
         var queue = new Queue<int>(fromStates);
 
         while (queue.Count != 0)
         {
             int state = queue.Dequeue();
-            var newStates = TraverseOnEpsilonOneStep(state);
+            var newStates = TraverseOnEpsilonOneStep(state, epsilonTransitions);
             foreach (var newState in newStates)
             {
                 if (fromStates.Add(newState))
@@ -336,17 +349,17 @@ public class NFA : IFsa
     private IntSet GetToStates(IEnumerable<int> fromStates, int symbol)
     {
         HashSet<int> intermediateStates = fromStates.ToHashSet();
-        ExtendWithEpsilonClosureInPlace(intermediateStates);
+        ExtendWithEpsilonClosureInPlace(intermediateStates, epsilonTransitions);
         HashSet<int> toStates = intermediateStates.SelectMany(s => TraverseOnSymbol(s, symbol)).ToHashSet();
-        ExtendWithEpsilonClosureInPlace(toStates);
+        ExtendWithEpsilonClosureInPlace(toStates, epsilonTransitions);
         return new IntSet(toStates);
     }
 
     /// <summary>
-    /// Converts the NFA to a DFA.
+    /// Converts a NFA to a DFA.
     /// </summary>
     /// <returns>A DFA representing the NFA.</returns>
-    public DFA ToDFA()
+    private static DFA ToDFA(NFA nfa)
     {
         List<Transition> dfaTransitions = new();
         HashSet<int> dfaFinalStates = new();
@@ -355,25 +368,25 @@ public class NFA : IFsa
         Dictionary<IntSet, int> stateSetToDfaState = new();
         Queue<IntSet> queue = new();
 
-        HashSet<int> initialStates = new HashSet<int>(this.initialStates);
-        ExtendWithEpsilonClosureInPlace(initialStates);
+        HashSet<int> initialStates = new HashSet<int>(nfa.initialStates);
+        ExtendWithEpsilonClosureInPlace(initialStates, nfa.epsilonTransitions);
         int dfaInitialState = GetOrAddState(new IntSet(initialStates)); //adds initial state to dfa
 
 
         while (queue.Count > 0)
         {
             IntSet fromState = queue.Dequeue();
-            IntSet symbols = GetAvailableSymbols(fromState.Members);
+            IntSet symbols = GetAvailableSymbols(fromState.Members, nfa.nonEpsilonTransitions);
             int dfaFromState = GetOrAddState(fromState);
 
             foreach (int symbol in symbols.Members)
             {
-                IntSet toState = GetToStates(fromState.Members, symbol);
+                IntSet toState = nfa.GetToStates(fromState.Members, symbol);
                 int dfaToState = GetOrAddState(toState);
                 dfaTransitions.Add(new Transition(dfaFromState, symbol, dfaToState));
             }
         }
-        return new DFA(this.Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
+        return new DFA(nfa.Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
 
         int GetOrAddState(IntSet state)
         {
@@ -383,15 +396,10 @@ public class NFA : IFsa
                 stateSetToDfaState[state] = dfaState;
                 queue.Enqueue(state);
             }
-            if (state.Members.Overlaps(finalStates))
+            if (state.Members.Overlaps(nfa.finalStates))
                 dfaFinalStates.Add(dfaState);
             return dfaState;
         }
     }
 
-    /// <summary>
-    /// Converts the NFA to a minimized DFA.
-    /// </summary>
-    /// <returns>A minimized DFA representing the NFA.</returns>
-    public DFA ToMinimizedDFA() => ToDFA().Minimized();
 }

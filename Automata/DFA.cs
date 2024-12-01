@@ -37,7 +37,7 @@ public class DFA : IFsa
     /// <param name="finalStates">The final states of the DFA.</param>
     public DFA(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates)
     {
-        this.Alphabet = alphabet;
+        Alphabet = alphabet;
         this.transitions = new();
         SetInitial(initialState);
         this.finalStates = new(finalStates);
@@ -53,7 +53,7 @@ public class DFA : IFsa
     /// <param name="alphabet">The alphabet used by the DFA.</param>
     public DFA(Alphabet alphabet)
     {
-        this.Alphabet = alphabet;
+        Alphabet = alphabet;
         this.transitions = [];
         this.finalStates = [];
     }
