@@ -1,7 +1,7 @@
 ﻿namespace Automata;
 
 /// <summary>
-/// Represents a transition in an automaton, defined by a starting state, a symbol, and an ending state.
+/// Represents a non-epsilon transition in an automaton, defined by a starting state, a symbol, and an ending state.
 /// </summary>
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="Symbol">The symbol that triggers the transition.</param>

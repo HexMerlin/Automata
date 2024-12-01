@@ -1,5 +1,10 @@
 ﻿namespace Automata;
 
+/// <summary>
+/// Represents an epsilon transition in an automaton, defined by a starting state and an ending state.
+/// </summary>
+/// <param name="FromState">The state from which the transition starts.</param>
+/// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct EpsilonTransition(int FromState, int ToState) : IComparable<EpsilonTransition>
 {
 
@@ -13,7 +18,7 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
     /// Reverses the epsilon transition.
     /// </summary>
     /// <returns>A new <see cref="EpsilonTransition"/> with the from and to states swapped.</returns>
-    public EpsilonTransition Reverse() => new EpsilonTransition(ToState, FromState);
+    public EpsilonTransition Reverse() => new(ToState, FromState);
 
 
     /// <summary>

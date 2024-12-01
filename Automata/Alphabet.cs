@@ -6,9 +6,9 @@
 public class Alphabet
 {
     #region Data
-    private readonly List<string> indexToStringMap = new();
+    private readonly List<string> indexToStringMap = [];
 
-    private readonly Dictionary<string, int> stringToIndexMap = new();
+    private readonly Dictionary<string, int> stringToIndexMap = [];
     #endregion
 
     /// <summary>

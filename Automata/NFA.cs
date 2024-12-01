@@ -1,7 +1,4 @@
-﻿using System.Collections.Immutable;
-using System.Linq;
-
-namespace Automata;
+﻿namespace Automata;
 
 /// <summary>
 /// Represents a nondeterministic finite automaton (NFA).
@@ -288,7 +285,7 @@ public class NFA : IFsa
     /// Extends the set of states with their epsilon closure in place.
     /// </summary>
     /// <param name="fromStates">The set of states to extend.</param>
-    private void ExtendWithEpsilonClosureInplace(HashSet<int> fromStates)
+    private void ExtendWithEpsilonClosureInPlace(HashSet<int> fromStates)
     {
         var queue = new Queue<int>(fromStates);
 
@@ -313,9 +310,9 @@ public class NFA : IFsa
     private IntSet GetToStates(IEnumerable<int> fromStates, int symbol)
     {
         HashSet<int> intermediateStates = fromStates.ToHashSet();
-        ExtendWithEpsilonClosureInplace(intermediateStates);
+        ExtendWithEpsilonClosureInPlace(intermediateStates);
         HashSet<int> toStates = intermediateStates.SelectMany(s => TraverseOnSymbol(s, symbol)).ToHashSet();
-        ExtendWithEpsilonClosureInplace(toStates);
+        ExtendWithEpsilonClosureInPlace(toStates);
         return new IntSet(toStates);
     }
 
@@ -333,7 +330,7 @@ public class NFA : IFsa
         Queue<IntSet> queue = new();
 
         HashSet<int> initialStates = new HashSet<int>(this.initialStates);
-        ExtendWithEpsilonClosureInplace(initialStates);
+        ExtendWithEpsilonClosureInPlace(initialStates);
         int dfaInitialState = GetOrAddState(new IntSet(initialStates)); //adds initial state to dfa
 
 

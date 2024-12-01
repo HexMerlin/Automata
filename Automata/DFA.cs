@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Automata;
+﻿namespace Automata;
 
 /// <summary>
 /// Represents a deterministic finite automaton (DFA).
@@ -56,8 +54,8 @@ public class DFA : IFsa
     public DFA(Alphabet alphabet)
     {
         this.Alphabet = alphabet;
-        this.transitions = new();
-        this.finalStates = new();
+        this.transitions = [];
+        this.finalStates = [];
     }
 
     /// <summary>

@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace Automata;
 
 /// <summary>
-/// Represents a set of integers with various utility methods.
+/// Represents an immutable set of integers.
 /// </summary>
 [DebuggerDisplay("{ToString()}")]
 public class IntSet : IEquatable<IntSet>
