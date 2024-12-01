@@ -35,25 +35,6 @@ public class NFA : IFsa
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="NFA"/> class with the specified parameters.
-    /// </summary>
-    /// <param name="alphabet">The alphabet used by the NFA.</param>
-    /// <param name="nonEpsilonTransitions">The non-epsilon transitions of the NFA.</param>
-    /// <param name="epsilonTransitions">The epsilon transitions of the NFA.</param>
-    /// <param name="initialStates">The initial states of the NFA.</param>
-    /// <param name="finalStates">The final states of the NFA.</param>
-    private NFA(Alphabet alphabet, IEnumerable<Transition> nonEpsilonTransitions, IEnumerable<EpsilonTransition> epsilonTransitions, IEnumerable<int> initialStates, IEnumerable<int> finalStates)
-    {
-        this.Alphabet = alphabet;
-        this.nonEpsilonTransitions = new SortedSet<Transition>(nonEpsilonTransitions);
-        this.nonEpsilonTransitions_ByToState = new SortedSet<Transition>(nonEpsilonTransitions, Transition.CompareByToState());
-        this.epsilonTransitions = new SortedSet<EpsilonTransition>(epsilonTransitions); ;
-        this.epsilonTransitions_ByToState = new SortedSet<EpsilonTransition>(epsilonTransitions, EpsilonTransition.CompareByToState());
-        this.initialStates = new SortedSet<int>(initialStates);
-        this.finalStates = new SortedSet<int>(finalStates);
-    }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="NFA"/> class from a DFA.
     /// </summary>
     /// <param name="dfa">The DFA to convert to an NFA.</param>
@@ -75,6 +56,35 @@ public class NFA : IFsa
             SetFinal(dfa.FinalStates);
         }
     }
+
+    /// <summary>
+    /// Initializes a new instance of a <see cref="NFA"/> class from a set of sequences.
+    /// </summary>
+    /// <param name="sequences">The sequences to add to the NFA.</param>
+    public NFA(IEnumerable<IEnumerable<string>> sequences) : this()
+    {
+        AddAll(sequences);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NFA"/> class with the specified parameters.
+    /// </summary>
+    /// <param name="alphabet">The alphabet used by the NFA.</param>
+    /// <param name="nonEpsilonTransitions">The non-epsilon transitions of the NFA.</param>
+    /// <param name="epsilonTransitions">The epsilon transitions of the NFA.</param>
+    /// <param name="initialStates">The initial states of the NFA.</param>
+    /// <param name="finalStates">The final states of the NFA.</param>
+    private NFA(Alphabet alphabet, IEnumerable<Transition> nonEpsilonTransitions, IEnumerable<EpsilonTransition> epsilonTransitions, IEnumerable<int> initialStates, IEnumerable<int> finalStates)
+    {
+        this.Alphabet = alphabet;
+        this.nonEpsilonTransitions = new SortedSet<Transition>(nonEpsilonTransitions);
+        this.nonEpsilonTransitions_ByToState = new SortedSet<Transition>(nonEpsilonTransitions, Transition.CompareByToState());
+        this.epsilonTransitions = new SortedSet<EpsilonTransition>(epsilonTransitions); ;
+        this.epsilonTransitions_ByToState = new SortedSet<EpsilonTransition>(epsilonTransitions, EpsilonTransition.CompareByToState());
+        this.initialStates = new SortedSet<int>(initialStates);
+        this.finalStates = new SortedSet<int>(finalStates);
+    }
+
 
     /// <summary>
     /// Adds a non-epsilon transition to the NFA.
@@ -125,6 +135,9 @@ public class NFA : IFsa
     /// <summary>
     /// Adds a sequence of symbols to the NFA.
     /// </summary>
+    /// <remarks>
+    /// Any missing symbols in the alphabet will be added to the alphabet.
+    /// </remarks>
     /// <param name="sequence">The sequence of symbols to add.</param>
     public void Add(IEnumerable<string> sequence)
     {
@@ -142,6 +155,19 @@ public class NFA : IFsa
             fromState = maxState;
         }
         finalStates.Add(maxState);
+    }
+
+    /// <summary>
+    /// Adds a set of sequences to the NFA.
+    /// </summary>
+    /// <remarks>
+    /// Any missing symbols in the alphabet will be added to the alphabet.
+    /// </remarks>
+    /// <param name="sequences">The sequences to add to the NFA.</param>
+    public void AddAll(IEnumerable<IEnumerable<string>> sequences)
+    {
+        foreach (var sequence in sequences)
+            Add(sequence);
     }
 
     /// <summary>

@@ -62,14 +62,14 @@ public class DFA : IFsa
     /// Sets the initial state of the DFA.
     /// </summary>
     /// <param name="state">The state to set as the initial state.</param>
-    public void SetInitial(int state) => InitialState = state;
+    private void SetInitial(int state) => InitialState = state;
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
     /// <param name="state">The state to set or remove as a final state.</param>
     /// <param name="final">If <c>true</c>, the state is added to the final states; otherwise, it is removed.</param>
-    public void SetFinal(int state, bool final = true)
+    private void SetFinal(int state, bool final = true)
     {
         if (final)
             finalStates.Add(state);
