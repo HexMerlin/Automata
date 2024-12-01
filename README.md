@@ -77,7 +77,7 @@ consoleWindow.WriteLine("Graph created.", System.Drawing.Color.Green);
 1. Open your project in Visual Studio.
 2. Go to **Tools > NuGet Package Manager > Manage NuGet Packages for Solution...**.
 3. Add the GitHub Packages feed to your NuGet package sources:
-   - URL: `https://nuget.pkg.github.com/<your-username>/index.json`
+   - URL: `https://nuget.pkg.github.com/HexMerlin/index.json`
 4. Search for the package and click **Install**.
 
 ### Using .NET CLI
