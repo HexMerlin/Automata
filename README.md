@@ -41,29 +41,28 @@ The Automata.Visualization library extends the core Automata functionality with 
 - Visualize automata as graphs.
 - Includes all core Automata functionality.
 
-### :bulb: C# Example: Automata Visualization
+### :bulb: C# Full example program: Automata Visualization
 
 ```csharp
-// Create a console window with colored text and graph visualization support
-ConsoleWindow consoleWindow = ConsoleWindow.Create(); 
+using Automata.Visualization;
 
-// Write colored text to the console window
+// Creates the main console window.
+ConsoleWindow consoleWindow = ConsoleWindow.Create();
+
+// Write some colored text output to the console window
 consoleWindow.WriteLine("Creating graph...", System.Drawing.Color.Blue);
 
-// Create random sequences of strings
-var sequences = Enumerable.Range(0, 10)
-        .Select(_ => Enumerable.Range(0, 8)
-        .Select(_ => Random.Shared.Next(4).ToString()));
+//Create some random sequences
+var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString()));
 
-// Create a displayable graph object directly from the sequences
-Graph graph = GraphFactory.CreateGraph(sequences, minimize: true);
+// Create and display a minimized graph object from the sequences
+var graph = GraphFactory.CreateGraph(sequences, minimize: true);
 
-// Open a new non-modal window and show the graph
+// Open a new non-modal window that displays the graph in it. 
 consoleWindow.ShowGraph(graph);
 
-// Write more colored text output
-consoleWindow.WriteLine("Graph created.", System.Drawing.Color.Green);
-
+// Write some more colored text output to the console window
+consoleWindow.WriteLine("Graph created.", System.Drawing.Color.Green); 
 ```
 ## :package: NuGet Package releases on GitHub
 
