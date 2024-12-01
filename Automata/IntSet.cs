@@ -37,7 +37,7 @@ public class IntSet : IEquatable<IntSet>
     public int Count => Members.Count;
 
     /// <summary>
-    /// Determines whether the current set is equal to another set.
+    /// Indicates whether the current set is equal to another set.
     /// </summary>
     /// <param name="other">The other set to compare to.</param>
     /// <returns><c>true</c> if the sets are equal; otherwise, <c>false</c>.</returns>
@@ -45,7 +45,7 @@ public class IntSet : IEquatable<IntSet>
         => other != null && Members.SetEquals(other.Members);
 
     /// <summary>
-    /// Determines whether the current set is equal to another object.
+    /// Indicates whether the current set is equal to another object.
     /// </summary>
     /// <param name="obj">The object to compare to.</param>
     /// <returns><c>true</c> if the object is an <see cref="IntSet"/> and the sets are equal; otherwise, <c>false</c>.</returns>

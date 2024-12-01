@@ -1,5 +1,11 @@
 ﻿namespace Automata;
 
+/// <summary>
+/// Represents a transition in an automaton, defined by a starting state, a symbol, and an ending state.
+/// </summary>
+/// <param name="FromState">The state from which the transition starts.</param>
+/// <param name="Symbol">The symbol that triggers the transition.</param>
+/// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct Transition(int FromState, int Symbol, int ToState)  : IComparable<Transition>
 {
     /// <summary>

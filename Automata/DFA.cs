@@ -80,14 +80,14 @@ public class DFA : IFsa
     }
 
     /// <summary>
-    /// Determines whether the specified state is the initial state.
+    /// Indicates whether the specified state is the initial state.
     /// </summary>
     /// <param name="state">The state to check.</param>
     /// <returns><c>true</c> if the specified state is the initial state; otherwise, <c>false</c>.</returns>
     public bool IsInitial(int state) => state == InitialState;
 
     /// <summary>
-    /// Determines whether the specified state is a final state.
+    /// Indicates whether the specified state is a final state.
     /// </summary>
     /// <param name="state">The state to check.</param>
     /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>

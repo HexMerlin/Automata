@@ -60,7 +60,7 @@ public class NFA : IFsa
     /// Initializes a new instance of the <see cref="NFA"/> class from a DFA.
     /// </summary>
     /// <param name="dfa">The DFA to convert to an NFA.</param>
-    /// <param name="applyReverseOperation">If <c>true</c>, the transitions are reversed.</param>
+    /// <param name="applyReverseOperation">Iff <c>true</c>, the DFA is reversed.</param>
     internal NFA(DFA dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
     {
         this.Alphabet = dfa.Alphabet;
@@ -148,14 +148,14 @@ public class NFA : IFsa
     }
 
     /// <summary>
-    /// Determines whether the specified state is an initial state.
+    /// Indicates whether the specified state is an initial state.
     /// </summary>
     /// <param name="state">The state to check.</param>
     /// <returns><c>true</c> if the specified state is an initial state; otherwise, <c>false</c>.</returns>
     public bool IsInitial(int state) => initialStates.Contains(state);
 
     /// <summary>
-    /// Determines whether the specified state is a final state.
+    /// Indicates whether the specified state is a final state.
     /// </summary>
     /// <param name="state">The state to check.</param>
     /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>
