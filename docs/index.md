@@ -1,12 +1,13 @@
 ---
 _layout: landing
 ---
+# API Documentation
 
-TESTING CHANGE!!
-# This is the **HOMEPAGE**.
+Welcome to the API documentation for **Automata**.
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+## Namespaces
 
-## Quick Start Notes:
+- [Automata.Core](api/Automata.Core.html)  
+- [Automata.Visualization](api/Automata.Visualization.html)  
 
-1. Add images to the *images* folder if the file is referencing an image.
+Click the links above to explore the namespaces.
