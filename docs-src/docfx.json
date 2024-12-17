@@ -8,13 +8,13 @@
           "files": ["**/*.csproj"]
         }
       ],
-      "dest": "obj/api"   // Redirect YAML files here
+      "dest": "../docs/obj/api"   // Redirect YAML files here
     }
   ],
   "build": {
     "content": [
       { "files": ["index.md"] },
-      { "src": "obj/api", "files": ["**/*.yml"] } // Include YAML files for resolving xrefs
+      { "src": "../docs/obj/api", "files": ["**/*.yml"] } // Include YAML files for resolving xrefs
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
