@@ -1,5 +1,6 @@
 ---
-_layout: landing
+title: API Documentation
+layout: landing
 ---
 # API Documentation
 

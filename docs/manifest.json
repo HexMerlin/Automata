@@ -1,0 +1,152 @@
+{
+  "source_base_path": "C:/Dev/HexMerlin/Automata/docs-src",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.Alphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.DFA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.DFA.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.EpsilonTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.EpsilonTransition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.IFsa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IFsa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.IntSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IntSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.NFA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.NFA.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.Transition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Transition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Visualization.ConsoleWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.ConsoleWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Visualization.GraphFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.GraphFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../obj/docfx/api/Automata.Visualization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../obj/docfx/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
