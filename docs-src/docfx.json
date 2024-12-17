@@ -21,8 +21,8 @@
     ],
     "output": "../docs",
     "template": [
-       "modern",
-       "default"
+        "default",   
+        "modern"
     ],
     "globalMetadata": {
       "_appName": "AutomataDocs",

@@ -1,5 +1,5 @@
 ---
-title: API Documentation
+title: Automata API Documentation
 layout: landing
 ---
 # API Documentation
