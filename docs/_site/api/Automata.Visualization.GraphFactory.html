@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GraphFactory | AutomataDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GraphFactory | AutomataDocs ">
+      
+      <meta name="description" content="Static class for creating displayable graph from finite state automata.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Visualization_GraphFactory.md&amp;value=---%0Auid%3A%20Automata.Visualization.GraphFactory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="AutomataDocs">
+            AutomataDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Automata.Visualization.GraphFactory">
+
+
+
+  <h1 id="Automata_Visualization_GraphFactory" data-uid="Automata.Visualization.GraphFactory" class="text-break">
+Class GraphFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Visualization/GraphFactory.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Visualization.html">Visualization</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Automata.Visualization.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Static class for creating displayable graph from finite state automata.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class GraphFactory</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">GraphFactory</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Automata_Visualization_GraphFactory_ConfigNode_" data-uid="Automata.Visualization.GraphFactory.ConfigNode*"></a>
+
+  <h3 id="Automata_Visualization_GraphFactory_ConfigNode_Microsoft_Msagl_Drawing_Node_System_Boolean_System_Boolean_" data-uid="Automata.Visualization.GraphFactory.ConfigNode(Microsoft.Msagl.Drawing.Node,System.Boolean,System.Boolean)">
+  ConfigNode(Node, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Visualization/GraphFactory.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the appearance of a node in the graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ConfigNode(this Node node, bool isInitial, bool isFinal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <span class="xref">Node</span></dt>
+    <dd><p>The node to configure.</p>
+</dd>
+    <dt><code>isInitial</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether the node represents an initial state.</p>
+</dd>
+    <dt><code>isFinal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether the node represents a final state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Visualization_GraphFactory_CreateGraph_" data-uid="Automata.Visualization.GraphFactory.CreateGraph*"></a>
+
+  <h3 id="Automata_Visualization_GraphFactory_CreateGraph_Automata_Core_IFsa_Microsoft_Msagl_Drawing_LayerDirection_System_Boolean_" data-uid="Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.IFsa,Microsoft.Msagl.Drawing.LayerDirection,System.Boolean)">
+  CreateGraph(IFsa, LayerDirection, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Visualization/GraphFactory.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a displayable graph from a finite state automaton (FSA).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateGraph(IFsa fsa, LayerDirection layerDirection = LayerDirection.LR, bool directed = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fsa</code> <a class="xref" href="Automata.Core.IFsa.html">IFsa</a></dt>
+    <dd><p>The finite state automaton to represent as a graph.</p>
+</dd>
+    <dt><code>layerDirection</code> <span class="xref">LayerDirection</span></dt>
+    <dd><p>The layout direction of the graph (default: left-to-right).</p>
+</dd>
+    <dt><code>directed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether the graph is directed (default: true).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Graph</span></dt>
+    <dd><p>A graph representing the finite state automaton.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Visualization_GraphFactory_CreateGraph_" data-uid="Automata.Visualization.GraphFactory.CreateGraph*"></a>
+
+  <h3 id="Automata_Visualization_GraphFactory_CreateGraph_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___System_Boolean_" data-uid="Automata.Visualization.GraphFactory.CreateGraph(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}},System.Boolean)">
+  CreateGraph(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Visualization/GraphFactory.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper method that creates a displayable graph from a collection of sequences.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateGraph(IEnumerable&lt;IEnumerable&lt;string&gt;&gt; sequences, bool minimize = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequences</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd><p>The collection of sequences to create the graph from.</p>
+</dd>
+    <dt><code>minimize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether to minimize the DFA.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Graph</span></dt>
+    <dd><p>A graph representing the finite state automaton.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Visualization/GraphFactory.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
