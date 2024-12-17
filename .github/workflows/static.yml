@@ -1,11 +1,4 @@
-            - name: DocFX Publish
+            - name: docfx-action
   # You may pin to the exact commit or the version.
-  # uses: frankhaugen/frank-docfx-publish@ae488e9172294f60ab21755503bd8f07ee5fce0c
-  uses: frankhaugen/frank-docfx-publish@1.0
-  with:
-    # .NET SDK version for DocFX
-    dotnetVersion: # default is 8.0.x
-    # Path to the docfx.json file
-    docfxJson: # default is docfx.json
-    # Directory to publish documentation to
-    publishDir: # default is ./_site
+  # uses: nikeee/docfx-action@b9c2cf92e3b4aa06878a1410833a8828b4bdcd26
+  uses: nikeee/docfx-action@v1.0.0
