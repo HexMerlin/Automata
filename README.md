@@ -12,12 +12,18 @@ The **Automata** library provides functionality for working with finite-state au
   - Create **NFAs** (Non-deterministic Finite Automata) from sequences or other data.
   - Convert **NFAs** to **DFAs** (Deterministic Finite Automata).
   - Minimize **Automata** to reduce states while preserving functionality.
+---
+
+## :green_book: API Documentation 
+
+- Get it here:
+ [Automata API Documentation](https://hexmerlin.github.io/Automata/index.html)
 
 ---
-## :memo: Source Code and Contributions
+## :memo: Source Code
 
-Find the source code and contribute on GitHub:  
-[Automata GitHub Repository](https://github.com/yourusername/automata)
+Find the source code on GitHub:  
+[Automata GitHub Repository](https://hexmerlin.github.io/Automata)
 
 ---
 
