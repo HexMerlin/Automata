@@ -361,6 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
 /Automata.sln
 /Automata/Automata.csproj
 /README.md
@@ -368,9 +369,8 @@ FodyWeavers.xsd
 /docs/docs
 /docs/_site/public
 /docs/_site/favicon.ico
-/docs/_site/index.html
 /docs/_site/index.json
 /docs/_site/xrefmap.yml
 /docs/_site/manifest.json
 /docs/_site/logo.svg
-/docs/toc.yml
+
