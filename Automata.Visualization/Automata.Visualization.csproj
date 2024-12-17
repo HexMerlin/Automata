@@ -10,7 +10,15 @@
     <Description>A library for layout and visualization of Automata. Includes core library Automata.Core.</Description>
     <Title>Automata.Visualization</Title>
     <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; msagl</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Msagl.GraphViewerGDI" Version="1.1.7" />

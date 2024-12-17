@@ -8,6 +8,15 @@
     <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; </PackageTags>
     <Description>A light-weight library for creation, manipulation and minimization of finite-state automata</Description>
     <RepositoryUrl>https://github.com/HexMerlin/Automata</RepositoryUrl>
+    <Copyright>MIT License</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

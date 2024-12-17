@@ -1,5 +1,8 @@
-﻿[![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)
-[![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)
+﻿[![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)  
+**Automata.Core** - Core library (if you do not need visualization).
+
+[![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)  
+**Automata.Visualization** - Full library that also includes visualization and rendering of automata.
 
 # :repeat_one: Automata: A lightweight library for Finite-State Automata 
 
@@ -9,6 +12,12 @@ The **Automata** library provides functionality for working with finite-state au
   - Create **NFAs** (Non-deterministic Finite Automata) from sequences or other data.
   - Convert **NFAs** to **DFAs** (Deterministic Finite Automata).
   - Minimize **Automata** to reduce states while preserving functionality.
+
+---
+## :memo: Source Code and Contributions
+
+Find the source code and contribute on GitHub:  
+[Automata GitHub Repository](https://github.com/yourusername/automata)
 
 ---
 
@@ -94,7 +103,10 @@ dotnet add package Automata.Visualization
   - None
 
 - **Automata.Visualization**:
+  - [**Automata.Core**](https://www.nuget.org/packages/Automata.Core)
   - [Microsoft.MSAGL](https://github.com/microsoft/automatic-graph-layout)
+
+    These dependencies will be automatically installed when you install `Automata.Visualization` via NuGet.
 
 ## :scroll: License
 
