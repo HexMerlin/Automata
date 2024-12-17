@@ -7,7 +7,7 @@ Welcome to the API documentation for **Automata**.
 
 ## Namespaces
 
-- [Automata.Core](_site/api/Automata.Core.html)  
-- [Automata.Visualization](_site/api/Automata.Visualization.html)  
+- [Automata.Core](xref:Automata.Core)  
+- [Automata.Visualization](xref:Automata.Visualization)  
 
 Click the links above to explore the namespaces.
