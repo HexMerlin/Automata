@@ -1,4 +1,7 @@
-﻿# :repeat_one: Automata: A lightweight library for Finite-State Automata 
+﻿[![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)
+[![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)
+
+# :repeat_one: Automata: A lightweight library for Finite-State Automata 
 
 The **Automata** library provides functionality for working with finite-state automata.
 
@@ -9,7 +12,7 @@ The **Automata** library provides functionality for working with finite-state au
 
 ---
 
-## :hammer: Automata - Core Library
+## :hammer: Automata.Core - Core Library
 
 The core library provides essential tools for finite-state automata operations.
 It offers a lightweight and clean solution without visualization features.
@@ -34,7 +37,7 @@ DFA dfa = nfa.ToDFA();
 DFA minDFA = dfa.Minimized();
 ```
 ---
-## :framed_picture: Automata.Visualization: Visualize Your Automata
+## :framed_picture: Automata.Visualization: Automata.Core + Visualization
 The Automata.Visualization library extends the core Automata functionality with visualization capabilities, powered by MSAGL (Microsoft Automatic Graph Library).
 
 :key: Key Features:
@@ -65,32 +68,34 @@ consoleWindow.ShowGraph(graph);
 consoleWindow.WriteLine("Graph created.", System.Drawing.Color.Green); 
 ```
 ---
-## :package: NuGet Package releases on GitHub
+## :package: NuGet Package releases on Nuget.org
 
-- [Automata on GitHub Packages](https://github.com/HexMerlin/Automata/pkgs/nuget/Automata)
-- [Automata.Visualization on GitHub Packages](https://github.com/HexMerlin/Automata/pkgs/nuget/Automata.Visualization)
+## :wrench:  NuGet Installation
 
-## :wrench: Usage and Installation
+Install the packages via the .NET CLI or Package Manager in Visual Studio.
 
-
-### Using NuGet Package Manager in Visual Studio
-
-### Add GitHub Packages to NuGet Sources
-To install from GitHub Packages, ensure your NuGet sources include the following:
-1. In Visual Studio: Navigate to **Tools > NuGet Package Manager > Package Sources**.
-2. Add a new source:
-   - **Name**: Automata GitHub Packages
-   - **Source**: `https://nuget.pkg.github.com/HexMerlin/index.json`
-3. Use the new source to install the Automata packages using NugGet Package Manager as normal.
-
-### Using .NET CLI
-
-#### For **Automata**:
+### Automata.Core
 ```bash
-dotnet add package Automata --version 1.0.0 --source https://nuget.pkg.github.com/hexmerlin/index.json
+dotnet add package Automata.Core
 ```
+### Automata.Visualization
 
-#### For **Automata.Visualization** (includes the one above):
 ```bash
-dotnet add package Automata.Visualization --version 1.0.0 --source https://nuget.pkg.github.com/hexmerlin/index.json
+dotnet add package Automata.Visualization
 ```
+## :computer: Target Framework Compatibility
+
+- **Automata.Core**: .NET 9.0 and later  
+- **Automata.Visualization**: .NET 9.0 and later  
+
+## :link: Dependencies
+
+- **Automata.Core**:
+  - None
+
+- **Automata.Visualization**:
+  - [Microsoft.MSAGL](https://github.com/microsoft/automatic-graph-layout)
+
+## :scroll: License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
