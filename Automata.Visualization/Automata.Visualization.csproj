@@ -7,8 +7,9 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/HexMerlin/Automata</RepositoryUrl>
-    <Description>A library for layout and visualization of Automata using MSAGL</Description>
+    <Description>A library for layout and visualization of Automata. Includes core library Automata.Core.</Description>
     <Title>Automata.Visualization</Title>
+    <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; msagl</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
