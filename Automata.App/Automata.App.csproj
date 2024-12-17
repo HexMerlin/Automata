@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Automata.Core\Automata.Core.csproj" />
     <ProjectReference Include="..\Automata.Visualization\Automata.Visualization.csproj" />
-    <ProjectReference Include="..\Automata\Automata.csproj" />
   </ItemGroup>
 
 </Project>

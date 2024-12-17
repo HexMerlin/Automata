@@ -1,4 +1,4 @@
-﻿using Automata;
+﻿using Automata.Core;
 using Microsoft.Msagl.Drawing;
 
 namespace Automata.Visualization;

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Automata\Automata.csproj" />
+    <ProjectReference Include="..\Automata.Core\Automata.Core.csproj" />
   </ItemGroup>
 
 </Project>
