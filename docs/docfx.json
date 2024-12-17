@@ -16,6 +16,9 @@
       { "files": ["index.md"] },
       { "files": ["api/**"] }
     ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
     "output": "_site",
     "template": [
         "default",
