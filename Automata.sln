@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35507.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata", "Automata\Automata.csproj", "{E791F743-1494-4425-8316-053BC3F122BA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Visualization", "Automata.Visualization\Automata.Visualization.csproj", "{E647217E-991F-441F-AA8C-20A1F263B0BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.App", "Automata.App\Automata.App.csproj", "{3C358BE7-4B0F-4754-B327-F7011ECD9931}"
@@ -22,10 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E791F743-1494-4425-8316-053BC3F122BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E791F743-1494-4425-8316-053BC3F122BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E791F743-1494-4425-8316-053BC3F122BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E791F743-1494-4425-8316-053BC3F122BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
