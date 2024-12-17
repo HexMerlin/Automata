@@ -8,21 +8,21 @@
           "files": ["**/*.csproj"]
         }
       ],
-      "dest": "../obj/docfx/api"   // Redirect YAML files here
+      "dest": "obj/api"   // Redirect YAML files here
     }
   ],
   "build": {
     "content": [
       { "files": ["index.md"] },
-      { "src": "../obj/docfx/api", "files": ["**/*.yml"] } // Include YAML files for resolving xrefs
+      { "src": "obj/api", "files": ["**/*.yml"] } // Include YAML files for resolving xrefs
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
     "output": "../docs",
     "template": [
-        "default",   
-        "modern"
+      "default",
+      "modern"
     ],
     "globalMetadata": {
       "_appName": "AutomataDocs",
