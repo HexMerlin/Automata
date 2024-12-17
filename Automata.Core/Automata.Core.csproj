@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/HexMerlin/Automata</RepositoryUrl>
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
