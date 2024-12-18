@@ -75,22 +75,22 @@ public partial class ConsoleWindow : Form
     /// Displays the specified graph in the graph view.
     /// </summary>
     /// <param name="graph">The graph to display.</param>
-    public void ShowGraph(Graph graph)
-    {
-        if (!IsAlive) return;
-        // Check if we're on the UI thread
-        if (InvokeRequired)
-        {
-            // If not on UI thread, re-invoke this method on the UI thread
-            Invoke(new Action(() => ShowGraph(graph)));
-            return;
-        }
-        GraphView graphView = new GraphView();
-        // Safe to update the GViewer directly here
-        graphView.GViewer.Graph = graph;
-        graphView.Show();
-        graphView.Activate();
-    }
+    //public void ShowGraph(Graph graph)
+    //{
+    //    if (!IsAlive) return;
+    //    // Check if we're on the UI thread
+    //    if (InvokeRequired)
+    //    {
+    //        // If not on UI thread, re-invoke this method on the UI thread
+    //        Invoke(new Action(() => ShowGraph(graph)));
+    //        return;
+    //    }
+    //    GraphView graphView = new GraphView();
+    //    // Safe to update the GViewer directly here
+    //    graphView.GViewer.Graph = graph;
+    //    graphView.Show();
+    //    graphView.Activate();
+    //}
 
     /// <summary>
     /// Writes a line of text to the console window.
