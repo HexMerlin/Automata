@@ -1,6 +1,31 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Automata.App
+  name: Automata.App
+  href: Automata.App.html
+  commentId: N:Automata.App
+  fullName: Automata.App
+  nameWithType: Automata.App
+- uid: Automata.App.Program
+  name: Program
+  href: Automata.App.Program.html
+  commentId: T:Automata.App.Program
+  fullName: Automata.App.Program
+  nameWithType: Program
+- uid: Automata.App.Program.Main
+  name: Main()
+  href: Automata.App.Program.html#Automata_App_Program_Main
+  commentId: M:Automata.App.Program.Main
+  fullName: Automata.App.Program.Main()
+  nameWithType: Program.Main()
+- uid: Automata.App.Program.Main*
+  name: Main
+  href: Automata.App.Program.html#Automata_App_Program_Main_
+  commentId: Overload:Automata.App.Program.Main
+  isSpec: "True"
+  fullName: Automata.App.Program.Main
+  nameWithType: Program.Main
 - uid: Automata.Core
   name: Automata.Core
   href: Automata.Core.html
@@ -1172,3 +1197,70 @@ references:
   isSpec: "True"
   fullName: Automata.Visualization.GraphFactory.CreateGraph
   nameWithType: GraphFactory.CreateGraph
+- uid: Automata.Visualization.GraphView
+  name: GraphView
+  href: Automata.Visualization.GraphView.html
+  commentId: T:Automata.Visualization.GraphView
+  fullName: Automata.Visualization.GraphView
+  nameWithType: GraphView
+- uid: Automata.Visualization.GraphView.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_Dispose_System_Boolean_
+  commentId: M:Automata.Visualization.GraphView.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: Automata.Visualization.GraphView.Dispose(bool)
+  fullName.vb: Automata.Visualization.GraphView.Dispose(Boolean)
+  nameWithType: GraphView.Dispose(bool)
+  nameWithType.vb: GraphView.Dispose(Boolean)
+- uid: Automata.Visualization.GraphView.Dispose*
+  name: Dispose
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_Dispose_
+  commentId: Overload:Automata.Visualization.GraphView.Dispose
+  isSpec: "True"
+  fullName: Automata.Visualization.GraphView.Dispose
+  nameWithType: GraphView.Dispose
+- uid: Automata.Visualization.GraphView.Invoke(System.Action)
+  name: Invoke(Action)
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_Invoke_System_Action_
+  commentId: M:Automata.Visualization.GraphView.Invoke(System.Action)
+  fullName: Automata.Visualization.GraphView.Invoke(System.Action)
+  nameWithType: GraphView.Invoke(Action)
+- uid: Automata.Visualization.GraphView.Invoke*
+  name: Invoke
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_Invoke_
+  commentId: Overload:Automata.Visualization.GraphView.Invoke
+  isSpec: "True"
+  fullName: Automata.Visualization.GraphView.Invoke
+  nameWithType: GraphView.Invoke
+- uid: Automata.Visualization.GraphView.OpenNew
+  name: OpenNew()
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_OpenNew
+  commentId: M:Automata.Visualization.GraphView.OpenNew
+  fullName: Automata.Visualization.GraphView.OpenNew()
+  nameWithType: GraphView.OpenNew()
+- uid: Automata.Visualization.GraphView.OpenNew(Microsoft.Msagl.Drawing.Graph)
+  name: OpenNew(Graph)
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_OpenNew_Microsoft_Msagl_Drawing_Graph_
+  commentId: M:Automata.Visualization.GraphView.OpenNew(Microsoft.Msagl.Drawing.Graph)
+  fullName: Automata.Visualization.GraphView.OpenNew(Microsoft.Msagl.Drawing.Graph)
+  nameWithType: GraphView.OpenNew(Graph)
+- uid: Automata.Visualization.GraphView.OpenNew*
+  name: OpenNew
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_OpenNew_
+  commentId: Overload:Automata.Visualization.GraphView.OpenNew
+  isSpec: "True"
+  fullName: Automata.Visualization.GraphView.OpenNew
+  nameWithType: GraphView.OpenNew
+- uid: Automata.Visualization.GraphView.SetGraph(Microsoft.Msagl.Drawing.Graph)
+  name: SetGraph(Graph)
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_SetGraph_Microsoft_Msagl_Drawing_Graph_
+  commentId: M:Automata.Visualization.GraphView.SetGraph(Microsoft.Msagl.Drawing.Graph)
+  fullName: Automata.Visualization.GraphView.SetGraph(Microsoft.Msagl.Drawing.Graph)
+  nameWithType: GraphView.SetGraph(Graph)
+- uid: Automata.Visualization.GraphView.SetGraph*
+  name: SetGraph
+  href: Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_SetGraph_
+  commentId: Overload:Automata.Visualization.GraphView.SetGraph
+  isSpec: "True"
+  fullName: Automata.Visualization.GraphView.SetGraph
+  nameWithType: GraphView.SetGraph

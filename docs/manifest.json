@@ -12,6 +12,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.App.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.App.Program.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.App.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Alphabet.yml",
       "output": {
         ".html": {
@@ -106,6 +126,16 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Visualization.GraphFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Visualization.GraphView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.GraphView.html"
         }
       },
       "version": ""
