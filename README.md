@@ -4,6 +4,8 @@
 [![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)  
 **Automata.Visualization** - Full library that also includes visualization and rendering of automata.
 
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://hexmerlin.github.io/Automata/index.html)
+
 # :repeat_one: Automata: A lightweight library for Finite-State Automata 
 
 The **Automata** library provides functionality for working with finite-state automata.
