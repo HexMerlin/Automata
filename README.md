@@ -26,6 +26,8 @@ Find the source code on GitHub:
 [Automata GitHub Repository](https://hexmerlin.github.io/Automata)
 
 ---
+![Example image](Automaton.png)
+---
 
 ## :hammer: Automata.Core - Core Library
 
