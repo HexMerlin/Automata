@@ -4,10 +4,12 @@ using Microsoft.Msagl.GraphViewerGdi;
 namespace Automata.Visualization;
 
 ///<summary>
-/// A class for displaying finite-state automata as graphs in a separate window.
+/// A class for displaying finite-state automata as graphs in a separate window (and in a separate thread).
 ///</summary>
 ///<remarks>
-///This class uses the MSAGL library for rendering and displaying graphs.
+/// You do not need to involve any GUI boilerplate code to display a graph in a separate window, like calling the blocking `Application.Run()`, setting STA thread environment or bother about the GUI messes with your threads.
+/// Simply just create and open a graph view by calling either <see cref="GraphView.OpenNew()"/> or <see cref="GraphView.OpenNew(Graph)"/>.
+/// This class uses the MSAGL library for rendering and displaying graphs.
 ///</remarks>
 public partial class GraphView : Form
 {
@@ -16,7 +18,12 @@ public partial class GraphView : Form
     ///</summary>
     internal GViewer GViewer => gViewer;
 
-    public bool IsAlive => !Disposing && !IsDisposed;
+    static GraphView()
+    {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.SetHighDpiMode(HighDpiMode.SystemAware);
+    }
 
     ///<summary>
     /// Initializes a new instance of the <see cref="GraphView"/> class.
@@ -25,15 +32,15 @@ public partial class GraphView : Form
     {
         InitializeComponent();
         GViewer.PanButtonPressed = true;
-       
     }
 
-    public static GraphView Create()
+    ///<summary>
+    /// Opens a new instance of the <see cref="GraphView"/> class in a new thread.
+    ///</summary>
+    ///<returns>A new instance of the <see cref="GraphView"/> class.</returns>
+    public static GraphView OpenNew()
     {
         using ManualResetEvent guiInitialized = new ManualResetEvent(false);
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-        Application.SetHighDpiMode(HighDpiMode.SystemAware);
         GraphView? graphView = null;
         Thread guiThread = new Thread(() =>
         {
@@ -47,10 +54,7 @@ public partial class GraphView : Form
             };
             graphView.Shown += handler;
 
-            graphView.Visible = false;
-            Application.Run(new ApplicationContext(graphView));
-          
-
+            Application.Run(graphView);
         });
         guiThread.SetApartmentState(ApartmentState.STA);
         guiThread.Start();
@@ -59,27 +63,36 @@ public partial class GraphView : Form
         return graphView!;
     }
 
+    ///<summary>
+    /// Opens a new instance of the <see cref="GraphView"/> class in a new thread and sets the specified graph.
+    ///</summary>
+    ///<param name="graph">The graph to display.</param>
+    ///<returns>A new instance of the <see cref="GraphView"/> class with the specified graph set.</returns>
+    public static GraphView OpenNew(Graph graph)
+    {
+        GraphView graphView = OpenNew();
+        graphView.SetGraph(graph);
+        return graphView;
+    }
+
+    ///<summary>
+    /// Invokes the specified action on the UI thread.
+    ///</summary>
+    ///<param name="action">The action to invoke.</param>
+    public new void Invoke(Action action)
+    {
+        if (Disposing || IsDisposed) return;
+        if (InvokeRequired)
+            base.Invoke(action);
+       
+        else action();
+    }
 
     /// <summary>
     /// Displays the specified graph in the graph view.
     /// </summary>
     /// <param name="graph">The graph to display.</param>
-    public void ShowGraph(Graph graph)
-    {
-        if (!IsAlive) return;
-        // Check if we're on the UI thread
-        if (InvokeRequired)
-        {
-            // If not on UI thread, re-invoke this method on the UI thread
-            Invoke(new Action(() => ShowGraph(graph)));
-            return;
-        }
-     
-        // Safe to update the GViewer directly here
-        this.GViewer.Graph = graph;
-        this.Show();
-        this.Activate();
-    }
+    public void SetGraph(Graph graph) => Invoke(() => GViewer.Graph = graph);
 
     ///<inheritdoc/>
     protected override void Dispose(bool disposing)

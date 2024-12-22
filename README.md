@@ -34,7 +34,7 @@ It offers a lightweight and clean solution without visualization features.
 
 ### :bulb: C# Example: Create and Manipulate Automata
 ```csharp
-// Generate random symbol sequences (numbers as symbols in this example)
+//Create some random sequences of strings
 var sequences = Enumerable.Range(0, 10)
     .Select(_ => Enumerable.Range(0, 8)
     .Select(_ => Random.Shared.Next(4).ToString()));
@@ -59,28 +59,25 @@ The Automata.Visualization library extends the core Automata functionality with 
 - Visualize automata as graphs.
 - Includes all core Automata functionality.
 
-### :bulb: C# Full example program: Automata Visualization
+### :bulb: C# Full example program: Create an automata and display it from a Console app
 
 ```csharp
 using Automata.Visualization;
 
-// Creates the main console window.
-ConsoleWindow consoleWindow = ConsoleWindow.Create();
+Console.WriteLine("Creating graph."); // Write some text output to the console window
 
-// Write some colored text output to the console window
-consoleWindow.WriteLine("Creating graph...", System.Drawing.Color.Blue);
+var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences of strings
 
-//Create some random sequences
-var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString()));
+IFsa fsa = new NFA(sequences).ToDFA().Minimized();
+        
+Graph graph = GraphFactory.CreateGraph(fsa); // Create a graph object from the automaton
 
-// Create and display a minimized graph object from the sequences
-var graph = GraphFactory.CreateGraph(sequences, minimize: true);
+//Graph graph = GraphFactory.CreateGraph(sequences); //Alternatively you can use this command, to replace the 2 lines above
 
-// Open a new non-modal window that displays the graph in it. 
-consoleWindow.ShowGraph(graph);
+GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
 
-// Write some more colored text output to the console window
-consoleWindow.WriteLine("Graph created.", System.Drawing.Color.Green); 
+Console.WriteLine("Graph is displayed."); // Write some text output to the console window
+
 ```
 ---
 ## :package: NuGet Package releases on Nuget.org

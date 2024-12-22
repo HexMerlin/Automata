@@ -4,7 +4,7 @@ using Microsoft.Msagl.Drawing;
 namespace Automata.Visualization;
 
 ///<summary>
-/// Static class for creating displayable graph from finite state automata.
+/// Static class for creating displayable graphs from finite state automata.
 ///</summary>
 public static class GraphFactory
 {

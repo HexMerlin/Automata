@@ -21,7 +21,7 @@ partial class GraphView
     private void InitializeComponent()
     {
         var resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphView));
-        this.gViewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+        this.gViewer = new GViewer();
         SuspendLayout();
         // 
         // gViewer
@@ -31,7 +31,7 @@ partial class GraphView
         this.gViewer.AutoScroll = true;
         this.gViewer.BackwardEnabled = false;
         this.gViewer.BuildHitTree = true;
-        this.gViewer.CurrentLayoutMethod = Microsoft.Msagl.GraphViewerGdi.LayoutMethod.UseSettingsOfTheGraph;
+        this.gViewer.CurrentLayoutMethod = LayoutMethod.UseSettingsOfTheGraph;
         this.gViewer.Dock = DockStyle.Fill;
         this.gViewer.EdgeInsertButtonVisible = true;
         this.gViewer.FileName = "";
@@ -78,5 +78,5 @@ partial class GraphView
 
     #endregion
 
-   
+
 }
