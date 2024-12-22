@@ -59,7 +59,7 @@ The Automata.Visualization library extends the core Automata functionality with 
 - Visualize automata as graphs.
 - Includes all core Automata functionality.
 
-### :bulb: C# Full example program: Create an automata and display it from a Console app
+### :bulb: C# Full example program: Create an automaton and display it from a Console app
 
 ```csharp
 using Automata.Visualization;
