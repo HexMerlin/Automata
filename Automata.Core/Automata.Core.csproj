@@ -11,6 +11,9 @@
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AssemblyVersion></AssemblyVersion>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>New version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
