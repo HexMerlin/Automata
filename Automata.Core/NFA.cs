@@ -376,12 +376,12 @@ public class NFA : IFsa
         while (queue.Count > 0)
         {
             IntSet fromState = queue.Dequeue();
-            IntSet symbols = GetAvailableSymbols(fromState.Members, nfa.nonEpsilonTransitions);
+            IntSet symbols = GetAvailableSymbols(fromState, nfa.nonEpsilonTransitions);
             int dfaFromState = GetOrAddState(fromState);
 
-            foreach (int symbol in symbols.Members)
+            foreach (int symbol in symbols)
             {
-                IntSet toState = nfa.GetToStates(fromState.Members, symbol);
+                IntSet toState = nfa.GetToStates(fromState, symbol);
                 int dfaToState = GetOrAddState(toState);
                 dfaTransitions.Add(new Transition(dfaFromState, symbol, dfaToState));
             }
@@ -396,7 +396,7 @@ public class NFA : IFsa
                 stateSetToDfaState[state] = dfaState;
                 queue.Enqueue(state);
             }
-            if (state.Members.Overlaps(nfa.finalStates))
+            if (state.Overlaps(nfa.finalStates))
                 dfaFinalStates.Add(dfaState);
             return dfaState;
         }

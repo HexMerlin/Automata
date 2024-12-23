@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Frozen;
 using System.Diagnostics;
 
@@ -8,13 +9,13 @@ namespace Automata.Core;
 /// Represents an immutable set of integers.
 /// </summary>
 [DebuggerDisplay("{ToString()}")]
-public class IntSet : IEquatable<IntSet>
+public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
 {
     #region Data
     /// <summary>
     /// Gets the members of the set.
     /// </summary>
-    public FrozenSet<int> Members { get; }
+    private FrozenSet<int> Members { get; }
     #endregion
 
     /// <summary>
@@ -65,4 +66,14 @@ public class IntSet : IEquatable<IntSet>
     /// <returns>A string that represents the current set.</returns>
     public override string ToString()
         => Count <= 10 ? string.Join(", ", Members) : string.Join(", ", Members.Take(10)) + ", ...";
+   
+    public bool Contains(int item) => Members.Contains(item);
+    public bool IsProperSubsetOf(IEnumerable<int> other) => Members.IsProperSubsetOf(other);
+    public bool IsProperSupersetOf(IEnumerable<int> other) => Members.IsProperSupersetOf(other);
+    public bool IsSubsetOf(IEnumerable<int> other) => Members.IsSubsetOf(other);
+    public bool IsSupersetOf(IEnumerable<int> other) => Members.IsSupersetOf(other);
+    public bool Overlaps(IEnumerable<int> other) => Members.Overlaps(other);
+    public bool SetEquals(IEnumerable<int> other) => Members.SetEquals(other);
+    public IEnumerator<int> GetEnumerator() => Members.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

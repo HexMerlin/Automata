@@ -12,7 +12,6 @@
     <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; msagl</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion></AssemblyVersion>
     <Version>1.0.1</Version>
     <PackageReleaseNotes>New simplified the API. GraphView windows can now be opened directly from Console Apps with less code.</PackageReleaseNotes>
   </PropertyGroup>
