@@ -14,4 +14,4 @@ Welcome to the API documentation for **Automata**.
 Click the links above to explore the namespaces.
 
 ---
-[Automata repo at GitHub](https://hexmerlin.github.io/Automata)
+[Automata repo at GitHub](https://github.com/HexMerlin/Automata)
