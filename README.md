@@ -1,12 +1,11 @@
-﻿[![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)  
-**Automata.Core** - Core library (if you do not need visualization).
+﻿# :repeat_one: Automata: A lightweight library for Finite-State Automata 
+[![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)   **Automata.Core** - Core library (if you do not need visualization) 
 
-[![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)  
-**Automata.Visualization** - Full library that also includes visualization and rendering of automata.
+[![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)  **Automata.Visualization** - Full library that also includes visualization and rendering of automata.
 
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://hexmerlin.github.io/Automata/index.html)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://hexmerlin.github.io/Automata/index.html) **API Documentation**
 
-# :repeat_one: Automata: A lightweight library for Finite-State Automata 
+---
 
 The **Automata** library provides functionality for working with finite-state automata.
 
@@ -16,12 +15,6 @@ The **Automata** library provides functionality for working with finite-state au
   - Minimize **Automata** to reduce states while preserving functionality.
 ---
 
-## :green_book: API Documentation 
-
-- Get it here:
- [Automata API Documentation](https://hexmerlin.github.io/Automata/index.html)
-
----
 ## :memo: Source Code
 
 Find the source code on GitHub:  
@@ -84,9 +77,8 @@ Console.WriteLine("Graph is displayed."); // Write some text output to the conso
 
 ```
 ---
-## :package: NuGet Package releases on Nuget.org
 
-## :wrench:  NuGet Installation
+## :package:  NuGet package Installation
 
 Install the packages via the .NET CLI or Package Manager in Visual Studio.
 
@@ -94,7 +86,7 @@ Install the packages via the .NET CLI or Package Manager in Visual Studio.
 ```bash
 dotnet add package Automata.Core
 ```
-### Automata.Visualization
+### Automata.Visualization (includes Automata.Core)
 
 ```bash
 dotnet add package Automata.Visualization
