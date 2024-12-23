@@ -12,7 +12,6 @@ public static class Program
 {
     public static void Main()
     {
-        
         Console.WriteLine("Creating graph."); // Write some text output to the console window
 
         var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences

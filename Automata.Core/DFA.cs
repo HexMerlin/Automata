@@ -110,7 +110,7 @@ public class DFA : IFsa
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
-    public IEnumerable<EpsilonTransition> EpsilonTransitions => Enumerable.Empty<EpsilonTransition>();
+    public IEnumerable<EpsilonTransition> EpsilonTransitions => [];
 
     /// <summary>
     /// Adds a transition to the DFA.

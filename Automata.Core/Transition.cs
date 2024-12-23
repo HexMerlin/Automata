@@ -6,7 +6,7 @@
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="Symbol">The symbol that triggers the transition.</param>
 /// <param name="ToState">The state to which the transition goes.</param>
-public readonly record struct Transition(int FromState, int Symbol, int ToState)  : IComparable<Transition>
+public readonly record struct Transition(int FromState, int Symbol, int ToState)  : ITransition<Transition>, IComparable<Transition>
 {
     /// <summary>
     /// Reverses the transition.
@@ -17,9 +17,7 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     /// <summary>
     /// Initializes a new instance of the <see cref="Transition"/> struct with default values.
     /// </summary>
-    public Transition() : this(-1, -1, -1)
-    {
-    }
+    public Transition() : this(-1, -1, -1) {}
 
     /// <summary>
     /// Compares the current transition to another transition.
@@ -52,4 +50,6 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
 
         return t1.FromState.CompareTo(t2.FromState);
     });
+    
+
 }

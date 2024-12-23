@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="ToState">The state to which the transition goes.</param>
-public readonly record struct EpsilonTransition(int FromState, int ToState) : IComparable<EpsilonTransition>
+public readonly record struct EpsilonTransition(int FromState, int ToState) : ITransition<EpsilonTransition>, IComparable<EpsilonTransition>
 {
 
     /// <summary>
@@ -28,8 +28,8 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
     /// <returns>An integer that indicates the relative order of the objects being compared.</returns>
     public int CompareTo(EpsilonTransition other)
     {
-        int fromStateComparison = FromState.CompareTo(other.FromState);
-        return fromStateComparison != 0 ? fromStateComparison : ToState.CompareTo(other.ToState);
+        int c = FromState.CompareTo(other.FromState);
+        return c != 0 ? c : ToState.CompareTo(other.ToState);
     }
 
     /// <summary>
@@ -41,5 +41,6 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
         int c = t1.ToState.CompareTo(t2.ToState);
         return c != 0 ? c : t1.FromState.CompareTo(t2.FromState);
     });
+
 }
 
