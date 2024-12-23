@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GraphView | AutomataDocs ">
       
-      <meta name="description" content="A class for displaying finite-state automata as graphs in a separate window (and in a separate thread).">
+      <meta name="description" content="A class for displaying finite-state automata as graphs in a separate window (and its own separate thread).">
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -83,7 +83,7 @@ Class GraphView  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>Automata.Visualization.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A class for displaying finite-state automata as graphs in a separate window (and in a separate thread).</p>
+  <div class="markdown summary"><p>A class for displaying finite-state automata as graphs in a separate window (and its own separate thread).</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -1732,7 +1732,7 @@ Class GraphView  <a class="header-action link-secondary" title="View source" hre
   <h2 id="Automata_Visualization_GraphView_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>You do not need to involve any GUI boilerplate code to display a graph in a separate window, like calling the blocking <code>Application.Run()</code>, setting STA thread environment or bother about the GUI messes with your threads.
 Simply just create and open a graph view by calling either <a class="xref" href="Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_OpenNew">OpenNew()</a> or <a class="xref" href="Automata.Visualization.GraphView.html#Automata_Visualization_GraphView_OpenNew_Microsoft_Msagl_Drawing_Graph_">OpenNew(Graph)</a>.
-This class uses the MSAGL library for rendering and displaying graphs.</p>
+This class uses the MSAGL library for layout and rendering of graphs.</p>
 </div>
 
 

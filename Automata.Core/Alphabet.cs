@@ -33,7 +33,7 @@ public class Alphabet
     /// Gets the index of the specified symbol.
     /// </summary>
     /// <param name="symbol">The symbol to get the index of.</param>
-    /// <returns>The index of the specified symbol, or <see cref="InvalidIndex"/> if the symbol does not exist.</returns>
+    /// <returns>The index of the specified symbol, or <see cref="Constants.InvalidSymbolIndex"/> if the symbol does not exist.</returns>
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     /// <summary>

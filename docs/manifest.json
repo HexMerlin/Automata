@@ -42,6 +42,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Constants.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.DFA.yml",
       "output": {
         ".html": {
@@ -62,10 +72,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.EpsilonTransitionSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.EpsilonTransitionSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.IFsa.yml",
       "output": {
         ".html": {
           "relative_path": "Automata.Core.IFsa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.ITransition-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.ITransition-1.html"
         }
       },
       "version": ""
@@ -92,10 +122,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.SymbolicTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.SymbolicTransition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.SymbolicTransitionSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.SymbolicTransitionSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Transition.yml",
       "output": {
         ".html": {
           "relative_path": "Automata.Core.Transition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSet-1.html"
         }
       },
       "version": ""

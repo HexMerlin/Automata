@@ -86,8 +86,18 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Automata.Core.Constants.html">Constants</a></dt>
+      <dd><p>Class representing automata related constants</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Automata.Core.DFA.html">DFA</a></dt>
       <dd><p>Represents a deterministic finite automaton (DFA).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Automata.Core.EpsilonTransitionSet.html">EpsilonTransitionSet</a></dt>
+      <dd><p>Represents a set of epsilon transitions.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -100,6 +110,16 @@ Classes
       <dd><p>Represents a nondeterministic finite automaton (NFA).</p>
 </dd>
     </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Automata.Core.SymbolicTransitionSet.html">SymbolicTransitionSet</a></dt>
+      <dd><p>Represents a set of symbolic transitions (non-epsilon transitions).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Automata.Core.TransitionSet-1.html">TransitionSet&lt;T&gt;</a></dt>
+      <dd><p>Denotes a mutable and generic set of transitions for fast lookup and retrieval.</p>
+</dd>
+    </dl>
     <h3 id="structs">
 Structs
 </h3>
@@ -109,8 +129,8 @@ Structs
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.Transition.html">Transition</a></dt>
-      <dd><p>Represents a non-epsilon transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
+      <dt><a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a></dt>
+      <dd><p>Represents a symbolic transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
 </dd>
     </dl>
     <h3 id="interfaces">
@@ -119,6 +139,11 @@ Interfaces
     <dl class="jumplist">
       <dt><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></dt>
       <dd><p>Represents a finite state automaton (FSA) interface.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Automata.Core.ITransition-1.html">ITransition&lt;T&gt;</a></dt>
+      <dd><p>Represents a generic transition with static support for obtaining a comparer.</p>
 </dd>
     </dl>
 

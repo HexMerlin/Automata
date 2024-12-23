@@ -75,7 +75,7 @@
 
 
   <h1 id="Automata_Core_IntSet" data-uid="Automata.Core.IntSet" class="text-break">
-Class IntSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class IntSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -88,7 +88,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class IntSet : IEquatable&lt;IntSet&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class IntSet : IEquatable&lt;IntSet&gt;, IReadOnlySet&lt;int&gt;, IReadOnlyCollection&lt;int&gt;, IEnumerable&lt;int&gt;, IEnumerable</code></pre>
   </div>
 
 
@@ -106,6 +106,10 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.IntSet.html">IntSet</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
     </dd>
   </dl>
 
@@ -140,7 +144,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Automata_Core_IntSet__ctor_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.#ctor(System.Collections.Generic.IEnumerable{System.Int32})">
   IntSet(IEnumerable&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.IntSet.html">IntSet</a> class with the specified elements.</p>
@@ -173,7 +177,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Automata_Core_IntSet__ctor_System_Collections_Generic_ISet_System_Int32__" data-uid="Automata.Core.IntSet.#ctor(System.Collections.Generic.ISet{System.Int32})">
   IntSet(ISet&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.IntSet.html">IntSet</a> class with the specified elements.</p>
@@ -210,7 +214,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Automata_Core_IntSet_Count" data-uid="Automata.Core.IntSet.Count">
   Count
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the number of elements in the set.</p>
@@ -238,29 +242,37 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
 
 
-  <a id="Automata_Core_IntSet_Members_" data-uid="Automata.Core.IntSet.Members*"></a>
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="Automata_Core_IntSet_Members" data-uid="Automata.Core.IntSet.Members">
-  Members
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L17"><i class="bi bi-code-slash"></i></a>
+
+  <a id="Automata_Core_IntSet_Contains_" data-uid="Automata.Core.IntSet.Contains*"></a>
+
+  <h3 id="Automata_Core_IntSet_Contains_System_Int32_" data-uid="Automata.Core.IntSet.Contains(System.Int32)">
+  Contains(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the members of the set.</p>
+  <div class="markdown level1 summary"><p>Determines if the set contains a specific item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FrozenSet&lt;int&gt; Members { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Contains(int item)</code></pre>
   </div>
 
-
-
-
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.frozen.frozenset-1">FrozenSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The item to check if the set contains.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -270,15 +282,14 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+
 
 
   <a id="Automata_Core_IntSet_Equals_" data-uid="Automata.Core.IntSet.Equals*"></a>
 
   <h3 id="Automata_Core_IntSet_Equals_Automata_Core_IntSet_" data-uid="Automata.Core.IntSet.Equals(Automata.Core.IntSet)">
   Equals(IntSet?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the current set is equal to another set.</p>
@@ -317,7 +328,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Automata_Core_IntSet_Equals_System_Object_" data-uid="Automata.Core.IntSet.Equals(System.Object)">
   Equals(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the current set is equal to another object.</p>
@@ -352,11 +363,44 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
 
 
+  <a id="Automata_Core_IntSet_GetEnumerator_" data-uid="Automata.Core.IntSet.GetEnumerator*"></a>
+
+  <h3 id="Automata_Core_IntSet_GetEnumerator" data-uid="Automata.Core.IntSet.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;int&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>An enumerator that can be used to iterate through the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Automata_Core_IntSet_GetHashCode_" data-uid="Automata.Core.IntSet.GetHashCode*"></a>
 
   <h3 id="Automata_Core_IntSet_GetHashCode" data-uid="Automata.Core.IntSet.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the hash code for the current set.</p>
@@ -385,11 +429,281 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 
 
 
+  <a id="Automata_Core_IntSet_IsProperSubsetOf_" data-uid="Automata.Core.IntSet.IsProperSubsetOf*"></a>
+
+  <h3 id="Automata_Core_IntSet_IsProperSubsetOf_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">
+  IsProperSubsetOf(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current set is a proper (strict) subset of a specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProperSubsetOf(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current set is a proper subset of other; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Automata_Core_IntSet_IsProperSupersetOf_" data-uid="Automata.Core.IntSet.IsProperSupersetOf*"></a>
+
+  <h3 id="Automata_Core_IntSet_IsProperSupersetOf_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">
+  IsProperSupersetOf(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current set is a proper (strict) superset of a specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProperSupersetOf(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the collection is a proper superset of other; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Automata_Core_IntSet_IsSubsetOf_" data-uid="Automata.Core.IntSet.IsSubsetOf*"></a>
+
+  <h3 id="Automata_Core_IntSet_IsSubsetOf_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">
+  IsSubsetOf(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determine whether the current set is a subset of a specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSubsetOf(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current set is a subset of other; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Automata_Core_IntSet_IsSupersetOf_" data-uid="Automata.Core.IntSet.IsSupersetOf*"></a>
+
+  <h3 id="Automata_Core_IntSet_IsSupersetOf_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">
+  IsSupersetOf(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determine whether the current set is a super set of a specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSupersetOf(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current set is a subset of other; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Automata_Core_IntSet_Overlaps_" data-uid="Automata.Core.IntSet.Overlaps*"></a>
+
+  <h3 id="Automata_Core_IntSet_Overlaps_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.Overlaps(System.Collections.Generic.IEnumerable{System.Int32})">
+  Overlaps(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current set overlaps with the specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Overlaps(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>if the current set and other share at least one common element; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Automata_Core_IntSet_SetEquals_" data-uid="Automata.Core.IntSet.SetEquals*"></a>
+
+  <h3 id="Automata_Core_IntSet_SetEquals_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.IntSet.SetEquals(System.Collections.Generic.IEnumerable{System.Int32})">
+  SetEquals(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current set and the specified collection contain the same elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetEquals(IEnumerable&lt;int&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The collection to compare to the current set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current set is equal to other; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Automata_Core_IntSet_ToString_" data-uid="Automata.Core.IntSet.ToString*"></a>
 
   <h3 id="Automata_Core_IntSet_ToString" data-uid="Automata.Core.IntSet.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a string that represents the current set.</p>
@@ -422,7 +736,7 @@ Class IntSet  <a class="header-action link-secondary" title="View source" href="
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/IntSet.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 
