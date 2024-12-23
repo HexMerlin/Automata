@@ -102,6 +102,6 @@
   "index.html": {
     "href": "index.html",
     "title": "Automata API Documentation | AutomataDocs",
-    "keywords": "API Documentation Welcome to the API documentation for Automata. Namespaces Automata.Core Automata.Visualization Click the links above to explore the namespaces."
+    "keywords": "API Documentation Welcome to the API documentation for Automata. Namespaces Automata.Core Automata.Visualization Click the links above to explore the namespaces. Automata repo at GitHub"
   }
 }
