@@ -1,4 +1,12 @@
-﻿ **Automata Libraries v1.0.1** 🎉  
+﻿ **Automata Libraries v1.0.2** 🎉  
+ 
+ Updated core library with various improvements. 
+
+- [Automata.Core v1.0.2](https://www.nuget.org/packages/Automata.Core)  
+- [Automata.Visualization v1.0.2](https://www.nuget.org/packages/Automata.Visualization)  
+
+
+ **Automata Libraries v1.0.1** 🎉  
  
  This release simplifies the API for visualization of automata. 
 
