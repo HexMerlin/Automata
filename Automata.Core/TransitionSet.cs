@@ -1,16 +1,16 @@
 ﻿namespace Automata.Core;
 
 /// <summary>
-/// Denotes a mutable set of transitions for fast lookup and retrieval.
+/// Denotes a mutable and generic set of transitions for fast lookup and retrieval.
 /// </summary>
 /// <remarks><see cref="TransitionSet{T}"/> maintains two ordered sets with the exact same set of transitions, 
-/// but with different sort orders. One set is ordered where all from-states are ordered are contiguous, 
-/// <para>and the other set is ordered where all to-states are contiguous.</para>
+/// but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing, 
+/// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of all transitions from or to a certain state, respectively.</para>
 /// </remarks>
-/// <typeparam name="T">The type of transition.</typeparam>
+/// <typeparam name="T">The type of transition, either <see cref="SymbolicTransition"/> or <see cref="EpsilonTransition"/>.</typeparam>
 /// <seealso cref="ITransition{T}"/>
-/// <seealso cref="Transition"/>
+/// <seealso cref="SymbolicTransition"/>
 /// <seealso cref="EpsilonTransition"/>
 public class TransitionSet<T> where T : struct, ITransition<T>
 {
@@ -64,21 +64,23 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     }
 
     /// <summary>
-    /// Returns the minimum state referenced by any transition in the set.
+    /// Fast retrieval of the minimum state referenced by any transition in the set.
     /// </summary>
     /// <remarks>The minimum state is either a state that occurs as a FromState or ToState. 
-    /// <para>We make a fast check for the minimum FromState in the set ordered by FromState,</para>
-    /// <para>and for the minimum ToState in the set ordered by ToState, and take the min of these two.</para>
+    /// <para>Efficiently, we retrieve the minimum FromState from the set ordered by FromState,</para>
+    /// <para>and retrieve the minimum ToState in the set ordered by ToState, and then take the min of these two.</para>
     /// </remarks>
+    /// <returns>The minimum state referenced by any transition in the set, or <see cref="Constants.InvalidState"/> if the set was empty</returns>
     public int MinState => Math.Min(orderDefault.Min.FromState, orderByToState.Min.ToState);
 
     /// <summary>
-    /// Returns the maximum state referenced by any transition in the set.
+    /// Fast retrieval of the maximum state referenced by any transition in the set.
     /// </summary>
     /// <remarks>The maximum state is either a state that occurs as a FromState or ToState. 
-    /// <para>We make a fast check for the maximum FromState in the set ordered by FromState,</para>
-    /// <para>and for the maximum ToState in the set ordered by ToState, and take the max of these two.</para>
+    /// <para>Efficiently, we retrieve the maximum FromState from the set ordered by FromState,</para>
+    /// <para>and retrieve the maximum ToState in the set ordered by ToState, and then take the max of these two.</para>
     /// </remarks>
+    /// <returns>The maximum state referenced by any transition in the set, or <see cref="Constants.InvalidState"/> if the set was empty</returns>
     public int MaxState => Math.Max(orderDefault.Max.FromState, orderByToState.Max.ToState);
 
     /// <returns>The set of transitions in default order.</returns>

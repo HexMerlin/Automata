@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents an epsilon transition in an automaton, defined by a starting state and an ending state.
 /// </summary>
+/// <remarks>An epsilon transition is a transition that lacks a symbol</remarks>
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct EpsilonTransition(int FromState, int ToState) : ITransition<EpsilonTransition>, IComparable<EpsilonTransition>

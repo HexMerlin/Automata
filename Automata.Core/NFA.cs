@@ -3,6 +3,11 @@
 /// <summary>
 /// Represents a nondeterministic finite automaton (NFA).
 /// </summary>
+/// <remarks>States are represented simply as integers (<see langword="int"/>), which essentially are just unique IDs.
+/// <para>NFAs are defined mainly by two sets of transitions (symbolic and epsilon), which are kept separate for performance</para>
+/// <para>In addition, there are two sets defining the initial states and final states respectively.</para>
+/// <para>NFAs (in contrast to DFAs) can have multiple initial states.</para>
+/// </remarks>
 public class NFA : IFsa
 {
     #region Data
@@ -11,7 +16,7 @@ public class NFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly NonEpsilonTransitionSet nonEpsilonTransitions;
+    private readonly SymbolicTransitionSet symbolicTransitions;
     private readonly EpsilonTransitionSet epsilonTransitions;
  
     private readonly SortedSet<int> initialStates;
@@ -64,39 +69,36 @@ public class NFA : IFsa
     /// Initializes a new instance of the <see cref="NFA"/> class with the specified parameters.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the NFA.</param>
-    /// <param name="nonEpsilonTransitions">The non-epsilon transitions of the NFA.</param>
+    /// <param name="symbolicTransitions">The symbolic (non-epsilon) transitions of the NFA.</param>
     /// <param name="epsilonTransitions">The epsilon transitions of the NFA.</param>
     /// <param name="initialStates">The initial states of the NFA.</param>
     /// <param name="finalStates">The final states of the NFA.</param>
-    private NFA(Alphabet alphabet, IEnumerable<Transition> nonEpsilonTransitions, IEnumerable<EpsilonTransition> epsilonTransitions, IEnumerable<int> initialStates, IEnumerable<int> finalStates)
+    private NFA(Alphabet alphabet, IEnumerable<SymbolicTransition> symbolicTransitions, IEnumerable<EpsilonTransition> epsilonTransitions, IEnumerable<int> initialStates, IEnumerable<int> finalStates)
     {
         this.Alphabet = alphabet;
-        this.nonEpsilonTransitions = new NonEpsilonTransitionSet(nonEpsilonTransitions);
-        this.epsilonTransitions = new EpsilonTransitionSet(epsilonTransitions);
-        this.initialStates = new SortedSet<int>(initialStates);
-        this.finalStates = new SortedSet<int>(finalStates);
+        this.symbolicTransitions = new (symbolicTransitions);
+        this.epsilonTransitions = new (epsilonTransitions);
+        this.initialStates = [.. initialStates];
+        this.finalStates = [.. finalStates];
     }
 
-
     /// <summary>
-    /// Adds a non-epsilon transition to the NFA.
+    /// Adds a symbolic (= non-epsilon) transition to the NFA.
     /// </summary>
     /// <param name="transition">The transition to add.</param>
-    public void Add(Transition transition) => nonEpsilonTransitions.Add(transition);
-
+    public void Add(SymbolicTransition transition) => symbolicTransitions.Add(transition);
 
     /// <summary>
     /// Adds an epsilon transition to the NFA.
     /// </summary>
     /// <param name="transition">The transition to add.</param>
     public void Add(EpsilonTransition transition) => epsilonTransitions.Add(transition);
- 
 
     /// <summary>
-    /// Adds multiple non-epsilon transitions to the NFA.
+    /// Adds multiple symbolic transitions to the NFA.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public void AddAll(IEnumerable<Transition> transitions) => nonEpsilonTransitions.AddAll(transitions);
+    public void AddAll(IEnumerable<SymbolicTransition> transitions) => symbolicTransitions.AddAll(transitions);
     
     /// <summary>
     /// Adds multiple epsilon transitions to the NFA.
@@ -113,7 +115,7 @@ public class NFA : IFsa
     /// <param name="sequence">The sequence of symbols to add.</param>
     public void Add(IEnumerable<string> sequence)
     {
-        int maxState = FindMaxState();
+        int maxState = GetMaxState();
 
         if (initialStates.Count == 0)
             SetInitial(++maxState);
@@ -122,8 +124,8 @@ public class NFA : IFsa
 
         foreach (string symbol in sequence)
         {
-            Transition transition = new Transition(fromState, Alphabet.GetOrAdd(symbol), ++maxState);
-            nonEpsilonTransitions.Add(transition);
+            SymbolicTransition transition = new SymbolicTransition(fromState, Alphabet.GetOrAdd(symbol), ++maxState);
+            symbolicTransitions.Add(transition);
             fromState = maxState;
         }
         finalStates.Add(maxState);
@@ -221,9 +223,9 @@ public class NFA : IFsa
     /// <summary>
     /// Gets a value indicating whether the NFA is epsilon-free.
     /// </summary>
-    public bool EpsilonFree => nonEpsilonTransitions.Count == 0;
+    public bool EpsilonFree => symbolicTransitions.Count == 0;
 
-    IEnumerable<Transition> IFsa.Transitions => nonEpsilonTransitions.Transitions;
+    IEnumerable<SymbolicTransition> IFsa.Transitions => symbolicTransitions.Transitions;
 
     IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions => epsilonTransitions.Transitions;
 
@@ -234,15 +236,15 @@ public class NFA : IFsa
     public DFA ToMinimizedDFA() => ToDFA().Minimized();
 
     /// <summary>
-    /// Finds the maximum state in the NFA.
+    /// Returns the maximum state (state with the maximum value) in the NFA.
     /// </summary>
     /// <returns>The maximum state in the NFA.</returns>
-    public int FindMaxState()
+    public int GetMaxState()
     {
-        static int Max(int a, int b) => a > b ? a : b;
-        int maxInitial = initialStates.Count > 0 ? initialStates.Max : -1;
-        int maxFinal = finalStates.Count > 0 ? finalStates.Max : -1;
-        return Max(Max(nonEpsilonTransitions.MaxState, epsilonTransitions.MaxState), Max(maxInitial, maxFinal));
+        static int Max(int a, int b) => a >= b ? a : b;
+        int maxInitial = initialStates.Count > 0 ? initialStates.Max : Constants.InvalidState;
+        int maxFinal = finalStates.Count > 0 ? finalStates.Max : Constants.InvalidState;
+        return Max(Max(symbolicTransitions.MaxState, epsilonTransitions.MaxState), Max(maxInitial, maxFinal));
     }
 
     /// <summary>
@@ -254,54 +256,54 @@ public class NFA : IFsa
     private IntSet GetToStates(IEnumerable<int> fromStates, int symbol)
     {
         HashSet<int> intermediateStates = fromStates.ToHashSet();
-        epsilonTransitions.TraverseOnEpsilonMultipleInPlace(intermediateStates);
-        HashSet<int> toStates = intermediateStates.SelectMany(s => nonEpsilonTransitions.TraverseOnSymbol(s, symbol)).ToHashSet();
-        epsilonTransitions.TraverseOnEpsilonMultipleInPlace(toStates);
+        epsilonTransitions.ReachableStatesOnEpsilonInPlace(intermediateStates);
+        HashSet<int> toStates = intermediateStates.SelectMany(s => symbolicTransitions.ReachableStates(s, symbol)).ToHashSet();
+        epsilonTransitions.ReachableStatesOnEpsilonInPlace(toStates);
         return new IntSet(toStates);
     }
 
     /// <summary>
     /// Converts a NFA to a DFA.
     /// </summary>
-    /// <remarks>Uses the Subset Construction algorithm.</remarks>
+    /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
     /// <returns>A DFA representing the NFA.</returns>
     public DFA ToDFA()
     {
-        List<Transition> dfaTransitions = new();
-        HashSet<int> dfaFinalStates = new();
+        List<SymbolicTransition> dfaTransitions = [];
+        HashSet<int> dfaFinalStates = [];
 
-        int dfaMaxState = -1;
-        Dictionary<IntSet, int> stateSetToDfaState = new();
+        int dfaMaxState = Constants.InvalidState;
+        Dictionary<IntSet, int> stateSetToDfaState = [];
         Queue<IntSet> queue = new();
 
-        HashSet<int> initialStates = new HashSet<int>(InitialStates);
-        epsilonTransitions.TraverseOnEpsilonMultipleInPlace(initialStates);
-        int dfaInitialState = GetOrAddState(new IntSet(initialStates)); //adds initial state to dfa
+        HashSet<int> initialStates = [.. InitialStates];
+        epsilonTransitions.ReachableStatesOnEpsilonInPlace(initialStates);
+        int dfaInitialState = GetOrAddState(new IntSet(initialStates)); //add initial NFA states to dfa as a single state
 
         while (queue.Count > 0)
         {
             IntSet fromState = queue.Dequeue();
-            IntSet symbols = nonEpsilonTransitions.GetAvailableSymbols(fromState);
+            IntSet symbols = symbolicTransitions.GetAvailableSymbols(fromState);
             int dfaFromState = GetOrAddState(fromState);
 
             foreach (int symbol in symbols)
             {
                 IntSet toState = GetToStates(fromState, symbol);
                 int dfaToState = GetOrAddState(toState);
-                dfaTransitions.Add(new Transition(dfaFromState, symbol, dfaToState));
+                dfaTransitions.Add(new SymbolicTransition(dfaFromState, symbol, dfaToState));
             }
         }
         return new DFA(Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
 
-        int GetOrAddState(IntSet state)
+        int GetOrAddState(IntSet combinedState)
         {
-            if (!stateSetToDfaState.TryGetValue(state, out int dfaState))
+            if (!stateSetToDfaState.TryGetValue(combinedState, out int dfaState))
             {
                 dfaState = ++dfaMaxState; //create a new state in DFA
-                stateSetToDfaState[state] = dfaState;
-                queue.Enqueue(state);
+                stateSetToDfaState[combinedState] = dfaState;
+                queue.Enqueue(combinedState);
             }
-            if (state.Overlaps(finalStates))
+            if (combinedState.Overlaps(finalStates))
                 dfaFinalStates.Add(dfaState);
             return dfaState;
         }

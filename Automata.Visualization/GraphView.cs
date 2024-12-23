@@ -4,12 +4,12 @@ using Microsoft.Msagl.GraphViewerGdi;
 namespace Automata.Visualization;
 
 ///<summary>
-/// A class for displaying finite-state automata as graphs in a separate window (and in a separate thread).
+/// A class for displaying finite-state automata as graphs in a separate window (and its own separate thread).
 ///</summary>
 ///<remarks>
 /// You do not need to involve any GUI boilerplate code to display a graph in a separate window, like calling the blocking `Application.Run()`, setting STA thread environment or bother about the GUI messes with your threads.
 /// Simply just create and open a graph view by calling either <see cref="GraphView.OpenNew()"/> or <see cref="GraphView.OpenNew(Graph)"/>.
-/// This class uses the MSAGL library for rendering and displaying graphs.
+/// This class uses the MSAGL library for layout and rendering of graphs.
 ///</remarks>
 public partial class GraphView : Form
 {

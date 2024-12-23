@@ -19,7 +19,7 @@ public interface ITransition<T> where T : struct
     int ToState { get; }
 
     /// <summary>
-    /// Gets the comparer for sorting by "to state".
+    /// Gets the comparer for ordering by "to state".
     /// </summary>
     static abstract Comparer<T> CompareByToState();
 }

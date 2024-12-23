@@ -22,7 +22,7 @@ public static class GraphFactory
         if (minimize)
             dfa = dfa.Minimized(); //minimize the DFA
 
-        return GraphFactory.CreateGraph(dfa);
+        return CreateGraph(dfa);
     }
 
     /// <summary>
@@ -46,11 +46,9 @@ public static class GraphFactory
             edge.Attr.ArrowheadAtTarget = directed ? ArrowStyle.Normal : ArrowStyle.None;
         }
 
-        foreach (Transition transition in fsa.Transitions)
-        {
+        foreach (SymbolicTransition transition in fsa.Transitions)
             AddEdge(transition.FromState, alphabet[transition.Symbol], transition.ToState);
-        }
-
+        
         if (!fsa.EpsilonFree)
         {
             foreach (EpsilonTransition transition in fsa.EpsilonTransitions)

@@ -32,7 +32,7 @@ public interface IFsa
     /// <summary>
     /// Gets the transitions of the FSA.
     /// </summary>
-    IEnumerable<Transition> Transitions { get; }
+    IEnumerable<SymbolicTransition> Transitions { get; }
 
     /// <summary>
     /// Gets the epsilon transitions of the FSA.

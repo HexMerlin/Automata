@@ -12,11 +12,6 @@ public class Alphabet
     #endregion
 
     /// <summary>
-    /// Represents an invalid index.
-    /// </summary>
-    public const int InvalidIndex = -1;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="Alphabet"/> class.
     /// </summary>
     public Alphabet() { }
@@ -39,7 +34,7 @@ public class Alphabet
     /// </summary>
     /// <param name="symbol">The symbol to get the index of.</param>
     /// <returns>The index of the specified symbol, or <see cref="InvalidIndex"/> if the symbol does not exist.</returns>
-    public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : InvalidIndex;
+    public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     /// <summary>
     /// Gets the index of the specified symbol, adding it to the alphabet if it does not already exist.

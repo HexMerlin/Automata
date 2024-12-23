@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a deterministic finite automaton (DFA).
 /// </summary>
+/// <remarks>A DFA is always deterministic and epsilon free. </remarks>
 public class DFA : IFsa
 {
     #region Data
@@ -16,7 +17,7 @@ public class DFA : IFsa
     /// <summary>
     /// Gets or sets the initial state of the DFA.
     /// </summary>
-    public int InitialState { get; private set; } = -1;
+    public int InitialState { get; private set; } = Constants.InvalidState; //no initial state
 
     private readonly SortedSet<int> finalStates;
     #endregion
@@ -35,16 +36,14 @@ public class DFA : IFsa
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    public DFA(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates)
+    public DFA(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates)
     {
         Alphabet = alphabet;
-        this.transitions = new();
+        this.transitions = [];
         SetInitial(initialState);
         this.finalStates = new(finalStates);
-        foreach (Transition transition in transitions)
-        {
+        foreach (SymbolicTransition transition in transitions)
             AddTransition(transition);
-        }
     }
 
     /// <summary>
@@ -99,8 +98,8 @@ public class DFA : IFsa
     /// <summary>
     /// Gets the transitions of the DFA.
     /// </summary>
-    public IEnumerable<Transition> Transitions
-        => transitions.Select(kvp => new Transition(Split(kvp.Key).Item1, Split(kvp.Key).Item2, kvp.Value));
+    public IEnumerable<SymbolicTransition> Transitions
+        => transitions.Select(kvp => new SymbolicTransition(Split(kvp.Key).Item1, Split(kvp.Key).Item2, kvp.Value));
 
     /// <summary>
     /// Gets a value indicating whether the DFA is epsilon-free.
@@ -116,7 +115,7 @@ public class DFA : IFsa
     /// Adds a transition to the DFA.
     /// </summary>
     /// <param name="transition">The transition to add.</param>
-    public void AddTransition(Transition transition)
+    public void AddTransition(SymbolicTransition transition)
     {
         long key = Merge(transition.FromState, transition.Symbol);
         transitions.Add(key, transition.ToState);
@@ -125,11 +124,12 @@ public class DFA : IFsa
     /// <summary>
     /// Minimizes the DFA.
     /// </summary>
+    /// <remarks>Uses Brzozowski's algorithm</remarks>
     /// <returns>A minimized DFA.</returns>
     public DFA Minimized()
     {
-        DFA reverseDfa = Reversed().ToDFA();
-        return reverseDfa.Reversed().ToDFA();
+        DFA reversed = Reversed().ToDFA();
+        return reversed.Reversed().ToDFA();
     }
 
     /// <summary>
