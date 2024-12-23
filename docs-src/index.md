@@ -12,3 +12,6 @@ Welcome to the API documentation for **Automata**.
 - [Automata.Visualization](xref:Automata.Visualization)  
 
 Click the links above to explore the namespaces.
+
+---
+[Automata repo at GitHub](https://hexmerlin.github.io/Automata)
