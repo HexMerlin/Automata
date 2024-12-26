@@ -137,17 +137,42 @@ public class DFA : IFsa
     public NFA ToNFA() => new(this);
 
     /// <summary>
+    /// Indicates whether the DFA accepts the given sequence of symbols.
+    /// </summary>
+    /// <param name="sequence">The sequence of symbols to check.</param>
+    /// <returns><see langref="true"/> <c>iff</c> the DFA accepts the sequence.</returns>
+    /// <remarks>
+    /// The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
+    /// If the DFA reaches a final state after processing all symbols, the sequence is accepted.
+    /// </remarks>
+    public bool Accepts(IEnumerable<string> sequence)
+    {
+        int state = InitialState;
+        foreach (string symbol in sequence)
+        {
+            int symbolIndex = Alphabet[symbol];
+            if (symbolIndex == Constants.InvalidSymbolIndex)
+                return false;
+
+            StateSymbolPair key = Merge(state, symbolIndex);
+            if (!transitions.TryGetValue(key, out state))
+                return false;
+        }
+        return IsFinal(state);
+    }
+
+    /// <summary>
     /// Merges two signed integers into a single signed 64-bit value.
     /// </summary>
     /// <param name="a">The first signed 32-bit integer.</param>
     /// <param name="b">The second signed 32-bit integer.</param>
     /// <returns>A signed 64-bit value representing the merged integers.</returns>
-    public static StateSymbolPair Merge(int a, int b) => ((StateSymbolPair)a << 32) | ((StateSymbolPair)b & 0xFFFFFFFFL);
+    private static StateSymbolPair Merge(int a, int b) => ((StateSymbolPair)a << 32) | ((StateSymbolPair)b & 0xFFFFFFFFL);
 
     /// <summary>
     /// Splits a signed 64-bit value into two signed 32-bit integers.
     /// </summary>
     /// <param name="value">The signed 64-bit value to split.</param>
     /// <returns>A tuple containing the two signed 32-bit integers.</returns>
-    public static (int, int) Split(StateSymbolPair value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
+    private static (int, int) Split(StateSymbolPair value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
 }
