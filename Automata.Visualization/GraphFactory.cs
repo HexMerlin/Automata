@@ -46,12 +46,12 @@ public static class GraphFactory
             edge.Attr.ArrowheadAtTarget = directed ? ArrowStyle.Normal : ArrowStyle.None;
         }
 
-        foreach (SymbolicTransition transition in fsa.Transitions)
+        foreach (SymbolicTransition transition in fsa.SymbolicTransitions())
             AddEdge(transition.FromState, alphabet[transition.Symbol], transition.ToState);
         
         if (!fsa.EpsilonFree)
         {
-            foreach (EpsilonTransition transition in fsa.EpsilonTransitions)
+            foreach (EpsilonTransition transition in fsa.EpsilonTransitions())
                 AddEdge(transition.FromState, EpsilonTransition.Epsilon, transition.ToState);
         }
 

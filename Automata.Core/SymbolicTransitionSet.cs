@@ -2,6 +2,7 @@
 
 /// <summary>
 /// Represents a mutable set of <see cref="SymbolicTransition"/> for fast lookup and retrieval.
+/// <para>This set allows non-deterministic transitions, but no duplicate transitions or epsilon transitions.</para>
 /// </summary>
 /// <remarks>Internally, this class maintains two ordered sets with the exact same set of transitions, 
 /// but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing, 
@@ -30,7 +31,7 @@ public class SymbolicTransitionSet : TransitionSet<SymbolicTransition>
     /// </summary>
     /// <param name="fromStates">The states from which to start.</param>
     /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
-    public IntSet GetAvailableSymbols(IEnumerable<int> fromStates)
+    public IntSet AvailableSymbols(IEnumerable<int> fromStates)
         => new(fromStates.SelectMany(s => orderByFromState.GetViewBetween(new SymbolicTransition(s, int.MinValue, int.MinValue), new SymbolicTransition(s, int.MaxValue, int.MaxValue)).Select(t => t.Symbol)));
 
 }

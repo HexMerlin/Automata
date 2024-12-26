@@ -9,6 +9,8 @@
 /// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct SymbolicTransition(int FromState, int Symbol, int ToState) : ITransition<SymbolicTransition>, IComparable<SymbolicTransition>
 {
+    public static SymbolicTransition Invalid => new();
+
     /// <summary>
     /// Reverses the transition.
     /// </summary>

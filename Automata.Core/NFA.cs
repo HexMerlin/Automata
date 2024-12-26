@@ -43,13 +43,13 @@ public class NFA : IFsa
     {
         if (applyReverseOperation)
         {
-            UnionWith(dfa.Transitions.Select(t => t.Reverse()));
+            UnionWith(dfa.SymbolicTransitions().Select(t => t.Reverse()));
             SetInitial(dfa.FinalStates);
             SetFinal(dfa.InitialState);
         }
         else
         {
-            UnionWith(dfa.Transitions);
+            UnionWith(dfa.SymbolicTransitions());
             SetInitial(dfa.InitialState);
             SetFinal(dfa.FinalStates);
         }
@@ -188,9 +188,9 @@ public class NFA : IFsa
     /// </summary>
     public bool EpsilonFree => symbolicTransitions.Count == 0;
 
-    IEnumerable<SymbolicTransition> IFsa.Transitions => symbolicTransitions.Transitions;
+    IEnumerable<SymbolicTransition> IFsa.SymbolicTransitions() => symbolicTransitions.Transitions();
 
-    IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions => epsilonTransitions.Transitions;
+    IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions() => epsilonTransitions.Transitions();
 
     /// <summary>
     /// Converts the NFA to a minimized DFA.
@@ -266,7 +266,7 @@ public class NFA : IFsa
         while (queue.Count > 0)
         {
             IntSet fromState = queue.Dequeue();
-            IntSet symbols = symbolicTransitions.GetAvailableSymbols(fromState);
+            IntSet symbols = symbolicTransitions.AvailableSymbols(fromState);
             int dfaFromState = GetOrAddState(fromState);
 
             foreach (int symbol in symbols)

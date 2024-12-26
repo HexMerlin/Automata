@@ -37,7 +37,7 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     /// Adds a transition to the set.
     /// </summary>
     /// <param name="transition">The element to add.</param>
-    public void Add(T transition)
+    public virtual void Add(T transition)
     {
         orderByFromState.Add(transition);
         orderByToState.Add(transition);
@@ -57,7 +57,7 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     /// Adds all provided transitions that are currently not present in set.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public void UnionWith(IEnumerable<T> transitions)
+    public virtual void UnionWith(IEnumerable<T> transitions)
     {
         orderByFromState.UnionWith(transitions);
         orderByToState.UnionWith(transitions);
@@ -94,6 +94,6 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     public int MaxState => Count > 0 ? Math.Max(orderByFromState.Max.FromState, orderByToState.Max.ToState) : Constants.InvalidState;
 
     /// <returns>The set of transitions in the default order.</returns>
-    public IReadOnlySet<T> Transitions => orderByFromState;
+    public IReadOnlySet<T> Transitions() => orderByFromState;
 }
 

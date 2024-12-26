@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using System.Transactions;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Represents a deterministic finite automaton (DFA).
@@ -12,7 +14,7 @@ public class DFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly Dictionary<StateSymbolPair, int> transitions = [];
+    private readonly Dictionary<long, int> transitions = [];
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
@@ -82,6 +84,11 @@ public class DFA : IFsa
     public bool IsFinal(int state) => finalStates.Contains(state);
 
     /// <summary>
+    /// Gets a value indicating whether the DFA is epsilon-free.
+    /// </summary>
+    public bool EpsilonFree => true;
+
+    /// <summary>
     /// Gets the final states of the DFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
@@ -89,18 +96,13 @@ public class DFA : IFsa
     /// <summary>
     /// Gets the transitions of the DFA.
     /// </summary>
-    public IEnumerable<SymbolicTransition> Transitions
+    public IEnumerable<SymbolicTransition> SymbolicTransitions()
         => transitions.Select(kvp => new SymbolicTransition(Split(kvp.Key).Item1, Split(kvp.Key).Item2, kvp.Value));
-
-    /// <summary>
-    /// Gets a value indicating whether the DFA is epsilon-free.
-    /// </summary>
-    public bool EpsilonFree => true;
 
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
-    public IEnumerable<EpsilonTransition> EpsilonTransitions => [];
+    public IEnumerable<EpsilonTransition> EpsilonTransitions() => [];
 
     /// <summary>
     /// Adds a transition to the DFA.
@@ -109,8 +111,19 @@ public class DFA : IFsa
     /// <param name="transition">The transition to add.</param>
     public void AddTransition(SymbolicTransition transition)
     {
-        StateSymbolPair key = Merge(transition.FromState, transition.Symbol);
-        transitions[key] = transition.ToState;
+        long key = Merge(transition.FromState, transition.Symbol);
+        if (transitions.TryGetValue(key, out int toState))  //a transition with the same from-state and symbol already exists
+        {
+            if (toState == transition.ToState) return; //the same transition already exists, we are done
+            RemoveTransition(transition); //an existing transition with a different to-state exists, remove it
+        }
+        transitions.Add(key, transition.ToState);
+    }
+
+    public bool RemoveTransition(SymbolicTransition transition)
+    {
+        long key = Merge(transition.FromState, transition.Symbol);
+        return transitions.Remove(key);
     }
 
     /// <summary>
@@ -154,7 +167,7 @@ public class DFA : IFsa
             if (symbolIndex == Constants.InvalidSymbolIndex)
                 return false;
 
-            StateSymbolPair key = Merge(state, symbolIndex);
+            long key = Merge(state, symbolIndex);
             if (!transitions.TryGetValue(key, out state))
                 return false;
         }
@@ -167,12 +180,12 @@ public class DFA : IFsa
     /// <param name="a">The first signed 32-bit integer.</param>
     /// <param name="b">The second signed 32-bit integer.</param>
     /// <returns>A signed 64-bit value representing the merged integers.</returns>
-    private static StateSymbolPair Merge(int a, int b) => ((StateSymbolPair)a << 32) | ((StateSymbolPair)b & 0xFFFFFFFFL);
+    private static long Merge(int a, int b) => ((long)a << 32) | ((long)b & 0xFFFFFFFFL);
 
     /// <summary>
     /// Splits a signed 64-bit value into two signed 32-bit integers.
     /// </summary>
     /// <param name="value">The signed 64-bit value to split.</param>
     /// <returns>A tuple containing the two signed 32-bit integers.</returns>
-    private static (int, int) Split(StateSymbolPair value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
+    private static (int, int) Split(long value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
 }
