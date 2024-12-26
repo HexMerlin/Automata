@@ -8,7 +8,6 @@
 /// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct EpsilonTransition(int FromState, int ToState) : ITransition<EpsilonTransition>, IComparable<EpsilonTransition>
 {
-
     /// <summary>
     /// Denotes the string representation for ε - the empty epsilon string.
     /// Epsilon is not part of any alphabet, the symbol is used solely for output purposes, never for computation.

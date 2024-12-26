@@ -12,22 +12,26 @@ public class DFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly SortedDictionary<long, int> transitions;
+    private readonly Dictionary<long, int> transitions = [];
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
     /// </summary>
     public int InitialState { get; private set; } = Constants.InvalidState; //no initial state
 
-    private readonly SortedSet<int> finalStates;
-    #endregion
+    private readonly HashSet<int> finalStates = [];
+    #endregion Data
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DFA"/> class with an empty alphabet.
     /// </summary>
-    public DFA() : this(new Alphabet())
-    {
-    }
+    public DFA() : this(new Alphabet()) { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DFA"/> class with the specified alphabet.
+    /// </summary>
+    /// <param name="alphabet">The alphabet used by the DFA.</param>
+    public DFA(Alphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DFA"/> class with the specified alphabet, transitions, initial state, and final states.
@@ -36,25 +40,12 @@ public class DFA : IFsa
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    public DFA(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates)
+    public DFA(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
-        Alphabet = alphabet;
-        this.transitions = [];
         SetInitial(initialState);
-        this.finalStates = new(finalStates);
+        this.finalStates.UnionWith(finalStates);
         foreach (SymbolicTransition transition in transitions)
             AddTransition(transition);
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="DFA"/> class with the specified alphabet.
-    /// </summary>
-    /// <param name="alphabet">The alphabet used by the DFA.</param>
-    public DFA(Alphabet alphabet)
-    {
-        Alphabet = alphabet;
-        this.transitions = [];
-        this.finalStates = [];
     }
 
     /// <summary>

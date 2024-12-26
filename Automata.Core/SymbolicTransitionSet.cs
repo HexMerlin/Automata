@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automata.Core;
+﻿namespace Automata.Core;
 
 /// <summary>
-/// Represents a set of symbolic transitions (non-epsilon transitions).
+/// Represents a mutable set of <see cref="SymbolicTransition"/> for fast lookup and retrieval.
 /// </summary>
+/// <remarks>Internally, this class maintains two ordered sets with the exact same set of transitions, 
+/// but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing, 
+/// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
+/// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
+/// </remarks>
 public class SymbolicTransitionSet : TransitionSet<SymbolicTransition>
 {
-    public SymbolicTransitionSet(IEnumerable<SymbolicTransition> initialTransitions) : base(initialTransitions) {}
+    ///<inheritdoc/>
+    public SymbolicTransitionSet() : base() { }
 
+    ///<inheritdoc/>
+    public SymbolicTransitionSet(IEnumerable<SymbolicTransition> initialTransitions) : base(initialTransitions) {}
 
     /// <summary>
     /// Returns the states reachable from the given state on the given symbol.
@@ -21,7 +23,7 @@ public class SymbolicTransitionSet : TransitionSet<SymbolicTransition>
     /// <param name="symbol">The symbol to transition on.</param>
     /// <returns>The states reachable from the given state on the given symbol.</returns>
     public IEnumerable<int> ReachableStates(int fromState, int symbol)
-        => orderDefault.GetViewBetween(new SymbolicTransition(fromState, symbol, int.MinValue), new SymbolicTransition(fromState, symbol, int.MaxValue)).Select(t => t.ToState);
+        => orderByFromState.GetViewBetween(new SymbolicTransition(fromState, symbol, int.MinValue), new SymbolicTransition(fromState, symbol, int.MaxValue)).Select(t => t.ToState);
 
     /// <summary>
     /// Returns the set of symbols that can be used to transition directly from the given states.
@@ -29,6 +31,6 @@ public class SymbolicTransitionSet : TransitionSet<SymbolicTransition>
     /// <param name="fromStates">The states from which to start.</param>
     /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
     public IntSet GetAvailableSymbols(IEnumerable<int> fromStates)
-        => new(fromStates.SelectMany(s => orderDefault.GetViewBetween(new SymbolicTransition(s, int.MinValue, int.MinValue), new SymbolicTransition(s, int.MaxValue, int.MaxValue)).Select(t => t.Symbol)));
+        => new(fromStates.SelectMany(s => orderByFromState.GetViewBetween(new SymbolicTransition(s, int.MinValue, int.MinValue), new SymbolicTransition(s, int.MaxValue, int.MaxValue)).Select(t => t.Symbol)));
 
 }

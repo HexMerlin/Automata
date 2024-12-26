@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automata.Core;
+﻿namespace Automata.Core;
 
 /// <summary>
 /// Represents a generic transition with static support for obtaining a comparer.

@@ -47,13 +47,13 @@ public class NFA : IFsa
 
         if (applyReverseOperation)
         {
-            AddAll(dfa.Transitions.Select(t => t.Reverse()));
+            UnionWith(dfa.Transitions.Select(t => t.Reverse()));
             SetInitial(dfa.FinalStates);
             SetFinal(dfa.InitialState);
         }
         else
         {
-            AddAll(dfa.Transitions);
+            UnionWith(dfa.Transitions);
             SetInitial(dfa.InitialState);
             SetFinal(dfa.FinalStates);
         }
@@ -63,7 +63,7 @@ public class NFA : IFsa
     /// Initializes a new instance of a <see cref="NFA"/> class from a set of sequences.
     /// </summary>
     /// <param name="sequences">The sequences to add to the NFA.</param>
-    public NFA(IEnumerable<IEnumerable<string>> sequences) : this() => AddAll(sequences);
+    public NFA(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NFA"/> class with the specified parameters.
@@ -98,13 +98,13 @@ public class NFA : IFsa
     /// Adds multiple symbolic transitions to the NFA.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public void AddAll(IEnumerable<SymbolicTransition> transitions) => symbolicTransitions.AddAll(transitions);
+    public void UnionWith(IEnumerable<SymbolicTransition> transitions) => symbolicTransitions.UnionWith(transitions);
     
     /// <summary>
     /// Adds multiple epsilon transitions to the NFA.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public void AddAll(IEnumerable<EpsilonTransition> transitions) => epsilonTransitions.AddAll(transitions);
+    public void UnionWith(IEnumerable<EpsilonTransition> transitions) => epsilonTransitions.UnionWith(transitions);
 
     /// <summary>
     /// Adds a sequence of symbols to be accepted by the NFA.
@@ -113,35 +113,34 @@ public class NFA : IFsa
     /// Any missing symbols in the alphabet will be added to the alphabet.
     /// </remarks>
     /// <param name="sequence">The sequence of symbols to add.</param>
-    public void Add(IEnumerable<string> sequence)
+    public void UnionWith(IEnumerable<string> sequence)
     {
-        int maxState = GetMaxState();
+        int maxState = MaxState;
 
-        if (initialStates.Count == 0)
-            SetInitial(++maxState);
+        SetInitial(++maxState);
 
-        int fromState = initialStates.Min;
+        int fromState = maxState;
 
         foreach (string symbol in sequence)
         {
-            SymbolicTransition transition = new SymbolicTransition(fromState, Alphabet.GetOrAdd(symbol), ++maxState);
+            SymbolicTransition transition = new SymbolicTransition(fromState, Alphabet.GetOrAdd(symbol), ++fromState);
             symbolicTransitions.Add(transition);
-            fromState = maxState;
+           
         }
-        finalStates.Add(maxState);
+        finalStates.Add(fromState);
     }
 
     /// <summary>
-    /// Adds a set of sequences to the NFA.
+    /// Adds a set of sequences to be accepted by the NFA.
     /// </summary>
     /// <remarks>
     /// Any missing symbols in the alphabet will be added to the alphabet.
     /// </remarks>
     /// <param name="sequences">The sequences to add to the NFA.</param>
-    public void AddAll(IEnumerable<IEnumerable<string>> sequences)
+    public void UnionWith(IEnumerable<IEnumerable<string>> sequences)
     {
         foreach (IEnumerable<string> sequence in sequences)
-            Add(sequence);
+            UnionWith(sequence);
     }
 
     /// <summary>
@@ -158,57 +157,46 @@ public class NFA : IFsa
     /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
+
+    private static void IncludeIf(bool condition, int state, SortedSet<int> set)
+    {
+        if (condition) set.Add(state);
+        else set.Remove(state);
+    }
+
+    private static void IncludeIf(bool condition, IEnumerable<int> states, SortedSet<int> set)
+    {
+        if (condition) set.UnionWith(states);
+        else set.ExceptWith(states);
+    }
+
     /// <summary>
     /// Sets the specified state as an initial state or removes it from the initial states.
     /// </summary>
     /// <param name="state">The state to set or remove as an initial state.</param>
     /// <param name="initial">If <c>true</c>, the state is added to the initial states; otherwise, it is removed.</param>
-    public void SetInitial(int state, bool initial = true)
-    {
-        if (initial)
-            initialStates.Add(state);
-        else
-            initialStates.Remove(state);
-    }
+    public void SetInitial(int state, bool initial = true) => IncludeIf(initial, state, initialStates);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
     /// <param name="state">The state to set or remove as a final state.</param>
     /// <param name="final">If <c>true</c>, the state is added to the final states; otherwise, it is removed.</param>
-    public void SetFinal(int state, bool final = true)
-    {
-        if (final)
-            finalStates.Add(state);
-        else
-            finalStates.Remove(state);
-    }
+    public void SetFinal(int state, bool final = true) => IncludeIf(final, state, finalStates);
 
     /// <summary>
     /// Sets the specified states as initial states or removes them from the initial states.
     /// </summary>
     /// <param name="states">The states to set or remove as initial states.</param>
     /// <param name="initial">If <c>true</c>, the states are added to the initial states; otherwise, they are removed.</param>
-    public void SetInitial(IEnumerable<int> states, bool initial = true)
-    {
-        if (initial)
-            initialStates.UnionWith(states);
-        else
-            initialStates.ExceptWith(states);
-    }
+    public void SetInitial(IEnumerable<int> states, bool initial = true) => IncludeIf(initial, states, initialStates);
 
     /// <summary>
     /// Sets the specified states as final states or removes them from the final states.
     /// </summary>
     /// <param name="states">The states to set or remove as final states.</param>
     /// <param name="final">If <c>true</c>, the states are added to the final states; otherwise, they are removed.</param>
-    public void SetFinal(IEnumerable<int> states, bool final = true)
-    {
-        if (final)
-            finalStates.UnionWith(states);
-        else
-            finalStates.ExceptWith(states);
-    }
+    public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIf(final, states, finalStates);
 
     /// <summary>
     /// Gets the initial states of the NFA.
@@ -236,15 +224,35 @@ public class NFA : IFsa
     public DFA ToMinimizedDFA() => ToDFA().Minimized();
 
     /// <summary>
-    /// Returns the maximum state (state with the maximum value) in the NFA.
+    /// O(1) retrieval of the minimal state (state with the minimal value) in the NFA.
     /// </summary>
-    /// <returns>The maximum state in the NFA.</returns>
-    public int GetMaxState()
+    /// <remarks>If the set is empty, <see cref="Constants.InvalidState"/> is returned</remarks>
+    /// <returns>The minimal state in the NFA.</returns>
+    public int MinState
     {
-        static int Max(int a, int b) => a >= b ? a : b;
-        int maxInitial = initialStates.Count > 0 ? initialStates.Max : Constants.InvalidState;
-        int maxFinal = finalStates.Count > 0 ? finalStates.Max : Constants.InvalidState;
-        return Max(Max(symbolicTransitions.MaxState, epsilonTransitions.MaxState), Max(maxInitial, maxFinal));
+        get
+        {
+            static int Min(int a, int b) => a <= b ? a : b;
+            int minInitial = initialStates.Count > 0 ? initialStates.Min : Constants.InvalidState;
+            int minFinal = finalStates.Count > 0 ? finalStates.Min : Constants.InvalidState;
+            return Min(Min(symbolicTransitions.MinState, epsilonTransitions.MinState), Min(minInitial, minFinal));
+       }
+    }
+
+    /// <summary>
+    /// O(1) retrieval of the maximum state (state with the maximum value) in the NFA.
+    /// </summary>
+    /// <remarks>If the set is empty, <see cref="Constants.InvalidState"/> is returned</remarks>
+    /// <returns>The maximum state in the NFA.</returns>
+    public int MaxState
+    {
+        get
+        {
+            static int Max(int a, int b) => a >= b ? a : b;
+            int maxInitial = initialStates.Count > 0 ? initialStates.Max : Constants.InvalidState;
+            int maxFinal = finalStates.Count > 0 ? finalStates.Max : Constants.InvalidState;
+            return Max(Max(symbolicTransitions.MaxState, epsilonTransitions.MaxState), Max(maxInitial, maxFinal));
+        }
     }
 
     /// <summary>

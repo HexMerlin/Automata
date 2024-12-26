@@ -7,7 +7,7 @@
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="Symbol">The symbol that triggers the transition.</param>
 /// <param name="ToState">The state to which the transition goes.</param>
-public readonly record struct SymbolicTransition(int FromState, int Symbol, int ToState)  : ITransition<SymbolicTransition>, IComparable<SymbolicTransition>
+public readonly record struct SymbolicTransition(int FromState, int Symbol, int ToState) : ITransition<SymbolicTransition>, IComparable<SymbolicTransition>
 {
     /// <summary>
     /// Reverses the transition.

@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automata.Core;
+﻿namespace Automata.Core;
 
 /// <summary>
-/// Represents a set of epsilon transitions.
+/// Represents a mutable set of <see cref="EpsilonTransition"/> for fast lookup and retrieval.
 /// </summary>
+/// <remarks>Internally, this class maintains two ordered sets with the exact same set of transitions, 
+/// but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing, 
+/// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
+/// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
+/// </remarks>
 public class EpsilonTransitionSet : TransitionSet<EpsilonTransition>
 {
+    ///<inheritdoc/>
+    public EpsilonTransitionSet() : base() { }
+
+    ///<inheritdoc/>
     public EpsilonTransitionSet(IEnumerable<EpsilonTransition> initialTransitions) : base(initialTransitions) { }
 
     /// <summary>
@@ -20,7 +23,7 @@ public class EpsilonTransitionSet : TransitionSet<EpsilonTransition>
     /// <param name="fromState">The state from which to start.</param>
     /// <returns>The states reachable from the given state on a single epsilon transition.</returns>
     public IEnumerable<int> ReachableStatesOnSingleEpsilon(int fromState)
-        => orderDefault.GetViewBetween(new EpsilonTransition(fromState, int.MinValue), new EpsilonTransition(fromState, int.MaxValue)).Select(t => t.ToState);
+        => orderByFromState.GetViewBetween(new EpsilonTransition(fromState, int.MinValue), new EpsilonTransition(fromState, int.MaxValue)).Select(t => t.ToState);
 
     /// <summary>
     /// Extends the set of states with their epsilon closure in place.
