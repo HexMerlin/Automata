@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TransitionSet&lt;T&gt; | AutomataDocs ">
       
-      <meta name="description" content="Denotes a mutable and generic set of transitions for fast lookup and retrieval.">
+      <meta name="description" content="Represents a generic mutable set of transitions for fast lookup and retrieval.">
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -83,7 +83,7 @@ Class TransitionSet&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Denotes a mutable and generic set of transitions for fast lookup and retrieval.</p>
+  <div class="markdown summary"><p>Represents a generic mutable set of transitions for fast lookup and retrieval.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -147,8 +147,8 @@ Class TransitionSet&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
 
   <h2 id="Automata_Core_TransitionSet_1_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p><a class="xref" href="Automata.Core.TransitionSet-1.html">TransitionSet&lt;T&gt;</a> maintains two ordered sets with the exact same set of transitions,
-but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing,</p>
+  <div class="markdown level0 remarks"><p>This class maintains two ordered sets with the exact same set of transitions,
+but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing,
 <p>and the other set is ordered where all to-states are consecutive and increasing.</p><p>That enables fast retrieval of all transitions from or to a certain state, respectively.</p>
 </div>
 
@@ -159,12 +159,39 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <a id="Automata_Core_TransitionSet_1__ctor_" data-uid="Automata.Core.TransitionSet`1.#ctor*"></a>
 
-  <h3 id="Automata_Core_TransitionSet_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="Automata.Core.TransitionSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
-  TransitionSet(IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_TransitionSet_1__ctor" data-uid="Automata.Core.TransitionSet`1.#ctor">
+  TransitionSet()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="Automata.Core.TransitionSet-1.html">TransitionSet&lt;T&gt;</a>.</p>
+  <div class="markdown level1 summary"><p>Initializes a new empty set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TransitionSet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_TransitionSet_1__ctor_" data-uid="Automata.Core.TransitionSet`1.#ctor*"></a>
+
+  <h3 id="Automata_Core_TransitionSet_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="Automata.Core.TransitionSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+  TransitionSet(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new set with an initial set of transitions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -175,7 +202,7 @@ but with different sort orders. One set is ordered so that all from-states are o
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>initialTransitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd><p>The initial elements to populate the sets.</p>
+    <dd><p>Initial transitions to populate with.</p>
 </dd>
   </dl>
 
@@ -192,6 +219,36 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h2 class="section" id="fields">Fields
 </h2>
+
+
+
+  <h3 id="Automata_Core_TransitionSet_1_orderByFromState" data-uid="Automata.Core.TransitionSet`1.orderByFromState">
+  orderByFromState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly SortedSet&lt;T&gt; orderByFromState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 
@@ -224,36 +281,6 @@ but with different sort orders. One set is ordered so that all from-states are o
 
 
 
-
-  <h3 id="Automata_Core_TransitionSet_1_orderDefault" data-uid="Automata.Core.TransitionSet`1.orderDefault">
-  orderDefault
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L17"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly SortedSet&lt;T&gt; orderDefault</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;T&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="properties">Properties
 </h2>
 
@@ -262,7 +289,7 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_Count" data-uid="Automata.Core.TransitionSet`1.Count">
   Count
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the number of transitions in the set.</p>
@@ -294,10 +321,10 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_MaxState" data-uid="Automata.Core.TransitionSet`1.MaxState">
   MaxState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Fast retrieval of the maximum state referenced by any transition in the set.</p>
+  <div class="markdown level1 summary"><p>O(1) retrieval of the maximum state referenced by any transition in the set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -331,10 +358,10 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_MinState" data-uid="Automata.Core.TransitionSet`1.MinState">
   MinState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Fast retrieval of the minimum state referenced by any transition in the set.</p>
+  <div class="markdown level1 summary"><p>O(1) retrieval of the minimum state referenced by any transition in the set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -368,7 +395,7 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_Transitions" data-uid="Automata.Core.TransitionSet`1.Transitions">
   Transitions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -385,7 +412,7 @@ but with different sort orders. One set is ordered so that all from-states are o
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;T&gt;</dt>
-    <dd><p>The set of transitions in default order.</p>
+    <dd><p>The set of transitions in the default order.</p>
 </dd>
   </dl>
 
@@ -404,7 +431,7 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_Add__0_" data-uid="Automata.Core.TransitionSet`1.Add(`0)">
   Add(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a transition to the set.</p>
@@ -433,25 +460,25 @@ but with different sort orders. One set is ordered so that all from-states are o
 
 
 
-  <a id="Automata_Core_TransitionSet_1_AddAll_" data-uid="Automata.Core.TransitionSet`1.AddAll*"></a>
+  <a id="Automata_Core_TransitionSet_1_ExceptWith_" data-uid="Automata.Core.TransitionSet`1.ExceptWith*"></a>
 
-  <h3 id="Automata_Core_TransitionSet_1_AddAll_System_Collections_Generic_IEnumerable__0__" data-uid="Automata.Core.TransitionSet`1.AddAll(System.Collections.Generic.IEnumerable{`0})">
-  AddAll(IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_TransitionSet_1_ExceptWith_System_Collections_Generic_IEnumerable__0__" data-uid="Automata.Core.TransitionSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})">
+  ExceptWith(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds multiple transitions to the set.</p>
+  <div class="markdown level1 summary"><p>Removes all of the provided transitions that are currently in the set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddAll(IEnumerable&lt;T&gt; transitions)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ExceptWith(IEnumerable&lt;T&gt; transitions)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd><p>The transitions to add.</p>
+    <dd><p>The transitions to remove.</p>
 </dd>
   </dl>
 
@@ -470,7 +497,7 @@ but with different sort orders. One set is ordered so that all from-states are o
 
   <h3 id="Automata_Core_TransitionSet_1_Remove__0_" data-uid="Automata.Core.TransitionSet`1.Remove(`0)">
   Remove(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes a transition from the set.</p>
@@ -485,6 +512,39 @@ but with different sort orders. One set is ordered so that all from-states are o
   <dl class="parameters">
     <dt><code>transition</code> <span class="xref">T</span></dt>
     <dd><p>The transition to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_TransitionSet_1_UnionWith_" data-uid="Automata.Core.TransitionSet`1.UnionWith*"></a>
+
+  <h3 id="Automata_Core_TransitionSet_1_UnionWith_System_Collections_Generic_IEnumerable__0__" data-uid="Automata.Core.TransitionSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})">
+  UnionWith(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSet.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds all provided transitions that are currently not present in set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnionWith(IEnumerable&lt;T&gt; transitions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The transitions to add.</p>
 </dd>
   </dl>
 

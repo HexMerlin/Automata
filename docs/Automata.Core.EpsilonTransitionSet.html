@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EpsilonTransitionSet | AutomataDocs ">
       
-      <meta name="description" content="Represents a set of epsilon transitions.">
+      <meta name="description" content="Represents a mutable set of  for fast lookup and retrieval.">
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -75,7 +75,7 @@
 
 
   <h1 id="Automata_Core_EpsilonTransitionSet" data-uid="Automata.Core.EpsilonTransitionSet" class="text-break">
-Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -83,7 +83,7 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a set of epsilon transitions.</p>
+  <div class="markdown summary"><p>Represents a mutable set of <a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a> for fast lookup and retrieval.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -109,7 +109,7 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderDefault">TransitionSet&lt;EpsilonTransition&gt;.orderDefault</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByFromState">TransitionSet&lt;EpsilonTransition&gt;.orderByFromState</a>
     </div>
     <div>
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByToState">TransitionSet&lt;EpsilonTransition&gt;.orderByToState</a>
@@ -121,10 +121,13 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Add__0_">TransitionSet&lt;EpsilonTransition&gt;.Add(EpsilonTransition)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_AddAll_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;EpsilonTransition&gt;.AddAll(IEnumerable&lt;EpsilonTransition&gt;)</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove__0_">TransitionSet&lt;EpsilonTransition&gt;.Remove(EpsilonTransition)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove__0_">TransitionSet&lt;EpsilonTransition&gt;.Remove(EpsilonTransition)</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_UnionWith_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;EpsilonTransition&gt;.UnionWith(IEnumerable&lt;EpsilonTransition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_ExceptWith_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;EpsilonTransition&gt;.ExceptWith(IEnumerable&lt;EpsilonTransition&gt;)</a>
     </div>
     <div>
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MinState">TransitionSet&lt;EpsilonTransition&gt;.MinState</a>
@@ -161,6 +164,11 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
 
 
 
+  <h2 id="Automata_Core_EpsilonTransitionSet_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Internally, this class maintains two ordered sets with the exact same set of transitions,
+but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing,
+<p>and the other set is ordered where all to-states are consecutive and increasing.</p><p>That enables fast retrieval of transitions either <code>from</code> or <code>to</code> a certain state, respectively.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -169,12 +177,40 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
 
   <a id="Automata_Core_EpsilonTransitionSet__ctor_" data-uid="Automata.Core.EpsilonTransitionSet.#ctor*"></a>
 
-  <h3 id="Automata_Core_EpsilonTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.EpsilonTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">
-  EpsilonTransitionSet(IEnumerable&lt;EpsilonTransition&gt;)
+  <h3 id="Automata_Core_EpsilonTransitionSet__ctor" data-uid="Automata.Core.EpsilonTransitionSet.#ctor">
+  EpsilonTransitionSet()
   <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new empty set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EpsilonTransitionSet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_EpsilonTransitionSet__ctor_" data-uid="Automata.Core.EpsilonTransitionSet.#ctor*"></a>
+
+  <h3 id="Automata_Core_EpsilonTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.EpsilonTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">
+  EpsilonTransitionSet(IEnumerable&lt;EpsilonTransition&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new set with an initial set of transitions.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -184,7 +220,8 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>initialTransitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Initial transitions to populate with.</p>
+</dd>
   </dl>
 
 
@@ -206,7 +243,7 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
 
   <h3 id="Automata_Core_EpsilonTransitionSet_ReachableStatesOnEpsilonInPlace_System_Collections_Generic_HashSet_System_Int32__" data-uid="Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet{System.Int32})">
   ReachableStatesOnEpsilonInPlace(HashSet&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Extends the set of states with their epsilon closure in place.</p>
@@ -242,7 +279,7 @@ Class EpsilonTransitionSet  <a class="header-action link-secondary" title="View 
 
   <h3 id="Automata_Core_EpsilonTransitionSet_ReachableStatesOnSingleEpsilon_System_Int32_" data-uid="Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(System.Int32)">
   ReachableStatesOnSingleEpsilon(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the states reachable from the given state on a single epsilon transition.
@@ -282,7 +319,7 @@ If the input state has an epsilon loop on itself, it will be included in the res
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransitionSet.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

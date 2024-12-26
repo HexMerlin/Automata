@@ -180,7 +180,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA__ctor_Automata_Core_Alphabet_" data-uid="Automata.Core.NFA.#ctor(Automata.Core.Alphabet)">
   NFA(Alphabet)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.NFA.html">NFA</a> class with the specified alphabet.</p>
@@ -213,10 +213,10 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.NFA.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">
   NFA(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of a <a class="xref" href="Automata.Core.NFA.html">NFA</a> class from a set of sequences.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of a <a class="xref" href="Automata.Core.NFA.html">NFA</a> class to accept a set of sequences.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -282,7 +282,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_EpsilonFree" data-uid="Automata.Core.NFA.EpsilonFree">
   EpsilonFree
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value indicating whether the NFA is epsilon-free.</p>
@@ -314,7 +314,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_FinalStates" data-uid="Automata.Core.NFA.FinalStates">
   FinalStates
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L184"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the final states of the NFA.</p>
@@ -346,7 +346,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_InitialStates" data-uid="Automata.Core.NFA.InitialStates">
   InitialStates
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L179"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the initial states of the NFA.</p>
@@ -374,6 +374,78 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
+  <a id="Automata_Core_NFA_MaxState_" data-uid="Automata.Core.NFA.MaxState*"></a>
+
+  <h3 id="Automata_Core_NFA_MaxState" data-uid="Automata.Core.NFA.MaxState">
+  MaxState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>O(1) retrieval of the maximum state (state with the maximum value) in the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum state in the NFA.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Automata_Core_NFA_MaxState_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
+</div>
+
+
+
+
+  <a id="Automata_Core_NFA_MinState_" data-uid="Automata.Core.NFA.MinState*"></a>
+
+  <h3 id="Automata_Core_NFA_MinState" data-uid="Automata.Core.NFA.MinState">
+  MinState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>O(1) retrieval of the minimal state (state with the minimal value) in the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MinState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The minimal state in the NFA.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Automata_Core_NFA_MinState_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
+</div>
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -382,7 +454,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_Add_Automata_Core_EpsilonTransition_" data-uid="Automata.Core.NFA.Add(Automata.Core.EpsilonTransition)">
   Add(EpsilonTransition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds an epsilon transition to the NFA.</p>
@@ -415,7 +487,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_Add_Automata_Core_SymbolicTransition_" data-uid="Automata.Core.NFA.Add(Automata.Core.SymbolicTransition)">
   Add(SymbolicTransition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a symbolic (= non-epsilon) transition to the NFA.</p>
@@ -444,182 +516,11 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_NFA_Add_" data-uid="Automata.Core.NFA.Add*"></a>
-
-  <h3 id="Automata_Core_NFA_Add_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.NFA.Add(System.Collections.Generic.IEnumerable{System.String})">
-  Add(IEnumerable&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L116"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Adds a sequence of symbols to the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(IEnumerable&lt;string&gt; sequence)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>sequence</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd><p>The sequence of symbols to add.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_NFA_Add_System_Collections_Generic_IEnumerable_System_String___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
-</div>
-
-
-
-
-  <a id="Automata_Core_NFA_AddAll_" data-uid="Automata.Core.NFA.AddAll*"></a>
-
-  <h3 id="Automata_Core_NFA_AddAll_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.NFA.AddAll(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">
-  AddAll(IEnumerable&lt;EpsilonTransition&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L107"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Adds multiple epsilon transitions to the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddAll(IEnumerable&lt;EpsilonTransition&gt; transitions)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</dt>
-    <dd><p>The transitions to add.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_NFA_AddAll_" data-uid="Automata.Core.NFA.AddAll*"></a>
-
-  <h3 id="Automata_Core_NFA_AddAll_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__" data-uid="Automata.Core.NFA.AddAll(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})">
-  AddAll(IEnumerable&lt;SymbolicTransition&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L101"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Adds multiple symbolic transitions to the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddAll(IEnumerable&lt;SymbolicTransition&gt; transitions)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a>&gt;</dt>
-    <dd><p>The transitions to add.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_NFA_AddAll_" data-uid="Automata.Core.NFA.AddAll*"></a>
-
-  <h3 id="Automata_Core_NFA_AddAll_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.NFA.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">
-  AddAll(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L141"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Adds a set of sequences to the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddAll(IEnumerable&lt;IEnumerable&lt;string&gt;&gt; sequences)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>sequences</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
-    <dd><p>The sequences to add to the NFA.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_NFA_AddAll_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String____remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
-</div>
-
-
-
-
-  <a id="Automata_Core_NFA_GetMaxState_" data-uid="Automata.Core.NFA.GetMaxState*"></a>
-
-  <h3 id="Automata_Core_NFA_GetMaxState" data-uid="Automata.Core.NFA.GetMaxState">
-  GetMaxState()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L242"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the maximum state (state with the maximum value) in the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int GetMaxState()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The maximum state in the NFA.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="Automata_Core_NFA_IsFinal_" data-uid="Automata.Core.NFA.IsFinal*"></a>
 
   <h3 id="Automata_Core_NFA_IsFinal_System_Int32_" data-uid="Automata.Core.NFA.IsFinal(System.Int32)">
   IsFinal(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified state is a final state.</p>
@@ -658,7 +559,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_IsInitial_System_Int32_" data-uid="Automata.Core.NFA.IsInitial(System.Int32)">
   IsInitial(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified state is an initial state.</p>
@@ -697,7 +598,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.NFA.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">
   SetFinal(IEnumerable&lt;int&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L174"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the specified states as final states or removes them from the final states.</p>
@@ -733,7 +634,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_SetFinal_System_Int32_System_Boolean_" data-uid="Automata.Core.NFA.SetFinal(System.Int32,System.Boolean)">
   SetFinal(int, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the specified state as a final state or removes it from the final states.</p>
@@ -769,7 +670,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.NFA.SetInitial(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">
   SetInitial(IEnumerable&lt;int&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the specified states as initial states or removes them from the initial states.</p>
@@ -805,7 +706,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_SetInitial_System_Int32_System_Boolean_" data-uid="Automata.Core.NFA.SetInitial(System.Int32,System.Boolean)">
   SetInitial(int, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the specified state as an initial state or removes it from the initial states.</p>
@@ -841,7 +742,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_ToDFA" data-uid="Automata.Core.NFA.ToDFA">
   ToDFA()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L253"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a NFA to a DFA.</p>
@@ -877,7 +778,7 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="Automata_Core_NFA_ToMinimizedDFA" data-uid="Automata.Core.NFA.ToMinimizedDFA">
   ToMinimizedDFA()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the NFA to a minimized DFA.</p>
@@ -902,6 +803,144 @@ Class NFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
+
+
+
+
+  <a id="Automata_Core_NFA_UnionWith_" data-uid="Automata.Core.NFA.UnionWith*"></a>
+
+  <h3 id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.NFA.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">
+  UnionWith(IEnumerable&lt;EpsilonTransition&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds multiple epsilon transitions to the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnionWith(IEnumerable&lt;EpsilonTransition&gt; transitions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</dt>
+    <dd><p>The transitions to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_NFA_UnionWith_" data-uid="Automata.Core.NFA.UnionWith*"></a>
+
+  <h3 id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__" data-uid="Automata.Core.NFA.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})">
+  UnionWith(IEnumerable&lt;SymbolicTransition&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds multiple symbolic transitions to the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnionWith(IEnumerable&lt;SymbolicTransition&gt; transitions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a>&gt;</dt>
+    <dd><p>The transitions to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_NFA_UnionWith_" data-uid="Automata.Core.NFA.UnionWith*"></a>
+
+  <h3 id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.NFA.UnionWith(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">
+  UnionWith(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a set of sequences to be accepted by the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnionWith(IEnumerable&lt;IEnumerable&lt;string&gt;&gt; sequences)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequences</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd><p>The sequences to add to the NFA.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
+</div>
+
+
+
+
+  <a id="Automata_Core_NFA_UnionWith_" data-uid="Automata.Core.NFA.UnionWith*"></a>
+
+  <h3 id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.NFA.UnionWith(System.Collections.Generic.IEnumerable{System.String})">
+  UnionWith(IEnumerable&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/NFA.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sequence of symbols to be accepted by the NFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnionWith(IEnumerable&lt;string&gt; sequence)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequence</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The sequence of symbols to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Automata_Core_NFA_UnionWith_System_Collections_Generic_IEnumerable_System_String___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
+</div>
 
 
 

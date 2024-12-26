@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SymbolicTransitionSet | AutomataDocs ">
       
-      <meta name="description" content="Represents a set of symbolic transitions (non-epsilon transitions).">
+      <meta name="description" content="Represents a mutable set of  for fast lookup and retrieval.">
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -75,7 +75,7 @@
 
 
   <h1 id="Automata_Core_SymbolicTransitionSet" data-uid="Automata.Core.SymbolicTransitionSet" class="text-break">
-Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -83,7 +83,7 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
   <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a set of symbolic transitions (non-epsilon transitions).</p>
+  <div class="markdown summary"><p>Represents a mutable set of <a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a> for fast lookup and retrieval.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -109,7 +109,7 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderDefault">TransitionSet&lt;SymbolicTransition&gt;.orderDefault</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByFromState">TransitionSet&lt;SymbolicTransition&gt;.orderByFromState</a>
     </div>
     <div>
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByToState">TransitionSet&lt;SymbolicTransition&gt;.orderByToState</a>
@@ -121,10 +121,13 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Add__0_">TransitionSet&lt;SymbolicTransition&gt;.Add(SymbolicTransition)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_AddAll_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;SymbolicTransition&gt;.AddAll(IEnumerable&lt;SymbolicTransition&gt;)</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove__0_">TransitionSet&lt;SymbolicTransition&gt;.Remove(SymbolicTransition)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove__0_">TransitionSet&lt;SymbolicTransition&gt;.Remove(SymbolicTransition)</a>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_UnionWith_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;SymbolicTransition&gt;.UnionWith(IEnumerable&lt;SymbolicTransition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_ExceptWith_System_Collections_Generic_IEnumerable__0__">TransitionSet&lt;SymbolicTransition&gt;.ExceptWith(IEnumerable&lt;SymbolicTransition&gt;)</a>
     </div>
     <div>
       <a class="xref" href="Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MinState">TransitionSet&lt;SymbolicTransition&gt;.MinState</a>
@@ -161,6 +164,11 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
 
 
 
+  <h2 id="Automata_Core_SymbolicTransitionSet_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Internally, this class maintains two ordered sets with the exact same set of transitions,
+but with different sort orders. One set is ordered so that all from-states are ordered are consecutive and increasing,
+<p>and the other set is ordered where all to-states are consecutive and increasing.</p><p>That enables fast retrieval of transitions either <code>from</code> or <code>to</code> a certain state, respectively.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -169,12 +177,40 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
 
   <a id="Automata_Core_SymbolicTransitionSet__ctor_" data-uid="Automata.Core.SymbolicTransitionSet.#ctor*"></a>
 
-  <h3 id="Automata_Core_SymbolicTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__" data-uid="Automata.Core.SymbolicTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})">
-  SymbolicTransitionSet(IEnumerable&lt;SymbolicTransition&gt;)
+  <h3 id="Automata_Core_SymbolicTransitionSet__ctor" data-uid="Automata.Core.SymbolicTransitionSet.#ctor">
+  SymbolicTransitionSet()
   <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new empty set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolicTransitionSet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_SymbolicTransitionSet__ctor_" data-uid="Automata.Core.SymbolicTransitionSet.#ctor*"></a>
+
+  <h3 id="Automata_Core_SymbolicTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__" data-uid="Automata.Core.SymbolicTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})">
+  SymbolicTransitionSet(IEnumerable&lt;SymbolicTransition&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new set with an initial set of transitions.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -184,7 +220,8 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>initialTransitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Initial transitions to populate with.</p>
+</dd>
   </dl>
 
 
@@ -206,7 +243,7 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
 
   <h3 id="Automata_Core_SymbolicTransitionSet_GetAvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.SymbolicTransitionSet.GetAvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})">
   GetAvailableSymbols(IEnumerable&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the set of symbols that can be used to transition directly from the given states.</p>
@@ -245,7 +282,7 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
 
   <h3 id="Automata_Core_SymbolicTransitionSet_ReachableStates_System_Int32_System_Int32_" data-uid="Automata.Core.SymbolicTransitionSet.ReachableStates(System.Int32,System.Int32)">
   ReachableStates(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the states reachable from the given state on the given symbol.</p>
@@ -287,7 +324,7 @@ Class SymbolicTransitionSet  <a class="header-action link-secondary" title="View
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/SymbolicTransitionSet.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 
