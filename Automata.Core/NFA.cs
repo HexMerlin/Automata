@@ -107,7 +107,7 @@ public class NFA : IFsa
     public void AddAll(IEnumerable<EpsilonTransition> transitions) => epsilonTransitions.AddAll(transitions);
 
     /// <summary>
-    /// Adds a sequence of symbols to the NFA.
+    /// Adds a sequence of symbols to be accepted by the NFA.
     /// </summary>
     /// <remarks>
     /// Any missing symbols in the alphabet will be added to the alphabet.
