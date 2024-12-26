@@ -12,8 +12,8 @@
     <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; msagl</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>Updated to core libary 1.0.2</PackageReleaseNotes>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>Minor improvements and API updates</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
