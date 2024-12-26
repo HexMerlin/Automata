@@ -1,4 +1,5 @@
 ﻿using System.Transactions;
+using System.Xml.Schema;
 
 namespace Automata.Core;
 
@@ -14,7 +15,7 @@ public class DFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly Dictionary<long, int> transitions = [];
+    private readonly DeterministicTransitionSet transitions = new();
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
@@ -46,8 +47,7 @@ public class DFA : IFsa
     {
         SetInitial(initialState);
         this.finalStates.UnionWith(finalStates);
-        foreach (SymbolicTransition transition in transitions)
-            AddTransition(transition);
+        this.transitions.UnionWith(transitions);
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ public class DFA : IFsa
     /// Gets the transitions of the DFA.
     /// </summary>
     public IEnumerable<SymbolicTransition> SymbolicTransitions()
-        => transitions.Select(kvp => new SymbolicTransition(Split(kvp.Key).Item1, Split(kvp.Key).Item2, kvp.Value));
+        => transitions.Transitions();
 
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.
@@ -109,22 +109,9 @@ public class DFA : IFsa
     /// </summary>
     /// <remarks>If a transition with the same from-state and the same symbol already exists, that transition will be replaced.</remarks>
     /// <param name="transition">The transition to add.</param>
-    public void AddTransition(SymbolicTransition transition)
-    {
-        long key = Merge(transition.FromState, transition.Symbol);
-        if (transitions.TryGetValue(key, out int toState))  //a transition with the same from-state and symbol already exists
-        {
-            if (toState == transition.ToState) return; //the same transition already exists, we are done
-            RemoveTransition(transition); //an existing transition with a different to-state exists, remove it
-        }
-        transitions.Add(key, transition.ToState);
-    }
+    public void AddTransition(SymbolicTransition transition) => transitions.Add(transition);
 
-    public bool RemoveTransition(SymbolicTransition transition)
-    {
-        long key = Merge(transition.FromState, transition.Symbol);
-        return transitions.Remove(key);
-    }
+    public void RemoveTransition(SymbolicTransition transition) => transitions.Remove(transition);
 
     /// <summary>
     /// Minimizes the DFA.
@@ -167,25 +154,10 @@ public class DFA : IFsa
             if (symbolIndex == Constants.InvalidSymbolIndex)
                 return false;
 
-            long key = Merge(state, symbolIndex);
-            if (!transitions.TryGetValue(key, out state))
+            state = transitions.ReachableState(state, symbolIndex);
+            if (state == Constants.InvalidState)
                 return false;
         }
         return IsFinal(state);
     }
-
-    /// <summary>
-    /// Merges two signed integers into a single signed 64-bit value.
-    /// </summary>
-    /// <param name="a">The first signed 32-bit integer.</param>
-    /// <param name="b">The second signed 32-bit integer.</param>
-    /// <returns>A signed 64-bit value representing the merged integers.</returns>
-    private static long Merge(int a, int b) => ((long)a << 32) | ((long)b & 0xFFFFFFFFL);
-
-    /// <summary>
-    /// Splits a signed 64-bit value into two signed 32-bit integers.
-    /// </summary>
-    /// <param name="value">The signed 64-bit value to split.</param>
-    /// <returns>A tuple containing the two signed 32-bit integers.</returns>
-    private static (int, int) Split(long value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
 }

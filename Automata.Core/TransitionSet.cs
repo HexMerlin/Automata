@@ -95,5 +95,6 @@ public class TransitionSet<T> where T : struct, ITransition<T>
 
     /// <returns>The set of transitions in the default order.</returns>
     public IReadOnlySet<T> Transitions() => orderByFromState;
+
 }
 
