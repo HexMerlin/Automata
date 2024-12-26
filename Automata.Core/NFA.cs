@@ -8,7 +8,7 @@
 /// <para>In addition, there are two sets defining the initial states and final states respectively.</para>
 /// <para>NFAs (in contrast to DFAs) can have multiple initial states.</para>
 /// </remarks>
-public class NFA : IFsa
+public class Nfa : IFsa
 {
     #region Data
     /// <summary>
@@ -24,22 +24,22 @@ public class NFA : IFsa
     #endregion
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="NFA"/> class with an empty alphabet.
+    /// Initializes a new instance of the <see cref="Nfa"/> class with an empty alphabet.
     /// </summary>
-    public NFA() : this(new Alphabet()) { }
+    public Nfa() : this(new Alphabet()) { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="NFA"/> class with the specified alphabet.
+    /// Initializes a new instance of the <see cref="Nfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the NFA.</param>
-    public NFA(Alphabet alphabet) => this.Alphabet = alphabet;
+    public Nfa(Alphabet alphabet) => this.Alphabet = alphabet;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="NFA"/> class from a DFA.
+    /// Initializes a new instance of the <see cref="Nfa"/> class from a DFA.
     /// </summary>
     /// <param name="dfa">The DFA to convert to an NFA.</param>
     /// <param name="applyReverseOperation">Iff <c>true</c>, the DFA is reversed.</param>
-    internal NFA(DFA dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
+    internal Nfa(Dfa dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
     {
         if (applyReverseOperation)
         {
@@ -56,10 +56,10 @@ public class NFA : IFsa
     }
 
     /// <summary>
-    /// Initializes a new instance of a <see cref="NFA"/> class to accept a set of sequences.
+    /// Initializes a new instance of a <see cref="Nfa"/> class to accept a set of sequences.
     /// </summary>
     /// <param name="sequences">The sequences to add to the NFA.</param>
-    public NFA(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
+    public Nfa(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
 
     /// <summary>
     /// Adds a symbolic (= non-epsilon) transition to the NFA.
@@ -196,7 +196,7 @@ public class NFA : IFsa
     /// Converts the NFA to a minimized DFA.
     /// </summary>
     /// <returns>A minimized DFA representing the NFA.</returns>
-    public DFA ToMinimizedDFA() => ToDFA().Minimized();
+    public Dfa ToMinimizedDFA() => ToDfa().Minimized();
 
     /// <summary>
     /// O(1) retrieval of the minimal state (state with the minimal value) in the NFA.
@@ -250,7 +250,7 @@ public class NFA : IFsa
     /// </summary>
     /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
     /// <returns>A DFA representing the NFA.</returns>
-    public DFA ToDFA()
+    public Dfa ToDfa()
     {
         List<SymbolicTransition> dfaTransitions = [];
         HashSet<int> dfaFinalStates = [];
@@ -276,7 +276,7 @@ public class NFA : IFsa
                 dfaTransitions.Add(new SymbolicTransition(dfaFromState, symbol, dfaToState));
             }
         }
-        return new DFA(Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
+        return new Dfa(Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
 
         int GetOrAddState(IntSet combinedState)
         {

@@ -37,16 +37,16 @@ var sequences = Enumerable.Range(0, 10)
     .Select(_ => Random.Shared.Next(4).ToString()));
 
 // Create an empty NFA.
-NFA nfa = new NFA();  
+NFA nfa = new Nfa();  
 
 // Add all sequences to the NFA
 nfa.AddAll(sequences);
 
 // Determinize the NFA to a DFA
-DFA dfa = nfa.ToDFA();
+Dfa dfa = nfa.ToDfa();
 
 // Minimize the DFA
-DFA minDFA = dfa.Minimized();
+Dfa minDfa = dfa.Minimized();
 ```
 ---
 ## :framed_picture: Automata.Visualization: Automata.Core + Visualization
@@ -65,7 +65,7 @@ Console.WriteLine("Creating graph."); // Write some text output to the console w
 
 var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences of strings
 
-IFsa fsa = new NFA(sequences).ToDFA().Minimized();
+IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
         
 Graph graph = GraphFactory.CreateGraph(fsa); // Create a graph object from the automaton
 

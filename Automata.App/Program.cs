@@ -16,7 +16,7 @@ public static class Program
 
         var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences
 
-        IFsa fsa = new NFA(sequences).ToDFA().Minimized();
+        IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
 
         Graph graph = GraphFactory.CreateGraph(fsa); // Create a graph object to display using the sequences
 

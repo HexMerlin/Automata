@@ -16,9 +16,9 @@ public static class GraphFactory
     /// <returns>A graph representing the finite state automaton.</returns>
     public static Graph CreateGraph(IEnumerable<IEnumerable<string>> sequences, bool minimize = true)
     {
-        NFA nfa = new NFA(sequences); //create an NFA from the sequences
+        Nfa nfa = new Nfa(sequences); //create an NFA from the sequences
 
-        var dfa = nfa.ToDFA(); //determinize to DFA
+        var dfa = nfa.ToDfa(); //determinize to DFA
         if (minimize)
             dfa = dfa.Minimized(); //minimize the DFA
 

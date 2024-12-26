@@ -7,7 +7,7 @@ namespace Automata.Core;
 /// Represents a deterministic finite automaton (DFA).
 /// </summary>
 /// <remarks>A DFA is always deterministic and epsilon free. </remarks>
-public class DFA : IFsa
+public class Dfa : IFsa
 {
     #region Data
     /// <summary>
@@ -26,24 +26,24 @@ public class DFA : IFsa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DFA"/> class with an empty alphabet.
+    /// Initializes a new instance of the <see cref="Dfa"/> class with an empty alphabet.
     /// </summary>
-    public DFA() : this(new Alphabet()) { }
+    public Dfa() : this(new Alphabet()) { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DFA"/> class with the specified alphabet.
+    /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the DFA.</param>
-    public DFA(Alphabet alphabet) => Alphabet = alphabet;
+    public Dfa(Alphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DFA"/> class with the specified alphabet, transitions, initial state, and final states.
+    /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the DFA.</param>
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    public DFA(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    public Dfa(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
         this.finalStates.UnionWith(finalStates);
@@ -118,23 +118,23 @@ public class DFA : IFsa
     /// </summary>
     /// <remarks>Uses Brzozowski's algorithm</remarks>
     /// <returns>A minimized DFA.</returns>
-    public DFA Minimized()
+    public Dfa Minimized()
     {
-        DFA reversed = Reversed().ToDFA();
-        return reversed.Reversed().ToDFA();
+        Dfa reversed = Reversed().ToDfa();
+        return reversed.Reversed().ToDfa();
     }
 
     /// <summary>
     /// Reverses the DFA.
     /// </summary>
     /// <returns>An NFA representing the reversed DFA.</returns>
-    public NFA Reversed() => new(this, applyReverseOperation: true);
+    public Nfa Reversed() => new(this, applyReverseOperation: true);
 
     /// <summary>
     /// Converts the DFA to an NFA.
     /// </summary>
     /// <returns>An NFA representing the DFA.</returns>
-    public NFA ToNFA() => new(this);
+    public Nfa ToNFA() => new(this);
 
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.
