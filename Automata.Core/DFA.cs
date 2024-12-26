@@ -12,7 +12,7 @@ public class DFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly Dictionary<long, int> transitions = [];
+    private readonly Dictionary<StateSymbolPair, int> transitions = [];
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
@@ -105,11 +105,12 @@ public class DFA : IFsa
     /// <summary>
     /// Adds a transition to the DFA.
     /// </summary>
+    /// <remarks>If a transition with the same from-state and the same symbol already exists, that transition will be replaced.</remarks>
     /// <param name="transition">The transition to add.</param>
     public void AddTransition(SymbolicTransition transition)
     {
-        long key = Merge(transition.FromState, transition.Symbol);
-        transitions.Add(key, transition.ToState);
+        StateSymbolPair key = Merge(transition.FromState, transition.Symbol);
+        transitions[key] = transition.ToState;
     }
 
     /// <summary>
@@ -136,17 +137,17 @@ public class DFA : IFsa
     public NFA ToNFA() => new(this);
 
     /// <summary>
-    /// Merges two integers into a single long value.
+    /// Merges two signed integers into a single signed 64-bit value.
     /// </summary>
-    /// <param name="a">The first integer.</param>
-    /// <param name="b">The second integer.</param>
-    /// <returns>A long value representing the merged integers.</returns>
-    private static long Merge(int a, int b) => (long)a << 32 | (uint)b;
+    /// <param name="a">The first signed 32-bit integer.</param>
+    /// <param name="b">The second signed 32-bit integer.</param>
+    /// <returns>A signed 64-bit value representing the merged integers.</returns>
+    public static StateSymbolPair Merge(int a, int b) => ((StateSymbolPair)a << 32) | ((StateSymbolPair)b & 0xFFFFFFFFL);
 
     /// <summary>
-    /// Splits a long value into two integers.
+    /// Splits a signed 64-bit value into two signed 32-bit integers.
     /// </summary>
-    /// <param name="value">The long value to split.</param>
-    /// <returns>A tuple containing the two integers.</returns>
-    private static (int, int) Split(long value) => ((int)(value >> 32), (int)value);
+    /// <param name="value">The signed 64-bit value to split.</param>
+    /// <returns>A tuple containing the two signed 32-bit integers.</returns>
+    public static (int, int) Split(StateSymbolPair value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
 }

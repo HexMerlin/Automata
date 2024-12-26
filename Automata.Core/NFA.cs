@@ -16,25 +16,23 @@ public class NFA : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly SymbolicTransitionSet symbolicTransitions;
-    private readonly EpsilonTransitionSet epsilonTransitions;
- 
-    private readonly SortedSet<int> initialStates;
-    private readonly SortedSet<int> finalStates;
+    private readonly SymbolicTransitionSet symbolicTransitions = new();
+    private readonly EpsilonTransitionSet epsilonTransitions = new();
+
+    private readonly SortedSet<int> initialStates = [];
+    private readonly SortedSet<int> finalStates = [];
     #endregion
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NFA"/> class with an empty alphabet.
     /// </summary>
-    public NFA() : this(new Alphabet())
-    { }
+    public NFA() : this(new Alphabet()) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NFA"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the NFA.</param>
-    public NFA(Alphabet alphabet) : this(alphabet, [], [], [], [])
-    { }
+    public NFA(Alphabet alphabet) => this.Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NFA"/> class from a DFA.
@@ -43,8 +41,6 @@ public class NFA : IFsa
     /// <param name="applyReverseOperation">Iff <c>true</c>, the DFA is reversed.</param>
     internal NFA(DFA dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
     {
-        this.Alphabet = dfa.Alphabet;
-
         if (applyReverseOperation)
         {
             UnionWith(dfa.Transitions.Select(t => t.Reverse()));
@@ -60,27 +56,10 @@ public class NFA : IFsa
     }
 
     /// <summary>
-    /// Initializes a new instance of a <see cref="NFA"/> class from a set of sequences.
+    /// Initializes a new instance of a <see cref="NFA"/> class to accept a set of sequences.
     /// </summary>
     /// <param name="sequences">The sequences to add to the NFA.</param>
     public NFA(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="NFA"/> class with the specified parameters.
-    /// </summary>
-    /// <param name="alphabet">The alphabet used by the NFA.</param>
-    /// <param name="symbolicTransitions">The symbolic (non-epsilon) transitions of the NFA.</param>
-    /// <param name="epsilonTransitions">The epsilon transitions of the NFA.</param>
-    /// <param name="initialStates">The initial states of the NFA.</param>
-    /// <param name="finalStates">The final states of the NFA.</param>
-    private NFA(Alphabet alphabet, IEnumerable<SymbolicTransition> symbolicTransitions, IEnumerable<EpsilonTransition> epsilonTransitions, IEnumerable<int> initialStates, IEnumerable<int> finalStates)
-    {
-        this.Alphabet = alphabet;
-        this.symbolicTransitions = new (symbolicTransitions);
-        this.epsilonTransitions = new (epsilonTransitions);
-        this.initialStates = [.. initialStates];
-        this.finalStates = [.. finalStates];
-    }
 
     /// <summary>
     /// Adds a symbolic (= non-epsilon) transition to the NFA.
@@ -115,17 +94,13 @@ public class NFA : IFsa
     /// <param name="sequence">The sequence of symbols to add.</param>
     public void UnionWith(IEnumerable<string> sequence)
     {
-        int maxState = MaxState;
-
-        SetInitial(++maxState);
-
-        int fromState = maxState;
-
+        int fromState = MaxState;
+        SetInitial(++fromState); //create a new initial state
+       
         foreach (string symbol in sequence)
         {
             SymbolicTransition transition = new SymbolicTransition(fromState, Alphabet.GetOrAdd(symbol), ++fromState);
             symbolicTransitions.Add(transition);
-           
         }
         finalStates.Add(fromState);
     }
