@@ -74,7 +74,7 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     }
 
     /// <summary>
-    /// Fast retrieval of the minimum state referenced by any transition in the set.
+    /// O(1) retrieval of the minimum state referenced by any transition in the set.
     /// </summary>
     /// <remarks>The minimum state is either a state that occurs as a FromState or ToState. 
     /// <para>Efficiently, we retrieve the minimum FromState from the set ordered by FromState,</para>
@@ -84,7 +84,7 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     public int MinState => Count > 0 ? Math.Min(orderByFromState.Min.FromState, orderByToState.Min.ToState) : Constants.InvalidState;
 
     /// <summary>
-    /// Fast retrieval of the maximum state referenced by any transition in the set.
+    /// O(1) retrieval of the maximum state referenced by any transition in the set.
     /// </summary>
     /// <remarks>The maximum state is either a state that occurs as a FromState or ToState. 
     /// <para>Efficiently, we retrieve the maximum FromState from the set ordered by FromState,</para>
