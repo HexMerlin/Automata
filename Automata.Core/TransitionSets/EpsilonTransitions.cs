@@ -1,4 +1,4 @@
-﻿namespace Automata.Core;
+﻿namespace Automata.Core.TransitionSets;
 
 /// <summary>
 /// Represents a mutable set of <see cref="EpsilonTransition"/> for fast lookup and retrieval.
@@ -8,13 +8,13 @@
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
 /// </remarks>
-public class EpsilonTransitionSet : TransitionSet<EpsilonTransition>
+public class EpsilonTransitions : Transitions<EpsilonTransition>
 {
     ///<inheritdoc/>
-    public EpsilonTransitionSet() : base() { }
+    public EpsilonTransitions() : base() { }
 
     ///<inheritdoc/>
-    public EpsilonTransitionSet(IEnumerable<EpsilonTransition> initialTransitions) : base(initialTransitions) { }
+    public EpsilonTransitions(IEnumerable<EpsilonTransition> initialTransitions) : base(initialTransitions) { }
 
     /// <summary>
     /// Returns the states reachable from the given state on a single epsilon transition.
@@ -39,10 +39,8 @@ public class EpsilonTransitionSet : TransitionSet<EpsilonTransition>
             int state = queue.Dequeue();
             IEnumerable<int> newStates = ReachableStatesOnSingleEpsilon(state);
             foreach (var newState in newStates)
-            {
                 if (fromStates.Add(newState))
                     queue.Enqueue(newState);
-            }
         }
     }
 }

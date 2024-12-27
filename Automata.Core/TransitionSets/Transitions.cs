@@ -1,4 +1,7 @@
-﻿namespace Automata.Core;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
+
+namespace Automata.Core.TransitionSets;
 
 /// <summary>
 /// Represents a generic mutable set of transitions for fast lookup and retrieval.
@@ -12,7 +15,7 @@
 /// <seealso cref="ITransition{T}"/>
 /// <seealso cref="SymbolicTransition"/>
 /// <seealso cref="EpsilonTransition"/>
-public class TransitionSet<T> where T : struct, ITransition<T>
+public class Transitions<T> : IReadOnlyCollection<T> where T : struct, ITransition<T>
 {
     protected readonly SortedSet<T> orderByFromState = new();
     protected readonly SortedSet<T> orderByToState = new(T.CompareByToState());
@@ -20,13 +23,13 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     /// <summary>
     /// Initializes a new empty set.
     /// </summary>
-    public TransitionSet() { }
+    public Transitions() { }
 
     /// <summary>
     /// Initializes a new set with an initial set of transitions.
     /// </summary>
     /// <param name="initialTransitions">Initial transitions to populate with.</param>
-    public TransitionSet(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
+    public Transitions(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
 
     /// <summary>
     /// Returns the number of transitions in the set.
@@ -42,7 +45,7 @@ public class TransitionSet<T> where T : struct, ITransition<T>
         orderByFromState.Add(transition);
         orderByToState.Add(transition);
     }
-    
+
     /// <summary>
     /// Removes a transition from the set.
     /// </summary>
@@ -93,8 +96,8 @@ public class TransitionSet<T> where T : struct, ITransition<T>
     /// <returns>The maximum state referenced by any transition in the set, or <see cref="Constants.InvalidState"/> if the set was empty</returns>
     public int MaxState => Count > 0 ? Math.Max(orderByFromState.Max.FromState, orderByToState.Max.ToState) : Constants.InvalidState;
 
-    /// <returns>The set of transitions in the default order.</returns>
-    public IReadOnlySet<T> Transitions() => orderByFromState;
+    public IEnumerator<T> GetEnumerator() => orderByFromState.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 }
 

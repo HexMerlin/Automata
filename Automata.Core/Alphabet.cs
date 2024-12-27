@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using System;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Represents an alphabet used in a finite state automaton.
@@ -15,6 +17,12 @@ public class Alphabet
     /// Initializes a new instance of the <see cref="Alphabet"/> class.
     /// </summary>
     public Alphabet() { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Alphabet"/> class with the specified symbols.
+    /// </summary>
+    /// <param name="symbols">The symbols to initialize the alphabet with.</param>
+    public Alphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
 
     /// <summary>
     /// Gets the number of symbols in the alphabet.
@@ -37,7 +45,7 @@ public class Alphabet
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     /// <summary>
-    /// Gets the index of the specified symbol, adding it to the alphabet if it does not already exist.
+    /// Gets the index of the specified symbol or adds it if it does not exist.
     /// </summary>
     /// <param name="symbol">The symbol to get or add.</param>
     /// <returns>The index of the specified symbol.</returns>
@@ -49,5 +57,15 @@ public class Alphabet
         stringToIndexMap[symbol] = index;
         indexToStringMap.Add(symbol);
         return index;
+    }
+
+    /// <summary>
+    /// Adds all the specified symbols to the alphabet, that are not already present.
+    /// </summary>
+    /// <param name="symbols">The symbols to add.</param>
+    public void AddAll(IEnumerable<string> symbols)
+    {
+        foreach (string symbol in symbols)
+            GetOrAdd(symbol);
     }
 }

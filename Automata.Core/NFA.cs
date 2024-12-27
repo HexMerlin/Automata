@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using Automata.Core.TransitionSets;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Represents a nondeterministic finite automaton (NFA).
@@ -16,8 +18,8 @@ public class Nfa : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly SymbolicTransitionSet symbolicTransitions = new();
-    private readonly EpsilonTransitionSet epsilonTransitions = new();
+    private readonly SymbolicTransitions symbolicTransitions = new();
+    private readonly EpsilonTransitions epsilonTransitions = new();
 
     private readonly SortedSet<int> initialStates = [];
     private readonly SortedSet<int> finalStates = [];
@@ -188,9 +190,9 @@ public class Nfa : IFsa
     /// </summary>
     public bool EpsilonFree => symbolicTransitions.Count == 0;
 
-    IEnumerable<SymbolicTransition> IFsa.SymbolicTransitions() => symbolicTransitions.Transitions();
+    IEnumerable<SymbolicTransition> IFsa.SymbolicTransitions() => symbolicTransitions;
 
-    IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions() => epsilonTransitions.Transitions();
+    IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions() => epsilonTransitions;
 
     /// <summary>
     /// Converts the NFA to a minimized DFA.

@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-src", "docs-src", "{02
 		docs-src\index.md = docs-src\index.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.CoreTests", "Automata.CoreTests\Automata.CoreTests.csproj", "{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

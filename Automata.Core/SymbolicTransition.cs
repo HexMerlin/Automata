@@ -12,15 +12,20 @@ public readonly record struct SymbolicTransition(int FromState, int Symbol, int 
     public static SymbolicTransition Invalid => new();
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="SymbolicTransition"/> struct with default values.
+    /// </summary>
+    public SymbolicTransition() : this(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState) {}
+
+    /// <summary>
+    /// Indicates whether the transition is invalid.
+    /// </summary>
+    public bool IsInvalid => FromState == Constants.InvalidState;
+
+    /// <summary>
     /// Reverses the transition.
     /// </summary>
     /// <returns>A new <see cref="SymbolicTransition"/> with the from and to states swapped.</returns>
     public SymbolicTransition Reverse() => new SymbolicTransition(ToState, Symbol, FromState);
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SymbolicTransition"/> struct with default values.
-    /// </summary>
-    public SymbolicTransition() : this(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState) {}
 
     /// <summary>
     /// Compares the current transition to another transition.

@@ -1,5 +1,7 @@
-﻿using System.Transactions;
+﻿using System.Collections;
+using System.Transactions;
 using System.Xml.Schema;
+using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
 
@@ -7,15 +9,13 @@ namespace Automata.Core;
 /// Represents a deterministic finite automaton (DFA).
 /// </summary>
 /// <remarks>A DFA is always deterministic and epsilon free. </remarks>
-public class Dfa : IFsa
+public class Dfa : DeterministicTransitions, IFsa
 {
     #region Data
     /// <summary>
     /// Gets the alphabet used by the DFA.
     /// </summary>
     public Alphabet Alphabet { get; }
-
-    private readonly DeterministicTransitionSet transitions = new();
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
@@ -47,21 +47,21 @@ public class Dfa : IFsa
     {
         SetInitial(initialState);
         this.finalStates.UnionWith(finalStates);
-        this.transitions.UnionWith(transitions);
+        this.UnionWith(transitions);
     }
 
     /// <summary>
     /// Sets the initial state of the DFA.
     /// </summary>
     /// <param name="state">The state to set as the initial state.</param>
-    private void SetInitial(int state) => InitialState = state;
+    public void SetInitial(int state) => InitialState = state;
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
     /// <param name="state">The state to set or remove as a final state.</param>
     /// <param name="final">If <c>true</c>, the state is added to the final states; otherwise, it is removed.</param>
-    private void SetFinal(int state, bool final = true)
+    public void SetFinal(int state, bool final = true)
     {
         if (final)
             finalStates.Add(state);
@@ -96,22 +96,12 @@ public class Dfa : IFsa
     /// <summary>
     /// Gets the transitions of the DFA.
     /// </summary>
-    public IEnumerable<SymbolicTransition> SymbolicTransitions()
-        => transitions.Transitions();
+    public IEnumerable<SymbolicTransition> SymbolicTransitions() => orderByFromState;
 
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
     public IEnumerable<EpsilonTransition> EpsilonTransitions() => [];
-
-    /// <summary>
-    /// Adds a transition to the DFA.
-    /// </summary>
-    /// <remarks>If a transition with the same from-state and the same symbol already exists, that transition will be replaced.</remarks>
-    /// <param name="transition">The transition to add.</param>
-    public void AddTransition(SymbolicTransition transition) => transitions.Add(transition);
-
-    public void RemoveTransition(SymbolicTransition transition) => transitions.Remove(transition);
 
     /// <summary>
     /// Minimizes the DFA.
@@ -154,10 +144,14 @@ public class Dfa : IFsa
             if (symbolIndex == Constants.InvalidSymbolIndex)
                 return false;
 
-            state = transitions.ReachableState(state, symbolIndex);
+            state = ReachableState(state, symbolIndex);
             if (state == Constants.InvalidState)
                 return false;
         }
         return IsFinal(state);
     }
+
+    
+
+
 }
