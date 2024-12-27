@@ -30,15 +30,15 @@ public static class DfaIntersection
             if (a.IsFinal(qA) && b.IsFinal(qB))
                 dfa.SetFinal(fromState);
 
-            SortedSet<SymbolicTransition> transitionsA = a.Transitions(qA);
-            SortedSet<SymbolicTransition> transitionsB = b.Transitions(qB);
-            foreach (SymbolicTransition tA in transitionsA)
+            SortedSet<Transition> transitionsA = a.Transitions(qA);
+            SortedSet<Transition> transitionsB = b.Transitions(qB);
+            foreach (Transition tA in transitionsA)
             {
                 string symbolAsString = a.Alphabet[tA.Symbol]; //get the symbol as a string, since we deal with different alphabets
                 int symB = b.Alphabet[symbolAsString]; //get the symbol in B's alphabet, if exists
                 if (symB == Constants.InvalidSymbolIndex)
                     continue; //symbol is not in B's alphabet so skip it
-                SymbolicTransition tB = transitionsB.Transition(qB, symB);
+                Transition tB = transitionsB.Transition(qB, symB);
                 if (tB.IsInvalid)
                     continue; //no corresponding transition in B, so skip it
 
@@ -50,7 +50,7 @@ public static class DfaIntersection
                     stateQueue.Enqueue(toStateLong); //enqueue the new state for processing
                 }
                 int symbol = dfa.Alphabet.GetOrAdd(symbolAsString);
-                dfa.Add(new SymbolicTransition(fromState, symbol, toState));
+                dfa.Add(new Transition(fromState, symbol, toState));
             }
         }
         return dfa;

@@ -46,7 +46,7 @@ public static class GraphFactory
             edge.Attr.ArrowheadAtTarget = directed ? ArrowStyle.Normal : ArrowStyle.None;
         }
 
-        foreach (SymbolicTransition transition in fsa.SymbolicTransitions())
+        foreach (Transition transition in fsa.SymbolicTransitions())
             AddEdge(transition.FromState, alphabet[transition.Symbol], transition.ToState);
         
         if (!fsa.EpsilonFree)

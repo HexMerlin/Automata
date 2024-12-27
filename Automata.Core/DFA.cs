@@ -43,7 +43,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    public Dfa(Alphabet alphabet, IEnumerable<SymbolicTransition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    public Dfa(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
         this.finalStates.UnionWith(finalStates);
@@ -84,7 +84,7 @@ public class Dfa : DeterministicTransitions, IFsa
     public bool IsFinal(int state) => finalStates.Contains(state);
 
     /// <summary>
-    /// Gets a value indicating whether the DFA is epsilon-free.
+    /// Indicates whether the DFA is epsilon-free. Always returns <see langref="true"/>.
     /// </summary>
     public bool EpsilonFree => true;
 
@@ -96,7 +96,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// <summary>
     /// Gets the transitions of the DFA.
     /// </summary>
-    public IEnumerable<SymbolicTransition> SymbolicTransitions() => orderByFromState;
+    public IEnumerable<Transition> SymbolicTransitions() => orderByFromState;
 
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.

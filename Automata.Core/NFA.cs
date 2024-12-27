@@ -18,7 +18,7 @@ public class Nfa : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly SymbolicTransitions symbolicTransitions = new();
+    private readonly NonDeterministicTransitions symbolicTransitions = new();
     private readonly EpsilonTransitions epsilonTransitions = new();
 
     private readonly SortedSet<int> initialStates = [];
@@ -67,7 +67,7 @@ public class Nfa : IFsa
     /// Adds a symbolic (= non-epsilon) transition to the NFA.
     /// </summary>
     /// <param name="transition">The transition to add.</param>
-    public void Add(SymbolicTransition transition) => symbolicTransitions.Add(transition);
+    public void Add(Transition transition) => symbolicTransitions.Add(transition);
 
     /// <summary>
     /// Adds an epsilon transition to the NFA.
@@ -79,7 +79,7 @@ public class Nfa : IFsa
     /// Adds multiple symbolic transitions to the NFA.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public void UnionWith(IEnumerable<SymbolicTransition> transitions) => symbolicTransitions.UnionWith(transitions);
+    public void UnionWith(IEnumerable<Transition> transitions) => symbolicTransitions.UnionWith(transitions);
     
     /// <summary>
     /// Adds multiple epsilon transitions to the NFA.
@@ -101,7 +101,7 @@ public class Nfa : IFsa
        
         foreach (string symbol in sequence)
         {
-            SymbolicTransition transition = new SymbolicTransition(fromState, Alphabet.GetOrAdd(symbol), ++fromState);
+            Transition transition = new Transition(fromState, Alphabet.GetOrAdd(symbol), ++fromState);
             symbolicTransitions.Add(transition);
         }
         finalStates.Add(fromState);
@@ -190,7 +190,7 @@ public class Nfa : IFsa
     /// </summary>
     public bool EpsilonFree => symbolicTransitions.Count == 0;
 
-    IEnumerable<SymbolicTransition> IFsa.SymbolicTransitions() => symbolicTransitions;
+    IEnumerable<Transition> IFsa.SymbolicTransitions() => symbolicTransitions;
 
     IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions() => epsilonTransitions;
 
@@ -254,7 +254,7 @@ public class Nfa : IFsa
     /// <returns>A DFA representing the NFA.</returns>
     public Dfa ToDfa()
     {
-        List<SymbolicTransition> dfaTransitions = [];
+        List<Transition> dfaTransitions = [];
         HashSet<int> dfaFinalStates = [];
 
         int dfaMaxState = Constants.InvalidState;
@@ -275,7 +275,7 @@ public class Nfa : IFsa
             {
                 IntSet toState = GetToStates(fromState, symbol);
                 int dfaToState = GetOrAddState(toState);
-                dfaTransitions.Add(new SymbolicTransition(dfaFromState, symbol, dfaToState));
+                dfaTransitions.Add(new Transition(dfaFromState, symbol, dfaToState));
             }
         }
         return new Dfa(Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);

@@ -1,4 +1,6 @@
-﻿namespace Automata.Core.TransitionSets;
+﻿using System.Runtime.CompilerServices;
+
+namespace Automata.Core.TransitionSets;
 
 /// <summary>
 /// Represents a mutable set of <see cref="EpsilonTransition"/> for fast lookup and retrieval.
@@ -8,7 +10,7 @@
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
 /// </remarks>
-public class EpsilonTransitions : Transitions<EpsilonTransition>
+public class EpsilonTransitions : TransitionsBase<EpsilonTransition>
 {
     ///<inheritdoc/>
     public EpsilonTransitions() : base() { }
@@ -23,7 +25,7 @@ public class EpsilonTransitions : Transitions<EpsilonTransition>
     /// <param name="fromState">The state from which to start.</param>
     /// <returns>The states reachable from the given state on a single epsilon transition.</returns>
     public IEnumerable<int> ReachableStatesOnSingleEpsilon(int fromState)
-        => orderByFromState.GetViewBetween(new EpsilonTransition(fromState, int.MinValue), new EpsilonTransition(fromState, int.MaxValue)).Select(t => t.ToState);
+        => orderByFromState.GetViewBetween(MinTrans(fromState), MaxTrans(fromState)).Select(t => t.ToState);
 
     /// <summary>
     /// Extends the set of states with their epsilon closure in place.
@@ -43,5 +45,13 @@ public class EpsilonTransitions : Transitions<EpsilonTransition>
                     queue.Enqueue(newState);
         }
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static EpsilonTransition MinTrans(int fromState) => new(fromState, int.MinValue);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static EpsilonTransition MaxTrans(int fromState) => new(fromState, int.MaxValue);
+
+
 }
 

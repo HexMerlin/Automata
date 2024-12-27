@@ -1,7 +1,7 @@
 ﻿namespace Automata.Core.TransitionSets;
 
 /// <summary>
-/// Represents a mutable set of <see cref="SymbolicTransition"/> for fast lookup and retrieval.
+/// Represents a mutable set of <see cref="Core.Transition"/> for fast lookup and retrieval.
 /// <para>This class enforces deterministic transitions, and allows no non-deterministic, duplicate or epsilon transitions.</para>
 /// </summary>
 /// <remarks>Internally, this class maintains two ordered sets with the exact same set of transitions, 
@@ -9,20 +9,20 @@
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
 /// </remarks>
-public class DeterministicTransitions : Transitions<SymbolicTransition>
+public class DeterministicTransitions : TransitionsBase<Transition>
 {
     ///<inheritdoc/>
     public DeterministicTransitions() : base() { }
 
     ///<inheritdoc/>
-    public DeterministicTransitions(IEnumerable<SymbolicTransition> initialTransitions) : base(initialTransitions) { }
+    public DeterministicTransitions(IEnumerable<Transition> initialTransitions) : base(initialTransitions) { }
 
     /// <summary>
     /// Adds a transition to the DFA.
     /// </summary>
     /// <remarks>If a transition with the same from-state and the same symbol already exists, that transition will be replaced.</remarks>
     /// <param name="transition">The transition to add.</param>
-    public override void Add(SymbolicTransition transition)
+    public override void Add(Transition transition)
     {
         int existingToState = ReachableState(transition.FromState, transition.Symbol);
         if (existingToState == transition.ToState)
@@ -36,19 +36,19 @@ public class DeterministicTransitions : Transitions<SymbolicTransition>
     /// Adds all provided transitions that are currently not present in set.
     /// </summary>
     /// <param name="transitions">The transitions to add.</param>
-    public override void UnionWith(IEnumerable<SymbolicTransition> transitions)
+    public override void UnionWith(IEnumerable<Transition> transitions)
     {
-        foreach (SymbolicTransition transition in transitions)
+        foreach (Transition transition in transitions)
             Add(transition);
     }
 
     /// <summary>
-    /// Returns the transition from the given state on the given symbol.
+    /// Returns the transition from the given state with the given symbol.
     /// </summary>
     /// <param name="fromState">The state from which to start.</param>
     /// <param name="symbol">The symbol to transition on.</param>
-    /// <returns>The transition from the given state on the given symbol, or <see cref="SymbolicTransition.Invalid"/> if no such transition exists.</returns>
-    public SymbolicTransition Transition(int fromState, int symbol)
+    /// <returns>The transition from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.</returns>
+    public Transition Transition(int fromState, int symbol)
        => orderByFromState.Transition(fromState, symbol);
 
     /// <summary>
@@ -56,7 +56,7 @@ public class DeterministicTransitions : Transitions<SymbolicTransition>
     /// </summary>
     /// <param name="fromState">The state from which to start.</param>
     /// <returns>The set of transitions from the given state.</returns>
-    public SortedSet<SymbolicTransition> Transitions(int fromState)
+    public SortedSet<Transition> Transitions(int fromState)
         => orderByFromState.Transitions(fromState);
 
     /// <summary>

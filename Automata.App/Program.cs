@@ -17,7 +17,7 @@ public static class Program
         Dfa dfa = new Dfa(a);
         dfa.SetInitial(0);
         dfa.SetFinal(0);
-        dfa.Add(new SymbolicTransition(0, 0, 0));
+        dfa.Add(new Transition(0, 0, 0));
         return dfa;
     }
 
@@ -29,9 +29,9 @@ public static class Program
         dfa.SetInitial(0);
         dfa.SetFinal(0);
         dfa.SetFinal(1);
-        dfa.Add(new SymbolicTransition(0, 0, 0));
-        dfa.Add(new SymbolicTransition(0, 1, 1));
-        dfa.Add(new SymbolicTransition(1, 1, 1));
+        dfa.Add(new Transition(0, 0, 0));
+        dfa.Add(new Transition(0, 1, 1));
+        dfa.Add(new Transition(1, 1, 1));
         return dfa;
     }
 
@@ -41,15 +41,15 @@ public static class Program
         Dfa dfa1 = new Dfa(a);
         dfa1.SetInitial(0);
         dfa1.SetFinal(0);
-        dfa1.Add(new SymbolicTransition(0, 0, 0));
-        dfa1.Add(new SymbolicTransition(0, 1, 0));
+        dfa1.Add(new Transition(0, 0, 0));
+        dfa1.Add(new Transition(0, 1, 0));
 
         Dfa dfa2 = new Dfa(a);
         dfa2.SetInitial(0);
         dfa2.SetFinal(2);
-        dfa2.Add(new SymbolicTransition(0, 0, 1));
-        dfa2.Add(new SymbolicTransition(0, 1, 1));
-        dfa2.Add(new SymbolicTransition(1, 1, 2));
+        dfa2.Add(new Transition(0, 0, 1));
+        dfa2.Add(new Transition(0, 1, 1));
+        dfa2.Add(new Transition(1, 1, 2));
 
         Dfa actual = dfa1.Intersection(dfa2);
 

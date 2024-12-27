@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.ObjectModel;
 
 namespace Automata.Core.TransitionSets;
 
@@ -11,11 +10,11 @@ namespace Automata.Core.TransitionSets;
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of all transitions from or to a certain state, respectively.</para>
 /// </remarks>
-/// <typeparam name="T">The type of transition, either <see cref="SymbolicTransition"/> or <see cref="EpsilonTransition"/>.</typeparam>
+/// <typeparam name="T">The type of transition, either <see cref="Transition"/> or <see cref="EpsilonTransition"/>.</typeparam>
 /// <seealso cref="ITransition{T}"/>
-/// <seealso cref="SymbolicTransition"/>
+/// <seealso cref="Transition"/>
 /// <seealso cref="EpsilonTransition"/>
-public class Transitions<T> : IReadOnlyCollection<T> where T : struct, ITransition<T>
+public class TransitionsBase<T> : IReadOnlyCollection<T> where T : struct, ITransition<T>
 {
     protected readonly SortedSet<T> orderByFromState = new();
     protected readonly SortedSet<T> orderByToState = new(T.CompareByToState());
@@ -23,13 +22,13 @@ public class Transitions<T> : IReadOnlyCollection<T> where T : struct, ITransiti
     /// <summary>
     /// Initializes a new empty set.
     /// </summary>
-    public Transitions() { }
+    public TransitionsBase() { }
 
     /// <summary>
     /// Initializes a new set with an initial set of transitions.
     /// </summary>
     /// <param name="initialTransitions">Initial transitions to populate with.</param>
-    public Transitions(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
+    public TransitionsBase(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
 
     /// <summary>
     /// Returns the number of transitions in the set.
