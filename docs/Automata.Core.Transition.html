@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct Transition | AutomataDocs ">
       
-      <meta name="description" content="Represents a non-epsilon transition in an automaton, defined by a starting state, a symbol, and an ending state.">
+      <meta name="description" content="Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.">
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -75,7 +75,7 @@
 
 
   <h1 id="Automata_Core_Transition" data-uid="Automata.Core.Transition" class="text-break">
-Struct Transition  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Struct Transition  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -83,12 +83,12 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a non-epsilon transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
+  <div class="markdown summary"><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly record struct Transition : IComparable&lt;Transition&gt;, IEquatable&lt;Transition&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly record struct Transition : ITransition&lt;Transition&gt;, IComparable&lt;Transition&gt;, IEquatable&lt;Transition&gt;</code></pre>
   </div>
 
 
@@ -98,6 +98,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="Automata.Core.ITransition-1.html">ITransition</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
     </dd>
@@ -114,9 +115,6 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
@@ -130,6 +128,9 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h2 id="Automata_Core_Transition_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -167,10 +168,10 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32_" data-uid="Automata.Core.Transition.#ctor(System.Int32,System.Int32,System.Int32)">
   Transition(int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Represents a non-epsilon transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
+  <div class="markdown level1 summary"><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -198,6 +199,9 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
+</div>
 
 
 
@@ -210,7 +214,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition_FromState" data-uid="Automata.Core.Transition.FromState">
   FromState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The state from which the transition starts.</p>
@@ -238,11 +242,75 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <a id="Automata_Core_Transition_Invalid_" data-uid="Automata.Core.Transition.Invalid*"></a>
+
+  <h3 id="Automata_Core_Transition_Invalid" data-uid="Automata.Core.Transition.Invalid">
+  Invalid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an invalid transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transition Invalid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Automata.Core.Transition.html">Transition</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_Transition_IsInvalid_" data-uid="Automata.Core.Transition.IsInvalid*"></a>
+
+  <h3 id="Automata_Core_Transition_IsInvalid" data-uid="Automata.Core.Transition.IsInvalid">
+  IsInvalid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the transition is invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInvalid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Automata_Core_Transition_Symbol_" data-uid="Automata.Core.Transition.Symbol*"></a>
 
   <h3 id="Automata_Core_Transition_Symbol" data-uid="Automata.Core.Transition.Symbol">
   Symbol
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The symbol that triggers the transition.</p>
@@ -274,7 +342,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition_ToState" data-uid="Automata.Core.Transition.ToState">
   ToState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The state to which the transition goes.</p>
@@ -310,7 +378,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition_CompareByToState" data-uid="Automata.Core.Transition.CompareByToState">
   CompareByToState()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a comparer that compares transitions by their to states.</p>
@@ -343,7 +411,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition_CompareTo_Automata_Core_Transition_" data-uid="Automata.Core.Transition.CompareTo(Automata.Core.Transition)">
   CompareTo(Transition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compares the current transition to another transition.</p>
@@ -382,7 +450,7 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Automata_Core_Transition_Reverse" data-uid="Automata.Core.Transition.Reverse">
   Reverse()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reverses the transition.</p>
@@ -411,11 +479,44 @@ Struct Transition  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <a id="Automata_Core_Transition_ToString_" data-uid="Automata.Core.Transition.ToString*"></a>
+
+  <h3 id="Automata_Core_Transition_ToString" data-uid="Automata.Core.Transition.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current transition.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

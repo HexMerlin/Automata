@@ -42,6 +42,56 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.Alphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabets.Alphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.CanonicalAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabets.CanonicalAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.IAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabets.IAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabets.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Cfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Cfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Constants.yml",
       "output": {
         ".html": {
@@ -56,6 +106,16 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.DFA.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.DfaIntersection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.DfaIntersection.html"
         }
       },
       "version": ""
@@ -142,6 +202,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.DfaIntersectionTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Tests.DfaIntersectionTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.DfaTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Tests.DfaTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Tests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Transition.yml",
       "output": {
         ".html": {
@@ -156,6 +246,76 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.TransitionSet-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.DeterministicTransitions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.DeterministicTransitions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.EpsilonTransitions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.EpsilonTransitions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.ImmutableTransitions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.ImmutableTransitions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.MutableTransitions-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.MutableTransitions-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.NonDeterministicTransitions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.NonDeterministicTransitions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.TransitionsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.TransitionsExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.TransitionSets.html"
         }
       },
       "version": ""

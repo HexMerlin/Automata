@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class DFA | AutomataDocs </title>
+      <title>Class Dfa | AutomataDocs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class DFA | AutomataDocs ">
+      <meta name="title" content="Class Dfa | AutomataDocs ">
       
       <meta name="description" content="Represents a deterministic finite automaton (DFA).">
       <link rel="icon" href="favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_DFA.md&amp;value=---%0Auid%3A%20Automata.Core.DFA%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -70,12 +70,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Automata.Core.DFA">
+        <article data-uid="Automata.Core.Dfa">
 
 
 
-  <h1 id="Automata_Core_DFA" data-uid="Automata.Core.DFA" class="text-break">
-Class DFA  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Automata_Core_Dfa" data-uid="Automata.Core.Dfa" class="text-break">
+Class Dfa  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -88,7 +88,7 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DFA : IFsa</code></pre>
+    <pre><code class="lang-csharp hljs">public class Dfa : DeterministicTransitions, IReadOnlyCollection&lt;Transition&gt;, IEnumerable&lt;Transition&gt;, IEnumerable, IFsa</code></pre>
   </div>
 
 
@@ -98,13 +98,18 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">DFA</span></div>
+      <div><a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html">MutableTransitions</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
+      <div><a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a></div>
+      <div><span class="xref">Dfa</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
       <div><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></div>
     </dd>
   </dl>
@@ -113,6 +118,51 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_Add_Automata_Core_Transition_">DeterministicTransitions.Add(Transition)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__">DeterministicTransitions.UnionWith(IEnumerable&lt;Transition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_Transition_System_Int32_System_Int32_">DeterministicTransitions.Transition(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_Transitions_System_Int32_">DeterministicTransitions.Transitions(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_ReachableState_System_Int32_System_Int32_">DeterministicTransitions.ReachableState(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_AvailableSymbols_System_Int32_">DeterministicTransitions.AvailableSymbols(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html#Automata_Core_TransitionSets_DeterministicTransitions_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__">DeterministicTransitions.AvailableSymbols(IEnumerable&lt;int&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_orderByFromState">MutableTransitions&lt;Transition&gt;.orderByFromState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_orderByToState">MutableTransitions&lt;Transition&gt;.orderByToState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_Count">MutableTransitions&lt;Transition&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_Remove__0_">MutableTransitions&lt;Transition&gt;.Remove(Transition)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_ExceptWith_System_Collections_Generic_IEnumerable__0__">MutableTransitions&lt;Transition&gt;.ExceptWith(IEnumerable&lt;Transition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_MinState">MutableTransitions&lt;Transition&gt;.MinState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_MaxState">MutableTransitions&lt;Transition&gt;.MaxState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html#Automata_Core_TransitionSets_MutableTransitions_1_GetEnumerator">MutableTransitions&lt;Transition&gt;.GetEnumerator()</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -136,10 +186,17 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Automata.Core.DfaIntersection.html#Automata_Core_DfaIntersection_Intersection_Automata_Core_Dfa_Automata_Core_Dfa_">DfaIntersection.Intersection(Dfa, Dfa)</a>
+  </div>
+  </dd></dl>
 
 
 
-  <h2 id="Automata_Core_DFA_remarks">Remarks</h2>
+  <h2 id="Automata_Core_Dfa_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>A DFA is always deterministic and epsilon free.</p>
 </div>
 
@@ -148,19 +205,19 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 </h2>
 
 
-  <a id="Automata_Core_DFA__ctor_" data-uid="Automata.Core.DFA.#ctor*"></a>
+  <a id="Automata_Core_Dfa__ctor_" data-uid="Automata.Core.Dfa.#ctor*"></a>
 
-  <h3 id="Automata_Core_DFA__ctor" data-uid="Automata.Core.DFA.#ctor">
-  DFA()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_Dfa__ctor" data-uid="Automata.Core.Dfa.#ctor">
+  Dfa()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.DFA.html">DFA</a> class with an empty alphabet.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.DFA.html">Dfa</a> class with an empty alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DFA()</code></pre>
+    <pre><code class="lang-csharp hljs">public Dfa()</code></pre>
   </div>
 
 
@@ -175,67 +232,25 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA__ctor_" data-uid="Automata.Core.DFA.#ctor*"></a>
+  <a id="Automata_Core_Dfa__ctor_" data-uid="Automata.Core.Dfa.#ctor*"></a>
 
-  <h3 id="Automata_Core_DFA__ctor_Automata_Core_Alphabet_" data-uid="Automata.Core.DFA.#ctor(Automata.Core.Alphabet)">
-  DFA(Alphabet)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_Dfa__ctor_Automata_Core_Alphabets_IAlphabet_" data-uid="Automata.Core.Dfa.#ctor(Automata.Core.Alphabets.IAlphabet)">
+  Dfa(IAlphabet)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.DFA.html">DFA</a> class with the specified alphabet.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.DFA.html">Dfa</a> class with the specified alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DFA(Alphabet alphabet)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>alphabet</code> <a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></dt>
-    <dd><p>The alphabet used by the DFA.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_DFA__ctor_" data-uid="Automata.Core.DFA.#ctor*"></a>
-
-  <h3 id="Automata_Core_DFA__ctor_Automata_Core_Alphabet_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__System_Int32_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.DFA.#ctor(Automata.Core.Alphabet,System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition},System.Int32,System.Collections.Generic.IEnumerable{System.Int32})">
-  DFA(Alphabet, IEnumerable&lt;SymbolicTransition&gt;, int, IEnumerable&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L43"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.DFA.html">DFA</a> class with the specified alphabet, transitions, initial state, and final states.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DFA(Alphabet alphabet, IEnumerable&lt;SymbolicTransition&gt; transitions, int initialState, IEnumerable&lt;int&gt; finalStates)</code></pre>
+    <pre><code class="lang-csharp hljs">public Dfa(IAlphabet alphabet)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>alphabet</code> <a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></dt>
+    <dt><code>alphabet</code> <a class="xref" href="Automata.Core.Alphabets.IAlphabet.html">IAlphabet</a></dt>
     <dd><p>The alphabet used by the DFA.</p>
-</dd>
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a>&gt;</dt>
-    <dd><p>The transitions of the DFA.</p>
-</dd>
-    <dt><code>initialState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The initial state of the DFA.</p>
-</dd>
-    <dt><code>finalStates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd><p>The final states of the DFA.</p>
 </dd>
   </dl>
 
@@ -254,11 +269,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 </h2>
 
 
-  <a id="Automata_Core_DFA_Alphabet_" data-uid="Automata.Core.DFA.Alphabet*"></a>
+  <a id="Automata_Core_Dfa_Alphabet_" data-uid="Automata.Core.Dfa.Alphabet*"></a>
 
-  <h3 id="Automata_Core_DFA_Alphabet" data-uid="Automata.Core.DFA.Alphabet">
+  <h3 id="Automata_Core_Dfa_Alphabet" data-uid="Automata.Core.Dfa.Alphabet">
   Alphabet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the alphabet used by the DFA.</p>
@@ -266,7 +281,7 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Alphabet Alphabet { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IAlphabet Alphabet { get; }</code></pre>
   </div>
 
 
@@ -275,7 +290,7 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></dt>
+    <dt><a class="xref" href="Automata.Core.Alphabets.IAlphabet.html">IAlphabet</a></dt>
     <dd></dd>
   </dl>
 
@@ -286,75 +301,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_EpsilonFree_" data-uid="Automata.Core.DFA.EpsilonFree*"></a>
+  <a id="Automata_Core_Dfa_FinalStates_" data-uid="Automata.Core.Dfa.FinalStates*"></a>
 
-  <h3 id="Automata_Core_DFA_EpsilonFree" data-uid="Automata.Core.DFA.EpsilonFree">
-  EpsilonFree
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L98"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the DFA is epsilon-free.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool EpsilonFree { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_DFA_EpsilonTransitions_" data-uid="Automata.Core.DFA.EpsilonTransitions*"></a>
-
-  <h3 id="Automata_Core_DFA_EpsilonTransitions" data-uid="Automata.Core.DFA.EpsilonTransitions">
-  EpsilonTransitions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L103"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the epsilon transitions of the DFA, which is always empty.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;EpsilonTransition&gt; EpsilonTransitions { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_DFA_FinalStates_" data-uid="Automata.Core.DFA.FinalStates*"></a>
-
-  <h3 id="Automata_Core_DFA_FinalStates" data-uid="Automata.Core.DFA.FinalStates">
+  <h3 id="Automata_Core_Dfa_FinalStates" data-uid="Automata.Core.Dfa.FinalStates">
   FinalStates
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the final states of the DFA.</p>
@@ -382,11 +333,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_InitialState_" data-uid="Automata.Core.DFA.InitialState*"></a>
+  <a id="Automata_Core_Dfa_InitialState_" data-uid="Automata.Core.Dfa.InitialState*"></a>
 
-  <h3 id="Automata_Core_DFA_InitialState" data-uid="Automata.Core.DFA.InitialState">
+  <h3 id="Automata_Core_Dfa_InitialState" data-uid="Automata.Core.Dfa.InitialState">
   InitialState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the initial state of the DFA.</p>
@@ -414,19 +365,19 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_Transitions_" data-uid="Automata.Core.DFA.Transitions*"></a>
+  <a id="Automata_Core_Dfa_IsEmpty_" data-uid="Automata.Core.Dfa.IsEmpty*"></a>
 
-  <h3 id="Automata_Core_DFA_Transitions" data-uid="Automata.Core.DFA.Transitions">
-  Transitions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_Dfa_IsEmpty" data-uid="Automata.Core.Dfa.IsEmpty">
+  IsEmpty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the transitions of the DFA.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the FSA is empty, meaning it has no states or transitions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;SymbolicTransition&gt; Transitions { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsEmpty { get; }</code></pre>
   </div>
 
 
@@ -435,7 +386,39 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_Dfa_IsEpsilonFree_" data-uid="Automata.Core.Dfa.IsEpsilonFree*"></a>
+
+  <h3 id="Automata_Core_Dfa_IsEpsilonFree" data-uid="Automata.Core.Dfa.IsEpsilonFree">
+  IsEpsilonFree
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the DFA is epsilon-free. Always returns <see langref="true"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEpsilonFree { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -450,25 +433,33 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 </h2>
 
 
-  <a id="Automata_Core_DFA_AddTransition_" data-uid="Automata.Core.DFA.AddTransition*"></a>
+  <a id="Automata_Core_Dfa_Accepts_" data-uid="Automata.Core.Dfa.Accepts*"></a>
 
-  <h3 id="Automata_Core_DFA_AddTransition_Automata_Core_SymbolicTransition_" data-uid="Automata.Core.DFA.AddTransition(Automata.Core.SymbolicTransition)">
-  AddTransition(SymbolicTransition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})">
+  Accepts(IEnumerable&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a transition to the DFA.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the DFA accepts the given sequence of symbols.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddTransition(SymbolicTransition transition)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Accepts(IEnumerable&lt;string&gt; sequence)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>transition</code> <a class="xref" href="Automata.Core.SymbolicTransition.html">SymbolicTransition</a></dt>
-    <dd><p>The transition to add.</p>
+    <dt><code>sequence</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The sequence of symbols to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><see langref="true"></see>
+<code>iff</code> the DFA accepts the sequence.</p>
 </dd>
   </dl>
 
@@ -478,19 +469,51 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-
-  <h4 class="section" id="Automata_Core_DFA_AddTransition_Automata_Core_SymbolicTransition__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>If a transition with the same from-state and the same symbol already exists, that transition will be replaced.</p>
+  <h4 class="section" id="Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
+If the DFA reaches a final state after processing all symbols, the sequence is accepted.</p>
 </div>
 
 
 
 
-  <a id="Automata_Core_DFA_IsFinal_" data-uid="Automata.Core.DFA.IsFinal*"></a>
+  <a id="Automata_Core_Dfa_EpsilonTransitions_" data-uid="Automata.Core.Dfa.EpsilonTransitions*"></a>
 
-  <h3 id="Automata_Core_DFA_IsFinal_System_Int32_" data-uid="Automata.Core.DFA.IsFinal(System.Int32)">
+  <h3 id="Automata_Core_Dfa_EpsilonTransitions" data-uid="Automata.Core.Dfa.EpsilonTransitions">
+  EpsilonTransitions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the epsilon transitions of the DFA, which is always empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;EpsilonTransition&gt; EpsilonTransitions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_Dfa_IsFinal_" data-uid="Automata.Core.Dfa.IsFinal*"></a>
+
+  <h3 id="Automata_Core_Dfa_IsFinal_System_Int32_" data-uid="Automata.Core.Dfa.IsFinal(System.Int32)">
   IsFinal(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified state is a final state.</p>
@@ -525,11 +548,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_IsInitial_" data-uid="Automata.Core.DFA.IsInitial*"></a>
+  <a id="Automata_Core_Dfa_IsInitial_" data-uid="Automata.Core.Dfa.IsInitial*"></a>
 
-  <h3 id="Automata_Core_DFA_IsInitial_System_Int32_" data-uid="Automata.Core.DFA.IsInitial(System.Int32)">
+  <h3 id="Automata_Core_Dfa_IsInitial_System_Int32_" data-uid="Automata.Core.Dfa.IsInitial(System.Int32)">
   IsInitial(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified state is the initial state.</p>
@@ -564,53 +587,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_Merge_" data-uid="Automata.Core.DFA.Merge*"></a>
+  <a id="Automata_Core_Dfa_Minimized_" data-uid="Automata.Core.Dfa.Minimized*"></a>
 
-  <h3 id="Automata_Core_DFA_Merge_System_Int32_System_Int32_" data-uid="Automata.Core.DFA.Merge(System.Int32,System.Int32)">
-  Merge(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L145"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Merges two signed integers into a single signed 64-bit value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static long Merge(int a, int b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The first signed 32-bit integer.</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The second signed 32-bit integer.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>A signed 64-bit value representing the merged integers.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_Core_DFA_Minimized_" data-uid="Automata.Core.DFA.Minimized*"></a>
-
-  <h3 id="Automata_Core_DFA_Minimized" data-uid="Automata.Core.DFA.Minimized">
+  <h3 id="Automata_Core_Dfa_Minimized" data-uid="Automata.Core.Dfa.Minimized">
   Minimized()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Minimizes the DFA.</p>
@@ -618,13 +599,13 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DFA Minimized()</code></pre>
+    <pre><code class="lang-csharp hljs">public Dfa Minimized()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.DFA.html">DFA</a></dt>
+    <dt><a class="xref" href="Automata.Core.DFA.html">Dfa</a></dt>
     <dd><p>A minimized DFA.</p>
 </dd>
   </dl>
@@ -635,18 +616,18 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <h4 class="section" id="Automata_Core_DFA_Minimized_remarks">Remarks</h4>
+  <h4 class="section" id="Automata_Core_Dfa_Minimized_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Uses Brzozowski's algorithm</p>
 </div>
 
 
 
 
-  <a id="Automata_Core_DFA_Reversed_" data-uid="Automata.Core.DFA.Reversed*"></a>
+  <a id="Automata_Core_Dfa_Reversed_" data-uid="Automata.Core.Dfa.Reversed*"></a>
 
-  <h3 id="Automata_Core_DFA_Reversed" data-uid="Automata.Core.DFA.Reversed">
+  <h3 id="Automata_Core_Dfa_Reversed" data-uid="Automata.Core.Dfa.Reversed">
   Reversed()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reverses the DFA.</p>
@@ -654,13 +635,13 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NFA Reversed()</code></pre>
+    <pre><code class="lang-csharp hljs">public Nfa Reversed()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.NFA.html">NFA</a></dt>
+    <dt><a class="xref" href="Automata.Core.NFA.html">Nfa</a></dt>
     <dd><p>An NFA representing the reversed DFA.</p>
 </dd>
   </dl>
@@ -675,33 +656,95 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_Split_" data-uid="Automata.Core.DFA.Split*"></a>
+  <a id="Automata_Core_Dfa_SetFinal_" data-uid="Automata.Core.Dfa.SetFinal*"></a>
 
-  <h3 id="Automata_Core_DFA_Split_System_Int64_" data-uid="Automata.Core.DFA.Split(System.Int64)">
-  Split(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_Dfa_SetFinal_System_Int32_System_Boolean_" data-uid="Automata.Core.Dfa.SetFinal(System.Int32,System.Boolean)">
+  SetFinal(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Splits a signed 64-bit value into two signed 32-bit integers.</p>
+  <div class="markdown level1 summary"><p>Sets the specified state as a final state or removes it from the final states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static (int, int) Split(long value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetFinal(int state, bool final = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>The signed 64-bit value to split.</p>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state to set or remove as a final state.</p>
+</dd>
+    <dt><code>final</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <code>true</code>, the state is added to the final states; otherwise, it is removed.</p>
 </dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_Dfa_SetInitial_" data-uid="Automata.Core.Dfa.SetInitial*"></a>
+
+  <h3 id="Automata_Core_Dfa_SetInitial_System_Int32_" data-uid="Automata.Core.Dfa.SetInitial(System.Int32)">
+  SetInitial(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the initial state of the DFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInitial(int state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state to set as the initial state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_Dfa_SymbolicTransitions_" data-uid="Automata.Core.Dfa.SymbolicTransitions*"></a>
+
+  <h3 id="Automata_Core_Dfa_SymbolicTransitions" data-uid="Automata.Core.Dfa.SymbolicTransitions">
+  SymbolicTransitions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the transitions of the DFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Transition&gt; SymbolicTransitions()</code></pre>
+  </div>
+
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</dt>
-    <dd><p>A tuple containing the two signed 32-bit integers.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -714,11 +757,11 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 
 
 
-  <a id="Automata_Core_DFA_ToNFA_" data-uid="Automata.Core.DFA.ToNFA*"></a>
+  <a id="Automata_Core_Dfa_ToNFA_" data-uid="Automata.Core.Dfa.ToNFA*"></a>
 
-  <h3 id="Automata_Core_DFA_ToNFA" data-uid="Automata.Core.DFA.ToNFA">
+  <h3 id="Automata_Core_Dfa_ToNFA" data-uid="Automata.Core.Dfa.ToNFA">
   ToNFA()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the DFA to an NFA.</p>
@@ -726,13 +769,13 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NFA ToNFA()</code></pre>
+    <pre><code class="lang-csharp hljs">public Nfa ToNFA()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.NFA.html">NFA</a></dt>
+    <dt><a class="xref" href="Automata.Core.NFA.html">Nfa</a></dt>
     <dd><p>An NFA representing the DFA.</p>
 </dd>
   </dl>
@@ -751,7 +794,7 @@ Class DFA  <a class="header-action link-secondary" title="View source" href="htt
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -29,8 +29,8 @@ public class Cfa : ImmutableTransitions, IFsa
     public IAlphabet Alphabet { get; }
 
     /// <summary>
-    /// The initial state. Always <c>0</c> for a non-empty <see cref="CFA"/>. 
-    /// <para>For an empty <see cref="CFA"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
+    /// The initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
+    /// <para>For an empty <see cref="Cfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
     public int InitialState { get; }
 

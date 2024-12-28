@@ -5,6 +5,7 @@ Output folder: C:\Dev\HexMerlin\Automata\docs\_site (this folder contains the ge
 
 1. This command builds the site located in C:\Dev\HexMerlin\Automata\docs\_site
 Start terminal in Visual Studio and run the following command from the path below:
+
 C:\Dev\HexMerlin\Automata>docfx docs-src/docfx.json --serve
 
 Comment: --serve should be omitted if you don't need to inspect the site locally first

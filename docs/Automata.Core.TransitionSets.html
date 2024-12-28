@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace Automata.Core | AutomataDocs </title>
+      <title>Namespace Automata.Core.TransitionSets | AutomataDocs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace Automata.Core | AutomataDocs ">
+      <meta name="title" content="Namespace Automata.Core.TransitionSets | AutomataDocs ">
       
       
       <link rel="icon" href="favicon.ico">
@@ -70,9 +70,9 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Automata.Core">
+        <article data-uid="Automata.Core.TransitionSets">
 
-  <h1 id="Automata_Core" data-uid="Automata.Core" class="text-break">Namespace Automata.Core</h1>
+  <h1 id="Automata_Core_TransitionSets" data-uid="Automata.Core.TransitionSets" class="text-break">Namespace Automata.Core.TransitionSets</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
@@ -81,58 +81,36 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></dt>
-      <dd><p>Canonical Finite-state Automaton (CFA).</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a></dt>
+      <dd><p>Represents a mutable set of <a class="xref" href="Automata.Core.Transition.html">Transition</a> for fast lookup and retrieval.</p>
+<p>This class enforces deterministic transitions, and allows no non-deterministic, duplicate or epsilon transitions.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.Constants.html">Constants</a></dt>
-      <dd><p>Class representing automata related constants</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.EpsilonTransitions.html">EpsilonTransitions</a></dt>
+      <dd><p>Represents a mutable set of <a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a> for fast lookup and retrieval.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.DFA.html">Dfa</a></dt>
-      <dd><p>Represents a deterministic finite automaton (DFA).</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.ImmutableTransitions.html">ImmutableTransitions</a></dt>
+      <dd><p>A highly optimized immutable set of deterministic transitions.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.DfaIntersection.html">DfaIntersection</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.IntSet.html">IntSet</a></dt>
-      <dd><p>Represents an immutable set of integers.</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html">MutableTransitions&lt;T&gt;</a></dt>
+      <dd><p>Represents a generic mutable set of transitions for fast lookup and retrieval.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.NFA.html">Nfa</a></dt>
-      <dd><p>Represents a nondeterministic finite automaton (NFA).</p>
-</dd>
-    </dl>
-    <h3 id="structs">
-Structs
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a></dt>
-      <dd><p>Represents an epsilon transition in an automaton, defined by a starting state and an ending state.</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.NonDeterministicTransitions.html">NonDeterministicTransitions</a></dt>
+      <dd><p>Represents a mutable set of <a class="xref" href="Automata.Core.Transition.html">Transition</a> for fast lookup and retrieval.</p>
+<p>This set allows non-deterministic transitions, but no duplicate transitions or epsilon transitions.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.Transition.html">Transition</a></dt>
-      <dd><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
-</dd>
-    </dl>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></dt>
-      <dd><p>Represents a finite state automaton (FSA) interface.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Automata.Core.ITransition-1.html">ITransition&lt;T&gt;</a></dt>
-      <dd><p>Represents a generic transition with static support for obtaining a comparer.</p>
+      <dt><a class="xref" href="Automata.Core.TransitionSets.TransitionsExtensions.html">TransitionsExtensions</a></dt>
+      <dd><p>This class provides extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>.</p>
+<p>These provide fast extraction of subsets from various transition sets, such as <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a> and <a class="xref" href="Automata.Core.TransitionSets.NonDeterministicTransitions.html">NonDeterministicTransitions</a>.</p><p>Such subsets are of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>, enabling applying these extensions methods for refined filtering on the subsets</p>
 </dd>
     </dl>
 

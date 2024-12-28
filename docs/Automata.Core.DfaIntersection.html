@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Program | AutomataDocs </title>
+      <title>Class DfaIntersection | AutomataDocs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Program | AutomataDocs ">
+      <meta name="title" content="Class DfaIntersection | AutomataDocs ">
       
-      <meta name="description" content="A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.">
+      
       <link rel="icon" href="favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_App_Program.md&amp;value=---%0Auid%3A%20Automata.App.Program%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_DfaIntersection.md&amp;value=---%0Auid%3A%20Automata.Core.DfaIntersection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -70,25 +70,24 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Automata.App.Program">
+        <article data-uid="Automata.Core.DfaIntersection">
 
 
 
-  <h1 id="Automata_App_Program" data-uid="Automata.App.Program" class="text-break">
-Class Program  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.App/Program.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Automata_Core_DfaIntersection" data-uid="Automata.Core.DfaIntersection" class="text-break">
+Class DfaIntersection  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.Intersection.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.App.html">App</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Automata.App.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Program</code></pre>
+    <pre><code class="lang-csharp hljs">public static class DfaIntersection</code></pre>
   </div>
 
 
@@ -98,7 +97,7 @@ Class Program  <a class="header-action link-secondary" title="View source" href=
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">Program</span></div>
+      <div><span class="xref">DfaIntersection</span></div>
     </dd>
   </dl>
 
@@ -139,73 +138,33 @@ Class Program  <a class="header-action link-secondary" title="View source" href=
 </h2>
 
 
-  <a id="Automata_App_Program_Main_" data-uid="Automata.App.Program.Main*"></a>
+  <a id="Automata_Core_DfaIntersection_Intersection_" data-uid="Automata.Core.DfaIntersection.Intersection*"></a>
 
-  <h3 id="Automata_App_Program_Main" data-uid="Automata.App.Program.Main">
-  Main()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.App/Program.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Automata_Core_DfaIntersection_Intersection_Automata_Core_Dfa_Automata_Core_Dfa_" data-uid="Automata.Core.DfaIntersection.Intersection(Automata.Core.Dfa,Automata.Core.Dfa)">
+  Intersection(Dfa, Dfa)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.Intersection.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Main()</code></pre>
+    <pre><code class="lang-csharp hljs">public static Dfa Intersection(this Dfa a, Dfa b)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Automata.Core.DFA.html">Dfa</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Automata.Core.DFA.html">Dfa</a></dt>
+    <dd></dd>
+  </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_App_Program_Main2_" data-uid="Automata.App.Program.Main2*"></a>
-
-  <h3 id="Automata_App_Program_Main2" data-uid="Automata.App.Program.Main2">
-  Main2()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.App/Program.cs/#L58"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Main2()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Automata_App_Program_Main3_" data-uid="Automata.App.Program.Main3*"></a>
-
-  <h3 id="Automata_App_Program_Main3" data-uid="Automata.App.Program.Main3">
-  Main3()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.App/Program.cs/#L85"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Main3()</code></pre>
-  </div>
-
-
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Automata.Core.DFA.html">Dfa</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -221,7 +180,7 @@ Class Program  <a class="header-action link-secondary" title="View source" href=
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.App/Program.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.Intersection.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 
