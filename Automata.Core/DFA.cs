@@ -1,4 +1,5 @@
-﻿using Automata.Core.TransitionSets;
+﻿using Automata.Core.Alphabets;
+using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
 
@@ -12,7 +13,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// <summary>
     /// Gets the alphabet used by the DFA.
     /// </summary>
-    public Alphabet Alphabet { get; }
+    public IAlphabet Alphabet { get; }
 
     /// <summary>
     /// Gets or sets the initial state of the DFA.
@@ -31,7 +32,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the DFA.</param>
-    public Dfa(Alphabet alphabet) => Alphabet = alphabet;
+    public Dfa(IAlphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
@@ -40,12 +41,20 @@ public class Dfa : DeterministicTransitions, IFsa
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    public Dfa(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    internal Dfa(IAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
         this.finalStates.UnionWith(finalStates);
         this.UnionWith(transitions);
     }
+    
+    ///<inheritdoc/>
+    public bool IsEmpty => InitialState == Constants.InvalidState;
+
+    /// <summary>
+    /// Indicates whether the DFA is epsilon-free. Always returns <see langref="true"/>.
+    /// </summary>
+    public bool IsEpsilonFree => true;
 
     /// <summary>
     /// Sets the initial state of the DFA.
@@ -81,11 +90,6 @@ public class Dfa : DeterministicTransitions, IFsa
     public bool IsFinal(int state) => finalStates.Contains(state);
 
     /// <summary>
-    /// Indicates whether the DFA is epsilon-free. Always returns <see langref="true"/>.
-    /// </summary>
-    public bool EpsilonFree => true;
-
-    /// <summary>
     /// Gets the final states of the DFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
@@ -99,7 +103,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
     public IEnumerable<EpsilonTransition> EpsilonTransitions() => [];
-
+   
     /// <summary>
     /// Minimizes the DFA.
     /// </summary>

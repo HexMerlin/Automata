@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using Automata.Core.Alphabets;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Represents a finite state automaton (FSA) interface.
@@ -8,12 +10,17 @@ public interface IFsa
     /// <summary>
     /// Gets the alphabet used by the FSA.
     /// </summary>
-    Alphabet Alphabet { get; }
+    IAlphabet Alphabet { get; }
 
     /// <summary>
-    /// Gets a value indicating whether the FSA is epsilon-free.
+    /// Indicates whether the FSA is empty, meaning it has no states or transitions.
     /// </summary>
-    bool EpsilonFree { get; }
+    bool IsEmpty { get; }
+
+    /// <summary>
+    /// Indicates whether the FSA is epsilon-free.
+    /// </summary>
+    bool IsEpsilonFree { get; }
 
     /// <summary>
     /// Indicates whether the specified state is an initial state.

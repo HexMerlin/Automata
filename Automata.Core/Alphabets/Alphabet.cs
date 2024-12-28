@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Automata.Core;
+namespace Automata.Core.Alphabets;
 
 /// <summary>
 /// Represents an alphabet used in a finite state automaton.
 /// </summary>
-public class Alphabet
+public class Alphabet : IAlphabet
 {
+
     #region Data
     private readonly List<string> indexToStringMap = [];
 
@@ -68,4 +69,12 @@ public class Alphabet
         foreach (string symbol in symbols)
             GetOrAdd(symbol);
     }
+
+    /// <returns>A string with each symbol and its index, separated by a newline.</returns>
+    public string ToStringExpanded() => string.Join("\n", Enumerable.Range(0, Count).Select(i => $"{i}: {this[i]}"));
+
+    /// <returns>A string that represents the current alphabet, including its size.</returns>
+    public override string ToString() => $"Alphabet, size: {Count}";
+
+
 }

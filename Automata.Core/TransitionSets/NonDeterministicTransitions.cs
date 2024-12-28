@@ -9,7 +9,7 @@
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
 /// </remarks>
-public class NonDeterministicTransitions : TransitionsBase<Transition>
+public class NonDeterministicTransitions : MutableTransitions<Transition>
 {
     ///<inheritdoc/>
     public NonDeterministicTransitions() : base() { }

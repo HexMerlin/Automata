@@ -1,15 +1,35 @@
 
 using Automata.Core;
+using Automata.Core.Alphabets;
 using Automata.Visualization;
 using Microsoft.Msagl.Drawing;
+using Automata.Core.TransitionSets;
 
 namespace Automata.App;
-
+/* Important. Currently actively working on this file for testing. That's why it is a mess. Will be fixed very soon.*/
 /// <summary>
 /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
 /// </summary>
 public static class Program
 {
+    public static void Main()
+    {
+        Console.WriteLine("Creating graph."); // Write some text output to the console window
+
+        Random random = new Random(11);
+        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random sequences
+
+        IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
+
+        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object to display using the sequences
+
+        //Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
+
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
+
+        Console.WriteLine("Graph is displayed."); // Write some text output to the console window
+    }
+
     /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s)
     {
@@ -62,23 +82,74 @@ public static class Program
         //Graph graph = GraphFactory.CreateGraph(actual);
         //GraphView graphView = GraphView.OpenNew(graph);
     }
-
-    public static void Main()
+    public static void Main3()
     {
+        //Transition[] transitions = new[]
+        //{
+        //    new Transition(0, 1, 1),
+        //    new Transition(1, 0, 2),
+        //    new Transition(1, 1, 2),
+        //    new Transition(2, 0, 1),
+        //};
+        //ImmutableTransitions trans = new(transitions);
+
+        //Console.WriteLine("Expecting: 0, 1, 1: " + trans.Transition(0, 1));
+        //Console.WriteLine("Expecting: 1, 0, 2: " + trans.Transition(1, 0));
+        //Console.WriteLine("Expecting: 1, 1, 2: " + trans.Transition(1, 1));
+        //Console.WriteLine("Expecting: 2, 0, 1: " + trans.Transition(2, 0));
+        //Console.WriteLine("Expecting invalid: " + trans.Transition(0, 0));
+        //Console.WriteLine("Expecting invalid: " + trans.Transition(0, 2));
+        //Console.WriteLine("Expecting invalid: " + trans.Transition(1, 2));
+        //Console.WriteLine("Expecting invalid: " + trans.Transition(2, 1));
+        //string[] strings = new string[] { "2", "1", "0" };
+
+        //Alphabet a1 = new Alphabet(strings);
+        //Console.WriteLine(a1.ToStringExpanded());
+        //Console.WriteLine();
+        //Alphabet a2 = new Alphabet(strings.OrderBy(s => s, StringComparer.Ordinal));
+        //Console.WriteLine(a2.ToStringExpanded());
+        //return;
+
         Console.WriteLine("Creating graph."); // Write some text output to the console window
 
-        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences
-
+        string[][] sequences = [
+             ["1", "2", "2"],
+             ["1", "1", "2"],
+             ["1", "0", "2"],
+             ["0", "2", "1"],
+             ["0", "1", "1"],
+             ["0", "0", "1"],
+             ];
+        //Random random = new Random(17);
+        //var sequences = Enumerable.Range(0, 5).Select(_ => Enumerable.Range(0, 5).Select(_ => random.Next(4).ToString())); //Create some random sequences
+        
         IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
 
         Graph graph = GraphFactory.CreateGraph(fsa); // Create a graph object to display using the sequences
 
         //Graph graph = GraphFactory.CreateGraph(sequences); //Alternatively you can use this command, to replace the 2 lines above
 
-        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
+        //GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
+        Console.WriteLine("FSA: \n" + fsa.Alphabet.ToStringExpanded());
+        Cfa cfa = new Cfa(fsa);
+        Console.WriteLine("CFA: \n" + cfa.Alphabet.ToStringExpanded());
+        GraphView.OpenNew(cfa.CreateGraph(displayStateIDs: true));
+
+        Console.WriteLine("StateCount: " + cfa.StateCount);
+        for (int state = 0; state < cfa.StateCount; state++)
+        {
+            Console.WriteLine("State: " + state);
+            var tra = cfa.Transitions(state);
+            foreach (Transition t in tra)
+            {
+                Console.WriteLine("\t" + t);
+            }
+        }
 
         Console.WriteLine("Graph is displayed."); // Write some text output to the console window
     }
+
+
 
 }
 

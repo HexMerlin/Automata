@@ -10,7 +10,7 @@ namespace Automata.Core.TransitionSets;
 /// <para>and the other set is ordered where all to-states are consecutive and increasing.</para>
 /// <para>That enables fast retrieval of transitions either <c>from</c> or <c>to</c> a certain state, respectively.</para>
 /// </remarks>
-public class EpsilonTransitions : TransitionsBase<EpsilonTransition>
+public class EpsilonTransitions : MutableTransitions<EpsilonTransition>
 {
     ///<inheritdoc/>
     public EpsilonTransitions() : base() { }

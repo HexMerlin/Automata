@@ -14,7 +14,7 @@ namespace Automata.Core.TransitionSets;
 /// <seealso cref="ITransition{T}"/>
 /// <seealso cref="Transition"/>
 /// <seealso cref="EpsilonTransition"/>
-public class TransitionsBase<T> : IReadOnlyCollection<T> where T : struct, ITransition<T>
+public class MutableTransitions<T> : IReadOnlyCollection<T> where T : struct, ITransition<T>
 {
     protected readonly SortedSet<T> orderByFromState = new();
     protected readonly SortedSet<T> orderByToState = new(T.CompareByToState());
@@ -22,13 +22,13 @@ public class TransitionsBase<T> : IReadOnlyCollection<T> where T : struct, ITran
     /// <summary>
     /// Initializes a new empty set.
     /// </summary>
-    public TransitionsBase() { }
+    public MutableTransitions() { }
 
     /// <summary>
     /// Initializes a new set with an initial set of transitions.
     /// </summary>
     /// <param name="initialTransitions">Initial transitions to populate with.</param>
-    public TransitionsBase(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
+    public MutableTransitions(IEnumerable<T> initialTransitions) => UnionWith(initialTransitions);
 
     /// <summary>
     /// Returns the number of transitions in the set.

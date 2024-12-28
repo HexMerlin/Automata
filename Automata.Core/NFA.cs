@@ -1,4 +1,5 @@
-﻿using Automata.Core.TransitionSets;
+﻿using Automata.Core.Alphabets;
+using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
 
@@ -16,7 +17,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Gets the alphabet used by the NFA.
     /// </summary>
-    public Alphabet Alphabet { get; }
+    public IAlphabet Alphabet { get; }
 
     private readonly NonDeterministicTransitions symbolicTransitions = new();
     private readonly EpsilonTransitions epsilonTransitions = new();
@@ -34,7 +35,7 @@ public class Nfa : IFsa
     /// Initializes a new instance of the <see cref="Nfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the NFA.</param>
-    public Nfa(Alphabet alphabet) => this.Alphabet = alphabet;
+    public Nfa(IAlphabet alphabet) => this.Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class from a DFA.
@@ -62,6 +63,16 @@ public class Nfa : IFsa
     /// </summary>
     /// <param name="sequences">The sequences to add to the NFA.</param>
     public Nfa(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
+
+    /// <summary>
+    /// Indicates whether the NFA is empty.
+    /// </summary>
+    public bool IsEmpty => initialStates.Count == 0;
+
+    /// <summary>
+    /// Indicates whether the NFA is epsilon-free.
+    /// </summary>
+    public bool IsEpsilonFree => epsilonTransitions.Count == 0;
 
     /// <summary>
     /// Adds a symbolic (= non-epsilon) transition to the NFA.
@@ -184,11 +195,6 @@ public class Nfa : IFsa
     /// Gets the final states of the NFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
-
-    /// <summary>
-    /// Gets a value indicating whether the NFA is epsilon-free.
-    /// </summary>
-    public bool EpsilonFree => symbolicTransitions.Count == 0;
 
     IEnumerable<Transition> IFsa.SymbolicTransitions() => symbolicTransitions;
 

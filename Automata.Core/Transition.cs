@@ -9,6 +9,9 @@
 /// <param name="ToState">The state to which the transition goes.</param>
 public readonly record struct Transition(int FromState, int Symbol, int ToState) : ITransition<Transition>, IComparable<Transition>
 {
+    /// <summary>
+    /// Gets an invalid transition.
+    /// </summary>
     public static Transition Invalid => new();
 
     /// <summary>
@@ -58,5 +61,10 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
         return t1.FromState.CompareTo(t2.FromState);
     });
     
+    ///<summary>
+    /// Returns a string that represents the current transition.
+    /// </summary>
+    /// <returns>A string that represents the current transition.</returns>
+    public override string ToString() => $"{FromState}=>{ToState} ({Symbol})";
 
 }
