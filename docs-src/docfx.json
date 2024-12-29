@@ -33,7 +33,8 @@
     "globalMetadata": {
       "_appName": "Automata Docs",
       "_appTitle": "Automata Docs",
-      "_enableSearch": true
+      "_enableSearch": true,
+      "_appLogoPath": "images/automata-icon.svg"
     }
   }
 }
