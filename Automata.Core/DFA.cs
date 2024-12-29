@@ -52,7 +52,7 @@ public class Dfa : DeterministicTransitions, IFsa
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
     /// <summary>
-    /// Indicates whether the DFA is epsilon-free. Always returns <see langref="true"/>.
+    /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
     public bool IsEpsilonFree => true;
 
@@ -131,7 +131,7 @@ public class Dfa : DeterministicTransitions, IFsa
     /// Indicates whether the DFA accepts the given sequence of symbols.
     /// </summary>
     /// <param name="sequence">The sequence of symbols to check.</param>
-    /// <returns><see langref="true"/> <c>iff</c> the DFA accepts the sequence.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the DFA accepts the sequence.</returns>
     /// <remarks>
     /// The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
     /// If the DFA reaches a final state after processing all symbols, the sequence is accepted.

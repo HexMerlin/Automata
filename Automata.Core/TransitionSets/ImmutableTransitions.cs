@@ -60,18 +60,7 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
     /// </returns>
     public Transition Transition(int fromState, int symbol)
-    {
-        var searchKey = new Transition(fromState, symbol, Constants.InvalidState);
-
-        int index = Array.BinarySearch(transitions, searchKey);
-
-        Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
-        index = ~index; // Get the insertion point
-
-        return (index < transitions.Length && transitions[index].FromState == fromState && transitions[index].Symbol == symbol)
-            ? transitions[index]
-            : Core.Transition.Invalid;
-    }
+        => new ReadOnlySpan<Transition>(transitions).Transition(fromState, symbol);
 
     /// <summary>
     /// Returns the set of transitions from the given state.
@@ -79,28 +68,34 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// <param name="fromState">The source state.</param>
     /// <returns>A <see cref="ReadOnlySpan{T}"/> containing the transitions from the given state.</returns>
     public ReadOnlySpan<Transition> Transitions(int fromState)
-    {
-        // Define the search key for the start of the range
-        var startKey = new Transition(fromState, Constants.InvalidSymbolIndex, Constants.InvalidState);
+        => new ReadOnlySpan<Transition>(transitions).Transitions(fromState);
 
-        // Find the start of the range
-        int startIndex = Array.BinarySearch(transitions, startKey);
-        startIndex = startIndex < 0 ? ~startIndex : startIndex;
+    /// <summary>
+    /// Returns the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state from which to start.</param>
+    /// <param name="symbol">The symbol to transition on.</param>
+    /// <returns>The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.</returns>
+    public int ReachableState(int fromState, int symbol)
+        => Transition(fromState, symbol).ToState;
 
-        // If no matches exist, return an empty span
-        if (startIndex >= transitions.Length || transitions[startIndex].FromState != fromState)
-        {
-            return ReadOnlySpan<Transition>.Empty;
-        }
+    /// <summary>
+    /// Returns the set of symbols that can be used to transition directly from the given state.
+    /// </summary>
+    /// <param name="fromState">The state from which to start.</param>
+    /// <remarks>Since the underlying set is deterministic, the returned symbols is a proper <c>set</c>, meaning every symbol can occur only once.</remarks>
+    /// <returns>The set of symbols that can be used to transition directly from the given state.</returns>
+    public IEnumerable<int> AvailableSymbols(int fromState)
+        => new ReadOnlySpan<Transition>(transitions).AvailableSymbols(fromState);
 
-        // Optimize the second search by starting at startIndex + 1
-        var endKey = new Transition(fromState + 1, Constants.InvalidSymbolIndex, Constants.InvalidState);
-        int endIndex = Array.BinarySearch(transitions, startIndex + 1, transitions.Length - startIndex - 1, endKey);
-        endIndex = endIndex < 0 ? ~endIndex : endIndex;
+    /// <summary>
+    /// Returns a set of symbols that can be used to transition directly from the given states.
+    /// </summary>
+    /// <param name="fromStates">The states from which to start.</param>
+    /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
+    public IntSet AvailableSymbols(IEnumerable<int> fromStates)
+        => new(fromStates.SelectMany(AvailableSymbols));
 
-        // Return the span over the calculated range
-        return transitions.AsSpan(startIndex, endIndex - startIndex);
-    }
 
     /// <summary>
     /// Finds the maximum state in the set of transitions.
@@ -132,33 +127,7 @@ public class ImmutableTransitions : IEnumerable<Transition>
 
 
 
-    //    => orderByFromState.Transitions(fromState);
-
-    ///// <summary>
-    ///// Returns the state reachable from the given state on the given symbol.
-    ///// </summary>
-    ///// <param name="fromState">The state from which to start.</param>
-    ///// <param name="symbol">The symbol to transition on.</param>
-    ///// <returns>The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.</returns>
-    //public int ReachableState(int fromState, int symbol)
-    //    => orderByFromState.Transition(fromState, symbol).ToState;
-
-    ///// <summary>
-    ///// Returns the set of symbols that can be used to transition directly from the given state.
-    ///// </summary>
-    ///// <param name="fromState">The state from which to start.</param>
-    ///// <remarks>Since the underlying set is deterministic, the returned symbols is a set, meaning every symbol can occur only once.</remarks>
-    ///// <returns>The set of symbols that can be used to transition directly from the given state.</returns>
-    //public IEnumerable<int> AvailableSymbols(int fromState)
-    //    => orderByFromState.AvailableSymbols(fromState);
-
-    ///// <summary>
-    ///// Returns a set of symbols that can be used to transition directly from the given states.
-    ///// </summary>
-    ///// <param name="fromStates">The states from which to start.</param>
-    ///// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
-    //public IntSet AvailableSymbols(IEnumerable<int> fromStates)
-    //    => new(fromStates.SelectMany(AvailableSymbols));
+  
 
 
 }

@@ -63,7 +63,7 @@ public class Cfa : ImmutableTransitions, IFsa
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
     /// <summary>
-    /// Indicates whether the DFA is epsilon-free. Always returns <see langref="true"/>.
+    /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
     public bool IsEpsilonFree => true;
 
@@ -159,5 +159,6 @@ public class Cfa : ImmutableTransitions, IFsa
         Nfa nfa => nfa.ToDfa().Minimized(),
         _ => throw new ArgumentException("Unsupported automaton type", nameof(fsa))
     };
+
 }
 

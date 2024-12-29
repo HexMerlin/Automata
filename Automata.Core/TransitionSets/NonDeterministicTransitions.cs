@@ -32,7 +32,7 @@ public class NonDeterministicTransitions : MutableTransitions<Transition>
     /// <param name="symbol">The symbol to transition on.</param>
     /// <returns>The transitions from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.</returns>
     public SortedSet<Transition> Transitions(int fromState, int symbol)
-       => orderByFromState.Transitions(fromState, symbol);
+       => orderByFromState.TransitionsNonDeterministic(fromState, symbol);
 
     /// <summary>
     /// Returns the states reachable from the given state with the given symbol.
