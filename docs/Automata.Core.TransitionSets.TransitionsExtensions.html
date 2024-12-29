@@ -1,113 +1,113 @@
 <!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
-  <head>
-    <meta charset="utf-8">
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class TransitionsExtensions | Automata Docs </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TransitionsExtensions | Automata Docs ">
-      
-      <meta name="description" content="This class provides extension methods for . These provide fast extraction of subsets from various transition sets, such as ,  and .Such subsets are either of type  or , enabling applying these extensions methods for search or refined filtering on the subsets">
-      <link rel="icon" href="favicon.ico">
-      <link rel="stylesheet" href="public/docfx.min.css">
-      <link rel="stylesheet" href="public/main.css">
-      <meta name="docfx:navrel" content="toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      <meta name="docfx:rel" content="">
-      
-      
-      <meta name="docfx:docurl" content="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
-
-      <script type="module" src="./public/docfx.min.js"></script>
-
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
-
-  </head>
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="logo.svg" alt="Automata Docs">
-            Automata Docs
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main class="container-xxl">
-
-      <div class="content">
-        <div class="actionbar">
-
-          <nav id="breadcrumb"></nav>
-        </div>
-
-        <article data-uid="Automata.Core.TransitionSets.TransitionsExtensions">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/config.css">
+      <link rel="stylesheet" href="styles/singulink.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="">
+  
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
 
 
+            <a class="brand" href="index.html">
+              <img src="logo.svg" alt="Automata Docs" class="logomark">
+              <span class="brand-title">Automata Docs</span>
+            </a>        </div>
 
-  <h1 id="Automata_Core_TransitionSets_TransitionsExtensions" data-uid="Automata.Core.TransitionSets.TransitionsExtensions" class="text-break">
-Class TransitionsExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L10"><i class="bi bi-code-slash"></i></a>
-  </h1>
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
 
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.TransitionSets.html">TransitionSets</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Automata.Core.dll</dd></dl>
-  </div>
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
 
-  <div class="markdown summary"><p>This class provides extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>.</p>
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="index.html">
+                          <img src="logo.svg" alt="Automata Docs" class="logomark">
+                          <span class="brand-title">Automata Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+                </div>
+                <div class="footer">
+  
+  <strong><a href='https://dotnet.github.io/docfx/'>DocFX</a> + <a href='https://www.singulink.com'>Singulink</a> = ♥</strong>
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="Automata.Core.TransitionSets.TransitionsExtensions">
+
+
+
+  <h1 id="Automata_Core_TransitionSets_TransitionsExtensions" data-uid="Automata.Core.TransitionSets.TransitionsExtensions" class="text-break">Class TransitionsExtensions</h1>
+  <div class="markdown level0 summary"><p>This class provides extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>.</p>
 <p>These provide fast extraction of subsets from various transition sets, such as <a class="xref" href="Automata.Core.TransitionSets.ImmutableTransitions.html">ImmutableTransitions</a>, <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a> and <a class="xref" href="Automata.Core.TransitionSets.NonDeterministicTransitions.html">NonDeterministicTransitions</a>.</p><p>Such subsets are either of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>, enabling applying these extensions methods for search or refined filtering on the subsets</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class TransitionsExtensions</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">TransitionsExtensions</span></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">TransitionsExtensions</span></div>
-    </dd>
-  </dl>
-
-
-
-  <dl class="typelist inheritedMembers">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -129,367 +129,466 @@ Class TransitionsExtensions  <a class="header-action link-secondary" title="View
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.TransitionSets.html">TransitionSets</a></h6>
+  <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class TransitionsExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.Collections.Generic.SortedSet%7BAutomata.Core.Transition%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L23">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32)">
-  AvailableSymbols(SortedSet&lt;Transition&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32)">AvailableSymbols(SortedSet&lt;Transition&gt;, int)</h4>
   <div class="markdown level1 summary"><p>Enumerates all symbols that can be used to transition directly from the given state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;int&gt; AvailableSymbols(this SortedSet&lt;Transition&gt; transitions, int fromState)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd><p>The collection of symbols that can be used to transition directly from the given state.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>The collection of symbols that can be used to transition directly from the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This enumerates over the symbols which is fast.</p>
 <p>If <code class="paramref">transitions</code> are deterministic, the result will be a proper <code>set</code> (no duplicated symbols)</p><p>If <code class="paramref">transitions</code> are non-deterministic, the result can contain duplicated symbols.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan%7BAutomata.Core.Transition%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L37">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)">
-  AvailableSymbols(ReadOnlySpan&lt;Transition&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L37"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)">AvailableSymbols(ReadOnlySpan&lt;Transition&gt;, int)</h4>
   <div class="markdown level1 summary"><p>Enumerates all symbols that can be used to transition directly from the given state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;int&gt; AvailableSymbols(this ReadOnlySpan&lt;Transition&gt; transitions, int fromState)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The state from which to start.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd><p>The collection of symbols that can be used to transition directly from the given state.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state from which to start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>The collection of symbols that can be used to transition directly from the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If <code class="paramref">transitions</code> are deterministic, the result will be a proper <code>set</code> (no duplicated symbols)</p>
 <p>If <code class="paramref">transitions</code> are non-deterministic, the result can contain duplicated symbols.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.Collections.Generic.SortedSet%7BAutomata.Core.Transition%7D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L49">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)">
-  Transition(SortedSet&lt;Transition&gt;, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L49"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)">Transition(SortedSet&lt;Transition&gt;, int, int)</h4>
   <div class="markdown level1 summary"><p>Returns the transition from the given state with the given symbol.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Transition Transition(this SortedSet&lt;Transition&gt; transitions, int fromState, int symbol)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-    <dt><code>symbol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The symbol to transition on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.Transition.html">Transition</a></dt>
-    <dd><p>The transition from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
+        <td><p>The transition from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><code class="paramref">transitions</code> must be deterministic and sorted with the default Transition comparer. Otherwise, result is undefined.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan%7BAutomata.Core.Transition%7D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L61">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan{Automata.Core.Transition},System.Int32,System.Int32)">
-  Transition(ReadOnlySpan&lt;Transition&gt;, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L61"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan{Automata.Core.Transition},System.Int32,System.Int32)">Transition(ReadOnlySpan&lt;Transition&gt;, int, int)</h4>
   <div class="markdown level1 summary"><p>Returns the transition from the given state with the given symbol.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Transition Transition(this ReadOnlySpan&lt;Transition&gt; transitions, int fromState, int symbol)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The span of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-    <dt><code>symbol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The symbol to transition on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Automata.Core.Transition.html">Transition</a></dt>
-    <dd><p>The transition from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The span of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
+        <td><p>The transition from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><code class="paramref">transitions</code> must be deterministic and sorted with the default Transition comparer. Otherwise, result is undefined.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet%7BAutomata.Core.Transition%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L79">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32)">
-  Transitions(SortedSet&lt;Transition&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L79"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32)">Transitions(SortedSet&lt;Transition&gt;, int)</h4>
   <div class="markdown level1 summary"><p>Returns the set of transitions from the given state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static SortedSet&lt;Transition&gt; Transitions(this SortedSet&lt;Transition&gt; transitions, int fromState)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions from the given state.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>The set of transitions from the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><code class="paramref">transitions</code> must be deterministic and sorted with the default Transition comparer. Otherwise, result is undefined.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan%7BAutomata.Core.Transition%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L90">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)">
-  Transitions(ReadOnlySpan&lt;Transition&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)">Transitions(ReadOnlySpan&lt;Transition&gt;, int)</h4>
   <div class="markdown level1 summary"><p>Returns the set of transitions from the given state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ReadOnlySpan&lt;Transition&gt; Transitions(this ReadOnlySpan&lt;Transition&gt; transitions, int fromState)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a> containing the transitions from the given state.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a> containing the transitions from the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><code class="paramref">transitions</code> must be deterministic and sorted with the default Transition comparer. Otherwise, result is undefined.</p>
 </div>
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet%7BAutomata.Core.Transition%7D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L116">View Source</a>
+  </span>
   <a id="Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic*"></a>
-
-  <h3 id="Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)">
-  TransitionsNonDeterministic(SortedSet&lt;Transition&gt;, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L116"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)">TransitionsNonDeterministic(SortedSet&lt;Transition&gt;, int, int)</h4>
   <div class="markdown level1 summary"><p>Returns the transitions from the given state with the given symbol.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static SortedSet&lt;Transition&gt; TransitionsNonDeterministic(this SortedSet&lt;Transition&gt; transitions, int fromState, int symbol)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>transitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The set of transitions to search. Can be deterministic.</p>
-</dd>
-    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The from state.</p>
-</dd>
-    <dt><code>symbol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The symbol to transition on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
-    <dd><p>The transitions from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><span class="parametername">transitions</span></td>
+        <td><p>The set of transitions to search. Can be deterministic.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>The transitions from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>For this method:
 <p><code class="paramref">transitions</code> are allowed to be non-deterministic. Hence, more than one Transition can be returned.</p><p><code class="paramref">transitions</code> must be sorted with the default Transition comparer. Otherwise, result is undefined.</p>
 </div>
 
-
-
-
-
 </article>
+                </div>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/TransitionsExtensions.cs/#L10" class="edit-link">Edit this page</a>
+            </main>
         </div>
 
 
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
-        </div>
-      </div>
-    </footer>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="styles/docfx.js"></script>
+        <script type="text/javascript" src="styles/main.js"></script>
+        <script type="text/javascript" src="styles/singulink.js"></script>    </body>
 </html>
