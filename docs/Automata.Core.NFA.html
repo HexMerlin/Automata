@@ -10,7 +10,7 @@
       <meta name="title" content="Class Nfa | Automata Docs ">
       <meta name="generator" content="docfx ">
   
-      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="shortcut icon" href="images/favicon.ico">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
@@ -33,7 +33,7 @@
 
 
             <a class="brand" href="index.html">
-              <img src="images/automata-icon.svg" alt="Automata Docs" class="logomark">
+              <img src="images/logo.svg" alt="Automata Docs" class="logomark">
               <span class="brand-title">Automata Docs</span>
             </a>        </div>
 
@@ -47,7 +47,7 @@
                       <div class="mobile-hide">
 
                         <a class="brand" href="index.html">
-                          <img src="images/automata-icon.svg" alt="Automata Docs" class="logomark">
+                          <img src="images/logo.svg" alt="Automata Docs" class="logomark">
                           <span class="brand-title">Automata Docs</span>
                         </a>                      </div>
 
@@ -94,7 +94,7 @@
 
 
   <h1 id="Automata_Core_Nfa" data-uid="Automata.Core.Nfa" class="text-break">Class Nfa</h1>
-  <div class="markdown level0 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Represents a nondeterministic finite automaton (NFA).</p>
+  <div class="markdown level0 summary"><p>Represents a nondeterministic finite automaton (NFA).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -137,7 +137,7 @@
     <pre><code class="lang-csharp hljs">public class Nfa : IFsa</code></pre>
   </div>
   <h5 id="Automata_Core_Nfa_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">States are represented simply as integers (<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>), which essentially are just unique IDs.
+  <div class="markdown level0 remarks"><p>States are represented simply as integers (<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>), which essentially are just unique IDs.
 <p>NFAs are defined mainly by two sets of transitions (symbolic and epsilon), which are kept separate for performance</p><p>In addition, there are two sets defining the initial states and final states respectively.</p><p>NFAs (in contrast to DFAs) can have multiple initial states.</p>
 </div>
   <h3 id="constructors">Constructors
@@ -151,7 +151,7 @@
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor" data-uid="Automata.Core.Nfa.#ctor">Nfa()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Initializes a new instance of the <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class with an empty alphabet.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class with an empty alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -167,7 +167,7 @@
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor_Automata_Core_Alphabets_IAlphabet_" data-uid="Automata.Core.Nfa.#ctor(Automata.Core.Alphabets.IAlphabet)">Nfa(IAlphabet)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Initializes a new instance of the <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class with the specified alphabet.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class with the specified alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -187,7 +187,7 @@
       <tr>
         <td><a class="xref" href="Automata.Core.Alphabets.IAlphabet.html">IAlphabet</a></td>
         <td><span class="parametername">alphabet</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The alphabet used by the NFA.</p>
+        <td><p>The alphabet used by the NFA.</p>
 </td>
       </tr>
     </tbody>
@@ -201,7 +201,7 @@
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.Nfa.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">Nfa(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Initializes a new instance of a <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class to accept a set of sequences.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of a <a class="xref" href="Automata.Core.Nfa.html">Nfa</a> class to accept a set of sequences.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -221,7 +221,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
         <td><span class="parametername">sequences</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The sequences to add to the NFA.</p>
+        <td><p>The sequences to add to the NFA.</p>
 </td>
       </tr>
     </tbody>
@@ -237,7 +237,7 @@
   </span>
   <a id="Automata_Core_Nfa_Alphabet_" data-uid="Automata.Core.Nfa.Alphabet*"></a>
   <h4 id="Automata_Core_Nfa_Alphabet" data-uid="Automata.Core.Nfa.Alphabet">Alphabet</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Gets the alphabet used by the NFA.</p>
+  <div class="markdown level1 summary"><p>Gets the alphabet used by the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -268,7 +268,7 @@
   </span>
   <a id="Automata_Core_Nfa_FinalStates_" data-uid="Automata.Core.Nfa.FinalStates*"></a>
   <h4 id="Automata_Core_Nfa_FinalStates" data-uid="Automata.Core.Nfa.FinalStates">FinalStates</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Gets the final states of the NFA.</p>
+  <div class="markdown level1 summary"><p>Gets the final states of the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -299,7 +299,7 @@
   </span>
   <a id="Automata_Core_Nfa_InitialStates_" data-uid="Automata.Core.Nfa.InitialStates*"></a>
   <h4 id="Automata_Core_Nfa_InitialStates" data-uid="Automata.Core.Nfa.InitialStates">InitialStates</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Gets the initial states of the NFA.</p>
+  <div class="markdown level1 summary"><p>Gets the initial states of the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -330,7 +330,7 @@
   </span>
   <a id="Automata_Core_Nfa_IsEmpty_" data-uid="Automata.Core.Nfa.IsEmpty*"></a>
   <h4 id="Automata_Core_Nfa_IsEmpty" data-uid="Automata.Core.Nfa.IsEmpty">IsEmpty</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Indicates whether the NFA is empty.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the NFA is empty.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -361,7 +361,7 @@
   </span>
   <a id="Automata_Core_Nfa_IsEpsilonFree_" data-uid="Automata.Core.Nfa.IsEpsilonFree*"></a>
   <h4 id="Automata_Core_Nfa_IsEpsilonFree" data-uid="Automata.Core.Nfa.IsEpsilonFree">IsEpsilonFree</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Indicates whether the NFA is epsilon-free.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the NFA is epsilon-free.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -392,7 +392,7 @@
   </span>
   <a id="Automata_Core_Nfa_MaxState_" data-uid="Automata.Core.Nfa.MaxState*"></a>
   <h4 id="Automata_Core_Nfa_MaxState" data-uid="Automata.Core.Nfa.MaxState">MaxState</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">O(1) retrieval of the maximum state (state with the maximum value) in the NFA.</p>
+  <div class="markdown level1 summary"><p>O(1) retrieval of the maximum state (state with the maximum value) in the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -410,13 +410,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The maximum state in the NFA.</p>
+        <td><p>The maximum state in the NFA.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_MaxState_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
+  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -427,7 +427,7 @@
   </span>
   <a id="Automata_Core_Nfa_MinState_" data-uid="Automata.Core.Nfa.MinState*"></a>
   <h4 id="Automata_Core_Nfa_MinState" data-uid="Automata.Core.Nfa.MinState">MinState</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">O(1) retrieval of the minimal state (state with the minimal value) in the NFA.</p>
+  <div class="markdown level1 summary"><p>O(1) retrieval of the minimal state (state with the minimal value) in the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -445,13 +445,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The minimal state in the NFA.</p>
+        <td><p>The minimal state in the NFA.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_MinState_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
+  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
 </div>
   <h3 id="methods">Methods
 </h3>
@@ -464,7 +464,7 @@
   </span>
   <a id="Automata_Core_Nfa_Add_" data-uid="Automata.Core.Nfa.Add*"></a>
   <h4 id="Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_" data-uid="Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)">Add(EpsilonTransition)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds an epsilon transition to the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds an epsilon transition to the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -484,7 +484,7 @@
       <tr>
         <td><a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a></td>
         <td><span class="parametername">transition</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The transition to add.</p>
+        <td><p>The transition to add.</p>
 </td>
       </tr>
     </tbody>
@@ -498,7 +498,7 @@
   </span>
   <a id="Automata_Core_Nfa_Add_" data-uid="Automata.Core.Nfa.Add*"></a>
   <h4 id="Automata_Core_Nfa_Add_Automata_Core_Transition_" data-uid="Automata.Core.Nfa.Add(Automata.Core.Transition)">Add(Transition)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds a symbolic (= non-epsilon) transition to the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds a symbolic (= non-epsilon) transition to the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -518,7 +518,7 @@
       <tr>
         <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
         <td><span class="parametername">transition</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The transition to add.</p>
+        <td><p>The transition to add.</p>
 </td>
       </tr>
     </tbody>
@@ -532,7 +532,7 @@
   </span>
   <a id="Automata_Core_Nfa_IsFinal_" data-uid="Automata.Core.Nfa.IsFinal*"></a>
   <h4 id="Automata_Core_Nfa_IsFinal_System_Int32_" data-uid="Automata.Core.Nfa.IsFinal(System.Int32)">IsFinal(int)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Indicates whether the specified state is a final state.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the specified state is a final state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -552,7 +552,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The state to check.</p>
+        <td><p>The state to check.</p>
 </td>
       </tr>
     </tbody>
@@ -568,7 +568,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1"><code>true</code> if the specified state is a final state; otherwise, <code>false</code>.</p>
+        <td><p><code>true</code> if the specified state is a final state; otherwise, <code>false</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -582,7 +582,7 @@
   </span>
   <a id="Automata_Core_Nfa_IsInitial_" data-uid="Automata.Core.Nfa.IsInitial*"></a>
   <h4 id="Automata_Core_Nfa_IsInitial_System_Int32_" data-uid="Automata.Core.Nfa.IsInitial(System.Int32)">IsInitial(int)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Indicates whether the specified state is an initial state.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the specified state is an initial state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -602,7 +602,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The state to check.</p>
+        <td><p>The state to check.</p>
 </td>
       </tr>
     </tbody>
@@ -618,7 +618,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1"><code>true</code> if the specified state is an initial state; otherwise, <code>false</code>.</p>
+        <td><p><code>true</code> if the specified state is an initial state; otherwise, <code>false</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -632,7 +632,7 @@
   </span>
   <a id="Automata_Core_Nfa_SetFinal_" data-uid="Automata.Core.Nfa.SetFinal*"></a>
   <h4 id="Automata_Core_Nfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">SetFinal(IEnumerable&lt;int&gt;, bool)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Sets the specified states as final states or removes them from the final states.</p>
+  <div class="markdown level1 summary"><p>Sets the specified states as final states or removes them from the final states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -652,13 +652,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
         <td><span class="parametername">states</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The states to set or remove as final states.</p>
+        <td><p>The states to set or remove as final states.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">final</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If <code>true</code>, the states are added to the final states; otherwise, they are removed.</p>
+        <td><p>If <code>true</code>, the states are added to the final states; otherwise, they are removed.</p>
 </td>
       </tr>
     </tbody>
@@ -672,7 +672,7 @@
   </span>
   <a id="Automata_Core_Nfa_SetFinal_" data-uid="Automata.Core.Nfa.SetFinal*"></a>
   <h4 id="Automata_Core_Nfa_SetFinal_System_Int32_System_Boolean_" data-uid="Automata.Core.Nfa.SetFinal(System.Int32,System.Boolean)">SetFinal(int, bool)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Sets the specified state as a final state or removes it from the final states.</p>
+  <div class="markdown level1 summary"><p>Sets the specified state as a final state or removes it from the final states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -692,13 +692,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The state to set or remove as a final state.</p>
+        <td><p>The state to set or remove as a final state.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">final</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If <code>true</code>, the state is added to the final states; otherwise, it is removed.</p>
+        <td><p>If <code>true</code>, the state is added to the final states; otherwise, it is removed.</p>
 </td>
       </tr>
     </tbody>
@@ -712,7 +712,7 @@
   </span>
   <a id="Automata_Core_Nfa_SetInitial_" data-uid="Automata.Core.Nfa.SetInitial*"></a>
   <h4 id="Automata_Core_Nfa_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">SetInitial(IEnumerable&lt;int&gt;, bool)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Sets the specified states as initial states or removes them from the initial states.</p>
+  <div class="markdown level1 summary"><p>Sets the specified states as initial states or removes them from the initial states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -732,13 +732,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
         <td><span class="parametername">states</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The states to set or remove as initial states.</p>
+        <td><p>The states to set or remove as initial states.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">initial</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If <code>true</code>, the states are added to the initial states; otherwise, they are removed.</p>
+        <td><p>If <code>true</code>, the states are added to the initial states; otherwise, they are removed.</p>
 </td>
       </tr>
     </tbody>
@@ -752,7 +752,7 @@
   </span>
   <a id="Automata_Core_Nfa_SetInitial_" data-uid="Automata.Core.Nfa.SetInitial*"></a>
   <h4 id="Automata_Core_Nfa_SetInitial_System_Int32_System_Boolean_" data-uid="Automata.Core.Nfa.SetInitial(System.Int32,System.Boolean)">SetInitial(int, bool)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Sets the specified state as an initial state or removes it from the initial states.</p>
+  <div class="markdown level1 summary"><p>Sets the specified state as an initial state or removes it from the initial states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -772,13 +772,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The state to set or remove as an initial state.</p>
+        <td><p>The state to set or remove as an initial state.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">initial</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">If <code>true</code>, the state is added to the initial states; otherwise, it is removed.</p>
+        <td><p>If <code>true</code>, the state is added to the initial states; otherwise, it is removed.</p>
 </td>
       </tr>
     </tbody>
@@ -792,7 +792,7 @@
   </span>
   <a id="Automata_Core_Nfa_ToDfa_" data-uid="Automata.Core.Nfa.ToDfa*"></a>
   <h4 id="Automata_Core_Nfa_ToDfa" data-uid="Automata.Core.Nfa.ToDfa">ToDfa()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Converts a NFA to a DFA.</p>
+  <div class="markdown level1 summary"><p>Converts a NFA to a DFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -810,13 +810,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">A DFA representing the NFA.</p>
+        <td><p>A DFA representing the NFA.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_ToDfa_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</p>
+  <div class="markdown level1 remarks"><p>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -827,7 +827,7 @@
   </span>
   <a id="Automata_Core_Nfa_ToMinimizedDFA_" data-uid="Automata.Core.Nfa.ToMinimizedDFA*"></a>
   <h4 id="Automata_Core_Nfa_ToMinimizedDFA" data-uid="Automata.Core.Nfa.ToMinimizedDFA">ToMinimizedDFA()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Converts the NFA to a minimized DFA.</p>
+  <div class="markdown level1 summary"><p>Converts the NFA to a minimized DFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -845,7 +845,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">A minimized DFA representing the NFA.</p>
+        <td><p>A minimized DFA representing the NFA.</p>
 </td>
       </tr>
     </tbody>
@@ -859,7 +859,7 @@
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">UnionWith(IEnumerable&lt;EpsilonTransition&gt;)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds multiple epsilon transitions to the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds multiple epsilon transitions to the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -879,7 +879,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</td>
         <td><span class="parametername">transitions</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The transitions to add.</p>
+        <td><p>The transitions to add.</p>
 </td>
       </tr>
     </tbody>
@@ -893,7 +893,7 @@
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})">UnionWith(IEnumerable&lt;Transition&gt;)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds multiple symbolic transitions to the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds multiple symbolic transitions to the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -913,7 +913,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
         <td><span class="parametername">transitions</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The transitions to add.</p>
+        <td><p>The transitions to add.</p>
 </td>
       </tr>
     </tbody>
@@ -927,7 +927,7 @@
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">UnionWith(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds a set of sequences to be accepted by the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds a set of sequences to be accepted by the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -947,13 +947,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
         <td><span class="parametername">sequences</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The sequences to add to the NFA.</p>
+        <td><p>The sequences to add to the NFA.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Any missing symbols in the alphabet will be added to the alphabet.</p>
+  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -964,7 +964,7 @@
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.String})">UnionWith(IEnumerable&lt;string&gt;)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Adds a sequence of symbols to be accepted by the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds a sequence of symbols to be accepted by the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -984,13 +984,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
         <td><span class="parametername">sequence</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">The sequence of symbols to add.</p>
+        <td><p>The sequence of symbols to add.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Nfa.yml" sourcestartlinenumber="1">Any missing symbols in the alphabet will be added to the alphabet.</p>
+  <div class="markdown level1 remarks"><p>Any missing symbols in the alphabet will be added to the alphabet.</p>
 </div>
   <h3 id="implements">Implements</h3>
   <div>

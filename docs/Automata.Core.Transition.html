@@ -10,7 +10,7 @@
       <meta name="title" content="Struct Transition | Automata Docs ">
       <meta name="generator" content="docfx ">
   
-      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="shortcut icon" href="images/favicon.ico">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
@@ -33,7 +33,7 @@
 
 
             <a class="brand" href="index.html">
-              <img src="images/automata-icon.svg" alt="Automata Docs" class="logomark">
+              <img src="images/logo.svg" alt="Automata Docs" class="logomark">
               <span class="brand-title">Automata Docs</span>
             </a>        </div>
 
@@ -47,7 +47,7 @@
                       <div class="mobile-hide">
 
                         <a class="brand" href="index.html">
-                          <img src="images/automata-icon.svg" alt="Automata Docs" class="logomark">
+                          <img src="images/logo.svg" alt="Automata Docs" class="logomark">
                           <span class="brand-title">Automata Docs</span>
                         </a>                      </div>
 
@@ -94,7 +94,7 @@
 
 
   <h1 id="Automata_Core_Transition" data-uid="Automata.Core.Transition" class="text-break">Struct Transition</h1>
-  <div class="markdown level0 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
+  <div class="markdown level0 summary"><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="implements">
@@ -128,7 +128,7 @@
     <pre><code class="lang-csharp hljs">public readonly record struct Transition : ITransition&lt;Transition&gt;, IComparable&lt;Transition&gt;, IEquatable&lt;Transition&gt;</code></pre>
   </div>
   <h5 id="Automata_Core_Transition_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
+  <div class="markdown level0 remarks"><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -141,7 +141,7 @@
   </span>
   <a id="Automata_Core_Transition__ctor_" data-uid="Automata.Core.Transition.#ctor*"></a>
   <h4 id="Automata_Core_Transition__ctor" data-uid="Automata.Core.Transition.#ctor">Transition()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Initializes a new instance of the <a class="xref" href="Automata.Core.Transition.html">Transition</a> struct with default values.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Transition.html">Transition</a> struct with default values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -157,7 +157,7 @@
   </span>
   <a id="Automata_Core_Transition__ctor_" data-uid="Automata.Core.Transition.#ctor*"></a>
   <h4 id="Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32_" data-uid="Automata.Core.Transition.#ctor(System.Int32,System.Int32,System.Int32)">Transition(int, int, int)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
+  <div class="markdown level1 summary"><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -177,25 +177,25 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">FromState</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The state from which the transition starts.</p>
+        <td><p>The state from which the transition starts.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">Symbol</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The symbol that triggers the transition.</p>
+        <td><p>The symbol that triggers the transition.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">ToState</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The state to which the transition goes.</p>
+        <td><p>The state to which the transition goes.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
+  <div class="markdown level1 remarks"><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
 </div>
   <h3 id="properties">Properties
 </h3>
@@ -208,7 +208,7 @@
   </span>
   <a id="Automata_Core_Transition_FromState_" data-uid="Automata.Core.Transition.FromState*"></a>
   <h4 id="Automata_Core_Transition_FromState" data-uid="Automata.Core.Transition.FromState">FromState</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The state from which the transition starts.</p>
+  <div class="markdown level1 summary"><p>The state from which the transition starts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -239,7 +239,7 @@
   </span>
   <a id="Automata_Core_Transition_Invalid_" data-uid="Automata.Core.Transition.Invalid*"></a>
   <h4 id="Automata_Core_Transition_Invalid" data-uid="Automata.Core.Transition.Invalid">Invalid</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Gets an invalid transition.</p>
+  <div class="markdown level1 summary"><p>Gets an invalid transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -270,7 +270,7 @@
   </span>
   <a id="Automata_Core_Transition_IsInvalid_" data-uid="Automata.Core.Transition.IsInvalid*"></a>
   <h4 id="Automata_Core_Transition_IsInvalid" data-uid="Automata.Core.Transition.IsInvalid">IsInvalid</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Indicates whether the transition is invalid.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the transition is invalid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -301,7 +301,7 @@
   </span>
   <a id="Automata_Core_Transition_Symbol_" data-uid="Automata.Core.Transition.Symbol*"></a>
   <h4 id="Automata_Core_Transition_Symbol" data-uid="Automata.Core.Transition.Symbol">Symbol</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The symbol that triggers the transition.</p>
+  <div class="markdown level1 summary"><p>The symbol that triggers the transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -332,7 +332,7 @@
   </span>
   <a id="Automata_Core_Transition_ToState_" data-uid="Automata.Core.Transition.ToState*"></a>
   <h4 id="Automata_Core_Transition_ToState" data-uid="Automata.Core.Transition.ToState">ToState</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The state to which the transition goes.</p>
+  <div class="markdown level1 summary"><p>The state to which the transition goes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -365,7 +365,7 @@
   </span>
   <a id="Automata_Core_Transition_CompareByToState_" data-uid="Automata.Core.Transition.CompareByToState*"></a>
   <h4 id="Automata_Core_Transition_CompareByToState" data-uid="Automata.Core.Transition.CompareByToState">CompareByToState()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Gets a comparer that compares transitions by their to states.</p>
+  <div class="markdown level1 summary"><p>Gets a comparer that compares transitions by their to states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -383,7 +383,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1">Comparer</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">A comparer that compares transitions by their to states.</p>
+        <td><p>A comparer that compares transitions by their to states.</p>
 </td>
       </tr>
     </tbody>
@@ -397,7 +397,7 @@
   </span>
   <a id="Automata_Core_Transition_CompareTo_" data-uid="Automata.Core.Transition.CompareTo*"></a>
   <h4 id="Automata_Core_Transition_CompareTo_Automata_Core_Transition_" data-uid="Automata.Core.Transition.CompareTo(Automata.Core.Transition)">CompareTo(Transition)</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Compares the current transition to another transition.</p>
+  <div class="markdown level1 summary"><p>Compares the current transition to another transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -417,7 +417,7 @@
       <tr>
         <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
         <td><span class="parametername">other</span></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">The other transition to compare to.</p>
+        <td><p>The other transition to compare to.</p>
 </td>
       </tr>
     </tbody>
@@ -433,7 +433,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">An integer that indicates the relative order of the objects being compared.</p>
+        <td><p>An integer that indicates the relative order of the objects being compared.</p>
 </td>
       </tr>
     </tbody>
@@ -447,7 +447,7 @@
   </span>
   <a id="Automata_Core_Transition_Reverse_" data-uid="Automata.Core.Transition.Reverse*"></a>
   <h4 id="Automata_Core_Transition_Reverse" data-uid="Automata.Core.Transition.Reverse">Reverse()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Reverses the transition.</p>
+  <div class="markdown level1 summary"><p>Reverses the transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -465,7 +465,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">A new <a class="xref" href="Automata.Core.Transition.html">Transition</a> with the from and to states swapped.</p>
+        <td><p>A new <a class="xref" href="Automata.Core.Transition.html">Transition</a> with the from and to states swapped.</p>
 </td>
       </tr>
     </tbody>
@@ -479,7 +479,7 @@
   </span>
   <a id="Automata_Core_Transition_ToString_" data-uid="Automata.Core.Transition.ToString*"></a>
   <h4 id="Automata_Core_Transition_ToString" data-uid="Automata.Core.Transition.ToString">ToString()</h4>
-  <div class="markdown level1 summary"><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">Returns a string that represents the current transition.</p>
+  <div class="markdown level1 summary"><p>Returns a string that represents the current transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -497,7 +497,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p sourcefile="../docs/obj/api/Automata.Core.Transition.yml" sourcestartlinenumber="1">A string that represents the current transition.</p>
+        <td><p>A string that represents the current transition.</p>
 </td>
       </tr>
     </tbody>

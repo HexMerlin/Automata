@@ -20,10 +20,13 @@
   "build": {
     "content": [
       { "files": ["index.md"] },
-      { "src": "../docs/obj/api", "files": ["**/*.yml"] }
+      { "files": ["**/*.yml"], "src": "../docs/obj/api" },
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+     "resource": [
+      { "files": ["images/**/*.svg", "images/**/*.ico", "images/**/*.png"] } // Explicitly mark as resources
     ],
     "output": "../docs",
     "template": [
@@ -34,7 +37,8 @@
       "_appName": "Automata Docs",
       "_appTitle": "Automata Docs",
       "_enableSearch": true,
-      "_appLogoPath": "images/automata-icon.svg"
+      "_appLogoPath": "images/logo.svg",
+      "_appFaviconPath": "images/favicon.ico"
     }
   }
 }

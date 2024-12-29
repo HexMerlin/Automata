@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-src", "docs-src", "{02
 		docs-src\.nojekyll = docs-src\.nojekyll
 		docs-src\docfx.json = docs-src\docfx.json
 		docs-src\index.md = docs-src\index.md
+		docs-src\images\logo.svg = docs-src\images\logo.svg
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.CoreTests", "Automata.CoreTests\Automata.CoreTests.csproj", "{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}"
