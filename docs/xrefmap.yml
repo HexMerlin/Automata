@@ -1,145 +1,12 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: Automata.App
-  name: Automata.App
-  href: Automata.App.html
-  commentId: N:Automata.App
-  fullName: Automata.App
-  nameWithType: Automata.App
-- uid: Automata.App.Program
-  name: Program
-  href: Automata.App.Program.html
-  commentId: T:Automata.App.Program
-  fullName: Automata.App.Program
-  nameWithType: Program
-- uid: Automata.App.Program.Main
-  name: Main()
-  href: Automata.App.Program.html#Automata_App_Program_Main
-  commentId: M:Automata.App.Program.Main
-  fullName: Automata.App.Program.Main()
-  nameWithType: Program.Main()
-- uid: Automata.App.Program.Main*
-  name: Main
-  href: Automata.App.Program.html#Automata_App_Program_Main_
-  commentId: Overload:Automata.App.Program.Main
-  isSpec: "True"
-  fullName: Automata.App.Program.Main
-  nameWithType: Program.Main
-- uid: Automata.App.Program.Main2
-  name: Main2()
-  href: Automata.App.Program.html#Automata_App_Program_Main2
-  commentId: M:Automata.App.Program.Main2
-  fullName: Automata.App.Program.Main2()
-  nameWithType: Program.Main2()
-- uid: Automata.App.Program.Main2*
-  name: Main2
-  href: Automata.App.Program.html#Automata_App_Program_Main2_
-  commentId: Overload:Automata.App.Program.Main2
-  isSpec: "True"
-  fullName: Automata.App.Program.Main2
-  nameWithType: Program.Main2
-- uid: Automata.App.Program.Main3
-  name: Main3()
-  href: Automata.App.Program.html#Automata_App_Program_Main3
-  commentId: M:Automata.App.Program.Main3
-  fullName: Automata.App.Program.Main3()
-  nameWithType: Program.Main3()
-- uid: Automata.App.Program.Main3*
-  name: Main3
-  href: Automata.App.Program.html#Automata_App_Program_Main3_
-  commentId: Overload:Automata.App.Program.Main3
-  isSpec: "True"
-  fullName: Automata.App.Program.Main3
-  nameWithType: Program.Main3
 - uid: Automata.Core
   name: Automata.Core
   href: Automata.Core.html
   commentId: N:Automata.Core
   fullName: Automata.Core
   nameWithType: Automata.Core
-- uid: Automata.Core.Alphabet
-  name: Alphabet
-  href: Automata.Core.Alphabet.html
-  commentId: T:Automata.Core.Alphabet
-  fullName: Automata.Core.Alphabet
-  nameWithType: Alphabet
-- uid: Automata.Core.Alphabet.#ctor
-  name: Alphabet()
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor
-  commentId: M:Automata.Core.Alphabet.#ctor
-  name.vb: New()
-  fullName: Automata.Core.Alphabet.Alphabet()
-  fullName.vb: Automata.Core.Alphabet.New()
-  nameWithType: Alphabet.Alphabet()
-  nameWithType.vb: Alphabet.New()
-- uid: Automata.Core.Alphabet.#ctor*
-  name: Alphabet
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor_
-  commentId: Overload:Automata.Core.Alphabet.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.Alphabet.Alphabet
-  fullName.vb: Automata.Core.Alphabet.New
-  nameWithType: Alphabet.Alphabet
-  nameWithType.vb: Alphabet.New
-- uid: Automata.Core.Alphabet.Count
-  name: Count
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Count
-  commentId: P:Automata.Core.Alphabet.Count
-  fullName: Automata.Core.Alphabet.Count
-  nameWithType: Alphabet.Count
-- uid: Automata.Core.Alphabet.Count*
-  name: Count
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Count_
-  commentId: Overload:Automata.Core.Alphabet.Count
-  isSpec: "True"
-  fullName: Automata.Core.Alphabet.Count
-  nameWithType: Alphabet.Count
-- uid: Automata.Core.Alphabet.GetOrAdd(System.String)
-  name: GetOrAdd(string)
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetOrAdd_System_String_
-  commentId: M:Automata.Core.Alphabet.GetOrAdd(System.String)
-  name.vb: GetOrAdd(String)
-  fullName: Automata.Core.Alphabet.GetOrAdd(string)
-  fullName.vb: Automata.Core.Alphabet.GetOrAdd(String)
-  nameWithType: Alphabet.GetOrAdd(string)
-  nameWithType.vb: Alphabet.GetOrAdd(String)
-- uid: Automata.Core.Alphabet.GetOrAdd*
-  name: GetOrAdd
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetOrAdd_
-  commentId: Overload:Automata.Core.Alphabet.GetOrAdd
-  isSpec: "True"
-  fullName: Automata.Core.Alphabet.GetOrAdd
-  nameWithType: Alphabet.GetOrAdd
-- uid: Automata.Core.Alphabet.Item(System.Int32)
-  name: this[int]
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_System_Int32_
-  commentId: P:Automata.Core.Alphabet.Item(System.Int32)
-  name.vb: this[](Integer)
-  fullName: Automata.Core.Alphabet.this[int]
-  fullName.vb: Automata.Core.Alphabet.this[](Integer)
-  nameWithType: Alphabet.this[int]
-  nameWithType.vb: Alphabet.this[](Integer)
-- uid: Automata.Core.Alphabet.Item(System.String)
-  name: this[string]
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_System_String_
-  commentId: P:Automata.Core.Alphabet.Item(System.String)
-  name.vb: this[](String)
-  fullName: Automata.Core.Alphabet.this[string]
-  fullName.vb: Automata.Core.Alphabet.this[](String)
-  nameWithType: Alphabet.this[string]
-  nameWithType.vb: Alphabet.this[](String)
-- uid: Automata.Core.Alphabet.Item*
-  name: this
-  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_
-  commentId: Overload:Automata.Core.Alphabet.Item
-  isSpec: "True"
-  name.vb: this[]
-  fullName: Automata.Core.Alphabet.this
-  fullName.vb: Automata.Core.Alphabet.this[]
-  nameWithType: Alphabet.this
-  nameWithType.vb: Alphabet.this[]
 - uid: Automata.Core.Alphabets
   name: Automata.Core.Alphabets
   href: Automata.Core.Alphabets.html
@@ -663,13 +530,13 @@ references:
   nameWithType: Constants.InvalidSymbolIndex
 - uid: Automata.Core.Dfa
   name: Dfa
-  href: Automata.Core.DFA.html
+  href: Automata.Core.Dfa.html
   commentId: T:Automata.Core.Dfa
   fullName: Automata.Core.Dfa
   nameWithType: Dfa
 - uid: Automata.Core.Dfa.#ctor
   name: Dfa()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa__ctor
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor
   commentId: M:Automata.Core.Dfa.#ctor
   name.vb: New()
   fullName: Automata.Core.Dfa.Dfa()
@@ -678,7 +545,7 @@ references:
   nameWithType.vb: Dfa.New()
 - uid: Automata.Core.Dfa.#ctor(Automata.Core.Alphabets.IAlphabet)
   name: Dfa(IAlphabet)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa__ctor_Automata_Core_Alphabets_IAlphabet_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_Automata_Core_Alphabets_IAlphabet_
   commentId: M:Automata.Core.Dfa.#ctor(Automata.Core.Alphabets.IAlphabet)
   name.vb: New(IAlphabet)
   fullName: Automata.Core.Dfa.Dfa(Automata.Core.Alphabets.IAlphabet)
@@ -687,7 +554,7 @@ references:
   nameWithType.vb: Dfa.New(IAlphabet)
 - uid: Automata.Core.Dfa.#ctor*
   name: Dfa
-  href: Automata.Core.DFA.html#Automata_Core_Dfa__ctor_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_
   commentId: Overload:Automata.Core.Dfa.#ctor
   isSpec: "True"
   name.vb: New
@@ -697,7 +564,7 @@ references:
   nameWithType.vb: Dfa.New
 - uid: Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})
   name: Accepts(IEnumerable<string>)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__
   commentId: M:Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})
   name.vb: Accepts(IEnumerable(Of String))
   fullName: Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable<string>)
@@ -706,92 +573,92 @@ references:
   nameWithType.vb: Dfa.Accepts(IEnumerable(Of String))
 - uid: Automata.Core.Dfa.Accepts*
   name: Accepts
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Accepts_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Accepts_
   commentId: Overload:Automata.Core.Dfa.Accepts
   isSpec: "True"
   fullName: Automata.Core.Dfa.Accepts
   nameWithType: Dfa.Accepts
 - uid: Automata.Core.Dfa.Alphabet
   name: Alphabet
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Alphabet
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Alphabet
   commentId: P:Automata.Core.Dfa.Alphabet
   fullName: Automata.Core.Dfa.Alphabet
   nameWithType: Dfa.Alphabet
 - uid: Automata.Core.Dfa.Alphabet*
   name: Alphabet
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Alphabet_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Alphabet_
   commentId: Overload:Automata.Core.Dfa.Alphabet
   isSpec: "True"
   fullName: Automata.Core.Dfa.Alphabet
   nameWithType: Dfa.Alphabet
 - uid: Automata.Core.Dfa.EpsilonTransitions
   name: EpsilonTransitions()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_EpsilonTransitions
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_EpsilonTransitions
   commentId: M:Automata.Core.Dfa.EpsilonTransitions
   fullName: Automata.Core.Dfa.EpsilonTransitions()
   nameWithType: Dfa.EpsilonTransitions()
 - uid: Automata.Core.Dfa.EpsilonTransitions*
   name: EpsilonTransitions
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_EpsilonTransitions_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_EpsilonTransitions_
   commentId: Overload:Automata.Core.Dfa.EpsilonTransitions
   isSpec: "True"
   fullName: Automata.Core.Dfa.EpsilonTransitions
   nameWithType: Dfa.EpsilonTransitions
 - uid: Automata.Core.Dfa.FinalStates
   name: FinalStates
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_FinalStates
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_FinalStates
   commentId: P:Automata.Core.Dfa.FinalStates
   fullName: Automata.Core.Dfa.FinalStates
   nameWithType: Dfa.FinalStates
 - uid: Automata.Core.Dfa.FinalStates*
   name: FinalStates
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_FinalStates_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_FinalStates_
   commentId: Overload:Automata.Core.Dfa.FinalStates
   isSpec: "True"
   fullName: Automata.Core.Dfa.FinalStates
   nameWithType: Dfa.FinalStates
 - uid: Automata.Core.Dfa.InitialState
   name: InitialState
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_InitialState
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_InitialState
   commentId: P:Automata.Core.Dfa.InitialState
   fullName: Automata.Core.Dfa.InitialState
   nameWithType: Dfa.InitialState
 - uid: Automata.Core.Dfa.InitialState*
   name: InitialState
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_InitialState_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_InitialState_
   commentId: Overload:Automata.Core.Dfa.InitialState
   isSpec: "True"
   fullName: Automata.Core.Dfa.InitialState
   nameWithType: Dfa.InitialState
 - uid: Automata.Core.Dfa.IsEmpty
   name: IsEmpty
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsEmpty
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEmpty
   commentId: P:Automata.Core.Dfa.IsEmpty
   fullName: Automata.Core.Dfa.IsEmpty
   nameWithType: Dfa.IsEmpty
 - uid: Automata.Core.Dfa.IsEmpty*
   name: IsEmpty
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsEmpty_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEmpty_
   commentId: Overload:Automata.Core.Dfa.IsEmpty
   isSpec: "True"
   fullName: Automata.Core.Dfa.IsEmpty
   nameWithType: Dfa.IsEmpty
 - uid: Automata.Core.Dfa.IsEpsilonFree
   name: IsEpsilonFree
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsEpsilonFree
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEpsilonFree
   commentId: P:Automata.Core.Dfa.IsEpsilonFree
   fullName: Automata.Core.Dfa.IsEpsilonFree
   nameWithType: Dfa.IsEpsilonFree
 - uid: Automata.Core.Dfa.IsEpsilonFree*
   name: IsEpsilonFree
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsEpsilonFree_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEpsilonFree_
   commentId: Overload:Automata.Core.Dfa.IsEpsilonFree
   isSpec: "True"
   fullName: Automata.Core.Dfa.IsEpsilonFree
   nameWithType: Dfa.IsEpsilonFree
 - uid: Automata.Core.Dfa.IsFinal(System.Int32)
   name: IsFinal(int)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsFinal_System_Int32_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsFinal_System_Int32_
   commentId: M:Automata.Core.Dfa.IsFinal(System.Int32)
   name.vb: IsFinal(Integer)
   fullName: Automata.Core.Dfa.IsFinal(int)
@@ -800,14 +667,14 @@ references:
   nameWithType.vb: Dfa.IsFinal(Integer)
 - uid: Automata.Core.Dfa.IsFinal*
   name: IsFinal
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsFinal_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsFinal_
   commentId: Overload:Automata.Core.Dfa.IsFinal
   isSpec: "True"
   fullName: Automata.Core.Dfa.IsFinal
   nameWithType: Dfa.IsFinal
 - uid: Automata.Core.Dfa.IsInitial(System.Int32)
   name: IsInitial(int)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsInitial_System_Int32_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsInitial_System_Int32_
   commentId: M:Automata.Core.Dfa.IsInitial(System.Int32)
   name.vb: IsInitial(Integer)
   fullName: Automata.Core.Dfa.IsInitial(int)
@@ -816,40 +683,40 @@ references:
   nameWithType.vb: Dfa.IsInitial(Integer)
 - uid: Automata.Core.Dfa.IsInitial*
   name: IsInitial
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_IsInitial_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsInitial_
   commentId: Overload:Automata.Core.Dfa.IsInitial
   isSpec: "True"
   fullName: Automata.Core.Dfa.IsInitial
   nameWithType: Dfa.IsInitial
 - uid: Automata.Core.Dfa.Minimized
   name: Minimized()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Minimized
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimized
   commentId: M:Automata.Core.Dfa.Minimized
   fullName: Automata.Core.Dfa.Minimized()
   nameWithType: Dfa.Minimized()
 - uid: Automata.Core.Dfa.Minimized*
   name: Minimized
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Minimized_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimized_
   commentId: Overload:Automata.Core.Dfa.Minimized
   isSpec: "True"
   fullName: Automata.Core.Dfa.Minimized
   nameWithType: Dfa.Minimized
 - uid: Automata.Core.Dfa.Reversed
   name: Reversed()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Reversed
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Reversed
   commentId: M:Automata.Core.Dfa.Reversed
   fullName: Automata.Core.Dfa.Reversed()
   nameWithType: Dfa.Reversed()
 - uid: Automata.Core.Dfa.Reversed*
   name: Reversed
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_Reversed_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Reversed_
   commentId: Overload:Automata.Core.Dfa.Reversed
   isSpec: "True"
   fullName: Automata.Core.Dfa.Reversed
   nameWithType: Dfa.Reversed
 - uid: Automata.Core.Dfa.SetFinal(System.Int32,System.Boolean)
   name: SetFinal(int, bool)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SetFinal_System_Int32_System_Boolean_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetFinal_System_Int32_System_Boolean_
   commentId: M:Automata.Core.Dfa.SetFinal(System.Int32,System.Boolean)
   name.vb: SetFinal(Integer, Boolean)
   fullName: Automata.Core.Dfa.SetFinal(int, bool)
@@ -858,14 +725,14 @@ references:
   nameWithType.vb: Dfa.SetFinal(Integer, Boolean)
 - uid: Automata.Core.Dfa.SetFinal*
   name: SetFinal
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SetFinal_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetFinal_
   commentId: Overload:Automata.Core.Dfa.SetFinal
   isSpec: "True"
   fullName: Automata.Core.Dfa.SetFinal
   nameWithType: Dfa.SetFinal
 - uid: Automata.Core.Dfa.SetInitial(System.Int32)
   name: SetInitial(int)
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SetInitial_System_Int32_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetInitial_System_Int32_
   commentId: M:Automata.Core.Dfa.SetInitial(System.Int32)
   name.vb: SetInitial(Integer)
   fullName: Automata.Core.Dfa.SetInitial(int)
@@ -874,33 +741,33 @@ references:
   nameWithType.vb: Dfa.SetInitial(Integer)
 - uid: Automata.Core.Dfa.SetInitial*
   name: SetInitial
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SetInitial_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetInitial_
   commentId: Overload:Automata.Core.Dfa.SetInitial
   isSpec: "True"
   fullName: Automata.Core.Dfa.SetInitial
   nameWithType: Dfa.SetInitial
 - uid: Automata.Core.Dfa.SymbolicTransitions
   name: SymbolicTransitions()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SymbolicTransitions
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SymbolicTransitions
   commentId: M:Automata.Core.Dfa.SymbolicTransitions
   fullName: Automata.Core.Dfa.SymbolicTransitions()
   nameWithType: Dfa.SymbolicTransitions()
 - uid: Automata.Core.Dfa.SymbolicTransitions*
   name: SymbolicTransitions
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_SymbolicTransitions_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SymbolicTransitions_
   commentId: Overload:Automata.Core.Dfa.SymbolicTransitions
   isSpec: "True"
   fullName: Automata.Core.Dfa.SymbolicTransitions
   nameWithType: Dfa.SymbolicTransitions
 - uid: Automata.Core.Dfa.ToNFA
   name: ToNFA()
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_ToNFA
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToNFA
   commentId: M:Automata.Core.Dfa.ToNFA
   fullName: Automata.Core.Dfa.ToNFA()
   nameWithType: Dfa.ToNFA()
 - uid: Automata.Core.Dfa.ToNFA*
   name: ToNFA
-  href: Automata.Core.DFA.html#Automata_Core_Dfa_ToNFA_
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToNFA_
   commentId: Overload:Automata.Core.Dfa.ToNFA
   isSpec: "True"
   fullName: Automata.Core.Dfa.ToNFA
@@ -1020,72 +887,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.EpsilonTransition.ToState
   nameWithType: EpsilonTransition.ToState
-- uid: Automata.Core.EpsilonTransitionSet
-  name: EpsilonTransitionSet
-  href: Automata.Core.EpsilonTransitionSet.html
-  commentId: T:Automata.Core.EpsilonTransitionSet
-  fullName: Automata.Core.EpsilonTransitionSet
-  nameWithType: EpsilonTransitionSet
-- uid: Automata.Core.EpsilonTransitionSet.#ctor
-  name: EpsilonTransitionSet()
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet__ctor
-  commentId: M:Automata.Core.EpsilonTransitionSet.#ctor
-  name.vb: New()
-  fullName: Automata.Core.EpsilonTransitionSet.EpsilonTransitionSet()
-  fullName.vb: Automata.Core.EpsilonTransitionSet.New()
-  nameWithType: EpsilonTransitionSet.EpsilonTransitionSet()
-  nameWithType.vb: EpsilonTransitionSet.New()
-- uid: Automata.Core.EpsilonTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})
-  name: EpsilonTransitionSet(IEnumerable<EpsilonTransition>)
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__
-  commentId: M:Automata.Core.EpsilonTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})
-  name.vb: New(IEnumerable(Of EpsilonTransition))
-  fullName: Automata.Core.EpsilonTransitionSet.EpsilonTransitionSet(System.Collections.Generic.IEnumerable<Automata.Core.EpsilonTransition>)
-  fullName.vb: Automata.Core.EpsilonTransitionSet.New(System.Collections.Generic.IEnumerable(Of Automata.Core.EpsilonTransition))
-  nameWithType: EpsilonTransitionSet.EpsilonTransitionSet(IEnumerable<EpsilonTransition>)
-  nameWithType.vb: EpsilonTransitionSet.New(IEnumerable(Of EpsilonTransition))
-- uid: Automata.Core.EpsilonTransitionSet.#ctor*
-  name: EpsilonTransitionSet
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet__ctor_
-  commentId: Overload:Automata.Core.EpsilonTransitionSet.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.EpsilonTransitionSet.EpsilonTransitionSet
-  fullName.vb: Automata.Core.EpsilonTransitionSet.New
-  nameWithType: EpsilonTransitionSet.EpsilonTransitionSet
-  nameWithType.vb: EpsilonTransitionSet.New
-- uid: Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet{System.Int32})
-  name: ReachableStatesOnEpsilonInPlace(HashSet<int>)
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet_ReachableStatesOnEpsilonInPlace_System_Collections_Generic_HashSet_System_Int32__
-  commentId: M:Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet{System.Int32})
-  name.vb: ReachableStatesOnEpsilonInPlace(HashSet(Of Integer))
-  fullName: Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet<int>)
-  fullName.vb: Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet(Of Integer))
-  nameWithType: EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(HashSet<int>)
-  nameWithType.vb: EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace(HashSet(Of Integer))
-- uid: Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace*
-  name: ReachableStatesOnEpsilonInPlace
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet_ReachableStatesOnEpsilonInPlace_
-  commentId: Overload:Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace
-  isSpec: "True"
-  fullName: Automata.Core.EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace
-  nameWithType: EpsilonTransitionSet.ReachableStatesOnEpsilonInPlace
-- uid: Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(System.Int32)
-  name: ReachableStatesOnSingleEpsilon(int)
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet_ReachableStatesOnSingleEpsilon_System_Int32_
-  commentId: M:Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(System.Int32)
-  name.vb: ReachableStatesOnSingleEpsilon(Integer)
-  fullName: Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(int)
-  fullName.vb: Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(Integer)
-  nameWithType: EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(int)
-  nameWithType.vb: EpsilonTransitionSet.ReachableStatesOnSingleEpsilon(Integer)
-- uid: Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon*
-  name: ReachableStatesOnSingleEpsilon
-  href: Automata.Core.EpsilonTransitionSet.html#Automata_Core_EpsilonTransitionSet_ReachableStatesOnSingleEpsilon_
-  commentId: Overload:Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon
-  isSpec: "True"
-  fullName: Automata.Core.EpsilonTransitionSet.ReachableStatesOnSingleEpsilon
-  nameWithType: EpsilonTransitionSet.ReachableStatesOnSingleEpsilon
 - uid: Automata.Core.IFsa
   name: IFsa
   href: Automata.Core.IFsa.html
@@ -1474,13 +1275,13 @@ references:
   nameWithType: IntSet.ToString
 - uid: Automata.Core.Nfa
   name: Nfa
-  href: Automata.Core.NFA.html
+  href: Automata.Core.Nfa.html
   commentId: T:Automata.Core.Nfa
   fullName: Automata.Core.Nfa
   nameWithType: Nfa
 - uid: Automata.Core.Nfa.#ctor
   name: Nfa()
-  href: Automata.Core.NFA.html#Automata_Core_Nfa__ctor
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor
   commentId: M:Automata.Core.Nfa.#ctor
   name.vb: New()
   fullName: Automata.Core.Nfa.Nfa()
@@ -1489,7 +1290,7 @@ references:
   nameWithType.vb: Nfa.New()
 - uid: Automata.Core.Nfa.#ctor(Automata.Core.Alphabets.IAlphabet)
   name: Nfa(IAlphabet)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa__ctor_Automata_Core_Alphabets_IAlphabet_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_Automata_Core_Alphabets_IAlphabet_
   commentId: M:Automata.Core.Nfa.#ctor(Automata.Core.Alphabets.IAlphabet)
   name.vb: New(IAlphabet)
   fullName: Automata.Core.Nfa.Nfa(Automata.Core.Alphabets.IAlphabet)
@@ -1498,7 +1299,7 @@ references:
   nameWithType.vb: Nfa.New(IAlphabet)
 - uid: Automata.Core.Nfa.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})
   name: Nfa(IEnumerable<IEnumerable<string>>)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___
   commentId: M:Automata.Core.Nfa.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})
   name.vb: New(IEnumerable(Of IEnumerable(Of String)))
   fullName: Automata.Core.Nfa.Nfa(System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<string>>)
@@ -1507,7 +1308,7 @@ references:
   nameWithType.vb: Nfa.New(IEnumerable(Of IEnumerable(Of String)))
 - uid: Automata.Core.Nfa.#ctor*
   name: Nfa
-  href: Automata.Core.NFA.html#Automata_Core_Nfa__ctor_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_
   commentId: Overload:Automata.Core.Nfa.#ctor
   isSpec: "True"
   name.vb: New
@@ -1517,91 +1318,91 @@ references:
   nameWithType.vb: Nfa.New
 - uid: Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)
   name: Add(EpsilonTransition)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_
   commentId: M:Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)
   fullName: Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)
   nameWithType: Nfa.Add(EpsilonTransition)
 - uid: Automata.Core.Nfa.Add(Automata.Core.Transition)
   name: Add(Transition)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_Add_Automata_Core_Transition_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Add_Automata_Core_Transition_
   commentId: M:Automata.Core.Nfa.Add(Automata.Core.Transition)
   fullName: Automata.Core.Nfa.Add(Automata.Core.Transition)
   nameWithType: Nfa.Add(Transition)
 - uid: Automata.Core.Nfa.Add*
   name: Add
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_Add_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Add_
   commentId: Overload:Automata.Core.Nfa.Add
   isSpec: "True"
   fullName: Automata.Core.Nfa.Add
   nameWithType: Nfa.Add
 - uid: Automata.Core.Nfa.Alphabet
   name: Alphabet
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_Alphabet
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Alphabet
   commentId: P:Automata.Core.Nfa.Alphabet
   fullName: Automata.Core.Nfa.Alphabet
   nameWithType: Nfa.Alphabet
 - uid: Automata.Core.Nfa.Alphabet*
   name: Alphabet
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_Alphabet_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Alphabet_
   commentId: Overload:Automata.Core.Nfa.Alphabet
   isSpec: "True"
   fullName: Automata.Core.Nfa.Alphabet
   nameWithType: Nfa.Alphabet
 - uid: Automata.Core.Nfa.FinalStates
   name: FinalStates
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_FinalStates
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_FinalStates
   commentId: P:Automata.Core.Nfa.FinalStates
   fullName: Automata.Core.Nfa.FinalStates
   nameWithType: Nfa.FinalStates
 - uid: Automata.Core.Nfa.FinalStates*
   name: FinalStates
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_FinalStates_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_FinalStates_
   commentId: Overload:Automata.Core.Nfa.FinalStates
   isSpec: "True"
   fullName: Automata.Core.Nfa.FinalStates
   nameWithType: Nfa.FinalStates
 - uid: Automata.Core.Nfa.InitialStates
   name: InitialStates
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_InitialStates
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_InitialStates
   commentId: P:Automata.Core.Nfa.InitialStates
   fullName: Automata.Core.Nfa.InitialStates
   nameWithType: Nfa.InitialStates
 - uid: Automata.Core.Nfa.InitialStates*
   name: InitialStates
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_InitialStates_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_InitialStates_
   commentId: Overload:Automata.Core.Nfa.InitialStates
   isSpec: "True"
   fullName: Automata.Core.Nfa.InitialStates
   nameWithType: Nfa.InitialStates
 - uid: Automata.Core.Nfa.IsEmpty
   name: IsEmpty
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsEmpty
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEmpty
   commentId: P:Automata.Core.Nfa.IsEmpty
   fullName: Automata.Core.Nfa.IsEmpty
   nameWithType: Nfa.IsEmpty
 - uid: Automata.Core.Nfa.IsEmpty*
   name: IsEmpty
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsEmpty_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEmpty_
   commentId: Overload:Automata.Core.Nfa.IsEmpty
   isSpec: "True"
   fullName: Automata.Core.Nfa.IsEmpty
   nameWithType: Nfa.IsEmpty
 - uid: Automata.Core.Nfa.IsEpsilonFree
   name: IsEpsilonFree
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsEpsilonFree
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEpsilonFree
   commentId: P:Automata.Core.Nfa.IsEpsilonFree
   fullName: Automata.Core.Nfa.IsEpsilonFree
   nameWithType: Nfa.IsEpsilonFree
 - uid: Automata.Core.Nfa.IsEpsilonFree*
   name: IsEpsilonFree
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsEpsilonFree_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEpsilonFree_
   commentId: Overload:Automata.Core.Nfa.IsEpsilonFree
   isSpec: "True"
   fullName: Automata.Core.Nfa.IsEpsilonFree
   nameWithType: Nfa.IsEpsilonFree
 - uid: Automata.Core.Nfa.IsFinal(System.Int32)
   name: IsFinal(int)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsFinal_System_Int32_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsFinal_System_Int32_
   commentId: M:Automata.Core.Nfa.IsFinal(System.Int32)
   name.vb: IsFinal(Integer)
   fullName: Automata.Core.Nfa.IsFinal(int)
@@ -1610,14 +1411,14 @@ references:
   nameWithType.vb: Nfa.IsFinal(Integer)
 - uid: Automata.Core.Nfa.IsFinal*
   name: IsFinal
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsFinal_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsFinal_
   commentId: Overload:Automata.Core.Nfa.IsFinal
   isSpec: "True"
   fullName: Automata.Core.Nfa.IsFinal
   nameWithType: Nfa.IsFinal
 - uid: Automata.Core.Nfa.IsInitial(System.Int32)
   name: IsInitial(int)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsInitial_System_Int32_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsInitial_System_Int32_
   commentId: M:Automata.Core.Nfa.IsInitial(System.Int32)
   name.vb: IsInitial(Integer)
   fullName: Automata.Core.Nfa.IsInitial(int)
@@ -1626,40 +1427,40 @@ references:
   nameWithType.vb: Nfa.IsInitial(Integer)
 - uid: Automata.Core.Nfa.IsInitial*
   name: IsInitial
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_IsInitial_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsInitial_
   commentId: Overload:Automata.Core.Nfa.IsInitial
   isSpec: "True"
   fullName: Automata.Core.Nfa.IsInitial
   nameWithType: Nfa.IsInitial
 - uid: Automata.Core.Nfa.MaxState
   name: MaxState
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_MaxState
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_MaxState
   commentId: P:Automata.Core.Nfa.MaxState
   fullName: Automata.Core.Nfa.MaxState
   nameWithType: Nfa.MaxState
 - uid: Automata.Core.Nfa.MaxState*
   name: MaxState
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_MaxState_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_MaxState_
   commentId: Overload:Automata.Core.Nfa.MaxState
   isSpec: "True"
   fullName: Automata.Core.Nfa.MaxState
   nameWithType: Nfa.MaxState
 - uid: Automata.Core.Nfa.MinState
   name: MinState
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_MinState
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_MinState
   commentId: P:Automata.Core.Nfa.MinState
   fullName: Automata.Core.Nfa.MinState
   nameWithType: Nfa.MinState
 - uid: Automata.Core.Nfa.MinState*
   name: MinState
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_MinState_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_MinState_
   commentId: Overload:Automata.Core.Nfa.MinState
   isSpec: "True"
   fullName: Automata.Core.Nfa.MinState
   nameWithType: Nfa.MinState
 - uid: Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name: SetFinal(IEnumerable<int>, bool)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
   commentId: M:Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name.vb: SetFinal(IEnumerable(Of Integer), Boolean)
   fullName: Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable<int>, bool)
@@ -1668,7 +1469,7 @@ references:
   nameWithType.vb: Nfa.SetFinal(IEnumerable(Of Integer), Boolean)
 - uid: Automata.Core.Nfa.SetFinal(System.Int32,System.Boolean)
   name: SetFinal(int, bool)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetFinal_System_Int32_System_Boolean_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetFinal_System_Int32_System_Boolean_
   commentId: M:Automata.Core.Nfa.SetFinal(System.Int32,System.Boolean)
   name.vb: SetFinal(Integer, Boolean)
   fullName: Automata.Core.Nfa.SetFinal(int, bool)
@@ -1677,14 +1478,14 @@ references:
   nameWithType.vb: Nfa.SetFinal(Integer, Boolean)
 - uid: Automata.Core.Nfa.SetFinal*
   name: SetFinal
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetFinal_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetFinal_
   commentId: Overload:Automata.Core.Nfa.SetFinal
   isSpec: "True"
   fullName: Automata.Core.Nfa.SetFinal
   nameWithType: Nfa.SetFinal
 - uid: Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name: SetInitial(IEnumerable<int>, bool)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
   commentId: M:Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name.vb: SetInitial(IEnumerable(Of Integer), Boolean)
   fullName: Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable<int>, bool)
@@ -1693,7 +1494,7 @@ references:
   nameWithType.vb: Nfa.SetInitial(IEnumerable(Of Integer), Boolean)
 - uid: Automata.Core.Nfa.SetInitial(System.Int32,System.Boolean)
   name: SetInitial(int, bool)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetInitial_System_Int32_System_Boolean_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetInitial_System_Int32_System_Boolean_
   commentId: M:Automata.Core.Nfa.SetInitial(System.Int32,System.Boolean)
   name.vb: SetInitial(Integer, Boolean)
   fullName: Automata.Core.Nfa.SetInitial(int, bool)
@@ -1702,40 +1503,40 @@ references:
   nameWithType.vb: Nfa.SetInitial(Integer, Boolean)
 - uid: Automata.Core.Nfa.SetInitial*
   name: SetInitial
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_SetInitial_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_SetInitial_
   commentId: Overload:Automata.Core.Nfa.SetInitial
   isSpec: "True"
   fullName: Automata.Core.Nfa.SetInitial
   nameWithType: Nfa.SetInitial
 - uid: Automata.Core.Nfa.ToDfa
   name: ToDfa()
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_ToDfa
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToDfa
   commentId: M:Automata.Core.Nfa.ToDfa
   fullName: Automata.Core.Nfa.ToDfa()
   nameWithType: Nfa.ToDfa()
 - uid: Automata.Core.Nfa.ToDfa*
   name: ToDfa
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_ToDfa_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToDfa_
   commentId: Overload:Automata.Core.Nfa.ToDfa
   isSpec: "True"
   fullName: Automata.Core.Nfa.ToDfa
   nameWithType: Nfa.ToDfa
 - uid: Automata.Core.Nfa.ToMinimizedDFA
   name: ToMinimizedDFA()
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_ToMinimizedDFA
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToMinimizedDFA
   commentId: M:Automata.Core.Nfa.ToMinimizedDFA
   fullName: Automata.Core.Nfa.ToMinimizedDFA()
   nameWithType: Nfa.ToMinimizedDFA()
 - uid: Automata.Core.Nfa.ToMinimizedDFA*
   name: ToMinimizedDFA
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_ToMinimizedDFA_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToMinimizedDFA_
   commentId: Overload:Automata.Core.Nfa.ToMinimizedDFA
   isSpec: "True"
   fullName: Automata.Core.Nfa.ToMinimizedDFA
   nameWithType: Nfa.ToMinimizedDFA
 - uid: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})
   name: UnionWith(IEnumerable<EpsilonTransition>)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__
   commentId: M:Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})
   name.vb: UnionWith(IEnumerable(Of EpsilonTransition))
   fullName: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable<Automata.Core.EpsilonTransition>)
@@ -1744,7 +1545,7 @@ references:
   nameWithType.vb: Nfa.UnionWith(IEnumerable(Of EpsilonTransition))
 - uid: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})
   name: UnionWith(IEnumerable<Transition>)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__
   commentId: M:Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})
   name.vb: UnionWith(IEnumerable(Of Transition))
   fullName: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable<Automata.Core.Transition>)
@@ -1753,7 +1554,7 @@ references:
   nameWithType.vb: Nfa.UnionWith(IEnumerable(Of Transition))
 - uid: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})
   name: UnionWith(IEnumerable<IEnumerable<string>>)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___
   commentId: M:Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})
   name.vb: UnionWith(IEnumerable(Of IEnumerable(Of String)))
   fullName: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<string>>)
@@ -1762,7 +1563,7 @@ references:
   nameWithType.vb: Nfa.UnionWith(IEnumerable(Of IEnumerable(Of String)))
 - uid: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.String})
   name: UnionWith(IEnumerable<string>)
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String__
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String__
   commentId: M:Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.String})
   name.vb: UnionWith(IEnumerable(Of String))
   fullName: Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable<string>)
@@ -1771,233 +1572,11 @@ references:
   nameWithType.vb: Nfa.UnionWith(IEnumerable(Of String))
 - uid: Automata.Core.Nfa.UnionWith*
   name: UnionWith
-  href: Automata.Core.NFA.html#Automata_Core_Nfa_UnionWith_
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_UnionWith_
   commentId: Overload:Automata.Core.Nfa.UnionWith
   isSpec: "True"
   fullName: Automata.Core.Nfa.UnionWith
   nameWithType: Nfa.UnionWith
-- uid: Automata.Core.SymbolicTransition
-  name: SymbolicTransition
-  href: Automata.Core.SymbolicTransition.html
-  commentId: T:Automata.Core.SymbolicTransition
-  fullName: Automata.Core.SymbolicTransition
-  nameWithType: SymbolicTransition
-- uid: Automata.Core.SymbolicTransition.#ctor
-  name: SymbolicTransition()
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition__ctor
-  commentId: M:Automata.Core.SymbolicTransition.#ctor
-  name.vb: New()
-  fullName: Automata.Core.SymbolicTransition.SymbolicTransition()
-  fullName.vb: Automata.Core.SymbolicTransition.New()
-  nameWithType: SymbolicTransition.SymbolicTransition()
-  nameWithType.vb: SymbolicTransition.New()
-- uid: Automata.Core.SymbolicTransition.#ctor(System.Int32,System.Int32,System.Int32)
-  name: SymbolicTransition(int, int, int)
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition__ctor_System_Int32_System_Int32_System_Int32_
-  commentId: M:Automata.Core.SymbolicTransition.#ctor(System.Int32,System.Int32,System.Int32)
-  name.vb: New(Integer, Integer, Integer)
-  fullName: Automata.Core.SymbolicTransition.SymbolicTransition(int, int, int)
-  fullName.vb: Automata.Core.SymbolicTransition.New(Integer, Integer, Integer)
-  nameWithType: SymbolicTransition.SymbolicTransition(int, int, int)
-  nameWithType.vb: SymbolicTransition.New(Integer, Integer, Integer)
-- uid: Automata.Core.SymbolicTransition.#ctor*
-  name: SymbolicTransition
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition__ctor_
-  commentId: Overload:Automata.Core.SymbolicTransition.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.SymbolicTransition.SymbolicTransition
-  fullName.vb: Automata.Core.SymbolicTransition.New
-  nameWithType: SymbolicTransition.SymbolicTransition
-  nameWithType.vb: SymbolicTransition.New
-- uid: Automata.Core.SymbolicTransition.CompareByToState
-  name: CompareByToState()
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_CompareByToState
-  commentId: M:Automata.Core.SymbolicTransition.CompareByToState
-  fullName: Automata.Core.SymbolicTransition.CompareByToState()
-  nameWithType: SymbolicTransition.CompareByToState()
-- uid: Automata.Core.SymbolicTransition.CompareByToState*
-  name: CompareByToState
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_CompareByToState_
-  commentId: Overload:Automata.Core.SymbolicTransition.CompareByToState
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.CompareByToState
-  nameWithType: SymbolicTransition.CompareByToState
-- uid: Automata.Core.SymbolicTransition.CompareTo(Automata.Core.SymbolicTransition)
-  name: CompareTo(SymbolicTransition)
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_CompareTo_Automata_Core_SymbolicTransition_
-  commentId: M:Automata.Core.SymbolicTransition.CompareTo(Automata.Core.SymbolicTransition)
-  fullName: Automata.Core.SymbolicTransition.CompareTo(Automata.Core.SymbolicTransition)
-  nameWithType: SymbolicTransition.CompareTo(SymbolicTransition)
-- uid: Automata.Core.SymbolicTransition.CompareTo*
-  name: CompareTo
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_CompareTo_
-  commentId: Overload:Automata.Core.SymbolicTransition.CompareTo
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.CompareTo
-  nameWithType: SymbolicTransition.CompareTo
-- uid: Automata.Core.SymbolicTransition.FromState
-  name: FromState
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_FromState
-  commentId: P:Automata.Core.SymbolicTransition.FromState
-  fullName: Automata.Core.SymbolicTransition.FromState
-  nameWithType: SymbolicTransition.FromState
-- uid: Automata.Core.SymbolicTransition.FromState*
-  name: FromState
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_FromState_
-  commentId: Overload:Automata.Core.SymbolicTransition.FromState
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.FromState
-  nameWithType: SymbolicTransition.FromState
-- uid: Automata.Core.SymbolicTransition.Reverse
-  name: Reverse()
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_Reverse
-  commentId: M:Automata.Core.SymbolicTransition.Reverse
-  fullName: Automata.Core.SymbolicTransition.Reverse()
-  nameWithType: SymbolicTransition.Reverse()
-- uid: Automata.Core.SymbolicTransition.Reverse*
-  name: Reverse
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_Reverse_
-  commentId: Overload:Automata.Core.SymbolicTransition.Reverse
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.Reverse
-  nameWithType: SymbolicTransition.Reverse
-- uid: Automata.Core.SymbolicTransition.Symbol
-  name: Symbol
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_Symbol
-  commentId: P:Automata.Core.SymbolicTransition.Symbol
-  fullName: Automata.Core.SymbolicTransition.Symbol
-  nameWithType: SymbolicTransition.Symbol
-- uid: Automata.Core.SymbolicTransition.Symbol*
-  name: Symbol
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_Symbol_
-  commentId: Overload:Automata.Core.SymbolicTransition.Symbol
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.Symbol
-  nameWithType: SymbolicTransition.Symbol
-- uid: Automata.Core.SymbolicTransition.ToState
-  name: ToState
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_ToState
-  commentId: P:Automata.Core.SymbolicTransition.ToState
-  fullName: Automata.Core.SymbolicTransition.ToState
-  nameWithType: SymbolicTransition.ToState
-- uid: Automata.Core.SymbolicTransition.ToState*
-  name: ToState
-  href: Automata.Core.SymbolicTransition.html#Automata_Core_SymbolicTransition_ToState_
-  commentId: Overload:Automata.Core.SymbolicTransition.ToState
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransition.ToState
-  nameWithType: SymbolicTransition.ToState
-- uid: Automata.Core.SymbolicTransitionSet
-  name: SymbolicTransitionSet
-  href: Automata.Core.SymbolicTransitionSet.html
-  commentId: T:Automata.Core.SymbolicTransitionSet
-  fullName: Automata.Core.SymbolicTransitionSet
-  nameWithType: SymbolicTransitionSet
-- uid: Automata.Core.SymbolicTransitionSet.#ctor
-  name: SymbolicTransitionSet()
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet__ctor
-  commentId: M:Automata.Core.SymbolicTransitionSet.#ctor
-  name.vb: New()
-  fullName: Automata.Core.SymbolicTransitionSet.SymbolicTransitionSet()
-  fullName.vb: Automata.Core.SymbolicTransitionSet.New()
-  nameWithType: SymbolicTransitionSet.SymbolicTransitionSet()
-  nameWithType.vb: SymbolicTransitionSet.New()
-- uid: Automata.Core.SymbolicTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})
-  name: SymbolicTransitionSet(IEnumerable<SymbolicTransition>)
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet__ctor_System_Collections_Generic_IEnumerable_Automata_Core_SymbolicTransition__
-  commentId: M:Automata.Core.SymbolicTransitionSet.#ctor(System.Collections.Generic.IEnumerable{Automata.Core.SymbolicTransition})
-  name.vb: New(IEnumerable(Of SymbolicTransition))
-  fullName: Automata.Core.SymbolicTransitionSet.SymbolicTransitionSet(System.Collections.Generic.IEnumerable<Automata.Core.SymbolicTransition>)
-  fullName.vb: Automata.Core.SymbolicTransitionSet.New(System.Collections.Generic.IEnumerable(Of Automata.Core.SymbolicTransition))
-  nameWithType: SymbolicTransitionSet.SymbolicTransitionSet(IEnumerable<SymbolicTransition>)
-  nameWithType.vb: SymbolicTransitionSet.New(IEnumerable(Of SymbolicTransition))
-- uid: Automata.Core.SymbolicTransitionSet.#ctor*
-  name: SymbolicTransitionSet
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet__ctor_
-  commentId: Overload:Automata.Core.SymbolicTransitionSet.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.SymbolicTransitionSet.SymbolicTransitionSet
-  fullName.vb: Automata.Core.SymbolicTransitionSet.New
-  nameWithType: SymbolicTransitionSet.SymbolicTransitionSet
-  nameWithType.vb: SymbolicTransitionSet.New
-- uid: Automata.Core.SymbolicTransitionSet.GetAvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})
-  name: GetAvailableSymbols(IEnumerable<int>)
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet_GetAvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__
-  commentId: M:Automata.Core.SymbolicTransitionSet.GetAvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})
-  name.vb: GetAvailableSymbols(IEnumerable(Of Integer))
-  fullName: Automata.Core.SymbolicTransitionSet.GetAvailableSymbols(System.Collections.Generic.IEnumerable<int>)
-  fullName.vb: Automata.Core.SymbolicTransitionSet.GetAvailableSymbols(System.Collections.Generic.IEnumerable(Of Integer))
-  nameWithType: SymbolicTransitionSet.GetAvailableSymbols(IEnumerable<int>)
-  nameWithType.vb: SymbolicTransitionSet.GetAvailableSymbols(IEnumerable(Of Integer))
-- uid: Automata.Core.SymbolicTransitionSet.GetAvailableSymbols*
-  name: GetAvailableSymbols
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet_GetAvailableSymbols_
-  commentId: Overload:Automata.Core.SymbolicTransitionSet.GetAvailableSymbols
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransitionSet.GetAvailableSymbols
-  nameWithType: SymbolicTransitionSet.GetAvailableSymbols
-- uid: Automata.Core.SymbolicTransitionSet.ReachableStates(System.Int32,System.Int32)
-  name: ReachableStates(int, int)
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet_ReachableStates_System_Int32_System_Int32_
-  commentId: M:Automata.Core.SymbolicTransitionSet.ReachableStates(System.Int32,System.Int32)
-  name.vb: ReachableStates(Integer, Integer)
-  fullName: Automata.Core.SymbolicTransitionSet.ReachableStates(int, int)
-  fullName.vb: Automata.Core.SymbolicTransitionSet.ReachableStates(Integer, Integer)
-  nameWithType: SymbolicTransitionSet.ReachableStates(int, int)
-  nameWithType.vb: SymbolicTransitionSet.ReachableStates(Integer, Integer)
-- uid: Automata.Core.SymbolicTransitionSet.ReachableStates*
-  name: ReachableStates
-  href: Automata.Core.SymbolicTransitionSet.html#Automata_Core_SymbolicTransitionSet_ReachableStates_
-  commentId: Overload:Automata.Core.SymbolicTransitionSet.ReachableStates
-  isSpec: "True"
-  fullName: Automata.Core.SymbolicTransitionSet.ReachableStates
-  nameWithType: SymbolicTransitionSet.ReachableStates
-- uid: Automata.Core.Tests
-  name: Automata.Core.Tests
-  href: Automata.Core.Tests.html
-  commentId: N:Automata.Core.Tests
-  fullName: Automata.Core.Tests
-  nameWithType: Automata.Core.Tests
-- uid: Automata.Core.Tests.DfaIntersectionTests
-  name: DfaIntersectionTests
-  href: Automata.Core.Tests.DfaIntersectionTests.html
-  commentId: T:Automata.Core.Tests.DfaIntersectionTests
-  fullName: Automata.Core.Tests.DfaIntersectionTests
-  nameWithType: DfaIntersectionTests
-- uid: Automata.Core.Tests.DfaIntersectionTests.IntersectionTest
-  name: IntersectionTest()
-  href: Automata.Core.Tests.DfaIntersectionTests.html#Automata_Core_Tests_DfaIntersectionTests_IntersectionTest
-  commentId: M:Automata.Core.Tests.DfaIntersectionTests.IntersectionTest
-  fullName: Automata.Core.Tests.DfaIntersectionTests.IntersectionTest()
-  nameWithType: DfaIntersectionTests.IntersectionTest()
-- uid: Automata.Core.Tests.DfaIntersectionTests.IntersectionTest*
-  name: IntersectionTest
-  href: Automata.Core.Tests.DfaIntersectionTests.html#Automata_Core_Tests_DfaIntersectionTests_IntersectionTest_
-  commentId: Overload:Automata.Core.Tests.DfaIntersectionTests.IntersectionTest
-  isSpec: "True"
-  fullName: Automata.Core.Tests.DfaIntersectionTests.IntersectionTest
-  nameWithType: DfaIntersectionTests.IntersectionTest
-- uid: Automata.Core.Tests.DfaTests
-  name: DfaTests
-  href: Automata.Core.Tests.DfaTests.html
-  commentId: T:Automata.Core.Tests.DfaTests
-  fullName: Automata.Core.Tests.DfaTests
-  nameWithType: DfaTests
-- uid: Automata.Core.Tests.DfaTests.IntersectionTest
-  name: IntersectionTest()
-  href: Automata.Core.Tests.DfaTests.html#Automata_Core_Tests_DfaTests_IntersectionTest
-  commentId: M:Automata.Core.Tests.DfaTests.IntersectionTest
-  fullName: Automata.Core.Tests.DfaTests.IntersectionTest()
-  nameWithType: DfaTests.IntersectionTest()
-- uid: Automata.Core.Tests.DfaTests.IntersectionTest*
-  name: IntersectionTest
-  href: Automata.Core.Tests.DfaTests.html#Automata_Core_Tests_DfaTests_IntersectionTest_
-  commentId: Overload:Automata.Core.Tests.DfaTests.IntersectionTest
-  isSpec: "True"
-  fullName: Automata.Core.Tests.DfaTests.IntersectionTest
-  nameWithType: DfaTests.IntersectionTest
 - uid: Automata.Core.Transition
   name: Transition
   href: Automata.Core.Transition.html
@@ -2149,197 +1728,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Transition.ToString
   nameWithType: Transition.ToString
-- uid: Automata.Core.TransitionSet`1
-  name: TransitionSet<T>
-  href: Automata.Core.TransitionSet-1.html
-  commentId: T:Automata.Core.TransitionSet`1
-  name.vb: TransitionSet(Of T)
-  fullName: Automata.Core.TransitionSet<T>
-  fullName.vb: Automata.Core.TransitionSet(Of T)
-  nameWithType: TransitionSet<T>
-  nameWithType.vb: TransitionSet(Of T)
-- uid: Automata.Core.TransitionSet`1.#ctor
-  name: TransitionSet()
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1__ctor
-  commentId: M:Automata.Core.TransitionSet`1.#ctor
-  name.vb: New()
-  fullName: Automata.Core.TransitionSet<T>.TransitionSet()
-  fullName.vb: Automata.Core.TransitionSet(Of T).New()
-  nameWithType: TransitionSet<T>.TransitionSet()
-  nameWithType.vb: TransitionSet(Of T).New()
-- uid: Automata.Core.TransitionSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name: TransitionSet(IEnumerable<T>)
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Automata.Core.TransitionSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name.vb: New(IEnumerable(Of T))
-  fullName: Automata.Core.TransitionSet<T>.TransitionSet(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Automata.Core.TransitionSet(Of T).New(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: TransitionSet<T>.TransitionSet(IEnumerable<T>)
-  nameWithType.vb: TransitionSet(Of T).New(IEnumerable(Of T))
-- uid: Automata.Core.TransitionSet`1.#ctor*
-  name: TransitionSet
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1__ctor_
-  commentId: Overload:Automata.Core.TransitionSet`1.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.TransitionSet<T>.TransitionSet
-  fullName.vb: Automata.Core.TransitionSet(Of T).New
-  nameWithType: TransitionSet<T>.TransitionSet
-  nameWithType.vb: TransitionSet(Of T).New
-- uid: Automata.Core.TransitionSet`1.Add(`0)
-  name: Add(T)
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Add__0_
-  commentId: M:Automata.Core.TransitionSet`1.Add(`0)
-  fullName: Automata.Core.TransitionSet<T>.Add(T)
-  fullName.vb: Automata.Core.TransitionSet(Of T).Add(T)
-  nameWithType: TransitionSet<T>.Add(T)
-  nameWithType.vb: TransitionSet(Of T).Add(T)
-- uid: Automata.Core.TransitionSet`1.Add*
-  name: Add
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Add_
-  commentId: Overload:Automata.Core.TransitionSet`1.Add
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.Add
-  fullName.vb: Automata.Core.TransitionSet(Of T).Add
-  nameWithType: TransitionSet<T>.Add
-  nameWithType.vb: TransitionSet(Of T).Add
-- uid: Automata.Core.TransitionSet`1.Count
-  name: Count
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Count
-  commentId: P:Automata.Core.TransitionSet`1.Count
-  fullName: Automata.Core.TransitionSet<T>.Count
-  fullName.vb: Automata.Core.TransitionSet(Of T).Count
-  nameWithType: TransitionSet<T>.Count
-  nameWithType.vb: TransitionSet(Of T).Count
-- uid: Automata.Core.TransitionSet`1.Count*
-  name: Count
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Count_
-  commentId: Overload:Automata.Core.TransitionSet`1.Count
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.Count
-  fullName.vb: Automata.Core.TransitionSet(Of T).Count
-  nameWithType: TransitionSet<T>.Count
-  nameWithType.vb: TransitionSet(Of T).Count
-- uid: Automata.Core.TransitionSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
-  name: ExceptWith(IEnumerable<T>)
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_ExceptWith_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Automata.Core.TransitionSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
-  name.vb: ExceptWith(IEnumerable(Of T))
-  fullName: Automata.Core.TransitionSet<T>.ExceptWith(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Automata.Core.TransitionSet(Of T).ExceptWith(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: TransitionSet<T>.ExceptWith(IEnumerable<T>)
-  nameWithType.vb: TransitionSet(Of T).ExceptWith(IEnumerable(Of T))
-- uid: Automata.Core.TransitionSet`1.ExceptWith*
-  name: ExceptWith
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_ExceptWith_
-  commentId: Overload:Automata.Core.TransitionSet`1.ExceptWith
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.ExceptWith
-  fullName.vb: Automata.Core.TransitionSet(Of T).ExceptWith
-  nameWithType: TransitionSet<T>.ExceptWith
-  nameWithType.vb: TransitionSet(Of T).ExceptWith
-- uid: Automata.Core.TransitionSet`1.MaxState
-  name: MaxState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MaxState
-  commentId: P:Automata.Core.TransitionSet`1.MaxState
-  fullName: Automata.Core.TransitionSet<T>.MaxState
-  fullName.vb: Automata.Core.TransitionSet(Of T).MaxState
-  nameWithType: TransitionSet<T>.MaxState
-  nameWithType.vb: TransitionSet(Of T).MaxState
-- uid: Automata.Core.TransitionSet`1.MaxState*
-  name: MaxState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MaxState_
-  commentId: Overload:Automata.Core.TransitionSet`1.MaxState
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.MaxState
-  fullName.vb: Automata.Core.TransitionSet(Of T).MaxState
-  nameWithType: TransitionSet<T>.MaxState
-  nameWithType.vb: TransitionSet(Of T).MaxState
-- uid: Automata.Core.TransitionSet`1.MinState
-  name: MinState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MinState
-  commentId: P:Automata.Core.TransitionSet`1.MinState
-  fullName: Automata.Core.TransitionSet<T>.MinState
-  fullName.vb: Automata.Core.TransitionSet(Of T).MinState
-  nameWithType: TransitionSet<T>.MinState
-  nameWithType.vb: TransitionSet(Of T).MinState
-- uid: Automata.Core.TransitionSet`1.MinState*
-  name: MinState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_MinState_
-  commentId: Overload:Automata.Core.TransitionSet`1.MinState
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.MinState
-  fullName.vb: Automata.Core.TransitionSet(Of T).MinState
-  nameWithType: TransitionSet<T>.MinState
-  nameWithType.vb: TransitionSet(Of T).MinState
-- uid: Automata.Core.TransitionSet`1.Remove(`0)
-  name: Remove(T)
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove__0_
-  commentId: M:Automata.Core.TransitionSet`1.Remove(`0)
-  fullName: Automata.Core.TransitionSet<T>.Remove(T)
-  fullName.vb: Automata.Core.TransitionSet(Of T).Remove(T)
-  nameWithType: TransitionSet<T>.Remove(T)
-  nameWithType.vb: TransitionSet(Of T).Remove(T)
-- uid: Automata.Core.TransitionSet`1.Remove*
-  name: Remove
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Remove_
-  commentId: Overload:Automata.Core.TransitionSet`1.Remove
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.Remove
-  fullName.vb: Automata.Core.TransitionSet(Of T).Remove
-  nameWithType: TransitionSet<T>.Remove
-  nameWithType.vb: TransitionSet(Of T).Remove
-- uid: Automata.Core.TransitionSet`1.Transitions
-  name: Transitions
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Transitions
-  commentId: P:Automata.Core.TransitionSet`1.Transitions
-  fullName: Automata.Core.TransitionSet<T>.Transitions
-  fullName.vb: Automata.Core.TransitionSet(Of T).Transitions
-  nameWithType: TransitionSet<T>.Transitions
-  nameWithType.vb: TransitionSet(Of T).Transitions
-- uid: Automata.Core.TransitionSet`1.Transitions*
-  name: Transitions
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_Transitions_
-  commentId: Overload:Automata.Core.TransitionSet`1.Transitions
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.Transitions
-  fullName.vb: Automata.Core.TransitionSet(Of T).Transitions
-  nameWithType: TransitionSet<T>.Transitions
-  nameWithType.vb: TransitionSet(Of T).Transitions
-- uid: Automata.Core.TransitionSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
-  name: UnionWith(IEnumerable<T>)
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_UnionWith_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Automata.Core.TransitionSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
-  name.vb: UnionWith(IEnumerable(Of T))
-  fullName: Automata.Core.TransitionSet<T>.UnionWith(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Automata.Core.TransitionSet(Of T).UnionWith(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: TransitionSet<T>.UnionWith(IEnumerable<T>)
-  nameWithType.vb: TransitionSet(Of T).UnionWith(IEnumerable(Of T))
-- uid: Automata.Core.TransitionSet`1.UnionWith*
-  name: UnionWith
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_UnionWith_
-  commentId: Overload:Automata.Core.TransitionSet`1.UnionWith
-  isSpec: "True"
-  fullName: Automata.Core.TransitionSet<T>.UnionWith
-  fullName.vb: Automata.Core.TransitionSet(Of T).UnionWith
-  nameWithType: TransitionSet<T>.UnionWith
-  nameWithType.vb: TransitionSet(Of T).UnionWith
-- uid: Automata.Core.TransitionSet`1.orderByFromState
-  name: orderByFromState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByFromState
-  commentId: F:Automata.Core.TransitionSet`1.orderByFromState
-  fullName: Automata.Core.TransitionSet<T>.orderByFromState
-  fullName.vb: Automata.Core.TransitionSet(Of T).orderByFromState
-  nameWithType: TransitionSet<T>.orderByFromState
-  nameWithType.vb: TransitionSet(Of T).orderByFromState
-- uid: Automata.Core.TransitionSet`1.orderByToState
-  name: orderByToState
-  href: Automata.Core.TransitionSet-1.html#Automata_Core_TransitionSet_1_orderByToState
-  commentId: F:Automata.Core.TransitionSet`1.orderByToState
-  fullName: Automata.Core.TransitionSet<T>.orderByToState
-  fullName.vb: Automata.Core.TransitionSet(Of T).orderByToState
-  nameWithType: TransitionSet<T>.orderByToState
-  nameWithType.vb: TransitionSet(Of T).orderByToState
 - uid: Automata.Core.TransitionSets
   name: Automata.Core.TransitionSets
   href: Automata.Core.TransitionSets.html
@@ -3063,112 +2451,6 @@ references:
   commentId: N:Automata.Visualization
   fullName: Automata.Visualization
   nameWithType: Automata.Visualization
-- uid: Automata.Visualization.ConsoleWindow
-  name: ConsoleWindow
-  href: Automata.Visualization.ConsoleWindow.html
-  commentId: T:Automata.Visualization.ConsoleWindow
-  fullName: Automata.Visualization.ConsoleWindow
-  nameWithType: ConsoleWindow
-- uid: Automata.Visualization.ConsoleWindow.ClearText
-  name: ClearText()
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_ClearText
-  commentId: M:Automata.Visualization.ConsoleWindow.ClearText
-  fullName: Automata.Visualization.ConsoleWindow.ClearText()
-  nameWithType: ConsoleWindow.ClearText()
-- uid: Automata.Visualization.ConsoleWindow.ClearText*
-  name: ClearText
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_ClearText_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.ClearText
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.ClearText
-  nameWithType: ConsoleWindow.ClearText
-- uid: Automata.Visualization.ConsoleWindow.Create
-  name: Create()
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Create
-  commentId: M:Automata.Visualization.ConsoleWindow.Create
-  fullName: Automata.Visualization.ConsoleWindow.Create()
-  nameWithType: ConsoleWindow.Create()
-- uid: Automata.Visualization.ConsoleWindow.Create*
-  name: Create
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Create_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.Create
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.Create
-  nameWithType: ConsoleWindow.Create
-- uid: Automata.Visualization.ConsoleWindow.Dispose(System.Boolean)
-  name: Dispose(bool)
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Dispose_System_Boolean_
-  commentId: M:Automata.Visualization.ConsoleWindow.Dispose(System.Boolean)
-  name.vb: Dispose(Boolean)
-  fullName: Automata.Visualization.ConsoleWindow.Dispose(bool)
-  fullName.vb: Automata.Visualization.ConsoleWindow.Dispose(Boolean)
-  nameWithType: ConsoleWindow.Dispose(bool)
-  nameWithType.vb: ConsoleWindow.Dispose(Boolean)
-- uid: Automata.Visualization.ConsoleWindow.Dispose*
-  name: Dispose
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Dispose_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.Dispose
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.Dispose
-  nameWithType: ConsoleWindow.Dispose
-- uid: Automata.Visualization.ConsoleWindow.IsAlive
-  name: IsAlive
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_IsAlive
-  commentId: P:Automata.Visualization.ConsoleWindow.IsAlive
-  fullName: Automata.Visualization.ConsoleWindow.IsAlive
-  nameWithType: ConsoleWindow.IsAlive
-- uid: Automata.Visualization.ConsoleWindow.IsAlive*
-  name: IsAlive
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_IsAlive_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.IsAlive
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.IsAlive
-  nameWithType: ConsoleWindow.IsAlive
-- uid: Automata.Visualization.ConsoleWindow.ShowGraph(Microsoft.Msagl.Drawing.Graph)
-  name: ShowGraph(Graph)
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_ShowGraph_Microsoft_Msagl_Drawing_Graph_
-  commentId: M:Automata.Visualization.ConsoleWindow.ShowGraph(Microsoft.Msagl.Drawing.Graph)
-  fullName: Automata.Visualization.ConsoleWindow.ShowGraph(Microsoft.Msagl.Drawing.Graph)
-  nameWithType: ConsoleWindow.ShowGraph(Graph)
-- uid: Automata.Visualization.ConsoleWindow.ShowGraph*
-  name: ShowGraph
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_ShowGraph_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.ShowGraph
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.ShowGraph
-  nameWithType: ConsoleWindow.ShowGraph
-- uid: Automata.Visualization.ConsoleWindow.Write(System.String,System.Nullable{System.Drawing.Color})
-  name: Write(string, Color?)
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Write_System_String_System_Nullable_System_Drawing_Color__
-  commentId: M:Automata.Visualization.ConsoleWindow.Write(System.String,System.Nullable{System.Drawing.Color})
-  name.vb: Write(String, Color?)
-  fullName: Automata.Visualization.ConsoleWindow.Write(string, System.Drawing.Color?)
-  fullName.vb: Automata.Visualization.ConsoleWindow.Write(String, System.Drawing.Color?)
-  nameWithType: ConsoleWindow.Write(string, Color?)
-  nameWithType.vb: ConsoleWindow.Write(String, Color?)
-- uid: Automata.Visualization.ConsoleWindow.Write*
-  name: Write
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_Write_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.Write
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.Write
-  nameWithType: ConsoleWindow.Write
-- uid: Automata.Visualization.ConsoleWindow.WriteLine(System.String,System.Nullable{System.Drawing.Color})
-  name: WriteLine(string, Color?)
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_WriteLine_System_String_System_Nullable_System_Drawing_Color__
-  commentId: M:Automata.Visualization.ConsoleWindow.WriteLine(System.String,System.Nullable{System.Drawing.Color})
-  name.vb: WriteLine(String, Color?)
-  fullName: Automata.Visualization.ConsoleWindow.WriteLine(string, System.Drawing.Color?)
-  fullName.vb: Automata.Visualization.ConsoleWindow.WriteLine(String, System.Drawing.Color?)
-  nameWithType: ConsoleWindow.WriteLine(string, Color?)
-  nameWithType.vb: ConsoleWindow.WriteLine(String, Color?)
-- uid: Automata.Visualization.ConsoleWindow.WriteLine*
-  name: WriteLine
-  href: Automata.Visualization.ConsoleWindow.html#Automata_Visualization_ConsoleWindow_WriteLine_
-  commentId: Overload:Automata.Visualization.ConsoleWindow.WriteLine
-  isSpec: "True"
-  fullName: Automata.Visualization.ConsoleWindow.WriteLine
-  nameWithType: ConsoleWindow.WriteLine
 - uid: Automata.Visualization.GraphFactory
   name: GraphFactory
   href: Automata.Visualization.GraphFactory.html

@@ -12,36 +12,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.App.Program.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.App.Program.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.App.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.App.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabet.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Alphabet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.Alphabet.yml",
       "output": {
         ".html": {
@@ -102,10 +72,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.DFA.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Dfa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.DFA.html"
+          "relative_path": "Automata.Core.Dfa.html"
         }
       },
       "version": ""
@@ -126,16 +96,6 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.EpsilonTransition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.EpsilonTransitionSet.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.EpsilonTransitionSet.html"
         }
       },
       "version": ""
@@ -172,60 +132,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.NFA.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Nfa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.NFA.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.SymbolicTransition.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.SymbolicTransition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.SymbolicTransitionSet.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.SymbolicTransitionSet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.DfaIntersectionTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Tests.DfaIntersectionTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.DfaTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Tests.DfaTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Tests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Tests.html"
+          "relative_path": "Automata.Core.Nfa.html"
         }
       },
       "version": ""
@@ -236,16 +146,6 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.Transition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.TransitionSet-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.TransitionSet-1.html"
         }
       },
       "version": ""
@@ -326,16 +226,6 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Visualization.ConsoleWindow.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Visualization.ConsoleWindow.html"
         }
       },
       "version": ""
