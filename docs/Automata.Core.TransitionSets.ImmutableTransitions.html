@@ -273,11 +273,92 @@ Class ImmutableTransitions  <a class="header-action link-secondary" title="View 
 </h2>
 
 
+  <a id="Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols*"></a>
+
+  <h3 id="Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})">
+  AvailableSymbols(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a set of symbols that can be used to transition directly from the given states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntSet AvailableSymbols(IEnumerable&lt;int&gt; fromStates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromStates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The states from which to start.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Automata.Core.IntSet.html">IntSet</a></dt>
+    <dd><p>The set of symbols that can be used to transition directly from the given states.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols*"></a>
+
+  <h3 id="Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_System_Int32_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Int32)">
+  AvailableSymbols(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the set of symbols that can be used to transition directly from the given state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;int&gt; AvailableSymbols(int fromState)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state from which to start.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The set of symbols that can be used to transition directly from the given state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Since the underlying set is deterministic, the returned symbols is a proper <code>set</code>, meaning every symbol can occur only once.</p>
+</div>
+
+
+
+
   <a id="Automata_Core_TransitionSets_ImmutableTransitions_GetEnumerator_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.GetEnumerator*"></a>
 
   <h3 id="Automata_Core_TransitionSets_ImmutableTransitions_GetEnumerator" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
@@ -293,6 +374,48 @@ Class ImmutableTransitions  <a class="header-action link-secondary" title="View 
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</dt>
     <dd><p>An enumerator that can be used to iterate through the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Automata_Core_TransitionSets_ImmutableTransitions_ReachableState_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.ReachableState*"></a>
+
+  <h3 id="Automata_Core_TransitionSets_ImmutableTransitions_ReachableState_System_Int32_System_Int32_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.ReachableState(System.Int32,System.Int32)">
+  ReachableState(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the state reachable from the given state on the given symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReachableState(int fromState, int symbol)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state from which to start.</p>
+</dd>
+    <dt><code>symbol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The symbol to transition on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state reachable from the given state on the given symbol. If no such transition exists, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned.</p>
 </dd>
   </dl>
 
@@ -352,7 +475,7 @@ Class ImmutableTransitions  <a class="header-action link-secondary" title="View 
 
   <h3 id="Automata_Core_TransitionSets_ImmutableTransitions_Transitions_System_Int32_" data-uid="Automata.Core.TransitionSets.ImmutableTransitions.Transitions(System.Int32)">
   Transitions(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/TransitionSets/ImmutableTransitions.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the set of transitions from the given state.</p>

@@ -2573,6 +2573,31 @@ references:
   fullName.vb: Automata.Core.TransitionSets.ImmutableTransitions.New
   nameWithType: ImmutableTransitions.ImmutableTransitions
   nameWithType.vb: ImmutableTransitions.New
+- uid: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})
+  name: AvailableSymbols(IEnumerable<int>)
+  href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__
+  commentId: M:Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})
+  name.vb: AvailableSymbols(IEnumerable(Of Integer))
+  fullName: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Collections.Generic.IEnumerable<int>)
+  fullName.vb: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Collections.Generic.IEnumerable(Of Integer))
+  nameWithType: ImmutableTransitions.AvailableSymbols(IEnumerable<int>)
+  nameWithType.vb: ImmutableTransitions.AvailableSymbols(IEnumerable(Of Integer))
+- uid: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Int32)
+  name: AvailableSymbols(int)
+  href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_System_Int32_
+  commentId: M:Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(System.Int32)
+  name.vb: AvailableSymbols(Integer)
+  fullName: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(int)
+  fullName.vb: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols(Integer)
+  nameWithType: ImmutableTransitions.AvailableSymbols(int)
+  nameWithType.vb: ImmutableTransitions.AvailableSymbols(Integer)
+- uid: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols*
+  name: AvailableSymbols
+  href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_AvailableSymbols_
+  commentId: Overload:Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols
+  isSpec: "True"
+  fullName: Automata.Core.TransitionSets.ImmutableTransitions.AvailableSymbols
+  nameWithType: ImmutableTransitions.AvailableSymbols
 - uid: Automata.Core.TransitionSets.ImmutableTransitions.GetEnumerator
   name: GetEnumerator()
   href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_GetEnumerator
@@ -2586,6 +2611,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.TransitionSets.ImmutableTransitions.GetEnumerator
   nameWithType: ImmutableTransitions.GetEnumerator
+- uid: Automata.Core.TransitionSets.ImmutableTransitions.ReachableState(System.Int32,System.Int32)
+  name: ReachableState(int, int)
+  href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_ReachableState_System_Int32_System_Int32_
+  commentId: M:Automata.Core.TransitionSets.ImmutableTransitions.ReachableState(System.Int32,System.Int32)
+  name.vb: ReachableState(Integer, Integer)
+  fullName: Automata.Core.TransitionSets.ImmutableTransitions.ReachableState(int, int)
+  fullName.vb: Automata.Core.TransitionSets.ImmutableTransitions.ReachableState(Integer, Integer)
+  nameWithType: ImmutableTransitions.ReachableState(int, int)
+  nameWithType.vb: ImmutableTransitions.ReachableState(Integer, Integer)
+- uid: Automata.Core.TransitionSets.ImmutableTransitions.ReachableState*
+  name: ReachableState
+  href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_ReachableState_
+  commentId: Overload:Automata.Core.TransitionSets.ImmutableTransitions.ReachableState
+  isSpec: "True"
+  fullName: Automata.Core.TransitionSets.ImmutableTransitions.ReachableState
+  nameWithType: ImmutableTransitions.ReachableState
 - uid: Automata.Core.TransitionSets.ImmutableTransitions.StateCount
   name: StateCount
   href: Automata.Core.TransitionSets.ImmutableTransitions.html#Automata_Core_TransitionSets_ImmutableTransitions_StateCount
@@ -2934,6 +2975,15 @@ references:
   fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.Collections.Generic.SortedSet(Of Automata.Core.Transition), Integer)
   nameWithType: TransitionsExtensions.AvailableSymbols(SortedSet<Transition>, int)
   nameWithType.vb: TransitionsExtensions.AvailableSymbols(SortedSet(Of Transition), Integer)
+- uid: Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)
+  name: AvailableSymbols(ReadOnlySpan<Transition>, int)
+  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_
+  commentId: M:Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)
+  name.vb: AvailableSymbols(ReadOnlySpan(Of Transition), Integer)
+  fullName: Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan<Automata.Core.Transition>, int)
+  fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols(System.ReadOnlySpan(Of Automata.Core.Transition), Integer)
+  nameWithType: TransitionsExtensions.AvailableSymbols(ReadOnlySpan<Transition>, int)
+  nameWithType.vb: TransitionsExtensions.AvailableSymbols(ReadOnlySpan(Of Transition), Integer)
 - uid: Automata.Core.TransitionSets.TransitionsExtensions.AvailableSymbols*
   name: AvailableSymbols
   href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_AvailableSymbols_
@@ -2950,6 +3000,15 @@ references:
   fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.Collections.Generic.SortedSet(Of Automata.Core.Transition), Integer, Integer)
   nameWithType: TransitionsExtensions.Transition(SortedSet<Transition>, int, int)
   nameWithType.vb: TransitionsExtensions.Transition(SortedSet(Of Transition), Integer, Integer)
+- uid: Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan{Automata.Core.Transition},System.Int32,System.Int32)
+  name: Transition(ReadOnlySpan<Transition>, int, int)
+  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_Transition_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_System_Int32_
+  commentId: M:Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan{Automata.Core.Transition},System.Int32,System.Int32)
+  name.vb: Transition(ReadOnlySpan(Of Transition), Integer, Integer)
+  fullName: Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan<Automata.Core.Transition>, int, int)
+  fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.Transition(System.ReadOnlySpan(Of Automata.Core.Transition), Integer, Integer)
+  nameWithType: TransitionsExtensions.Transition(ReadOnlySpan<Transition>, int, int)
+  nameWithType.vb: TransitionsExtensions.Transition(ReadOnlySpan(Of Transition), Integer, Integer)
 - uid: Automata.Core.TransitionSets.TransitionsExtensions.Transition*
   name: Transition
   href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_Transition_
@@ -2966,15 +3025,15 @@ references:
   fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet(Of Automata.Core.Transition), Integer)
   nameWithType: TransitionsExtensions.Transitions(SortedSet<Transition>, int)
   nameWithType.vb: TransitionsExtensions.Transitions(SortedSet(Of Transition), Integer)
-- uid: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)
-  name: Transitions(SortedSet<Transition>, int, int)
-  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_
-  commentId: M:Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)
-  name.vb: Transitions(SortedSet(Of Transition), Integer, Integer)
-  fullName: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet<Automata.Core.Transition>, int, int)
-  fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.Collections.Generic.SortedSet(Of Automata.Core.Transition), Integer, Integer)
-  nameWithType: TransitionsExtensions.Transitions(SortedSet<Transition>, int, int)
-  nameWithType.vb: TransitionsExtensions.Transitions(SortedSet(Of Transition), Integer, Integer)
+- uid: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)
+  name: Transitions(ReadOnlySpan<Transition>, int)
+  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_Transitions_System_ReadOnlySpan_Automata_Core_Transition__System_Int32_
+  commentId: M:Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan{Automata.Core.Transition},System.Int32)
+  name.vb: Transitions(ReadOnlySpan(Of Transition), Integer)
+  fullName: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan<Automata.Core.Transition>, int)
+  fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.Transitions(System.ReadOnlySpan(Of Automata.Core.Transition), Integer)
+  nameWithType: TransitionsExtensions.Transitions(ReadOnlySpan<Transition>, int)
+  nameWithType.vb: TransitionsExtensions.Transitions(ReadOnlySpan(Of Transition), Integer)
 - uid: Automata.Core.TransitionSets.TransitionsExtensions.Transitions*
   name: Transitions
   href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_Transitions_
@@ -2982,6 +3041,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.TransitionSets.TransitionsExtensions.Transitions
   nameWithType: TransitionsExtensions.Transitions
+- uid: Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)
+  name: TransitionsNonDeterministic(SortedSet<Transition>, int, int)
+  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_System_Collections_Generic_SortedSet_Automata_Core_Transition__System_Int32_System_Int32_
+  commentId: M:Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet{Automata.Core.Transition},System.Int32,System.Int32)
+  name.vb: TransitionsNonDeterministic(SortedSet(Of Transition), Integer, Integer)
+  fullName: Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet<Automata.Core.Transition>, int, int)
+  fullName.vb: Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic(System.Collections.Generic.SortedSet(Of Automata.Core.Transition), Integer, Integer)
+  nameWithType: TransitionsExtensions.TransitionsNonDeterministic(SortedSet<Transition>, int, int)
+  nameWithType.vb: TransitionsExtensions.TransitionsNonDeterministic(SortedSet(Of Transition), Integer, Integer)
+- uid: Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic*
+  name: TransitionsNonDeterministic
+  href: Automata.Core.TransitionSets.TransitionsExtensions.html#Automata_Core_TransitionSets_TransitionsExtensions_TransitionsNonDeterministic_
+  commentId: Overload:Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic
+  isSpec: "True"
+  fullName: Automata.Core.TransitionSets.TransitionsExtensions.TransitionsNonDeterministic
+  nameWithType: TransitionsExtensions.TransitionsNonDeterministic
 - uid: Automata.Visualization
   name: Automata.Visualization
   href: Automata.Visualization.html
