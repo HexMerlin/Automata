@@ -4,29 +4,36 @@
     {
       "src": [
         {
-          "src": "../.",
-          "files": ["**/*.csproj"]
+          "src": "../",
+          "files": ["**/*.csproj"],
+          "exclude": [
+            "Automata.App/Automata.App.csproj",
+            "Automata.CoreTests/Automata.CoreTests.csproj"
+          ]
         }
       ],
-      "dest": "../docs/obj/api"   // Redirect YAML files here
+      "dest": "../docs/obj/api",
+      "properties": {
+        "showInheritedMembers": "true"
+      }
     }
   ],
   "build": {
     "content": [
       { "files": ["index.md"] },
-      { "src": "../docs/obj/api", "files": ["**/*.yml"] } // Include YAML files for resolving xrefs
+      { "src": "../docs/obj/api", "files": ["**/*.yml"] }
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
     "output": "../docs",
     "template": [
-       "default",  
-       "modern"
+      "default",
+      "modern"
     ],
     "globalMetadata": {
-      "_appName": "AutomataDocs",
-      "_appTitle": "AutomataDocs",
+      "_appName": "Automata Docs",
+      "_appTitle": "Automata Docs",
       "_enableSearch": true
     }
   }
