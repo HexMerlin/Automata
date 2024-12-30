@@ -3,10 +3,9 @@ using Automata.Core;
 using Automata.Core.Alphabets;
 using Automata.Visualization;
 using Microsoft.Msagl.Drawing;
-using Automata.Core.TransitionSets;
 
 namespace Automata.App;
-/* Important. Currently actively working on this file for testing. That's why it is a mess. Will be fixed very soon.*/
+
 /// <summary>
 /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
 /// </summary>
@@ -16,12 +15,12 @@ public static class Program
     {
         Console.WriteLine("Creating graph."); // Write some text output to the console window
 
-        Random random = new Random(11);
-        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random sequences
+        Random random = new Random(7);
+        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-        IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
+        IFsa fsa = new Nfa(sequences).ToDfa().Minimized(); //Create a minimized DFA from the sequences
 
-        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object to display using the sequences
+        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
 
         //Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
 
@@ -30,6 +29,7 @@ public static class Program
         Console.WriteLine("Graph is displayed."); // Write some text output to the console window
     }
 
+    /* Notice. Currently actively working on this file for testing. Just ignore dev-code below */
     /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s)
     {
@@ -71,7 +71,7 @@ public static class Program
         dfa2.Add(new Transition(0, 1, 1));
         dfa2.Add(new Transition(1, 1, 2));
 
-        Dfa actual = dfa1.Intersection(dfa2);
+        //Dfa actual = dfa1.Intersection(dfa2);
 
         //Graph graph = GraphFactory.CreateGraph(dfa1);
         //GraphView graphView = GraphView.OpenNew(graph);

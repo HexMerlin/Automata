@@ -250,7 +250,7 @@ public class Nfa : IFsa
         epsilonTransitions.ReachableStatesOnEpsilonInPlace(intermediateStates);
         HashSet<int> toStates = intermediateStates.SelectMany(s => symbolicTransitions.ReachableStates(s, symbol)).ToHashSet();
         epsilonTransitions.ReachableStatesOnEpsilonInPlace(toStates);
-        return new IntSet(toStates);
+        return new(toStates);
     }
 
     /// <summary>

@@ -1,9 +1,9 @@
 ﻿using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
-public static class DfaIntersection
+public partial class Cfa
 {
-    public static Dfa Intersection(this Dfa a, Dfa b)
+    public static Dfa Intersection(Cfa a, Cfa b)
     {
         Dfa dfa = new();
 
@@ -25,8 +25,8 @@ public static class DfaIntersection
             if (a.IsFinal(qA) && b.IsFinal(qB))
                 dfa.SetFinal(fromState);
 
-            SortedSet<Transition> transitionsA = a.Transitions(qA);
-            SortedSet<Transition> transitionsB = b.Transitions(qB);
+            var transitionsA = a.Transitions(qA);
+            var transitionsB = b.Transitions(qB);
             foreach (Transition tA in transitionsA)
             {
                 string symbolAsString = a.Alphabet[tA.Symbol]; //get the symbol as a string, since we deal with different alphabets

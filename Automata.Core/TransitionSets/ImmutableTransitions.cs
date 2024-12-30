@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Automata.Core.TransitionSets;
 
@@ -59,6 +59,7 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// <returns>
     /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
     /// </returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public Transition Transition(int fromState, int symbol)
         => new ReadOnlySpan<Transition>(transitions).Transition(fromState, symbol);
 
@@ -67,6 +68,7 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// </summary>
     /// <param name="fromState">The source state.</param>
     /// <returns>A <see cref="ReadOnlySpan{T}"/> containing the transitions from the given state.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public ReadOnlySpan<Transition> Transitions(int fromState)
         => new ReadOnlySpan<Transition>(transitions).Transitions(fromState);
 
@@ -76,6 +78,7 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// <param name="fromState">The state from which to start.</param>
     /// <param name="symbol">The symbol to transition on.</param>
     /// <returns>The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int ReachableState(int fromState, int symbol)
         => Transition(fromState, symbol).ToState;
 
@@ -85,8 +88,9 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// <param name="fromState">The state from which to start.</param>
     /// <remarks>Since the underlying set is deterministic, the returned symbols is a proper <c>set</c>, meaning every symbol can occur only once.</remarks>
     /// <returns>The set of symbols that can be used to transition directly from the given state.</returns>
-    public IEnumerable<int> AvailableSymbols(int fromState)
-        => new ReadOnlySpan<Transition>(transitions).AvailableSymbols(fromState);
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public int[] AvailableSymbols(int fromState)
+       => Transitions(fromState).AvailableSymbols(fromState);
 
     /// <summary>
     /// Returns a set of symbols that can be used to transition directly from the given states.
@@ -94,9 +98,17 @@ public class ImmutableTransitions : IEnumerable<Transition>
     /// <param name="fromStates">The states from which to start.</param>
     /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
     public IntSet AvailableSymbols(IEnumerable<int> fromStates)
-        => new(fromStates.SelectMany(AvailableSymbols));
-
-
+    {
+        HashSet<int> symbols = new();
+        foreach (int fromState in fromStates)
+        {
+            var transitions = this.Transitions(fromState);
+            for (int i = 0; i < transitions.Length; i++)
+                symbols.Add(transitions[i].Symbol);
+        }
+        return new IntSet(symbols);
+    }
+     
     /// <summary>
     /// Finds the maximum state in the set of transitions.
     /// Also asserts that the transitions are deterministic.

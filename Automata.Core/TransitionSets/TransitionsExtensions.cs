@@ -9,34 +9,6 @@ namespace Automata.Core.TransitionSets;
 /// </summary>
 public static class TransitionsExtensions
 {
-    /// <summary>
-    /// Enumerates all symbols that can be used to transition directly from the given state.
-    /// </summary>
-    /// <param name="transitions">The set of transitions to search.</param>
-    /// <param name="fromState">The from state.</param>
-    /// <remarks>
-    /// This enumerates over the symbols which is fast. 
-    /// <para>If <paramref name="transitions"/> are deterministic, the result will be a proper <c>set</c> (no duplicated symbols)</para>
-    /// <para>If <paramref name="transitions"/> are non-deterministic, the result can contain duplicated symbols.</para>
-    /// </remarks>
-    /// <returns>The collection of symbols that can be used to transition directly from the given state.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IEnumerable<int> AvailableSymbols(this SortedSet<Transition> transitions, int fromState)
-        => transitions.Transitions(fromState).Select(t => t.Symbol);
-
-    /// <summary>
-    /// Enumerates all symbols that can be used to transition directly from the given state.
-    /// </summary>
-    /// <param name="transitions">The set of transitions to search.</param>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <remarks>
-    /// <para>If <paramref name="transitions"/> are deterministic, the result will be a proper <c>set</c> (no duplicated symbols)</para>
-    /// <para>If <paramref name="transitions"/> are non-deterministic, the result can contain duplicated symbols.</para>
-    /// </remarks>
-    /// <returns>The collection of symbols that can be used to transition directly from the given state.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IEnumerable<int> AvailableSymbols(this ReadOnlySpan<Transition> transitions, int fromState) 
-        => transitions.Transitions(fromState).ToArray().Select(t => t.Symbol);
 
     /// <summary>
     /// Returns the transition from the given state with the given symbol.
@@ -116,6 +88,41 @@ public static class TransitionsExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static SortedSet<Transition> TransitionsNonDeterministic(this SortedSet<Transition> transitions, int fromState, int symbol)
        => transitions.GetViewBetween(MinTrans(fromState, symbol), MaxTrans(fromState, symbol));
+
+    /// <summary>
+    /// Enumerates all symbols that can be used to transition directly from the given state.
+    /// </summary>
+    /// <param name="transitions">The set of transitions to search.</param>
+    /// <param name="fromState">The from state.</param>
+    /// <remarks>
+    /// This enumerates over the symbols which is fast. 
+    /// <para>If <paramref name="transitions"/> are deterministic, the result will be a proper <c>set</c> (no duplicated symbols)</para>
+    /// <para>If <paramref name="transitions"/> are non-deterministic, the result can contain duplicated symbols.</para>
+    /// </remarks>
+    /// <returns>The collection of symbols that can be used to transition directly from the given state.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static IEnumerable<int> AvailableSymbols(this SortedSet<Transition> transitions, int fromState)
+        => transitions.Transitions(fromState).Select(t => t.Symbol);
+
+    /// <summary>
+    /// Enumerates all symbols that can be used to transition directly from the given state.
+    /// </summary>
+    /// <param name="transitions">The set of transitions to search.</param>
+    /// <param name="fromState">The state from which to start.</param>
+    /// <remarks>
+    /// <para>If <paramref name="transitions"/> are deterministic, the result will be a proper <c>set</c> (no duplicated symbols)</para>
+    /// <para>If <paramref name="transitions"/> are non-deterministic, the result can contain duplicated symbols.</para>
+    /// </remarks>
+    /// <returns>The collection of symbols that can be used to transition directly from the given state.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static int[] AvailableSymbols(this ReadOnlySpan<Transition> transitions, int fromState)
+    {
+        transitions = transitions.Transitions(fromState);
+        int[] symbols = new int[transitions.Length];
+        for (int i = 0; i < transitions.Length; i++)
+            symbols[i] = transitions[i].Symbol;
+        return symbols;
+    }
 
     /// <summary>
     /// Creates a minimum transition for the given state and symbol.

@@ -18,11 +18,19 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     private FrozenSet<int> Members { get; }
     #endregion
 
+
     /// <summary>
     /// Initializes a new instance of the <see cref="IntSet"/> class with the specified elements.
     /// </summary>
     /// <param name="elements">The elements to include in the set.</param>
     public IntSet(IEnumerable<int> elements)
+        => Members = elements.ToFrozenSet();
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IntSet"/> class with the specified elements.
+    /// </summary>
+    /// <param name="elements">The elements to include in the set.</param>
+    public IntSet(HashSet<int> elements)
         => Members = elements.ToFrozenSet();
 
     /// <summary>
@@ -66,7 +74,7 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     /// <returns>A string that represents the current set.</returns>
     public override string ToString()
         => Count <= 10 ? string.Join(", ", Members) : string.Join(", ", Members.Take(10)) + ", ...";
-   
+
     public bool Contains(int item) => Members.Contains(item);
     public bool IsProperSubsetOf(IEnumerable<int> other) => Members.IsProperSubsetOf(other);
     public bool IsProperSupersetOf(IEnumerable<int> other) => Members.IsProperSupersetOf(other);
