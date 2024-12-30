@@ -82,16 +82,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.DfaIntersection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.DfaIntersection.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.EpsilonTransition.yml",
       "output": {
         ".html": {

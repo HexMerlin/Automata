@@ -45,4 +45,6 @@ public interface IFsa
     /// Gets the epsilon transitions of the FSA.
     /// </summary>
     IEnumerable<EpsilonTransition> EpsilonTransitions();
+
+
 }

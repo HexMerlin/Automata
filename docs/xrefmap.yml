@@ -439,6 +439,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Cfa.InitialState
   nameWithType: Cfa.InitialState
+- uid: Automata.Core.Cfa.Intersection(Automata.Core.Cfa,Automata.Core.Cfa)
+  name: Intersection(Cfa, Cfa)
+  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Intersection_Automata_Core_Cfa_Automata_Core_Cfa_
+  commentId: M:Automata.Core.Cfa.Intersection(Automata.Core.Cfa,Automata.Core.Cfa)
+  fullName: Automata.Core.Cfa.Intersection(Automata.Core.Cfa, Automata.Core.Cfa)
+  nameWithType: Cfa.Intersection(Cfa, Cfa)
+- uid: Automata.Core.Cfa.Intersection*
+  name: Intersection
+  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Intersection_
+  commentId: Overload:Automata.Core.Cfa.Intersection
+  isSpec: "True"
+  fullName: Automata.Core.Cfa.Intersection
+  nameWithType: Cfa.Intersection
 - uid: Automata.Core.Cfa.IsEmpty
   name: IsEmpty
   href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsEmpty
@@ -759,6 +772,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.SymbolicTransitions
   nameWithType: Dfa.SymbolicTransitions
+- uid: Automata.Core.Dfa.ToCFA
+  name: ToCFA()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCFA
+  commentId: M:Automata.Core.Dfa.ToCFA
+  fullName: Automata.Core.Dfa.ToCFA()
+  nameWithType: Dfa.ToCFA()
+- uid: Automata.Core.Dfa.ToCFA*
+  name: ToCFA
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCFA_
+  commentId: Overload:Automata.Core.Dfa.ToCFA
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.ToCFA
+  nameWithType: Dfa.ToCFA
 - uid: Automata.Core.Dfa.ToNFA
   name: ToNFA()
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToNFA
@@ -772,25 +798,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.ToNFA
   nameWithType: Dfa.ToNFA
-- uid: Automata.Core.DfaIntersection
-  name: DfaIntersection
-  href: Automata.Core.DfaIntersection.html
-  commentId: T:Automata.Core.DfaIntersection
-  fullName: Automata.Core.DfaIntersection
-  nameWithType: DfaIntersection
-- uid: Automata.Core.DfaIntersection.Intersection(Automata.Core.Dfa,Automata.Core.Dfa)
-  name: Intersection(Dfa, Dfa)
-  href: Automata.Core.DfaIntersection.html#Automata_Core_DfaIntersection_Intersection_Automata_Core_Dfa_Automata_Core_Dfa_
-  commentId: M:Automata.Core.DfaIntersection.Intersection(Automata.Core.Dfa,Automata.Core.Dfa)
-  fullName: Automata.Core.DfaIntersection.Intersection(Automata.Core.Dfa, Automata.Core.Dfa)
-  nameWithType: DfaIntersection.Intersection(Dfa, Dfa)
-- uid: Automata.Core.DfaIntersection.Intersection*
-  name: Intersection
-  href: Automata.Core.DfaIntersection.html#Automata_Core_DfaIntersection_Intersection_
-  commentId: Overload:Automata.Core.DfaIntersection.Intersection
-  isSpec: "True"
-  fullName: Automata.Core.DfaIntersection.Intersection
-  nameWithType: DfaIntersection.Intersection
 - uid: Automata.Core.EpsilonTransition
   name: EpsilonTransition
   href: Automata.Core.EpsilonTransition.html
@@ -1056,6 +1063,15 @@ references:
   commentId: T:Automata.Core.IntSet
   fullName: Automata.Core.IntSet
   nameWithType: IntSet
+- uid: Automata.Core.IntSet.#ctor(System.Collections.Generic.HashSet{System.Int32})
+  name: IntSet(HashSet<int>)
+  href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_System_Collections_Generic_HashSet_System_Int32__
+  commentId: M:Automata.Core.IntSet.#ctor(System.Collections.Generic.HashSet{System.Int32})
+  name.vb: New(HashSet(Of Integer))
+  fullName: Automata.Core.IntSet.IntSet(System.Collections.Generic.HashSet<int>)
+  fullName.vb: Automata.Core.IntSet.New(System.Collections.Generic.HashSet(Of Integer))
+  nameWithType: IntSet.IntSet(HashSet<int>)
+  nameWithType.vb: IntSet.New(HashSet(Of Integer))
 - uid: Automata.Core.IntSet.#ctor(System.Collections.Generic.IEnumerable{System.Int32})
   name: IntSet(IEnumerable<int>)
   href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_System_Collections_Generic_IEnumerable_System_Int32__

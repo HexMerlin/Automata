@@ -103,7 +103,13 @@ public class Dfa : DeterministicTransitions, IFsa
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
     public IEnumerable<EpsilonTransition> EpsilonTransitions() => [];
-   
+
+    /// <summary>
+    /// Reverses the DFA.
+    /// </summary>
+    /// <returns>An NFA representing the reversed DFA.</returns>
+    public Nfa Reversed() => new(this, applyReverseOperation: true);
+
     /// <summary>
     /// Minimizes the DFA.
     /// </summary>
@@ -116,10 +122,10 @@ public class Dfa : DeterministicTransitions, IFsa
     }
 
     /// <summary>
-    /// Reverses the DFA.
+    /// Converts the DFA to a CFA.
     /// </summary>
-    /// <returns>An NFA representing the reversed DFA.</returns>
-    public Nfa Reversed() => new(this, applyReverseOperation: true);
+    /// <returns>A CFA representing the DFA.</returns>
+    public Cfa ToCFA() => new(this);
 
     /// <summary>
     /// Converts the DFA to an NFA.
