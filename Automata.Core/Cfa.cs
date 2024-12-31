@@ -249,6 +249,35 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
         return true;
     }
 
+    public override bool Equals(object? obj) => Equals(obj as Cfa);
+
+    public override int GetHashCode()
+    {
+        HashCode hash = new();
+        hash.Add(InitialState);
+        hash.Add(FinalStates);
+        hash.Add(Alphabet);
+        foreach (Transition t in this)
+            hash.Add(t);
+        return hash.ToHashCode();
+    }
+
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="Cfa"/> are equal.
+    /// </summary>
+    /// <param name="left">The first <see cref="Cfa"/> to compare.</param>
+    /// <param name="right">The second <see cref="Cfa"/> to compare.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Cfa"/> instances are equal.</returns>
+    public static bool operator ==(Cfa left, Cfa right) => left.Equals(right);
+
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="Cfa"/> are not equal.
+    /// </summary>
+    /// <param name="left">The first <see cref="Cfa"/> to compare.</param>
+    /// <param name="right">The second <see cref="Cfa"/> to compare.</param>
+    /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Cfa"/> instances are not equal.</returns>
+    public static bool operator !=(Cfa left, Cfa right) => !left.Equals(right);
+
     /// <summary>
     /// Returns an enumerator that iterates through the transitions.
     /// </summary>
@@ -260,5 +289,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
     /// </summary>
     /// <returns>An enumerator for the transitions.</returns>
     IEnumerator IEnumerable.GetEnumerator() => this.transitions.GetEnumerator();
+
+   
 }
 
