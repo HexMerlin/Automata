@@ -94,12 +94,11 @@
 
 
   <h1 id="Automata_Core_EpsilonTransition" data-uid="Automata.Core.EpsilonTransition" class="text-break">Struct EpsilonTransition</h1>
-  <div class="markdown level0 summary"><p>Represents an epsilon transition in an automaton, defined by a starting state and an ending state.</p>
+  <div class="markdown level0 summary"><p>An epsilon transition in an automaton, defined by a starting state and an ending state.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="Automata.Core.ITransition-1.html">ITransition</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</div>
   </div>
@@ -128,7 +127,7 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_EpsilonTransition_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly record struct EpsilonTransition : ITransition&lt;EpsilonTransition&gt;, IComparable&lt;EpsilonTransition&gt;, IEquatable&lt;EpsilonTransition&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly record struct EpsilonTransition : IComparable&lt;EpsilonTransition&gt;, IEquatable&lt;EpsilonTransition&gt;</code></pre>
   </div>
   <h5 id="Automata_Core_EpsilonTransition_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>An epsilon transition is a transition that lacks a symbol</p>
@@ -140,11 +139,11 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition__ctor_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.%23ctor(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L9">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L11">View Source</a>
   </span>
   <a id="Automata_Core_EpsilonTransition__ctor_" data-uid="Automata.Core.EpsilonTransition.#ctor*"></a>
   <h4 id="Automata_Core_EpsilonTransition__ctor_System_Int32_System_Int32_" data-uid="Automata.Core.EpsilonTransition.#ctor(System.Int32,System.Int32)">EpsilonTransition(int, int)</h4>
-  <div class="markdown level1 summary"><p>Represents an epsilon transition in an automaton, defined by a starting state and an ending state.</p>
+  <div class="markdown level1 summary"><p>An epsilon transition in an automaton, defined by a starting state and an ending state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -164,13 +163,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">FromState</span></td>
-        <td><p>The state from which the transition starts.</p>
+        <td><p>The state origin of the transition.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">ToState</span></td>
-        <td><p>The state to which the transition goes.</p>
+        <td><p>The destination state of the transition.</p>
 </td>
       </tr>
     </tbody>
@@ -185,7 +184,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_Epsilon.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.Epsilon%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L15">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L17">View Source</a>
   </span>
   <h4 id="Automata_Core_EpsilonTransition_Epsilon" data-uid="Automata.Core.EpsilonTransition.Epsilon">Epsilon</h4>
   <div class="markdown level1 summary"><p>Denotes the string representation for ε - the empty epsilon string.
@@ -218,11 +217,11 @@ Epsilon is not part of any alphabet, the symbol is used solely for output purpos
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_FromState.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.FromState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L9">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L11">View Source</a>
   </span>
   <a id="Automata_Core_EpsilonTransition_FromState_" data-uid="Automata.Core.EpsilonTransition.FromState*"></a>
   <h4 id="Automata_Core_EpsilonTransition_FromState" data-uid="Automata.Core.EpsilonTransition.FromState">FromState</h4>
-  <div class="markdown level1 summary"><p>The state from which the transition starts.</p>
+  <div class="markdown level1 summary"><p>The state origin of the transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -249,11 +248,11 @@ Epsilon is not part of any alphabet, the symbol is used solely for output purpos
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_ToState.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.ToState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L9">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L11">View Source</a>
   </span>
   <a id="Automata_Core_EpsilonTransition_ToState_" data-uid="Automata.Core.EpsilonTransition.ToState*"></a>
   <h4 id="Automata_Core_EpsilonTransition_ToState" data-uid="Automata.Core.EpsilonTransition.ToState">ToState</h4>
-  <div class="markdown level1 summary"><p>The state to which the transition goes.</p>
+  <div class="markdown level1 summary"><p>The destination state of the transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -279,42 +278,10 @@ Epsilon is not part of any alphabet, the symbol is used solely for output purpos
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_CompareByToState.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.CompareByToState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L39">View Source</a>
-  </span>
-  <a id="Automata_Core_EpsilonTransition_CompareByToState_" data-uid="Automata.Core.EpsilonTransition.CompareByToState*"></a>
-  <h4 id="Automata_Core_EpsilonTransition_CompareByToState" data-uid="Automata.Core.EpsilonTransition.CompareByToState">CompareByToState()</h4>
-  <div class="markdown level1 summary"><p>Gets a comparer that compares epsilon transitions by their to states.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Comparer&lt;EpsilonTransition&gt; CompareByToState()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1">Comparer</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</td>
-        <td><p>A comparer that compares epsilon transitions by their to states.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_CompareTo_Automata_Core_EpsilonTransition_.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.CompareTo(Automata.Core.EpsilonTransition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L29">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L31">View Source</a>
   </span>
   <a id="Automata_Core_EpsilonTransition_CompareTo_" data-uid="Automata.Core.EpsilonTransition.CompareTo*"></a>
   <h4 id="Automata_Core_EpsilonTransition_CompareTo_Automata_Core_EpsilonTransition_" data-uid="Automata.Core.EpsilonTransition.CompareTo(Automata.Core.EpsilonTransition)">CompareTo(EpsilonTransition)</h4>
@@ -361,10 +328,104 @@ Epsilon is not part of any alphabet, the symbol is used solely for output purpos
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_MaxTrans_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.MaxTrans(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L40">View Source</a>
+  </span>
+  <a id="Automata_Core_EpsilonTransition_MaxTrans_" data-uid="Automata.Core.EpsilonTransition.MaxTrans*"></a>
+  <h4 id="Automata_Core_EpsilonTransition_MaxTrans_System_Int32_" data-uid="Automata.Core.EpsilonTransition.MaxTrans(System.Int32)">MaxTrans(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static EpsilonTransition MaxTrans(int fromState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_MinTrans_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.MinTrans(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L37">View Source</a>
+  </span>
+  <a id="Automata_Core_EpsilonTransition_MinTrans_" data-uid="Automata.Core.EpsilonTransition.MinTrans*"></a>
+  <h4 id="Automata_Core_EpsilonTransition_MinTrans_System_Int32_" data-uid="Automata.Core.EpsilonTransition.MinTrans(System.Int32)">MinTrans(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static EpsilonTransition MinTrans(int fromState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_EpsilonTransition_Reverse.md&amp;value=---%0Auid%3A%20Automata.Core.EpsilonTransition.Reverse%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L21">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/EpsilonTransition.cs/#L23">View Source</a>
   </span>
   <a id="Automata_Core_EpsilonTransition_Reverse_" data-uid="Automata.Core.EpsilonTransition.Reverse*"></a>
   <h4 id="Automata_Core_EpsilonTransition_Reverse" data-uid="Automata.Core.EpsilonTransition.Reverse">Reverse()</h4>
@@ -392,9 +453,6 @@ Epsilon is not part of any alphabet, the symbol is used solely for output purpos
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Automata.Core.ITransition-1.html">ITransition&lt;T&gt;</a>
-  </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable&lt;T&gt;</a>
   </div>

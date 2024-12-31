@@ -5,9 +5,9 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Namespace Automata.Core.TransitionSets | Automata Docs </title>
+      <title>Class Determinize | Automata Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Namespace Automata.Core.TransitionSets | Automata Docs ">
+      <meta name="title" content="Class Determinize | Automata Docs ">
       <meta name="generator" content="docfx ">
   
       <link rel="shortcut icon" href="images/favicon.ico">
@@ -86,39 +86,105 @@
                         </div>
 
                          <div id="contribution">
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Determinize.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Determinize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
-                    <article class="content wrap" id="_content" data-uid="Automata.Core.TransitionSets">
+                    <article class="content wrap" id="_content" data-uid="Automata.Core.Operations.Determinize">
 
-  <h1 id="Automata_Core_TransitionSets" data-uid="Automata.Core.TransitionSets" class="text-break">Namespace Automata.Core.TransitionSets</h1>
+
+
+  <h1 id="Automata_Core_Operations_Determinize" data-uid="Automata.Core.Operations.Determinize" class="text-break">Class Determinize</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">
-Classes
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Determinize</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.Operations.html">Operations</a></h6>
+  <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
+  <h5 id="Automata_Core_Operations_Determinize_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Determinize</code></pre>
+  </div>
+  <h3 id="methods">Methods
 </h3>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a></h5>
-      <section><p>Represents a mutable set of <a class="xref" href="Automata.Core.Transition.html">Transition</a> for fast lookup and retrieval.</p>
-<p>This class enforces deterministic transitions, and allows no non-deterministic, duplicate or epsilon transitions.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.EpsilonTransitions.html">EpsilonTransitions</a></h5>
-      <section><p>Represents a mutable set of <a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a> for fast lookup and retrieval.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.ImmutableTransitions.html">ImmutableTransitions</a></h5>
-      <section><p>A highly optimized immutable set of deterministic transitions.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.MutableTransitions-1.html">MutableTransitions&lt;T&gt;</a></h5>
-      <section><p>Represents a generic mutable set of transitions for fast lookup and retrieval.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.NonDeterministicTransitions.html">NonDeterministicTransitions</a></h5>
-      <section><p>Represents a mutable set of <a class="xref" href="Automata.Core.Transition.html">Transition</a> for fast lookup and retrieval.</p>
-<p>This set allows non-deterministic transitions, but no duplicate transitions or epsilon transitions.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.TransitionSets.TransitionsExtensions.html">TransitionsExtensions</a></h5>
-      <section><p>This class provides extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>.</p>
-<p>These provide fast extraction of subsets from various transition sets, such as <a class="xref" href="Automata.Core.TransitionSets.ImmutableTransitions.html">ImmutableTransitions</a>, <a class="xref" href="Automata.Core.TransitionSets.DeterministicTransitions.html">DeterministicTransitions</a> and <a class="xref" href="Automata.Core.TransitionSets.NonDeterministicTransitions.html">NonDeterministicTransitions</a>.</p><p>Such subsets are either of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet&lt;T&gt;</a>, enabling applying these extensions methods for search or refined filtering on the subsets</p>
-</section>
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Determinize_ToDfa_Automata_Core_Nfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Determinize.ToDfa(Automata.Core.Nfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Determinize.cs/#L11">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Determinize_ToDfa_" data-uid="Automata.Core.Operations.Determinize.ToDfa*"></a>
+  <h4 id="Automata_Core_Operations_Determinize_ToDfa_Automata_Core_Nfa_" data-uid="Automata.Core.Operations.Determinize.ToDfa(Automata.Core.Nfa)">ToDfa(Nfa)</h4>
+  <div class="markdown level1 summary"><p>Determinization of an NFA representation to a DFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dfa ToDfa(Nfa nfa)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">nfa</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
+        <td><p>A DFA representing the NFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Determinize_ToDfa_Automata_Core_Nfa__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</p>
+</div>
 
 </article>
                 </div>

@@ -104,18 +104,13 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a>&gt;</div>
     <div><a class="xref" href="Automata.Core.Alphabets.IAlphabet.html">IAlphabet</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -131,7 +126,7 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Alphabets_CanonicalAlphabet_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CanonicalAlphabet : IAlphabet</code></pre>
+    <pre><code class="lang-csharp hljs">public class CanonicalAlphabet : IEquatable&lt;CanonicalAlphabet&gt;, IAlphabet</code></pre>
   </div>
   <h5 id="Automata_Core_Alphabets_CanonicalAlphabet_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>A <a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a> is defined by the following properties:</p>
@@ -148,7 +143,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet__ctor_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.%23ctor(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L52">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L51">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet__ctor_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.#ctor*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet__ctor_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})">CanonicalAlphabet(IEnumerable&lt;string&gt;)</h4>
@@ -184,7 +179,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_CanonicalStringComparer.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.CanonicalStringComparer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L65">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L64">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_CanonicalStringComparer_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.CanonicalStringComparer*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_CanonicalStringComparer" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.CanonicalStringComparer">CanonicalStringComparer</h4>
@@ -215,7 +210,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Count.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L70">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L69">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_Count_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Count*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Count" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Count">Count</h4>
@@ -246,7 +241,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Empty.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Empty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L46">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L45">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_Empty_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Empty*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Empty" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Empty">Empty</h4>
@@ -277,7 +272,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Item(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L78">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L77">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_Item_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Item*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Item_System_Int32_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Item(System.Int32)">this[int]</h4>
@@ -343,7 +338,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Item_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Item(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L85">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L84">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_Item_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Item*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Item_System_String_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Item(System.String)">this[string]</h4>
@@ -392,10 +387,144 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Equals_Automata_Core_Alphabets_CanonicalAlphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Equals(Automata.Core.Alphabets.CanonicalAlphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L109">View Source</a>
+  </span>
+  <a id="Automata_Core_Alphabets_CanonicalAlphabet_Equals_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Equals*"></a>
+  <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Equals_Automata_Core_Alphabets_CanonicalAlphabet_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Equals(Automata.Core.Alphabets.CanonicalAlphabet)">Equals(CanonicalAlphabet?)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current alphabet is equal (identical) to another alphabet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(CanonicalAlphabet? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L119">View Source</a>
+  </span>
+  <a id="Automata_Core_Alphabets_CanonicalAlphabet_Equals_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Equals*"></a>
+  <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_Equals_System_Object_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare with the current object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_GetHashCode.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L125">View Source</a>
+  </span>
+  <a id="Automata_Core_Alphabets_CanonicalAlphabet_GetHashCode_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.GetHashCode*"></a>
+  <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_GetHashCode" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for the current alphabet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>A hash code for the alphabet.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_GetOrAdd_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.GetOrAdd(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L87">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L92">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_GetOrAdd_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.GetOrAdd*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_GetOrAdd_System_String_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.GetOrAdd(System.String)">GetOrAdd(string)</h4>
@@ -440,16 +569,33 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
+        <td><p>Thrown because adding to an immutable alphabet is not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L92">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L104">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_ToString_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.ToString*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_ToString" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a string that represents the current alphabet, including its size.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -466,7 +612,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>A string that represents the current alphabet, including its size.</p>
+        <td><p>A string representation of the alphabet.</p>
 </td>
       </tr>
     </tbody>
@@ -478,11 +624,12 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_ToStringExpanded.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.ToStringExpanded%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L89">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L98">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_CanonicalAlphabet_ToStringExpanded_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.ToStringExpanded*"></a>
   <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_ToStringExpanded" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.ToStringExpanded">ToStringExpanded()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a string with each symbol and its index, separated by a newline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -504,7 +651,124 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="operators">Operators
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_op_Equality_Automata_Core_Alphabets_CanonicalAlphabet_Automata_Core_Alphabets_CanonicalAlphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.op_Equality(Automata.Core.Alphabets.CanonicalAlphabet%2CAutomata.Core.Alphabets.CanonicalAlphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L139">View Source</a>
+  </span>
+  <a id="Automata_Core_Alphabets_CanonicalAlphabet_op_Equality_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.op_Equality*"></a>
+  <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_op_Equality_Automata_Core_Alphabets_CanonicalAlphabet_Automata_Core_Alphabets_CanonicalAlphabet_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.op_Equality(Automata.Core.Alphabets.CanonicalAlphabet,Automata.Core.Alphabets.CanonicalAlphabet)">operator ==(CanonicalAlphabet, CanonicalAlphabet)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether two specified instances of <a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a> are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(CanonicalAlphabet left, CanonicalAlphabet right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first alphabet to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second alphabet to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>true if the two alphabets are equal; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_CanonicalAlphabet_op_Inequality_Automata_Core_Alphabets_CanonicalAlphabet_Automata_Core_Alphabets_CanonicalAlphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.CanonicalAlphabet.op_Inequality(Automata.Core.Alphabets.CanonicalAlphabet%2CAutomata.Core.Alphabets.CanonicalAlphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/CanonicalAlphabet.cs/#L147">View Source</a>
+  </span>
+  <a id="Automata_Core_Alphabets_CanonicalAlphabet_op_Inequality_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.op_Inequality*"></a>
+  <h4 id="Automata_Core_Alphabets_CanonicalAlphabet_op_Inequality_Automata_Core_Alphabets_CanonicalAlphabet_Automata_Core_Alphabets_CanonicalAlphabet_" data-uid="Automata.Core.Alphabets.CanonicalAlphabet.op_Inequality(Automata.Core.Alphabets.CanonicalAlphabet,Automata.Core.Alphabets.CanonicalAlphabet)">operator !=(CanonicalAlphabet, CanonicalAlphabet)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether two specified instances of <a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a> are not equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(CanonicalAlphabet left, CanonicalAlphabet right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first alphabet to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabets.CanonicalAlphabet.html">CanonicalAlphabet</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second alphabet to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>true if the two alphabets are not equal; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
   <div>
       <a class="xref" href="Automata.Core.Alphabets.IAlphabet.html">IAlphabet</a>
   </div>

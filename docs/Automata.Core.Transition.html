@@ -99,7 +99,6 @@
   <div class="markdown level0 conceptual"></div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="Automata.Core.ITransition-1.html">ITransition</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
   </div>
@@ -125,7 +124,7 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Transition_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly record struct Transition : ITransition&lt;Transition&gt;, IComparable&lt;Transition&gt;, IEquatable&lt;Transition&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly record struct Transition : IComparable&lt;Transition&gt;, IEquatable&lt;Transition&gt;</code></pre>
   </div>
   <h5 id="Automata_Core_Transition_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> always has a (non-epsilon) symbol and cannot represent an epsilon transition</p>
@@ -137,11 +136,11 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition__ctor.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L20">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L22">View Source</a>
   </span>
   <a id="Automata_Core_Transition__ctor_" data-uid="Automata.Core.Transition.#ctor*"></a>
   <h4 id="Automata_Core_Transition__ctor" data-uid="Automata.Core.Transition.#ctor">Transition()</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Transition.html">Transition</a> struct with default values.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Transition.html">Transition</a> struct that is equivalent to <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -153,7 +152,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L12">View Source</a>
   </span>
   <a id="Automata_Core_Transition__ctor_" data-uid="Automata.Core.Transition.#ctor*"></a>
   <h4 id="Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32_" data-uid="Automata.Core.Transition.#ctor(System.Int32,System.Int32,System.Int32)">Transition(int, int, int)</h4>
@@ -204,7 +203,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_FromState.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.FromState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L12">View Source</a>
   </span>
   <a id="Automata_Core_Transition_FromState_" data-uid="Automata.Core.Transition.FromState*"></a>
   <h4 id="Automata_Core_Transition_FromState" data-uid="Automata.Core.Transition.FromState">FromState</h4>
@@ -235,7 +234,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_Invalid.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.Invalid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L15">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L17">View Source</a>
   </span>
   <a id="Automata_Core_Transition_Invalid_" data-uid="Automata.Core.Transition.Invalid*"></a>
   <h4 id="Automata_Core_Transition_Invalid" data-uid="Automata.Core.Transition.Invalid">Invalid</h4>
@@ -266,7 +265,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_IsInvalid.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.IsInvalid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L25">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L27">View Source</a>
   </span>
   <a id="Automata_Core_Transition_IsInvalid_" data-uid="Automata.Core.Transition.IsInvalid*"></a>
   <h4 id="Automata_Core_Transition_IsInvalid" data-uid="Automata.Core.Transition.IsInvalid">IsInvalid</h4>
@@ -297,7 +296,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_Symbol.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.Symbol%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L12">View Source</a>
   </span>
   <a id="Automata_Core_Transition_Symbol_" data-uid="Automata.Core.Transition.Symbol*"></a>
   <h4 id="Automata_Core_Transition_Symbol" data-uid="Automata.Core.Transition.Symbol">Symbol</h4>
@@ -328,7 +327,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_ToState.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.ToState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L10">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L12">View Source</a>
   </span>
   <a id="Automata_Core_Transition_ToState_" data-uid="Automata.Core.Transition.ToState*"></a>
   <h4 id="Automata_Core_Transition_ToState" data-uid="Automata.Core.Transition.ToState">ToState</h4>
@@ -358,42 +357,10 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_CompareByToState.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.CompareByToState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L53">View Source</a>
-  </span>
-  <a id="Automata_Core_Transition_CompareByToState_" data-uid="Automata.Core.Transition.CompareByToState*"></a>
-  <h4 id="Automata_Core_Transition_CompareByToState" data-uid="Automata.Core.Transition.CompareByToState">CompareByToState()</h4>
-  <div class="markdown level1 summary"><p>Gets a comparer that compares transitions by their to states.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Comparer&lt;Transition&gt; CompareByToState()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1">Comparer</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
-        <td><p>A comparer that compares transitions by their to states.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_CompareTo_Automata_Core_Transition_.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.CompareTo(Automata.Core.Transition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L38">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L40">View Source</a>
   </span>
   <a id="Automata_Core_Transition_CompareTo_" data-uid="Automata.Core.Transition.CompareTo*"></a>
   <h4 id="Automata_Core_Transition_CompareTo_Automata_Core_Transition_" data-uid="Automata.Core.Transition.CompareTo(Automata.Core.Transition)">CompareTo(Transition)</h4>
@@ -440,10 +407,122 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_MaxTrans_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.MaxTrans(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L73">View Source</a>
+  </span>
+  <a id="Automata_Core_Transition_MaxTrans_" data-uid="Automata.Core.Transition.MaxTrans*"></a>
+  <h4 id="Automata_Core_Transition_MaxTrans_System_Int32_System_Int32_" data-uid="Automata.Core.Transition.MaxTrans(System.Int32,System.Int32)">MaxTrans(int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a maximum transition for the given state and symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transition MaxTrans(int fromState, int symbol = 2147483647)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol for the transition (default is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
+        <td><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> representing the maximum transition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_MinTrans_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.MinTrans(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L64">View Source</a>
+  </span>
+  <a id="Automata_Core_Transition_MinTrans_" data-uid="Automata.Core.Transition.MinTrans*"></a>
+  <h4 id="Automata_Core_Transition_MinTrans_System_Int32_System_Int32_" data-uid="Automata.Core.Transition.MinTrans(System.Int32,System.Int32)">MinTrans(int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a minimum transition for the given state and symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transition MinTrans(int fromState, int symbol = -2147483648)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The from state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol for the transition (default is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
+        <td><p>A <a class="xref" href="Automata.Core.Transition.html">Transition</a> representing the minimum transition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_Reverse.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.Reverse%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L31">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L33">View Source</a>
   </span>
   <a id="Automata_Core_Transition_Reverse_" data-uid="Automata.Core.Transition.Reverse*"></a>
   <h4 id="Automata_Core_Transition_Reverse" data-uid="Automata.Core.Transition.Reverse">Reverse()</h4>
@@ -475,7 +554,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Transition_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Transition.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L68">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Transition.cs/#L56">View Source</a>
   </span>
   <a id="Automata_Core_Transition_ToString_" data-uid="Automata.Core.Transition.ToString*"></a>
   <h4 id="Automata_Core_Transition_ToString" data-uid="Automata.Core.Transition.ToString">ToString()</h4>
@@ -505,9 +584,6 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a></div>
   <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Automata.Core.ITransition-1.html">ITransition&lt;T&gt;</a>
-  </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable&lt;T&gt;</a>
   </div>

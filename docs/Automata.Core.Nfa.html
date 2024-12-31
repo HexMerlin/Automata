@@ -137,8 +137,14 @@
     <pre><code class="lang-csharp hljs">public class Nfa : IFsa</code></pre>
   </div>
   <h5 id="Automata_Core_Nfa_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>States are represented simply as integers (<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>), which essentially are just unique IDs.
-<p>NFAs are defined mainly by two sets of transitions (symbolic and epsilon), which are kept separate for performance</p><p>In addition, there are two sets defining the initial states and final states respectively.</p><p>NFAs (in contrast to DFAs) can have multiple initial states.</p>
+  <div class="markdown level0 remarks"><p>States are represented simply as integers (<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>), which essentially are just unique IDs.</p>
+<p>
+NFAs are defined mainly by two sets of transitions (symbolic and epsilon), which are kept separate for performance.
+</p><p>
+In addition, there are two sets defining the initial states and final states respectively.
+</p><p>
+NFAs (in contrast to DFAs) can have multiple initial states.
+</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -147,7 +153,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa__ctor.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L32">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L50">View Source</a>
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor" data-uid="Automata.Core.Nfa.#ctor">Nfa()</h4>
@@ -163,7 +169,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa__ctor_Automata_Core_Alphabets_IAlphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.%23ctor(Automata.Core.Alphabets.IAlphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L38">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L56">View Source</a>
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor_Automata_Core_Alphabets_IAlphabet_" data-uid="Automata.Core.Nfa.#ctor(Automata.Core.Alphabets.IAlphabet)">Nfa(IAlphabet)</h4>
@@ -197,7 +203,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.%23ctor(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L65">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L84">View Source</a>
   </span>
   <a id="Automata_Core_Nfa__ctor_" data-uid="Automata.Core.Nfa.#ctor*"></a>
   <h4 id="Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.Nfa.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">Nfa(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)</h4>
@@ -233,7 +239,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_Alphabet.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.Alphabet%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L20">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L28">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_Alphabet_" data-uid="Automata.Core.Nfa.Alphabet*"></a>
   <h4 id="Automata_Core_Nfa_Alphabet" data-uid="Automata.Core.Nfa.Alphabet">Alphabet</h4>
@@ -264,7 +270,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_FinalStates.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.FinalStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L197">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L338">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_FinalStates_" data-uid="Automata.Core.Nfa.FinalStates*"></a>
   <h4 id="Automata_Core_Nfa_FinalStates" data-uid="Automata.Core.Nfa.FinalStates">FinalStates</h4>
@@ -295,7 +301,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_InitialStates.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.InitialStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L192">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L333">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_InitialStates_" data-uid="Automata.Core.Nfa.InitialStates*"></a>
   <h4 id="Automata_Core_Nfa_InitialStates" data-uid="Automata.Core.Nfa.InitialStates">InitialStates</h4>
@@ -326,7 +332,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L70">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L89">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_IsEmpty_" data-uid="Automata.Core.Nfa.IsEmpty*"></a>
   <h4 id="Automata_Core_Nfa_IsEmpty" data-uid="Automata.Core.Nfa.IsEmpty">IsEmpty</h4>
@@ -357,7 +363,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_IsEpsilonFree.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.IsEpsilonFree%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L75">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L94">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_IsEpsilonFree_" data-uid="Automata.Core.Nfa.IsEpsilonFree*"></a>
   <h4 id="Automata_Core_Nfa_IsEpsilonFree" data-uid="Automata.Core.Nfa.IsEpsilonFree">IsEpsilonFree</h4>
@@ -388,11 +394,11 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_MaxState.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.MaxState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L230">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L43">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_MaxState_" data-uid="Automata.Core.Nfa.MaxState*"></a>
   <h4 id="Automata_Core_Nfa_MaxState" data-uid="Automata.Core.Nfa.MaxState">MaxState</h4>
-  <div class="markdown level1 summary"><p>O(1) retrieval of the maximum state (state with the maximum value) in the NFA.</p>
+  <div class="markdown level1 summary"><p>Gets a upper bound for the maximum state number in the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -410,48 +416,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The maximum state in the NFA.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Nfa_MaxState_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_MinState.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.MinState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L214">View Source</a>
-  </span>
-  <a id="Automata_Core_Nfa_MinState_" data-uid="Automata.Core.Nfa.MinState*"></a>
-  <h4 id="Automata_Core_Nfa_MinState" data-uid="Automata.Core.Nfa.MinState">MinState</h4>
-  <div class="markdown level1 summary"><p>O(1) retrieval of the minimal state (state with the minimal value) in the NFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MinState { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The minimal state in the NFA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Automata_Core_Nfa_MinState_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If the set is empty, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned</p>
+  <div class="markdown level1 remarks"><p>This values denotes an upper bound for the state numbers in the NFA.
+The actual maximum state number may be lower (but not higher), since we do not keep track of removed states for performance reasons.</p>
 </div>
   <h3 id="methods">Methods
 </h3>
@@ -460,7 +431,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L87">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L186">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_Add_" data-uid="Automata.Core.Nfa.Add*"></a>
   <h4 id="Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_" data-uid="Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)">Add(EpsilonTransition)</h4>
@@ -494,11 +465,11 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_Add_Automata_Core_Transition_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.Add(Automata.Core.Transition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L81">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L176">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_Add_" data-uid="Automata.Core.Nfa.Add*"></a>
   <h4 id="Automata_Core_Nfa_Add_Automata_Core_Transition_" data-uid="Automata.Core.Nfa.Add(Automata.Core.Transition)">Add(Transition)</h4>
-  <div class="markdown level1 summary"><p>Adds a symbolic (= non-epsilon) transition to the NFA.</p>
+  <div class="markdown level1 summary"><p>Adds a symbolic (non-epsilon) transition to the NFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -525,10 +496,60 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.AvailableSymbols(System.Collections.Generic.IEnumerable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L169">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_AvailableSymbols_" data-uid="Automata.Core.Nfa.AvailableSymbols*"></a>
+  <h4 id="Automata_Core_Nfa_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Automata.Core.Nfa.AvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})">AvailableSymbols(IEnumerable&lt;int&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns the set of symbols that can be used to transition directly from the given states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntSet AvailableSymbols(IEnumerable&lt;int&gt; fromStates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">fromStates</span></td>
+        <td><p>The states from which to start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.IntSet.html">IntSet</a></td>
+        <td><p>The set of symbols that can be used to transition directly from the given states.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_IsFinal_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.IsFinal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L146">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L254">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_IsFinal_" data-uid="Automata.Core.Nfa.IsFinal*"></a>
   <h4 id="Automata_Core_Nfa_IsFinal_System_Int32_" data-uid="Automata.Core.Nfa.IsFinal(System.Int32)">IsFinal(int)</h4>
@@ -578,7 +599,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_IsInitial_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.IsInitial(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L139">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L247">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_IsInitial_" data-uid="Automata.Core.Nfa.IsInitial*"></a>
   <h4 id="Automata_Core_Nfa_IsInitial_System_Int32_" data-uid="Automata.Core.Nfa.IsInitial(System.Int32)">IsInitial(int)</h4>
@@ -625,10 +646,210 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ReachableStates_System_Collections_Generic_IEnumerable_System_Int32__System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ReachableStates(System.Collections.Generic.IEnumerable%7BSystem.Int32%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L119">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_ReachableStates_" data-uid="Automata.Core.Nfa.ReachableStates*"></a>
+  <h4 id="Automata_Core_Nfa_ReachableStates_System_Collections_Generic_IEnumerable_System_Int32__System_Int32_" data-uid="Automata.Core.Nfa.ReachableStates(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)">ReachableStates(IEnumerable&lt;int&gt;, int)</h4>
+  <div class="markdown level1 summary"><p>Returns the states reachable from the given states on the given symbol, including epsilon closures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntSet ReachableStates(IEnumerable&lt;int&gt; fromStates, int symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">fromStates</span></td>
+        <td><p>The states from which to start.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.IntSet.html">IntSet</a></td>
+        <td><p>The states reachable from the given states on the given symbol, including epsilon closures.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ReachableStatesOnEpsilonInPlace_System_Collections_Generic_HashSet_System_Int32__.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L151">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_ReachableStatesOnEpsilonInPlace_" data-uid="Automata.Core.Nfa.ReachableStatesOnEpsilonInPlace*"></a>
+  <h4 id="Automata_Core_Nfa_ReachableStatesOnEpsilonInPlace_System_Collections_Generic_HashSet_System_Int32__" data-uid="Automata.Core.Nfa.ReachableStatesOnEpsilonInPlace(System.Collections.Generic.HashSet{System.Int32})">ReachableStatesOnEpsilonInPlace(HashSet&lt;int&gt;)</h4>
+  <div class="markdown level1 summary"><p>Extends the provided set of states with their epsilon closure in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReachableStatesOnEpsilonInPlace(HashSet&lt;int&gt; fromStates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">fromStates</span></td>
+        <td><p>The set of states to extend.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Nfa_ReachableStatesOnEpsilonInPlace_System_Collections_Generic_HashSet_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Epsilon closure is all reachable states on epsilon transitions.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ReachableStatesOnSingleEpsilon_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ReachableStatesOnSingleEpsilon(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L143">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_ReachableStatesOnSingleEpsilon_" data-uid="Automata.Core.Nfa.ReachableStatesOnSingleEpsilon*"></a>
+  <h4 id="Automata_Core_Nfa_ReachableStatesOnSingleEpsilon_System_Int32_" data-uid="Automata.Core.Nfa.ReachableStatesOnSingleEpsilon(System.Int32)">ReachableStatesOnSingleEpsilon(int)</h4>
+  <div class="markdown level1 summary"><p>Returns the states reachable from the given state on a single epsilon transition.
+If the input state has an epsilon loop on itself, it will be included in the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;int&gt; ReachableStatesOnSingleEpsilon(int fromState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state from which to start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>The states reachable from the given state on a single epsilon transition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ReachableStatesOnSingleSymbol_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ReachableStatesOnSingleSymbol(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L134">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_ReachableStatesOnSingleSymbol_" data-uid="Automata.Core.Nfa.ReachableStatesOnSingleSymbol*"></a>
+  <h4 id="Automata_Core_Nfa_ReachableStatesOnSingleSymbol_System_Int32_System_Int32_" data-uid="Automata.Core.Nfa.ReachableStatesOnSingleSymbol(System.Int32,System.Int32)">ReachableStatesOnSingleSymbol(int, int)</h4>
+  <div class="markdown level1 summary"><p>Returns the states reachable from the given state with the given symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;int&gt; ReachableStatesOnSingleSymbol(int fromState, int symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state from which to start.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><p>The states reachable from the given state on the given symbol.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L187">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L328">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_SetFinal_" data-uid="Automata.Core.Nfa.SetFinal*"></a>
   <h4 id="Automata_Core_Nfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.Nfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">SetFinal(IEnumerable&lt;int&gt;, bool)</h4>
@@ -668,7 +889,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_SetFinal_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.SetFinal(System.Int32%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L173">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L314">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_SetFinal_" data-uid="Automata.Core.Nfa.SetFinal*"></a>
   <h4 id="Automata_Core_Nfa_SetFinal_System_Int32_System_Boolean_" data-uid="Automata.Core.Nfa.SetFinal(System.Int32,System.Boolean)">SetFinal(int, bool)</h4>
@@ -708,7 +929,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L180">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L321">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_SetInitial_" data-uid="Automata.Core.Nfa.SetInitial*"></a>
   <h4 id="Automata_Core_Nfa_SetInitial_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.Nfa.SetInitial(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">SetInitial(IEnumerable&lt;int&gt;, bool)</h4>
@@ -748,7 +969,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_SetInitial_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.SetInitial(System.Int32%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L166">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L307">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_SetInitial_" data-uid="Automata.Core.Nfa.SetInitial*"></a>
   <h4 id="Automata_Core_Nfa_SetInitial_System_Int32_System_Boolean_" data-uid="Automata.Core.Nfa.SetInitial(System.Int32,System.Boolean)">SetInitial(int, bool)</h4>
@@ -785,14 +1006,46 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ToCfa.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ToCfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L272">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_ToCfa_" data-uid="Automata.Core.Nfa.ToCfa*"></a>
+  <h4 id="Automata_Core_Nfa_ToCfa" data-uid="Automata.Core.Nfa.ToCfa">ToCfa()</h4>
+  <div class="markdown level1 summary"><p>Converts the NFA to a CFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cfa ToCfa()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
+        <td><p>A CFA representing the NFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ToDfa.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ToDfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L261">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L260">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_ToDfa_" data-uid="Automata.Core.Nfa.ToDfa*"></a>
   <h4 id="Automata_Core_Nfa_ToDfa" data-uid="Automata.Core.Nfa.ToDfa">ToDfa()</h4>
-  <div class="markdown level1 summary"><p>Converts a NFA to a DFA.</p>
+  <div class="markdown level1 summary"><p>Converts the NFA to a DFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -815,15 +1068,12 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="Automata_Core_Nfa_ToDfa_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_ToMinimizedDFA.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.ToMinimizedDFA%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L207">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L266">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_ToMinimizedDFA_" data-uid="Automata.Core.Nfa.ToMinimizedDFA*"></a>
   <h4 id="Automata_Core_Nfa_ToMinimizedDFA" data-uid="Automata.Core.Nfa.ToMinimizedDFA">ToMinimizedDFA()</h4>
@@ -852,10 +1102,116 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_Transitions_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.Transitions(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L101">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_Transitions_" data-uid="Automata.Core.Nfa.Transitions*"></a>
+  <h4 id="Automata_Core_Nfa_Transitions_System_Int32_" data-uid="Automata.Core.Nfa.Transitions(System.Int32)">Transitions(int)</h4>
+  <div class="markdown level1 summary"><p>Returns the set of transitions from the given state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SortedSet&lt;Transition&gt; Transitions(int fromState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state from which to start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>The set of transitions from the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_Transitions_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.Transitions(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L110">View Source</a>
+  </span>
+  <a id="Automata_Core_Nfa_Transitions_" data-uid="Automata.Core.Nfa.Transitions*"></a>
+  <h4 id="Automata_Core_Nfa_Transitions_System_Int32_System_Int32_" data-uid="Automata.Core.Nfa.Transitions(System.Int32,System.Int32)">Transitions(int, int)</h4>
+  <div class="markdown level1 summary"><p>Returns the transitions from the given state with the given symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SortedSet&lt;Transition&gt; Transitions(int fromState, int symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state from which to start.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>The symbol to transition on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>The transitions from the given state on the given symbol.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable%7BAutomata.Core.EpsilonTransition%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L99">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L206">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_EpsilonTransition__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.EpsilonTransition})">UnionWith(IEnumerable&lt;EpsilonTransition&gt;)</h4>
@@ -889,7 +1245,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable%7BAutomata.Core.Transition%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L93">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L196">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})">UnionWith(IEnumerable&lt;Transition&gt;)</h4>
@@ -923,7 +1279,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L128">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L236">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">UnionWith(IEnumerable&lt;IEnumerable&lt;string&gt;&gt;)</h4>
@@ -960,7 +1316,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L108">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Nfa.cs/#L219">View Source</a>
   </span>
   <a id="Automata_Core_Nfa_UnionWith_" data-uid="Automata.Core.Nfa.UnionWith*"></a>
   <h4 id="Automata_Core_Nfa_UnionWith_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.Nfa.UnionWith(System.Collections.Generic.IEnumerable{System.String})">UnionWith(IEnumerable&lt;string&gt;)</h4>
