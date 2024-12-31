@@ -31,22 +31,12 @@ It offers a lightweight and clean solution without visualization features.
 
 ### :bulb: C# Example: Create and Manipulate Automata
 ```csharp
-//Create some random sequences of strings
-var sequences = Enumerable.Range(0, 10)
-    .Select(_ => Enumerable.Range(0, 8)
-    .Select(_ => Random.Shared.Next(4).ToString()));
 
-// Create an empty NFA.
-NFA nfa = new Nfa();  
+Random random = new Random(7);
+var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-// Add all sequences to the NFA
-nfa.AddAll(sequences);
+IFsa fsa = new Nfa(sequences).ToCfa(); //Create a canonical minimized automaton from the sequences
 
-// Determinize the NFA to a DFA
-Dfa dfa = nfa.ToDfa();
-
-// Minimize the DFA
-Dfa minDfa = dfa.Minimized();
 ```
 ---
 ## :framed_picture: Automata.Visualization: Automata.Core + Visualization
@@ -59,19 +49,20 @@ The Automata.Visualization library extends the core Automata functionality with 
 ### :bulb: C# Full example program: Create an automaton and display it from a Console app
 
 ```csharp
-Console.WriteLine("Creating graph."); // Write some text output to the console window
+        Console.WriteLine("Creating graph."); // Write some text output to the console window
 
-var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => Random.Shared.Next(4).ToString())); //Create some random sequences
+        Random random = new Random(7);
+        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-IFsa fsa = new Nfa(sequences).ToDfa().Minimized();
+        IFsa fsa = new Nfa(sequences).ToCfa(); //Create a canonical minimized automaton from the sequences
 
-Graph graph = fsa.CreateGraph(); // Create a graph object to display using the sequences
+        Graph graph = fsa.CreateGraph(); // Create a displayable graph object (FSA wih layout)
 
-//Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
+        //Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
 
-GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
 
-Console.WriteLine("Graph is displayed."); // Write some text output to the console window
+        Console.WriteLine("Graph is displayed."); // Write some text output to the console window
 ```
 ---
 

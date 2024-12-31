@@ -11,11 +11,16 @@
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>Minor improvements and API updates</PackageReleaseNotes>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>New highly-optimized version with some breaking API-changes</PackageReleaseNotes>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\docs-src\images\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
