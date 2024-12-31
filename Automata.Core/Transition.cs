@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using System.Runtime.CompilerServices;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.
@@ -7,7 +9,7 @@
 /// <param name="FromState">The state from which the transition starts.</param>
 /// <param name="Symbol">The symbol that triggers the transition.</param>
 /// <param name="ToState">The state to which the transition goes.</param>
-public readonly record struct Transition(int FromState, int Symbol, int ToState) : ITransition<Transition>, IComparable<Transition>
+public readonly record struct Transition(int FromState, int Symbol, int ToState) : IComparable<Transition>
 {
     /// <summary>
     /// Gets an invalid transition.
@@ -15,9 +17,9 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     public static Transition Invalid => new();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Transition"/> struct with default values.
+    /// Initializes a new instance of the <see cref="Transition"/> struct that is equivalent to <see cref="Invalid"/>.
     /// </summary>
-    public Transition() : this(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState) {}
+    public Transition() : this(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState) { }
 
     /// <summary>
     /// Indicates whether the transition is invalid.
@@ -46,25 +48,28 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
         return ToState.CompareTo(other.ToState);
     }
 
-    /// <summary>
-    /// Gets a comparer that compares transitions by their to states.
-    /// </summary>
-    /// <returns>A comparer that compares transitions by their to states.</returns>
-    public static Comparer<Transition> CompareByToState() => Comparer<Transition>.Create((t1, t2) =>
-    {
-        int c = t1.ToState.CompareTo(t2.ToState);
-        if (c != 0) return c;
 
-        c = t1.Symbol.CompareTo(t2.Symbol);
-        if (c != 0) return c;
-
-        return t1.FromState.CompareTo(t2.FromState);
-    });
-    
     ///<summary>
     /// Returns a string that represents the current transition.
     /// </summary>
     /// <returns>A string that represents the current transition.</returns>
     public override string ToString() => $"{FromState}=>{ToState} ({Symbol})";
 
+    /// <summary>
+    /// Creates a minimum transition for the given state and symbol.
+    /// </summary>
+    /// <param name="fromState">The from state.</param>
+    /// <param name="symbol">The symbol for the transition (default is <see cref="int.MinValue"/>).</param>
+    /// <returns>A <see cref="Transition"/> representing the minimum transition.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Transition MinTrans(int fromState, int symbol = int.MinValue) => new(fromState, symbol, int.MinValue);
+
+    /// <summary>
+    /// Creates a maximum transition for the given state and symbol.
+    /// </summary>
+    /// <param name="fromState">The from state.</param>
+    /// <param name="symbol">The symbol for the transition (default is <see cref="int.MaxValue"/>).</param>
+    /// <returns>A <see cref="Transition"/> representing the maximum transition.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Transition MaxTrans(int fromState, int symbol = int.MaxValue) => new(fromState, symbol, int.MaxValue);
 }

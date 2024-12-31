@@ -1,7 +1,5 @@
-﻿using Automata.Core.TransitionSets;
-
-namespace Automata.Core;
-public partial class Cfa 
+﻿namespace Automata.Core.Operations;
+public static class Intersect
 {
     public static Dfa Intersection(Cfa a, Cfa b)
     {
@@ -25,15 +23,15 @@ public partial class Cfa
             if (a.IsFinal(qA) && b.IsFinal(qB))
                 dfa.SetFinal(fromState);
 
-            ReadOnlySpan<Transition> transitionsA = a.Transitions(qA);
-            var transitionsB = b.Transitions(qB);
-            foreach (Transition tA in transitionsA)
+            StateView stateA = a.State(qA);
+            StateView stateB = b.State(qB);
+            foreach (Transition tA in stateA.Transitions)
             {
                 string symbolAsString = a.Alphabet[tA.Symbol]; //get the symbol as a string, since we deal with different alphabets
                 int symB = b.Alphabet[symbolAsString]; //get the symbol in B's alphabet, if exists
                 if (symB == Constants.InvalidSymbolIndex)
                     continue; //symbol is not in B's alphabet so skip it
-                Transition tB = transitionsB.Transition(qB, symB);
+                Transition tB = stateB.Transition(symB);
                 if (tB.IsInvalid)
                     continue; //no corresponding transition in B, so skip it
 
@@ -65,6 +63,6 @@ public partial class Cfa
     /// <param name="value">The signed 64-bit value to split.</param>
     /// <returns>A tuple containing the two signed 32-bit integers.</returns>
     private static (int, int) Split(long value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
-    
+
 
 }

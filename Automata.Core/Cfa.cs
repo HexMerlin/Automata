@@ -1,7 +1,7 @@
-﻿using System.Collections.Frozen;
+﻿using System.Collections;
+using System.Collections.Frozen;
 using System.Diagnostics;
 using Automata.Core.Alphabets;
-using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
 
@@ -20,7 +20,7 @@ namespace Automata.Core;
 /// For any language, the <see cref="Cfa"/> is unique, embodying its minimal deterministic automaton in canonical form.
 /// <para>Any two <see cref="Cfa"/> instances accepting the same language are identical.</para>
 /// </remarks>
-public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
+public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
 {
     #region Data
     /// <summary>
@@ -28,8 +28,10 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     /// </summary>
     public CanonicalAlphabet Alphabet { get; }
 
+    private readonly Transition[] transitions;
+
     /// <summary>
-    /// The initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
+    /// Gets the initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
     /// <para>For an empty <see cref="Cfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
     public int InitialState { get; }
@@ -38,6 +40,11 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     /// Gets the final states of the CFA.
     /// </summary>
     public readonly FrozenSet<int> FinalStates;
+
+    /// <summary>
+    /// Gets the number of states in the CFA.
+    /// </summary>
+    public readonly int StateCount;
 
     #endregion Data
 
@@ -51,15 +58,18 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     /// Initializes a new instance of the <see cref="Cfa"/> class with the specified parameters.
     /// </summary>
     /// <param name="p">A tuple containing the canonical alphabet, transitions, initial state, and final states.</param>
-    private Cfa((CanonicalAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, FrozenSet<int> finalStates) p) : base(p.transitions)
+    private Cfa((CanonicalAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, FrozenSet<int> finalStates) p)
     {
         Alphabet = p.alphabet;
+        this.transitions = p.transitions.OrderBy(t => t).ToArray();
+        this.StateCount = 1 + MaxStateAndAssert(this.transitions);
+
         InitialState = p.initialState;
         FinalStates = p.finalStates;
         Debug.Assert(InitialState <= 0); //0 if non-empty, Constants.InvalidState if empty
     }
 
-    ///<inheritdoc/>
+    /// <inheritdoc/>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
     /// <summary>
@@ -67,7 +77,12 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     /// </summary>
     public bool IsEpsilonFree => true;
 
-    ///<inheritdoc/>
+    /// <summary>
+    /// Gets the number of transitions in the automaton.
+    /// </summary>
+    public int TransitionCount => transitions.Length;
+
+    /// <inheritdoc/>
     IAlphabet IFsa.Alphabet => Alphabet;
 
     /// <summary>
@@ -85,13 +100,40 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     public bool IsFinal(int state) => FinalStates.Contains(state);
 
     /// <summary>
-    /// Gets the transitions of the DFA.
+    /// Returns the transition from the given state with the given symbol.
     /// </summary>
+    /// <param name="fromState">The source state.</param>
+    /// <param name="symbol">The symbol of the transition.</param>
+    /// <returns>
+    /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
+    /// </returns>
+    public Transition Transition(int fromState, int symbol)
+    {
+        int index = Array.BinarySearch(transitions, new Transition(fromState, symbol, Constants.InvalidState));
+        Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
+        index = ~index; // Get the insertion point
+        return (index < transitions.Length && transitions[index].FromState == fromState && transitions[index].Symbol == symbol)
+            ? transitions[index]
+            : Core.Transition.Invalid;
+    }
+
+    /// <summary>
+    /// Returns a <see cref="StateView"/> for the given state.
+    /// </summary>
+    /// <param name="state">The state.</param>
+    /// <returns>A <see cref="StateView"/> containing the transitions from the given state.</returns>
+    public StateView State(int state) => new(state, transitions);
+
+    /// <summary>
+    /// Gets an enumerable collection of the symbolic transitions.
+    /// </summary>
+    /// <returns>An enumerable collection of <see cref="Transition"/>.</returns>
     public IEnumerable<Transition> SymbolicTransitions() => this;
 
     /// <summary>
-    /// Gets the epsilon transitions of the DFA, which is always empty.
+    /// Gets an enumerable collection of the epsilon transitions, which is always empty.
     /// </summary>
+    /// <returns>An empty enumerable collection of <see cref="EpsilonTransition"/>.</returns>
     public IEnumerable<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
@@ -104,7 +146,7 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
         Dfa minDfa = ToMinimizedDfa(fsa);
         if (minDfa.IsEmpty)
             return (CanonicalAlphabet.Empty, Array.Empty<Transition>(), Constants.InvalidState, FrozenSet<int>.Empty);
-       
+
         CanonicalAlphabet alphabet = new CanonicalAlphabet(minDfa.SymbolicTransitions().Select(t => minDfa.Alphabet[t.Symbol]));
         (Transition[] transitions, int initialState, FrozenSet<int> finalStates) = Convert(minDfa, alphabet);
         return (alphabet, transitions, initialState, finalStates);
@@ -152,6 +194,30 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
     }
 
     /// <summary>
+    /// Finds the maximum state in the set of transitions.
+    /// Also asserts that the transitions are deterministic.
+    /// </summary>
+    /// <param name="transitions">The transition array.</param>
+    /// <returns>The maximum state referenced, or <see cref="Constants.InvalidState"/> if the array is empty.</returns>
+    /// <exception cref="ArgumentException">If the transitions are not deterministic.</exception>
+    private static int MaxStateAndAssert(Transition[] transitions)
+    {
+        int maxState = Constants.InvalidState;
+        int fromState = Constants.InvalidState;
+        int symbol = Constants.InvalidSymbolIndex;
+
+        for (int i = 0; i < transitions.Length; i++)
+        {
+            Transition t = transitions[i];
+            if (t.FromState == fromState && t.Symbol == symbol)
+                throw new ArgumentException("The transitions must be deterministic: every (FromState, Symbol)-tuple must be unique.");
+            (fromState, symbol, int toState) = t;
+            maxState = Math.Max(maxState, Math.Max(fromState, toState));
+        }
+        return maxState;
+    }
+
+    /// <summary>
     /// Converts an FSA to a minimized DFA.
     /// </summary>
     /// <param name="fsa">The finite state automaton to convert.</param>
@@ -163,6 +229,11 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
         _ => throw new ArgumentException("Unsupported automaton type", nameof(fsa))
     };
 
+    /// <summary>
+    /// Indicates whether the current object is equal to another object of the same type.
+    /// </summary>
+    /// <param name="other">An object to compare with this object.</param>
+    /// <returns><see langword="true"/> <c>if</c> the current object is equal to <paramref name="other"/>.</returns>
     public bool Equals(Cfa? other)
     {
         if (other is null) return false;
@@ -173,5 +244,17 @@ public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
         if (!this.SequenceEqual(other)) return false;
         return true;
     }
+
+    /// <summary>
+    /// Returns an enumerator that iterates through the transitions.
+    /// </summary>
+    /// <returns>An enumerator for the transitions.</returns>
+    public IEnumerator<Transition> GetEnumerator() => ((IEnumerable<Transition>)this.transitions).GetEnumerator();
+
+    /// <summary>
+    /// Returns an enumerator that iterates through the transitions.
+    /// </summary>
+    /// <returns>An enumerator for the transitions.</returns>
+    IEnumerator IEnumerable.GetEnumerator() => this.transitions.GetEnumerator();
 }
 

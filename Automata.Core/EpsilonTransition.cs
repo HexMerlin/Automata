@@ -1,12 +1,14 @@
-﻿namespace Automata.Core;
+﻿using System.Runtime.CompilerServices;
+
+namespace Automata.Core;
 
 /// <summary>
-/// Represents an epsilon transition in an automaton, defined by a starting state and an ending state.
+/// An epsilon transition in an automaton, defined by a starting state and an ending state.
 /// </summary>
 /// <remarks>An epsilon transition is a transition that lacks a symbol</remarks>
-/// <param name="FromState">The state from which the transition starts.</param>
-/// <param name="ToState">The state to which the transition goes.</param>
-public readonly record struct EpsilonTransition(int FromState, int ToState) : ITransition<EpsilonTransition>, IComparable<EpsilonTransition>
+/// <param name="FromState">The state origin of the transition.</param>
+/// <param name="ToState">The destination state of the transition.</param>
+public readonly record struct EpsilonTransition(int FromState, int ToState) : IComparable<EpsilonTransition>
 {
     /// <summary>
     /// Denotes the string representation for ε - the empty epsilon string.
@@ -32,15 +34,10 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IT
         return c != 0 ? c : ToState.CompareTo(other.ToState);
     }
 
-    /// <summary>
-    /// Gets a comparer that compares epsilon transitions by their to states.
-    /// </summary>
-    /// <returns>A comparer that compares epsilon transitions by their to states.</returns>
-    public static Comparer<EpsilonTransition> CompareByToState() => Comparer<EpsilonTransition>.Create((t1, t2) =>
-    {
-        int c = t1.ToState.CompareTo(t2.ToState);
-        return c != 0 ? c : t1.FromState.CompareTo(t2.FromState);
-    });
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static EpsilonTransition MinTrans(int fromState) => new(fromState, int.MinValue);
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static EpsilonTransition MaxTrans(int fromState) => new(fromState, int.MaxValue);
 }
 
