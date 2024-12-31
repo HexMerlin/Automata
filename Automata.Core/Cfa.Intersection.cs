@@ -1,7 +1,7 @@
 ﻿using Automata.Core.TransitionSets;
 
 namespace Automata.Core;
-public partial class Cfa
+public partial class Cfa 
 {
     public static Dfa Intersection(Cfa a, Cfa b)
     {
@@ -25,7 +25,7 @@ public partial class Cfa
             if (a.IsFinal(qA) && b.IsFinal(qB))
                 dfa.SetFinal(fromState);
 
-            var transitionsA = a.Transitions(qA);
+            ReadOnlySpan<Transition> transitionsA = a.Transitions(qA);
             var transitionsB = b.Transitions(qB);
             foreach (Transition tA in transitionsA)
             {
@@ -65,4 +65,6 @@ public partial class Cfa
     /// <param name="value">The signed 64-bit value to split.</param>
     /// <returns>A tuple containing the two signed 32-bit integers.</returns>
     private static (int, int) Split(long value) => ((int)(value >> 32), (int)(value & 0xFFFFFFFFL));
+    
+
 }

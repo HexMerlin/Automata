@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+using System.Text;
 using Automata.Core;
 using Automata.Core.Alphabets;
 using Automata.Visualization;
@@ -53,6 +55,40 @@ public static class Program
         dfa.Add(new Transition(0, 1, 1));
         dfa.Add(new Transition(1, 1, 1));
         return dfa;
+    }
+
+    //public static int GetHashCode1(string[] strings)
+    //{
+    //    var hash = new HashCode();
+
+    //    for (var i = 0; i < strings.Length; i++)
+    //        hash.Add(strings[i]);
+
+    //    return hash.ToHashCode();
+    //}
+
+    //public static uint GetHashCode2(string[] strings)
+    //{
+    //    var hash = new System.IO.Hashing.XxHash32();
+
+    //    for (var i = 0; i < strings.Length; i++)
+    //        hash.Append(Encoding.UTF8.GetBytes(strings[i]));
+    //    //return hash.GetCurrentHashAsUInt64();
+    //    return hash.GetCurrentHashAsUInt32();
+    //}
+
+    public static IEnumerable<string> Generate()
+    {
+        Random _random = new Random();
+        while (true)
+        {
+            var length = _random.Next(2, 11);
+            var randomString = new string(
+                Enumerable.Range(0, length)
+                          .Select(_ => (char)_random.Next('a', 'z' + 1))
+                          .ToArray());
+            yield return randomString;
+        }
     }
 
     public static void Main2()

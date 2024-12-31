@@ -20,13 +20,13 @@ namespace Automata.Core;
 /// For any language, the <see cref="Cfa"/> is unique, embodying its minimal deterministic automaton in canonical form.
 /// <para>Any two <see cref="Cfa"/> instances accepting the same language are identical.</para>
 /// </remarks>
-public partial class Cfa : ImmutableTransitions, IFsa
+public partial class Cfa : ImmutableTransitions, IEquatable<Cfa>, IFsa
 {
     #region Data
     /// <summary>
     /// Gets the alphabet used by the CFA.
     /// </summary>
-    public IAlphabet Alphabet { get; }
+    public CanonicalAlphabet Alphabet { get; }
 
     /// <summary>
     /// The initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
@@ -66,6 +66,9 @@ public partial class Cfa : ImmutableTransitions, IFsa
     /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
     public bool IsEpsilonFree => true;
+
+    ///<inheritdoc/>
+    IAlphabet IFsa.Alphabet => Alphabet;
 
     /// <summary>
     /// Indicates whether the specified state is the initial state.
@@ -160,5 +163,15 @@ public partial class Cfa : ImmutableTransitions, IFsa
         _ => throw new ArgumentException("Unsupported automaton type", nameof(fsa))
     };
 
+    public bool Equals(Cfa? other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (InitialState != other.InitialState) return false;
+        if (!FinalStates.SetEquals(other.FinalStates)) return false;
+        if (!Alphabet.Equals(other.Alphabet)) return false;
+        if (!this.SequenceEqual(other)) return false;
+        return true;
+    }
 }
 

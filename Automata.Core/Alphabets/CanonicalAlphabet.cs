@@ -31,9 +31,8 @@ namespace Automata.Core.Alphabets;
 /// </list>
 /// </remarks>
 /// <seealso cref="Cfa"/>
-public class CanonicalAlphabet : IAlphabet
+public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
 { 
-
     #region Data
     private readonly string[] indexToStringMap;
 
@@ -85,10 +84,39 @@ public class CanonicalAlphabet : IAlphabet
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     public int GetOrAdd(string symbol) => throw new NotSupportedException($"Adding to immutable {nameof(CanonicalAlphabet)} is not supported.");
+   
     /// <returns>A string with each symbol and its index, separated by a newline.</returns>
     public string ToStringExpanded() => string.Join("\n", Enumerable.Range(0, Count).Select(i => $"{i}: {this[i]}"));
 
     /// <returns>A string that represents the current alphabet, including its size.</returns>
     public override string ToString() => $"Alphabet, size: {Count}";
+
+    ///<summary>
+    ///Indicates whether the current alphabet is equal (identical) to another alphabet.
+    ///</summary>
+    public bool Equals(CanonicalAlphabet? other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (this.Count != other.Count) return false;
+        if (!this.indexToStringMap.SequenceEqual(other.indexToStringMap, CanonicalStringComparer)) return false;
+        return true;
+    }
+
+    ///<inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as CanonicalAlphabet);
+
+    ///<inheritdoc/>
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        for (int i = 0; i < indexToStringMap.Length; i++)
+            hash.Add(indexToStringMap[i]);
+        return hash.ToHashCode();
+    }
+
+    public static bool operator ==(CanonicalAlphabet left, CanonicalAlphabet right) => left.Equals(right);
+
+    public static bool operator !=(CanonicalAlphabet left, CanonicalAlphabet right) => !left.Equals(right);
 
 }
