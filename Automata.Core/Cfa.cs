@@ -69,7 +69,9 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
         Debug.Assert(InitialState <= 0); //0 if non-empty, Constants.InvalidState if empty
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Gets a value indicating whether the CFA is empty.
+    /// </summary>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
     /// <summary>
@@ -82,7 +84,9 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
     /// </summary>
     public int TransitionCount => transitions.Length;
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Gets the alphabet used by the FSA.
+    /// </summary>
     IAlphabet IFsa.Alphabet => Alphabet;
 
     /// <summary>
@@ -233,7 +237,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
     /// Indicates whether the current object is equal to another object of the same type.
     /// </summary>
     /// <param name="other">An object to compare with this object.</param>
-    /// <returns><see langword="true"/> <c>if</c> the current object is equal to <paramref name="other"/>.</returns>
+    /// <returns><see langword="true"/> if the current object is equal to <paramref name="other"/>; otherwise, <see langword="false"/>.</returns>
     public bool Equals(Cfa? other)
     {
         if (other is null) return false;

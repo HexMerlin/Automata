@@ -6,7 +6,7 @@ namespace Automata.Core;
 /// <summary>
 /// A deterministic finite automaton (DFA).
 /// </summary>
-/// <remarks>A DFA is always deterministic and epsilon free.</remarks>
+/// <remarks>A DFA is always deterministic and epsilon-free.</remarks>
 public class Dfa : IFsa
 {
     #region Data
@@ -25,10 +25,10 @@ public class Dfa : IFsa
     private readonly HashSet<int> finalStates = [];
 
     /// <summary>
-    /// Gets a upper bound for the maximum state number in the DFA.
+    /// Gets an upper bound for the maximum state number in the DFA.
     /// </summary>
     /// <remarks>
-    /// This values denotes an upper bound for the state numbers in the DFA.
+    /// This value denotes an upper bound for the state numbers in the DFA.
     /// The actual maximum state number may be lower (but not higher), since we do not keep track of removed states for performance reasons.
     /// </remarks>
     public int MaxState { get; private set; } = Constants.InvalidState;
@@ -60,7 +60,9 @@ public class Dfa : IFsa
         this.UnionWith(transitions);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Gets a value indicating whether the DFA is empty. A DFA is considered empty if it has no initial state.
+    /// </summary>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
     /// <summary>
@@ -200,9 +202,8 @@ public class Dfa : IFsa
     public Nfa Reversed() => new(this, applyReverseOperation: true);
 
     /// <summary>
-    /// Minimizes the DFA.
+    /// Minimizes the DFA using Brzozowski's algorithm.
     /// </summary>
-    /// <remarks>Uses Brzozowski's algorithm.</remarks>
     /// <returns>A minimized DFA.</returns>
     public Dfa Minimized()
     {

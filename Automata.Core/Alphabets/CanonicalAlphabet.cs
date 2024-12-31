@@ -32,7 +32,7 @@ namespace Automata.Core.Alphabets;
 /// </remarks>
 /// <seealso cref="Cfa"/>
 public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
-{ 
+{
     #region Data
     private readonly string[] indexToStringMap;
 
@@ -52,7 +52,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     {
         indexToStringMap = [.. symbols.Distinct().OrderBy(s => s, CanonicalStringComparer)];
 
-        stringToIndexMap = 
+        stringToIndexMap =
             indexToStringMap
             .Select((symbol, index) => KeyValuePair.Create(symbol, index))
             .ToFrozenDictionary();
@@ -83,12 +83,24 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     /// <returns>The index of the specified symbol, or <see cref="Constants.InvalidSymbolIndex"/> if the symbol does not exist.</returns>
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
+    /// <summary>
+    /// Gets the index of the specified symbol or adds it if it does not exist.
+    /// </summary>
+    /// <param name="symbol">The symbol to get or add.</param>
+    /// <returns>The index of the specified symbol.</returns>
+    /// <exception cref="NotSupportedException">Thrown because adding to an immutable alphabet is not supported.</exception>
     public int GetOrAdd(string symbol) => throw new NotSupportedException($"Adding to immutable {nameof(CanonicalAlphabet)} is not supported.");
-   
+
+    /// <summary>
+    /// Returns a string with each symbol and its index, separated by a newline.
+    /// </summary>
     /// <returns>A string with each symbol and its index, separated by a newline.</returns>
     public string ToStringExpanded() => string.Join("\n", Enumerable.Range(0, Count).Select(i => $"{i}: {this[i]}"));
 
-    /// <returns>A string that represents the current alphabet, including its size.</returns>
+    /// <summary>
+    /// Returns a string that represents the current alphabet, including its size.
+    /// </summary>
+    /// <returns>A string representation of the alphabet.</returns>
     public override string ToString() => $"Alphabet, size: {Count}";
 
     ///<summary>
@@ -106,7 +118,10 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     ///<inheritdoc/>
     public override bool Equals(object? obj) => Equals(obj as CanonicalAlphabet);
 
-    ///<inheritdoc/>
+    /// <summary>
+    /// Returns a hash code for the current alphabet.
+    /// </summary>
+    /// <returns>A hash code for the alphabet.</returns>
     public override int GetHashCode()
     {
         var hash = new HashCode();
@@ -115,8 +130,20 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
         return hash.ToHashCode();
     }
 
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="CanonicalAlphabet"/> are equal.
+    /// </summary>
+    /// <param name="left">The first alphabet to compare.</param>
+    /// <param name="right">The second alphabet to compare.</param>
+    /// <returns>true if the two alphabets are equal; otherwise, false.</returns>
     public static bool operator ==(CanonicalAlphabet left, CanonicalAlphabet right) => left.Equals(right);
 
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="CanonicalAlphabet"/> are not equal.
+    /// </summary>
+    /// <param name="left">The first alphabet to compare.</param>
+    /// <param name="right">The second alphabet to compare.</param>
+    /// <returns>true if the two alphabets are not equal; otherwise, false.</returns>
     public static bool operator !=(CanonicalAlphabet left, CanonicalAlphabet right) => !left.Equals(right);
 
 }

@@ -2,14 +2,33 @@
 using System.Diagnostics;
 
 namespace Automata.Core;
-public readonly ref struct StateView 
+/// <summary>
+/// Represents a view of the state in an automaton, providing access to transitions from a specific state.
+/// </summary>
+public readonly ref struct StateView
 {
+    /// <summary>
+    /// Gets the transitions from the current state.
+    /// </summary>
     public readonly ReadOnlySpan<Transition> Transitions;
 
+    /// <summary>
+    /// Gets the state from which the transitions originate.
+    /// </summary>
     public int State => Transitions.Length > 0 ? Transitions[0].FromState : Constants.InvalidState;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StateView"/> struct with an specified state and unfiltered transitions.
+    /// </summary>
+    /// <param name="fromState">The state from which the transitions originate.</param>
+    /// <param name="transitions">The filtered transitions from the specified state.</param>
     public StateView(int fromState, Transition[] transitions) : this(fromState, new ReadOnlySpan<Transition>(transitions)) { }
- 
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StateView"/> struct with an specified state and unfiltered transitions.
+    /// </summary>
+    /// <param name="fromState">The state from which the transitions originate.</param>
+    /// <param name="transitions">The filtered transitions from the specified state.</param>
     public StateView(int fromState, ReadOnlySpan<Transition> transitions)
     {
         int startIndex = transitions.BinarySearch(new Transition(fromState, Constants.InvalidSymbolIndex, Constants.InvalidState));
@@ -26,6 +45,11 @@ public readonly ref struct StateView
         this.Transitions = transitions[startIndex..endIndex];
     }
 
+    /// <summary>
+    /// Gets the transition for the specified symbol.
+    /// </summary>
+    /// <param name="symbol">The symbol for which to get the transition.</param>
+    /// <returns>The transition for the specified symbol, or <see cref="Transition.Invalid"/> if no such transition exists.</returns>
     public Transition Transition(int symbol)
     {
         int index = Transitions.BinarySearch(new Transition(State, symbol, Constants.InvalidState));
