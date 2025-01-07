@@ -20,9 +20,4 @@ public class DfaTests
     //    CollectionAssert.AreEqual(expected, actual);
     //}
 
-    [TestMethod()]
-    public void IntersectionTest()
-    {
-        Assert.Fail();
-    }
 }

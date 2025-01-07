@@ -11,9 +11,5 @@ namespace Automata.Core.Tests;
 [TestClass()]
 public class DfaIntersectionTests
 {
-    [TestMethod()]
-    public void IntersectionTest()
-    {
-        Assert.Fail();
-    }
+
 }
