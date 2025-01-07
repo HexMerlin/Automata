@@ -138,7 +138,7 @@ public abstract class AlangExpr
     }
 
     /// <summary>
-    /// Parses an expression from the cursor, starting at the highest precedence operator.
+    /// Parses an expression from the cursor, starting at the lowest precedence operator.
     /// </summary>
     /// <param name="cursor">The cursor from which to parse the expression.</param>
     /// <returns>An <see cref="AlangExpr"/> representing the parsed expression.</returns>
