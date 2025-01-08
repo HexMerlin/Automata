@@ -2,7 +2,7 @@
 /// <summary>
 /// Provides static methods for performing operations on finite automata, such as computing the intersection of two automata.
 /// </summary>
-public static class Intersect
+public static partial class Ops
 {
     /// <summary>
     /// Computes the intersection of two deterministic finite automata (IDFAs).

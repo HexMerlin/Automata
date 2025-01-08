@@ -1,11 +1,11 @@
 ﻿namespace Automata.Core.Operations;
-public static class Determinize
+public static partial class Ops
 {
     /// <summary>
     /// Determinization of an NFA representation to a DFA.
     /// </summary>
     /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
-    /// <returns>A DFA representing the NFA.</returns>
+    /// <returns>A new DFA equivalent to the NFA.</returns>
     public static Dfa ToDfa(Nfa nfa)
     {
         List<Transition> dfaTransitions = [];

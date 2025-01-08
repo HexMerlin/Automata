@@ -256,13 +256,13 @@ public class Nfa : IFsa
     /// Converts the NFA to a DFA.
     /// </summary>
     /// <returns>A DFA representing the NFA.</returns>
-    public Dfa ToDfa() => Determinize.ToDfa(this);
+    public Dfa ToDfa() => Ops.ToDfa(this);
 
     /// <summary>
     /// Converts the NFA to a minimized DFA.
     /// </summary>
     /// <returns>A minimized DFA representing the NFA.</returns>
-    public Dfa ToMinimizedDFA() => Determinize.ToDfa(this).Minimized();
+    public Dfa ToMinimizedDFA() => Ops.ToDfa(this).Minimized();
 
     /// <summary>
     /// Converts the NFA to a CFA.

@@ -3,9 +3,12 @@
 namespace Automata.Core;
 
 /// <summary>
-/// A deterministic finite automaton (DFA).
+/// Represents a deterministic finite automaton (DFA).
 /// </summary>
-/// <remarks>A DFA is always deterministic and epsilon-free.</remarks>
+/// <remarks>
+/// A DFA is a finite state machine that accepts or rejects finite sequences of symbols.
+/// It is always deterministic and does not contain epsilon transitions.
+/// </remarks>
 public class Dfa : IDfa
 {
     #region Data
@@ -19,16 +22,19 @@ public class Dfa : IDfa
     /// <summary>
     /// Gets the initial state of the DFA.
     /// </summary>
-    public int InitialState { get; private set; } = Constants.InvalidState; // no initial state
+    /// <remarks>
+    /// Returns <see cref="Constants.InvalidState"/> if the DFA has no initial state.
+    /// </remarks>
+    public int InitialState { get; private set; } = Constants.InvalidState;
 
-    private readonly HashSet<int> finalStates = [];
+    private readonly HashSet<int> finalStates = new();
 
     /// <summary>
     /// Gets an upper bound for the maximum state number in the DFA.
     /// </summary>
     /// <remarks>
-    /// This value denotes an upper bound for the state numbers in the DFA.
-    /// The actual maximum state number may be lower (but not higher), since we do not keep track of removed states for performance reasons.
+    /// This value represents an upper limit for state numbers in the DFA.
+    /// The actual maximum state number may be lower, as removed states are not tracked for performance reasons.
     /// </remarks>
     public int MaxState { get; private set; } = Constants.InvalidState;
     #endregion Data
@@ -56,7 +62,7 @@ public class Dfa : IDfa
         SetInitial(initialState);
         SetFinal(finalStates);
         this.finalStates.UnionWith(finalStates);
-        this.UnionWith(transitions);
+        UnionWith(transitions);
     }
 
     /// <summary>
@@ -70,7 +76,7 @@ public class Dfa : IDfa
     public bool IsEpsilonFree => true;
 
     /// <summary>
-    /// Sets the initial state of the DFA.
+    /// Sets the initial state of the DFA, updating the maximum state number if necessary.
     /// </summary>
     /// <param name="state">The state to set as the initial state.</param>
     public void SetInitial(int state) => InitialState = UpdateMaxState(state);
@@ -117,10 +123,10 @@ public class Dfa : IDfa
     public IReadOnlySet<int> FinalStates => finalStates;
 
     /// <summary>
-    /// Adds a transition to the DFA.
+    /// Adds a transition to the DFA, ensuring it remains deterministic.
     /// </summary>
     /// <remarks>
-    /// If a transition with the same from-state and the same symbol already exists, that transition will be replaced.
+    /// If adding the transition would introduce nondeterminism (i.e., a transition with the same from-state and symbol already exists), the new transition will not be added.
     /// </remarks>
     /// <param name="transition">The transition to add.</param>
     /// <returns>
@@ -128,8 +134,8 @@ public class Dfa : IDfa
     /// </returns>
     public bool Add(Transition transition)
     {
-        if (ReachableState(transition.FromState, transition.Symbol) == transition.ToState)
-            return false; // a transition with the same from-state and symbol already exists
+        if (ReachableState(transition.FromState, transition.Symbol) != Constants.InvalidState)
+            return false; // Cannot add; would introduce nondeterminism
         return orderByFromState.Add(UpdateMaxState(transition));
     }
 
@@ -172,13 +178,14 @@ public class Dfa : IDfa
     /// Returns a <see cref="StateView"/> of the given state.
     /// </summary>
     /// <param name="fromState">The from state.</param>
-    /// <remarks>This method provides compatibility with contiguous memory representations like <see cref="Cfa"/>.
-    /// When possible, prefer using <see cref="Transitions(int)"/> which avoids a memory allocation and therefore has slightly less overhead.
+    /// <remarks>
+    /// This method provides a read-only view of the state transitions from the specified state.
+    /// It is primarily for compatibility with contiguous memory representations like <see cref="Cfa"/>.
+    /// When possible, use <see cref="Transitions(int)"/>, which avoids memory allocation and has less overhead.
     /// </remarks>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>
     public StateView State(int fromState)
         => new StateView(fromState, Transitions(fromState).ToArray());
-        
 
     /// <summary>
     /// Returns the state reachable from the given state on the given symbol.
@@ -194,9 +201,8 @@ public class Dfa : IDfa
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
 
-
+    /// <inheritdoc/>
     IAlphabet IFsa.Alphabet => Alphabet;
-
 
     /// <summary>
     /// Gets the transitions of the DFA.
@@ -207,11 +213,11 @@ public class Dfa : IDfa
     /// <summary>
     /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
-    /// <returns>An empty enumerable collection.</returns>
-    public IEnumerable<EpsilonTransition> EpsilonTransitions() => [];
+    /// <returns>An empty enumerable collection of <see cref="EpsilonTransition"/>.</returns>
+    public IEnumerable<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
-    /// Reverses the DFA.
+    /// Creates a new NFA that recognizes the reverse of the language accepted by this DFA.
     /// </summary>
     /// <returns>An NFA representing the reversed DFA.</returns>
     public Nfa Reversed() => new(this, applyReverseOperation: true);
@@ -219,6 +225,9 @@ public class Dfa : IDfa
     /// <summary>
     /// Minimizes the DFA using Brzozowski's algorithm.
     /// </summary>
+    /// <remarks>
+    /// This algorithm involves reversing the DFA, determinizing it, reversing it again, and determinizing it once more.
+    /// </remarks>
     /// <returns>A minimized DFA.</returns>
     public Dfa Minimized()
     {
@@ -268,7 +277,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Conditionally includes or excludes a state in a set based on the provided condition.
     /// </summary>
-    /// <param name="condition">The condition to evaluate.</param>
+    /// <param name="condition">If <see langword="true"/>, the state is added; otherwise, it is removed.</param>
     /// <param name="state">The state to include or exclude.</param>
     /// <param name="set">The set to modify.</param>
     private void IncludeIf(bool condition, int state, HashSet<int> set)
@@ -282,7 +291,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Conditionally includes or excludes a collection of states in a set based on the provided condition.
     /// </summary>
-    /// <param name="condition">The condition to evaluate.</param>
+    /// <param name="condition">If <see langword="true"/>, the states are added; otherwise, they are removed.</param>
     /// <param name="states">The states to include or exclude.</param>
     /// <param name="set">The set to modify.</param>
     private void IncludeIf(bool condition, IEnumerable<int> states, HashSet<int> set)
@@ -321,5 +330,4 @@ public class Dfa : IDfa
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return transition;
     }
-
 }

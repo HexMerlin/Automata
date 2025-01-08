@@ -36,7 +36,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     #region Data
     private readonly string[] indexToStringMap;
 
-    private readonly FrozenDictionary<string, int> stringToIndexMap;
+    public readonly FrozenDictionary<string, int> StringToIndexMap;
     #endregion Data
 
     /// <summary>
@@ -52,7 +52,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     {
         indexToStringMap = [.. symbols.Distinct().OrderBy(s => s, CanonicalStringComparer)];
 
-        stringToIndexMap =
+        StringToIndexMap =
             indexToStringMap
             .Select((symbol, index) => KeyValuePair.Create(symbol, index))
             .ToFrozenDictionary();
@@ -69,10 +69,16 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     public int Count => indexToStringMap.Length;
 
     ///<inheritdoc/>
+    public IReadOnlyCollection<string> Symbols => indexToStringMap;
+
+    ///<inheritdoc/>
     public string this[int index] => index >= 0 && index < Count ? indexToStringMap[index] : throw new ArgumentOutOfRangeException($"Symbol with index {index} does not exist in alphabet");
 
     ///<inheritdoc/>
-    public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
+    public int this[string symbol] => StringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
+
+    ///<inheritdoc/>
+    public bool Contains(string symbol) => StringToIndexMap.ContainsKey(symbol);
 
     /// <summary>
     /// Returns a string with each symbol and its index, separated by a newline.

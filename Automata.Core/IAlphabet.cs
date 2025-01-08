@@ -26,8 +26,21 @@ public interface IAlphabet
     int this[string symbol] { get; }
 
     /// <summary>
-    /// Returns a string representation of the current alphabet,.
+    /// Indicates whether the alphabet contains the specified symbol.
     /// </summary>
+    /// <param name="symbol">The symbol to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the alphabet contains the symbol.</returns>
+    bool Contains(string symbol);
+
+    /// <summary>
+    /// Gets a read-only collection of symbols in the alphabet.
+    /// </summary>
+    IReadOnlyCollection<string> Symbols { get; }
+
+    /// <summary>
+    /// Returns a string representation of the current alphabet.
+    /// </summary>
+    /// <returns>A string representation of the current alphabet.</returns>
     string ToString();
 
     /// <summary>
