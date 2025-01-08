@@ -31,7 +31,7 @@ AtomChar              ::= ^('|' | '&' | '-' | '?' | '*' | '+' | '~' | '(' | ')' 
 | 5          | Kleene Plus     | +                | Postfix unary      |
 | 5          | Complement      | ~                | Postfix unary      |
 | 6          | Group           | ( )              | Enclosing unary    |
-|            | Atom            | string literal     | Atomic leaf        |
+| 7          | Atom            | string literal     | Atomic leaf        |
 
 ## Notes
 

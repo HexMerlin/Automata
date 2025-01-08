@@ -83,7 +83,7 @@ namespace Automata.Core.Alang;
 ///     <term>Enclosing unary</term>
 /// </item>
 /// <item>
-///     <term></term>
+///     <term>7</term>
 ///     <term>Atom</term>
 ///     <term>string literal</term>
 ///     <term>Atomic leaf</term>
