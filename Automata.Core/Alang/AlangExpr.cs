@@ -14,7 +14,7 @@ namespace Automata.Core.Alang;
 /// IntersectionExpr      ::= ConcatenationExpr ('&amp;' ConcatenationExpr)*
 /// ConcatenationExpr     ::= PostfixExpr PostfixExpr*
 /// PostfixExpr           ::= PrimaryExpr PostfixOp*
-/// PrimaryExpr           ::= '(' [AlangExpr] ')' | Atom
+/// PrimaryExpr           ::= '(' AlangExpr? ')' | Atom
 /// Atom                  ::= AtomChar+
 /// 
 /// PostfixOp::= '?' | '*' | '+' | '~'

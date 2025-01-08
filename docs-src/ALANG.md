@@ -11,7 +11,7 @@ DifferenceExpr        ::= IntersectionExpr ('-' IntersectionExpr)*
 IntersectionExpr      ::= ConcatenationExpr ('&' ConcatenationExpr)*
 ConcatenationExpr     ::= PostfixExpr PostfixExpr*
 PostfixExpr           ::= PrimaryExpr PostfixOp*
-PrimaryExpr           ::= '(' [AlangExpr] ')' | Atom
+PrimaryExpr           ::= '(' AlangExpr? ')' | Atom
 Atom                  ::= AtomChar+
 
 PostfixOp             ::= '?' | '*' | '+' | '~'
