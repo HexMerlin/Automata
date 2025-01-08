@@ -68,28 +68,11 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     /// </summary>
     public int Count => indexToStringMap.Length;
 
-    /// <summary>
-    /// Gets the symbol at the specified index.
-    /// </summary>
-    /// <param name="index">The index of the symbol.</param>
-    /// <returns>The symbol at the specified index.</returns>
-    /// <exception cref="ArgumentOutOfRangeException">Thrown when the index is out of range.</exception>
+    ///<inheritdoc/>
     public string this[int index] => index >= 0 && index < Count ? indexToStringMap[index] : throw new ArgumentOutOfRangeException($"Symbol with index {index} does not exist in alphabet");
 
-    /// <summary>
-    /// Gets the index of the specified symbol.
-    /// </summary>
-    /// <param name="symbol">The symbol to get the index of.</param>
-    /// <returns>The index of the specified symbol, or <see cref="Constants.InvalidSymbolIndex"/> if the symbol does not exist.</returns>
+    ///<inheritdoc/>
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
-
-    /// <summary>
-    /// Gets the index of the specified symbol or adds it if it does not exist.
-    /// </summary>
-    /// <param name="symbol">The symbol to get or add.</param>
-    /// <returns>The index of the specified symbol.</returns>
-    /// <exception cref="NotSupportedException">Thrown because adding to an immutable alphabet is not supported.</exception>
-    public int GetOrAdd(string symbol) => throw new NotSupportedException($"Adding to immutable {nameof(CanonicalAlphabet)} is not supported.");
 
     /// <summary>
     /// Returns a string with each symbol and its index, separated by a newline.
