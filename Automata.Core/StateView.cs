@@ -9,7 +9,7 @@ namespace Automata.Core;
 /// <remarks>
 /// This struct uses a ReadOnlySpan which is only a view on a contiguous memory sequence of <see cref="Transition"/>. 
 /// </remarks>
-public readonly ref struct StateView : IState
+public readonly ref struct StateView 
 {
     /// <summary>
     /// Gets the transitions from the current state.
