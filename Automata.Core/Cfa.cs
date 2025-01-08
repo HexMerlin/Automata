@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Frozen;
 using System.Diagnostics;
-using Automata.Core.Alphabets;
 
 namespace Automata.Core;
 

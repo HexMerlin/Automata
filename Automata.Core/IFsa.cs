@@ -1,6 +1,4 @@
-﻿using Automata.Core.Alphabets;
-
-namespace Automata.Core;
+﻿namespace Automata.Core;
 
 /// <summary>
 /// Represents a finite state automaton (FSA) interface.

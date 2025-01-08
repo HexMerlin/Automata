@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Text;
 using Automata.Core;
-using Automata.Core.Alphabets;
 using Automata.Visualization;
 using Microsoft.Msagl.Drawing;
 

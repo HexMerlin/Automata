@@ -1,6 +1,6 @@
 ﻿using System.Collections.Frozen;
 
-namespace Automata.Core.Alphabets;
+namespace Automata.Core;
 
 /// <summary>
 /// Immutable and optimized representation of an alphabet with contiguous, ordered symbols.
@@ -93,7 +93,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     {
         if (other is null) return false;
         if (ReferenceEquals(this, other)) return true;
-        if (this.Count != other.Count) return false;
+        if (Count != other.Count) return false;
         if (!this.indexToStringMap.SequenceEqual(other.indexToStringMap, CanonicalStringComparer)) return false;
         return true;
     }

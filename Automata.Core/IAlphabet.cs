@@ -1,4 +1,4 @@
-﻿namespace Automata.Core.Alphabets;
+﻿namespace Automata.Core;
 
 /// <summary>
 /// Common interface for an alphabet associated with a finite state automaton.

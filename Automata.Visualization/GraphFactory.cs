@@ -1,5 +1,4 @@
 ﻿using Automata.Core;
-using Automata.Core.Alphabets;
 using Microsoft.Msagl.Drawing;
 
 namespace Automata.Visualization;

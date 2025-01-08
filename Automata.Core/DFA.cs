@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using Automata.Core.Alphabets;
 
 namespace Automata.Core;
 

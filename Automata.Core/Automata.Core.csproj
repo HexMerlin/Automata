@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Alang\" />
+    <Folder Include="Alphabets\" />
   </ItemGroup>
 
 </Project>

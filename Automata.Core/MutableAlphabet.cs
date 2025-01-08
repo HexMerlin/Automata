@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Automata.Core.Alphabets;
+﻿namespace Automata.Core;
 
 /// <summary>
 /// Represents a mutable alphabet associated with a finite state automaton.
