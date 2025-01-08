@@ -18,7 +18,6 @@ public static partial class Ops
         var subtrahendComplement = Complement(subtrahend);
         var difference = Intersection(minuend, subtrahendComplement);
 
-        throw new NotImplementedException();
         return difference;
     }
 }
