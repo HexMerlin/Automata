@@ -2,10 +2,14 @@
 using System.Diagnostics;
 
 namespace Automata.Core;
+
 /// <summary>
-/// Represents a view of the state in an automaton, providing access to transitions from a specific state.
+/// Represents a read-only view of a state in an automaton, providing access to transitions from the state.
 /// </summary>
-public readonly ref struct StateView
+/// <remarks>
+/// This struct uses a ReadOnlySpan which is only a view on a contiguous memory sequence of <see cref="Transition"/>. 
+/// </remarks>
+public readonly ref struct StateView : IState
 {
     /// <summary>
     /// Gets the transitions from the current state.
