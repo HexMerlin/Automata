@@ -25,7 +25,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Gets the alphabet used by the NFA.
     /// </summary>
-    public IAlphabet Alphabet { get; }
+    public MutableAlphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> symbolicTransitions = new();
     private readonly SortedSet<EpsilonTransition> epsilonTransitions = new();
@@ -47,13 +47,13 @@ public class Nfa : IFsa
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class with an empty alphabet.
     /// </summary>
-    public Nfa() : this(new Alphabet()) { }
+    public Nfa() : this(new MutableAlphabet()) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the NFA.</param>
-    public Nfa(IAlphabet alphabet) => this.Alphabet = alphabet;
+    public Nfa(MutableAlphabet alphabet) => this.Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class from a DFA.
@@ -336,6 +336,8 @@ public class Nfa : IFsa
     /// Gets the final states of the NFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
+
+    IAlphabet IFsa.Alphabet => Alphabet;
 
     /// <summary>
     /// Gets the symbolic transitions of the NFA.
