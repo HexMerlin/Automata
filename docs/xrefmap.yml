@@ -1053,6 +1053,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.CanonicalAlphabet.CanonicalStringComparer
   nameWithType: CanonicalAlphabet.CanonicalStringComparer
+- uid: Automata.Core.CanonicalAlphabet.Contains(System.String)
+  name: Contains(string)
+  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Contains_System_String_
+  commentId: M:Automata.Core.CanonicalAlphabet.Contains(System.String)
+  name.vb: Contains(String)
+  fullName: Automata.Core.CanonicalAlphabet.Contains(string)
+  fullName.vb: Automata.Core.CanonicalAlphabet.Contains(String)
+  nameWithType: CanonicalAlphabet.Contains(string)
+  nameWithType.vb: CanonicalAlphabet.Contains(String)
+- uid: Automata.Core.CanonicalAlphabet.Contains*
+  name: Contains
+  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Contains_
+  commentId: Overload:Automata.Core.CanonicalAlphabet.Contains
+  isSpec: "True"
+  fullName: Automata.Core.CanonicalAlphabet.Contains
+  nameWithType: CanonicalAlphabet.Contains
 - uid: Automata.Core.CanonicalAlphabet.Count
   name: Count
   href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Count
@@ -1145,6 +1161,25 @@ references:
   fullName.vb: Automata.Core.CanonicalAlphabet.this[]
   nameWithType: CanonicalAlphabet.this
   nameWithType.vb: CanonicalAlphabet.this[]
+- uid: Automata.Core.CanonicalAlphabet.StringToIndexMap
+  name: StringToIndexMap
+  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_StringToIndexMap
+  commentId: F:Automata.Core.CanonicalAlphabet.StringToIndexMap
+  fullName: Automata.Core.CanonicalAlphabet.StringToIndexMap
+  nameWithType: CanonicalAlphabet.StringToIndexMap
+- uid: Automata.Core.CanonicalAlphabet.Symbols
+  name: Symbols
+  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Symbols
+  commentId: P:Automata.Core.CanonicalAlphabet.Symbols
+  fullName: Automata.Core.CanonicalAlphabet.Symbols
+  nameWithType: CanonicalAlphabet.Symbols
+- uid: Automata.Core.CanonicalAlphabet.Symbols*
+  name: Symbols
+  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Symbols_
+  commentId: Overload:Automata.Core.CanonicalAlphabet.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.CanonicalAlphabet.Symbols
+  nameWithType: CanonicalAlphabet.Symbols
 - uid: Automata.Core.CanonicalAlphabet.ToString
   name: ToString()
   href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_ToString
@@ -2001,6 +2036,22 @@ references:
   commentId: T:Automata.Core.IAlphabet
   fullName: Automata.Core.IAlphabet
   nameWithType: IAlphabet
+- uid: Automata.Core.IAlphabet.Contains(System.String)
+  name: Contains(string)
+  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Contains_System_String_
+  commentId: M:Automata.Core.IAlphabet.Contains(System.String)
+  name.vb: Contains(String)
+  fullName: Automata.Core.IAlphabet.Contains(string)
+  fullName.vb: Automata.Core.IAlphabet.Contains(String)
+  nameWithType: IAlphabet.Contains(string)
+  nameWithType.vb: IAlphabet.Contains(String)
+- uid: Automata.Core.IAlphabet.Contains*
+  name: Contains
+  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Contains_
+  commentId: Overload:Automata.Core.IAlphabet.Contains
+  isSpec: "True"
+  fullName: Automata.Core.IAlphabet.Contains
+  nameWithType: IAlphabet.Contains
 - uid: Automata.Core.IAlphabet.Count
   name: Count
   href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Count
@@ -2042,6 +2093,19 @@ references:
   fullName.vb: Automata.Core.IAlphabet.this[]
   nameWithType: IAlphabet.this
   nameWithType.vb: IAlphabet.this[]
+- uid: Automata.Core.IAlphabet.Symbols
+  name: Symbols
+  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Symbols
+  commentId: P:Automata.Core.IAlphabet.Symbols
+  fullName: Automata.Core.IAlphabet.Symbols
+  nameWithType: IAlphabet.Symbols
+- uid: Automata.Core.IAlphabet.Symbols*
+  name: Symbols
+  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Symbols_
+  commentId: Overload:Automata.Core.IAlphabet.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.IAlphabet.Symbols
+  nameWithType: IAlphabet.Symbols
 - uid: Automata.Core.IAlphabet.ToString
   name: ToString()
   href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_ToString
@@ -2453,6 +2517,15 @@ references:
   fullName.vb: Automata.Core.MutableAlphabet.New()
   nameWithType: MutableAlphabet.MutableAlphabet()
   nameWithType.vb: MutableAlphabet.New()
+- uid: Automata.Core.MutableAlphabet.#ctor(Automata.Core.CanonicalAlphabet)
+  name: MutableAlphabet(CanonicalAlphabet)
+  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor_Automata_Core_CanonicalAlphabet_
+  commentId: M:Automata.Core.MutableAlphabet.#ctor(Automata.Core.CanonicalAlphabet)
+  name.vb: New(CanonicalAlphabet)
+  fullName: Automata.Core.MutableAlphabet.MutableAlphabet(Automata.Core.CanonicalAlphabet)
+  fullName.vb: Automata.Core.MutableAlphabet.New(Automata.Core.CanonicalAlphabet)
+  nameWithType: MutableAlphabet.MutableAlphabet(CanonicalAlphabet)
+  nameWithType.vb: MutableAlphabet.New(CanonicalAlphabet)
 - uid: Automata.Core.MutableAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
   name: MutableAlphabet(IEnumerable<string>)
   href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor_System_Collections_Generic_IEnumerable_System_String__
@@ -2488,6 +2561,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.MutableAlphabet.AddAll
   nameWithType: MutableAlphabet.AddAll
+- uid: Automata.Core.MutableAlphabet.Contains(System.String)
+  name: Contains(string)
+  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Contains_System_String_
+  commentId: M:Automata.Core.MutableAlphabet.Contains(System.String)
+  name.vb: Contains(String)
+  fullName: Automata.Core.MutableAlphabet.Contains(string)
+  fullName.vb: Automata.Core.MutableAlphabet.Contains(String)
+  nameWithType: MutableAlphabet.Contains(string)
+  nameWithType.vb: MutableAlphabet.Contains(String)
+- uid: Automata.Core.MutableAlphabet.Contains*
+  name: Contains
+  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Contains_
+  commentId: Overload:Automata.Core.MutableAlphabet.Contains
+  isSpec: "True"
+  fullName: Automata.Core.MutableAlphabet.Contains
+  nameWithType: MutableAlphabet.Contains
 - uid: Automata.Core.MutableAlphabet.Count
   name: Count
   href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Count
@@ -2545,6 +2634,19 @@ references:
   fullName.vb: Automata.Core.MutableAlphabet.this[]
   nameWithType: MutableAlphabet.this
   nameWithType.vb: MutableAlphabet.this[]
+- uid: Automata.Core.MutableAlphabet.Symbols
+  name: Symbols
+  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Symbols
+  commentId: P:Automata.Core.MutableAlphabet.Symbols
+  fullName: Automata.Core.MutableAlphabet.Symbols
+  nameWithType: MutableAlphabet.Symbols
+- uid: Automata.Core.MutableAlphabet.Symbols*
+  name: Symbols
+  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Symbols_
+  commentId: Overload:Automata.Core.MutableAlphabet.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.MutableAlphabet.Symbols
+  nameWithType: MutableAlphabet.Symbols
 - uid: Automata.Core.MutableAlphabet.ToString
   name: ToString()
   href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_ToString
@@ -2986,44 +3088,64 @@ references:
   commentId: N:Automata.Core.Operations
   fullName: Automata.Core.Operations
   nameWithType: Automata.Core.Operations
-- uid: Automata.Core.Operations.Determinize
-  name: Determinize
-  href: Automata.Core.Operations.Determinize.html
-  commentId: T:Automata.Core.Operations.Determinize
-  fullName: Automata.Core.Operations.Determinize
-  nameWithType: Determinize
-- uid: Automata.Core.Operations.Determinize.ToDfa(Automata.Core.Nfa)
-  name: ToDfa(Nfa)
-  href: Automata.Core.Operations.Determinize.html#Automata_Core_Operations_Determinize_ToDfa_Automata_Core_Nfa_
-  commentId: M:Automata.Core.Operations.Determinize.ToDfa(Automata.Core.Nfa)
-  fullName: Automata.Core.Operations.Determinize.ToDfa(Automata.Core.Nfa)
-  nameWithType: Determinize.ToDfa(Nfa)
-- uid: Automata.Core.Operations.Determinize.ToDfa*
-  name: ToDfa
-  href: Automata.Core.Operations.Determinize.html#Automata_Core_Operations_Determinize_ToDfa_
-  commentId: Overload:Automata.Core.Operations.Determinize.ToDfa
+- uid: Automata.Core.Operations.Ops
+  name: Ops
+  href: Automata.Core.Operations.Ops.html
+  commentId: T:Automata.Core.Operations.Ops
+  fullName: Automata.Core.Operations.Ops
+  nameWithType: Ops
+- uid: Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
+  name: Complement(Cfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_Automata_Core_Cfa_
+  commentId: M:Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
+  fullName: Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
+  nameWithType: Ops.Complement(Cfa)
+- uid: Automata.Core.Operations.Ops.Complement*
+  name: Complement
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_
+  commentId: Overload:Automata.Core.Operations.Ops.Complement
   isSpec: "True"
-  fullName: Automata.Core.Operations.Determinize.ToDfa
-  nameWithType: Determinize.ToDfa
-- uid: Automata.Core.Operations.Intersect
-  name: Intersect
-  href: Automata.Core.Operations.Intersect.html
-  commentId: T:Automata.Core.Operations.Intersect
-  fullName: Automata.Core.Operations.Intersect
-  nameWithType: Intersect
-- uid: Automata.Core.Operations.Intersect.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
+  fullName: Automata.Core.Operations.Ops.Complement
+  nameWithType: Ops.Complement
+- uid: Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa,Automata.Core.Cfa)
+  name: Difference(IDfa, Cfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_IDfa_Automata_Core_Cfa_
+  commentId: M:Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa,Automata.Core.Cfa)
+  fullName: Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa, Automata.Core.Cfa)
+  nameWithType: Ops.Difference(IDfa, Cfa)
+- uid: Automata.Core.Operations.Ops.Difference*
+  name: Difference
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_
+  commentId: Overload:Automata.Core.Operations.Ops.Difference
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Difference
+  nameWithType: Ops.Difference
+- uid: Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
   name: Intersection(IDfa, IDfa)
-  href: Automata.Core.Operations.Intersect.html#Automata_Core_Operations_Intersect_Intersection_Automata_Core_IDfa_Automata_Core_IDfa_
-  commentId: M:Automata.Core.Operations.Intersect.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
-  fullName: Automata.Core.Operations.Intersect.Intersection(Automata.Core.IDfa, Automata.Core.IDfa)
-  nameWithType: Intersect.Intersection(IDfa, IDfa)
-- uid: Automata.Core.Operations.Intersect.Intersection*
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_Automata_Core_IDfa_Automata_Core_IDfa_
+  commentId: M:Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
+  fullName: Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa, Automata.Core.IDfa)
+  nameWithType: Ops.Intersection(IDfa, IDfa)
+- uid: Automata.Core.Operations.Ops.Intersection*
   name: Intersection
-  href: Automata.Core.Operations.Intersect.html#Automata_Core_Operations_Intersect_Intersection_
-  commentId: Overload:Automata.Core.Operations.Intersect.Intersection
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_
+  commentId: Overload:Automata.Core.Operations.Ops.Intersection
   isSpec: "True"
-  fullName: Automata.Core.Operations.Intersect.Intersection
-  nameWithType: Intersect.Intersection
+  fullName: Automata.Core.Operations.Ops.Intersection
+  nameWithType: Ops.Intersection
+- uid: Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
+  name: ToDfa(Nfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ToDfa_Automata_Core_Nfa_
+  commentId: M:Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
+  fullName: Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
+  nameWithType: Ops.ToDfa(Nfa)
+- uid: Automata.Core.Operations.Ops.ToDfa*
+  name: ToDfa
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ToDfa_
+  commentId: Overload:Automata.Core.Operations.Ops.ToDfa
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.ToDfa
+  nameWithType: Ops.ToDfa
 - uid: Automata.Core.StateView
   name: StateView
   href: Automata.Core.StateView.html

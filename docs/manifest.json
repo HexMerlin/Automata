@@ -272,20 +272,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.Determinize.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.Ops.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.Operations.Determinize.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.Intersect.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Operations.Intersect.html"
+          "relative_path": "Automata.Core.Operations.Ops.html"
         }
       },
       "version": ""
