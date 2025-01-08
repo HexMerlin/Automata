@@ -7,13 +7,13 @@ namespace Automata.Core;
 /// A deterministic finite automaton (DFA).
 /// </summary>
 /// <remarks>A DFA is always deterministic and epsilon-free.</remarks>
-public class Dfa : IFsa
+public class Dfa : IDfa
 {
     #region Data
     /// <summary>
     /// Gets the alphabet used by the DFA.
     /// </summary>
-    public IAlphabet Alphabet { get; }
+    public MutableAlphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> orderByFromState = new();
 
@@ -37,13 +37,13 @@ public class Dfa : IFsa
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with an empty alphabet.
     /// </summary>
-    public Dfa() : this(new Alphabet()) { }
+    public Dfa() : this(new MutableAlphabet()) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">The alphabet used by the DFA.</param>
-    public Dfa(IAlphabet alphabet) => Alphabet = alphabet;
+    public Dfa(MutableAlphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
@@ -52,7 +52,7 @@ public class Dfa : IFsa
     /// <param name="transitions">The transitions of the DFA.</param>
     /// <param name="initialState">The initial state of the DFA.</param>
     /// <param name="finalStates">The final states of the DFA.</param>
-    internal Dfa(IAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    internal Dfa(MutableAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
         SetFinal(finalStates);
@@ -170,6 +170,18 @@ public class Dfa : IFsa
         );
 
     /// <summary>
+    /// Returns a <see cref="StateView"/> of the given state.
+    /// </summary>
+    /// <param name="fromState">The from state.</param>
+    /// <remarks>This method provides compatibility with contiguous memory representations like <see cref="Cfa"/>.
+    /// When possible, prefer using <see cref="Transitions(int)"/> which avoids a memory allocation and therefore has slightly less overhead.
+    /// </remarks>
+    /// <returns>A <see cref="StateView"/> for the given state.</returns>
+    public StateView State(int fromState)
+        => new StateView(fromState, Transitions(fromState).ToArray());
+        
+
+    /// <summary>
     /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
     /// <param name="fromState">The state from which to start.</param>
@@ -182,6 +194,10 @@ public class Dfa : IFsa
             Core.Transition.MinTrans(fromState, symbol),
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
+
+
+    IAlphabet IFsa.Alphabet => Alphabet;
+
 
     /// <summary>
     /// Gets the transitions of the DFA.
@@ -306,4 +322,5 @@ public class Dfa : IFsa
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return transition;
     }
+
 }
