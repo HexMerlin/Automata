@@ -1,6 +1,4 @@
-﻿using Automata.Core.Alphabets;
-
-namespace Automata.Core.Operations;
+﻿namespace Automata.Core.Operations;
 public static class Determinize
 {
     /// <summary>
