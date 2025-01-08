@@ -35,7 +35,7 @@ public static class Program
     /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s)
     {
-        Alphabet a = new Alphabet([s]);
+        MutableAlphabet a = new MutableAlphabet([s]);
         Dfa dfa = new Dfa(a);
         dfa.SetInitial(0);
         dfa.SetFinal(0);
@@ -46,7 +46,7 @@ public static class Program
     /// <summary>Creates a DFA accepting the regular expression: <c>s0*s1*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s0, string s1)
     {
-        Alphabet a = new Alphabet([s0, s1]);
+        MutableAlphabet a = new MutableAlphabet([s0, s1]);
         Dfa dfa = new Dfa(a);
         dfa.SetInitial(0);
         dfa.SetFinal(0);
@@ -93,7 +93,7 @@ public static class Program
 
     public static void Main2()
     {
-        Alphabet a = new Alphabet(["0", "1"]);
+        MutableAlphabet a = new MutableAlphabet(["0", "1"]);
         Dfa dfa1 = new Dfa(a);
         dfa1.SetInitial(0);
         dfa1.SetFinal(0);
