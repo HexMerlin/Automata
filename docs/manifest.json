@@ -1,0 +1,432 @@
+{
+  "source_base_path": "C:/Dev/HexMerlin/Automata/docs-src",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.AlangCursor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.AlangCursor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.AlangExpr.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.AlangExpr.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Atom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Atom.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Chars.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Chars.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Complement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Complement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Concatenation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Concatenation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Difference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Difference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.InfixBinary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.InfixBinary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Intersection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Intersection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.KleenePlus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.KleenePlus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.KleeneStar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.KleeneStar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Option.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Option.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.PostfixUnary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.PostfixUnary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Union.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.Union.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.CanonicalAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.CanonicalAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Cfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Cfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Constants.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Dfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Dfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.EpsilonTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.EpsilonTransition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IDfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IDfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IFsa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IFsa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IntSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.IntSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.MutableAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.MutableAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Nfa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Nfa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.Determinize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Operations.Determinize.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.Intersect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Operations.Intersect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Operations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Operations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.StateView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.StateView.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Transition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Transition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Visualization.GraphFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.GraphFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Visualization.GraphView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.GraphView.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Visualization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Visualization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../docs/obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ALANG.md",
+      "output": {
+        ".html": {
+          "relative_path": "ALANG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -19,7 +19,7 @@
 
   "build": {
     "content": [
-      { "files": ["index.md"] },
+      { "files": ["*.md"] },
       { "files": ["**/*.yml"], "src": "../docs/obj/api" },
     ],
     "xrefService": [

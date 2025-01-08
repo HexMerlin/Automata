@@ -22,6 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-src", "docs-src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		docs-src\.nojekyll = docs-src\.nojekyll
+		docs-src\ALANG.md = docs-src\ALANG.md
 		docs-src\docfx.json = docs-src\docfx.json
 		docs-src\images\favicon.ico = docs-src\images\favicon.ico
 		docs-src\index.md = docs-src\index.md

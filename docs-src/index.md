@@ -25,6 +25,6 @@ Welcome to the documentation for **Automata**.
 
 ## ALANG - A language for definining finite-state automata. 
 
-[Alang grammar specification](../ALANG.md)
+[Alang grammar specification](ALANG.md)
 
 ---
