@@ -94,7 +94,8 @@
 
 
   <h1 id="Automata_Core_Alphabets_IAlphabet" data-uid="Automata.Core.Alphabets.IAlphabet" class="text-break">Interface IAlphabet</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Common interface for an alphabet associated with a finite state automaton.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.Alphabets.html">Alphabets</a></h6>
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
@@ -109,11 +110,12 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_Count.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L7">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L11">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_IAlphabet_Count_" data-uid="Automata.Core.Alphabets.IAlphabet.Count*"></a>
   <h4 id="Automata_Core_Alphabets_IAlphabet_Count" data-uid="Automata.Core.Alphabets.IAlphabet.Count">Count</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the number of symbols in the alphabet.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -139,11 +141,12 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.Item(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L5">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L19">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_IAlphabet_Item_" data-uid="Automata.Core.Alphabets.IAlphabet.Item*"></a>
   <h4 id="Automata_Core_Alphabets_IAlphabet_Item_System_Int32_" data-uid="Automata.Core.Alphabets.IAlphabet.Item(System.Int32)">this[int]</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the symbol at the specified index.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -162,7 +165,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
-        <td></td>
+        <td><p>The index of the symbol.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -177,7 +181,24 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>The symbol at the specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown when the index is out of range.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -186,11 +207,12 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_Item_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.Item(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L6">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L26">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_IAlphabet_Item_" data-uid="Automata.Core.Alphabets.IAlphabet.Item*"></a>
   <h4 id="Automata_Core_Alphabets_IAlphabet_Item_System_String_" data-uid="Automata.Core.Alphabets.IAlphabet.Item(System.String)">this[string]</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the index of the specified symbol.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -209,7 +231,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">symbol</span></td>
-        <td></td>
+        <td><p>The symbol to get the index of.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -224,7 +247,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
+        <td><p>The index of the specified symbol, or <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidSymbolIndex">InvalidSymbolIndex</a> if the symbol does not exist.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -232,64 +256,15 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_GetOrAdd_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.GetOrAdd(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L14">View Source</a>
-  </span>
-  <a id="Automata_Core_Alphabets_IAlphabet_GetOrAdd_" data-uid="Automata.Core.Alphabets.IAlphabet.GetOrAdd*"></a>
-  <h4 id="Automata_Core_Alphabets_IAlphabet_GetOrAdd_System_String_" data-uid="Automata.Core.Alphabets.IAlphabet.GetOrAdd(System.String)">GetOrAdd(string)</h4>
-  <div class="markdown level1 summary"><p>Gets the index of the specified symbol or adds it if it does not exist.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int GetOrAdd(string symbol)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">symbol</span></td>
-        <td><p>The symbol to get or add.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The index of the specified symbol.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L16">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L31">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_IAlphabet_ToString_" data-uid="Automata.Core.Alphabets.IAlphabet.ToString*"></a>
   <h4 id="Automata_Core_Alphabets_IAlphabet_ToString" data-uid="Automata.Core.Alphabets.IAlphabet.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a string representation of the current alphabet,.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -315,11 +290,12 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alphabets_IAlphabet_ToStringExpanded.md&amp;value=---%0Auid%3A%20Automata.Core.Alphabets.IAlphabet.ToStringExpanded%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L17">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alphabets/IAlphabet.cs/#L37">View Source</a>
   </span>
   <a id="Automata_Core_Alphabets_IAlphabet_ToStringExpanded_" data-uid="Automata.Core.Alphabets.IAlphabet.ToStringExpanded*"></a>
   <h4 id="Automata_Core_Alphabets_IAlphabet_ToStringExpanded" data-uid="Automata.Core.Alphabets.IAlphabet.ToStringExpanded">ToStringExpanded()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a string with each symbol and its index, separated by a newline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -336,7 +312,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>A string with each symbol and its index, separated by a newline.</p>
+</td>
       </tr>
     </tbody>
   </table>

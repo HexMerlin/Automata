@@ -107,6 +107,7 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.Cfa.html">Cfa</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="Automata.Core.IDfa.html">IDfa</a></div>
     <div><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></div>
   </div>
   <div class="inheritedMembers">
@@ -131,7 +132,7 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Cfa_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Cfa : IEquatable&lt;Cfa&gt;, IEnumerable&lt;Transition&gt;, IEnumerable, IFsa</code></pre>
+    <pre><code class="lang-csharp hljs">public class Cfa : IEquatable&lt;Cfa&gt;, IEnumerable&lt;Transition&gt;, IEnumerable, IDfa, IFsa</code></pre>
   </div>
   <h5 id="Automata_Core_Cfa_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is the most optimized automaton representation, characterized by:</p>
@@ -960,6 +961,9 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.IDfa.html">IDfa</a>
   </div>
   <div>
       <a class="xref" href="Automata.Core.IFsa.html">IFsa</a>

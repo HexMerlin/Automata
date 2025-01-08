@@ -162,16 +162,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.Alphabet.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Alphabets.Alphabet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.CanonicalAlphabet.yml",
       "output": {
         ".html": {
@@ -186,6 +176,16 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.Alphabets.IAlphabet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabets.MutableAlphabet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alphabets.MutableAlphabet.html"
         }
       },
       "version": ""
@@ -242,20 +242,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.IFsa.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IDfa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.IFsa.html"
+          "relative_path": "Automata.Core.IDfa.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.ITransition-1.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.IFsa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.ITransition-1.html"
+          "relative_path": "Automata.Core.IFsa.html"
         }
       },
       "version": ""

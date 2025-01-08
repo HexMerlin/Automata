@@ -119,7 +119,7 @@ Structs
       <section><p>An epsilon transition in an automaton, defined by a starting state and an ending state.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.StateView.html">StateView</a></h5>
-      <section><p>Represents a view of the state in an automaton, providing access to transitions from a specific state.</p>
+      <section><p>Represents a read-only view of a state in an automaton, providing access to transitions from the state.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.Transition.html">Transition</a></h5>
       <section><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
@@ -127,11 +127,11 @@ Structs
     <h3 id="interfaces">
 Interfaces
 </h3>
+      <h5><a class="xref" href="Automata.Core.IDfa.html">IDfa</a></h5>
+      <section><p>A common interface for deterministic finite automata, such as <a class="xref" href="Automata.Core.Dfa.html">Dfa</a> and <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.</p>
+</section>
       <h5><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></h5>
       <section><p>Represents a finite state automaton (FSA) interface.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.ITransition-1.html">ITransition&lt;T&gt;</a></h5>
-      <section><p>Represents a generic transition with static support for obtaining a comparer.</p>
 </section>
 
 
