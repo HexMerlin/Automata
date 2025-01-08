@@ -5,15 +5,15 @@
 public static class Intersect
 {
     /// <summary>
-    /// Computes the intersection of two canonical finite automata (CFAs).
+    /// Computes the intersection of two deterministic finite automata (IDFAs).
     /// The resulting automaton accepts only the strings that are accepted by both input automata.
     /// </summary>
-    /// <param name="a">The first canonical finite automaton.</param>
-    /// <param name="b">The second canonical finite automaton.</param>
+    /// <param name="a">The first finite automaton.</param>
+    /// <param name="b">The second finite automaton.</param>
     /// <returns>
     /// A deterministic finite automaton representing the intersection of the two input automata.
     /// </returns>
-    public static Dfa Intersection(Cfa a, Cfa b)
+    public static Dfa Intersection(IDfa a, IDfa b)
     {
         Dfa dfa = new();
 
