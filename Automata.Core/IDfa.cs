@@ -6,7 +6,7 @@
 public interface IDfa : IFsa
 {
     /// <summary>
-    /// Gets the initial state of the DFA.
+    /// Gets the initial state of the deterministic automaton.
     /// </summary>
     int InitialState { get; }
 
