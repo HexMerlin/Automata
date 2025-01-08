@@ -20,7 +20,7 @@ namespace Automata.Core;
 /// For any language, the <see cref="Cfa"/> is unique, embodying its minimal deterministic automaton in canonical form.
 /// <para>Any two <see cref="Cfa"/> instances accepting the same language are identical.</para>
 /// </remarks>
-public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IFsa
+public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
 {
     #region Data
     /// <summary>
