@@ -9,8 +9,6 @@ public class Intersection(AlangExpr left, AlangExpr right) : InfixBinary(left, r
         if (cursor.TryConsume(Chars.Intersection))
         {
             AlangExpr right = Intersection.Parse(ref cursor); // Recursive call for repeated
-            //if (right is EmptySetExpr)
-            //   cursor.ThrowMissingRightOperand(Chars.Intersection);
 
             return new Intersection(left, right);
 
@@ -19,7 +17,9 @@ public class Intersection(AlangExpr left, AlangExpr right) : InfixBinary(left, r
 
     }
 
+    ///<inheritdoc/>
     public override int Precedence => 3;
 
-    public override string ExpressionString => $"{Param(Left, this)}{Chars.Intersection}{Param(Right, this)}";
+    ///<inheritdoc/>
+    public override string AlangExpressionString => $"{Param(Left, this)}{Chars.Intersection}{Param(Right, this)}";
 }

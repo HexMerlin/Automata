@@ -15,9 +15,11 @@ public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, 
         return left;
     }
 
+    ///<inheritdoc/>
     public override int Precedence => 4;
 
-    public override string ExpressionString
+    ///<inheritdoc/>
+    public override string AlangExpressionString
     {
         get
         {

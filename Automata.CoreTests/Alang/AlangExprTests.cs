@@ -16,7 +16,7 @@ public class AlangExprTests
     public void Parse_ForEmptyString_ReturnsEmpty()
     {
         string expected = string.Empty;
-        string actual = AlangExpr.Parse("").ExpressionString;
+        string actual = AlangExpr.Parse("").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -24,7 +24,7 @@ public class AlangExprTests
     public void Parse_ForWhitespaces_ReturnsEmptySetExpression()
     {
         string expected = "()";
-        string actual = AlangExpr.Parse("  \t   ").ExpressionString;
+        string actual = AlangExpr.Parse("  \t   ").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -32,7 +32,7 @@ public class AlangExprTests
     public void Parse_ForEmptyGroupWithWhitespaces_ReturnsEmpty()
     {
         string expected = string.Empty;
-        string actual = AlangExpr.Parse(" () ").ExpressionString;
+        string actual = AlangExpr.Parse(" () ").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -40,7 +40,7 @@ public class AlangExprTests
     public void Parse_ForSingleCharSymbol_ReturnsSymbol()
     {
         string expected = "a";
-        string actual = AlangExpr.Parse("a").ExpressionString;
+        string actual = AlangExpr.Parse("a").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -48,7 +48,7 @@ public class AlangExprTests
     public void Parse_ForMultiCharSymbolWithWhitespaces_ReturnsSymbol()
     {
         string expected = "aa1";
-        string actual = AlangExpr.Parse("  aa1  ").ExpressionString;
+        string actual = AlangExpr.Parse("  aa1  ").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -56,7 +56,7 @@ public class AlangExprTests
     public void Parse_ForConcatWithEmptyGroup_ReturnsSymbol()
     {
         string expected = "a1";
-        string actual = AlangExpr.Parse("a1()").ExpressionString;
+        string actual = AlangExpr.Parse("a1()").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -64,7 +64,7 @@ public class AlangExprTests
     public void Parse_ForMultiCharSymbolWithOption_ReturnsCorrect()
     {
         string expected = "a1?";
-        string actual = AlangExpr.Parse("a1?").ExpressionString;
+        string actual = AlangExpr.Parse("a1?").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -72,7 +72,7 @@ public class AlangExprTests
     public void Parse_ForRepeatedConcatWithGroup_ReturnsCorrect()
     {
         string expected = "aa bb cc";
-        string actual = AlangExpr.Parse("aa(bb)cc").ExpressionString;
+        string actual = AlangExpr.Parse("aa(bb)cc").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -80,7 +80,7 @@ public class AlangExprTests
     public void Parse_ForRepeatedConcatOfGroups_ReturnsCorrect()
     {
         string expected = "aa bb cc";
-        string actual = AlangExpr.Parse("(aa)(bb) (cc)").ExpressionString;
+        string actual = AlangExpr.Parse("(aa)(bb) (cc)").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -88,7 +88,7 @@ public class AlangExprTests
     public void Parse_ForNestedConcats_ReturnsCorrect()
     {
         string expected = "a1 b1 c1 d1";
-        string actual = AlangExpr.Parse("a1(b1(c1)d1)").ExpressionString;
+        string actual = AlangExpr.Parse("a1(b1(c1)d1)").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -96,7 +96,7 @@ public class AlangExprTests
     public void Parse_ForConcatWithOptional_ReturnsCorrect()
     {
         string expected = "a1?b1";
-        string actual = AlangExpr.Parse("a1?b1").ExpressionString;
+        string actual = AlangExpr.Parse("a1?b1").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -104,7 +104,7 @@ public class AlangExprTests
     public void Parse_ForNestedOperations_ReturnsCorrectPrecedence()
     {
         string expected = "(aa|b&c)aa(aa|bb)";
-        string actual = AlangExpr.Parse("(((aa | (b & c)) (aa) ) (aa | bb))").ExpressionString;
+        string actual = AlangExpr.Parse("(((aa | (b & c)) (aa) ) (aa | bb))").AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -119,7 +119,7 @@ public class AlangExprTests
     {
         string input = "a | b | cc";
         string expected = "a|b|cc";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -128,7 +128,7 @@ public class AlangExprTests
     {
         string input = "  x-y -z ";
         string expected = "x-y-z";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -137,7 +137,7 @@ public class AlangExprTests
     {
         string input = "a & b & c";
         string expected = "a&b&c";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -146,7 +146,7 @@ public class AlangExprTests
     {
         string input = " a |(b & c ) ";
         string expected = "a|b&c";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -155,7 +155,7 @@ public class AlangExprTests
     {
         string input = "  a?*  ";
         string expected = "a?*";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -165,7 +165,7 @@ public class AlangExprTests
 
         string input = "(((a-b))|c&d)";
         string expected = "a-b|c&d";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -175,7 +175,7 @@ public class AlangExprTests
         // (( (a1) )) => a1
         string input = "(((a1)))";
         string expected = "a1";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 
@@ -184,7 +184,7 @@ public class AlangExprTests
     {
         string input = "a++~b";
         string expected = "a++~b";
-        string actual = AlangExpr.Parse(input).ExpressionString;
+        string actual = AlangExpr.Parse(input).AlangExpressionString;
         Assert.AreEqual(expected, actual);
     }
 

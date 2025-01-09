@@ -21,7 +21,7 @@ public static class Program
         try
         {
             var expr = AlangExpr.Parse(input);
-            Console.WriteLine(expr.ExpressionString);
+            Console.WriteLine(expr.AlangExpressionString);
         }
         catch (AlangFormatException e)
         {

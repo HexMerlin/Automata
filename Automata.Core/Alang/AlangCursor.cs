@@ -78,13 +78,19 @@ public ref struct AlangCursor
     }
 
     /// <summary>
-    /// Consumes an <c>Atom</c> or a <c>Wildcard</c> from the input.
+    /// Attempts to consume an <see cref="Atom"/> or a <see cref="Wildcard"/> from the input.
     /// </summary>
-    /// <returns>An <see cref="Atom"/> representing the consumed atom.</returns>
-    /// <exception cref="AlangFormatException">Thrown if not atleast one character could be consumed.</exception>
+    /// <returns>
+    /// An <see cref="AlangExpr"/> representing the consumed expression.
+    /// Returns an <see cref="Atom"/> with the consumed symbol
+    /// or a <see cref="Wildcard"/> if a wildcard character is consumed.
+    /// </returns>
+    /// <exception cref="AlangFormatException">
+    /// Thrown if neither a valid atom nor a wildcard is found at the current cursor position.
+    /// </exception>
     /// <seealso cref="Chars.Wildcard"/>
     public AlangExpr ConsumeAtomOrWildcard()
-    {        
+    {
         if (TryConsume(Chars.Wildcard))
             return new Wildcard();
 
@@ -92,16 +98,16 @@ public ref struct AlangCursor
         while (pos < this.cursor.Length && Chars.IsAtomChar(this.cursor[pos]))
             pos++;
 
-        if (pos == 0) 
+        if (pos == 0)
             AlangFormatException.ThrowExpectedAtom(this);
-      
+
         Atom atom = new Atom(this.cursor.Slice(0, pos).ToString());
 
         this.cursor = this.cursor.Slice(atom.Symbol.Length).TrimStart();
         return atom;
     }
 
-    public string NextAsString => cursor.IsEmpty ? "End-Of-Input" : cursor[0].ToString();
+    public readonly string NextAsString => cursor.IsEmpty ? "End-Of-Input" : cursor[0].ToString();
 
     /// <summary>
     /// The index of the cursor in relation to the original input string.

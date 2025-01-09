@@ -9,9 +9,7 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
         if (cursor.TryConsume(Chars.Union))
         {
             AlangExpr right = Union.Parse(ref cursor); // Recursive call for repeated
-            //if (right is EmptySetExpr)
-            //  cursor.ThrowMissingRightOperand(Chars.Union);
-
+    
             return new Union(left, right);
         }
         return left;
@@ -19,9 +17,10 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
       
     }
 
+    ///<inheritdoc/>
     public override int Precedence => 1;
 
-
-    public override string ExpressionString => $"{Param(Left, this)}{Chars.Union}{Param(Right, this)}";
+    ///<inheritdoc/>
+    public override string AlangExpressionString => $"{Param(Left, this)}{Chars.Union}{Param(Right, this)}";
 
 }

@@ -21,16 +21,11 @@ public class Atom : AlangExpr
     public Atom(string symbol) : base()
         => Symbol = symbol;
 
-    /// <summary>
-    /// Gets the precedence level of this atom.
-    /// </summary>
-    /// <remarks>
-    /// The precedence level for an atom is set to <c>10</c>, indicating it binds most tightly in expressions.
-    /// </remarks>
+    ///<inheritdoc/>
     public override int Precedence => 7;
 
     /// <summary>
     /// Gets the string representation of this atom.
     /// </summary>
-    public override string ExpressionString => Symbol;
+    public override string AlangExpressionString => Symbol;
 }

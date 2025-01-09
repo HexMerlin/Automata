@@ -8,15 +8,15 @@ public class Difference(AlangExpr left, AlangExpr right) : InfixBinary(left, rig
         if (cursor.TryConsume(Chars.Difference))
         {
             AlangExpr right = Difference.Parse(ref cursor);  // Recursive call for repeated
-            //if (right is EmptySetExpr)
-            //  cursor.ThrowMissingRightOperand(Chars.Difference);
 
             return new Difference(left, right);
         }
         return left;
     }
-      
+
+    ///<inheritdoc/>
     public override int Precedence => 2;
 
-    public override string ExpressionString => $"{Param(Left, this)}{Chars.Difference}{Param(Right, this)}";
+    ///<inheritdoc/>
+    public override string AlangExpressionString => $"{Param(Left, this)}{Chars.Difference}{Param(Right, this)}";
 }

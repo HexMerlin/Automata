@@ -2,8 +2,10 @@
 
 public class Option(AlangExpr operand) : PostfixUnary(operand)
 {
+    ///<inheritdoc/>
     public override int Precedence => 5;
 
-    public override string ExpressionString => $"{Param(Operand, this)}{Chars.Option}";
+    ///<inheritdoc/>
+    public override string AlangExpressionString => $"{Param(Operand, this)}{Chars.Option}";
 
 }

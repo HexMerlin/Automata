@@ -4,8 +4,10 @@
 public class EmptySetExpr : AlangExpr
 {
     public EmptySetExpr() : base() { }
-    
+
+    ///<inheritdoc/>
     public override int Precedence => 7;
 
-    public override string ExpressionString => "()";
+    ///<inheritdoc/>
+    public override string AlangExpressionString => "()";
 }

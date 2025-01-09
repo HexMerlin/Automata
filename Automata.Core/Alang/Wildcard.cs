@@ -1,6 +1,9 @@
 ﻿namespace Automata.Core.Alang;
 public class Wildcard : AlangExpr
 {
+    ///<inheritdoc/>
     public override int Precedence => 7;
-    public override string ExpressionString => Chars.Wildcard.ToString();
+
+    ///<inheritdoc/>
+    public override string AlangExpressionString => Chars.Wildcard.ToString();
 }

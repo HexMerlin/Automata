@@ -21,14 +21,14 @@ public abstract class AlangExpr
     public static AlangExpr EmptySetExpr => new EmptySetExpr();
 
     /// <summary>
-    /// Gets the precedence level of this expression.
+    /// Gets the precedence level of this expression according to Alang grammar specification.
     /// </summary>
     public abstract int Precedence { get; }
 
     /// <summary>
-    /// Gets the string representation of this expression.
+    /// Gets the string representation of this expression in valid Alang language syntax.
     /// </summary>
-    public abstract string ExpressionString { get; }
+    public abstract string AlangExpressionString { get; }
 
     /// <summary>
     /// Parses the specified input string into an <see cref="AlangExpr"/>.
@@ -92,14 +92,14 @@ public abstract class AlangExpr
     /// <returns>The expression string, potentially enclosed in parentheses.</returns>
     protected static string Param(AlangExpr expr, AlangExpr parent)
         => expr.Precedence >= parent.Precedence
-            ? expr.ExpressionString
-            : $"({expr.ExpressionString})";
+            ? expr.AlangExpressionString
+            : $"({expr.AlangExpressionString})";
 
     /// <summary>
     /// Returns a string that represents the current object.
     /// </summary>
     /// <returns>The expression string of this expression.</returns>
-    public override string ToString() => ExpressionString;
+    public override string ToString() => AlangExpressionString;
 }
 
 
