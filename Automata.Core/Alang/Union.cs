@@ -9,8 +9,9 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
         if (cursor.TryConsume(Chars.Union))
         {
             AlangExpr right = Union.Parse(ref cursor); // Recursive call for repeated
-            if (right.IsEmpty)
-                throw new FormatException($"Expected expression after {Chars.Union}: {cursor.ToString()}");
+            //if (right is EmptySetExpr)
+            //  cursor.ThrowMissingRightOperand(Chars.Union);
+
             return new Union(left, right);
         }
         return left;

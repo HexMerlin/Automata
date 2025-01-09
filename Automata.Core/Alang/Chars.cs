@@ -63,6 +63,12 @@ public static class Chars
     public const char RightParen = ')';
 
     /// <summary>
+    /// Wildcard
+    /// </summary>
+    /// <remarks>A wildcard token denoting any string in the alphabet.</remarks>
+    public const char Wildcard = '.';
+
+    /// <summary>
     /// Determines if a character can be the start of an expression.
     /// </summary>
     /// <param name="c">The character to check.</param>
@@ -89,7 +95,7 @@ public static class Chars
        = [EOI, Invalid, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement];
 
     private static readonly FrozenSet<char> ForbiddenInAtoms
-        = [EOI, Invalid, LeftParen, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement];
+        = [EOI, Invalid, LeftParen, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement, Wildcard];
 
     private static readonly FrozenSet<char> PostfixOps
         = [Option, KleeneStar, KleenePlus, Complement];

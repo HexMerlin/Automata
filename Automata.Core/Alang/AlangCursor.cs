@@ -4,8 +4,19 @@ namespace Automata.Core.Alang;
 /// <summary>
 /// A cursor for parsing Alang expressions from an input string.
 /// </summary>
+/// <remarks>
+/// A cursor is a lightweight struct that consumes characters from the left of a string input.
+/// The input string is never modified. Instead the cursor maintains a lightweight span of the remaining input.
+/// The parser available in namespace <see cref="Automata.Core.Alang"/> only need to create a single cursor instance that is passed along during the parse process.
+/// The contract of the <see cref="AlangCursor"/> is that it always point to a non-white-space character or <see cref="Chars.EOI"/> if the input is empty.
+/// <para>Consequently:</para>
+/// <para>- All methods in <see cref="AlangCursor"/> that moves the cursor, must ensure on exit that leading whitespace is trimmed.</para>
+/// <para>- All methods in <see cref="AlangCursor"/> can assume on entry that the input is trimmed of leading whitespace.</para>
+/// </remarks>
 public ref struct AlangCursor
 {
+    private readonly int OriginalInputLength;
+
     private ReadOnlySpan<char> cursor;
 
     /// <summary>
@@ -14,7 +25,8 @@ public ref struct AlangCursor
     /// <param name="input">The input string to parse.</param>
     public AlangCursor(string input)
     {
-        this.cursor = input.AsSpan().Trim();
+        this.OriginalInputLength = input.Length;
+        this.cursor = input.AsSpan().TrimStart();
     }
 
     /// <summary>
@@ -35,6 +47,20 @@ public ref struct AlangCursor
           => Chars.IsExpressionStart(First);
 
     /// <summary>
+    /// Tries to consume the specified character from the input and advances the cursor if successful.
+    /// </summary>
+    /// <param name="c">The character to attempt to consume.</param>
+    /// <returns><c>true</c> if the character was successfully consumed; otherwise, <c>false</c>.</returns>
+    public bool TryConsume(char c)
+    {
+        if (First != c)
+            return false;
+
+        this.cursor = this.cursor.IsEmpty ? this.cursor : this.cursor.Slice(1).TrimStart(); // Consume the character and trim whitespace
+        return true;
+    }
+
+    /// <summary>
     /// Tries to consume one of the specified characters from the input and advances the cursor if successful.
     /// </summary>
     /// <param name="chars">An array of characters to attempt to consume.</param>
@@ -52,38 +78,35 @@ public ref struct AlangCursor
     }
 
     /// <summary>
-    /// Tries to consume the specified character from the input and advances the cursor if successful.
-    /// </summary>
-    /// <param name="c">The character to attempt to consume.</param>
-    /// <returns><c>true</c> if the character was successfully consumed; otherwise, <c>false</c>.</returns>
-    public bool TryConsume(char c)
-    {
-        if (First != c)
-            return false;
-
-        this.cursor = this.cursor.IsEmpty ? this.cursor : this.cursor.Slice(1).TrimStart(); // Consume the character and trim whitespace
-        return true;
-    }
-
-    /// <summary>
-    /// Consumes an atom from the input.
+    /// Consumes an <c>Atom</c> or a <c>Wildcard</c> from the input.
     /// </summary>
     /// <returns>An <see cref="Atom"/> representing the consumed atom.</returns>
-    /// <exception cref="FormatException">Thrown when the current character is not a valid start of an atom.</exception>
-    public Atom ConsumeAtom()
-    {
-        if (!IsExpressionStart)
-            throw new FormatException($"Unexpected token: {First}");
+    /// <exception cref="AlangFormatException">Thrown if not atleast one character could be consumed.</exception>
+    /// <seealso cref="Chars.Wildcard"/>
+    public AlangExpr ConsumeAtomOrWildcard()
+    {        
+        if (TryConsume(Chars.Wildcard))
+            return new Wildcard();
 
         int pos = 0;
         while (pos < this.cursor.Length && Chars.IsAtomChar(this.cursor[pos]))
             pos++;
 
+        if (pos == 0) 
+            AlangFormatException.ThrowExpectedAtom(this);
+      
         Atom atom = new Atom(this.cursor.Slice(0, pos).ToString());
 
         this.cursor = this.cursor.Slice(atom.Symbol.Length).TrimStart();
         return atom;
     }
+
+    public string NextAsString => cursor.IsEmpty ? "End-Of-Input" : cursor[0].ToString();
+
+    /// <summary>
+    /// The index of the cursor in relation to the original input string.
+    /// </summary>  
+    public readonly int CursorIndex => OriginalInputLength - cursor.Length;
 
     /// <summary>
     /// Returns a string representation of the remaining input.

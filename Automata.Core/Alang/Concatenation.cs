@@ -8,7 +8,7 @@ public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, 
         if (cursor.IsExpressionStart)
         {
             AlangExpr right = Concatenation.Parse(ref cursor); // Recursive call for repeated
-            return right.IsEmpty 
+            return right is EmptySetExpr
                     ? left
                     : new Concatenation(left, right);
         }

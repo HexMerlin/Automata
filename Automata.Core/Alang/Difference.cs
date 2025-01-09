@@ -8,8 +8,9 @@ public class Difference(AlangExpr left, AlangExpr right) : InfixBinary(left, rig
         if (cursor.TryConsume(Chars.Difference))
         {
             AlangExpr right = Difference.Parse(ref cursor);  // Recursive call for repeated
-            if (right.IsEmpty)
-                throw new FormatException($"Expected expression after {Chars.Difference}: {cursor.ToString()}");
+            //if (right is EmptySetExpr)
+            //  cursor.ThrowMissingRightOperand(Chars.Difference);
+
             return new Difference(left, right);
         }
         return left;

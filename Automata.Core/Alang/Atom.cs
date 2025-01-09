@@ -27,7 +27,7 @@ public class Atom : AlangExpr
     /// <remarks>
     /// The precedence level for an atom is set to <c>10</c>, indicating it binds most tightly in expressions.
     /// </remarks>
-    public override int Precedence => 10;
+    public override int Precedence => 7;
 
     /// <summary>
     /// Gets the string representation of this atom.

@@ -21,9 +21,9 @@ public class AlangExprTests
     }
 
     [TestMethod()]
-    public void Parse_ForWhitespaces_ReturnsEmpty()
+    public void Parse_ForWhitespaces_ReturnsEmptySetExpression()
     {
-        string expected = string.Empty;
+        string expected = "()";
         string actual = AlangExpr.Parse("  \t   ").ExpressionString;
         Assert.AreEqual(expected, actual);
     }

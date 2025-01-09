@@ -9,8 +9,9 @@ public class Intersection(AlangExpr left, AlangExpr right) : InfixBinary(left, r
         if (cursor.TryConsume(Chars.Intersection))
         {
             AlangExpr right = Intersection.Parse(ref cursor); // Recursive call for repeated
-            if (right.IsEmpty)
-                throw new FormatException($"Expected expression after {Chars.Intersection}: {cursor.ToString()}");
+            //if (right is EmptySetExpr)
+            //   cursor.ThrowMissingRightOperand(Chars.Intersection);
+
             return new Intersection(left, right);
 
         }
