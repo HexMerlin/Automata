@@ -188,27 +188,34 @@ public class AlangExprTests
         Assert.AreEqual(expected, actual);
     }
 
-    [TestMethod()]
-    public void Parse_ForDanglingUnionOperator_ThrowsFormatException()
+    private static void AssertThrowsAlangFormatException(ParseErrorType expectedErrorType, string input)
     {
-        Assert.ThrowsException<FormatException>(() => AlangExpr.Parse("a|"));
+        var exception = Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse(input));
+        Assert.AreEqual(expectedErrorType, exception.ErrorType);
     }
 
     [TestMethod()]
-    public void Parse_ForUnclosedGroup_ThrowsFormatException()
+    public void Parse_ForDanglingUnionOperator_ThrowsCorrectException()
     {
-        Assert.ThrowsException<FormatException>(() => AlangExpr.Parse("("));
+        AssertThrowsAlangFormatException(ParseErrorType.ExpectedAtom, "a|");
+        
     }
 
     [TestMethod()]
-    public void Parse_ForMultipleOperatorsInARow_ThrowsFormatException()
+    public void Parse_ForUnclosedGroup_ThrowsCorrectException()
     {
-        Assert.ThrowsException<FormatException>(() => AlangExpr.Parse("a||b"));
+        Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse("("));
     }
 
     [TestMethod()]
-    public void Parse_ForSpuriousClosingParen_ThrowsFormatException()
+    public void Parse_ForMultipleOperatorsInARow_ThrowsCorrectException()
     {
-        Assert.ThrowsException<FormatException>(() => AlangExpr.Parse("a)"));
+        Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse("a||b"));
+    }
+
+    [TestMethod()]
+    public void Parse_ForSpuriousClosingParen_ThrowsCorrectException()
+    {
+        Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse("a)"));
     }
 }

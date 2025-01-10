@@ -1,28 +1,33 @@
 ﻿# Alang (Automata Language)
 
-**Alang** is a language for defining finite-state automata.
+**Alang** is a formal language for defining finite-state automata using human-readable regular expressions. 
+It supports many operations, such as union, intersection, complement and set difference, 
+enabling expressions like "(a (b | c)* - (b b))?". 
+Alang's syntax is defined by the *Alang Grammar* which is an LL(1) context-free grammar. 
+The Alang parser is optimized for fast parsing of very large inputs.
+The parser validates syntactic correctness and generates detailed error messages for invalid inputs. 
 
 ## Alang Grammar Specification
 
 | Rule                 | Expansion                                                         |
 |----------------------|-------------------------------------------------------------------|
-| AlangExpr                 | UnionExpr                                                         |
-| :small_blue_diamond:UnionExpr            | Difference  ('\|' Difference)*         |
+| AlangExpr                 | Union                                                         |
+| :small_blue_diamond:Union            | Difference  ('\|' Difference)*         |
 | :small_blue_diamond:Difference           | Intersection ('-' Intersection)*      |
 | :small_blue_diamond:Intersectionr     | Concatenation ('&' Concatenation)*    |
-| :small_blue_diamond:Concatenation    | PostfixExpr Postfix*                      |
-| :small_blue_diamond:Option           | Primary '?'                               |
-| :small_blue_diamond:KleenStar        | Primary '*'                               |
-| :small_blue_diamond:KleenPlus       | Primary '+'                               |
+| :small_blue_diamond:Concatenation    | UnaryExpr+                      |
+| UnaryExpr           | PrimaryExpr<br>┃ Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement  |
+| :small_blue_diamond:Option           | PrimaryExpr '?'                               |
+| :small_blue_diamond:KleenStar        | PrimaryExpr '*'                               |
+| :small_blue_diamond:KleenPlus       | PrimaryExpr '+'                               |
 | :small_blue_diamond:Complement       | Primary '~'                               |
-| PostfixExpr          | PrimaryExpr PostfixOp*                                            |
-| PrimaryExpr          | '(' AlangExpr ')' <br>┃ EmptySetExpr <br>┃  Wildcard <br>┃ Atom   |
-| :small_blue_diamond:EmptySetExpr         | '(' ')'                                       |
+| PrimaryExpr          | '(' AlangExpr ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet    |
 | :small_blue_diamond:Atom                 | AtomChar+                                     |
 | :small_blue_diamond:Wildcard             | '.'                                           |
-| PostfixOp            | '?' <br> ┃ '*' <br> ┃ '+' <br> ┃ '~'                              |
+| :small_blue_diamond:EmptySet          | '(' ')'                                       |
 | AtomChar             | *any character except operator characters and whitespace*  |
 
+:small_blue_diamond: Denotes a node-type that can be included in the resulting parse tree.
 
 ## Operators Ordered by Precedence (Lowest-to-Highest)
 
