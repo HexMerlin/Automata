@@ -11,7 +11,7 @@ The parser validates syntactic correctness and generates detailed error messages
 
 | Rule                             | Expansion                                                     |
 |----------------------------------|---------------------------------------------------------------|
-| AlangExpr (root)                     | Union                                                     |
+| AlangExpr (root)                     | Union EOI                                                    |
 | :small_blue_diamond:Union            | Difference  ('\|' Difference)*                            |
 | :small_blue_diamond:Difference       | Intersection ('-' Intersection)*                          |
 | :small_blue_diamond:Intersectionr    | Concatenation ('&' Concatenation)*                        |
@@ -28,6 +28,8 @@ The parser validates syntactic correctness and generates detailed error messages
 | AtomChar             | *any character except operator characters and whitespace*                 |
 
 :small_blue_diamond: Denotes a node-type that can be included in the resulting parse tree.
+
+**EOI** denotes the end of input. Any input must be tracable to end in the EOI in the root rule. 
 
 ## Operators Ordered by Precedence (Lowest-to-Highest)
 
