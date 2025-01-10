@@ -34,6 +34,8 @@ public abstract class AlangExpr
     public static AlangExpr Parse(string input)
     {
         AlangCursor cursor = new(input);
+        if (cursor.IsEmpty)
+            AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
         var expression = ParseAlangExpr(ref cursor);
         if (cursor.Is(Chars.RightParen))
             AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
@@ -51,9 +53,8 @@ public abstract class AlangExpr
     /// <returns>An <see cref="AlangExpr"/> representing the parsed expression.</returns>
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     private static AlangExpr ParseAlangExpr(ref AlangCursor cursor)
-    {         
+    {
         var expression = Union.Parse(ref cursor);
-        
         return expression;
     }
 
@@ -65,85 +66,35 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when parentheses are unmatched in the input.</exception>
     internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
     {
-        // 1. Unexpected closing parenthesis check
         if (cursor.Is(Chars.RightParen))
             AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
         
-        // 2. Parenthesized expression or empty-set
-        if (cursor.Is(Chars.LeftParen))
-            return ParseParenthesizedExpr(ref cursor);
-
-        // 3. Wildcard ('.')
-        if (cursor.TryConsume(Chars.Wildcard))
-            return new Wildcard();
-        
-        // 4. Atom (e.g. "abc")
-        if (cursor.TryConsumeAtom(out Atom? atom))
-            return atom!;
-
-        if (!cursor.IsExpressionStart)
-          AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
-
-        throw new Exception("Unreachable code");
-    }
-
-    private static AlangExpr ParseParenthesizedExpr(ref AlangCursor cursor)
-    {
-        if (!cursor.TryConsume(Chars.LeftParen))
+        if (cursor.TryConsume(Chars.LeftParen))
         {
-            throw new Exception("SHOULD NOT REACH HERE. Expected '('");
+            if (cursor.IsEmpty)
+               AlangFormatException.ThrowMissingClosingParenthesis(cursor);
+
+            if (cursor.TryConsume(Chars.RightParen))
+                return new EmptySet(); // Handle empty parentheses => '()'
+
+            AlangExpr expression = ParseAlangExpr(ref cursor); // Parse inner expression
+
+            if (!cursor.TryConsume(Chars.RightParen))
+                AlangFormatException.ThrowMissingClosingParenthesis(cursor);
+
+            return expression;
         }
 
-        if (cursor.IsEmpty)
-            // We have a missing closing parenthesis
-            AlangFormatException.ThrowMissingClosingParenthesis(cursor);
-                
-        if (cursor.TryConsume(Chars.RightParen))
-            return new EmptySet(); // Handle empty parentheses => '()'
+        if (cursor.TryConsume(Chars.Wildcard))
+            return new Wildcard();
+
+        if (cursor.TryConsumeAtom(out Atom? atom))
+            return atom!;
                
-        AlangExpr expression = ParseAlangExpr(ref cursor); // Parse inner expression
-               
-        if (!cursor.TryConsume(Chars.RightParen))
-            AlangFormatException.ThrowMissingClosingParenthesis(cursor);
-       
-        return expression;
+        AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
+        return null!;
     }
 
-
-    //internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
-    //{
-
-    //    if (cursor.Is(Chars.RightParen))
-    //        AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
-    //    if (cursor.TryConsume(Chars.LeftParen))
-    //    {
-    //        if (cursor.TryConsume(Chars.RightParen))
-    //            return new EmptySet(); // Captured the empty set expression
-
-    //        var expression = AlangExpr.ParseAlangExpr(ref cursor);
-
-    //        if (!cursor.TryConsume(Chars.RightParen))
-    //            AlangFormatException.ThrowMissingClosingParenthesis(cursor);
-
-    //        return expression;
-    //    }
-
-    //    if (cursor.Is(Chars.LeftParen))
-    //        AlangFormatException.ThrowMissingClosingParenthesis(cursor);
-
-    //    if (cursor.TryConsume(Chars.Wildcard))
-    //        return new Wildcard();
-
-    //    if (cursor.TryConsumeAtom(out Atom? atom))
-    //    {
-    //        return atom!;
-    //    }
-
-    //    //THE PROBLEM: For the initial input string "a(" we finally end up here with an characters consumed. That is not desired. 
-    //    //We have a missing closing parenthesis in the input, but this cannot be easily detected here.
-    //    //parentheses mathcing and missing closing parentheses is assumed to handled inside the if-clause above in this method, where a left parenthesis has been consumed.
-    //    throw new Exception("Unhandled EXCEPTION IN ParsePrimaryExpr");
-    //}
 
     /// <summary>
     /// Returns the expression string of the given expression, enclosed in parentheses only if necessary based on operator precedence.

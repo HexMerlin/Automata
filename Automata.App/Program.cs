@@ -19,8 +19,8 @@ public static class Program
 
         //string input = " a | b | | )";
         //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
-        //  string[] inputs = ["|"];
-       string[] inputs = ["(a)"];
+      //    string[] inputs = [")"];
+       string[] inputs = ["(|)"];
      
         foreach (string input in inputs)
         {

@@ -1,4 +1,6 @@
-﻿namespace Automata.Core.Alang;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Automata.Core.Alang;
 
 
 /// <summary>
@@ -38,7 +40,8 @@ public enum ParseErrorType
 /// <remarks>
 /// Provides detailed information about the parsing error, including the index in the input where the error occurred and the specific type of error.
 /// </remarks>
-public sealed class AlangFormatException : Exception
+[Serializable]
+public class AlangFormatException : Exception
 {
     /// <summary>
     /// Gets the index in the input string where the parsing error occurred.
@@ -67,6 +70,7 @@ public sealed class AlangFormatException : Exception
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
     public static void ThrowMissingAtom(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingAtom, $"Expected atom at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
@@ -76,6 +80,7 @@ public sealed class AlangFormatException : Exception
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <param name="binaryOperator">The binary operator after which the right operand was expected.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
     public static void ThrowMissingRightOperand(AlangCursor cursor, char binaryOperator)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingRightOperand, $"Expected right operand after '{binaryOperator}' at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
@@ -84,6 +89,7 @@ public sealed class AlangFormatException : Exception
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
     public static void ThrowUnexpectedClosingParenthesis(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Unexpected {Chars.RightParen} detected at index {cursor.CursorIndex}");
 
@@ -92,6 +98,7 @@ public sealed class AlangFormatException : Exception
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
     public static void ThrowMissingClosingParenthesis(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingClosingParenthesis, $"Expected {Chars.RightParen} at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
@@ -103,6 +110,7 @@ public sealed class AlangFormatException : Exception
     /// This error should not occur in the current implementation because it is handled by other error types earlier in the parsing process.
     /// </remarks>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
     public static void ThrowExpectedBeginExpressionOrEOI(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.ExpectedBeginExpressionOrEOI, $"Expected new subexpression or end-of-input at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 }
