@@ -8,13 +8,15 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
         AlangExpr left = Difference.Parse(ref cursor);
         if (cursor.TryConsume(Chars.Union))
         {
+            if (! cursor.IsExpressionStart)
+                AlangFormatException.ThrowMissingRightOperand(cursor, Chars.Union);
+
             AlangExpr right = Union.Parse(ref cursor); // Recursive call for repeated
-    
+            
             return new Union(left, right);
         }
         return left;
-    
-      
+   
     }
 
     ///<inheritdoc/>

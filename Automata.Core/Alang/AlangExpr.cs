@@ -41,9 +41,14 @@ public abstract class AlangExpr
         AlangCursor cursor = new(input);
         var expression = ParseExpression(ref cursor);
 
+        // Check for spurious closing parenthesis at the current cursor position
+        if (cursor.TryConsume(Chars.RightParen))
+            AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
+
         if (!cursor.IsEmpty)
             AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
                 
+
         return expression;
     }
 
@@ -77,6 +82,15 @@ public abstract class AlangExpr
 
             return expression;
         }
+
+        if (cursor.TryConsume(Chars.RightParen))
+            AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
+
+        if (!cursor.IsEmpty)
+            AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
+
+        //if (!cursor.IsExpressionStart)
+        //    AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
 
         return cursor.ConsumeAtomOrWildcard();
     }

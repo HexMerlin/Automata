@@ -16,7 +16,7 @@ public static class Program
     public static void Main()
     {
         //string input = " ( (  (a) b)  x ";
-        string input = "a | (";
+        string input = "a)";
         //string input = " a | b | | )";
         try
         {

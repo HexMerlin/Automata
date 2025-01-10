@@ -7,6 +7,9 @@ public class Difference(AlangExpr left, AlangExpr right) : InfixBinary(left, rig
         AlangExpr left = Intersection.Parse(ref cursor);
         if (cursor.TryConsume(Chars.Difference))
         {
+            if (!cursor.IsExpressionStart)
+                AlangFormatException.ThrowMissingRightOperand(cursor, Chars.Difference);
+
             AlangExpr right = Difference.Parse(ref cursor);  // Recursive call for repeated
 
             return new Difference(left, right);
