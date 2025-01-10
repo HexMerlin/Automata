@@ -68,7 +68,7 @@ public abstract class AlangExpr
     {
         if (cursor.Is(Chars.RightParen))
             AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
-        
+
         if (cursor.TryConsume(Chars.LeftParen))
         {
             if (cursor.IsEmpty)

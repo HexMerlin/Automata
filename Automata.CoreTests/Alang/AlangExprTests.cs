@@ -101,7 +101,7 @@ public class AlangExprTests
     public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorType.ExpectedBeginExpressionOrEOI);
 
     [TestMethod()]
-    public void Parse_ForConsecutiveUnionOperators_ThrowsCorrectException() => AssertThrowsAlangFormatException("a||b", 2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForConsecutiveUnionOperators_ThrowsCorrectException() => AssertThrowsAlangFormatException("a||b",2, ParseErrorType.MissingRightOperand);
 
     #endregion Invalid Expressions Tests
 }

@@ -16,34 +16,6 @@ public static class Program
 
     public static void Main()
     {
-        //string input = " ( (  (a) b)  x ";
-        
-        //string input = " a | b | | )";
-        //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
-      //    string[] inputs = [")"];
-       string[] inputs = ["(|)"];
-     
-        foreach (string input in inputs)
-        {
-            try
-            {
-                Console.WriteLine("INPUT: " + input);
-                var expr = AlangExpr.Parse(input);
-                Console.WriteLine(expr.AlangExpressionString);
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                
-            }
-            Console.WriteLine();
-        }
-            
-    }
-
-    public static void Main2()
-    {
         Console.WriteLine("Creating graph."); // Write some text output to the console window
 
         Random random = new Random(7);
