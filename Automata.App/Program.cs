@@ -16,17 +16,27 @@ public static class Program
     public static void Main()
     {
         //string input = " ( (  (a) b)  x ";
-        string input = "a|";
+
         //string input = " a | b | | )";
-        try
+        string[] inputs = ["", "a", "a(", "(", ")", "a)", "|", "a |"];
+      //  string[] inputs = ["|"];
+        foreach (string input in inputs)
         {
-            var expr = AlangExpr.Parse(input);
-            Console.WriteLine(expr.AlangExpressionString);
+            try
+            {
+                Console.WriteLine("INPUT: " + input);
+                var expr = AlangExpr.Parse(input);
+                Console.WriteLine(expr.AlangExpressionString);
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+            }
+            Console.WriteLine();
         }
-        catch (AlangFormatException e)
-        {
-            Console.WriteLine(e.Message);
-        }
+            
     }
 
     public static void Main2()

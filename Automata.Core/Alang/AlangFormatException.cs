@@ -9,22 +9,22 @@ public enum ParseErrorType
     /// <summary>
     /// Indicates that an atom was expected but not found.
     /// </summary>
-    ExpectedAtom,
+    MissingAtom,
 
     /// <summary>
     /// Indicates that an unexpected closing parenthesis was encountered.
     /// </summary>
-    SpuriousClosingParenthesis,
+    UnexpectedClosingParenthesis,
 
     /// <summary>
     /// Indicates that a closing parenthesis was expected but not found.
     /// </summary>
-    ExpectedClosingParenthesis,
+    MissingClosingParenthesis,
 
     /// <summary>
     /// Indicates that a right operand was expected after a binary operator but was not found.
     /// </summary>
-    ExpectedRightOperand,
+    MissingRightOperand,
 
     /// <summary>
     /// Indicates that a new subexpression or end-of-input was expected but not found.
@@ -68,7 +68,7 @@ public sealed class AlangFormatException : Exception
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
     public static void ThrowExpectedAtom(AlangCursor cursor)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.ExpectedAtom, $"Expected atom at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingAtom, $"Expected atom at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
     /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a right operand was expected after a binary operator.
@@ -77,7 +77,7 @@ public sealed class AlangFormatException : Exception
     /// <param name="binaryOperator">The binary operator after which the right operand was expected.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
     public static void ThrowMissingRightOperand(AlangCursor cursor, char binaryOperator)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.ExpectedRightOperand, $"Expected right operand after '{binaryOperator}' at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingRightOperand, $"Expected right operand after '{binaryOperator}' at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
     /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that an unexpected closing parenthesis was encountered.
@@ -85,7 +85,7 @@ public sealed class AlangFormatException : Exception
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
     public static void ThrowSpuriousClosingParenthesis(AlangCursor cursor)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.SpuriousClosingParenthesis, $"Spurious {Chars.RightParen} detected at index {cursor.CursorIndex}");
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Spurious {Chars.RightParen} detected at index {cursor.CursorIndex}");
 
     /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a closing parenthesis was expected but not found.
@@ -93,7 +93,7 @@ public sealed class AlangFormatException : Exception
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
     public static void ThrowMissingClosingParenthesis(AlangCursor cursor)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.ExpectedClosingParenthesis, $"Expected {Chars.RightParen} at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingClosingParenthesis, $"Expected {Chars.RightParen} at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
     /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a new subexpression or end-of-input was expected.

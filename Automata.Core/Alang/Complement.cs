@@ -1,6 +1,6 @@
 ﻿namespace Automata.Core.Alang;
 
-public class Complement(AlangExpr operand) : PostfixUnary(operand)
+public class Complement(AlangExpr operand) : UnaryExpr(operand)
 {
     ///<inheritdoc/>
     public override int Precedence => 5;

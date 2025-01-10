@@ -1,6 +1,6 @@
 ﻿namespace Automata.Core.Alang;
 
-public class Option(AlangExpr operand) : PostfixUnary(operand)
+public class Option(AlangExpr operand) : UnaryExpr(operand)
 {
     ///<inheritdoc/>
     public override int Precedence => 5;

@@ -37,7 +37,7 @@ public ref struct AlangCursor
     /// <summary>
     /// Gets the first character in the remaining input, or <see cref="Chars.EOI"/> if the input is empty.
     /// </summary>
-    public readonly char First
+    private readonly char First
         => this.cursor.IsEmpty ? Chars.EOI : this.cursor[0];
 
     /// <summary>
@@ -45,6 +45,12 @@ public ref struct AlangCursor
     /// </summary>
     public readonly bool IsExpressionStart
           => Chars.IsExpressionStart(First);
+
+    /// <summary>
+    /// Indicates whether the first character in the remaining input is the specified character.
+    /// </summary>
+    public readonly bool Is(char c) => First == c;
+        
 
     /// <summary>
     /// Tries to consume the specified character from the input and advances the cursor if successful.
@@ -71,42 +77,41 @@ public ref struct AlangCursor
         char first = First;
         if (chars.Contains(first))
         {
-            _ = TryConsume(first); // Will always return true
+            _ = TryConsume(first); // Will always consume and return true
             return first;
         }
         return Chars.Invalid;
     }
 
     /// <summary>
-    /// Attempts to consume an <see cref="Atom"/> or a <see cref="Wildcard"/> from the input.
+    /// Tries to consume an <see cref="Atom"/> from the input.
     /// </summary>
+    /// <param name="atom">Contains the consumed <see cref="Atom"/> if successful, otherwise <see langword="null"/>.</param>
     /// <returns>
-    /// An <see cref="AlangExpr"/> representing the consumed expression.
-    /// Returns an <see cref="Atom"/> with the consumed symbol
-    /// or a <see cref="Wildcard"/> if a wildcard character is consumed.
+    /// <c>true</c> if an <see cref="Atom"/> was successfully consumed; otherwise, <c>false</c>.
     /// </returns>
-    /// <exception cref="AlangFormatException">
-    /// Thrown if neither a valid atom nor a wildcard is found at the current cursor position.
-    /// </exception>
-    /// <seealso cref="Chars.Wildcard"/>
-    public AlangExpr ConsumeAtomOrWildcard()
+    public bool TryConsumeAtom(out Atom? atom)
     {
-        if (TryConsume(Chars.Wildcard))
-            return new Wildcard();
-
         int pos = 0;
+
         while (pos < this.cursor.Length && Chars.IsAtomChar(this.cursor[pos]))
             pos++;
 
         if (pos == 0)
-            AlangFormatException.ThrowExpectedAtom(this);
+        {
+            atom = null;
+            return false;
+        }
 
-        Atom atom = new Atom(this.cursor.Slice(0, pos).ToString());
+        atom = new Atom(this.cursor.Slice(0, pos).ToString());
 
-        this.cursor = this.cursor.Slice(atom.Symbol.Length).TrimStart();
-        return atom;
+        this.cursor = this.cursor.Slice(pos).TrimStart();
+        return true;
     }
 
+    /// <summary>
+    /// Gets the next character in the remaining input as a human-readable string.
+    /// </summary>
     public readonly string NextAsString => cursor.IsEmpty ? "End-Of-Input" : cursor[0].ToString();
 
     /// <summary>
@@ -118,5 +123,5 @@ public ref struct AlangCursor
     /// Returns a string representation of the remaining input.
     /// </summary>
     /// <returns>A string that represents the remaining input.</returns>
-    public override readonly string ToString() => $"'{string.Join("", cursor.ToArray())}'";
+    public override readonly string ToString() => cursor.IsEmpty ? "<EMPTY>" : $"'{string.Join("", cursor.ToArray())}'";
 }

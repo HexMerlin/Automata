@@ -1,9 +1,9 @@
 ﻿namespace Automata.Core.Alang;
 
 
-public class EmptySetExpr : AlangExpr
+public class EmptySet : AlangExpr
 {
-    public EmptySetExpr() : base() { }
+    public EmptySet() : base() { }
 
     ///<inheritdoc/>
     public override int Precedence => 7;

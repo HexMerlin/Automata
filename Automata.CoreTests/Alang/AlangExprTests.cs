@@ -197,7 +197,7 @@ public class AlangExprTests
     [TestMethod()]
     public void Parse_ForDanglingUnionOperator_ThrowsCorrectException()
     {
-        AssertThrowsAlangFormatException(ParseErrorType.ExpectedAtom, "a|");
+        AssertThrowsAlangFormatException(ParseErrorType.MissingAtom, "a|");
         
     }
 

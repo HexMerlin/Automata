@@ -1,6 +1,6 @@
 ﻿namespace Automata.Core.Alang;
 
-public class KleenePlus(AlangExpr operand) : PostfixUnary(operand)
+public class KleenePlus(AlangExpr operand) : UnaryExpr(operand)
 {
     ///<inheritdoc/>
     public override int Precedence => 5;
