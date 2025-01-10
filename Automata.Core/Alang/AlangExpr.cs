@@ -36,7 +36,7 @@ public abstract class AlangExpr
         AlangCursor cursor = new(input);
         if (cursor.IsEmpty)
             AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
-        var expression = ParseAlangExpr(ref cursor);
+        AlangExpr expression = ParseAlangExpr(ref cursor);
         if (cursor.Is(Chars.RightParen))
             AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
         return expression;
@@ -54,7 +54,7 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     private static AlangExpr ParseAlangExpr(ref AlangCursor cursor)
     {
-        var expression = Union.Parse(ref cursor);
+        AlangExpr expression = Union.Parse(ref cursor);
         return expression;
     }
 
@@ -72,7 +72,7 @@ public abstract class AlangExpr
         if (cursor.TryConsume(Chars.LeftParen))
         {
             if (cursor.IsEmpty)
-               AlangFormatException.ThrowMissingClosingParenthesis(cursor);
+                AlangFormatException.ThrowMissingClosingParenthesis(cursor);
 
             if (cursor.TryConsume(Chars.RightParen))
                 return new EmptySet(); // Handle empty parentheses => '()'
@@ -90,9 +90,9 @@ public abstract class AlangExpr
 
         if (cursor.TryConsumeAtom(out Atom? atom))
             return atom!;
-               
+
         AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
-        return null!;
+        return null!; //make compiler happy
     }
 
 

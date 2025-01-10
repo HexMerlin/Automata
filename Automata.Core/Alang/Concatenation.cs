@@ -29,8 +29,8 @@ public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, 
     {
         get
         {
-            var left = Param(Left, this);
-            var right = Param(Right, this);
+            string left = Param(Left, this);
+            string right = Param(Right, this);
             bool insertSpace = Chars.IsAtomChar(left.Last()) && Chars.IsAtomChar(right.First());
             return insertSpace
                 ? $"{left} {right}" // Space required between two atoms

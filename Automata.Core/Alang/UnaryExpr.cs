@@ -7,19 +7,16 @@
 /// This abstract class serves as the base class for all postfix unary operations in Alang expressions,
 /// such as option (?), Kleene star (*), Kleene plus (+), and complement (~).
 /// </remarks>
-public abstract class UnaryExpr : AlangExpr
+/// <remarks>
+/// Initializes a new instance of the <see cref="UnaryExpr"/> class with the specified operand.
+/// </remarks>
+/// <param name="operand">The operand of the postfix unary expression.</param>
+public abstract class UnaryExpr(AlangExpr operand) : AlangExpr()
 {
     /// <summary>
     /// Gets the operand of the postfix unary expression.
     /// </summary>
-    public AlangExpr Operand { get; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="UnaryExpr"/> class with the specified operand.
-    /// </summary>
-    /// <param name="operand">The operand of the postfix unary expression.</param>
-    public UnaryExpr(AlangExpr operand) : base()
-        => Operand = operand;
+    public AlangExpr Operand { get; } = operand;
 
 
     /// <summary>

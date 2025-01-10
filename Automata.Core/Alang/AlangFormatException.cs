@@ -66,15 +66,6 @@ public class AlangFormatException : Exception
     }
 
     /// <summary>
-    /// Throws an <see cref="AlangFormatException"/> indicating that an atom was expected at the current cursor position.
-    /// </summary>
-    /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
-    /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
-    [DoesNotReturn]
-    public static void ThrowMissingAtom(AlangCursor cursor)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingAtom, $"Expected atom at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
-
-    /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a right operand was expected after a binary operator.
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>

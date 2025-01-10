@@ -13,10 +13,11 @@ namespace Automata.App;
 /// </summary>
 public static class Program
 {
+
     public static void Main()
     {
         //string input = " ( (  (a) b)  x ";
-
+        
         //string input = " a | b | | )";
         //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
       //    string[] inputs = [")"];
