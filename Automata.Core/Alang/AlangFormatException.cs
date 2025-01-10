@@ -67,7 +67,7 @@ public sealed class AlangFormatException : Exception
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
-    public static void ThrowExpectedAtom(AlangCursor cursor)
+    public static void ThrowMissingAtom(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.MissingAtom, $"Expected atom at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
 
     /// <summary>
@@ -84,8 +84,8 @@ public sealed class AlangFormatException : Exception
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
-    public static void ThrowSpuriousClosingParenthesis(AlangCursor cursor)
-        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Spurious {Chars.RightParen} detected at index {cursor.CursorIndex}");
+    public static void ThrowUnexpectedClosingParenthesis(AlangCursor cursor)
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Unexpected {Chars.RightParen} detected at index {cursor.CursorIndex}");
 
     /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a closing parenthesis was expected but not found.

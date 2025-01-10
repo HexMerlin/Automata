@@ -51,11 +51,11 @@ public abstract class AlangExpr
     {         
         var expression = Union.Parse(ref cursor);
 
-        if (cursor.Is(Chars.RightParen))
-            AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
+        //if (cursor.Is(Chars.RightParen))
+        //    AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
 
-        if (!cursor.IsEmpty)
-            throw new Exception("NOT EMPTY EXCEPTION");
+        //if (!cursor.IsEmpty)
+        //    throw new Exception("NOT EMPTY EXCEPTION");
         return expression;
     }
 
@@ -67,9 +67,9 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when parentheses are unmatched in the input.</exception>
     internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
     {
-        // 1. Spurious closing parenthesis check
+        // 1. Unexpected closing parenthesis check
         if (cursor.Is(Chars.RightParen))
-            AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
+            AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
         
         // 2. Parenthesized expression or empty-set
         if (cursor.Is(Chars.LeftParen))

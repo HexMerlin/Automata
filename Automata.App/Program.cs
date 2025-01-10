@@ -18,8 +18,10 @@ public static class Program
         //string input = " ( (  (a) b)  x ";
 
         //string input = " a | b | | )";
-        string[] inputs = ["", "a", "a(", "(", ")", "a)", "|", "a |"];
-      //  string[] inputs = ["|"];
+        //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
+        //  string[] inputs = ["|"];
+        string[] inputs = ["a??"];
+     
         foreach (string input in inputs)
         {
             try
