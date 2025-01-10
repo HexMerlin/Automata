@@ -34,7 +34,10 @@ public abstract class AlangExpr
     public static AlangExpr Parse(string input)
     {
         AlangCursor cursor = new(input);
-        return ParseAlangExpr(ref cursor);
+        var expression = ParseAlangExpr(ref cursor);
+        if (cursor.Is(Chars.RightParen))
+            AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
+        return expression;
     }
 
 
@@ -50,12 +53,7 @@ public abstract class AlangExpr
     private static AlangExpr ParseAlangExpr(ref AlangCursor cursor)
     {         
         var expression = Union.Parse(ref cursor);
-
-        //if (cursor.Is(Chars.RightParen))
-        //    AlangFormatException.ThrowSpuriousClosingParenthesis(cursor);
-
-        //if (!cursor.IsEmpty)
-        //    throw new Exception("NOT EMPTY EXCEPTION");
+        
         return expression;
     }
 

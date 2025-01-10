@@ -32,17 +32,20 @@ public abstract class UnaryExpr : AlangExpr
     {
         AlangExpr expr = ParsePrimaryExpr(ref cursor);
 
-        char match = cursor.TryConsumeAny(Chars.Option, Chars.KleeneStar, Chars.KleenePlus, Chars.Complement);
-        if (match == Chars.Invalid) // none of the postfix operators found: return primary expression
-            return expr;
-
-        return match switch
+        while (true)
         {
-            Chars.Option => new Option(expr),
-            Chars.KleeneStar => new KleeneStar(expr),
-            Chars.KleenePlus => new KleenePlus(expr),
-            Chars.Complement => new Complement(expr),
-            _ => throw new InvalidOperationException("Should never be reached. Only for completeness.")
-        };
+            char match = cursor.TryConsumeAny(Chars.Option, Chars.KleeneStar, Chars.KleenePlus, Chars.Complement);
+            if (match == Chars.Invalid) // none of the postfix operators found: return primary expression
+                return expr;
+
+            expr = match switch
+            {
+                Chars.Option => new Option(expr),
+                Chars.KleeneStar => new KleeneStar(expr),
+                Chars.KleenePlus => new KleenePlus(expr),
+                Chars.Complement => new Complement(expr),
+                _ => throw new InvalidOperationException("Should never be reached. Only for completeness.")
+            };
+        }
     }
 }

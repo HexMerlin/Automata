@@ -16,7 +16,7 @@ The parser validates syntactic correctness and generates detailed error messages
 | :small_blue_diamond:Difference       | Intersection ('-' Intersection)*                          |
 | :small_blue_diamond:Intersectionr    | Concatenation ('&' Concatenation)*                        |
 | :small_blue_diamond:Concatenation    | UnaryExpr+                                                |
-| UnaryExpr           | PrimaryExpr<br>┃ Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement |
+| UnaryExpr           | PrimaryExpr<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)* |
 | :small_blue_diamond:Option           | PrimaryExpr '?'                                           |
 | :small_blue_diamond:KleenStar        | PrimaryExpr '*'                                           |
 | :small_blue_diamond:KleenPlus        | PrimaryExpr '+'                                           |
