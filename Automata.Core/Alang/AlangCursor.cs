@@ -13,21 +13,15 @@ namespace Automata.Core.Alang;
 /// <para>- All methods in <see cref="AlangCursor"/> that moves the cursor, must ensure on exit that leading whitespace is trimmed.</para>
 /// <para>- All methods in <see cref="AlangCursor"/> can assume on entry that the input is trimmed of leading whitespace.</para>
 /// </remarks>
-public ref struct AlangCursor
+/// <remarks>
+/// Initializes a new instance of the <see cref="AlangCursor"/> struct with the specified input string.
+/// </remarks>
+/// <param name="input">The input string to parse.</param>
+public ref struct AlangCursor(string input)
 {
-    private readonly int OriginalInputLength;
+    private readonly int OriginalInputLength = input.Length;
 
-    private ReadOnlySpan<char> cursor;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AlangCursor"/> struct with the specified input string.
-    /// </summary>
-    /// <param name="input">The input string to parse.</param>
-    public AlangCursor(string input)
-    {
-        this.OriginalInputLength = input.Length;
-        this.cursor = input.AsSpan().TrimStart();
-    }
+    private ReadOnlySpan<char> cursor = input.AsSpan().TrimStart();
 
     /// <summary>
     /// Gets a value indicating whether the cursor has reached the end of the input.

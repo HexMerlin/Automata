@@ -2,38 +2,6 @@
 
 namespace Automata.Core.Alang;
 
-
-/// <summary>
-/// Specifies the type of parsing error encountered in Alang expressions.
-/// </summary>
-public enum ParseErrorType
-{
-    /// <summary>
-    /// Indicates that an atom was expected but not found.
-    /// </summary>
-    MissingAtom,
-
-    /// <summary>
-    /// Indicates that an unexpected closing parenthesis was encountered.
-    /// </summary>
-    UnexpectedClosingParenthesis,
-
-    /// <summary>
-    /// Indicates that a closing parenthesis was expected but not found.
-    /// </summary>
-    MissingClosingParenthesis,
-
-    /// <summary>
-    /// Indicates that a right operand was expected after a binary operator but was not found.
-    /// </summary>
-    MissingRightOperand,
-
-    /// <summary>
-    /// Indicates that a new subexpression or end-of-input was expected but not found.
-    /// </summary>
-    ExpectedBeginExpressionOrEOI,
-}
-
 /// <summary>
 /// Represents an exception that is thrown when an error occurs during parsing of Alang expressions.
 /// </summary>
