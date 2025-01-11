@@ -38,32 +38,35 @@ references:
   fullName.vb: Automata.Core.Alang.AlangCursor.New
   nameWithType: AlangCursor.AlangCursor
   nameWithType.vb: AlangCursor.New
-- uid: Automata.Core.Alang.AlangCursor.ConsumeAtom
-  name: ConsumeAtom()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeAtom
-  commentId: M:Automata.Core.Alang.AlangCursor.ConsumeAtom
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeAtom()
-  nameWithType: AlangCursor.ConsumeAtom()
-- uid: Automata.Core.Alang.AlangCursor.ConsumeAtom*
-  name: ConsumeAtom
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeAtom_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.ConsumeAtom
+- uid: Automata.Core.Alang.AlangCursor.CursorIndex
+  name: CursorIndex
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_CursorIndex
+  commentId: P:Automata.Core.Alang.AlangCursor.CursorIndex
+  fullName: Automata.Core.Alang.AlangCursor.CursorIndex
+  nameWithType: AlangCursor.CursorIndex
+- uid: Automata.Core.Alang.AlangCursor.CursorIndex*
+  name: CursorIndex
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_CursorIndex_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.CursorIndex
   isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeAtom
-  nameWithType: AlangCursor.ConsumeAtom
-- uid: Automata.Core.Alang.AlangCursor.First
-  name: First
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_First
-  commentId: P:Automata.Core.Alang.AlangCursor.First
-  fullName: Automata.Core.Alang.AlangCursor.First
-  nameWithType: AlangCursor.First
-- uid: Automata.Core.Alang.AlangCursor.First*
-  name: First
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_First_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.First
+  fullName: Automata.Core.Alang.AlangCursor.CursorIndex
+  nameWithType: AlangCursor.CursorIndex
+- uid: Automata.Core.Alang.AlangCursor.Is(System.Char)
+  name: Is(char)
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_Is_System_Char_
+  commentId: M:Automata.Core.Alang.AlangCursor.Is(System.Char)
+  name.vb: Is(Char)
+  fullName: Automata.Core.Alang.AlangCursor.Is(char)
+  fullName.vb: Automata.Core.Alang.AlangCursor.Is(Char)
+  nameWithType: AlangCursor.Is(char)
+  nameWithType.vb: AlangCursor.Is(Char)
+- uid: Automata.Core.Alang.AlangCursor.Is*
+  name: Is
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_Is_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.Is
   isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.First
-  nameWithType: AlangCursor.First
+  fullName: Automata.Core.Alang.AlangCursor.Is
+  nameWithType: AlangCursor.Is
 - uid: Automata.Core.Alang.AlangCursor.IsEmpty
   name: IsEmpty
   href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_IsEmpty
@@ -90,6 +93,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangCursor.IsExpressionStart
   nameWithType: AlangCursor.IsExpressionStart
+- uid: Automata.Core.Alang.AlangCursor.NextAsString
+  name: NextAsString
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_NextAsString
+  commentId: P:Automata.Core.Alang.AlangCursor.NextAsString
+  fullName: Automata.Core.Alang.AlangCursor.NextAsString
+  nameWithType: AlangCursor.NextAsString
+- uid: Automata.Core.Alang.AlangCursor.NextAsString*
+  name: NextAsString
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_NextAsString_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.NextAsString
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangCursor.NextAsString
+  nameWithType: AlangCursor.NextAsString
 - uid: Automata.Core.Alang.AlangCursor.ToString
   name: ToString()
   href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ToString
@@ -135,6 +151,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangCursor.TryConsumeAny
   nameWithType: AlangCursor.TryConsumeAny
+- uid: Automata.Core.Alang.AlangCursor.TryConsumeAtom(Automata.Core.Alang.Atom@)
+  name: TryConsumeAtom(out Atom?)
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeAtom_Automata_Core_Alang_Atom__
+  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeAtom(Automata.Core.Alang.Atom@)
+  name.vb: TryConsumeAtom(Atom)
+  fullName: Automata.Core.Alang.AlangCursor.TryConsumeAtom(out Automata.Core.Alang.Atom?)
+  fullName.vb: Automata.Core.Alang.AlangCursor.TryConsumeAtom(Automata.Core.Alang.Atom)
+  nameWithType: AlangCursor.TryConsumeAtom(out Atom?)
+  nameWithType.vb: AlangCursor.TryConsumeAtom(Atom)
+- uid: Automata.Core.Alang.AlangCursor.TryConsumeAtom*
+  name: TryConsumeAtom
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeAtom_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeAtom
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangCursor.TryConsumeAtom
+  nameWithType: AlangCursor.TryConsumeAtom
 - uid: Automata.Core.Alang.AlangExpr
   name: AlangExpr
   href: Automata.Core.Alang.AlangExpr.html
@@ -160,45 +192,19 @@ references:
   fullName.vb: Automata.Core.Alang.AlangExpr.New
   nameWithType: AlangExpr.AlangExpr
   nameWithType.vb: AlangExpr.New
-- uid: Automata.Core.Alang.AlangExpr.Empty
-  name: Empty
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Empty
-  commentId: P:Automata.Core.Alang.AlangExpr.Empty
-  fullName: Automata.Core.Alang.AlangExpr.Empty
-  nameWithType: AlangExpr.Empty
-- uid: Automata.Core.Alang.AlangExpr.Empty*
-  name: Empty
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Empty_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.Empty
+- uid: Automata.Core.Alang.AlangExpr.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString
+  commentId: P:Automata.Core.Alang.AlangExpr.AlangExpressionString
+  fullName: Automata.Core.Alang.AlangExpr.AlangExpressionString
+  nameWithType: AlangExpr.AlangExpressionString
+- uid: Automata.Core.Alang.AlangExpr.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.AlangExpr.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.Empty
-  nameWithType: AlangExpr.Empty
-- uid: Automata.Core.Alang.AlangExpr.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ExpressionString
-  commentId: P:Automata.Core.Alang.AlangExpr.ExpressionString
-  fullName: Automata.Core.Alang.AlangExpr.ExpressionString
-  nameWithType: AlangExpr.ExpressionString
-- uid: Automata.Core.Alang.AlangExpr.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.ExpressionString
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.ExpressionString
-  nameWithType: AlangExpr.ExpressionString
-- uid: Automata.Core.Alang.AlangExpr.IsEmpty
-  name: IsEmpty
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmpty
-  commentId: P:Automata.Core.Alang.AlangExpr.IsEmpty
-  fullName: Automata.Core.Alang.AlangExpr.IsEmpty
-  nameWithType: AlangExpr.IsEmpty
-- uid: Automata.Core.Alang.AlangExpr.IsEmpty*
-  name: IsEmpty
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmpty_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.IsEmpty
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.IsEmpty
-  nameWithType: AlangExpr.IsEmpty
+  fullName: Automata.Core.Alang.AlangExpr.AlangExpressionString
+  nameWithType: AlangExpr.AlangExpressionString
 - uid: Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
   name: Param(AlangExpr, AlangExpr)
   href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
@@ -254,6 +260,79 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangExpr.ToString
   nameWithType: AlangExpr.ToString
+- uid: Automata.Core.Alang.AlangFormatException
+  name: AlangFormatException
+  href: Automata.Core.Alang.AlangFormatException.html
+  commentId: T:Automata.Core.Alang.AlangFormatException
+  fullName: Automata.Core.Alang.AlangFormatException
+  nameWithType: AlangFormatException
+- uid: Automata.Core.Alang.AlangFormatException.ErrorType
+  name: ErrorType
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ErrorType
+  commentId: F:Automata.Core.Alang.AlangFormatException.ErrorType
+  fullName: Automata.Core.Alang.AlangFormatException.ErrorType
+  nameWithType: AlangFormatException.ErrorType
+- uid: Automata.Core.Alang.AlangFormatException.Index
+  name: Index
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_Index
+  commentId: F:Automata.Core.Alang.AlangFormatException.Index
+  fullName: Automata.Core.Alang.AlangFormatException.Index
+  nameWithType: AlangFormatException.Index
+- uid: Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI(Automata.Core.Alang.AlangCursor)
+  name: ThrowExpectedBeginExpressionOrEOI(AlangCursor)
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_Automata_Core_Alang_AlangCursor_
+  commentId: M:Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI(Automata.Core.Alang.AlangCursor)
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI(Automata.Core.Alang.AlangCursor)
+  nameWithType: AlangFormatException.ThrowExpectedBeginExpressionOrEOI(AlangCursor)
+- uid: Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI*
+  name: ThrowExpectedBeginExpressionOrEOI
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_
+  commentId: Overload:Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI
+  nameWithType: AlangFormatException.ThrowExpectedBeginExpressionOrEOI
+- uid: Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  name: ThrowMissingClosingParenthesis(AlangCursor)
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowMissingClosingParenthesis_Automata_Core_Alang_AlangCursor_
+  commentId: M:Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  nameWithType: AlangFormatException.ThrowMissingClosingParenthesis(AlangCursor)
+- uid: Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis*
+  name: ThrowMissingClosingParenthesis
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowMissingClosingParenthesis_
+  commentId: Overload:Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis
+  nameWithType: AlangFormatException.ThrowMissingClosingParenthesis
+- uid: Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor,System.Char)
+  name: ThrowMissingRightOperand(AlangCursor, char)
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowMissingRightOperand_Automata_Core_Alang_AlangCursor_System_Char_
+  commentId: M:Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor,System.Char)
+  name.vb: ThrowMissingRightOperand(AlangCursor, Char)
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor, char)
+  fullName.vb: Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor, Char)
+  nameWithType: AlangFormatException.ThrowMissingRightOperand(AlangCursor, char)
+  nameWithType.vb: AlangFormatException.ThrowMissingRightOperand(AlangCursor, Char)
+- uid: Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand*
+  name: ThrowMissingRightOperand
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowMissingRightOperand_
+  commentId: Overload:Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand
+  nameWithType: AlangFormatException.ThrowMissingRightOperand
+- uid: Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  name: ThrowUnexpectedClosingParenthesis(AlangCursor)
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowUnexpectedClosingParenthesis_Automata_Core_Alang_AlangCursor_
+  commentId: M:Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis(Automata.Core.Alang.AlangCursor)
+  nameWithType: AlangFormatException.ThrowUnexpectedClosingParenthesis(AlangCursor)
+- uid: Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis*
+  name: ThrowUnexpectedClosingParenthesis
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ThrowUnexpectedClosingParenthesis_
+  commentId: Overload:Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis
+  nameWithType: AlangFormatException.ThrowUnexpectedClosingParenthesis
 - uid: Automata.Core.Alang.Atom
   name: Atom
   href: Automata.Core.Alang.Atom.html
@@ -279,19 +358,19 @@ references:
   fullName.vb: Automata.Core.Alang.Atom.New
   nameWithType: Atom.Atom
   nameWithType.vb: Atom.New
-- uid: Automata.Core.Alang.Atom.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_ExpressionString
-  commentId: P:Automata.Core.Alang.Atom.ExpressionString
-  fullName: Automata.Core.Alang.Atom.ExpressionString
-  nameWithType: Atom.ExpressionString
-- uid: Automata.Core.Alang.Atom.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Atom.ExpressionString
+- uid: Automata.Core.Alang.Atom.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Atom.AlangExpressionString
+  fullName: Automata.Core.Alang.Atom.AlangExpressionString
+  nameWithType: Atom.AlangExpressionString
+- uid: Automata.Core.Alang.Atom.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Atom.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Atom.ExpressionString
-  nameWithType: Atom.ExpressionString
+  fullName: Automata.Core.Alang.Atom.AlangExpressionString
+  nameWithType: Atom.AlangExpressionString
 - uid: Automata.Core.Alang.Atom.Precedence
   name: Precedence
   href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_Precedence
@@ -438,6 +517,12 @@ references:
   commentId: F:Automata.Core.Alang.Chars.Union
   fullName: Automata.Core.Alang.Chars.Union
   nameWithType: Chars.Union
+- uid: Automata.Core.Alang.Chars.Wildcard
+  name: Wildcard
+  href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_Wildcard
+  commentId: F:Automata.Core.Alang.Chars.Wildcard
+  fullName: Automata.Core.Alang.Chars.Wildcard
+  nameWithType: Chars.Wildcard
 - uid: Automata.Core.Alang.Complement
   name: Complement
   href: Automata.Core.Alang.Complement.html
@@ -463,19 +548,19 @@ references:
   fullName.vb: Automata.Core.Alang.Complement.New
   nameWithType: Complement.Complement
   nameWithType.vb: Complement.New
-- uid: Automata.Core.Alang.Complement.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement_ExpressionString
-  commentId: P:Automata.Core.Alang.Complement.ExpressionString
-  fullName: Automata.Core.Alang.Complement.ExpressionString
-  nameWithType: Complement.ExpressionString
-- uid: Automata.Core.Alang.Complement.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Complement.ExpressionString
+- uid: Automata.Core.Alang.Complement.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Complement.AlangExpressionString
+  fullName: Automata.Core.Alang.Complement.AlangExpressionString
+  nameWithType: Complement.AlangExpressionString
+- uid: Automata.Core.Alang.Complement.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Complement.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Complement.ExpressionString
-  nameWithType: Complement.ExpressionString
+  fullName: Automata.Core.Alang.Complement.AlangExpressionString
+  nameWithType: Complement.AlangExpressionString
 - uid: Automata.Core.Alang.Complement.Precedence
   name: Precedence
   href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement_Precedence
@@ -514,19 +599,19 @@ references:
   fullName.vb: Automata.Core.Alang.Concatenation.New
   nameWithType: Concatenation.Concatenation
   nameWithType.vb: Concatenation.New
-- uid: Automata.Core.Alang.Concatenation.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation_ExpressionString
-  commentId: P:Automata.Core.Alang.Concatenation.ExpressionString
-  fullName: Automata.Core.Alang.Concatenation.ExpressionString
-  nameWithType: Concatenation.ExpressionString
-- uid: Automata.Core.Alang.Concatenation.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Concatenation.ExpressionString
+- uid: Automata.Core.Alang.Concatenation.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Concatenation.AlangExpressionString
+  fullName: Automata.Core.Alang.Concatenation.AlangExpressionString
+  nameWithType: Concatenation.AlangExpressionString
+- uid: Automata.Core.Alang.Concatenation.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Concatenation.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Concatenation.ExpressionString
-  nameWithType: Concatenation.ExpressionString
+  fullName: Automata.Core.Alang.Concatenation.AlangExpressionString
+  nameWithType: Concatenation.AlangExpressionString
 - uid: Automata.Core.Alang.Concatenation.Parse(Automata.Core.Alang.AlangCursor@)
   name: Parse(ref AlangCursor)
   href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation_Parse_Automata_Core_Alang_AlangCursor__
@@ -581,35 +666,19 @@ references:
   fullName.vb: Automata.Core.Alang.Difference.New
   nameWithType: Difference.Difference
   nameWithType.vb: Difference.New
-- uid: Automata.Core.Alang.Difference.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_ExpressionString
-  commentId: P:Automata.Core.Alang.Difference.ExpressionString
-  fullName: Automata.Core.Alang.Difference.ExpressionString
-  nameWithType: Difference.ExpressionString
-- uid: Automata.Core.Alang.Difference.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Difference.ExpressionString
+- uid: Automata.Core.Alang.Difference.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Difference.AlangExpressionString
+  fullName: Automata.Core.Alang.Difference.AlangExpressionString
+  nameWithType: Difference.AlangExpressionString
+- uid: Automata.Core.Alang.Difference.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Difference.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Difference.ExpressionString
-  nameWithType: Difference.ExpressionString
-- uid: Automata.Core.Alang.Difference.Parse(Automata.Core.Alang.AlangCursor@)
-  name: Parse(ref AlangCursor)
-  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_Parse_Automata_Core_Alang_AlangCursor__
-  commentId: M:Automata.Core.Alang.Difference.Parse(Automata.Core.Alang.AlangCursor@)
-  name.vb: Parse(AlangCursor)
-  fullName: Automata.Core.Alang.Difference.Parse(ref Automata.Core.Alang.AlangCursor)
-  fullName.vb: Automata.Core.Alang.Difference.Parse(Automata.Core.Alang.AlangCursor)
-  nameWithType: Difference.Parse(ref AlangCursor)
-  nameWithType.vb: Difference.Parse(AlangCursor)
-- uid: Automata.Core.Alang.Difference.Parse*
-  name: Parse
-  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_Parse_
-  commentId: Overload:Automata.Core.Alang.Difference.Parse
-  isSpec: "True"
-  fullName: Automata.Core.Alang.Difference.Parse
-  nameWithType: Difference.Parse
+  fullName: Automata.Core.Alang.Difference.AlangExpressionString
+  nameWithType: Difference.AlangExpressionString
 - uid: Automata.Core.Alang.Difference.Precedence
   name: Precedence
   href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference_Precedence
@@ -623,6 +692,57 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Difference.Precedence
   nameWithType: Difference.Precedence
+- uid: Automata.Core.Alang.EmptySet
+  name: EmptySet
+  href: Automata.Core.Alang.EmptySet.html
+  commentId: T:Automata.Core.Alang.EmptySet
+  fullName: Automata.Core.Alang.EmptySet
+  nameWithType: EmptySet
+- uid: Automata.Core.Alang.EmptySet.#ctor
+  name: EmptySet()
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet__ctor
+  commentId: M:Automata.Core.Alang.EmptySet.#ctor
+  name.vb: New()
+  fullName: Automata.Core.Alang.EmptySet.EmptySet()
+  fullName.vb: Automata.Core.Alang.EmptySet.New()
+  nameWithType: EmptySet.EmptySet()
+  nameWithType.vb: EmptySet.New()
+- uid: Automata.Core.Alang.EmptySet.#ctor*
+  name: EmptySet
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet__ctor_
+  commentId: Overload:Automata.Core.Alang.EmptySet.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Automata.Core.Alang.EmptySet.EmptySet
+  fullName.vb: Automata.Core.Alang.EmptySet.New
+  nameWithType: EmptySet.EmptySet
+  nameWithType.vb: EmptySet.New
+- uid: Automata.Core.Alang.EmptySet.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_AlangExpressionString
+  commentId: P:Automata.Core.Alang.EmptySet.AlangExpressionString
+  fullName: Automata.Core.Alang.EmptySet.AlangExpressionString
+  nameWithType: EmptySet.AlangExpressionString
+- uid: Automata.Core.Alang.EmptySet.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.EmptySet.AlangExpressionString
+  isSpec: "True"
+  fullName: Automata.Core.Alang.EmptySet.AlangExpressionString
+  nameWithType: EmptySet.AlangExpressionString
+- uid: Automata.Core.Alang.EmptySet.Precedence
+  name: Precedence
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_Precedence
+  commentId: P:Automata.Core.Alang.EmptySet.Precedence
+  fullName: Automata.Core.Alang.EmptySet.Precedence
+  nameWithType: EmptySet.Precedence
+- uid: Automata.Core.Alang.EmptySet.Precedence*
+  name: Precedence
+  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_Precedence_
+  commentId: Overload:Automata.Core.Alang.EmptySet.Precedence
+  isSpec: "True"
+  fullName: Automata.Core.Alang.EmptySet.Precedence
+  nameWithType: EmptySet.Precedence
 - uid: Automata.Core.Alang.InfixBinary
   name: InfixBinary
   href: Automata.Core.Alang.InfixBinary.html
@@ -699,35 +819,19 @@ references:
   fullName.vb: Automata.Core.Alang.Intersection.New
   nameWithType: Intersection.Intersection
   nameWithType.vb: Intersection.New
-- uid: Automata.Core.Alang.Intersection.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_ExpressionString
-  commentId: P:Automata.Core.Alang.Intersection.ExpressionString
-  fullName: Automata.Core.Alang.Intersection.ExpressionString
-  nameWithType: Intersection.ExpressionString
-- uid: Automata.Core.Alang.Intersection.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Intersection.ExpressionString
+- uid: Automata.Core.Alang.Intersection.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Intersection.AlangExpressionString
+  fullName: Automata.Core.Alang.Intersection.AlangExpressionString
+  nameWithType: Intersection.AlangExpressionString
+- uid: Automata.Core.Alang.Intersection.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Intersection.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Intersection.ExpressionString
-  nameWithType: Intersection.ExpressionString
-- uid: Automata.Core.Alang.Intersection.Parse(Automata.Core.Alang.AlangCursor@)
-  name: Parse(ref AlangCursor)
-  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_Parse_Automata_Core_Alang_AlangCursor__
-  commentId: M:Automata.Core.Alang.Intersection.Parse(Automata.Core.Alang.AlangCursor@)
-  name.vb: Parse(AlangCursor)
-  fullName: Automata.Core.Alang.Intersection.Parse(ref Automata.Core.Alang.AlangCursor)
-  fullName.vb: Automata.Core.Alang.Intersection.Parse(Automata.Core.Alang.AlangCursor)
-  nameWithType: Intersection.Parse(ref AlangCursor)
-  nameWithType.vb: Intersection.Parse(AlangCursor)
-- uid: Automata.Core.Alang.Intersection.Parse*
-  name: Parse
-  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_Parse_
-  commentId: Overload:Automata.Core.Alang.Intersection.Parse
-  isSpec: "True"
-  fullName: Automata.Core.Alang.Intersection.Parse
-  nameWithType: Intersection.Parse
+  fullName: Automata.Core.Alang.Intersection.AlangExpressionString
+  nameWithType: Intersection.AlangExpressionString
 - uid: Automata.Core.Alang.Intersection.Precedence
   name: Precedence
   href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection_Precedence
@@ -766,19 +870,19 @@ references:
   fullName.vb: Automata.Core.Alang.KleenePlus.New
   nameWithType: KleenePlus.KleenePlus
   nameWithType.vb: KleenePlus.New
-- uid: Automata.Core.Alang.KleenePlus.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus_ExpressionString
-  commentId: P:Automata.Core.Alang.KleenePlus.ExpressionString
-  fullName: Automata.Core.Alang.KleenePlus.ExpressionString
-  nameWithType: KleenePlus.ExpressionString
-- uid: Automata.Core.Alang.KleenePlus.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.KleenePlus.ExpressionString
+- uid: Automata.Core.Alang.KleenePlus.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus_AlangExpressionString
+  commentId: P:Automata.Core.Alang.KleenePlus.AlangExpressionString
+  fullName: Automata.Core.Alang.KleenePlus.AlangExpressionString
+  nameWithType: KleenePlus.AlangExpressionString
+- uid: Automata.Core.Alang.KleenePlus.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.KleenePlus.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.KleenePlus.ExpressionString
-  nameWithType: KleenePlus.ExpressionString
+  fullName: Automata.Core.Alang.KleenePlus.AlangExpressionString
+  nameWithType: KleenePlus.AlangExpressionString
 - uid: Automata.Core.Alang.KleenePlus.Precedence
   name: Precedence
   href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus_Precedence
@@ -817,19 +921,19 @@ references:
   fullName.vb: Automata.Core.Alang.KleeneStar.New
   nameWithType: KleeneStar.KleeneStar
   nameWithType.vb: KleeneStar.New
-- uid: Automata.Core.Alang.KleeneStar.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar_ExpressionString
-  commentId: P:Automata.Core.Alang.KleeneStar.ExpressionString
-  fullName: Automata.Core.Alang.KleeneStar.ExpressionString
-  nameWithType: KleeneStar.ExpressionString
-- uid: Automata.Core.Alang.KleeneStar.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.KleeneStar.ExpressionString
+- uid: Automata.Core.Alang.KleeneStar.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar_AlangExpressionString
+  commentId: P:Automata.Core.Alang.KleeneStar.AlangExpressionString
+  fullName: Automata.Core.Alang.KleeneStar.AlangExpressionString
+  nameWithType: KleeneStar.AlangExpressionString
+- uid: Automata.Core.Alang.KleeneStar.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.KleeneStar.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.KleeneStar.ExpressionString
-  nameWithType: KleeneStar.ExpressionString
+  fullName: Automata.Core.Alang.KleeneStar.AlangExpressionString
+  nameWithType: KleeneStar.AlangExpressionString
 - uid: Automata.Core.Alang.KleeneStar.Precedence
   name: Precedence
   href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar_Precedence
@@ -868,19 +972,19 @@ references:
   fullName.vb: Automata.Core.Alang.Option.New
   nameWithType: Option.Option
   nameWithType.vb: Option.New
-- uid: Automata.Core.Alang.Option.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option_ExpressionString
-  commentId: P:Automata.Core.Alang.Option.ExpressionString
-  fullName: Automata.Core.Alang.Option.ExpressionString
-  nameWithType: Option.ExpressionString
-- uid: Automata.Core.Alang.Option.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Option.ExpressionString
+- uid: Automata.Core.Alang.Option.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Option.AlangExpressionString
+  fullName: Automata.Core.Alang.Option.AlangExpressionString
+  nameWithType: Option.AlangExpressionString
+- uid: Automata.Core.Alang.Option.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Option.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Option.ExpressionString
-  nameWithType: Option.ExpressionString
+  fullName: Automata.Core.Alang.Option.AlangExpressionString
+  nameWithType: Option.AlangExpressionString
 - uid: Automata.Core.Alang.Option.Precedence
   name: Precedence
   href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option_Precedence
@@ -894,60 +998,80 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Option.Precedence
   nameWithType: Option.Precedence
-- uid: Automata.Core.Alang.PostfixUnary
-  name: PostfixUnary
-  href: Automata.Core.Alang.PostfixUnary.html
-  commentId: T:Automata.Core.Alang.PostfixUnary
-  fullName: Automata.Core.Alang.PostfixUnary
-  nameWithType: PostfixUnary
-- uid: Automata.Core.Alang.PostfixUnary.#ctor(Automata.Core.Alang.AlangExpr)
-  name: PostfixUnary(AlangExpr)
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.PostfixUnary.#ctor(Automata.Core.Alang.AlangExpr)
+- uid: Automata.Core.Alang.ParseErrorType
+  name: ParseErrorType
+  href: Automata.Core.Alang.ParseErrorType.html
+  commentId: T:Automata.Core.Alang.ParseErrorType
+  fullName: Automata.Core.Alang.ParseErrorType
+  nameWithType: ParseErrorType
+- uid: Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
+  name: ExpectedBeginExpressionOrEOI
+  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_ExpectedBeginExpressionOrEOI
+  commentId: F:Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
+  fullName: Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
+  nameWithType: ParseErrorType.ExpectedBeginExpressionOrEOI
+- uid: Automata.Core.Alang.ParseErrorType.MissingAtom
+  name: MissingAtom
+  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_MissingAtom
+  commentId: F:Automata.Core.Alang.ParseErrorType.MissingAtom
+  fullName: Automata.Core.Alang.ParseErrorType.MissingAtom
+  nameWithType: ParseErrorType.MissingAtom
+- uid: Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
+  name: MissingClosingParenthesis
+  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_MissingClosingParenthesis
+  commentId: F:Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
+  fullName: Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
+  nameWithType: ParseErrorType.MissingClosingParenthesis
+- uid: Automata.Core.Alang.ParseErrorType.MissingRightOperand
+  name: MissingRightOperand
+  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_MissingRightOperand
+  commentId: F:Automata.Core.Alang.ParseErrorType.MissingRightOperand
+  fullName: Automata.Core.Alang.ParseErrorType.MissingRightOperand
+  nameWithType: ParseErrorType.MissingRightOperand
+- uid: Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
+  name: UnexpectedClosingParenthesis
+  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_UnexpectedClosingParenthesis
+  commentId: F:Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
+  fullName: Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
+  nameWithType: ParseErrorType.UnexpectedClosingParenthesis
+- uid: Automata.Core.Alang.UnaryExpr
+  name: UnaryExpr
+  href: Automata.Core.Alang.UnaryExpr.html
+  commentId: T:Automata.Core.Alang.UnaryExpr
+  fullName: Automata.Core.Alang.UnaryExpr
+  nameWithType: UnaryExpr
+- uid: Automata.Core.Alang.UnaryExpr.#ctor(Automata.Core.Alang.AlangExpr)
+  name: UnaryExpr(AlangExpr)
+  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr__ctor_Automata_Core_Alang_AlangExpr_
+  commentId: M:Automata.Core.Alang.UnaryExpr.#ctor(Automata.Core.Alang.AlangExpr)
   name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.PostfixUnary.PostfixUnary(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.PostfixUnary.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: PostfixUnary.PostfixUnary(AlangExpr)
-  nameWithType.vb: PostfixUnary.New(AlangExpr)
-- uid: Automata.Core.Alang.PostfixUnary.#ctor*
-  name: PostfixUnary
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary__ctor_
-  commentId: Overload:Automata.Core.Alang.PostfixUnary.#ctor
+  fullName: Automata.Core.Alang.UnaryExpr.UnaryExpr(Automata.Core.Alang.AlangExpr)
+  fullName.vb: Automata.Core.Alang.UnaryExpr.New(Automata.Core.Alang.AlangExpr)
+  nameWithType: UnaryExpr.UnaryExpr(AlangExpr)
+  nameWithType.vb: UnaryExpr.New(AlangExpr)
+- uid: Automata.Core.Alang.UnaryExpr.#ctor*
+  name: UnaryExpr
+  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr__ctor_
+  commentId: Overload:Automata.Core.Alang.UnaryExpr.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.Alang.PostfixUnary.PostfixUnary
-  fullName.vb: Automata.Core.Alang.PostfixUnary.New
-  nameWithType: PostfixUnary.PostfixUnary
-  nameWithType.vb: PostfixUnary.New
-- uid: Automata.Core.Alang.PostfixUnary.Operand
+  fullName: Automata.Core.Alang.UnaryExpr.UnaryExpr
+  fullName.vb: Automata.Core.Alang.UnaryExpr.New
+  nameWithType: UnaryExpr.UnaryExpr
+  nameWithType.vb: UnaryExpr.New
+- uid: Automata.Core.Alang.UnaryExpr.Operand
   name: Operand
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary_Operand
-  commentId: P:Automata.Core.Alang.PostfixUnary.Operand
-  fullName: Automata.Core.Alang.PostfixUnary.Operand
-  nameWithType: PostfixUnary.Operand
-- uid: Automata.Core.Alang.PostfixUnary.Operand*
+  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand
+  commentId: P:Automata.Core.Alang.UnaryExpr.Operand
+  fullName: Automata.Core.Alang.UnaryExpr.Operand
+  nameWithType: UnaryExpr.Operand
+- uid: Automata.Core.Alang.UnaryExpr.Operand*
   name: Operand
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary_Operand_
-  commentId: Overload:Automata.Core.Alang.PostfixUnary.Operand
+  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand_
+  commentId: Overload:Automata.Core.Alang.UnaryExpr.Operand
   isSpec: "True"
-  fullName: Automata.Core.Alang.PostfixUnary.Operand
-  nameWithType: PostfixUnary.Operand
-- uid: Automata.Core.Alang.PostfixUnary.ParsePostfix(Automata.Core.Alang.AlangCursor@)
-  name: ParsePostfix(ref AlangCursor)
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary_ParsePostfix_Automata_Core_Alang_AlangCursor__
-  commentId: M:Automata.Core.Alang.PostfixUnary.ParsePostfix(Automata.Core.Alang.AlangCursor@)
-  name.vb: ParsePostfix(AlangCursor)
-  fullName: Automata.Core.Alang.PostfixUnary.ParsePostfix(ref Automata.Core.Alang.AlangCursor)
-  fullName.vb: Automata.Core.Alang.PostfixUnary.ParsePostfix(Automata.Core.Alang.AlangCursor)
-  nameWithType: PostfixUnary.ParsePostfix(ref AlangCursor)
-  nameWithType.vb: PostfixUnary.ParsePostfix(AlangCursor)
-- uid: Automata.Core.Alang.PostfixUnary.ParsePostfix*
-  name: ParsePostfix
-  href: Automata.Core.Alang.PostfixUnary.html#Automata_Core_Alang_PostfixUnary_ParsePostfix_
-  commentId: Overload:Automata.Core.Alang.PostfixUnary.ParsePostfix
-  isSpec: "True"
-  fullName: Automata.Core.Alang.PostfixUnary.ParsePostfix
-  nameWithType: PostfixUnary.ParsePostfix
+  fullName: Automata.Core.Alang.UnaryExpr.Operand
+  nameWithType: UnaryExpr.Operand
 - uid: Automata.Core.Alang.Union
   name: Union
   href: Automata.Core.Alang.Union.html
@@ -973,35 +1097,19 @@ references:
   fullName.vb: Automata.Core.Alang.Union.New
   nameWithType: Union.Union
   nameWithType.vb: Union.New
-- uid: Automata.Core.Alang.Union.ExpressionString
-  name: ExpressionString
-  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_ExpressionString
-  commentId: P:Automata.Core.Alang.Union.ExpressionString
-  fullName: Automata.Core.Alang.Union.ExpressionString
-  nameWithType: Union.ExpressionString
-- uid: Automata.Core.Alang.Union.ExpressionString*
-  name: ExpressionString
-  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_ExpressionString_
-  commentId: Overload:Automata.Core.Alang.Union.ExpressionString
+- uid: Automata.Core.Alang.Union.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Union.AlangExpressionString
+  fullName: Automata.Core.Alang.Union.AlangExpressionString
+  nameWithType: Union.AlangExpressionString
+- uid: Automata.Core.Alang.Union.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Union.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Union.ExpressionString
-  nameWithType: Union.ExpressionString
-- uid: Automata.Core.Alang.Union.Parse(Automata.Core.Alang.AlangCursor@)
-  name: Parse(ref AlangCursor)
-  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_Parse_Automata_Core_Alang_AlangCursor__
-  commentId: M:Automata.Core.Alang.Union.Parse(Automata.Core.Alang.AlangCursor@)
-  name.vb: Parse(AlangCursor)
-  fullName: Automata.Core.Alang.Union.Parse(ref Automata.Core.Alang.AlangCursor)
-  fullName.vb: Automata.Core.Alang.Union.Parse(Automata.Core.Alang.AlangCursor)
-  nameWithType: Union.Parse(ref AlangCursor)
-  nameWithType.vb: Union.Parse(AlangCursor)
-- uid: Automata.Core.Alang.Union.Parse*
-  name: Parse
-  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_Parse_
-  commentId: Overload:Automata.Core.Alang.Union.Parse
-  isSpec: "True"
-  fullName: Automata.Core.Alang.Union.Parse
-  nameWithType: Union.Parse
+  fullName: Automata.Core.Alang.Union.AlangExpressionString
+  nameWithType: Union.AlangExpressionString
 - uid: Automata.Core.Alang.Union.Precedence
   name: Precedence
   href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union_Precedence
@@ -1015,6 +1123,38 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Union.Precedence
   nameWithType: Union.Precedence
+- uid: Automata.Core.Alang.Wildcard
+  name: Wildcard
+  href: Automata.Core.Alang.Wildcard.html
+  commentId: T:Automata.Core.Alang.Wildcard
+  fullName: Automata.Core.Alang.Wildcard
+  nameWithType: Wildcard
+- uid: Automata.Core.Alang.Wildcard.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Wildcard.html#Automata_Core_Alang_Wildcard_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Wildcard.AlangExpressionString
+  fullName: Automata.Core.Alang.Wildcard.AlangExpressionString
+  nameWithType: Wildcard.AlangExpressionString
+- uid: Automata.Core.Alang.Wildcard.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Wildcard.html#Automata_Core_Alang_Wildcard_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Wildcard.AlangExpressionString
+  isSpec: "True"
+  fullName: Automata.Core.Alang.Wildcard.AlangExpressionString
+  nameWithType: Wildcard.AlangExpressionString
+- uid: Automata.Core.Alang.Wildcard.Precedence
+  name: Precedence
+  href: Automata.Core.Alang.Wildcard.html#Automata_Core_Alang_Wildcard_Precedence
+  commentId: P:Automata.Core.Alang.Wildcard.Precedence
+  fullName: Automata.Core.Alang.Wildcard.Precedence
+  nameWithType: Wildcard.Precedence
+- uid: Automata.Core.Alang.Wildcard.Precedence*
+  name: Precedence
+  href: Automata.Core.Alang.Wildcard.html#Automata_Core_Alang_Wildcard_Precedence_
+  commentId: Overload:Automata.Core.Alang.Wildcard.Precedence
+  isSpec: "True"
+  fullName: Automata.Core.Alang.Wildcard.Precedence
+  nameWithType: Wildcard.Precedence
 - uid: Automata.Core.CanonicalAlphabet
   name: CanonicalAlphabet
   href: Automata.Core.CanonicalAlphabet.html

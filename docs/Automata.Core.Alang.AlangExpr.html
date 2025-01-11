@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Alang.AlangExpr">
@@ -102,8 +102,10 @@
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><span class="xref">AlangExpr</span></div>
       <div class="level2"><a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a></div>
+      <div class="level2"><a class="xref" href="Automata.Core.Alang.EmptySet.html">EmptySet</a></div>
       <div class="level2"><a class="xref" href="Automata.Core.Alang.InfixBinary.html">InfixBinary</a></div>
-      <div class="level2"><a class="xref" href="Automata.Core.Alang.PostfixUnary.html">PostfixUnary</a></div>
+      <div class="level2"><a class="xref" href="Automata.Core.Alang.UnaryExpr.html">UnaryExpr</a></div>
+      <div class="level2"><a class="xref" href="Automata.Core.Alang.Wildcard.html">Wildcard</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -133,30 +135,16 @@
     <pre><code class="lang-csharp hljs">public abstract class AlangExpr</code></pre>
   </div>
   <h5 id="Automata_Core_Alang_AlangExpr_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>The <code>Alang</code> grammar specification:</p>
-<pre><code class="lang-csharp">AlangExpr             ::= UnionExpr
-UnionExpr             ::= DifferenceExpr ('|' DifferenceExpr)*
-DifferenceExpr        ::= IntersectionExpr ('-' IntersectionExpr)*
-IntersectionExpr      ::= ConcatenationExpr ('&amp;' ConcatenationExpr)*
-ConcatenationExpr     ::= PostfixExpr PostfixExpr*
-PostfixExpr           ::= PrimaryExpr PostfixOp*
-PrimaryExpr           ::= '(' AlangExpr? ')' | Atom
-Atom                  ::= AtomChar+
-
-PostfixOp::= '?' | '*' | '+' | '~'
-AtomChar::= ^('|' | '&amp;' | '-' | '?' | '*' | '+' | '~' | '(' | ')' | '\ws')</code></pre><p><code>Alang</code> operators ordered by precedence (lowest-to-highest).</p><table><thead><tr><th class="term">Precedence</th><th class="term">Operation</th><th class="term">Operator character</th><th class="term">Position &amp; Arity</th></tr></thead><tbody><tr><td class="term">1</td><td class="term">Union</td><td class="term">|</td><td class="term">Infix binary</td></tr><tr><td class="term">2</td><td class="term">Difference</td><td class="term">-</td><td class="term">Infix binary</td></tr><tr><td class="term">3</td><td class="term">Intersection</td><td class="term">&amp;</td><td class="term">Infix binary</td></tr><tr><td class="term">4</td><td class="term">Concatenation</td><td class="term">(implicit)</td><td class="term">Juxtaposition</td></tr><tr><td class="term">5</td><td class="term">Option</td><td class="term">?</td><td class="term">Postfix unary</td></tr><tr><td class="term">5</td><td class="term">Kleene Star</td><td class="term">*</td><td class="term">Postfix unary</td></tr><tr><td class="term">5</td><td class="term">Kleene Plus</td><td class="term">+</td><td class="term">Postfix unary</td></tr><tr><td class="term">5</td><td class="term">Complement</td><td class="term">~</td><td class="term">Postfix unary</td></tr><tr><td class="term">6</td><td class="term">Group</td><td class="term">( )</td><td class="term">Enclosing unary</td></tr><tr><td class="term"></td><td class="term">Atom</td><td class="term">string literal</td><td class="term">Atomic leaf</td></tr></tbody></table>
-<p>Operators with higher precedence levels bind more tightly than those with lower levels.
-Same level precedence are left-associative.
-Whitespace is allowed anywhere in the grammar, but it is never required unless to separate directly adjacent atoms.</p>
+  <div class="markdown level0 remarks"><p>For more information about the <code>Alang</code> language, see the <a href="https://hexmerlin.github.io/Automata/ALANG.html">Alang Grammar Specification</a>.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr__ctor.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr__ctor.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L101">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L16">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangExpr__ctor_" data-uid="Automata.Core.Alang.AlangExpr.#ctor*"></a>
   <h4 id="Automata_Core_Alang_AlangExpr__ctor" data-uid="Automata.Core.Alang.AlangExpr.#ctor">AlangExpr()</h4>
@@ -171,50 +159,19 @@ Whitespace is allowed anywhere in the grammar, but it is never required unless t
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Empty.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Empty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_AlangExpressionString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.AlangExpressionString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L106">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L26">View Source</a>
   </span>
-  <a id="Automata_Core_Alang_AlangExpr_Empty_" data-uid="Automata.Core.Alang.AlangExpr.Empty*"></a>
-  <h4 id="Automata_Core_Alang_AlangExpr_Empty" data-uid="Automata.Core.Alang.AlangExpr.Empty">Empty</h4>
-  <div class="markdown level1 summary"><p>Gets an instance of <a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a> representing the empty expression.</p>
+  <a id="Automata_Core_Alang_AlangExpr_AlangExpressionString_" data-uid="Automata.Core.Alang.AlangExpr.AlangExpressionString*"></a>
+  <h4 id="Automata_Core_Alang_AlangExpr_AlangExpressionString" data-uid="Automata.Core.Alang.AlangExpr.AlangExpressionString">AlangExpressionString</h4>
+  <div class="markdown level1 summary"><p>Gets the string representation of this expression in valid Alang language syntax.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static AlangExpr Empty { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangExpr.html">AlangExpr</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_ExpressionString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.ExpressionString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L121">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangExpr_ExpressionString_" data-uid="Automata.Core.Alang.AlangExpr.ExpressionString*"></a>
-  <h4 id="Automata_Core_Alang_AlangExpr_ExpressionString" data-uid="Automata.Core.Alang.AlangExpr.ExpressionString">ExpressionString</h4>
-  <div class="markdown level1 summary"><p>Gets the string representation of this expression.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract string ExpressionString { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract string AlangExpressionString { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -233,45 +190,14 @@ Whitespace is allowed anywhere in the grammar, but it is never required unless t
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L111">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangExpr_IsEmpty_" data-uid="Automata.Core.Alang.AlangExpr.IsEmpty*"></a>
-  <h4 id="Automata_Core_Alang_AlangExpr_IsEmpty" data-uid="Automata.Core.Alang.AlangExpr.IsEmpty">IsEmpty</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether this expression is empty.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsEmpty { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L116">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L21">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangExpr_Precedence_" data-uid="Automata.Core.Alang.AlangExpr.Precedence*"></a>
   <h4 id="Automata_Core_Alang_AlangExpr_Precedence" data-uid="Automata.Core.Alang.AlangExpr.Precedence">Precedence</h4>
-  <div class="markdown level1 summary"><p>Gets the precedence level of this expression.</p>
+  <div class="markdown level1 summary"><p>Gets the precedence level of this expression according to Alang grammar specification.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -297,10 +223,10 @@ Whitespace is allowed anywhere in the grammar, but it is never required unless t
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr%2CAutomata.Core.Alang.AlangExpr)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr%2CAutomata.Core.Alang.AlangExpr)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L182">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L111">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangExpr_Param_" data-uid="Automata.Core.Alang.AlangExpr.Param*"></a>
   <h4 id="Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_" data-uid="Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)">Param(AlangExpr, AlangExpr)</h4>
@@ -356,10 +282,10 @@ Whitespace is allowed anywhere in the grammar, but it is never required unless t
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Parse_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Parse(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_Parse_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.Parse(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L129">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L34">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangExpr_Parse_" data-uid="Automata.Core.Alang.AlangExpr.Parse*"></a>
   <h4 id="Automata_Core_Alang_AlangExpr_Parse_System_String_" data-uid="Automata.Core.Alang.AlangExpr.Parse(System.String)">Parse(string)</h4>
@@ -414,18 +340,18 @@ Whitespace is allowed anywhere in the grammar, but it is never required unless t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formatexception">FormatException</a></td>
-        <td><p>Thrown when the input contains unexpected tokens.</p>
+        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
+        <td><p>Thrown when the input is invalid.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangExpr_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangExpr.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangExpr.cs/#L191">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangExpr.cs/#L120">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangExpr_ToString_" data-uid="Automata.Core.Alang.AlangExpr.ToString*"></a>
   <h4 id="Automata_Core_Alang_AlangExpr_ToString" data-uid="Automata.Core.Alang.AlangExpr.ToString">ToString()</h4>

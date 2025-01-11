@@ -86,26 +86,91 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/blob/master/docs-src/ALANG.md/#L1" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/blob/dev/docs-src/ALANG.md/#L1" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="">
 <h1 id="alang-automata-language">Alang (Automata Language)</h1>
 
-<p><strong>Alang</strong> is a language for defining finite-state automata.</p>
+<p><strong>Alang</strong> is a formal language for defining finite-state automata using human-readable regular expressions.
+It supports many operations, such as union, intersection, complement and set difference,
+enabling expressions like &quot;(a (b | c)* - (b b))?&quot;.
+Alang's syntax is defined by the <em>Alang Grammar</em> which is an LL(1) context-free grammar.
+The Alang parser is optimized for fast parsing of very large inputs.
+The parser validates syntactic correctness and generates detailed error messages for invalid inputs.</p>
 <h2 id="alang-grammar-specification">Alang Grammar Specification</h2>
-<pre><code class="lang-ebnf">AlangExpr             ::= UnionExpr
-UnionExpr             ::= DifferenceExpr ('|' DifferenceExpr)*
-DifferenceExpr        ::= IntersectionExpr ('-' IntersectionExpr)*
-IntersectionExpr      ::= ConcatenationExpr ('&amp;' ConcatenationExpr)*
-ConcatenationExpr     ::= PostfixExpr PostfixExpr*
-PostfixExpr           ::= PrimaryExpr PostfixOp*
-PrimaryExpr           ::= '(' AlangExpr? ')' | Atom
-Atom                  ::= AtomChar+
-
-PostfixOp             ::= '?' | '*' | '+' | '~'
-AtomChar              ::= ^('|' | '&amp;' | '-' | '?' | '*' | '+' | '~' | '(' | ')' | '\ws')
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlangExpr (root)</td>
+<td>Union EOI</td>
+</tr>
+<tr>
+<td>🔹Union</td>
+<td>Difference  ('|' Difference)*</td>
+</tr>
+<tr>
+<td>🔹Difference</td>
+<td>Intersection ('-' Intersection)*</td>
+</tr>
+<tr>
+<td>🔹Intersectionr</td>
+<td>Concatenation ('&amp;' Concatenation)*</td>
+</tr>
+<tr>
+<td>🔹Concatenation</td>
+<td>UnaryExpr+</td>
+</tr>
+<tr>
+<td>UnaryExpr</td>
+<td>PrimaryExpr<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)*</td>
+</tr>
+<tr>
+<td>🔹Option</td>
+<td>PrimaryExpr '?'</td>
+</tr>
+<tr>
+<td>🔹KleenStar</td>
+<td>PrimaryExpr '*'</td>
+</tr>
+<tr>
+<td>🔹KleenPlus</td>
+<td>PrimaryExpr '+'</td>
+</tr>
+<tr>
+<td>🔹Complement</td>
+<td>Primary '~'</td>
+</tr>
+<tr>
+<td>PrimaryExpr</td>
+<td>'(' AlangExpr ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet</td>
+</tr>
+<tr>
+<td>🔹Atom</td>
+<td>AtomChar+</td>
+</tr>
+<tr>
+<td>🔹Wildcard</td>
+<td>'.'</td>
+</tr>
+<tr>
+<td>🔹EmptySet</td>
+<td>'(' ')'</td>
+</tr>
+<tr>
+<td>AtomChar</td>
+<td><em>any character except operator characters and whitespace</em></td>
+</tr>
+</tbody>
+</table>
+<p>🔹 Denotes a node-type that can be included in the resulting parse tree.</p>
+<p><strong>EOI</strong> denotes the end of input. Any input must be tracable to end in the EOI in the root rule.</p>
 <h2 id="operators-ordered-by-precedence-lowest-to-highest">Operators Ordered by Precedence (Lowest-to-Highest)</h2>
 <table>
 <thead>
@@ -120,59 +185,71 @@ AtomChar              ::= ^('|' | '&amp;' | '-' | '?' | '*' | '+' | '~' | '(' | 
 <tr>
 <td>1</td>
 <td>Union</td>
-<td>|</td>
-<td>Infix binary</td>
+<td>x | x</td>
+<td>Infix Binary</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Difference</td>
-<td>-</td>
-<td>Infix binary</td>
+<td>x - x</td>
+<td>Infix Binary</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Intersection</td>
-<td>&amp;</td>
-<td>Infix binary</td>
+<td>x &amp; x</td>
+<td>Infix Binary</td>
 </tr>
 <tr>
 <td>4</td>
 <td>Concatenation</td>
-<td>(implicit)</td>
-<td>Juxtaposition</td>
+<td>x x</td>
+<td>Infix Implicit</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Option</td>
-<td>?</td>
-<td>Postfix unary</td>
+<td>x?</td>
+<td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Kleene Star</td>
-<td>*</td>
-<td>Postfix unary</td>
+<td>x*</td>
+<td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Kleene Plus</td>
-<td>+</td>
-<td>Postfix unary</td>
+<td>x+</td>
+<td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Complement</td>
-<td>~</td>
-<td>Postfix unary</td>
+<td>x~</td>
+<td>Postfix Unary</td>
 </tr>
 <tr>
 <td>6</td>
 <td>Group</td>
-<td>( )</td>
-<td>Enclosing unary</td>
+<td>( x )</td>
+<td>Enclosing Unary</td>
 </tr>
 <tr>
-<td></td>
+<td>7</td>
+<td>Empty set</td>
+<td>()</td>
+<td>Empty parentheses</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Wildcard</td>
+<td>.</td>
+<td>Atomic leaf</td>
+</tr>
+<tr>
+<td>7</td>
 <td>Atom</td>
 <td>string literal</td>
 <td>Atomic leaf</td>
@@ -182,7 +259,10 @@ AtomChar              ::= ^('|' | '&amp;' | '-' | '?' | '*' | '+' | '~' | '(' | 
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Operators with higher precedence levels bind more tightly than those with lower levels.</li>
-<li>Operators of the same precedence level are left-associative.</li>
+<li>Operators of the same precedence level are left-associative (left-to-right).</li>
+<li><em>Whitespace</em> denotes any whitespace character (i.e. space, tab, newline, etc.)</li>
+<li>Atoms are user defined (alphabet symbols) and can contain any characters except for the operator characters and whitespace.</li>
+<li>Wildcard '.' matches exactly one “Atom” in the alphabet.</li>
 <li>Whitespace is allowed anywhere in the grammar, but it is never required unless to separate directly adjacent atoms.</li>
 </ul>
 
