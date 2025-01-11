@@ -16,6 +16,7 @@ public static partial class Ops
     public static Dfa Difference(IDfa minuend, Cfa subtrahend)
     {
         var subtrahendComplement = Complement(subtrahend);
+
         var difference = Intersection(minuend, subtrahendComplement);
 
         return difference;

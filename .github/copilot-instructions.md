@@ -57,10 +57,11 @@
 - **Language Style**:
   - Write in a **very compact** and **mathematically formal** language targeted at **mathematically educated professionals**.
 - **Boolean Cases**:
-  - **Avoid "if otherwise"**: Do not use phrases like "if otherwise" for boolean cases.
-    - *Incorrect*: “if the number is odd returns true; otherwise false”.
-    - *Correct*: `<returns><see langword="true"/> <c>iff</c> <paramref name="number"/> is odd.</returns>`.
-  - **Tag Usage**: Use the `<c>` tag around `iff` to clearly distinguish it from the normal “if”.
+  - Use *iff* (if and only if) instead of *if ...; otherwise ...*.
+    - do not use *otherwise* with *iff* : the other return value is implicitly given.
+    - Use the `<c>` tag around `iff` to clearly distinguish it from the normal “if”.
+    - *Incorrect*: `<returns>if <paramref name="number"/> is odd, returns <see langword="true"/>; othewise returns <see langword="false"/>.</returns>`
+    - *Correct*: `<returns><see langword="true"/> <c>iff</c> <paramref name="number"/> is odd.</returns>`. 
 - **Word Choice and Sentence Structure**:
   - **Conciseness**: Avoid unnecessary words and suboptimal formulations.
   - **Prohibited Terms**:

@@ -1,12 +1,12 @@
 ﻿namespace Automata.Core;
 
 /// <summary>
-/// Represents a finite state automaton (FSA) interface.
+/// Finite state automaton (FSA) interface.
 /// </summary>
 public interface IFsa
 {
     /// <summary>
-    /// Gets the alphabet used by the FSA.
+    /// Alphabet used by the FSA.
     /// </summary>
     IAlphabet Alphabet { get; }
 
@@ -23,26 +23,24 @@ public interface IFsa
     /// <summary>
     /// Indicates whether the specified state is an initial state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is an initial state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is an initial state.</returns>
     bool IsInitial(int state);
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state.</returns>
     bool IsFinal(int state);
 
     /// <summary>
-    /// Gets the transitions of the FSA.
+    /// Transitions of the FSA.
     /// </summary>
     IEnumerable<Transition> SymbolicTransitions();
 
     /// <summary>
-    /// Gets the epsilon transitions of the FSA.
+    /// Epsilon transitions of the FSA.
     /// </summary>
     IEnumerable<EpsilonTransition> EpsilonTransitions();
-
-
 }

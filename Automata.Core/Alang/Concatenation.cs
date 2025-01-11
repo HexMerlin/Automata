@@ -1,5 +1,10 @@
 ﻿namespace Automata.Core.Alang;
 
+/// <summary>
+/// Represents a concatenation operation in the Alang grammar.
+/// </summary>
+/// <param name="left">The left operand of the concatenation.</param>
+/// <param name="right">The right operand of the concatenation.</param>
 public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
 {
     /// <summary>
@@ -21,10 +26,10 @@ public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, 
         return left;
     }
 
-    ///<inheritdoc/>
+    /// <inheritdoc/>
     public override int Precedence => 4;
 
-    ///<inheritdoc/>
+    /// <inheritdoc/>
     public override string AlangExpressionString
     {
         get
@@ -37,5 +42,4 @@ public class Concatenation(AlangExpr left, AlangExpr right) : InfixBinary(left, 
                 : left + right;
         }
     }
- 
 }

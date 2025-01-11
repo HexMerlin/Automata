@@ -6,7 +6,7 @@
 public static partial class Ops
 {
     /// <summary>
-    /// Computes the complement of a given canonical finite automaton (CFA).
+    /// Complement of a given canonical finite automaton (CFA).
     /// </summary>
     /// <param name="cfa">The canonical finite automaton to complement.</param>
     /// <returns>A new deterministic finite automaton (DFA) representing the complement of the input CFA.</returns>

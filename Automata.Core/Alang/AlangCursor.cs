@@ -21,18 +21,18 @@ public ref struct AlangCursor(string input)
     private ReadOnlySpan<char> cursor = input.AsSpan().TrimStart();
 
     /// <summary>
-    /// Gets a value indicating whether the cursor has reached the end of the input.
+    /// Indicates whether the cursor has reached the end of the input.
     /// </summary>
     public readonly bool IsEmpty => cursor.IsEmpty;
 
     /// <summary>
-    /// Gets the first character in the remaining input, or <see cref="Chars.EOI"/> if the input is empty.
+    /// First character in the remaining input, or <see cref="Chars.EOI"/> if the input is empty.
     /// </summary>
     private readonly char First => cursor.IsEmpty ? Chars.EOI : cursor[0];
 
     /// <summary>
-    /// Gets a value indicating whether the current character indicates the start of an expression.
-    /// If the input is empty, this property returns <see langword="false"/>.
+    /// Indicates whether the current character indicates the start of an expression.
+    /// <see langword="false"/> if the input is empty.
     /// </summary>
     public readonly bool IsExpressionStart => Chars.IsExpressionStart(First);
 
@@ -40,7 +40,7 @@ public ref struct AlangCursor(string input)
     /// Indicates whether the first character in the remaining input is the specified character.
     /// </summary>
     /// <param name="c">The character to check.</param>
-    /// <returns><see langword="true"/> if the first character is the specified character; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the first character is the specified character.</returns>
     public readonly bool Is(char c) => First == c;
 
     /// <summary>
@@ -94,7 +94,7 @@ public ref struct AlangCursor(string input)
     /// Tries to consume a binary operator from the input and advances the cursor if successful.
     /// </summary>
     /// <param name="binaryOperator">The binary operator character to attempt to consume.</param>
-    /// <returns><see langword="true"/> if the binary operator was successfully consumed and the next character starts an expression; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the binary operator was successfully consumed and the next character starts an expression.</returns>
     /// <exception cref="AlangFormatException">Thrown when the binary operator is not followed by a valid expression.</exception>
     private bool TryConsumeBinaryOperator(char binaryOperator)
     {
@@ -108,25 +108,25 @@ public ref struct AlangCursor(string input)
     /// <summary>
     /// Tries to consume a union operator (<see cref="Chars.Union"/>) from the input and advances the cursor if successful.
     /// </summary>
-    /// <returns><see langword="true"/> if the union operator was successfully consumed; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the union operator was successfully consumed.</returns>
     public bool TryConsumeUnionOperator() => TryConsumeBinaryOperator(Chars.Union);
 
     /// <summary>
     /// Tries to consume a difference operator (<see cref="Chars.Difference"/>) from the input and advances the cursor if successful.
     /// </summary>
-    /// <returns><see langword="true"/> if the difference operator was successfully consumed; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the difference operator was successfully consumed.</returns>
     public bool TryConsumeDifferenceOperator() => TryConsumeBinaryOperator(Chars.Difference);
 
     /// <summary>
     /// Tries to consume an intersection operator (<see cref="Chars.Intersection"/>) from the input and advances the cursor if successful.
     /// </summary>
-    /// <returns><see langword="true"/> if the intersection operator was successfully consumed; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the intersection operator was successfully consumed.</returns>
     public bool TryConsumeIntersectionOperator() => TryConsumeBinaryOperator(Chars.Intersection);
 
     /// <summary>
     /// Tries to consume a left parenthesis (<see cref="Chars.LeftParen"/>) from the input and advances the cursor if successful.
     /// </summary>
-    /// <returns><see langword="true"/> if the left parenthesis was successfully consumed; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the left parenthesis was successfully consumed.</returns>
     public bool TryConsumeLeftParen() => TryConsume(Chars.LeftParen);
 
     /// <summary>
@@ -143,7 +143,7 @@ public ref struct AlangCursor(string input)
     /// Tries to consume the specified character from the input and advances the cursor if successful.
     /// </summary>
     /// <param name="c">The character to attempt to consume.</param>
-    /// <returns><see langword="true"/> if the character was successfully consumed; otherwise, <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> <c>iff</c> the character was successfully consumed.</returns>
     public bool TryConsume(char c)
     {
         if (First != c)
@@ -191,17 +191,17 @@ public ref struct AlangCursor(string input)
     }
 
     /// <summary>
-    /// Gets a string representation of the next character in the input, or "End-Of-Input" if at the end of the input.
+    /// String representation of the next character in the input, or "End-Of-Input" if at the end of the input.
     /// </summary>
     public readonly string NextAsString => cursor.IsEmpty ? "End-Of-Input" : cursor[0].ToString();
 
     /// <summary>
-    /// Gets the current position of the cursor in the original input string.
+    /// Current position of the cursor in the original input string.
     /// </summary>  
     public readonly int CursorIndex => OriginalInputLength - cursor.Length;
 
     /// <summary>
-    /// Returns a string representation of the remaining input.
+    /// String representation of the remaining input.
     /// </summary>
     /// <returns>A string that represents the remaining input.</returns>
     public override readonly string ToString() => cursor.IsEmpty ? "<EMPTY>" : $"'{new string(cursor)}'";

@@ -14,19 +14,19 @@ public abstract class AlangExpr
     protected AlangExpr() { }
 
     /// <summary>
-    /// Gets the precedence level of this expression according to Alang grammar specification.
+    /// Precedence level of this expression according to Alang grammar specification.
     /// </summary>
     public abstract int Precedence { get; }
 
     /// <summary>
-    /// Gets the string representation of this expression in valid Alang language syntax.
+    /// String representation of this expression in valid Alang language syntax.
     /// </summary>
     public abstract string AlangExpressionString { get; }
 
     /// <summary>
     /// Indicates whether this expression is an empty string.
     /// An empty string is not a valid expression in Alang.
-    /// Is used internally by the Parser to handle empty strings.
+    /// Used internally by the Parser to handle empty strings.
     /// </summary>
     public bool IsEmptyString => this is Atom atom && atom.Symbol.Length == 0;
 
@@ -42,12 +42,11 @@ public abstract class AlangExpr
         cursor.ShouldNotBeEmpty();
 
         AlangExpr expression = ParseAlangExpr(ref cursor);
-        
+
         cursor.ShouldNotBeRightParen();
-      
+
         return expression;
     }
-
 
     /// <summary>
     /// Parses the rule <c>AlangExpr</c> in the Alang grammar specification.
@@ -59,7 +58,7 @@ public abstract class AlangExpr
     /// <returns>An <see cref="AlangExpr"/> representing the parsed expression.</returns>
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     private static AlangExpr ParseAlangExpr(ref AlangCursor cursor)
-    { 
+    {
         AlangExpr expression = Union.Parse(ref cursor);
         return expression;
     }
@@ -73,11 +72,11 @@ public abstract class AlangExpr
     internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
     {
         if (cursor.TryConsumeLeftParen())
-        {    
+        {
             cursor.ShouldNotBeOperator();
             AlangExpr expression = ParseAlangExpr(ref cursor); // Parse inner expression
             cursor.ConsumeRightParen();
-            
+
             if (expression.IsEmptyString)
                 return new EmptySet(); // Captured empty parentheses '()' => EmptySet
 
@@ -89,7 +88,6 @@ public abstract class AlangExpr
 
         return cursor.ConsumeAtom();
     }
-
 
     /// <summary>
     /// Returns the expression string of the given expression, enclosed in parentheses only if necessary based on operator precedence.
@@ -106,7 +104,7 @@ public abstract class AlangExpr
             : $"({expr.AlangExpressionString})";
 
     /// <summary>
-    /// Returns a string that represents the current object.
+    /// String that represents the current object.
     /// </summary>
     /// <returns>The expression string of this expression.</returns>
     public override string ToString() => AlangExpressionString;

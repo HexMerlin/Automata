@@ -1,4 +1,10 @@
 ﻿namespace Automata.Core.Alang;
+/// <summary>
+/// Represents a wildcard expression in the <c>Alang</c> (Automata language).
+/// </summary>
+/// <remarks>
+/// A wildcard that matches any atom in the Alphabet.
+/// </remarks>
 public class Wildcard : AlangExpr
 {
     ///<inheritdoc/>

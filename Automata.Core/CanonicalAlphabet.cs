@@ -47,7 +47,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     /// <summary>
     /// Initializes a new instance of the <see cref="CanonicalAlphabet"/> class with the specified symbols.
     /// </summary>
-    /// <param name="symbols">The symbols to initialize the alphabet with.</param>
+    /// <param name="symbols">Symbols to initialize the alphabet with.</param>
     public CanonicalAlphabet(IEnumerable<string> symbols)
     {
         indexToStringMap = [.. symbols.Distinct().OrderBy(s => s, CanonicalStringComparer)];
@@ -64,7 +64,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     public static StringComparer CanonicalStringComparer => StringComparer.Ordinal;
 
     /// <summary>
-    /// Gets the number of symbols in the alphabet.
+    /// Number of symbols in the alphabet.
     /// </summary>
     public int Count => indexToStringMap.Length;
 
@@ -81,13 +81,13 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     public bool Contains(string symbol) => StringToIndexMap.ContainsKey(symbol);
 
     /// <summary>
-    /// Returns a string with each symbol and its index, separated by a newline.
+    /// String with each symbol and its index, separated by a newline.
     /// </summary>
     /// <returns>A string with each symbol and its index, separated by a newline.</returns>
     public string ToStringExpanded() => string.Join("\n", Enumerable.Range(0, Count).Select(i => $"{i}: {this[i]}"));
 
     /// <summary>
-    /// Returns a string that represents the current alphabet, including its size.
+    /// String that represents the current alphabet, including its size.
     /// </summary>
     /// <returns>A string representation of the alphabet.</returns>
     public override string ToString() => $"Alphabet, size: {Count}";
@@ -108,7 +108,7 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     public override bool Equals(object? obj) => Equals(obj as CanonicalAlphabet);
 
     /// <summary>
-    /// Returns a hash code for the current alphabet.
+    /// Hash code for the current alphabet.
     /// </summary>
     /// <returns>A hash code for the alphabet.</returns>
     public override int GetHashCode()
@@ -122,17 +122,17 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     /// <summary>
     /// Indicates whether two specified instances of <see cref="CanonicalAlphabet"/> are equal.
     /// </summary>
-    /// <param name="left">The first alphabet to compare.</param>
-    /// <param name="right">The second alphabet to compare.</param>
-    /// <returns>true if the two alphabets are equal; otherwise, false.</returns>
+    /// <param name="left">First alphabet to compare.</param>
+    /// <param name="right">Second alphabet to compare.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the two alphabets are equal.</returns>
     public static bool operator ==(CanonicalAlphabet left, CanonicalAlphabet right) => left.Equals(right);
 
     /// <summary>
     /// Indicates whether two specified instances of <see cref="CanonicalAlphabet"/> are not equal.
     /// </summary>
-    /// <param name="left">The first alphabet to compare.</param>
-    /// <param name="right">The second alphabet to compare.</param>
-    /// <returns>true if the two alphabets are not equal; otherwise, false.</returns>
+    /// <param name="left">First alphabet to compare.</param>
+    /// <param name="right">Second alphabet to compare.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the two alphabets are not equal.</returns>
     public static bool operator !=(CanonicalAlphabet left, CanonicalAlphabet right) => !left.Equals(right);
 
 }

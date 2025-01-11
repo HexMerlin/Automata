@@ -4,7 +4,7 @@ using Automata.Core.Operations;
 namespace Automata.Core;
 
 /// <summary>
-/// Represents a nondeterministic finite automaton (NFA).
+/// Nondeterministic finite automaton (NFA).
 /// </summary>
 /// <remarks>
 /// States are represented simply as integers (<see langword="int"/>), which essentially are just unique IDs.
@@ -22,7 +22,7 @@ public class Nfa : IFsa
 {
     #region Data
     /// <summary>
-    /// Gets the alphabet used by the NFA.
+    /// Alphabet used by the NFA.
     /// </summary>
     public MutableAlphabet Alphabet { get; }
 
@@ -33,7 +33,7 @@ public class Nfa : IFsa
     private readonly HashSet<int> finalStates = [];
 
     /// <summary>
-    /// Gets a upper bound for the maximum state number in the NFA.
+    /// Upper bound for the maximum state number in the NFA.
     /// </summary>
     /// <remarks>
     /// This values denotes an upper bound for the state numbers in the NFA.
@@ -51,13 +51,13 @@ public class Nfa : IFsa
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class with the specified alphabet.
     /// </summary>
-    /// <param name="alphabet">The alphabet used by the NFA.</param>
+    /// <param name="alphabet">Alphabet used by the NFA.</param>
     public Nfa(MutableAlphabet alphabet) => this.Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class from a DFA.
     /// </summary>
-    /// <param name="dfa">The DFA to create an NFA from.</param>
+    /// <param name="dfa">DFA to create an NFA from.</param>
     /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
     internal Nfa(Dfa dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
     {
@@ -79,7 +79,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Initializes a new instance of a <see cref="Nfa"/> class to accept a set of sequences.
     /// </summary>
-    /// <param name="sequences">The sequences to add to the NFA.</param>
+    /// <param name="sequences">Sequences to add to the NFA.</param>
     public Nfa(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
 
     /// <summary>
@@ -95,26 +95,26 @@ public class Nfa : IFsa
     /// <summary>
     /// Returns the set of transitions from the given state.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <returns>The set of transitions from the given state.</returns>
+    /// <param name="fromState">State from which to start.</param>
+    /// <returns>Set of transitions from the given state.</returns>
     public SortedSet<Transition> Transitions(int fromState)
         => symbolicTransitions.GetViewBetween(Transition.MinTrans(fromState), Transition.MaxTrans(fromState));
 
     /// <summary>
     /// Returns the transitions from the given state with the given symbol.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <param name="symbol">The symbol to transition on.</param>
-    /// <returns>The transitions from the given state on the given symbol.</returns>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
+    /// <returns>Transitions from the given state on the given symbol.</returns>
     public SortedSet<Transition> Transitions(int fromState, int symbol)
         => symbolicTransitions.GetViewBetween(Transition.MinTrans(fromState, symbol), Transition.MaxTrans(fromState, symbol));
 
     /// <summary>
     /// Returns the states reachable from the given states on the given symbol, including epsilon closures.
     /// </summary>
-    /// <param name="fromStates">The states from which to start.</param>
-    /// <param name="symbol">The symbol to transition on.</param>
-    /// <returns>The states reachable from the given states on the given symbol, including epsilon closures.</returns>
+    /// <param name="fromStates">States from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
+    /// <returns>States reachable from the given states on the given symbol, including epsilon closures.</returns>
     public IntSet ReachableStates(IEnumerable<int> fromStates, int symbol)
     {
         HashSet<int> intermediateStates = fromStates.ToHashSet();
@@ -127,9 +127,9 @@ public class Nfa : IFsa
     /// <summary>
     /// Returns the states reachable from the given state with the given symbol.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <param name="symbol">The symbol to transition on.</param>
-    /// <returns>The states reachable from the given state on the given symbol.</returns>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
+    /// <returns>States reachable from the given state on the given symbol.</returns>
     public IEnumerable<int> ReachableStatesOnSingleSymbol(int fromState, int symbol)
         => Transitions(fromState, symbol).Select(t => t.ToState);
 
@@ -137,8 +137,8 @@ public class Nfa : IFsa
     /// Returns the states reachable from the given state on a single epsilon transition.
     /// If the input state has an epsilon loop on itself, it will be included in the result.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <returns>The states reachable from the given state on a single epsilon transition.</returns>
+    /// <param name="fromState">State from which to start.</param>
+    /// <returns>States reachable from the given state on a single epsilon transition.</returns>
     public IEnumerable<int> ReachableStatesOnSingleEpsilon(int fromState)
         => epsilonTransitions.GetViewBetween(EpsilonTransition.MinTrans(fromState), EpsilonTransition.MaxTrans(fromState)).Select(t => t.ToState);
 
@@ -146,7 +146,7 @@ public class Nfa : IFsa
     /// Extends the provided set of states with their epsilon closure in place.
     /// </summary>
     /// <remarks>Epsilon closure is all reachable states on epsilon transitions.</remarks>
-    /// <param name="fromStates">The set of states to extend.</param>
+    /// <param name="fromStates">Set of states to extend.</param>
     public void ReachableStatesOnEpsilonInPlace(HashSet<int> fromStates)
     {
         var queue = new Queue<int>(fromStates);
@@ -163,15 +163,15 @@ public class Nfa : IFsa
     /// <summary>
     /// Returns the set of symbols that can be used to transition directly from the given states.
     /// </summary>
-    /// <param name="fromStates">The states from which to start.</param>
-    /// <returns>The set of symbols that can be used to transition directly from the given states.</returns>
+    /// <param name="fromStates">States from which to start.</param>
+    /// <returns>Set of symbols that can be used to transition directly from the given states.</returns>
     public IntSet AvailableSymbols(IEnumerable<int> fromStates)
         => new(fromStates.SelectMany(s => Transitions(s)).Select(t => t.Symbol));
 
     /// <summary>
     /// Adds a symbolic (non-epsilon) transition to the NFA.
     /// </summary>
-    /// <param name="transition">The transition to add.</param>
+    /// <param name="transition">Transition to add.</param>
     public void Add(Transition transition)
     {
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
@@ -181,7 +181,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Adds an epsilon transition to the NFA.
     /// </summary>
-    /// <param name="transition">The transition to add.</param>
+    /// <param name="transition">Transition to add.</param>
     public void Add(EpsilonTransition transition)
     {
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
@@ -191,7 +191,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Adds multiple symbolic transitions to the NFA.
     /// </summary>
-    /// <param name="transitions">The transitions to add.</param>
+    /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<Transition> transitions)
     {
         foreach (Transition transition in transitions)
@@ -201,7 +201,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Adds multiple epsilon transitions to the NFA.
     /// </summary>
-    /// <param name="transitions">The transitions to add.</param>
+    /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<EpsilonTransition> transitions)
     {
         foreach (EpsilonTransition transition in transitions)
@@ -214,7 +214,7 @@ public class Nfa : IFsa
     /// <remarks>
     /// Any missing symbols in the alphabet will be added to the alphabet.
     /// </remarks>
-    /// <param name="sequence">The sequence of symbols to add.</param>
+    /// <param name="sequence">Sequence of symbols to add.</param>
     public void UnionWith(IEnumerable<string> sequence)
     {
         int fromState = MaxState;
@@ -231,7 +231,7 @@ public class Nfa : IFsa
     /// <remarks>
     /// Any missing symbols in the alphabet will be added to the alphabet.
     /// </remarks>
-    /// <param name="sequences">The sequences to add to the NFA.</param>
+    /// <param name="sequences">Sequences to add to the NFA.</param>
     public void UnionWith(IEnumerable<IEnumerable<string>> sequences)
     {
         foreach (IEnumerable<string> sequence in sequences)
@@ -241,15 +241,15 @@ public class Nfa : IFsa
     /// <summary>
     /// Indicates whether the specified state is an initial state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is an initial state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is an initial state; otherwise, <see langword="false"/>.</returns>
     public bool IsInitial(int state) => initialStates.Contains(state);
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state; otherwise, <see langword="false"/>.</returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
     /// <summary>
@@ -273,9 +273,9 @@ public class Nfa : IFsa
     /// <summary>
     /// Adds or removes a state from a set based on a condition.
     /// </summary>
-    /// <param name="condition">If <c>true</c>, the state is added; otherwise, it is removed.</param>
-    /// <param name="state">The state to add or remove.</param>
-    /// <param name="set">The set to modify.</param>
+    /// <param name="condition">If <see langword="true"/>, the state is added; otherwise, it is removed.</param>
+    /// <param name="state">State to add or remove.</param>
+    /// <param name="set">Set to modify.</param>
     private void IncludeIf(bool condition, int state, HashSet<int> set)
     {
         if (condition) set.Add(UpdateMaxState(state));
@@ -285,9 +285,9 @@ public class Nfa : IFsa
     /// <summary>
     /// Adds or removes multiple states from a set based on a condition.
     /// </summary>
-    /// <param name="condition">If <c>true</c>, the states are added; otherwise, they are removed.</param>
-    /// <param name="states">The states to add or remove.</param>
-    /// <param name="set">The set to modify.</param>
+    /// <param name="condition">If <see langword="true"/>, the states are added; otherwise, they are removed.</param>
+    /// <param name="states">States to add or remove.</param>
+    /// <param name="set">Set to modify.</param>
     private void IncludeIf(bool condition, IEnumerable<int> states, HashSet<int> set)
     {
         if (condition)
@@ -301,38 +301,38 @@ public class Nfa : IFsa
     /// <summary>
     /// Sets the specified state as an initial state or removes it from the initial states.
     /// </summary>
-    /// <param name="state">The state to set or remove as an initial state.</param>
-    /// <param name="initial">If <c>true</c>, the state is added to the initial states; otherwise, it is removed.</param>
+    /// <param name="state">State to set or remove as an initial state.</param>
+    /// <param name="initial">If <see langword="true"/>, the state is added to the initial states; otherwise, it is removed.</param>
     public void SetInitial(int state, bool initial = true) => IncludeIf(initial, state, initialStates);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
-    /// <param name="state">The state to set or remove as a final state.</param>
-    /// <param name="final">If <c>true</c>, the state is added to the final states; otherwise, it is removed.</param>
+    /// <param name="state">State to set or remove as a final state.</param>
+    /// <param name="final">If <see langword="true"/>, the state is added to the final states; otherwise, it is removed.</param>
     public void SetFinal(int state, bool final = true) => IncludeIf(final, state, finalStates);
 
     /// <summary>
     /// Sets the specified states as initial states or removes them from the initial states.
     /// </summary>
-    /// <param name="states">The states to set or remove as initial states.</param>
-    /// <param name="initial">If <c>true</c>, the states are added to the initial states; otherwise, they are removed.</param>
+    /// <param name="states">States to set or remove as initial states.</param>
+    /// <param name="initial">If <see langword="true"/>, the states are added to the initial states; otherwise, they are removed.</param>
     public void SetInitial(IEnumerable<int> states, bool initial = true) => IncludeIf(initial, states, initialStates);
 
     /// <summary>
     /// Sets the specified states as final states or removes them from the final states.
     /// </summary>
-    /// <param name="states">The states to set or remove as final states.</param>
-    /// <param name="final">If <c>true</c>, the states are added to the final states; otherwise, they are removed.</param>
+    /// <param name="states">States to set or remove as final states.</param>
+    /// <param name="final">If <see langword="true"/>, the states are added to the final states; otherwise, they are removed.</param>
     public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIf(final, states, finalStates);
 
     /// <summary>
-    /// Gets the initial states of the NFA.
+    /// Initial states of the NFA.
     /// </summary>
     public IReadOnlySet<int> InitialStates => initialStates;
 
     /// <summary>
-    /// Gets the final states of the NFA.
+    /// Final states of the NFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
 
@@ -353,7 +353,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Updates the maximum state number if the provided state is greater.
     /// </summary>
-    /// <param name="state">The state to compare.</param>
+    /// <param name="state">State to compare.</param>
     /// <returns>The same state.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int UpdateMaxState(int state)

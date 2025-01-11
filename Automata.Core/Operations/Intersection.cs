@@ -1,7 +1,5 @@
 ﻿namespace Automata.Core.Operations;
-/// <summary>
-/// Provides static methods for performing operations on finite automata, such as computing the intersection of two automata.
-/// </summary>
+
 public static partial class Ops
 {
     /// <summary>

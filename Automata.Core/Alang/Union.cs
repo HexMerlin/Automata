@@ -1,8 +1,7 @@
 ﻿namespace Automata.Core.Alang;
 
-public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right) 
+public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
 {
-
     /// <summary>
     /// Parses the rule <c>Union</c> in the Alang grammar specification.
     /// </summary>
@@ -18,7 +17,6 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
             return new Union(left, right);
         }
         return left;
-   
     }
 
     ///<inheritdoc/>
@@ -26,5 +24,4 @@ public class Union(AlangExpr left, AlangExpr right) : InfixBinary(left, right)
 
     ///<inheritdoc/>
     public override string AlangExpressionString => $"{Param(Left, this)}{Chars.Union}{Param(Right, this)}";
-
 }

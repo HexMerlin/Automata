@@ -3,7 +3,7 @@
 namespace Automata.Core;
 
 /// <summary>
-/// Represents a deterministic finite automaton (DFA).
+/// Deterministic finite automaton (DFA).
 /// </summary>
 /// <remarks>
 /// A DFA is a finite state machine that accepts or rejects finite sequences of symbols.
@@ -13,14 +13,14 @@ public class Dfa : IDfa
 {
     #region Data
     /// <summary>
-    /// Gets the alphabet used by the DFA.
+    /// Alphabet used by the DFA.
     /// </summary>
     public MutableAlphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> orderByFromState = new();
 
     /// <summary>
-    /// Gets the initial state of the DFA.
+    /// Initial state of the DFA.
     /// </summary>
     /// <remarks>
     /// Returns <see cref="Constants.InvalidState"/> if the DFA has no initial state.
@@ -30,7 +30,7 @@ public class Dfa : IDfa
     private readonly HashSet<int> finalStates = new();
 
     /// <summary>
-    /// Gets an upper bound for the maximum state number in the DFA.
+    /// Upper bound for the maximum state number in the DFA.
     /// </summary>
     /// <remarks>
     /// This value represents an upper limit for state numbers in the DFA.
@@ -47,16 +47,16 @@ public class Dfa : IDfa
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
-    /// <param name="alphabet">The alphabet used by the DFA.</param>
+    /// <param name="alphabet">Alphabet used by the DFA.</param>
     public Dfa(MutableAlphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
     /// </summary>
-    /// <param name="alphabet">The alphabet used by the DFA.</param>
-    /// <param name="transitions">The transitions of the DFA.</param>
-    /// <param name="initialState">The initial state of the DFA.</param>
-    /// <param name="finalStates">The final states of the DFA.</param>
+    /// <param name="alphabet">Alphabet used by the DFA.</param>
+    /// <param name="transitions">Transitions of the DFA.</param>
+    /// <param name="initialState">Initial state of the DFA.</param>
+    /// <param name="finalStates">Final states of the DFA.</param>
     internal Dfa(MutableAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
@@ -66,7 +66,7 @@ public class Dfa : IDfa
     }
 
     /// <summary>
-    /// Gets a value indicating whether the DFA is empty. A DFA is considered empty if it has no initial state.
+    /// Indicates whether the DFA is empty. A DFA is considered empty if it has no initial state.
     /// </summary>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
@@ -78,13 +78,13 @@ public class Dfa : IDfa
     /// <summary>
     /// Sets the initial state of the DFA, updating the maximum state number if necessary.
     /// </summary>
-    /// <param name="state">The state to set as the initial state.</param>
+    /// <param name="state">State to set as the initial state.</param>
     public void SetInitial(int state) => InitialState = UpdateMaxState(state);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
-    /// <param name="state">The state to set or remove as a final state.</param>
+    /// <param name="state">State to set or remove as a final state.</param>
     /// <param name="final">
     /// If <see langword="true"/>, the state is added to the final states; otherwise, it is removed.
     /// </param>
@@ -93,7 +93,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Sets the specified states as final states or removes them from the final states.
     /// </summary>
-    /// <param name="states">The states to set or remove as final states.</param>
+    /// <param name="states">States to set or remove as final states.</param>
     /// <param name="final">
     /// If <see langword="true"/>, the states are added to the final states; otherwise, they are removed.
     /// </param>
@@ -102,23 +102,23 @@ public class Dfa : IDfa
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
+    /// <param name="state">State to check.</param>
     /// <returns>
-    /// <see langword="true"/> if the specified state is the initial state; otherwise, <see langword="false"/>.
+    /// <see langword="true"/> <c>iff</c> the specified state is the initial state.
     /// </returns>
     public bool IsInitial(int state) => state == InitialState;
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
+    /// <param name="state">State to check.</param>
     /// <returns>
-    /// <see langword="true"/> if the specified state is a final state; otherwise, <see langword="false"/>.
+    /// <see langword="true"/> <c>iff</c> the specified state is a final state.
     /// </returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
     /// <summary>
-    /// Gets the final states of the DFA.
+    /// Final states of the DFA.
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
 
@@ -128,9 +128,9 @@ public class Dfa : IDfa
     /// <remarks>
     /// If adding the transition would introduce nondeterminism (i.e., a transition with the same from-state and symbol already exists), the new transition will not be added.
     /// </remarks>
-    /// <param name="transition">The transition to add.</param>
+    /// <param name="transition">Transition to add.</param>
     /// <returns>
-    /// <see langword="true"/> if the transition was added; otherwise, <see langword="false"/>.
+    /// <see langword="true"/> <c>iff</c> the transition was added.
     /// </returns>
     public bool Add(Transition transition)
     {
@@ -142,7 +142,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Adds all provided transitions that are currently not present in the set.
     /// </summary>
-    /// <param name="transitions">The transitions to add.</param>
+    /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<Transition> transitions)
     {
         foreach (Transition transition in transitions)
@@ -152,8 +152,8 @@ public class Dfa : IDfa
     /// <summary>
     /// Returns the transition from the given state with the given symbol.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <param name="symbol">The symbol to transition on.</param>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
     /// <returns>
     /// The transition from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
     /// </returns>
@@ -166,8 +166,8 @@ public class Dfa : IDfa
     /// <summary>
     /// Returns the set of transitions from the given state.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <returns>The set of transitions from the given state.</returns>
+    /// <param name="fromState">State from which to start.</param>
+    /// <returns>Set of transitions from the given state.</returns>
     public SortedSet<Transition> Transitions(int fromState)
         => orderByFromState.GetViewBetween(
             Core.Transition.MinTrans(fromState),
@@ -177,7 +177,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Returns a <see cref="StateView"/> of the given state.
     /// </summary>
-    /// <param name="fromState">The from state.</param>
+    /// <param name="fromState">From state.</param>
     /// <remarks>
     /// This method provides a read-only view of the state transitions from the specified state.
     /// It is primarily for compatibility with contiguous memory representations like <see cref="Cfa"/>.
@@ -190,8 +190,8 @@ public class Dfa : IDfa
     /// <summary>
     /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
-    /// <param name="fromState">The state from which to start.</param>
-    /// <param name="symbol">The symbol to transition on.</param>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
     /// <returns>
     /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
     /// </returns>
@@ -250,9 +250,9 @@ public class Dfa : IDfa
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.
     /// </summary>
-    /// <param name="sequence">The sequence of symbols to check.</param>
+    /// <param name="sequence">Sequence of symbols to check.</param>
     /// <returns>
-    /// <see langword="true"/> if the DFA accepts the sequence; otherwise, <see langword="false"/>.
+    /// <see langword="true"/> <c>iff</c> the DFA accepts the sequence.
     /// </returns>
     /// <remarks>
     /// The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
@@ -278,8 +278,8 @@ public class Dfa : IDfa
     /// Conditionally includes or excludes a state in a set based on the provided condition.
     /// </summary>
     /// <param name="condition">If <see langword="true"/>, the state is added; otherwise, it is removed.</param>
-    /// <param name="state">The state to include or exclude.</param>
-    /// <param name="set">The set to modify.</param>
+    /// <param name="state">State to include or exclude.</param>
+    /// <param name="set">Set to modify.</param>
     private void IncludeIf(bool condition, int state, HashSet<int> set)
     {
         if (condition)
@@ -292,8 +292,8 @@ public class Dfa : IDfa
     /// Conditionally includes or excludes a collection of states in a set based on the provided condition.
     /// </summary>
     /// <param name="condition">If <see langword="true"/>, the states are added; otherwise, they are removed.</param>
-    /// <param name="states">The states to include or exclude.</param>
-    /// <param name="set">The set to modify.</param>
+    /// <param name="states">States to include or exclude.</param>
+    /// <param name="set">Set to modify.</param>
     private void IncludeIf(bool condition, IEnumerable<int> states, HashSet<int> set)
     {
         if (condition)
@@ -310,7 +310,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Updates the maximum state number if the provided state is greater.
     /// </summary>
-    /// <param name="state">The state to compare and potentially update.</param>
+    /// <param name="state">State to compare and potentially update.</param>
     /// <returns>The input state.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int UpdateMaxState(int state)
@@ -322,7 +322,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Updates the maximum state number based on the from and to states of the provided transition.
     /// </summary>
-    /// <param name="transition">The transition to evaluate.</param>
+    /// <param name="transition">Transition to evaluate.</param>
     /// <returns>The input transition.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private Transition UpdateMaxState(Transition transition)

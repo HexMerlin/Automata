@@ -4,7 +4,7 @@ using Microsoft.Msagl.GraphViewerGdi;
 namespace Automata.Visualization;
 
 ///<summary>
-/// A class for displaying finite-state automata as graphs in a separate window (and its own separate thread).
+/// Class for displaying finite-state automata as graphs in a separate window (and its own separate thread).
 ///</summary>
 ///<remarks>
 /// You do not need to involve any GUI boilerplate code to display a graph in a separate window, like calling the blocking `Application.Run()`, setting STA thread environment or bother about the GUI messes with your threads.
@@ -14,7 +14,7 @@ namespace Automata.Visualization;
 public partial class GraphView : Form
 {
     ///<summary>
-    /// Gets the GViewer control used to display the graph.
+    /// GViewer control used to display the graph.
     ///</summary>
     internal GViewer GViewer => gViewer;
 
@@ -66,7 +66,7 @@ public partial class GraphView : Form
     ///<summary>
     /// Opens a new instance of the <see cref="GraphView"/> class in a new thread and sets the specified graph.
     ///</summary>
-    ///<param name="graph">The graph to display.</param>
+    ///<param name="graph">Graph to display.</param>
     ///<returns>A new instance of the <see cref="GraphView"/> class with the specified graph set.</returns>
     public static GraphView OpenNew(Graph graph)
     {
@@ -78,20 +78,19 @@ public partial class GraphView : Form
     ///<summary>
     /// Invokes the specified action on the UI thread.
     ///</summary>
-    ///<param name="action">The action to invoke.</param>
+    ///<param name="action">Action to invoke.</param>
     public new void Invoke(Action action)
     {
         if (Disposing || IsDisposed) return;
         if (InvokeRequired)
             base.Invoke(action);
-       
         else action();
     }
 
     /// <summary>
     /// Displays the specified graph in the graph view.
     /// </summary>
-    /// <param name="graph">The graph to display.</param>
+    /// <param name="graph">Graph to display.</param>
     public void SetGraph(Graph graph) => Invoke(() => GViewer.Graph = graph);
 
     ///<inheritdoc/>

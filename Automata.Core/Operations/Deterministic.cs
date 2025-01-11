@@ -5,6 +5,7 @@ public static partial class Ops
     /// Determinization of an NFA representation to a DFA.
     /// </summary>
     /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
+    /// <param name="nfa">The input nondeterministic finite automaton.</param>
     /// <returns>A new DFA equivalent to the NFA.</returns>
     public static Dfa ToDfa(Nfa nfa)
     {
@@ -34,6 +35,11 @@ public static partial class Ops
         }
         return new Dfa(nfa.Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
 
+        /// <summary>
+        /// Gets or adds a state to the DFA.
+        /// </summary>
+        /// <param name="combinedState">The combined state to get or add.</param>
+        /// <returns>The DFA state corresponding to the combined state.</returns>
         int GetOrAddState(IntSet combinedState)
         {
             if (!stateSetToDfaState.TryGetValue(combinedState, out int dfaState))

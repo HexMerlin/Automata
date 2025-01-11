@@ -3,7 +3,7 @@
 namespace Automata.Core.Alang;
 
 /// <summary>
-/// Provides character definitions and utility methods Alang.
+/// Character definitions and utility methods for Alang.
 /// </summary>
 public static class Chars
 {
@@ -15,7 +15,7 @@ public static class Chars
     /// <summary>
     /// Invalid character.
     /// </summary>
-    public const char Invalid = '\uFFFF'; //Invalid character
+    public const char Invalid = '\uFFFF'; // Invalid character
 
     /// <summary>
     /// Union operator character.
@@ -63,32 +63,31 @@ public static class Chars
     public const char RightParen = ')';
 
     /// <summary>
-    /// Wildcard
+    /// Wildcard token denoting any string in the alphabet.
     /// </summary>
-    /// <remarks>A wildcard token denoting any string in the alphabet.</remarks>
     public const char Wildcard = '.';
 
     /// <summary>
     /// Indicates if a character can be the start of an expression.
     /// </summary>
-    /// <param name="c">The character to check.</param>
-    /// <returns>True if the character can start an expression; otherwise, false.</returns>
+    /// <param name="c">Character to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the character can start an expression.</returns>
     public static bool IsExpressionStart(char c)
         => !ForbiddenExpressionStarts.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
     /// Indicates if a character can be part of an atom.
     /// </summary>
-    /// <param name="c">The character to check.</param>
-    /// <returns>True if the character can be part of an atom; otherwise, false.</returns>
+    /// <param name="c">Character to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the character can be part of an atom.</returns>
     public static bool IsAtomChar(char c)
         => !ForbiddenInAtoms.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
     /// Indicates if a character is an operator.
     /// </summary>
-    /// <param name="c">The character to check.</param>
-    /// <returns>True <c>iff</c> the character is an operator.</returns>
+    /// <param name="c">Character to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the character is an operator.</returns>
     public static bool IsOperator(char c) => Operators.Contains(c);
 
     private static readonly FrozenSet<char> ForbiddenExpressionStarts

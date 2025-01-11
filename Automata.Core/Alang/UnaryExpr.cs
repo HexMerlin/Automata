@@ -1,28 +1,24 @@
 ﻿namespace Automata.Core.Alang;
 
 /// <summary>
-/// Represents a postfix unary expression in the Alang language.
+/// Postfix unary expression in the Alang language.
 /// </summary>
 /// <remarks>
-/// This abstract class serves as the base class for all postfix unary operations in Alang expressions,
+/// Base class for all postfix unary operations in Alang expressions,
 /// such as option (?), Kleene star (*), Kleene plus (+), and complement (~).
 /// </remarks>
-/// <remarks>
-/// Initializes a new instance of the <see cref="UnaryExpr"/> class with the specified operand.
-/// </remarks>
-/// <param name="operand">The operand of the postfix unary expression.</param>
+/// <param name="operand">Operand of the postfix unary expression.</param>
 public abstract class UnaryExpr(AlangExpr operand) : AlangExpr()
 {
     /// <summary>
-    /// Gets the operand of the postfix unary expression.
+    /// Operand of the postfix unary expression.
     /// </summary>
     public AlangExpr Operand { get; } = operand;
-
 
     /// <summary>
     /// Parses the rule <c>UnaryExpr</c> in the Alang grammar specification.
     /// </summary>
-    /// <param name="cursor">The cursor from which to parse the expression.</param>
+    /// <param name="cursor">Cursor from which to parse the expression.</param>
     /// <returns>An <see cref="AlangExpr"/> representing the parsed expression.</returns>
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     internal static AlangExpr ParseUnaryExpr(ref AlangCursor cursor)

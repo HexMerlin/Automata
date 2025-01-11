@@ -14,34 +14,35 @@ namespace Automata.Core;
 /// <item>Canonical alphabet: Reduced, contiguous, and lexicographically ordered.</item>
 /// <item>Canonical states and transitions: contiguously indexed, optimized, and fully ordered.</item>
 /// <item><c>Immutable</c>: Guarantees structural and behavioral invariance.</item>
-/// <item>Performance-optimized for efficient read-only operations.</item>
+/// <item>Performance-optimized for efficient read-only operations. Minimal memory footprint.</item>
 /// </list>
-/// For any language, the <see cref="Cfa"/> is unique, embodying its minimal deterministic automaton in canonical form.
-/// <para>Any two <see cref="Cfa"/> instances accepting the same language are identical.</para>
+/// <para>Key attribute for CFAs:</para>
+/// For any language, there exists exactly one specific <see cref="Cfa"/>.
+/// <para>Any two automata that accept the same language will, when converted, yield two <see cref="Cfa"/> that are precisely identical in all aspects.</para>
 /// </remarks>
 public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
 {
     #region Data
     /// <summary>
-    /// Gets the alphabet used by the CFA.
+    /// Alphabet used by the CFA.
     /// </summary>
     public CanonicalAlphabet Alphabet { get; }
 
     private readonly Transition[] transitions;
 
     /// <summary>
-    /// Gets the initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
+    /// Initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
     /// <para>For an empty <see cref="Cfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
     public int InitialState { get; }
 
     /// <summary>
-    /// Gets the final states of the CFA.
+    /// Final states of the CFA.
     /// </summary>
     public readonly FrozenSet<int> FinalStates;
 
     /// <summary>
-    /// Gets the number of states in the CFA.
+    /// Number of states in the CFA.
     /// </summary>
     public readonly int StateCount;
 
@@ -50,7 +51,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Initializes a new instance of the <see cref="Cfa"/> class from an existing FSA.
     /// </summary>
-    /// <param name="fsa">The finite state automaton to convert.</param>
+    /// <param name="fsa">Finite state automaton to convert.</param>
     public Cfa(IFsa fsa) : this(Convert(fsa)) { }
 
     /// <summary>
@@ -69,7 +70,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     }
 
     /// <summary>
-    /// Gets a value indicating whether the CFA is empty.
+    /// Indicates whether the CFA is empty.
     /// </summary>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
@@ -79,34 +80,34 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     public bool IsEpsilonFree => true;
 
     /// <summary>
-    /// Gets the number of transitions in the automaton.
+    /// Number of transitions in the automaton.
     /// </summary>
     public int TransitionCount => transitions.Length;
 
     /// <summary>
-    /// Gets the alphabet used by the FSA.
+    /// Alphabet used by the FSA.
     /// </summary>
     IAlphabet IFsa.Alphabet => Alphabet;
 
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is the initial state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is the initial state.</returns>
     public bool IsInitial(int state) => state == InitialState;
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
-    /// <param name="state">The state to check.</param>
-    /// <returns><c>true</c> if the specified state is a final state; otherwise, <c>false</c>.</returns>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state.</returns>
     public bool IsFinal(int state) => FinalStates.Contains(state);
 
     /// <summary>
     /// Returns the transition from the given state with the given symbol.
     /// </summary>
-    /// <param name="fromState">The source state.</param>
-    /// <param name="symbol">The symbol of the transition.</param>
+    /// <param name="fromState">Source state.</param>
+    /// <param name="symbol">Symbol of the transition.</param>
     /// <returns>
     /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
     /// </returns>
@@ -123,7 +124,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Returns a <see cref="StateView"/> for the given state.
     /// </summary>
-    /// <param name="state">The state.</param>
+    /// <param name="state">State.</param>
     /// <returns>A <see cref="StateView"/> containing the transitions from the given state.</returns>
     public StateView State(int state) => new(state, transitions);
 
@@ -142,7 +143,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Converts an FSA to a canonical form.
     /// </summary>
-    /// <param name="fsa">The finite state automaton to convert.</param>
+    /// <param name="fsa">Finite state automaton to convert.</param>
     /// <returns>A tuple containing the canonical alphabet, transitions, initial state, and final states.</returns>
     private static (CanonicalAlphabet alphabet, Transition[] transitions, int initialState, FrozenSet<int> finalStates) Convert(IFsa fsa)
     {
@@ -158,8 +159,8 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Converts a minimized DFA to a canonical form.
     /// </summary>
-    /// <param name="minDfa">The minimized DFA to convert.</param>
-    /// <param name="cAlphabet">The canonical alphabet to use for the conversion.</param>
+    /// <param name="minDfa">Minimized DFA to convert.</param>
+    /// <param name="cAlphabet">Canonical alphabet to use for the conversion.</param>
     /// <returns>A tuple containing the transitions, initial state, and final states of the canonical form.</returns>
     private static (Transition[] transitions, int initialState, FrozenSet<int> finalStates) Convert(Dfa minDfa, CanonicalAlphabet cAlphabet)
     {
@@ -200,8 +201,8 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// Finds the maximum state in the set of transitions.
     /// Also asserts that the transitions are deterministic.
     /// </summary>
-    /// <param name="transitions">The transition array.</param>
-    /// <returns>The maximum state referenced, or <see cref="Constants.InvalidState"/> if the array is empty.</returns>
+    /// <param name="transitions">Transition array.</param>
+    /// <returns>Maximum state referenced, or <see cref="Constants.InvalidState"/> if the array is empty.</returns>
     /// <exception cref="ArgumentException">If the transitions are not deterministic.</exception>
     private static int MaxStateAndAssert(Transition[] transitions)
     {
@@ -223,7 +224,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Converts an FSA to a minimized DFA.
     /// </summary>
-    /// <param name="fsa">The finite state automaton to convert.</param>
+    /// <param name="fsa">Finite state automaton to convert.</param>
     /// <returns>A minimized DFA.</returns>
     private static Dfa ToMinimizedDfa(IFsa fsa) => fsa switch
     {
@@ -233,10 +234,11 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     };
 
     /// <summary>
-    /// Indicates whether the current object is equal to another object of the same type.
+    /// Indicates language equivalence between two CFAs.
     /// </summary>
-    /// <param name="other">An object to compare with this object.</param>
-    /// <returns><see langword="true"/> if the current object is equal to <paramref name="other"/>; otherwise, <see langword="false"/>.</returns>
+    /// <param name="other">Object to compare with this object.</param>
+    /// <remarks>Equality means both CFAs accept the same language, but will due to the canonical property, also be identical.</remarks>
+    /// <returns><see langword="true"/> <c>iff</c> the current CFA is equal to <paramref name="other"/>.</returns>
     public bool Equals(Cfa? other)
     {
         if (other is null) return false;
@@ -248,8 +250,13 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
         return true;
     }
 
+    ///<inheritdoc/>
     public override bool Equals(object? obj) => Equals(obj as Cfa);
 
+    /// <summary>
+    /// Hash code for the current alphabet.
+    /// </summary>
+    /// <returns>A hash code for the alphabet.</returns>
     public override int GetHashCode()
     {
         HashCode hash = new();
@@ -264,16 +271,16 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <summary>
     /// Indicates whether two specified instances of <see cref="Cfa"/> are equal.
     /// </summary>
-    /// <param name="left">The first <see cref="Cfa"/> to compare.</param>
-    /// <param name="right">The second <see cref="Cfa"/> to compare.</param>
+    /// <param name="left">First <see cref="Cfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Cfa"/> to compare.</param>
     /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Cfa"/> instances are equal.</returns>
     public static bool operator ==(Cfa left, Cfa right) => left.Equals(right);
 
     /// <summary>
     /// Indicates whether two specified instances of <see cref="Cfa"/> are not equal.
     /// </summary>
-    /// <param name="left">The first <see cref="Cfa"/> to compare.</param>
-    /// <param name="right">The second <see cref="Cfa"/> to compare.</param>
+    /// <param name="left">First <see cref="Cfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Cfa"/> to compare.</param>
     /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Cfa"/> instances are not equal.</returns>
     public static bool operator !=(Cfa left, Cfa right) => !left.Equals(right);
 
@@ -288,7 +295,5 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// </summary>
     /// <returns>An enumerator for the transitions.</returns>
     IEnumerator IEnumerable.GetEnumerator() => this.transitions.GetEnumerator();
-
-   
 }
 

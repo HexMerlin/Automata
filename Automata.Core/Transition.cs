@@ -12,7 +12,7 @@ namespace Automata.Core;
 public readonly record struct Transition(int FromState, int Symbol, int ToState) : IComparable<Transition>
 {
     /// <summary>
-    /// Gets an invalid transition.
+    /// Invalid transition.
     /// </summary>
     public static Transition Invalid => new();
 
@@ -35,7 +35,7 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     /// <summary>
     /// Compares the current transition to another transition.
     /// </summary>
-    /// <param name="other">The other transition to compare to.</param>
+    /// <param name="other">Other transition to compare to.</param>
     /// <returns>An integer that indicates the relative order of the objects being compared.</returns>
     public int CompareTo(Transition other)
     {
@@ -49,8 +49,8 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     }
 
 
-    ///<summary>
-    /// Returns a string that represents the current transition.
+    /// <summary>
+    /// String that represents the current transition.
     /// </summary>
     /// <returns>A string that represents the current transition.</returns>
     public override string ToString() => $"{FromState}=>{ToState} ({Symbol})";
@@ -58,8 +58,8 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     /// <summary>
     /// Creates a minimum transition for the given state and symbol.
     /// </summary>
-    /// <param name="fromState">The from state.</param>
-    /// <param name="symbol">The symbol for the transition (default is <see cref="int.MinValue"/>).</param>
+    /// <param name="fromState">From state.</param>
+    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MinValue"/>).</param>
     /// <returns>A <see cref="Transition"/> representing the minimum transition.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Transition MinTrans(int fromState, int symbol = int.MinValue) => new(fromState, symbol, int.MinValue);
@@ -67,8 +67,8 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     /// <summary>
     /// Creates a maximum transition for the given state and symbol.
     /// </summary>
-    /// <param name="fromState">The from state.</param>
-    /// <param name="symbol">The symbol for the transition (default is <see cref="int.MaxValue"/>).</param>
+    /// <param name="fromState">From state.</param>
+    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MaxValue"/>).</param>
     /// <returns>A <see cref="Transition"/> representing the maximum transition.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Transition MaxTrans(int fromState, int symbol = int.MaxValue) => new(fromState, symbol, int.MaxValue);
