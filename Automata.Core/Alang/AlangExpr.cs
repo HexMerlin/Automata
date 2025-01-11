@@ -35,13 +35,11 @@ public abstract class AlangExpr
     {
         AlangCursor cursor = new(input);
        
-        if (cursor.IsEmpty)
-            AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
-        
         AlangExpr expression = ParseAlangExpr(ref cursor);
         
         if (cursor.Is(Chars.RightParen))
             AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
+
         return expression;
     }
 
