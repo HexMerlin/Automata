@@ -36,16 +36,34 @@ public ref struct AlangCursor(string input)
 
     /// <summary>
     /// Gets a value indicating whether the current character indicates the start of an expression.
+    /// If the input is empty, this method will return <see langword="false"/>.
     /// </summary>
-    public readonly bool IsExpressionStart
-          => Chars.IsExpressionStart(First);
+    public readonly bool IsExpressionStart => Chars.IsExpressionStart(First);
 
     /// <summary>
     /// Indicates whether the first character in the remaining input is the specified character.
     /// </summary>
     public readonly bool Is(char c) => First == c;
 
+    public void ShouldNotBeEmpty()
+    {
+        if (IsEmpty) throw new AlangFormatException(CursorIndex, ParseErrorType.EmptyInput, $"Input cannot be empty. To represent an empty set, use ()");
+    }
 
+    public void ShouldNotBeOperator()
+    {
+        if (Chars.IsOperator(First)) throw new AlangFormatException(CursorIndex, ParseErrorType.UnexpectedOperator, $"Unexpected operator {First} detected at index {CursorIndex}");
+    }
+
+    public void ShouldNotBeRightParen()
+    {
+        if (Is(Chars.RightParen)) throw new AlangFormatException(CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Unexpected {Chars.RightParen} detected at index {CursorIndex}");
+    }
+
+    public void ShouldBeRightParen()
+    {
+        if (!Is(Chars.RightParen)) throw new AlangFormatException(CursorIndex, ParseErrorType.MissingClosingParenthesis, $"Expected {Chars.RightParen} at index {CursorIndex}, but read {NextAsString}");
+    }
     private bool TryConsumeBinaryOperator(char binaryOperator)
     {
         if (!TryConsume(binaryOperator)) return false;
@@ -53,36 +71,20 @@ public ref struct AlangCursor(string input)
         throw new AlangFormatException(CursorIndex, ParseErrorType.MissingRightOperand, $"Expected right operand after '{binaryOperator}' at index {CursorIndex}, but read {NextAsString}");
     }
 
-    public void ShouldBeStartOfExpression()
-    {
-        if (!IsExpressionStart) AlangFormatException.ThrowExpectedBeginExpressionOrEOI(this);
-    }
-
-    public void ShouldNotBeEmpty()
-    {
-        if (IsEmpty) AlangFormatException.ThrowEmptyInput(this);
-    }
-
-    public void ShouldNotBeOperator()
-    {
-        if (Chars.IsOperator(First)) AlangFormatException.ThrowUnexpectedOperator(this, First);
-    }
-
-    public void ShouldNotBeRightParen()
-    {
-        if (Is(Chars.RightParen)) AlangFormatException.ThrowUnexpectedClosingParenthesis(this);
-    }
-
-    public void ConsumeRightParen()
-    {
-        if (!TryConsume(Chars.RightParen)) AlangFormatException.ThrowMissingClosingParenthesis(this);
-    }
-
     public bool TryConsumeUnionOperator() => TryConsumeBinaryOperator(Chars.Union);
     public bool TryConsumeDifferenceOperator() => TryConsumeBinaryOperator(Chars.Difference);
 
     public bool TryConsumeIntersectionOperator() => TryConsumeBinaryOperator(Chars.Intersection);
-  
+
+    public bool TryConsumeLeftParen() => TryConsume(Chars.LeftParen);
+
+    public void ConsumeRightParen()
+    {
+        ShouldBeRightParen();
+        _ = TryConsume(Chars.RightParen);
+    }
+
+
     /// <summary>
     /// Tries to consume the specified character from the input and advances the cursor if successful.
     /// </summary>
@@ -117,6 +119,8 @@ public ref struct AlangCursor(string input)
     /// <summary>
     /// Consume an <see cref="Atom"/> from the input.
     /// </summary>
+    /// <remarks>The method will return an empty (invalid) Atom if no characters could be consumed. It is up to the calling code to handle this.
+    /// </remarks>
     /// <returns>
     /// The consumed <see cref="Atom"/>.
     /// </returns>
@@ -131,33 +135,6 @@ public ref struct AlangCursor(string input)
 
         this.cursor = this.cursor.Slice(pos).TrimStart();
         return atom;
-    }
-
-
-    /// <summary>
-    /// Tries to consume an <see cref="Atom"/> from the input.
-    /// </summary>
-    /// <param name="atom">Contains the consumed <see cref="Atom"/> if successful, otherwise <see langword="null"/>.</param>
-    /// <returns>
-    /// <c>true</c> if an <see cref="Atom"/> was successfully consumed; otherwise, <c>false</c>.
-    /// </returns>
-    public bool TryConsumeAtom(out Atom? atom)
-    {
-        int pos = 0;
-
-        while (pos < this.cursor.Length && Chars.IsAtomChar(this.cursor[pos]))
-            pos++;
-
-        if (pos == 0)
-        {
-            atom = null;
-            return false;
-        }
-
-        atom = new Atom(this.cursor.Slice(0, pos).ToString());
-
-        this.cursor = this.cursor.Slice(pos).TrimStart();
-        return true;
     }
 
     /// <summary>
