@@ -95,7 +95,14 @@ public class AlangExprTests
     public void Parse_ForUnexpectedClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("a)", 1, ParseErrorType.UnexpectedClosingParenthesis);
 
     [TestMethod()]
-    public void Parse_ForMissingRightOperand_ThrowsCorrectException() => AssertThrowsAlangFormatException("a|", 2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForMissingRightOperandUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("a|", 2, ParseErrorType.MissingRightOperand);
+
+    [TestMethod()]
+    public void Parse_ForMissingRightOperandDifference_ThrowsCorrectException() => AssertThrowsAlangFormatException("a-", 2, ParseErrorType.MissingRightOperand);
+
+    [TestMethod()]
+    public void Parse_ForMissingRightOperandIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("a&", 2, ParseErrorType.MissingRightOperand);
+
 
     [TestMethod()]
     public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorType.ExpectedBeginExpressionOrEOI);
