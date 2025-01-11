@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_ParseErrorType.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.ParseErrorType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_ParseErrorType.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.ParseErrorType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Alang.ParseErrorType">
@@ -95,7 +95,7 @@
 
 
   <h1 id="Automata_Core_Alang_ParseErrorType" data-uid="Automata.Core.Alang.ParseErrorType" class="text-break">Enum ParseErrorType</h1>
-  <div class="markdown level0 summary"><p>Specifies the type of parsing error encountered in Alang expressions.</p>
+  <div class="markdown level0 summary"><p>Specifies the type of parsing error encountered in Alang expressions.&quot;/&gt;</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.Alang.html">Alang</a></h6>
@@ -115,13 +115,13 @@
     <thead>
     </thead></thead><tbody>
       <tr>
-        <td id="Automata_Core_Alang_ParseErrorType_ExpectedBeginExpressionOrEOI">ExpectedBeginExpressionOrEOI</td>
-        <td><p>Indicates that a new subexpression or end-of-input was expected but not found.</p>
+        <td id="Automata_Core_Alang_ParseErrorType_EmptyInput">EmptyInput</td>
+        <td><p>Indicates that the input was empty or white-space only.</p>
 </td>
       </tr>
       <tr>
-        <td id="Automata_Core_Alang_ParseErrorType_MissingAtom">MissingAtom</td>
-        <td><p>Indicates that an atom was expected but not found.</p>
+        <td id="Automata_Core_Alang_ParseErrorType_ExpectedBeginExpressionOrEOI">ExpectedBeginExpressionOrEOI</td>
+        <td><p>Indicates that a new subexpression or end-of-input was expected but not found.</p>
 </td>
       </tr>
       <tr>
@@ -137,6 +137,11 @@
       <tr>
         <td id="Automata_Core_Alang_ParseErrorType_UnexpectedClosingParenthesis">UnexpectedClosingParenthesis</td>
         <td><p>Indicates that an unexpected closing parenthesis was encountered.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Automata_Core_Alang_ParseErrorType_UnexpectedOperator">UnexpectedOperator</td>
+        <td><p>Indicates that an unexpected operator was encountered.</p>
 </td>
       </tr>
     </tbody>

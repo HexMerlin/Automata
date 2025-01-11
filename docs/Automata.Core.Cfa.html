@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Cfa">
@@ -136,18 +136,18 @@
   </div>
   <h5 id="Automata_Core_Cfa_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is the most optimized automaton representation, characterized by:</p>
-<ol><li><code>Deterministic</code> and <code>Minimal</code>: The least possible states and transitions (Similarly to a minimized DFA).</li><li>Canonical alphabet: Reduced, contiguous, and lexicographically ordered.</li><li>Canonical states and transitions: contiguously indexed, optimized, and fully ordered.</li><li><code>Immutable</code>: Guarantees structural and behavioral invariance.</li><li>Performance-optimized for efficient read-only operations.</li></ol>
-For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is unique, embodying its minimal deterministic automaton in canonical form.
-<p>Any two <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> instances accepting the same language are identical.</p>
+<ol><li><code>Deterministic</code> and <code>Minimal</code>: The least possible states and transitions (Similarly to a minimized DFA).</li><li>Canonical alphabet: Reduced, contiguous, and lexicographically ordered.</li><li>Canonical states and transitions: contiguously indexed, optimized, and fully ordered.</li><li><code>Immutable</code>: Guarantees structural and behavioral invariance.</li><li>Performance-optimized for efficient read-only operations. Minimal memory footprint.</li></ol><p>Key attribute for CFAs:</p>
+For any language, there exists exactly one specific <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.
+<p>Any two automata that accept the same language will, when converted, yield two <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> that are precisely identical in all aspects.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa__ctor_Automata_Core_IFsa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.%23ctor(Automata.Core.IFsa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa__ctor_Automata_Core_IFsa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.%23ctor(Automata.Core.IFsa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L54">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L55">View Source</a>
   </span>
   <a id="Automata_Core_Cfa__ctor_" data-uid="Automata.Core.Cfa.#ctor*"></a>
   <h4 id="Automata_Core_Cfa__ctor_Automata_Core_IFsa_" data-uid="Automata.Core.Cfa.#ctor(Automata.Core.IFsa)">Cfa(IFsa)</h4>
@@ -171,7 +171,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></td>
         <td><span class="parametername">fsa</span></td>
-        <td><p>The finite state automaton to convert.</p>
+        <td><p>Finite state automaton to convert.</p>
 </td>
       </tr>
     </tbody>
@@ -180,13 +180,13 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_FinalStates.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.FinalStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_FinalStates.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.FinalStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L41">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L42">View Source</a>
   </span>
   <h4 id="Automata_Core_Cfa_FinalStates" data-uid="Automata.Core.Cfa.FinalStates">FinalStates</h4>
-  <div class="markdown level1 summary"><p>Gets the final states of the CFA.</p>
+  <div class="markdown level1 summary"><p>Final states of the CFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -210,13 +210,13 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_StateCount.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.StateCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_StateCount.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.StateCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L46">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L47">View Source</a>
   </span>
   <h4 id="Automata_Core_Cfa_StateCount" data-uid="Automata.Core.Cfa.StateCount">StateCount</h4>
-  <div class="markdown level1 summary"><p>Gets the number of states in the CFA.</p>
+  <div class="markdown level1 summary"><p>Number of states in the CFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -242,14 +242,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_Alphabet.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Alphabet%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_Alphabet.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Alphabet%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L28">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L29">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_Alphabet_" data-uid="Automata.Core.Cfa.Alphabet*"></a>
   <h4 id="Automata_Core_Cfa_Alphabet" data-uid="Automata.Core.Cfa.Alphabet">Alphabet</h4>
-  <div class="markdown level1 summary"><p>Gets the alphabet used by the CFA.</p>
+  <div class="markdown level1 summary"><p>Alphabet used by the CFA.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -273,14 +273,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_InitialState.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.InitialState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_InitialState.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.InitialState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L36">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L37">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_InitialState_" data-uid="Automata.Core.Cfa.InitialState*"></a>
   <h4 id="Automata_Core_Cfa_InitialState" data-uid="Automata.Core.Cfa.InitialState">InitialState</h4>
-  <div class="markdown level1 summary"><p>Gets the initial state. Always <code>0</code> for a non-empty <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.</p>
+  <div class="markdown level1 summary"><p>Initial state. Always <code>0</code> for a non-empty <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.</p>
 <p>For an empty <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>, the initial state is <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -305,14 +305,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L74">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L75">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_IsEmpty_" data-uid="Automata.Core.Cfa.IsEmpty*"></a>
   <h4 id="Automata_Core_Cfa_IsEmpty" data-uid="Automata.Core.Cfa.IsEmpty">IsEmpty</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the CFA is empty.</p>
+  <div class="markdown level1 summary"><p>Indicates whether the CFA is empty.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -336,10 +336,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_IsEpsilonFree.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsEpsilonFree%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_IsEpsilonFree.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsEpsilonFree%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L79">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L80">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_IsEpsilonFree_" data-uid="Automata.Core.Cfa.IsEpsilonFree*"></a>
   <h4 id="Automata_Core_Cfa_IsEpsilonFree" data-uid="Automata.Core.Cfa.IsEpsilonFree">IsEpsilonFree</h4>
@@ -367,14 +367,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_TransitionCount.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.TransitionCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_TransitionCount.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.TransitionCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L84">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L85">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_TransitionCount_" data-uid="Automata.Core.Cfa.TransitionCount*"></a>
   <h4 id="Automata_Core_Cfa_TransitionCount" data-uid="Automata.Core.Cfa.TransitionCount">TransitionCount</h4>
-  <div class="markdown level1 summary"><p>Gets the number of transitions in the automaton.</p>
+  <div class="markdown level1 summary"><p>Number of transitions in the automaton.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -400,10 +400,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_EpsilonTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.EpsilonTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_EpsilonTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.EpsilonTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L140">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L141">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_EpsilonTransitions_" data-uid="Automata.Core.Cfa.EpsilonTransitions*"></a>
   <h4 id="Automata_Core_Cfa_EpsilonTransitions" data-uid="Automata.Core.Cfa.EpsilonTransitions">EpsilonTransitions()</h4>
@@ -432,14 +432,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_Equals_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Equals(Automata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_Equals_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Equals(Automata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L240">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L242">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_Equals_" data-uid="Automata.Core.Cfa.Equals*"></a>
   <h4 id="Automata_Core_Cfa_Equals_Automata_Core_Cfa_" data-uid="Automata.Core.Cfa.Equals(Automata.Core.Cfa)">Equals(Cfa?)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+  <div class="markdown level1 summary"><p>Indicates language equivalence between two CFAs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -459,7 +459,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
         <td><span class="parametername">other</span></td>
-        <td><p>An object to compare with this object.</p>
+        <td><p>Object to compare with this object.</p>
 </td>
       </tr>
     </tbody>
@@ -475,17 +475,21 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to <code class="paramref">other</code>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the current CFA is equal to <code class="paramref">other</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Automata_Core_Cfa_Equals_Automata_Core_Cfa__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Equality means both CFAs accept the same language, but will due to the canonical property, also be identical.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L251">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L254">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_Equals_" data-uid="Automata.Core.Cfa.Equals*"></a>
   <h4 id="Automata_Core_Cfa_Equals_System_Object_" data-uid="Automata.Core.Cfa.Equals(System.Object)">Equals(object?)</h4>
@@ -534,10 +538,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_GetEnumerator.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.GetEnumerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_GetEnumerator.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.GetEnumerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L284">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L291">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_GetEnumerator_" data-uid="Automata.Core.Cfa.GetEnumerator*"></a>
   <h4 id="Automata_Core_Cfa_GetEnumerator" data-uid="Automata.Core.Cfa.GetEnumerator">GetEnumerator()</h4>
@@ -566,14 +570,14 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_GetHashCode.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_GetHashCode.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L253">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L260">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_GetHashCode_" data-uid="Automata.Core.Cfa.GetHashCode*"></a>
   <h4 id="Automata_Core_Cfa_GetHashCode" data-uid="Automata.Core.Cfa.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+  <div class="markdown level1 summary"><p>Hash code for the current alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -591,7 +595,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>A hash code for the current object.</p>
+        <td><p>A hash code for the alphabet.</p>
 </td>
       </tr>
     </tbody>
@@ -600,10 +604,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_IsFinal_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsFinal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_IsFinal_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsFinal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L103">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L104">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_IsFinal_" data-uid="Automata.Core.Cfa.IsFinal*"></a>
   <h4 id="Automata_Core_Cfa_IsFinal_System_Int32_" data-uid="Automata.Core.Cfa.IsFinal(System.Int32)">IsFinal(int)</h4>
@@ -627,7 +631,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p>The state to check.</p>
+        <td><p>State to check.</p>
 </td>
       </tr>
     </tbody>
@@ -643,17 +647,18 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code> if the specified state is a final state; otherwise, <code>false</code>.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the specified state is a final state.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_IsInitial_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsInitial(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_IsInitial_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.IsInitial(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L96">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L97">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_IsInitial_" data-uid="Automata.Core.Cfa.IsInitial*"></a>
   <h4 id="Automata_Core_Cfa_IsInitial_System_Int32_" data-uid="Automata.Core.Cfa.IsInitial(System.Int32)">IsInitial(int)</h4>
@@ -677,7 +682,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p>The state to check.</p>
+        <td><p>State to check.</p>
 </td>
       </tr>
     </tbody>
@@ -693,17 +698,18 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code> if the specified state is the initial state; otherwise, <code>false</code>.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the specified state is the initial state.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_State_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.State(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_State_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.State(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L128">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L129">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_State_" data-uid="Automata.Core.Cfa.State*"></a>
   <h4 id="Automata_Core_Cfa_State_System_Int32_" data-uid="Automata.Core.Cfa.State(System.Int32)">State(int)</h4>
@@ -727,7 +733,7 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">state</span></td>
-        <td><p>The state.</p>
+        <td><p>State.</p>
 </td>
       </tr>
     </tbody>
@@ -750,10 +756,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_SymbolicTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.SymbolicTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_SymbolicTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.SymbolicTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L134">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L135">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_SymbolicTransitions_" data-uid="Automata.Core.Cfa.SymbolicTransitions*"></a>
   <h4 id="Automata_Core_Cfa_SymbolicTransitions" data-uid="Automata.Core.Cfa.SymbolicTransitions">SymbolicTransitions()</h4>
@@ -782,10 +788,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_Transition_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Transition(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_Transition_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.Transition(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L113">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L114">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_Transition_" data-uid="Automata.Core.Cfa.Transition*"></a>
   <h4 id="Automata_Core_Cfa_Transition_System_Int32_System_Int32_" data-uid="Automata.Core.Cfa.Transition(System.Int32,System.Int32)">Transition(int, int)</h4>
@@ -809,13 +815,13 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">fromState</span></td>
-        <td><p>The source state.</p>
+        <td><p>Source state.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">symbol</span></td>
-        <td><p>The symbol of the transition.</p>
+        <td><p>Symbol of the transition.</p>
 </td>
       </tr>
     </tbody>
@@ -840,10 +846,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_op_Equality_Automata_Core_Cfa_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.op_Equality(Automata.Core.Cfa%2CAutomata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_op_Equality_Automata_Core_Cfa_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.op_Equality(Automata.Core.Cfa%2CAutomata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L270">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L277">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_op_Equality_" data-uid="Automata.Core.Cfa.op_Equality*"></a>
   <h4 id="Automata_Core_Cfa_op_Equality_Automata_Core_Cfa_Automata_Core_Cfa_" data-uid="Automata.Core.Cfa.op_Equality(Automata.Core.Cfa,Automata.Core.Cfa)">operator ==(Cfa, Cfa)</h4>
@@ -867,13 +873,13 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
         <td><span class="parametername">left</span></td>
-        <td><p>The first <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
+        <td><p>First <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
         <td><span class="parametername">right</span></td>
-        <td><p>The second <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
+        <td><p>Second <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
 </td>
       </tr>
     </tbody>
@@ -897,10 +903,10 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Cfa_op_Inequality_Automata_Core_Cfa_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.op_Inequality(Automata.Core.Cfa%2CAutomata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Cfa_op_Inequality_Automata_Core_Cfa_Automata_Core_Cfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Cfa.op_Inequality(Automata.Core.Cfa%2CAutomata.Core.Cfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Cfa.cs/#L278">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Cfa.cs/#L285">View Source</a>
   </span>
   <a id="Automata_Core_Cfa_op_Inequality_" data-uid="Automata.Core.Cfa.op_Inequality*"></a>
   <h4 id="Automata_Core_Cfa_op_Inequality_Automata_Core_Cfa_Automata_Core_Cfa_" data-uid="Automata.Core.Cfa.op_Inequality(Automata.Core.Cfa,Automata.Core.Cfa)">operator !=(Cfa, Cfa)</h4>
@@ -924,13 +930,13 @@ For any language, the <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> is u
       <tr>
         <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
         <td><span class="parametername">left</span></td>
-        <td><p>The first <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
+        <td><p>First <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
         <td><span class="parametername">right</span></td>
-        <td><p>The second <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
+        <td><p>Second <a class="xref" href="Automata.Core.Cfa.html">Cfa</a> to compare.</p>
 </td>
       </tr>
     </tbody>

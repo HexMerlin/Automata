@@ -7,39 +7,28 @@ namespace Automata.App;
 
 public static class Program
 {
+
+    /// <summary>
+    /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
+    /// </summary>
     public static void Main()
     {
-        //string input = " ( (  (a) b)  x ";
+        Console.WriteLine("Creating graph."); // Write some text output to the console window
 
-        //string input = " a | b | | )";
-        //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
-        
-        //string[] inputs = ["(|)"];
-        //string[] inputs = ["(|)"];
-        //string[] inputs = ["a("];
-        //string[] inputs = ["()"];
-        //string[] inputs = ["~"];
-        string[] inputs = ["   "];
-        foreach (string input in inputs)
-        {
-            try
-            {
-                Console.WriteLine("INPUT: " + input);
-                var expr = AlangExpr.Parse(input);
-                Console.WriteLine(expr.AlangExpressionString);
+        Random random = new Random(7);
+        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+        IFsa fsa = new Nfa(sequences).ToCfa(); //Create a canonical minimized automaton from the sequences
 
-            }
-            Console.WriteLine();
-        }
+        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
 
+        //Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
+
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
+
+        Console.WriteLine("Graph is displayed."); // Write some text output to the console window
     }
 
-    /* Notice. Currently actively working on this file for testing. Just ignore dev-code below */
     /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s)
     {
@@ -66,26 +55,6 @@ public static class Program
     }
 
 
-    /// <summary>
-    /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
-    /// </summary>
-    public static void Main2()
-    {
-        Console.WriteLine("Creating graph."); // Write some text output to the console window
-
-        Random random = new Random(7);
-        var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
-
-        IFsa fsa = new Nfa(sequences).ToCfa(); //Create a canonical minimized automaton from the sequences
-
-        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
-
-        //Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
-
-        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
-
-        Console.WriteLine("Graph is displayed."); // Write some text output to the console window
-    }
 
 
 }

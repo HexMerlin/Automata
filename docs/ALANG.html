@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/blob/dev/docs-src/ALANG.md/#L1" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/blob/master/docs-src/ALANG.md/#L1" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="">
@@ -109,7 +109,7 @@ The parser validates syntactic correctness and generates detailed error messages
 <tbody>
 <tr>
 <td>AlangExpr (root)</td>
-<td>Union EOI</td>
+<td>Union</td>
 </tr>
 <tr>
 <td>🔹Union</td>
@@ -120,7 +120,7 @@ The parser validates syntactic correctness and generates detailed error messages
 <td>Intersection ('-' Intersection)*</td>
 </tr>
 <tr>
-<td>🔹Intersectionr</td>
+<td>🔹Intersection</td>
 <td>Concatenation ('&amp;' Concatenation)*</td>
 </tr>
 <tr>
@@ -136,11 +136,11 @@ The parser validates syntactic correctness and generates detailed error messages
 <td>PrimaryExpr '?'</td>
 </tr>
 <tr>
-<td>🔹KleenStar</td>
+<td>🔹KleeneStar</td>
 <td>PrimaryExpr '*'</td>
 </tr>
 <tr>
-<td>🔹KleenPlus</td>
+<td>🔹KleenePlus</td>
 <td>PrimaryExpr '+'</td>
 </tr>
 <tr>
@@ -170,7 +170,7 @@ The parser validates syntactic correctness and generates detailed error messages
 </tbody>
 </table>
 <p>🔹 Denotes a node-type that can be included in the resulting parse tree.</p>
-<p><strong>EOI</strong> denotes the end of input. Any input must be tracable to end in the EOI in the root rule.</p>
+<p>The root rule AlangExpr must cover the entire input, with no residue.</p>
 <h2 id="operators-ordered-by-precedence-lowest-to-highest">Operators Ordered by Precedence (Lowest-to-Highest)</h2>
 <table>
 <thead>

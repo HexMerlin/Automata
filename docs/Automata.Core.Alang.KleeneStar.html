@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_KleeneStar.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_KleeneStar.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Alang.KleeneStar">
@@ -94,7 +94,8 @@
 
 
   <h1 id="Automata_Core_Alang_KleeneStar" data-uid="Automata.Core.Alang.KleeneStar" class="text-break">Class KleeneStar</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Represents a Kleene star operation in the Alang language.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -107,6 +108,9 @@
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand">UnaryExpr.Operand</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmptyString">AlangExpr.IsEmptyString</a>
     </div>
     <div>
       <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Parse_System_String_">AlangExpr.Parse(string)</a>
@@ -142,18 +146,22 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KleeneStar : UnaryExpr</code></pre>
   </div>
+  <h5 id="Automata_Core_Alang_KleeneStar_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The Kleene star operation is a unary postfix operator that denotes zero or more repetitions of the operand expression.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangExpr_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.%23ctor(Automata.Core.Alang.AlangExpr)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangExpr_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.%23ctor(Automata.Core.Alang.AlangExpr)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/KleeneStar.cs/#L3">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/KleeneStar.cs/#L10">View Source</a>
   </span>
   <a id="Automata_Core_Alang_KleeneStar__ctor_" data-uid="Automata.Core.Alang.KleeneStar.#ctor*"></a>
   <h4 id="Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangExpr_" data-uid="Automata.Core.Alang.KleeneStar.#ctor(Automata.Core.Alang.AlangExpr)">KleeneStar(AlangExpr)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Represents a Kleene star operation in the Alang language.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -172,22 +180,26 @@
       <tr>
         <td><a class="xref" href="Automata.Core.Alang.AlangExpr.html">AlangExpr</a></td>
         <td><span class="parametername">operand</span></td>
-        <td></td>
+        <td><p>The operand expression to which the Kleene star operation is applied.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangExpr__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Kleene star operation is a unary postfix operator that denotes zero or more repetitions of the operand expression.</p>
+</div>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_KleeneStar_AlangExpressionString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.AlangExpressionString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_KleeneStar_AlangExpressionString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.AlangExpressionString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/KleeneStar.cs/#L9">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/KleeneStar.cs/#L16">View Source</a>
   </span>
   <a id="Automata_Core_Alang_KleeneStar_AlangExpressionString_" data-uid="Automata.Core.Alang.KleeneStar.AlangExpressionString*"></a>
   <h4 id="Automata_Core_Alang_KleeneStar_AlangExpressionString" data-uid="Automata.Core.Alang.KleeneStar.AlangExpressionString">AlangExpressionString</h4>
-  <div class="markdown level1 summary"><p>Gets the string representation of this expression in valid Alang language syntax.</p>
+  <div class="markdown level1 summary"><p>String representation of this expression in valid Alang language syntax.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -213,14 +225,14 @@
   <div><a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString">AlangExpr.AlangExpressionString</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_KleeneStar_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_KleeneStar_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.KleeneStar.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/KleeneStar.cs/#L6">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/KleeneStar.cs/#L13">View Source</a>
   </span>
   <a id="Automata_Core_Alang_KleeneStar_Precedence_" data-uid="Automata.Core.Alang.KleeneStar.Precedence*"></a>
   <h4 id="Automata_Core_Alang_KleeneStar_Precedence" data-uid="Automata.Core.Alang.KleeneStar.Precedence">Precedence</h4>
-  <div class="markdown level1 summary"><p>Gets the precedence level of this expression according to Alang grammar specification.</p>
+  <div class="markdown level1 summary"><p>Precedence level of this expression according to Alang grammar specification.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Alang.AlangFormatException">
@@ -171,17 +171,65 @@ public class AlangFormatException : Exception, ISerializable</code></pre>
   <h5 id="Automata_Core_Alang_AlangFormatException_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Provides detailed information about the parsing error, including the index in the input where the error occurred and the specific type of error.</p>
 </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException__ctor_System_Int32_Automata_Core_Alang_ParseErrorType_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.%23ctor(System.Int32%2CAutomata.Core.Alang.ParseErrorType%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangFormatException.cs/#L28">View Source</a>
+  </span>
+  <a id="Automata_Core_Alang_AlangFormatException__ctor_" data-uid="Automata.Core.Alang.AlangFormatException.#ctor*"></a>
+  <h4 id="Automata_Core_Alang_AlangFormatException__ctor_System_Int32_Automata_Core_Alang_ParseErrorType_System_String_" data-uid="Automata.Core.Alang.AlangFormatException.#ctor(System.Int32,Automata.Core.Alang.ParseErrorType,System.String)">AlangFormatException(int, ParseErrorType, string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a> class with the specified error index, error type, and message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AlangFormatException(int index, ParseErrorType ErrorType, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index in the input string where the parsing error occurred.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alang.ParseErrorType.html">ParseErrorType</a></td>
+        <td><span class="parametername">ErrorType</span></td>
+        <td><p>Type of parsing error that occurred.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Error message that explains the reason for the exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="fields">Fields
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ErrorType.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ErrorType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ErrorType.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ErrorType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L22">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangFormatException.cs/#L20">View Source</a>
   </span>
   <h4 id="Automata_Core_Alang_AlangFormatException_ErrorType" data-uid="Automata.Core.Alang.AlangFormatException.ErrorType">ErrorType</h4>
-  <div class="markdown level1 summary"><p>Gets the type of parsing error that occurred.</p>
+  <div class="markdown level1 summary"><p>Type of parsing error that occurred.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -205,13 +253,13 @@ public class AlangFormatException : Exception, ISerializable</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_Index.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_Index.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L17">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangFormatException.cs/#L15">View Source</a>
   </span>
   <h4 id="Automata_Core_Alang_AlangFormatException_Index" data-uid="Automata.Core.Alang.AlangFormatException.Index">Index</h4>
-  <div class="markdown level1 summary"><p>Gets the index in the input string where the parsing error occurred.</p>
+  <div class="markdown level1 summary"><p>Index in the input string where the parsing error occurred.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -230,217 +278,6 @@ public class AlangFormatException : Exception, ISerializable</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_Automata_Core_Alang_AlangCursor_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI(Automata.Core.Alang.AlangCursor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L72">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI*"></a>
-  <h4 id="Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_Automata_Core_Alang_AlangCursor_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowExpectedBeginExpressionOrEOI(Automata.Core.Alang.AlangCursor)">ThrowExpectedBeginExpressionOrEOI(AlangCursor)</h4>
-  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a> indicating that a new subexpression or end-of-input was expected.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ThrowExpectedBeginExpressionOrEOI(AlangCursor cursor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a></td>
-        <td><span class="parametername">cursor</span></td>
-        <td><p>The cursor pointing to the current position in the input string.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Automata_Core_Alang_AlangFormatException_ThrowExpectedBeginExpressionOrEOI_Automata_Core_Alang_AlangCursor__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This error should not occur in the current implementation because it is handled by other error types earlier in the parsing process.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
-        <td><p>Always thrown to indicate the specific parsing error.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ThrowMissingClosingParenthesis_Automata_Core_Alang_AlangCursor_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis(Automata.Core.Alang.AlangCursor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L60">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangFormatException_ThrowMissingClosingParenthesis_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis*"></a>
-  <h4 id="Automata_Core_Alang_AlangFormatException_ThrowMissingClosingParenthesis_Automata_Core_Alang_AlangCursor_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowMissingClosingParenthesis(Automata.Core.Alang.AlangCursor)">ThrowMissingClosingParenthesis(AlangCursor)</h4>
-  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a> indicating that a closing parenthesis was expected but not found.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ThrowMissingClosingParenthesis(AlangCursor cursor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a></td>
-        <td><span class="parametername">cursor</span></td>
-        <td><p>The cursor pointing to the current position in the input string.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
-        <td><p>Always thrown to indicate the specific parsing error.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ThrowMissingRightOperand_Automata_Core_Alang_AlangCursor_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L42">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangFormatException_ThrowMissingRightOperand_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand*"></a>
-  <h4 id="Automata_Core_Alang_AlangFormatException_ThrowMissingRightOperand_Automata_Core_Alang_AlangCursor_System_Char_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowMissingRightOperand(Automata.Core.Alang.AlangCursor,System.Char)">ThrowMissingRightOperand(AlangCursor, char)</h4>
-  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a> indicating that a right operand was expected after a binary operator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ThrowMissingRightOperand(AlangCursor cursor, char binaryOperator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a></td>
-        <td><span class="parametername">cursor</span></td>
-        <td><p>The cursor pointing to the current position in the input string.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
-        <td><span class="parametername">binaryOperator</span></td>
-        <td><p>The binary operator after which the right operand was expected.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
-        <td><p>Always thrown to indicate the specific parsing error.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/dev/apiSpec/new?filename=Automata_Core_Alang_AlangFormatException_ThrowUnexpectedClosingParenthesis_Automata_Core_Alang_AlangCursor_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis(Automata.Core.Alang.AlangCursor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Core/Alang/AlangFormatException.cs/#L51">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangFormatException_ThrowUnexpectedClosingParenthesis_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis*"></a>
-  <h4 id="Automata_Core_Alang_AlangFormatException_ThrowUnexpectedClosingParenthesis_Automata_Core_Alang_AlangCursor_" data-uid="Automata.Core.Alang.AlangFormatException.ThrowUnexpectedClosingParenthesis(Automata.Core.Alang.AlangCursor)">ThrowUnexpectedClosingParenthesis(AlangCursor)</h4>
-  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a> indicating that an unexpected closing parenthesis was encountered.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ThrowUnexpectedClosingParenthesis(AlangCursor cursor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a></td>
-        <td><span class="parametername">cursor</span></td>
-        <td><p>The cursor pointing to the current position in the input string.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
-        <td><p>Always thrown to indicate the specific parsing error.</p>
-</td>
       </tr>
     </tbody>
   </table>
