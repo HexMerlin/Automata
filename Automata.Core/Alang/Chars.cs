@@ -85,11 +85,11 @@ public static class Chars
         => !ForbiddenInAtoms.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
-    /// Determines if a character is a postfix operator.
+    /// Determines if a character is an operator.
     /// </summary>
     /// <param name="c">The character to check.</param>
-    /// <returns>True if the character is a postfix operator; otherwise, false.</returns>
-    public static bool IsPostfixOp(char c) => PostfixOps.Contains(c);
+    /// <returns>True <c>iff</c> the character is an operator.</returns>
+    public static bool IsOperator(char c) => Operators.Contains(c);
 
     private static readonly FrozenSet<char> ForbiddenExpressionStarts
        = [EOI, Invalid, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement];
@@ -97,6 +97,6 @@ public static class Chars
     private static readonly FrozenSet<char> ForbiddenInAtoms
         = [EOI, Invalid, LeftParen, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement, Wildcard];
 
-    private static readonly FrozenSet<char> PostfixOps
-        = [Option, KleeneStar, KleenePlus, Complement];
+    private static readonly FrozenSet<char> Operators
+        = [Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement];
 }

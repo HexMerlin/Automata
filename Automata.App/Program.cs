@@ -1,16 +1,75 @@
 using Automata.Core;
+using Automata.Core.Alang;
 using Automata.Visualization;
 using Microsoft.Msagl.Drawing;
 
 namespace Automata.App;
 
-/// <summary>
-/// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
-/// </summary>
 public static class Program
 {
-
     public static void Main()
+    {
+        //string input = " ( (  (a) b)  x ";
+
+        //string input = " a | b | | )";
+        //string[] inputs = ["", "a||b", "a", "a(", "(", ")", "a)", "|", "a |"];
+        
+        //string[] inputs = ["(|)"];
+        //string[] inputs = ["(|)"];
+        //string[] inputs = ["a("];
+        //string[] inputs = ["()"];
+        //string[] inputs = ["~"];
+        string[] inputs = ["   "];
+        foreach (string input in inputs)
+        {
+            try
+            {
+                Console.WriteLine("INPUT: " + input);
+                var expr = AlangExpr.Parse(input);
+                Console.WriteLine(expr.AlangExpressionString);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+            Console.WriteLine();
+        }
+
+    }
+
+    /* Notice. Currently actively working on this file for testing. Just ignore dev-code below */
+    /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
+    private static Dfa CreateKleeneStarDfa(string s)
+    {
+        MutableAlphabet a = new MutableAlphabet([s]);
+        Dfa dfa = new Dfa(a);
+        dfa.SetInitial(0);
+        dfa.SetFinal(0);
+        dfa.Add(new Transition(0, 0, 0));
+        return dfa;
+    }
+
+    /// <summary>Creates a DFA accepting the regular expression: <c>s0*s1*</c></summary>
+    private static Dfa CreateKleeneStarDfa(string s0, string s1)
+    {
+        MutableAlphabet a = new MutableAlphabet([s0, s1]);
+        Dfa dfa = new Dfa(a);
+        dfa.SetInitial(0);
+        dfa.SetFinal(0);
+        dfa.SetFinal(1);
+        dfa.Add(new Transition(0, 0, 0));
+        dfa.Add(new Transition(0, 1, 1));
+        dfa.Add(new Transition(1, 1, 1));
+        return dfa;
+    }
+
+
+    /// <summary>
+    /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
+    /// </summary>
+    public static void Main2()
     {
         Console.WriteLine("Creating graph."); // Write some text output to the console window
 

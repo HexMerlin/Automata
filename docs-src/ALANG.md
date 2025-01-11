@@ -11,15 +11,15 @@ The parser validates syntactic correctness and generates detailed error messages
 
 | Rule                             | Expansion                                                     |
 |----------------------------------|---------------------------------------------------------------|
-| AlangExpr (root)                     | Union EOI                                                    |
+| AlangExpr (root)                     | Union                                                    |
 | :small_blue_diamond:Union            | Difference  ('\|' Difference)*                            |
 | :small_blue_diamond:Difference       | Intersection ('-' Intersection)*                          |
-| :small_blue_diamond:Intersectionr    | Concatenation ('&' Concatenation)*                        |
+| :small_blue_diamond:Intersection     | Concatenation ('&' Concatenation)*                        |
 | :small_blue_diamond:Concatenation    | UnaryExpr+                                                |
 | UnaryExpr           | PrimaryExpr<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)* |
 | :small_blue_diamond:Option           | PrimaryExpr '?'                                           |
-| :small_blue_diamond:KleenStar        | PrimaryExpr '*'                                           |
-| :small_blue_diamond:KleenPlus        | PrimaryExpr '+'                                           |
+| :small_blue_diamond:KleeneStar       | PrimaryExpr '*'                                           |
+| :small_blue_diamond:KleenePlus       | PrimaryExpr '+'                                           |
 | :small_blue_diamond:Complement       | Primary '~'                                               |
 | PrimaryExpr          | '(' AlangExpr ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet               |
 | :small_blue_diamond:Atom                 | AtomChar+                                             |
@@ -29,7 +29,7 @@ The parser validates syntactic correctness and generates detailed error messages
 
 :small_blue_diamond: Denotes a node-type that can be included in the resulting parse tree.
 
-**EOI** denotes the end of input. Any input must be tracable to end in the EOI in the root rule. 
+The root rule AlangExpr must cover the entire input, with no residue. 
 
 ## Operators Ordered by Precedence (Lowest-to-Highest)
 

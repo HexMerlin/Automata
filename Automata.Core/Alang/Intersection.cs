@@ -12,13 +12,9 @@ public class Intersection(AlangExpr left, AlangExpr right) : InfixBinary(left, r
     internal static AlangExpr Parse(ref AlangCursor cursor)
     {
         AlangExpr left = Concatenation.Parse(ref cursor);
-        if (cursor.TryConsume(Chars.Intersection))
+        if (cursor.TryConsumeIntersectionOperator())
         {
-            if (!cursor.IsExpressionStart)
-                AlangFormatException.ThrowMissingRightOperand(cursor, Chars.Intersection);
-
             AlangExpr right = Intersection.Parse(ref cursor); // Recursive call for repeated
-
             return new Intersection(left, right);
 
         }

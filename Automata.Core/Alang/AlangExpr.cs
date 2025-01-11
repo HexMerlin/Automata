@@ -25,6 +25,14 @@ public abstract class AlangExpr
     /// </summary>
     public abstract string AlangExpressionString { get; }
 
+
+    /// <summary>
+    /// Indicates whether this expression is an empty string.
+    /// An empty string is not a valid expression in Alang.
+    /// Is used internally by the Parser to handle empty strings.
+    /// </summary>
+    public bool IsEmptyString => this is Atom atom && atom.Symbol.Length == 0;
+
     /// <summary>
     /// Parses the specified input string into an <see cref="AlangExpr"/>.
     /// </summary>
@@ -34,12 +42,12 @@ public abstract class AlangExpr
     public static AlangExpr Parse(string input)
     {
         AlangCursor cursor = new(input);
-       
+        cursor.ShouldNotBeEmpty();
+
         AlangExpr expression = ParseAlangExpr(ref cursor);
         
-        if (cursor.Is(Chars.RightParen))
-            AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
-
+        cursor.ShouldNotBeRightParen();
+      
         return expression;
     }
 
@@ -55,6 +63,7 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     private static AlangExpr ParseAlangExpr(ref AlangCursor cursor)
     {
+ 
         AlangExpr expression = Union.Parse(ref cursor);
         return expression;
     }
@@ -67,33 +76,34 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when parentheses are unmatched in the input.</exception>
     internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
     {
-        if (cursor.Is(Chars.RightParen))
-            AlangFormatException.ThrowUnexpectedClosingParenthesis(cursor);
-
+        //cursor.ShouldNotBeRightParen();
+       
         if (cursor.TryConsume(Chars.LeftParen))
         {
-            if (cursor.IsEmpty)
-                AlangFormatException.ThrowMissingClosingParenthesis(cursor);
+            //if (cursor.TryConsume(Chars.RightParen))
+            //    return new EmptySet(); // Handle empty parentheses => '()'
 
-            if (cursor.TryConsume(Chars.RightParen))
-                return new EmptySet(); // Handle empty parentheses => '()'
-
+            //if (cursor.IsEmpty)
+            //    AlangFormatException.ThrowMissingClosingParenthesis(cursor);       
+            cursor.ShouldNotBeOperator();
             AlangExpr expression = ParseAlangExpr(ref cursor); // Parse inner expression
-
-            if (!cursor.TryConsume(Chars.RightParen))
-                AlangFormatException.ThrowMissingClosingParenthesis(cursor);
-
+            cursor.ConsumeRightParen();
+            
+            if (expression.IsEmptyString)
+                return new EmptySet(); // Handle empty parentheses => '()'
+           
             return expression;
         }
 
         if (cursor.TryConsume(Chars.Wildcard))
             return new Wildcard();
 
-        if (cursor.TryConsumeAtom(out Atom? atom))
-            return atom!;
+        return cursor.ConsumeAtom();
+        //if (cursor.TryConsumeAtom(out Atom? atom))
+        //    return atom!;
 
-        AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
-        return null!; //make compiler happy
+        //AlangFormatException.ThrowExpectedBeginExpressionOrEOI(cursor);
+        //return null!; //make compiler happy
     }
 
 

@@ -27,6 +27,7 @@ public abstract class UnaryExpr(AlangExpr operand) : AlangExpr()
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     internal static AlangExpr ParseUnaryExpr(ref AlangCursor cursor)
     {
+        cursor.ShouldNotBeOperator();
         AlangExpr expr = ParsePrimaryExpr(ref cursor);
 
         while (true)

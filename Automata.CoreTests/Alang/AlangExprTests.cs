@@ -77,10 +77,10 @@ public class AlangExprTests
     }
 
     [TestMethod()]
-    public void Parse_ForEmptyString_ReturnsEmpty() => AssertThrowsAlangFormatException("", 0, ParseErrorType.ExpectedBeginExpressionOrEOI);
+    public void Parse_ForEmptyString_ThrowsCorrectException() => AssertThrowsAlangFormatException("", 0, ParseErrorType.EmptyInput);
 
     [TestMethod()]
-    public void Parse_ForOnlyWhitespaces_ThrowsCorrectException() => AssertThrowsAlangFormatException("  \t   ", 6, ParseErrorType.ExpectedBeginExpressionOrEOI);
+    public void Parse_ForOnlyWhitespaces_ThrowsCorrectException() => AssertThrowsAlangFormatException("  \t   ", 6, ParseErrorType.EmptyInput);
 
     [TestMethod()]
     public void Parse_ForSingleLeftParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("(", 1, ParseErrorType.MissingClosingParenthesis);
@@ -103,9 +103,14 @@ public class AlangExprTests
     [TestMethod()]
     public void Parse_ForMissingRightOperandIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("a&", 2, ParseErrorType.MissingRightOperand);
 
+    [TestMethod()]
+    public void Parse_ForSingleComplementThrowsCorrectException() => AssertThrowsAlangFormatException("~", 0, ParseErrorType.UnexpectedOperator);
 
     [TestMethod()]
-    public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorType.ExpectedBeginExpressionOrEOI);
+    public void Parse_ForSingleIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("&", 0, ParseErrorType.UnexpectedOperator);
+
+    [TestMethod()]
+    public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorType.UnexpectedOperator);
 
     [TestMethod()]
     public void Parse_ForConsecutiveUnionOperators_ThrowsCorrectException() => AssertThrowsAlangFormatException("a||b",2, ParseErrorType.MissingRightOperand);

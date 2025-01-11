@@ -27,7 +27,7 @@ public class AlangFormatException : Exception
     /// <param name="index">The index in the input string where the parsing error occurred.</param>
     /// <param name="ErrorType">The type of parsing error that occurred.</param>
     /// <param name="message">The error message that explains the reason for the exception.</param>
-    private AlangFormatException(int index, ParseErrorType ErrorType, string message) : base(message)
+    public AlangFormatException(int index, ParseErrorType ErrorType, string message) : base(message)
     {
         this.Index = index;
         this.ErrorType = ErrorType;
@@ -53,6 +53,17 @@ public class AlangFormatException : Exception
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Unexpected {Chars.RightParen} detected at index {cursor.CursorIndex}");
 
     /// <summary>
+    /// Throws an <see cref="AlangFormatException"/> indicating that an unexpected operator was encountered.
+    /// </summary>
+    /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
+    /// <param name="operatorChar">The unexpected operator.</param>
+    /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
+    public static void ThrowUnexpectedOperator(AlangCursor cursor, char operatorChar)
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.UnexpectedOperator, $"Unexpected operator {operatorChar} detected at index {cursor.CursorIndex}");
+
+
+    /// <summary>
     /// Throws an <see cref="AlangFormatException"/> indicating that a closing parenthesis was expected but not found.
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
@@ -65,11 +76,20 @@ public class AlangFormatException : Exception
     /// Throws an <see cref="AlangFormatException"/> indicating that a new subexpression or end-of-input was expected.
     /// </summary>
     /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
-    /// <remarks>
-    /// This error should not occur in the current implementation because it is handled by other error types earlier in the parsing process.
-    /// </remarks>
     /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
     [DoesNotReturn]
     public static void ThrowExpectedBeginExpressionOrEOI(AlangCursor cursor)
         => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.ExpectedBeginExpressionOrEOI, $"Expected new subexpression or end-of-input at index {cursor.CursorIndex}, but read {cursor.NextAsString}");
+
+    /// <summary>
+    /// Throws an <see cref="AlangFormatException"/> indicating that the input was empty.
+    /// </summary>
+    /// <param name="cursor">The cursor pointing to the current position in the input string.</param>
+    /// <exception cref="AlangFormatException">Always thrown to indicate the specific parsing error.</exception>
+    [DoesNotReturn]
+    public static void ThrowEmptyInput(AlangCursor cursor)
+        => throw new AlangFormatException(cursor.CursorIndex, ParseErrorType.EmptyInput, $"Input cannot be empty. To represent an empty set, use ()");
+
 }
+
+

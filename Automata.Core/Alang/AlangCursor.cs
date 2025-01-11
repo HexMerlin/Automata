@@ -44,8 +44,45 @@ public ref struct AlangCursor(string input)
     /// Indicates whether the first character in the remaining input is the specified character.
     /// </summary>
     public readonly bool Is(char c) => First == c;
-        
 
+
+    private bool TryConsumeBinaryOperator(char binaryOperator)
+    {
+        if (!TryConsume(binaryOperator)) return false;
+        if (IsExpressionStart) return true;
+        throw new AlangFormatException(CursorIndex, ParseErrorType.MissingRightOperand, $"Expected right operand after '{binaryOperator}' at index {CursorIndex}, but read {NextAsString}");
+    }
+
+    public void ShouldBeStartOfExpression()
+    {
+        if (!IsExpressionStart) AlangFormatException.ThrowExpectedBeginExpressionOrEOI(this);
+    }
+
+    public void ShouldNotBeEmpty()
+    {
+        if (IsEmpty) AlangFormatException.ThrowEmptyInput(this);
+    }
+
+    public void ShouldNotBeOperator()
+    {
+        if (Chars.IsOperator(First)) AlangFormatException.ThrowUnexpectedOperator(this, First);
+    }
+
+    public void ShouldNotBeRightParen()
+    {
+        if (Is(Chars.RightParen)) AlangFormatException.ThrowUnexpectedClosingParenthesis(this);
+    }
+
+    public void ConsumeRightParen()
+    {
+        if (!TryConsume(Chars.RightParen)) AlangFormatException.ThrowMissingClosingParenthesis(this);
+    }
+
+    public bool TryConsumeUnionOperator() => TryConsumeBinaryOperator(Chars.Union);
+    public bool TryConsumeDifferenceOperator() => TryConsumeBinaryOperator(Chars.Difference);
+
+    public bool TryConsumeIntersectionOperator() => TryConsumeBinaryOperator(Chars.Intersection);
+  
     /// <summary>
     /// Tries to consume the specified character from the input and advances the cursor if successful.
     /// </summary>
@@ -76,6 +113,26 @@ public ref struct AlangCursor(string input)
         }
         return Chars.Invalid;
     }
+
+    /// <summary>
+    /// Consume an <see cref="Atom"/> from the input.
+    /// </summary>
+    /// <returns>
+    /// The consumed <see cref="Atom"/>.
+    /// </returns>
+    public Atom ConsumeAtom()
+    {
+        int pos = 0;
+
+        while (pos < this.cursor.Length && Chars.IsAtomChar(this.cursor[pos]))
+            pos++;
+
+        Atom atom = new Atom(this.cursor.Slice(0, pos).ToString());
+
+        this.cursor = this.cursor.Slice(pos).TrimStart();
+        return atom;
+    }
+
 
     /// <summary>
     /// Tries to consume an <see cref="Atom"/> from the input.
