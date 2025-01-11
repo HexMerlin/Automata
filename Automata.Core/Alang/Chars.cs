@@ -69,7 +69,7 @@ public static class Chars
     public const char Wildcard = '.';
 
     /// <summary>
-    /// Determines if a character can be the start of an expression.
+    /// Indicates if a character can be the start of an expression.
     /// </summary>
     /// <param name="c">The character to check.</param>
     /// <returns>True if the character can start an expression; otherwise, false.</returns>
@@ -77,7 +77,7 @@ public static class Chars
         => !ForbiddenExpressionStarts.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
-    /// Determines if a character can be part of an atom.
+    /// Indicates if a character can be part of an atom.
     /// </summary>
     /// <param name="c">The character to check.</param>
     /// <returns>True if the character can be part of an atom; otherwise, false.</returns>
@@ -85,7 +85,7 @@ public static class Chars
         => !ForbiddenInAtoms.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
-    /// Determines if a character is an operator.
+    /// Indicates if a character is an operator.
     /// </summary>
     /// <param name="c">The character to check.</param>
     /// <returns>True <c>iff</c> the character is an operator.</returns>

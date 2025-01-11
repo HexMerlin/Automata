@@ -61,7 +61,7 @@ public class MutableAlphabet : IAlphabet
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     /// <summary>
-    /// Determines whether the alphabet contains the specified symbol.
+    /// Indicates whether the alphabet contains the specified symbol.
     /// </summary>
     /// <param name="symbol">The symbol to locate in the alphabet.</param>
     /// <returns><see langword="true"/> if the symbol is found; otherwise, <see langword="false"/>.</returns>
