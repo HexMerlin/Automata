@@ -16,8 +16,10 @@ public class Difference(AlangExpr left, AlangExpr right) : InfixBinary(left, rig
     internal static AlangExpr Parse(ref AlangCursor cursor)
     {
         AlangExpr left = Intersection.Parse(ref cursor);
-        if (cursor.TryConsumeDifferenceOperator())
+
+        if (cursor.TryConsume(Chars.Difference))
         {
+            cursor.ShouldBeRightOperand(Chars.Difference);
             AlangExpr right = Difference.Parse(ref cursor);  // Recursive call for repeated
             return new Difference(left, right);
         }
