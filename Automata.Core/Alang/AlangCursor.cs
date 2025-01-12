@@ -16,9 +16,12 @@ namespace Automata.Core.Alang;
 /// <param name="input">The input string to parse.</param>
 public ref struct AlangCursor(string input)
 {
+    #region Data
     private readonly int OriginalInputLength = input.Length;
 
     private ReadOnlySpan<char> cursor = input.AsSpan().TrimStart();
+
+    #endregion Data
 
     /// <summary>
     /// Indicates whether the cursor has reached the end of the input.
@@ -44,6 +47,13 @@ public ref struct AlangCursor(string input)
     public readonly bool Is(char c) => First == c;
 
     /// <summary>
+    /// Indicates whether the first character in the remaining input is not the specified character.
+    /// </summary>
+    /// <param name="c">The character to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the first character is NOT the specified character.</returns>
+    public readonly bool IsNot(char c) => First != c;
+
+    /// <summary>
     /// Validates that the cursor is not at the end of input.
     /// </summary>
     /// <exception cref="AlangFormatException">Thrown when the cursor is at the end of input.</exception>
@@ -51,11 +61,8 @@ public ref struct AlangCursor(string input)
     /// This method enforces the rule that empty input is not valid in Alang expressions.
     /// To represent an empty set, use parentheses '()' instead.
     /// </remarks>
-    public readonly void ShouldNotBeEmpty()
-    {
-        if (IsEmpty)
-            throw new AlangFormatException(CursorIndex, ParseErrorType.EmptyInput, "Input cannot be empty. To represent an empty set, use ()");
-    }
+    public readonly void ShouldNotBeEmpty() 
+        => AlangFormatException.Assert(!IsEmpty, ParseErrorReason.EmptyInput, CursorIndex, "Input cannot be empty. To represent an empty set, use ()");
 
     /// <summary>
     /// Validates that the current character is not an operator.
@@ -64,80 +71,31 @@ public ref struct AlangCursor(string input)
     /// <remarks>
     /// This method ensures expressions do not start with an operator.
     /// </remarks>
-    public readonly void ShouldNotBeOperator()
-    {
-        if (Chars.IsOperator(First))
-            throw new AlangFormatException(CursorIndex, ParseErrorType.UnexpectedOperator, $"Unexpected operator '{First}' detected at index {CursorIndex}");
-    }
+    public readonly void ShouldNotBeOperator() 
+        => AlangFormatException.Assert(!Chars.IsOperator(First), ParseErrorReason.UnexpectedOperator, CursorIndex, $"Unexpected operator '{First}' detected at index {CursorIndex}");
 
     /// <summary>
     /// Validates that the current character is not a right parenthesis.
     /// </summary>
     /// <exception cref="AlangFormatException">Thrown when the current character is a right parenthesis ')'.</exception>
-    public readonly void ShouldNotBeRightParen()
-    {
-        if (Is(Chars.RightParen))
-            throw new AlangFormatException(CursorIndex, ParseErrorType.UnexpectedClosingParenthesis, $"Unexpected '{Chars.RightParen}' detected at index {CursorIndex}");
-    }
+    public readonly void ShouldNotBeRightParen() 
+        => AlangFormatException.Assert(IsNot(Chars.RightParen), ParseErrorReason.UnexpectedClosingParenthesis, CursorIndex, $"Unexpected '{Chars.RightParen}' detected at index {CursorIndex}");
 
     /// <summary>
     /// Validates that the current character is a right parenthesis.
     /// </summary>
     /// <exception cref="AlangFormatException">Thrown when the current character is not a right parenthesis ')'.</exception>
-    public readonly void ShouldBeRightParen()
-    {
-        if (!Is(Chars.RightParen))
-            throw new AlangFormatException(CursorIndex, ParseErrorType.MissingClosingParenthesis, $"Expected '{Chars.RightParen}' at index {CursorIndex}, but read {NextAsString}");
-    }
+    public readonly void ShouldBeRightParen() 
+        => AlangFormatException.Assert(Is(Chars.RightParen), ParseErrorReason.MissingClosingParenthesis, CursorIndex, $"Expected '{Chars.RightParen}' at index {CursorIndex}, but read {NextAsString}");
 
     /// <summary>
-    /// Tries to consume a binary operator from the input and advances the cursor if successful.
+    /// Validates that there is right operand after a binary operator.
     /// </summary>
-    /// <param name="binaryOperator">The binary operator character to attempt to consume.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the binary operator was successfully consumed and the next character starts an expression.</returns>
-    /// <exception cref="AlangFormatException">Thrown when the binary operator is not followed by a valid expression.</exception>
-    private bool TryConsumeBinaryOperator(char binaryOperator)
-    {
-        if (!TryConsume(binaryOperator))
-            return false;
-        if (IsExpressionStart)
-            return true;
-        throw new AlangFormatException(CursorIndex, ParseErrorType.MissingRightOperand, $"Expected right operand after '{binaryOperator}' at index {CursorIndex}, but read {NextAsString}");
-    }
-
-    /// <summary>
-    /// Tries to consume a union operator (<see cref="Chars.Union"/>) from the input and advances the cursor if successful.
-    /// </summary>
-    /// <returns><see langword="true"/> <c>iff</c> the union operator was successfully consumed.</returns>
-    public bool TryConsumeUnionOperator() => TryConsumeBinaryOperator(Chars.Union);
-
-    /// <summary>
-    /// Tries to consume a difference operator (<see cref="Chars.Difference"/>) from the input and advances the cursor if successful.
-    /// </summary>
-    /// <returns><see langword="true"/> <c>iff</c> the difference operator was successfully consumed.</returns>
-    public bool TryConsumeDifferenceOperator() => TryConsumeBinaryOperator(Chars.Difference);
-
-    /// <summary>
-    /// Tries to consume an intersection operator (<see cref="Chars.Intersection"/>) from the input and advances the cursor if successful.
-    /// </summary>
-    /// <returns><see langword="true"/> <c>iff</c> the intersection operator was successfully consumed.</returns>
-    public bool TryConsumeIntersectionOperator() => TryConsumeBinaryOperator(Chars.Intersection);
-
-    /// <summary>
-    /// Tries to consume a left parenthesis (<see cref="Chars.LeftParen"/>) from the input and advances the cursor if successful.
-    /// </summary>
-    /// <returns><see langword="true"/> <c>iff</c> the left parenthesis was successfully consumed.</returns>
-    public bool TryConsumeLeftParen() => TryConsume(Chars.LeftParen);
-
-    /// <summary>
-    /// Consumes a right parenthesis (<see cref="Chars.RightParen"/>) from the input, advancing the cursor.
-    /// </summary>
-    /// <exception cref="AlangFormatException">Thrown when the next character is not a right parenthesis.</exception>
-    public void ConsumeRightParen()
-    {
-        ShouldBeRightParen();
-        _ = TryConsume(Chars.RightParen);
-    }
+    /// <param name="binaryOperator">The preceding binary operator character. (Only used for better informed error messages if validation fails). </param>
+    /// <exception cref="AlangFormatException">Thrown when the current character is not a right parenthesis ')'.</exception>
+    public readonly void ShouldBeRightOperand(char binaryOperator)
+      => AlangFormatException.Assert(IsExpressionStart, ParseErrorReason.MissingRightOperand, CursorIndex, $"Expected right operand after '{binaryOperator}' at index {CursorIndex}, but read {NextAsString}");
+      
 
     /// <summary>
     /// Tries to consume the specified character from the input and advances the cursor if successful.
@@ -168,6 +126,21 @@ public ref struct AlangCursor(string input)
             return first;
         }
         return Chars.Invalid;
+    }
+
+    /// <summary>
+    /// Tries to consume a binary operator from the input and advances the cursor if successful.
+    /// </summary>
+    /// <param name="binaryOperator">The binary operator character to attempt to consume.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the binary operator was successfully consumed and the next character is a valid expression start.</returns>
+    /// <exception cref="AlangFormatException">Thrown when the binary operator was consumed but the next character was not <see cref="IsExpressionStart"/> .</exception>
+    public bool TryConsumeBinaryOperator(char binaryOperator)
+    {
+        if (!TryConsume(binaryOperator))
+            return false;
+      
+        ShouldBeRightOperand(binaryOperator);
+        return true;
     }
 
     /// <summary>
