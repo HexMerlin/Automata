@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using System.Collections.Frozen;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Common interface for an alphabet associated with a finite state automaton.
@@ -36,6 +38,11 @@ public interface IAlphabet
     /// Read-only collection of symbols in the alphabet.
     /// </summary>
     IReadOnlyCollection<string> Symbols { get; }
+
+    /// <summary>
+    /// Mapping from string symbols to their respective indices.
+    /// </summary>
+    IReadOnlyDictionary<string, int> StringToIndexMap { get; }
 
     /// <summary>
     /// String representation of the current alphabet.

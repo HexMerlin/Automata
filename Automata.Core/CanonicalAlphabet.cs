@@ -36,6 +36,9 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
     #region Data
     private readonly string[] indexToStringMap;
 
+    /// <summary>
+    /// Mapping from string symbols to their respective indices.
+    /// </summary>
     public readonly FrozenDictionary<string, int> StringToIndexMap;
     #endregion Data
 
@@ -70,6 +73,9 @@ public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
 
     ///<inheritdoc/>
     public IReadOnlyCollection<string> Symbols => indexToStringMap;
+
+    ///<inheritdoc/>
+    IReadOnlyDictionary<string, int> IAlphabet.StringToIndexMap => StringToIndexMap;
 
     ///<inheritdoc/>
     public string this[int index] => index >= 0 && index < Count ? indexToStringMap[index] : throw new ArgumentOutOfRangeException($"Symbol with index {index} does not exist in alphabet");

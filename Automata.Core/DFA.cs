@@ -30,7 +30,8 @@ public class Dfa : IDfa
     private readonly HashSet<int> finalStates = new();
 
     /// <summary>
-    /// Upper bound for the maximum state number in the DFA.
+    /// Upper limit for the maximum state number in the DFA. 
+    /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>
     /// <remarks>
     /// This value represents an upper limit for state numbers in the DFA.
@@ -222,30 +223,6 @@ public class Dfa : IDfa
     /// <returns>An NFA representing the reversed DFA.</returns>
     public Nfa Reversed() => new(this, applyReverseOperation: true);
 
-    /// <summary>
-    /// Minimizes the DFA using Brzozowski's algorithm.
-    /// </summary>
-    /// <remarks>
-    /// This algorithm involves reversing the DFA, determinizing it, reversing it again, and determinizing it once more.
-    /// </remarks>
-    /// <returns>A minimized DFA.</returns>
-    public Dfa Minimized()
-    {
-        Dfa reversed = Reversed().ToDfa();
-        return reversed.Reversed().ToDfa();
-    }
-
-    /// <summary>
-    /// Converts the DFA to a canonical finite automaton (CFA).
-    /// </summary>
-    /// <returns>A CFA representing the DFA.</returns>
-    public Cfa ToCFA() => new(this);
-
-    /// <summary>
-    /// Converts the DFA to a nondeterministic finite automaton (NFA).
-    /// </summary>
-    /// <returns>An NFA representing the DFA.</returns>
-    public Nfa ToNFA() => new(this);
 
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.

@@ -16,13 +16,13 @@ public static class GraphFactory
     /// <returns>A graph representing the finite state automaton.</returns>
     public static Graph CreateGraph(this IEnumerable<IEnumerable<string>> sequences, bool minimize = true)
     {
-        Nfa nfa = new Nfa(sequences); // create an NFA from the sequences
+        IFsa fsa = new Nfa(sequences); // create an NFA from the sequences
 
-        var dfa = nfa.ToDfa(); // determinize to DFA
+        fsa = fsa.AsIDfa(); // determinize to DFA
         if (minimize)
-            dfa = dfa.Minimized(); // minimize the DFA
+            fsa = fsa.AsCfa(); // minimize the DFA
 
-        return CreateGraph(dfa);
+        return CreateGraph(fsa);
     }
 
     /// <summary>

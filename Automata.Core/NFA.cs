@@ -41,39 +41,37 @@ public class Nfa : IFsa
     /// </remarks>
     public int MaxState { get; private set; } = Constants.InvalidState;
 
-    #endregion
+    #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Nfa"/> class with an empty alphabet.
+    /// Initializes a new empty instance of the <see cref="Nfa"/> class with a new empty alphabet.
     /// </summary>
-    public Nfa() : this(new MutableAlphabet()) { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Nfa"/> class with the specified alphabet.
-    /// </summary>
-    /// <param name="alphabet">Alphabet used by the NFA.</param>
-    public Nfa(MutableAlphabet alphabet) => this.Alphabet = alphabet;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Nfa"/> class from a DFA.
-    /// </summary>
-    /// <param name="dfa">DFA to create an NFA from.</param>
-    /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
-    internal Nfa(Dfa dfa, bool applyReverseOperation = false) : this(dfa.Alphabet)
+    public Nfa() 
     {
+        this.Alphabet = new();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Nfa"/> class from a Deterministic automaton.
+    /// </summary>
+    /// <param name="iDfa">A deterministic automaton to create an NFA from.</param>
+    /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
+    internal Nfa(IDfa iDfa, bool applyReverseOperation = false) 
+    {
+        this.Alphabet = new MutableAlphabet(iDfa.Alphabet);
         if (applyReverseOperation)
         {
-            UnionWith(dfa.SymbolicTransitions().Select(t => t.Reverse()));
-            SetInitial(dfa.FinalStates);
-            SetFinal(dfa.InitialState);
+            UnionWith(iDfa.SymbolicTransitions().Select(t => t.Reverse()));
+            SetInitial(iDfa.FinalStates);
+            SetFinal(iDfa.InitialState);
         }
         else
         {
-            UnionWith(dfa.SymbolicTransitions());
-            SetInitial(dfa.InitialState);
-            SetFinal(dfa.FinalStates);
+            UnionWith(iDfa.SymbolicTransitions());
+            SetInitial(iDfa.InitialState);
+            SetFinal(iDfa.FinalStates);
         }
-        this.MaxState = dfa.MaxState;
+        this.MaxState = iDfa.MaxState;
     }
 
     /// <summary>
@@ -252,23 +250,6 @@ public class Nfa : IFsa
     /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state; otherwise, <see langword="false"/>.</returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
-    /// <summary>
-    /// Converts the NFA to a DFA.
-    /// </summary>
-    /// <returns>A DFA representing the NFA.</returns>
-    public Dfa ToDfa() => Ops.ToDfa(this);
-
-    /// <summary>
-    /// Converts the NFA to a minimized DFA.
-    /// </summary>
-    /// <returns>A minimized DFA representing the NFA.</returns>
-    public Dfa ToMinimizedDFA() => Ops.ToDfa(this).Minimized();
-
-    /// <summary>
-    /// Converts the NFA to a CFA.
-    /// </summary>
-    /// <returns>A CFA representing the NFA.</returns>
-    public Cfa ToCfa() => new(this);
 
     /// <summary>
     /// Adds or removes a state from a set based on a condition.

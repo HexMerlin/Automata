@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Frozen;
 using System.Diagnostics;
+using Automata.Core.Operations;
 
 namespace Automata.Core;
 
@@ -49,10 +50,10 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Cfa"/> class from an existing FSA.
+    /// Initializes a new instance of the <see cref="Cfa"/> class from an existing <see cref="Dfa"/>.
     /// </summary>
-    /// <param name="fsa">Finite state automaton to convert.</param>
-    public Cfa(IFsa fsa) : this(Convert(fsa)) { }
+    /// <param name="dfa">A DFA to create from.</param>
+    public Cfa(Dfa dfa) : this(ConvertDfa(dfa)) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Cfa"/> class with the specified parameters.
@@ -88,6 +89,16 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// Alphabet used by the FSA.
     /// </summary>
     IAlphabet IFsa.Alphabet => Alphabet;
+
+    ///<inheritdoc/>
+    IReadOnlySet<int> IDfa.FinalStates => this.FinalStates;
+
+    /// <summary>
+    /// The state number with the highest value.
+    /// Equivalent to <c><see cref="StateCount"/> - 1</c>.
+    /// </summary>
+    /// <returns>The maximum state number, or <c>-1</c> if the CFA is empty.</returns>
+    public int MaxState => StateCount - 1;
 
     /// <summary>
     /// Indicates whether the specified state is the initial state.
@@ -140,19 +151,21 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <returns>An empty enumerable collection of <see cref="EpsilonTransition"/>.</returns>
     public IEnumerable<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
+
+
     /// <summary>
     /// Converts an FSA to a canonical form.
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
     /// <returns>A tuple containing the canonical alphabet, transitions, initial state, and final states.</returns>
-    private static (CanonicalAlphabet alphabet, Transition[] transitions, int initialState, FrozenSet<int> finalStates) Convert(IFsa fsa)
+    private static (CanonicalAlphabet alphabet, Transition[] transitions, int initialState, FrozenSet<int> finalStates) ConvertDfa(Dfa dfa)
     {
-        Dfa minDfa = ToMinimizedDfa(fsa);
+        Dfa minDfa = Ops.Minimal(dfa);
         if (minDfa.IsEmpty)
             return (CanonicalAlphabet.Empty, Array.Empty<Transition>(), Constants.InvalidState, FrozenSet<int>.Empty);
 
         CanonicalAlphabet alphabet = new CanonicalAlphabet(minDfa.SymbolicTransitions().Select(t => minDfa.Alphabet[t.Symbol]));
-        (Transition[] transitions, int initialState, FrozenSet<int> finalStates) = Convert(minDfa, alphabet);
+        (Transition[] transitions, int initialState, FrozenSet<int> finalStates) = ConvertWithAlphabet(minDfa, alphabet);
         return (alphabet, transitions, initialState, finalStates);
     }
 
@@ -162,7 +175,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <param name="minDfa">Minimized DFA to convert.</param>
     /// <param name="cAlphabet">Canonical alphabet to use for the conversion.</param>
     /// <returns>A tuple containing the transitions, initial state, and final states of the canonical form.</returns>
-    private static (Transition[] transitions, int initialState, FrozenSet<int> finalStates) Convert(Dfa minDfa, CanonicalAlphabet cAlphabet)
+    private static (Transition[] transitions, int initialState, FrozenSet<int> finalStates) ConvertWithAlphabet(Dfa minDfa, CanonicalAlphabet cAlphabet)
     {
         Dictionary<int, int> dStateToCStateMap = new();
         int cMaxState = 0;
@@ -221,17 +234,6 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
         return maxState;
     }
 
-    /// <summary>
-    /// Converts an FSA to a minimized DFA.
-    /// </summary>
-    /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <returns>A minimized DFA.</returns>
-    private static Dfa ToMinimizedDfa(IFsa fsa) => fsa switch
-    {
-        Dfa dfa => dfa.Minimized(),
-        Nfa nfa => nfa.ToDfa().Minimized(),
-        _ => throw new ArgumentException("Unsupported automaton type", nameof(fsa))
-    };
 
     /// <summary>
     /// Indicates language equivalence between two CFAs.

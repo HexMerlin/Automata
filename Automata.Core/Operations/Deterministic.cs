@@ -7,7 +7,7 @@ public static partial class Ops
     /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
     /// <param name="nfa">The input nondeterministic finite automaton.</param>
     /// <returns>A new DFA equivalent to the NFA.</returns>
-    public static Dfa ToDfa(Nfa nfa)
+    public static Dfa Deterministic(Nfa nfa)
     {
         List<Transition> dfaTransitions = [];
         HashSet<int> dfaFinalStates = [];

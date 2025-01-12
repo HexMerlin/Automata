@@ -18,7 +18,7 @@ public static class Program
         Random random = new Random(7);
         var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-        IFsa fsa = new Nfa(sequences).ToCfa(); //Create a canonical minimized automaton from the sequences
+        IFsa fsa = new Nfa(sequences).AsCfa(); //Create a canonical minimized automaton from the sequences
 
         Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
 

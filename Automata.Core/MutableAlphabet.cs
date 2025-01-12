@@ -26,13 +26,13 @@ public class MutableAlphabet : IAlphabet
     public MutableAlphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MutableAlphabet"/> class from an existing <see cref="CanonicalAlphabet"/>.
+    /// Initializes a new instance of the <see cref="MutableAlphabet"/> class from the specified alphabet.
     /// </summary>
-    /// <param name="alphabet">Canonical alphabet to initialize from.</param>
-    public MutableAlphabet(CanonicalAlphabet alphabet)
+    /// <param name="alphabet">Alphabet to initialize the mutable alphabet with.</param>
+    public MutableAlphabet(IAlphabet alphabet)
     {
-        this.indexToStringMap = new(alphabet.Symbols);
         this.stringToIndexMap = new Dictionary<string, int>(alphabet.StringToIndexMap);
+        this.indexToStringMap = new(alphabet.Symbols);
     }
 
     /// <summary>
@@ -44,6 +44,16 @@ public class MutableAlphabet : IAlphabet
     /// Read-only collection of symbols in the alphabet.
     /// </summary>
     public IReadOnlyCollection<string> Symbols => indexToStringMap;
+
+    /// <summary>
+    /// Mapping from string symbols to their respective indices.
+    /// </summary>
+    IReadOnlyDictionary<string, int> StringToIndexMap => stringToIndexMap;
+
+    /// <summary>
+    /// Mapping from string symbols to their respective indices.
+    /// </summary>
+    IReadOnlyDictionary<string, int> IAlphabet.StringToIndexMap => stringToIndexMap;
 
     /// <summary>
     /// Symbol at the specified index.
