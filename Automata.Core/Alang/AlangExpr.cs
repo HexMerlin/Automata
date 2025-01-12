@@ -71,11 +71,12 @@ public abstract class AlangExpr
     /// <exception cref="AlangFormatException">Thrown when parentheses are unmatched in the input.</exception>
     internal static AlangExpr ParsePrimaryExpr(ref AlangCursor cursor)
     {
-        if (cursor.TryConsumeLeftParen())
+        if (cursor.TryConsume(Chars.LeftParen))
         {
             cursor.ShouldNotBeOperator();
             AlangExpr expression = ParseAlangExpr(ref cursor); // Parse inner expression
-            cursor.ConsumeRightParen();
+            cursor.ShouldBeRightParen();
+            _ = cursor.TryConsume(Chars.RightParen);
 
             if (expression.IsEmptyString)
                 return new EmptySet(); // Captured empty parentheses '()' => EmptySet
