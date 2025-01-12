@@ -6,7 +6,6 @@
 /// <seealso cref="AlangFormatException"/>
 public enum ParseErrorType
 {  
-   
     /// <summary>
     /// Indicates that an unexpected closing parenthesis was encountered.
     /// </summary>
@@ -26,11 +25,6 @@ public enum ParseErrorType
     /// Indicates that a right operand was expected after a binary operator but was not found.
     /// </summary>
     MissingRightOperand,
-
-    /// <summary>
-    /// Indicates that a new subexpression or end-of-input was expected but not found.
-    /// </summary>
-    ExpectedBeginExpressionOrEOI,
 
     /// <summary>
     /// Indicates that the input was empty or white-space only.
