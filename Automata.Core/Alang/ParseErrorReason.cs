@@ -1,10 +1,11 @@
 ﻿namespace Automata.Core.Alang;
 
 /// <summary>
-/// Specifies the type of parsing error encountered in Alang expressions."/>
+/// Reason for parsing errors in Alang expressions.
+/// Specifies the reason for a <see cref="AlangFormatException"/>.
 /// </summary>
 /// <seealso cref="AlangFormatException"/>
-public enum ParseErrorType
+public enum ParseErrorReason
 {  
     /// <summary>
     /// Indicates that an unexpected closing parenthesis was encountered.
