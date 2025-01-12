@@ -4,7 +4,7 @@
 /// Represents a complement expression in the Alang language.
 /// </summary>
 /// <param name="operand">The operand of the complement expression.</param>
-public class Complement(AlangExpr operand) : UnaryExpr(operand)
+public class Complement(AlangRegex operand) : UnaryExpr(operand)
 {
     /// <inheritdoc/>
     public override int Precedence => 5;

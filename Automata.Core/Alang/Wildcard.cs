@@ -5,7 +5,7 @@
 /// <remarks>
 /// A wildcard that matches any atom in the Alphabet.
 /// </remarks>
-public class Wildcard : AlangExpr
+public class Wildcard : AlangRegex
 {
     ///<inheritdoc/>
     public override int Precedence => 7;

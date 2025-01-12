@@ -7,7 +7,7 @@
 /// The Kleene plus operation is a postfix unary operation that denotes one or more repetitions of the operand expression.
 /// </remarks>
 /// <param name="operand">The operand of the Kleene plus expression.</param>
-public class KleenePlus(AlangExpr operand) : UnaryExpr(operand)
+public class KleenePlus(AlangRegex operand) : UnaryExpr(operand)
 {
     /// <inheritdoc/>
     public override int Precedence => 5;

@@ -9,7 +9,7 @@ public class AlangExprTests
 
     private static void AssertInputParsesToExpectedExpression(string input, string expectedAlangExpression)
     {
-        string actual = AlangExpr.Parse(input).AlangExpressionString;
+        string actual = AlangRegex.Parse(input).AlangExpressionString;
         Assert.AreEqual(expectedAlangExpression, actual);
     }
 
@@ -71,7 +71,7 @@ public class AlangExprTests
     #region Invalid Expressions Tests
     private static void AssertThrowsAlangFormatException(string input, int errorIndex, ParseErrorReason expectedErrorType)
     {
-        AlangFormatException exception = Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse(input));
+        AlangFormatException exception = Assert.ThrowsException<AlangFormatException>(() => AlangRegex.Parse(input));
         Assert.AreEqual(expectedErrorType, exception.ErrorReason);
         Assert.AreEqual(errorIndex, exception.Index);
     }

@@ -7,7 +7,7 @@
 /// <remarks>
 /// This class is used to define an empty set in finite-state automata expressions.
 /// </remarks>
-public class EmptySet : AlangExpr
+public class EmptySet : AlangRegex
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="EmptySet"/> class.

@@ -7,7 +7,7 @@
 /// An option expression matches zero or one occurrence of its operand.
 /// </remarks>
 /// <param name="operand">The operand of the option expression.</param>
-public class Option(AlangExpr operand) : UnaryExpr(operand)
+public class Option(AlangRegex operand) : UnaryExpr(operand)
 {
     /// <inheritdoc/>
     public override int Precedence => 5;

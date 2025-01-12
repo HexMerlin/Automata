@@ -7,7 +7,7 @@
 /// An atom is a basic unit in the <c>Alang</c> language, consisting of one or more characters that are not
 /// operators or whitespace. It serves as an atomic leaf node in the expression tree.
 /// </remarks>
-public class Atom : AlangExpr
+public class Atom : AlangRegex
 {
     /// <summary>
     /// Symbol representing this atom.
