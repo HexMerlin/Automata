@@ -12,6 +12,17 @@ namespace Automata.Core;
 /// <param name="ToState">The destination state of the transition.</param>
 public readonly record struct EpsilonTransition(int FromState, int ToState) : IComparable<EpsilonTransition>
 {
+
+    /// <summary>
+    /// The state origin of the transition.
+    /// </summary>
+    public int FromState { get; } = FromState;
+
+    /// <summary>
+    /// The destination state of the transition.
+    /// </summary>
+    public int ToState { get; } = ToState;
+
     /// <summary>
     /// String representation for ε - the empty epsilon string.
     /// Epsilon is not part of any alphabet; the symbol is used solely for output purposes, never for computation.

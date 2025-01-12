@@ -52,6 +52,20 @@ public class Nfa : IFsa
     }
 
     /// <summary>
+    /// Initializes a new clone of given <see cref="Nfa"/> with a new cloned alphabet.
+    /// </summary>
+    /// <param name="nfa">NFA to clone.</param>
+    public Nfa(Nfa nfa)
+    {
+        this.Alphabet = new MutableAlphabet(nfa.Alphabet);
+        this.symbolicTransitions = [.. nfa.symbolicTransitions];
+        this.epsilonTransitions = [.. nfa.epsilonTransitions];
+        this.initialStates = [.. nfa.initialStates];
+        this.finalStates = [.. nfa.finalStates];
+        this.MaxState = nfa.MaxState;
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class from a Deterministic automaton.
     /// </summary>
     /// <param name="iDfa">A deterministic automaton to create an NFA from.</param>
@@ -308,6 +322,11 @@ public class Nfa : IFsa
     public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIf(final, states, finalStates);
 
     /// <summary>
+    /// Clears all final states from the NFA.
+    /// </summary>
+    public void ClearFinalStates() => finalStates.Clear();
+
+    /// <summary>
     /// Initial states of the NFA.
     /// </summary>
     public IReadOnlySet<int> InitialStates => initialStates;
@@ -317,8 +336,13 @@ public class Nfa : IFsa
     /// </summary>
     public IReadOnlySet<int> FinalStates => finalStates;
 
+    ///<inheritdoc/>
+    ISet<int> IFsa.FinalStates => finalStates;
+
+    ///<inheritdoc/>
     IAlphabet IFsa.Alphabet => Alphabet;
 
+   
     /// <summary>
     /// Gets the symbolic transitions of the NFA.
     /// </summary>

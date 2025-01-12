@@ -4,10 +4,11 @@ public static partial class Ops
     /// <summary>
     /// Determinization of an NFA representation to a DFA.
     /// </summary>
-    /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).</remarks>
+    /// <remarks>Uses the Powerset Construction algorithm (a.k.a. Subset Construction algorithm).
+    /// </remarks>
     /// <param name="nfa">The input nondeterministic finite automaton.</param>
     /// <returns>A new DFA equivalent to the NFA.</returns>
-    public static Dfa Deterministic(Nfa nfa)
+    internal static Dfa Deterministic(Nfa nfa)
     {
         List<Transition> dfaTransitions = [];
         HashSet<int> dfaFinalStates = [];

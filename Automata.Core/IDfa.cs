@@ -11,11 +11,6 @@ public interface IDfa : IFsa
     int InitialState { get; }
 
     /// <summary>
-    /// Final states of the IDfa.
-    /// </summary>
-    IReadOnlySet<int> FinalStates { get; }
-
-    /// <summary>
     /// Upper limit for the maximum state number in the DFA. 
     /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>

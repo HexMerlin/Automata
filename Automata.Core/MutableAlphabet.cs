@@ -93,6 +93,25 @@ public class MutableAlphabet : IAlphabet
     }
 
     /// <summary>
+    /// Add another alphabet to the current alphabet.
+    /// </summary>
+    /// <param name="other">The other alphabet to merge into this.</param>
+    /// <returns>A dictionary mapping indices from the other alphabet to the current alphabet.</returns>
+    public Dictionary<int, int> UnionWith(IAlphabet other)
+    {
+        var mapOtherToThis = new Dictionary<int, int>();
+
+        foreach (KeyValuePair<string, int> entry in other.StringToIndexMap)
+        {
+            string otherSymbol = entry.Key;
+            int otherIndex = entry.Value;
+            int index = GetOrAdd(otherSymbol);
+            mapOtherToThis[otherIndex] = index;
+        }
+        return mapOtherToThis;
+    }
+
+    /// <summary>
     /// Adds all the specified symbols to the alphabet that are not already present.
     /// </summary>
     /// <param name="symbols">Symbols to add.</param>

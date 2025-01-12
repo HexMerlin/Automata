@@ -21,6 +21,11 @@ public interface IFsa
     bool IsEpsilonFree { get; }
 
     /// <summary>
+    /// Final states of the FSA.
+    /// </summary>
+    ISet<int> FinalStates { get; }
+
+    /// <summary>
     /// Indicates whether the specified state is an initial state.
     /// </summary>
     /// <param name="state">State to check.</param>
@@ -37,10 +42,12 @@ public interface IFsa
     /// <summary>
     /// Transitions of the FSA.
     /// </summary>
+    /// <returns>An enumerable collection of <see cref="Transition"/>.</returns>
     IEnumerable<Transition> SymbolicTransitions();
 
     /// <summary>
     /// Epsilon transitions of the FSA.
     /// </summary>
+    /// <returns>An enumerable collection of <see cref="EpsilonTransition"/>.</returns>
     IEnumerable<EpsilonTransition> EpsilonTransitions();
 }

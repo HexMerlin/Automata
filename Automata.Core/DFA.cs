@@ -118,6 +118,9 @@ public class Dfa : IDfa
     /// </returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
+    ///<inheritdoc/>
+    ISet<int> IFsa.FinalStates => finalStates;
+
     /// <summary>
     /// Final states of the DFA.
     /// </summary>

@@ -6,20 +6,36 @@ namespace Automata.Core;
 /// Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.
 /// </summary>
 /// <remarks>A <see cref="Transition"/> always has a (non-epsilon) symbol and cannot represent an epsilon transition</remarks>
-/// <param name="FromState">The state from which the transition starts.</param>
-/// <param name="Symbol">The symbol that triggers the transition.</param>
-/// <param name="ToState">The state to which the transition goes.</param>
+/// <param name="FromState">The state origin of the transition.</param>
+/// <param name="Symbol">The symbol for the transition.</param>
+/// <param name="ToState">The destination state of the transition.</param>
 public readonly record struct Transition(int FromState, int Symbol, int ToState) : IComparable<Transition>
 {
+
     /// <summary>
-    /// Invalid transition.
+    /// The state origin of the transition.
     /// </summary>
-    public static Transition Invalid => new();
+    public int FromState { get; } = FromState;
+    
+    /// <summary>
+    /// Symbol for the transition.
+    /// </summary>
+    public int Symbol { get; } = Symbol;
+
+    /// <summary>
+    /// The destination state of the transition.
+    /// </summary>
+    public int ToState { get; } = ToState;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Transition"/> struct that is equivalent to <see cref="Invalid"/>.
     /// </summary>
     public Transition() : this(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState) { }
+
+    /// <summary>
+    /// Invalid transition.
+    /// </summary>
+    public static Transition Invalid => new();
 
     /// <summary>
     /// Indicates whether the transition is invalid.

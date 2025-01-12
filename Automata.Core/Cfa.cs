@@ -91,7 +91,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     IAlphabet IFsa.Alphabet => Alphabet;
 
     ///<inheritdoc/>
-    IReadOnlySet<int> IDfa.FinalStates => this.FinalStates;
+    ISet<int> IFsa.FinalStates => this.FinalStates;
 
     /// <summary>
     /// The state number with the highest value.
@@ -99,7 +99,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// </summary>
     /// <returns>The maximum state number, or <c>-1</c> if the CFA is empty.</returns>
     public int MaxState => StateCount - 1;
-
+       
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
