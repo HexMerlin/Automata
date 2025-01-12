@@ -69,51 +69,51 @@ public class AlangExprTests
     #endregion Valid Expressions Tests
 
     #region Invalid Expressions Tests
-    private static void AssertThrowsAlangFormatException(string input, int errorIndex, ParseErrorType expectedErrorType)
+    private static void AssertThrowsAlangFormatException(string input, int errorIndex, ParseErrorReason expectedErrorType)
     {
         AlangFormatException exception = Assert.ThrowsException<AlangFormatException>(() => AlangExpr.Parse(input));
-        Assert.AreEqual(expectedErrorType, exception.ErrorType);
+        Assert.AreEqual(expectedErrorType, exception.ErrorReason);
         Assert.AreEqual(errorIndex, exception.Index);
     }
 
     [TestMethod()]
-    public void Parse_ForEmptyString_ThrowsCorrectException() => AssertThrowsAlangFormatException("", 0, ParseErrorType.EmptyInput);
+    public void Parse_ForEmptyString_ThrowsCorrectException() => AssertThrowsAlangFormatException("", 0, ParseErrorReason.EmptyInput);
 
     [TestMethod()]
-    public void Parse_ForOnlyWhitespaces_ThrowsCorrectException() => AssertThrowsAlangFormatException("  \t   ", 6, ParseErrorType.EmptyInput);
+    public void Parse_ForOnlyWhitespaces_ThrowsCorrectException() => AssertThrowsAlangFormatException("  \t   ", 6, ParseErrorReason.EmptyInput);
 
     [TestMethod()]
-    public void Parse_ForSingleLeftParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("(", 1, ParseErrorType.MissingClosingParenthesis);
+    public void Parse_ForSingleLeftParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("(", 1, ParseErrorReason.MissingClosingParenthesis);
 
     [TestMethod()]
-    public void Parse_ForMissingClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("a(", 2, ParseErrorType.MissingClosingParenthesis);
+    public void Parse_ForMissingClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("a(", 2, ParseErrorReason.MissingClosingParenthesis);
 
     [TestMethod()]
-    public void Parse_ForSingleClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException(")", 0, ParseErrorType.UnexpectedClosingParenthesis);
+    public void Parse_ForSingleClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException(")", 0, ParseErrorReason.UnexpectedClosingParenthesis);
 
     [TestMethod()]
-    public void Parse_ForUnexpectedClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("a)", 1, ParseErrorType.UnexpectedClosingParenthesis);
+    public void Parse_ForUnexpectedClosingParenthesis_ThrowsCorrectException() => AssertThrowsAlangFormatException("a)", 1, ParseErrorReason.UnexpectedClosingParenthesis);
 
     [TestMethod()]
-    public void Parse_ForMissingRightOperandUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("a|", 2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForMissingRightOperandUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("a|", 2, ParseErrorReason.MissingRightOperand);
 
     [TestMethod()]
-    public void Parse_ForMissingRightOperandDifference_ThrowsCorrectException() => AssertThrowsAlangFormatException("a-", 2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForMissingRightOperandDifference_ThrowsCorrectException() => AssertThrowsAlangFormatException("a-", 2, ParseErrorReason.MissingRightOperand);
 
     [TestMethod()]
-    public void Parse_ForMissingRightOperandIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("a&", 2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForMissingRightOperandIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("a&", 2, ParseErrorReason.MissingRightOperand);
 
     [TestMethod()]
-    public void Parse_ForSingleComplementThrowsCorrectException() => AssertThrowsAlangFormatException("~", 0, ParseErrorType.UnexpectedOperator);
+    public void Parse_ForSingleComplementThrowsCorrectException() => AssertThrowsAlangFormatException("~", 0, ParseErrorReason.UnexpectedOperator);
 
     [TestMethod()]
-    public void Parse_ForSingleIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("&", 0, ParseErrorType.UnexpectedOperator);
+    public void Parse_ForSingleIntersection_ThrowsCorrectException() => AssertThrowsAlangFormatException("&", 0, ParseErrorReason.UnexpectedOperator);
 
     [TestMethod()]
-    public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorType.UnexpectedOperator);
+    public void Parse_ForEnclosedUnion_ThrowsCorrectException() => AssertThrowsAlangFormatException("(|)", 1, ParseErrorReason.UnexpectedOperator);
 
     [TestMethod()]
-    public void Parse_ForConsecutiveUnionOperators_ThrowsCorrectException() => AssertThrowsAlangFormatException("a||b",2, ParseErrorType.MissingRightOperand);
+    public void Parse_ForConsecutiveUnionOperators_ThrowsCorrectException() => AssertThrowsAlangFormatException("a||b",2, ParseErrorReason.MissingRightOperand);
 
     #endregion Invalid Expressions Tests
 }
