@@ -11,17 +11,17 @@ The parser validates syntactic correctness and generates detailed error messages
 
 | Rule                             | Expansion                                                     |
 |----------------------------------|---------------------------------------------------------------|
-| AlangExpr (root)                     | Union                                                    |
+| AlangRegex (root)                     | Union                                                    |
 | :small_blue_diamond:Union            | Difference  ('\|' Difference)*                            |
 | :small_blue_diamond:Difference       | Intersection ('-' Intersection)*                          |
 | :small_blue_diamond:Intersection     | Concatenation ('&' Concatenation)*                        |
-| :small_blue_diamond:Concatenation    | UnaryExpr+                                                |
-| UnaryExpr           | PrimaryExpr<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)* |
-| :small_blue_diamond:Option           | PrimaryExpr '?'                                           |
-| :small_blue_diamond:KleeneStar       | PrimaryExpr '*'                                           |
-| :small_blue_diamond:KleenePlus       | PrimaryExpr '+'                                           |
+| :small_blue_diamond:Concatenation    | UnaryRegex+                                                |
+| UnaryRegex           | PrimaryRegex<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)* |
+| :small_blue_diamond:Option           | PrimaryRegex '?'                                           |
+| :small_blue_diamond:KleeneStar       | PrimaryRegex '*'                                           |
+| :small_blue_diamond:KleenePlus       | PrimaryRegex '+'                                           |
 | :small_blue_diamond:Complement       | Primary '~'                                               |
-| PrimaryExpr          | '(' AlangExpr ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet               |
+| PrimaryRegex          | '(' AlangRegex ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet               |
 | :small_blue_diamond:Atom                 | AtomChar+                                             |
 | :small_blue_diamond:Wildcard             | '.'                                                   |
 | :small_blue_diamond:EmptySet          | '(' ')'                                                  |
@@ -29,7 +29,7 @@ The parser validates syntactic correctness and generates detailed error messages
 
 :small_blue_diamond: Denotes a node-type that can be included in the resulting parse tree.
 
-The root rule AlangExpr must cover the entire input, with no residue. 
+The root rule AlangRegex must cover the entire input, with no residue. 
 
 ## Operators Ordered by Precedence (Lowest-to-Highest)
 
