@@ -3,6 +3,14 @@
 /// <summary>
 /// An alphabet associated with a finite state automaton.
 /// </summary>
+/// <remarks>
+/// An <see cref="Alphabet"/> is a collection of symbols used by a finite state automaton.
+/// It can be extended with new symbols, but symbols cannot be removed. 
+/// This enables multiple automata to share the same alphabet. 
+/// Furthermore, automata never needs to deals with strings, but can use integer indices instead for all operations.
+/// Default behavior for operations that create new automata is to use the existing alphabet of the input automata.
+/// If a new alphabet is needed, an explicit creation of a new alphabet is typically required.
+/// </remarks>
 public class Alphabet 
 {
     #region Data

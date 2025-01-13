@@ -17,7 +17,7 @@ namespace Automata.Core;
 /// <item>Immutable: Guarantees structural and behavioral invariance.</item>
 /// </list>
 /// </remarks>
-public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
+public partial class Mfa : IDfa
 {
     #region Data
 
@@ -37,10 +37,9 @@ public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
     /// <summary>
     /// Final states of the MFA.
     /// </summary>
-    public readonly int[] finalStates;
+    private readonly int[] finalStates;
 
     #endregion Data
-
 
     /// <summary>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
@@ -57,21 +56,21 @@ public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
     /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
     /// </summary>
     /// <param name="dfa">A DFA to create from.</param>
-    public Mfa(Dfa dfa) 
+    public Mfa(Dfa dfa)
     {
         this.Alphabet = dfa.Alphabet;
-        Dfa minDfa = Ops.Minimal(dfa);       
-       
+        Dfa minDfa = Ops.Minimal(dfa);
+
         Dictionary<int, int> dfaToMfaStateMap = new();
         SortedSet<Transition> transitionSet = new();
         int maxState = Constants.InvalidState;
 
         int initialState = GetOrAddMfaState(minDfa.InitialState);
         Debug.Assert(initialState == 0, "The initial state of a MFA should be 0.");
-       
+
         foreach (Transition t in minDfa.Transitions())
-            transitionSet.Add(new Transition(GetOrAddMfaState(t.FromState), t.Symbol, GetOrAddMfaState(t.ToState)));
-        
+            _ = transitionSet.Add(new Transition(GetOrAddMfaState(t.FromState), t.Symbol, GetOrAddMfaState(t.ToState)));
+
         this.transitions = transitionSet.ToArray();
         this.finalStates = minDfa.FinalStates.Select(GetOrAddMfaState).OrderBy(s => s).ToArray();
 
@@ -107,7 +106,6 @@ public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
     /// </summary>
     public int TransitionCount => transitions.Length;
 
-  
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
@@ -159,7 +157,6 @@ public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
-   
     /// <summary>
     /// Hash code for the current alphabet.
     /// </summary>
@@ -176,4 +173,3 @@ public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
     }
 
 }
-
