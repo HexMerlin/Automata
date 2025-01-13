@@ -36,9 +36,9 @@ public class Concatenation(AlangRegex left, AlangRegex right) : InfixBinary(left
         {
             string left = Param(Left, this);
             string right = Param(Right, this);
-            bool insertSpace = Chars.IsAtomChar(left.Last()) && Chars.IsAtomChar(right.First());
+            bool insertSpace = Chars.IsSymbolChar(left.Last()) && Chars.IsSymbolChar(right.First());
             return insertSpace
-                ? $"{left} {right}" // Space required between two atoms
+                ? $"{left} {right}" // Space required between two Symbols
                 : left + right;
         }
     }

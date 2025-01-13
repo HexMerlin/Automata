@@ -18,16 +18,16 @@ public class AlangExprTests
     }
 
     [TestMethod()]
-    public void Parse_ForEmptyParenthesesWithWhitespaces_ReturnsEmpty() => AssertInputParsesToExpectedExpression(" () ", "()");
+    public void Parse_ForEmptyParenthesesWithWhitespaces_ReturnsEmptyLang() => AssertInputParsesToExpectedExpression(" () ", "()");
 
     [TestMethod()]
     public void Parse_ForSingleCharSymbol_ReturnsSymbol() => AssertInputParsesToExpectedExpression("a", "a");
 
     [TestMethod()]
     public void Parse_ForMultiCharSymbolWithWhitespaces_ReturnsSymbol() => AssertInputParsesToExpectedExpression("  aa1  ", "aa1");
-
+    
     [TestMethod()]
-    public void Parse_ForConcatAtomWithEmptySet_ReturnsAtom() => AssertInputParsesToExpectedExpression("a1()", "a1");
+    public void Parse_ForConcatSymbolWithEmptyLang_ReturnsSame() => AssertInputParsesToExpectedExpression("a1()", "a1()");
 
     [TestMethod()]
     public void Parse_ForMultiCharSymbolWithOption_ReturnsCorrect() => AssertInputParsesToExpectedExpression("a1a?", "a1a?");

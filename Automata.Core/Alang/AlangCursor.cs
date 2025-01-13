@@ -150,17 +150,17 @@ public ref struct AlangCursor(string input)
     /// This method will return an empty (invalid) <see cref="Symbol"/> if no characters could be consumed. It is up to the calling code to handle this.
     /// </remarks>
     /// <returns>The consumed <see cref="Symbol"/>.</returns>
-    public Symbol ConsumeAtom()
+    public Symbol ConsumeSymbol()
     {
         int pos = 0;
 
-        while (pos < cursor.Length && Chars.IsAtomChar(cursor[pos]))
+        while (pos < cursor.Length && Chars.IsSymbolChar(cursor[pos]))
             pos++;
 
-        Symbol atom = new Symbol(cursor.Slice(0, pos).ToString());
+        Symbol symbol = new Symbol(cursor.Slice(0, pos).ToString());
 
         cursor = cursor.Slice(pos).TrimStart();
-        return atom;
+        return symbol;
     }
 
     /// <summary>

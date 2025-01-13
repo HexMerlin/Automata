@@ -1,31 +1,29 @@
 ﻿namespace Automata.Core.Alang;
 
 /// <summary>
-/// Terminal in the <c>Alang</c> language used for defining finite-state automata.
+/// Symbol in the <c>Alang</c> language used for defining finite-state automata.
 /// </summary>
 /// <remarks>
-/// A terminal is a atomunit in the <c>Alang</c> language, consisting of one or more characters that are not
-/// operators or whitespace. It serves as an atomic leaf node in the expression tree.
+/// A Symbol is a atomic unit in the <c>Alang</c> language, consisting of one or more characters that are not
+/// operators or whitespace. They are present as leaf nodes in the resulting parse tree.
 /// </remarks>
 public class Symbol : AlangRegex
 {
     /// <summary>
-    /// Symbol representing this atom.
+    /// String value for this Symbol.
     /// </summary>
-    public string Symbol { get; }
+    public string Value { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Alang.Symbol"/> class with the specified symbol.
     /// </summary>
-    /// <param name="symbol">Symbol representing this atom.</param>
+    /// <param name="symbol">String representing this Symbol.</param>
     public Symbol(string symbol) : base()
-        => Symbol = symbol;
+        => Value = symbol;
 
     ///<inheritdoc/>
     public override int Precedence => 7;
 
-    /// <summary>
-    /// String representation of this atom.
-    /// </summary>
-    public override string AlangExpressionString => Symbol;
+    ///<inheritdoc/>
+    public override string AlangExpressionString => Value;
 }

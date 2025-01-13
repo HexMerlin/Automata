@@ -40,7 +40,7 @@ public abstract class AlangRegex
     /// <value>
     /// <see langword="true"/> <c>iff</c> this expression is an empty string; otherwise, <see langword="false"/>.
     /// </value>
-    public bool IsEmptyString => this is Symbol atom && atom.Symbol.Length == 0;
+    public bool IsEmptyString => this is Symbol symbol && symbol.Value.Length == 0;
 
     /// <summary>
     /// Parses the specified input string into an <see cref="AlangRegex"/>.
@@ -99,7 +99,7 @@ public abstract class AlangRegex
         if (cursor.TryConsume(Chars.Wildcard))
             return new Wildcard();
 
-        return cursor.ConsumeAtom();
+        return cursor.ConsumeSymbol();
     }
 
     /// <summary>
@@ -117,9 +117,9 @@ public abstract class AlangRegex
             : $"({expr.AlangExpressionString})";
 
     /// <summary>
-    /// String that represents the current object.
+    /// String that represents the current expression in Alang format.
     /// </summary>
-    /// <returns>The expression string of this expression.</returns>
+    /// <returns>The expression string of this expression in Alang format.</returns>
     public override string ToString() => AlangExpressionString;
 }
 

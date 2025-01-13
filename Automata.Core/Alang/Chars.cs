@@ -76,12 +76,12 @@ public static class Chars
         => !ForbiddenExpressionStarts.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
-    /// Indicates if a character can be part of an atom.
+    /// Indicates if a character can be part of Symbol.
     /// </summary>
     /// <param name="c">Character to check.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the character can be part of an atom.</returns>
-    public static bool IsAtomChar(char c)
-        => !ForbiddenInAtoms.Contains(c) && !char.IsWhiteSpace(c);
+    /// <returns><see langword="true"/> <c>iff</c> the character can be part of a Symbol.</returns>
+    public static bool IsSymbolChar(char c)
+        => !ForbiddenInSymbols.Contains(c) && !char.IsWhiteSpace(c);
 
     /// <summary>
     /// Indicates if a character is an operator.
@@ -93,7 +93,7 @@ public static class Chars
     private static readonly FrozenSet<char> ForbiddenExpressionStarts
        = [EOI, Invalid, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement];
 
-    private static readonly FrozenSet<char> ForbiddenInAtoms
+    private static readonly FrozenSet<char> ForbiddenInSymbols
         = [EOI, Invalid, LeftParen, RightParen, Union, Difference, Intersection, Option, KleeneStar, KleenePlus, Complement, Wildcard];
 
     private static readonly FrozenSet<char> Operators

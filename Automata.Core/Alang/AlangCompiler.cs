@@ -9,7 +9,7 @@ public static class AlangCompiler
 {
     public static IFsa Compile(AlangRegex regex, Alphabet alphabet) => regex switch
     {
-        Symbol atom => new Mfa(atom.Symbol, alphabet),
+        Symbol symbol => new Mfa(symbol.Value, alphabet),
 
         Concatenation concatenation =>
             Compile(concatenation.Left, alphabet).AsNfa()
