@@ -20,7 +20,7 @@ public static class GraphFactory
 
         fsa = fsa.AsIDfa(); // determinize to DFA
         if (minimize)
-            fsa = fsa.AsCfa(); // minimize the DFA
+            fsa = fsa.AsMfa(); // minimize the DFA
 
         return CreateGraph(fsa);
     }
@@ -37,7 +37,7 @@ public static class GraphFactory
     {
         Graph graph = new Graph();
         graph.Attr.LayerDirection = layerDirection;
-        IAlphabet alphabet = fsa.Alphabet;
+        Alphabet alphabet = fsa.Alphabet;
 
         graph.Directed = directed;
 
@@ -47,7 +47,7 @@ public static class GraphFactory
             edge.Attr.ArrowheadAtTarget = directed ? ArrowStyle.Normal : ArrowStyle.None;
         }
 
-        foreach (Transition transition in fsa.SymbolicTransitions())
+        foreach (Transition transition in fsa.Transitions())
             AddEdge(transition.FromState, alphabet[transition.Symbol], transition.ToState);
 
         if (!fsa.IsEpsilonFree)

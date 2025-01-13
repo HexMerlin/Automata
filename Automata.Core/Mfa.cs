@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Frozen;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Automata.Core.Operations;
 
 namespace Automata.Core;
@@ -12,62 +10,90 @@ namespace Automata.Core;
 /// <see cref="Mfa"/> is the most optimized automaton representation, characterized by:
 /// <list type="number">
 /// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions.</item>
-/// <item><c>Minimal memory footprint</c>: Uses a contiguous memory block for data, with minimal overhead.</item>
+/// <item>Contiguous states: States are in range [0..MaxState] </item>
+/// <item>Initial state is always <c>0</c></item>
+/// <item>Minimal memory footprint: Uses a contiguous memory block for data, with minimal overhead.</item>
 /// <item>Performance-optimized for efficient read-only operations.</item>
-/// <item><c>Immutable</c>: Guarantees structural and behavioral invariance.</item>
+/// <item>Immutable: Guarantees structural and behavioral invariance.</item>
 /// </list>
 /// </remarks>
-public partial class Mfa : IEquatable<Mfa>, IEnumerable<Transition>, IDfa
+public partial class Mfa : /*IEnumerable<Transition>,*/ IDfa
 {
     #region Data
+
     /// <summary>
-    /// Alphabet used by the CFA.
+    /// Alphabet used by the MFA.
     /// </summary>
-    public CanonicalAlphabet Alphabet { get; }
+    public Alphabet Alphabet { get; }
 
     private readonly Transition[] transitions;
+
+    /// <summary>
+    /// The state number with the highest value.
+    /// </summary>
+    /// <returns>The maximum state number, or <c>-1</c> if the MFA is empty.</returns>
+    public int MaxState { get; }
+
+    /// <summary>
+    /// Final states of the MFA.
+    /// </summary>
+    public readonly int[] finalStates;
+
+    #endregion Data
+
 
     /// <summary>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
     /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
-    public int InitialState { get; }
+    public int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
 
     /// <summary>
-    /// Final states of the CFA.
+    /// Number of states in the MFA.
     /// </summary>
-    public readonly FrozenSet<int> FinalStates;
-
-    /// <summary>
-    /// Number of states in the CFA.
-    /// </summary>
-    public readonly int StateCount;
-
-    #endregion Data
+    public int StateCount => MaxState + 1;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
     /// </summary>
     /// <param name="dfa">A DFA to create from.</param>
-    public Mfa(Dfa dfa) : this(ConvertDfa(dfa)) { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Mfa"/> class with the specified parameters.
-    /// </summary>
-    /// <param name="p">A tuple containing the canonical alphabet, transitions, initial state, and final states.</param>
-    private Mfa((CanonicalAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, FrozenSet<int> finalStates) p)
+    public Mfa(Dfa dfa) 
     {
-        Alphabet = p.alphabet;
-        this.transitions = p.transitions.OrderBy(t => t).ToArray();
-        this.StateCount = 1 + MaxStateAndAssert(this.transitions);
+        this.Alphabet = dfa.Alphabet;
+        Dfa minDfa = Ops.Minimal(dfa);       
+       
+        Dictionary<int, int> dfaToMfaStateMap = new();
+        SortedSet<Transition> transitionSet = new();
+        int maxState = Constants.InvalidState;
 
-        InitialState = p.initialState;
-        FinalStates = p.finalStates;
-        Debug.Assert(InitialState <= 0); //0 if non-empty, Constants.InvalidState if empty
+        int initialState = GetOrAddMfaState(minDfa.InitialState);
+        Debug.Assert(initialState == 0, "The initial state of a MFA should be 0.");
+       
+        foreach (Transition t in minDfa.Transitions())
+            transitionSet.Add(new Transition(GetOrAddMfaState(t.FromState), t.Symbol, GetOrAddMfaState(t.ToState)));
+        
+        this.transitions = transitionSet.ToArray();
+        this.finalStates = minDfa.FinalStates.Select(GetOrAddMfaState).OrderBy(s => s).ToArray();
+
+        int GetOrAddMfaState(int dfaState)
+        {
+            if (!dfaToMfaStateMap.TryGetValue(dfaState, out int mfaState))
+            {
+                mfaState = dfaToMfaStateMap.Count;
+                dfaToMfaStateMap[dfaState] = mfaState;
+                maxState = Math.Max(maxState, mfaState);
+            }
+            return mfaState;
+        }
     }
 
     /// <summary>
-    /// Indicates whether the CFA is empty.
+    /// Final states of the MFA.
+    /// </summary>
+    public IReadOnlyCollection<int> FinalStates => finalStates;
+
+    /// <summary>
+    /// Indicates whether the MFA is empty.
     /// </summary>
     public bool IsEmpty => InitialState == Constants.InvalidState;
 
@@ -81,21 +107,7 @@ public partial class Mfa : IEquatable<Mfa>, IEnumerable<Transition>, IDfa
     /// </summary>
     public int TransitionCount => transitions.Length;
 
-    /// <summary>
-    /// Alphabet used by the FSA.
-    /// </summary>
-    IAlphabet IFsa.Alphabet => Alphabet;
-
-    ///<inheritdoc/>
-    ISet<int> IFsa.FinalStates => this.FinalStates;
-
-    /// <summary>
-    /// The state number with the highest value.
-    /// Equivalent to <c><see cref="StateCount"/> - 1</c>.
-    /// </summary>
-    /// <returns>The maximum state number, or <c>-1</c> if the CFA is empty.</returns>
-    public int MaxState => StateCount - 1;
-       
+  
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
@@ -136,121 +148,18 @@ public partial class Mfa : IEquatable<Mfa>, IEnumerable<Transition>, IDfa
     public StateView State(int state) => new(state, transitions);
 
     /// <summary>
-    /// Gets an enumerable collection of the symbolic transitions.
+    /// Gets the transitions of the DFA.
     /// </summary>
-    /// <returns>An enumerable collection of <see cref="Transition"/>.</returns>
-    public IEnumerable<Transition> SymbolicTransitions() => this;
+    /// <returns>An collection of transitions.</returns>
+    public IReadOnlyCollection<Transition> Transitions() => transitions;
 
     /// <summary>
-    /// Gets an enumerable collection of the epsilon transitions, which is always empty.
+    /// Gets the epsilon transitions of the DFA, which is always empty.
     /// </summary>
-    /// <returns>An empty enumerable collection of <see cref="EpsilonTransition"/>.</returns>
-    public IEnumerable<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
+    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
-
-
-    /// <summary>
-    /// Converts an FSA to a canonical form.
-    /// </summary>
-    /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <returns>A tuple containing the canonical alphabet, transitions, initial state, and final states.</returns>
-    private static (CanonicalAlphabet alphabet, Transition[] transitions, int initialState, FrozenSet<int> finalStates) ConvertDfa(Dfa dfa)
-    {
-        Dfa minDfa = Ops.Minimal(dfa);
-        if (minDfa.IsEmpty)
-            return (CanonicalAlphabet.Empty, Array.Empty<Transition>(), Constants.InvalidState, FrozenSet<int>.Empty);
-
-        CanonicalAlphabet alphabet = new CanonicalAlphabet(minDfa.SymbolicTransitions().Select(t => minDfa.Alphabet[t.Symbol]));
-        (Transition[] transitions, int initialState, FrozenSet<int> finalStates) = ConvertWithAlphabet(minDfa, alphabet);
-        return (alphabet, transitions, initialState, finalStates);
-    }
-
-    /// <summary>
-    /// Converts a minimized DFA to a canonical form.
-    /// </summary>
-    /// <param name="minDfa">Minimized DFA to convert.</param>
-    /// <param name="cAlphabet">Canonical alphabet to use for the conversion.</param>
-    /// <returns>A tuple containing the transitions, initial state, and final states of the canonical form.</returns>
-    private static (Transition[] transitions, int initialState, FrozenSet<int> finalStates) ConvertWithAlphabet(Dfa minDfa, CanonicalAlphabet cAlphabet)
-    {
-        Dictionary<int, int> dStateToCStateMap = new();
-        int cMaxState = 0;
-        int dFromState = minDfa.InitialState;
-        dStateToCStateMap.Add(dFromState, cMaxState);
-        Queue<int> dStateQueue = new();
-        dStateQueue.Enqueue(dFromState);
-        List<Transition> cTransitions = new();
-
-        while (dStateQueue.Count > 0)
-        {
-            dFromState = dStateQueue.Dequeue();
-            int cFromState = dStateToCStateMap[dFromState];
-
-            foreach (Transition dTransition in minDfa.Transitions(dFromState).OrderBy(t => minDfa.Alphabet[t.Symbol], CanonicalAlphabet.CanonicalStringComparer))
-            {
-                int dToState = dTransition.ToState;
-                if (!dStateToCStateMap.TryGetValue(dToState, out int cToState))
-                {
-                    cToState = ++cMaxState;
-                    dStateToCStateMap.Add(dToState, cToState);
-                    dStateQueue.Enqueue(dToState);
-                }
-                int cSymbol = cAlphabet[minDfa.Alphabet[dTransition.Symbol]];
-                cTransitions.Add(new Transition(cFromState, cSymbol, cToState));
-            }
-        }
-
-        int cInitialState = dStateToCStateMap[minDfa.InitialState];
-        FrozenSet<int> cFinalStates = minDfa.FinalStates.Select(d => dStateToCStateMap[d]).ToFrozenSet();
-
-        return (cTransitions.ToArray(), cInitialState, cFinalStates);
-    }
-
-    /// <summary>
-    /// Finds the maximum state in the set of transitions.
-    /// Also asserts that the transitions are deterministic.
-    /// </summary>
-    /// <param name="transitions">Transition array.</param>
-    /// <returns>Maximum state referenced, or <see cref="Constants.InvalidState"/> if the array is empty.</returns>
-    /// <exception cref="ArgumentException">If the transitions are not deterministic.</exception>
-    private static int MaxStateAndAssert(Transition[] transitions)
-    {
-        int maxState = Constants.InvalidState;
-        int fromState = Constants.InvalidState;
-        int symbol = Constants.InvalidSymbolIndex;
-
-        for (int i = 0; i < transitions.Length; i++)
-        {
-            Transition t = transitions[i];
-            if (t.FromState == fromState && t.Symbol == symbol)
-                throw new ArgumentException("The transitions must be deterministic: every (FromState, Symbol)-tuple must be unique.");
-            (fromState, symbol, int toState) = t;
-            maxState = Math.Max(maxState, Math.Max(fromState, toState));
-        }
-        return maxState;
-    }
-
-
-    /// <summary>
-    /// Indicates language equivalence between two CFAs.
-    /// </summary>
-    /// <param name="other">Object to compare with this object.</param>
-    /// <remarks>Equality means both CFAs accept the same language, but will due to the canonical property, also be identical.</remarks>
-    /// <returns><see langword="true"/> <c>iff</c> the current CFA is equal to <paramref name="other"/>.</returns>
-    public bool Equals(Mfa? other)
-    {
-        if (other is null) return false;
-        if (ReferenceEquals(this, other)) return true;
-        if (InitialState != other.InitialState) return false;
-        if (!FinalStates.SetEquals(other.FinalStates)) return false;
-        if (!Alphabet.Equals(other.Alphabet)) return false;
-        if (!this.SequenceEqual(other)) return false;
-        return true;
-    }
-
-    ///<inheritdoc/>
-    public override bool Equals(object? obj) => Equals(obj as Mfa);
-
+   
     /// <summary>
     /// Hash code for the current alphabet.
     /// </summary>
@@ -261,37 +170,10 @@ public partial class Mfa : IEquatable<Mfa>, IEnumerable<Transition>, IDfa
         hash.Add(InitialState);
         hash.Add(FinalStates);
         hash.Add(Alphabet);
-        foreach (Transition t in this)
-            hash.Add(t);
+        for (int i = 0; i < transitions.Length; i++)
+            hash.Add(transitions[i]);
         return hash.ToHashCode();
     }
 
-    /// <summary>
-    /// Indicates whether two specified instances of <see cref="Mfa"/> are equal.
-    /// </summary>
-    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
-    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Mfa"/> instances are equal.</returns>
-    public static bool operator ==(Mfa left, Mfa right) => left.Equals(right);
-
-    /// <summary>
-    /// Indicates whether two specified instances of <see cref="Mfa"/> are not equal.
-    /// </summary>
-    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
-    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
-    /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Mfa"/> instances are not equal.</returns>
-    public static bool operator !=(Mfa left, Mfa right) => !left.Equals(right);
-
-    /// <summary>
-    /// Returns an enumerator that iterates through the transitions.
-    /// </summary>
-    /// <returns>An enumerator for the transitions.</returns>
-    public IEnumerator<Transition> GetEnumerator() => ((IEnumerable<Transition>)this.transitions).GetEnumerator();
-
-    /// <summary>
-    /// Returns an enumerator that iterates through the transitions.
-    /// </summary>
-    /// <returns>An enumerator for the transitions.</returns>
-    IEnumerator IEnumerable.GetEnumerator() => this.transitions.GetEnumerator();
 }
 

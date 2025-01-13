@@ -19,7 +19,7 @@ public static class Converter
     {
         Nfa nfa => enforceNew ? new Nfa(nfa) : nfa,
         Dfa dfa => new Nfa(dfa),
-        Mfa cfa => new Nfa(cfa),
+        Mfa mfa => new Nfa(mfa),
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 
@@ -31,14 +31,14 @@ public static class Converter
     /// <param name="fsa">Finite state automaton to convert.</param>
     /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="IDfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
     /// <remarks>
-    /// Effective conversion: NFA → DFA, DFA → DFA, CFA → CFA. 
+    /// Effective conversion: NFA → DFA, DFA → DFA, MFA → MFA. 
     /// </remarks>
     /// <returns><paramref name="fsa"/> as a <see cref="IDfa"/>.</returns>
     public static IDfa AsIDfa(this IFsa fsa) => fsa switch
     {
         Nfa nfa => Ops.Deterministic(nfa),
         Dfa dfa => dfa,
-        Mfa cfa => cfa,
+        Mfa mfa => mfa,
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 
@@ -50,11 +50,11 @@ public static class Converter
     /// <param name="fsa">Finite state automaton to convert.</param>
     /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Mfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
     /// <returns><paramref name="fsa"/> as a <see cref="Mfa"/>.</returns>
-    public static Mfa AsCfa(this IFsa fsa) => fsa switch
+    public static Mfa AsMfa(this IFsa fsa) => fsa switch
     {
         Nfa nfa => new Mfa(Ops.Deterministic(nfa)),
         Dfa dfa => new Mfa(dfa),
-        Mfa cfa => cfa,
+        Mfa mfa => mfa,
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 }

@@ -24,7 +24,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Alphabet used by the NFA.
     /// </summary>
-    public MutableAlphabet Alphabet { get; }
+    public Alphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> symbolicTransitions = new();
     private readonly SortedSet<EpsilonTransition> epsilonTransitions = new();
@@ -57,7 +57,7 @@ public class Nfa : IFsa
     /// <param name="nfa">NFA to clone.</param>
     public Nfa(Nfa nfa)
     {
-        this.Alphabet = new MutableAlphabet(nfa.Alphabet);
+        this.Alphabet = nfa.Alphabet;
         this.symbolicTransitions = [.. nfa.symbolicTransitions];
         this.epsilonTransitions = [.. nfa.epsilonTransitions];
         this.initialStates = [.. nfa.initialStates];
@@ -72,16 +72,16 @@ public class Nfa : IFsa
     /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
     internal Nfa(IDfa iDfa, bool applyReverseOperation = false) 
     {
-        this.Alphabet = new MutableAlphabet(iDfa.Alphabet);
+        this.Alphabet = new Alphabet(iDfa.Alphabet);
         if (applyReverseOperation)
         {
-            UnionWith(iDfa.SymbolicTransitions().Select(t => t.Reverse()));
+            UnionWith(iDfa.Transitions().Select(t => t.Reverse()));
             SetInitial(iDfa.FinalStates);
             SetFinal(iDfa.InitialState);
         }
         else
         {
-            UnionWith(iDfa.SymbolicTransitions());
+            UnionWith(iDfa.Transitions());
             SetInitial(iDfa.InitialState);
             SetFinal(iDfa.FinalStates);
         }
@@ -334,26 +334,20 @@ public class Nfa : IFsa
     /// <summary>
     /// Final states of the NFA.
     /// </summary>
-    public IReadOnlySet<int> FinalStates => finalStates;
-
-    ///<inheritdoc/>
-    ISet<int> IFsa.FinalStates => finalStates;
-
-    ///<inheritdoc/>
-    IAlphabet IFsa.Alphabet => Alphabet;
-
-   
-    /// <summary>
-    /// Gets the symbolic transitions of the NFA.
-    /// </summary>
-    /// <returns>An enumerable of symbolic transitions.</returns>
-    IEnumerable<Transition> IFsa.SymbolicTransitions() => symbolicTransitions;
+    public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
-    /// Gets the epsilon transitions of the NFA.
+    /// Transitions of the DFA.
     /// </summary>
-    /// <returns>An enumerable of epsilon transitions.</returns>
-    IEnumerable<EpsilonTransition> IFsa.EpsilonTransitions() => epsilonTransitions;
+    /// <returns>A collection of transitions.</returns>
+    public IReadOnlyCollection<Transition> Transitions() => symbolicTransitions;
+
+    /// <summary>
+    /// Epsilon transitions of the DFA, which is always empty.
+    /// </summary>
+    /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
+    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+
 
     /// <summary>
     /// Updates the maximum state number if the provided state is greater.

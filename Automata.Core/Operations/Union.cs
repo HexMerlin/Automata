@@ -39,7 +39,7 @@ public static partial class Ops
         int stateOffset = source.MaxState + 1;
 
         // Add other's transitions to source
-        foreach (Transition t in other.SymbolicTransitions())
+        foreach (Transition t in other.Transitions())
             source.Add(new Transition(t.FromState + stateOffset, symbolMapRightToSource[t.Symbol], t.ToState + stateOffset));
 
         // Add other's epsilon-transitions to source (if any)

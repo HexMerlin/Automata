@@ -18,7 +18,7 @@ public static class Program
         Random random = new Random(7);
         var sequences = Enumerable.Range(0, 10).Select(_ => Enumerable.Range(0, 8).Select(_ => random.Next(4).ToString())); //Create some random string sequences
 
-        IFsa fsa = new Nfa(sequences).AsCfa(); //Create a minimized automaton from the sequences
+        IFsa fsa = new Nfa(sequences).AsMfa(); //Create a minimized automaton from the sequences
 
         Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
 
@@ -32,7 +32,7 @@ public static class Program
     /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s)
     {
-        MutableAlphabet a = new MutableAlphabet([s]);
+        Alphabet a = new Alphabet([s]);
         Dfa dfa = new Dfa(a);
         dfa.SetInitial(0);
         dfa.SetFinal(0);
@@ -43,7 +43,7 @@ public static class Program
     /// <summary>Creates a DFA accepting the regular expression: <c>s0*s1*</c></summary>
     private static Dfa CreateKleeneStarDfa(string s0, string s1)
     {
-        MutableAlphabet a = new MutableAlphabet([s0, s1]);
+        Alphabet a = new Alphabet([s0, s1]);
         Dfa dfa = new Dfa(a);
         dfa.SetInitial(0);
         dfa.SetFinal(0);

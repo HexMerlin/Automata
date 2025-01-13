@@ -15,7 +15,7 @@ public class Dfa : IDfa
     /// <summary>
     /// Alphabet used by the DFA.
     /// </summary>
-    public MutableAlphabet Alphabet { get; }
+    public Alphabet Alphabet { get; }
 
     private readonly SortedSet<Transition> orderByFromState = new();
 
@@ -43,13 +43,13 @@ public class Dfa : IDfa
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with an empty alphabet.
     /// </summary>
-    public Dfa() : this(new MutableAlphabet()) { }
+    public Dfa() : this(new Alphabet()) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the DFA.</param>
-    public Dfa(MutableAlphabet alphabet) => Alphabet = alphabet;
+    public Dfa(Alphabet alphabet) => Alphabet = alphabet;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
@@ -58,7 +58,7 @@ public class Dfa : IDfa
     /// <param name="transitions">Transitions of the DFA.</param>
     /// <param name="initialState">Initial state of the DFA.</param>
     /// <param name="finalStates">Final states of the DFA.</param>
-    internal Dfa(MutableAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    internal Dfa(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
     {
         SetInitial(initialState);
         SetFinal(finalStates);
@@ -118,13 +118,10 @@ public class Dfa : IDfa
     /// </returns>
     public bool IsFinal(int state) => finalStates.Contains(state);
 
-    ///<inheritdoc/>
-    ISet<int> IFsa.FinalStates => finalStates;
-
     /// <summary>
     /// Final states of the DFA.
     /// </summary>
-    public IReadOnlySet<int> FinalStates => finalStates;
+    public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
     /// Adds a transition to the DFA, ensuring it remains deterministic.
@@ -205,21 +202,7 @@ public class Dfa : IDfa
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
 
-    /// <inheritdoc/>
-    IAlphabet IFsa.Alphabet => Alphabet;
-
-    /// <summary>
-    /// Gets the transitions of the DFA.
-    /// </summary>
-    /// <returns>An enumerable collection of transitions.</returns>
-    public IEnumerable<Transition> SymbolicTransitions() => orderByFromState;
-
-    /// <summary>
-    /// Gets the epsilon transitions of the DFA, which is always empty.
-    /// </summary>
-    /// <returns>An empty enumerable collection of <see cref="EpsilonTransition"/>.</returns>
-    public IEnumerable<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
-
+  
     /// <summary>
     /// Creates a new NFA that recognizes the reverse of the language accepted by this DFA.
     /// </summary>
@@ -310,4 +293,19 @@ public class Dfa : IDfa
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return transition;
     }
+
+    /// <summary>
+    /// Gets the transitions of the DFA.
+    /// </summary>
+    /// <returns>An collection of transitions.</returns>
+    public IReadOnlyCollection<Transition> Transitions() => orderByFromState;
+
+    /// <summary>
+    /// Gets the epsilon transitions of the DFA, which is always empty.
+    /// </summary>
+    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
+    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+
+
+   
 }

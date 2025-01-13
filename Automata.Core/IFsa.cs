@@ -8,7 +8,7 @@ public interface IFsa
     /// <summary>
     /// Alphabet used by the FSA.
     /// </summary>
-    IAlphabet Alphabet { get; }
+    Alphabet Alphabet { get; }
 
     /// <summary>
     /// Indicates whether the FSA is empty, meaning it has no states or transitions.
@@ -23,7 +23,7 @@ public interface IFsa
     /// <summary>
     /// Final states of the FSA.
     /// </summary>
-    ISet<int> FinalStates { get; }
+    IReadOnlyCollection<int> FinalStates { get; }
 
     /// <summary>
     /// Indicates whether the specified state is an initial state.
@@ -43,11 +43,11 @@ public interface IFsa
     /// Transitions of the FSA.
     /// </summary>
     /// <returns>An enumerable collection of <see cref="Transition"/>.</returns>
-    IEnumerable<Transition> SymbolicTransitions();
+    IReadOnlyCollection<Transition> Transitions();
 
     /// <summary>
     /// Epsilon transitions of the FSA.
     /// </summary>
     /// <returns>An enumerable collection of <see cref="EpsilonTransition"/>.</returns>
-    IEnumerable<EpsilonTransition> EpsilonTransitions();
+    IReadOnlyCollection<EpsilonTransition> EpsilonTransitions();
 }

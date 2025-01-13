@@ -43,7 +43,7 @@ public static partial class Ops
         int rightInitialStateInSource = right.InitialState + stateOffset;
 
         // Add right's transitions to source
-        foreach (Transition t in right.SymbolicTransitions())
+        foreach (Transition t in right.Transitions())
             source.Add(new Transition(t.FromState + stateOffset, symbolMapRightToSource[t.Symbol], t.ToState + stateOffset));
 
         // Add right's epsilon-transitions to source (if any)

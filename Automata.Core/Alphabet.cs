@@ -1,9 +1,9 @@
 ﻿namespace Automata.Core;
 
 /// <summary>
-/// Mutable alphabet associated with a finite state automaton.
+/// An alphabet associated with a finite state automaton.
 /// </summary>
-public class MutableAlphabet : IAlphabet
+public class Alphabet 
 {
     #region Data
     private readonly List<string> indexToStringMap;
@@ -11,27 +11,27 @@ public class MutableAlphabet : IAlphabet
     #endregion
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MutableAlphabet"/> class.
+    /// Initializes a new instance of the <see cref="Alphabet"/> class.
     /// </summary>
-    public MutableAlphabet()
+    public Alphabet()
     {
         stringToIndexMap = [];
         indexToStringMap = [];
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MutableAlphabet"/> class with the specified symbols.
+    /// Initializes a new instance of the <see cref="Alphabet"/> class with the specified symbols.
     /// </summary>
     /// <param name="symbols">Symbols to initialize the alphabet with.</param>
-    public MutableAlphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
+    public Alphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MutableAlphabet"/> class from the specified alphabet.
+    /// Initializes a new cloned instance of the <see cref="Alphabet"/> class from the specified alphabet.
     /// </summary>
-    /// <param name="alphabet">Alphabet to initialize the mutable alphabet with.</param>
-    public MutableAlphabet(IAlphabet alphabet)
+    /// <param name="alphabet">Alphabet to initialize the alphabet with.</param>
+    public Alphabet(Alphabet alphabet)
     {
-        this.stringToIndexMap = new Dictionary<string, int>(alphabet.StringToIndexMap);
+        this.stringToIndexMap = new Dictionary<string, int>(alphabet.stringToIndexMap);
         this.indexToStringMap = new(alphabet.Symbols);
     }
 
@@ -44,16 +44,6 @@ public class MutableAlphabet : IAlphabet
     /// Read-only collection of symbols in the alphabet.
     /// </summary>
     public IReadOnlyCollection<string> Symbols => indexToStringMap;
-
-    /// <summary>
-    /// Mapping from string symbols to their respective indices.
-    /// </summary>
-    IReadOnlyDictionary<string, int> StringToIndexMap => stringToIndexMap;
-
-    /// <summary>
-    /// Mapping from string symbols to their respective indices.
-    /// </summary>
-    IReadOnlyDictionary<string, int> IAlphabet.StringToIndexMap => stringToIndexMap;
 
     /// <summary>
     /// Symbol at the specified index.
@@ -97,11 +87,11 @@ public class MutableAlphabet : IAlphabet
     /// </summary>
     /// <param name="other">The other alphabet to merge into this.</param>
     /// <returns>A dictionary mapping indices from the other alphabet to the current alphabet.</returns>
-    public Dictionary<int, int> UnionWith(IAlphabet other)
+    public Dictionary<int, int> UnionWith(Alphabet other)
     {
         var mapOtherToThis = new Dictionary<int, int>();
 
-        foreach (KeyValuePair<string, int> entry in other.StringToIndexMap)
+        foreach (KeyValuePair<string, int> entry in other.stringToIndexMap)
         {
             string otherSymbol = entry.Key;
             int otherIndex = entry.Value;
