@@ -100,11 +100,26 @@ public class Nfa : IFsa
     /// </summary>
     /// <param name="sequences">Sequences to add to the NFA.</param>
     public Nfa(IEnumerable<IEnumerable<string>> sequences) : this(new Alphabet()) => UnionWith(sequences);
+    
+    ///<inheritdoc/>
+    public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
 
-    /// <summary>
-    /// Indicates whether the NFA is empty.
-    /// </summary>
-    public bool IsEmpty => initialStates.Count == 0;
+    ///<inheritdoc/>
+    public bool AcceptsEmptyString
+    {
+        get
+        {
+            if (initialStates.Overlaps(finalStates))
+                return true;
+            else
+            {
+                HashSet<int> reachable = [.. initialStates];
+                ReachableStatesOnEpsilonInPlace(reachable);
+                return reachable.Overlaps(finalStates);
+            }
+        }
+    }
+
 
     /// <summary>
     /// Indicates whether the NFA is epsilon-free.
@@ -213,8 +228,8 @@ public class Nfa : IFsa
     /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<Transition> transitions)
     {
-        foreach (Transition transition in transitions)
-            Add(transition);
+        MaxState = Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState)));
+        symbolicTransitions.UnionWith(transitions);
     }
 
     /// <summary>
@@ -223,8 +238,8 @@ public class Nfa : IFsa
     /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<EpsilonTransition> transitions)
     {
-        foreach (EpsilonTransition transition in transitions)
-            Add(transition);
+        MaxState = Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState)));
+        epsilonTransitions.UnionWith(transitions);
     }
 
     /// <summary>
@@ -278,7 +293,7 @@ public class Nfa : IFsa
     /// <param name="condition">If <see langword="true"/>, the state is added; otherwise, it is removed.</param>
     /// <param name="state">State to add or remove.</param>
     /// <param name="set">Set to modify.</param>
-    private void IncludeIf(bool condition, int state, HashSet<int> set)
+    private void IncludeIff(bool condition, int state, HashSet<int> set)
     {
         if (condition)
         {
@@ -294,7 +309,7 @@ public class Nfa : IFsa
     /// <param name="condition">If <see langword="true"/>, the states are added; otherwise, they are removed.</param>
     /// <param name="states">States to add or remove.</param>
     /// <param name="set">Set to modify.</param>
-    private void IncludeIf(bool condition, IEnumerable<int> states, HashSet<int> set)
+    private void IncludeIff(bool condition, IEnumerable<int> states, HashSet<int> set)
     {
         if (condition)
         {
@@ -309,33 +324,47 @@ public class Nfa : IFsa
     /// </summary>
     /// <param name="state">State to set or remove as an initial state.</param>
     /// <param name="initial">If <see langword="true"/>, the state is added to the initial states; otherwise, it is removed.</param>
-    public void SetInitial(int state, bool initial = true) => IncludeIf(initial, state, initialStates);
+    public void SetInitial(int state, bool initial = true) => IncludeIff(initial, state, initialStates);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
     /// </summary>
     /// <param name="state">State to set or remove as a final state.</param>
     /// <param name="final">If <see langword="true"/>, the state is added to the final states; otherwise, it is removed.</param>
-    public void SetFinal(int state, bool final = true) => IncludeIf(final, state, finalStates);
+    public void SetFinal(int state, bool final = true) => IncludeIff(final, state, finalStates);
 
     /// <summary>
     /// Sets the specified states as initial states or removes them from the initial states.
     /// </summary>
     /// <param name="states">States to set or remove as initial states.</param>
     /// <param name="initial">If <see langword="true"/>, the states are added to the initial states; otherwise, they are removed.</param>
-    public void SetInitial(IEnumerable<int> states, bool initial = true) => IncludeIf(initial, states, initialStates);
+    public void SetInitial(IEnumerable<int> states, bool initial = true) => IncludeIff(initial, states, initialStates);
 
     /// <summary>
     /// Sets the specified states as final states or removes them from the final states.
     /// </summary>
     /// <param name="states">States to set or remove as final states.</param>
     /// <param name="final">If <see langword="true"/>, the states are added to the final states; otherwise, they are removed.</param>
-    public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIf(final, states, finalStates);
+    public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIff(final, states, finalStates);
 
     /// <summary>
-    /// Clears all final states from the NFA.
+    /// Clears all initial states.
+    /// </summary>
+    public void ClearInitialStates() => finalStates.Clear();
+
+    /// <summary>
+    /// Clears all final states.
     /// </summary>
     public void ClearFinalStates() => finalStates.Clear();
+
+    /// <summary>
+    /// Clears all states and transitions. The resulting NFA will be equivalent to the empty language (∅).
+    /// </summary>
+    /// <remarks>
+    /// The alphabet is not cleared.
+    /// </remarks>
+    /// <seealso cref="IsEmptyLanguage"/>
+    public void ClearAll() => finalStates.Clear();
 
     /// <summary>
     /// Initial states of the NFA.

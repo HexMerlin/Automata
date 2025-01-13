@@ -7,12 +7,12 @@
 /// <remarks>
 /// This class is used to define an empty set in finite-state automata expressions.
 /// </remarks>
-public class EmptySet : AlangRegex
+public class EmptyLang : AlangRegex
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="EmptySet"/> class.
+    /// Initializes a new instance of the <see cref="EmptyLang"/> class.
     /// </summary>
-    public EmptySet() : base() { }
+    public EmptyLang() : base() { }
 
     /// <inheritdoc/>
     public override int Precedence => 7;

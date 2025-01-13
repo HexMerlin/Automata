@@ -12,7 +12,7 @@ The parser validates syntactic correctness and generates detailed error messages
 | Rule                             | Expansion                                                         |
 |----------------------------------|-------------------------------------------------------------------|
 | AlangRegex (root)                    | Union                                                         |
-| :small_blue_diamond:Union            | Difference  (`|` Difference)*                                |
+| :small_blue_diamond:Union            | Difference  (`|` Difference)*                                 |
 | :small_blue_diamond:Difference       | Intersection (`-` Intersection)*                              |
 | :small_blue_diamond:Intersection     | Concatenation (`&` Concatenation)*                            |
 | :small_blue_diamond:Concatenation    | UnaryRegex+                                                   |
@@ -50,28 +50,33 @@ The root rule AlangRegex must cover the entire input, with no residue.
 
 ## Notes
 
+### Operators
 - Operators with higher precedence levels bind more tightly than those with lower levels.
 - Operators of the same precedence level are left-associative (left-to-right).
-- Whitespace is allowed anywhere in the grammar, but it is never required unless to separate directly adjacent symbols.
+
+### Whitespaces
 - Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.)
+- Whitespace is allowed anywhere in the grammar, except within Symbols.
+- Whitespace it is never required unless to separate directly adjacent Symbols or operators. 
 
-
-### Symbols (Alphabet Symbols)
-**Symbols** are defined as:
-- Atomic building blocks of Alang expressions.
-- User defined (alphabet symbols) and can contain any characters except for the operator characters and whitespace.
-- Synonymous with **alphabet symbols** in the context of **finite automata**. They are not to be confused with characters. 
+### Symbols 
+**Symbols** have a specific meaning and are defined as:
+- User-defined string literals that constitute the *atoms* of Alang expressions.
+- Directly equivalent to **alphabet symbols** in the context of finite-state automata. 
+- Can contain any characters except reserved operator characters or whitespace.
 - Can never be empty. 
+- They are not to be confused with characters. 
+ 
+### Wildcard
+A Wildcard is a special token denoted by a `.` (dot).
 
-### Wildcard token (.)
-Wildcard denoted by a `.` (dot) in Alang represents a wildcard for any in the alphabet.
+It represents any symbol in the alphabet.
 
 For example:
 
 `. - hello`  represents the language of all symbols except 'hello'.
 
-`(. - hello).*`    represents the language of all sequences not starting with 'hello'.
-
+`(. - hello).*`    represents the language of all sequences, except those starting with 'hello'.
 
 ### Empty Language ∅
 The Empty Language (∅) is the language that does not cotain anything. 

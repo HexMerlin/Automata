@@ -26,14 +26,11 @@ public static partial class Ops
     /// This operation mutates <paramref name="source"/> to represent the union of the two automata.
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
-    public static void UnionWith(this Nfa source, IDfa other)
+    /// <returns>Source automaton <paramref name="source"/></returns>
+    public static Nfa UnionWith(this Nfa source, IDfa other)
     {
         // Merge the alphabets and get symbol mappings
         Dictionary<int, int> symbolMapRightToSource = source.Alphabet.UnionWith(other.Alphabet);
-
-        // Check if right is empty
-        if (other.IsEmpty)
-            return;
 
         // Offset other's states to avoid conflicts
         int stateOffset = source.MaxState + 1;
@@ -51,5 +48,7 @@ public static partial class Ops
 
         // Include other's final states
         source.SetFinal(other.FinalStates.Select(s => s + stateOffset));
+
+        return source;
     }
 }

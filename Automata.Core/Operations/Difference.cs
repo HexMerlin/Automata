@@ -3,18 +3,19 @@
 public static partial class Ops
 {
     /// <summary>
-    /// Computes the difference between two deterministic finite automata (DFAs).
+    /// Computes the difference between two deterministic finite automata.
     /// </summary>
-    /// <param name="minuend">The DFA from which to subtract.</param>
-    /// <param name="subtrahend">The DFA whose language will be subtracted from the minuend.</param>
+    /// <param name="minuend">The automaton from which to subtract.</param>
+    /// <param name="subtrahend">The automaton whose language will be subtracted from the minuend.</param>
     /// <returns>
-    /// A new <see cref="Dfa"/> representing the language of the minuend DFA minus the language of the subtrahend DFA.
+    /// A new <see cref="IDfa"/> representing the language of the minuend except the language of the subtrahend.
     /// </returns>
-    /// <remarks>
-    /// This operation effectively removes all strings recognized by the subtrahend DFA from the minuend DFA.
-    /// </remarks>
-    public static Dfa Difference(IDfa minuend, Mfa subtrahend)
+    public static IDfa Difference(IDfa minuend, Mfa subtrahend)
     {
+        // Subtract empty language returns the minuend
+        if (subtrahend.IsEmptyLanguage)
+            return minuend;
+
         var subtrahendComplement = Complement(subtrahend);
 
         var difference = Intersection(minuend, subtrahendComplement);

@@ -40,7 +40,7 @@ public abstract class AlangRegex
     /// <value>
     /// <see langword="true"/> <c>iff</c> this expression is an empty string; otherwise, <see langword="false"/>.
     /// </value>
-    public bool IsEmptyString => this is Atom atom && atom.Symbol.Length == 0;
+    public bool IsEmptyString => this is Symbol atom && atom.Symbol.Length == 0;
 
     /// <summary>
     /// Parses the specified input string into an <see cref="AlangRegex"/>.
@@ -91,7 +91,7 @@ public abstract class AlangRegex
             _ = cursor.TryConsume(Chars.RightParen);
 
             if (regex.IsEmptyString)
-                return new EmptySet(); // Captured empty parentheses '()' => EmptySet
+                return new EmptyLang(); // Captured empty parentheses '()' => EmptySet
 
             return regex;
         }

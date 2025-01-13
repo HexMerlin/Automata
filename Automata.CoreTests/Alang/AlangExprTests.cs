@@ -2,6 +2,10 @@
 
 namespace Automata.CoreTests.Alang;
 
+
+//Test cases:
+// (a-a) b => ∅  (should not be b!!)
+
 [TestClass()]
 public class AlangExprTests
 {

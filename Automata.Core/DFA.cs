@@ -7,7 +7,9 @@ namespace Automata.Core;
 /// </summary>
 /// <remarks>
 /// A DFA is a finite state machine that accepts or rejects finite sequences of symbols.
-/// It is always deterministic and does not contain epsilon transitions.
+/// <para>· A DFA cannot contain epsilon transitions</para> 
+/// <para>· Any mutation of a DFA is guaranteed to preserve its deterministic property.</para>
+/// <para>· Mutation can make certain states unreachable (contain <c>Dead states</c>).</para>
 /// </remarks>
 public class Dfa : IDfa
 {
@@ -62,9 +64,18 @@ public class Dfa : IDfa
     }
 
     /// <summary>
-    /// Indicates whether the DFA is empty. A DFA is considered empty if it has no initial state.
+    /// Indicates whether the language of the DFA is the empty language (∅). This means the DFA does not accept anything, including the empty string (ϵ).
     /// </summary>
-    public bool IsEmpty => InitialState == Constants.InvalidState;
+    /// <remarks>
+    /// Returns <see langword="true"/> only if either; the DFA has no states, or the initial state is not a final state.
+    /// </remarks>
+    public bool IsEmptyLanguage => InitialState == Constants.InvalidState;
+
+    /// <summary>
+    /// Indicates whether the DFA accepts the empty sting {ϵ}.
+    /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
+    /// </summary>
+    public bool AcceptsEmptyString => IsFinal(InitialState);
 
     /// <summary>
     /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
@@ -132,7 +143,8 @@ public class Dfa : IDfa
     {
         if (ReachableState(transition.FromState, transition.Symbol) != Constants.InvalidState)
             return false; // Cannot add; would introduce nondeterminism
-        return orderByFromState.Add(UpdateMaxState(transition));
+        MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
+        return orderByFromState.Add(transition);
     }
 
     /// <summary>
@@ -275,18 +287,6 @@ public class Dfa : IDfa
     {
         MaxState = Math.Max(MaxState, state);
         return state;
-    }
-
-    /// <summary>
-    /// Updates the maximum state number based on the from and to states of the provided transition.
-    /// </summary>
-    /// <param name="transition">Transition to evaluate.</param>
-    /// <returns>The input transition.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Transition UpdateMaxState(Transition transition)
-    {
-        MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
-        return transition;
     }
 
     /// <summary>

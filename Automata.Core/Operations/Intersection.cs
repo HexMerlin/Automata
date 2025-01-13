@@ -11,8 +11,12 @@ public static partial class Ops
     /// <returns>
     /// A deterministic finite automaton representing the intersection of the two input automata.
     /// </returns>
-    public static Dfa Intersection(IDfa a, IDfa b)
+    public static IDfa Intersection(IDfa a, IDfa b)
     {
+        // Intersection with empty language is empty language
+        if (a.IsEmptyLanguage || b.IsEmptyLanguage)
+            return a;
+        
         Dfa dfa = new(a.Alphabet);
 
         Queue<long> stateQueue = new();

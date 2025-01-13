@@ -27,14 +27,18 @@ public static partial class Ops
     /// This operation mutates <paramref name="source"/>.
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
-    public static void Append(this Nfa source, IDfa right)
+    /// <returns>Source automaton <paramref name="source"/></returns>
+    public static Nfa Append(this Nfa source, IDfa right)
     {
         // Merge the alphabets and get symbol mappings
         Dictionary<int, int> symbolMapRightToSource = source.Alphabet.UnionWith(right.Alphabet);
 
-        // Check if right is empty
-        if (right.IsEmpty)
-            return;
+        // Concatenation with empty language is empty language
+        if (source.IsEmptyLanguage || right.IsEmptyLanguage)
+        {
+            source.ClearAll();
+            return source;
+        }
 
         // Offset right's states to avoid conflicts
         int stateOffset = source.MaxState + 1;
@@ -59,5 +63,7 @@ public static partial class Ops
 
         // Assign right's final states to source
         source.SetFinal(right.FinalStates.Select(s => s + stateOffset));
+
+        return source;
     }
 }

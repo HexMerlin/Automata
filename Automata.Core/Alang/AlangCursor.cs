@@ -144,20 +144,20 @@ public ref struct AlangCursor(string input)
     }
 
     /// <summary>
-    /// Consumes an <see cref="Atom"/> from the input.
+    /// Consumes an <see cref="Symbol"/> from the input.
     /// </summary>
     /// <remarks>
-    /// This method will return an empty (invalid) <see cref="Atom"/> if no characters could be consumed. It is up to the calling code to handle this.
+    /// This method will return an empty (invalid) <see cref="Symbol"/> if no characters could be consumed. It is up to the calling code to handle this.
     /// </remarks>
-    /// <returns>The consumed <see cref="Atom"/>.</returns>
-    public Atom ConsumeAtom()
+    /// <returns>The consumed <see cref="Symbol"/>.</returns>
+    public Symbol ConsumeAtom()
     {
         int pos = 0;
 
         while (pos < cursor.Length && Chars.IsAtomChar(cursor[pos]))
             pos++;
 
-        Atom atom = new Atom(cursor.Slice(0, pos).ToString());
+        Symbol atom = new Symbol(cursor.Slice(0, pos).ToString());
 
         cursor = cursor.Slice(pos).TrimStart();
         return atom;

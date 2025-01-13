@@ -76,6 +76,20 @@ public partial class Mfa : IDfa
     }
 
     /// <summary>
+    /// Creates a new instance of the <see cref="Mfa"/> that accepts a single symbol once.
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    /// <param name="singleSymbol">Symbol to be accepted by the MFA.</param>
+    public Mfa(string singleSymbol, Alphabet alphabet)
+    {
+        this.Alphabet = alphabet;
+        int symbol = alphabet.GetOrAdd(singleSymbol);
+        this.MaxState = 1;
+        transitions = [new Transition(InitialState, symbol, MaxState)];
+        this.finalStates = [MaxState];
+    }
+
+    /// <summary>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
     /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
@@ -92,12 +106,21 @@ public partial class Mfa : IDfa
     public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
-    /// Indicates whether the MFA is empty.
+    /// Indicates whether the language of the MFA is the empty language (∅). This means the MFA does not accept anything, including the empty string (ϵ).
     /// </summary>
-    public bool IsEmpty => InitialState == Constants.InvalidState;
+    /// <remarks>
+    /// Returns <see langword="true"/> only if either; the MFA has no states, or the initial state is not a final state.
+    /// </remarks>
+    public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
 
     /// <summary>
-    /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
+    /// Indicates whether the MFA accepts the empty sting {ϵ}.
+    /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
+    /// </summary>
+    public bool AcceptsEmptyString => IsFinal(InitialState);
+
+    /// <summary>
+    /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
     public bool IsEpsilonFree => true;
 
@@ -146,13 +169,13 @@ public partial class Mfa : IDfa
     public StateView State(int state) => new(state, transitions);
 
     /// <summary>
-    /// Gets the transitions of the DFA.
+    /// Gets the transitions of the MFA.
     /// </summary>
     /// <returns>An collection of transitions.</returns>
     public IReadOnlyCollection<Transition> Transitions() => transitions;
 
     /// <summary>
-    /// Gets the epsilon transitions of the DFA, which is always empty.
+    /// Gets the epsilon transitions of the MFA, which is always empty.
     /// </summary>
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();

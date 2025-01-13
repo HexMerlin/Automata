@@ -11,12 +11,18 @@ public interface IFsa
     Alphabet Alphabet { get; }
 
     /// <summary>
-    /// Indicates whether the FSA is empty, meaning it has no states or transitions.
+    /// Indicates whether the language of the FSA is the empty language (∅).
+    /// This means the FSA does not accept anything, including the empty string (ϵ).
     /// </summary>
-    bool IsEmpty { get; }
+    bool IsEmptyLanguage { get; }
 
     /// <summary>
-    /// Indicates whether the FSA is epsilon-free.
+    /// Indicates whether the FSA accepts the empty sting {ϵ}
+    /// </summary>
+    bool AcceptsEmptyString { get; }
+
+    /// <summary>
+    /// Indicates whether the FSA is epsilon-free (lacks epsilon transitions).
     /// </summary>
     bool IsEpsilonFree { get; }
 
