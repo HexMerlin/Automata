@@ -29,34 +29,6 @@ public static class Program
         Console.WriteLine("Graph is displayed."); // Write some text output to the console window
     }
 
-    /// <summary>Creates a DFA accepting the regular expression: <c>s*</c></summary>
-    private static Dfa CreateKleeneStarDfa(string s)
-    {
-        Alphabet a = new Alphabet([s]);
-        Dfa dfa = new Dfa(a);
-        dfa.SetInitial(0);
-        dfa.SetFinal(0);
-        dfa.Add(new Transition(0, 0, 0));
-        return dfa;
-    }
-
-    /// <summary>Creates a DFA accepting the regular expression: <c>s0*s1*</c></summary>
-    private static Dfa CreateKleeneStarDfa(string s0, string s1)
-    {
-        Alphabet a = new Alphabet([s0, s1]);
-        Dfa dfa = new Dfa(a);
-        dfa.SetInitial(0);
-        dfa.SetFinal(0);
-        dfa.SetFinal(1);
-        dfa.Add(new Transition(0, 0, 0));
-        dfa.Add(new Transition(0, 1, 1));
-        dfa.Add(new Transition(1, 1, 1));
-        return dfa;
-    }
-
-
-
-
 }
 
 

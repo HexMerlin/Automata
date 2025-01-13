@@ -26,11 +26,11 @@ public class Nfa : IFsa
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly SortedSet<Transition> symbolicTransitions = new();
-    private readonly SortedSet<EpsilonTransition> epsilonTransitions = new();
+    private readonly SortedSet<Transition> symbolicTransitions;
+    private readonly SortedSet<EpsilonTransition> epsilonTransitions;
 
-    private readonly HashSet<int> initialStates = [];
-    private readonly HashSet<int> finalStates = [];
+    private readonly HashSet<int> initialStates;
+    private readonly HashSet<int> finalStates;
 
     /// <summary>
     /// Upper bound for the maximum state number in the NFA.
@@ -44,11 +44,16 @@ public class Nfa : IFsa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new empty instance of the <see cref="Nfa"/> class with a new empty alphabet.
+    /// Initializes a new empty instance of the <see cref="Nfa"/>.
     /// </summary>
-    public Nfa() 
+    /// <param name="alphabet">Alphabet to use for the NFA.</param>
+    public Nfa(Alphabet alphabet) 
     {
-        this.Alphabet = new();
+        this.Alphabet = alphabet;
+        symbolicTransitions = [];
+        epsilonTransitions = [];
+        initialStates = [];
+        finalStates = [];
     }
 
     /// <summary>
@@ -72,19 +77,21 @@ public class Nfa : IFsa
     /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
     internal Nfa(IDfa iDfa, bool applyReverseOperation = false) 
     {
-        this.Alphabet = new Alphabet(iDfa.Alphabet);
+        this.Alphabet = iDfa.Alphabet;
         if (applyReverseOperation)
         {
-            UnionWith(iDfa.Transitions().Select(t => t.Reverse()));
-            SetInitial(iDfa.FinalStates);
-            SetFinal(iDfa.InitialState);
+            this.symbolicTransitions = [.. iDfa.Transitions().Select(t => t.Reverse())];
+            this.initialStates = [.. iDfa.FinalStates];
+            this.finalStates = [iDfa.InitialState];
         }
         else
         {
-            UnionWith(iDfa.Transitions());
-            SetInitial(iDfa.InitialState);
-            SetFinal(iDfa.FinalStates);
+            this.symbolicTransitions = [.. iDfa.Transitions()];
+            this.initialStates = [iDfa.InitialState];
+            this.finalStates = [.. iDfa.FinalStates];
+
         }
+        this.epsilonTransitions = [];
         this.MaxState = iDfa.MaxState;
     }
 
@@ -92,7 +99,7 @@ public class Nfa : IFsa
     /// Initializes a new instance of a <see cref="Nfa"/> class to accept a set of sequences.
     /// </summary>
     /// <param name="sequences">Sequences to add to the NFA.</param>
-    public Nfa(IEnumerable<IEnumerable<string>> sequences) : this() => UnionWith(sequences);
+    public Nfa(IEnumerable<IEnumerable<string>> sequences) : this(new Alphabet()) => UnionWith(sequences);
 
     /// <summary>
     /// Indicates whether the NFA is empty.
@@ -273,7 +280,11 @@ public class Nfa : IFsa
     /// <param name="set">Set to modify.</param>
     private void IncludeIf(bool condition, int state, HashSet<int> set)
     {
-        if (condition) set.Add(UpdateMaxState(state));
+        if (condition)
+        {
+            set.Add(state);
+            MaxState = Math.Max(MaxState, state);
+        }
         else set.Remove(state);
     }
 
@@ -287,8 +298,8 @@ public class Nfa : IFsa
     {
         if (condition)
         {
-            foreach (int state in states)
-                set.Add(UpdateMaxState(state));
+            set.UnionWith(states);
+            MaxState = Math.Max(MaxState, states.Max());
         }
         else set.ExceptWith(states);
     }
@@ -348,16 +359,4 @@ public class Nfa : IFsa
     /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
-
-    /// <summary>
-    /// Updates the maximum state number if the provided state is greater.
-    /// </summary>
-    /// <param name="state">State to compare.</param>
-    /// <returns>The same state.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private int UpdateMaxState(int state)
-    {
-        MaxState = Math.Max(MaxState, state);
-        return state;
-    }
 }

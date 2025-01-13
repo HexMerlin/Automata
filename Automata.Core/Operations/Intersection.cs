@@ -13,7 +13,7 @@ public static partial class Ops
     /// </returns>
     public static Dfa Intersection(IDfa a, IDfa b)
     {
-        Dfa dfa = new();
+        Dfa dfa = new(a.Alphabet);
 
         Queue<long> stateQueue = new();
         Dictionary<long, int> longStateToDfaState = new();

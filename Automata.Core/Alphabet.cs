@@ -6,8 +6,10 @@
 public class Alphabet 
 {
     #region Data
+
     private readonly List<string> indexToStringMap;
     private readonly Dictionary<string, int> stringToIndexMap;
+    
     #endregion
 
     /// <summary>
@@ -18,12 +20,6 @@ public class Alphabet
         stringToIndexMap = [];
         indexToStringMap = [];
     }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Alphabet"/> class with the specified symbols.
-    /// </summary>
-    /// <param name="symbols">Symbols to initialize the alphabet with.</param>
-    public Alphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
 
     /// <summary>
     /// Initializes a new cloned instance of the <see cref="Alphabet"/> class from the specified alphabet.

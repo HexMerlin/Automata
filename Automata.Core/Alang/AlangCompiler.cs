@@ -7,7 +7,8 @@ public static class AlangCompiler
 {
     public static IFsa Compile(AlangRegex regex)
     {
-        Nfa fsa = new();
+        Alphabet alphabet = new Alphabet();
+        Nfa fsa = new(alphabet);
 
         return regex switch
         {

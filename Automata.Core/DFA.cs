@@ -41,11 +41,6 @@ public class Dfa : IDfa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Dfa"/> class with an empty alphabet.
-    /// </summary>
-    public Dfa() : this(new Alphabet()) { }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the DFA.</param>

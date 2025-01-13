@@ -12,7 +12,7 @@ public static partial class Ops
     /// <returns>A new deterministic finite automaton (DFA) representing the complement of the input MFA.</returns>
     public static Dfa Complement(Mfa mfa)
     {
-        Alphabet alphabet = new(mfa.Alphabet);
+        Alphabet alphabet = mfa.Alphabet;
 
         int initialState = mfa.InitialState;
 
