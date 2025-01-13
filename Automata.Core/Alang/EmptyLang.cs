@@ -2,10 +2,10 @@
 
 
 /// <summary>
-/// Represents an empty set expression in the <c>Alang</c> (Automata language).
+/// Represents an EmptyLang expression in the <c>Alang</c> (Automata language).
 /// </summary>
 /// <remarks>
-/// This class is used to define an empty set in finite-state automata expressions.
+/// This class is used to define the empty language in Alang expressions.
 /// </remarks>
 public class EmptyLang : AlangRegex
 {
