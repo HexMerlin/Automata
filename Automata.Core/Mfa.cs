@@ -10,8 +10,8 @@ namespace Automata.Core;
 /// <see cref="Mfa"/> is the most optimized automaton representation, characterized by:
 /// <list type="number">
 /// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions.</item>
-/// <item>Contiguous states: States are in range [0..MaxState] </item>
-/// <item>Initial state is always <c>0</c></item>
+/// <item>Contiguous states: States are in range [0..MaxState].</item>
+/// <item>Initial state is always <c>0</c>.</item>
 /// <item>Minimal memory footprint: Uses a contiguous memory block for data, with minimal overhead.</item>
 /// <item>Performance-optimized for efficient read-only operations.</item>
 /// <item>Immutable: Guarantees structural and behavioral invariance.</item>
@@ -40,17 +40,6 @@ public partial class Mfa : IDfa
     private readonly int[] finalStates;
 
     #endregion Data
-
-    /// <summary>
-    /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
-    /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
-    /// </summary>
-    public int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
-
-    /// <summary>
-    /// Number of states in the MFA.
-    /// </summary>
-    public int StateCount => MaxState + 1;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
@@ -85,6 +74,17 @@ public partial class Mfa : IDfa
             return mfaState;
         }
     }
+
+    /// <summary>
+    /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
+    /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
+    /// </summary>
+    public int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
+
+    /// <summary>
+    /// Number of states in the MFA.
+    /// </summary>
+    public int StateCount => MaxState + 1;
 
     /// <summary>
     /// Final states of the MFA.
@@ -171,5 +171,4 @@ public partial class Mfa : IDfa
             hash.Add(transitions[i]);
         return hash.ToHashCode();
     }
-
 }
