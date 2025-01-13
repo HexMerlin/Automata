@@ -19,7 +19,7 @@ public static class Converter
     {
         Nfa nfa => enforceNew ? new Nfa(nfa) : nfa,
         Dfa dfa => new Nfa(dfa),
-        Cfa cfa => new Nfa(cfa),
+        Mfa cfa => new Nfa(cfa),
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 
@@ -38,23 +38,23 @@ public static class Converter
     {
         Nfa nfa => Ops.Deterministic(nfa),
         Dfa dfa => dfa,
-        Cfa cfa => cfa,
+        Mfa cfa => cfa,
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 
     /// <summary>
-    /// Returns <paramref name="fsa"/> as a <see cref="Cfa"/>.
-    /// <para>A new <see cref="Cfa"/> is created if either: <paramref name="fsa"/> is not a <see cref="Cfa"/> or <paramref name="enforceNew"/> = <see langword="true"/>.</para>
+    /// Returns <paramref name="fsa"/> as a <see cref="Mfa"/>.
+    /// <para>A new <see cref="Mfa"/> is created if either: <paramref name="fsa"/> is not a <see cref="Mfa"/> or <paramref name="enforceNew"/> = <see langword="true"/>.</para>
     /// <para>Otherwise, the same object is returned.</para>
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Cfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
-    /// <returns><paramref name="fsa"/> as a <see cref="Cfa"/>.</returns>
-    public static Cfa AsCfa(this IFsa fsa) => fsa switch
+    /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Mfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
+    /// <returns><paramref name="fsa"/> as a <see cref="Mfa"/>.</returns>
+    public static Mfa AsCfa(this IFsa fsa) => fsa switch
     {
-        Nfa nfa => new Cfa(Ops.Deterministic(nfa)),
-        Dfa dfa => new Cfa(dfa),
-        Cfa cfa => cfa,
+        Nfa nfa => new Mfa(Ops.Deterministic(nfa)),
+        Dfa dfa => new Mfa(dfa),
+        Mfa cfa => cfa,
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
     };
 }

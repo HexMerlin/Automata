@@ -30,7 +30,7 @@ namespace Automata.Core;
 /// </item>
 /// </list>
 /// </remarks>
-/// <seealso cref="Cfa"/>
+/// <seealso cref="Mfa"/>
 public class CanonicalAlphabet : IEquatable<CanonicalAlphabet>, IAlphabet
 {
     #region Data

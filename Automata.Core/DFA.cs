@@ -184,7 +184,7 @@ public class Dfa : IDfa
     /// <param name="fromState">From state.</param>
     /// <remarks>
     /// This method provides a read-only view of the state transitions from the specified state.
-    /// It is primarily for compatibility with contiguous memory representations like <see cref="Cfa"/>.
+    /// It is primarily for compatibility with contiguous memory representations like <see cref="Mfa"/>.
     /// When possible, use <see cref="Transitions(int)"/>, which avoids memory allocation and has less overhead.
     /// </remarks>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>

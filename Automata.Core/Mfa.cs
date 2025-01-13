@@ -6,22 +6,18 @@ using Automata.Core.Operations;
 namespace Automata.Core;
 
 /// <summary>
-/// Canonical Finite-state Automaton (CFA).
+/// Minimal Finite-state Automaton (MFA).
 /// </summary>
 /// <remarks>
-/// The <see cref="Cfa"/> is the most optimized automaton representation, characterized by:
+/// <see cref="Mfa"/> is the most optimized automaton representation, characterized by:
 /// <list type="number">
-/// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions (Similarly to a minimized DFA).</item>
-/// <item>Canonical alphabet: Reduced, contiguous, and lexicographically ordered.</item>
-/// <item>Canonical states and transitions: contiguously indexed, optimized, and fully ordered.</item>
+/// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions.</item>
+/// <item><c>Minimal memory footprint</c>: Uses a contiguous memory block for data, with minimal overhead.</item>
+/// <item>Performance-optimized for efficient read-only operations.</item>
 /// <item><c>Immutable</c>: Guarantees structural and behavioral invariance.</item>
-/// <item>Performance-optimized for efficient read-only operations. Minimal memory footprint.</item>
 /// </list>
-/// <para>Key attribute for CFAs:</para>
-/// For any language, there exists exactly one specific <see cref="Cfa"/>.
-/// <para>Any two automata that accept the same language will, when converted, yield two <see cref="Cfa"/> that are precisely identical in all aspects.</para>
 /// </remarks>
-public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
+public partial class Mfa : IEquatable<Mfa>, IEnumerable<Transition>, IDfa
 {
     #region Data
     /// <summary>
@@ -32,8 +28,8 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     private readonly Transition[] transitions;
 
     /// <summary>
-    /// Initial state. Always <c>0</c> for a non-empty <see cref="Cfa"/>. 
-    /// <para>For an empty <see cref="Cfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
+    /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
+    /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
     public int InitialState { get; }
 
@@ -50,16 +46,16 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Cfa"/> class from an existing <see cref="Dfa"/>.
+    /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
     /// </summary>
     /// <param name="dfa">A DFA to create from.</param>
-    public Cfa(Dfa dfa) : this(ConvertDfa(dfa)) { }
+    public Mfa(Dfa dfa) : this(ConvertDfa(dfa)) { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Cfa"/> class with the specified parameters.
+    /// Initializes a new instance of the <see cref="Mfa"/> class with the specified parameters.
     /// </summary>
     /// <param name="p">A tuple containing the canonical alphabet, transitions, initial state, and final states.</param>
-    private Cfa((CanonicalAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, FrozenSet<int> finalStates) p)
+    private Mfa((CanonicalAlphabet alphabet, IEnumerable<Transition> transitions, int initialState, FrozenSet<int> finalStates) p)
     {
         Alphabet = p.alphabet;
         this.transitions = p.transitions.OrderBy(t => t).ToArray();
@@ -241,7 +237,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     /// <param name="other">Object to compare with this object.</param>
     /// <remarks>Equality means both CFAs accept the same language, but will due to the canonical property, also be identical.</remarks>
     /// <returns><see langword="true"/> <c>iff</c> the current CFA is equal to <paramref name="other"/>.</returns>
-    public bool Equals(Cfa? other)
+    public bool Equals(Mfa? other)
     {
         if (other is null) return false;
         if (ReferenceEquals(this, other)) return true;
@@ -253,7 +249,7 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     }
 
     ///<inheritdoc/>
-    public override bool Equals(object? obj) => Equals(obj as Cfa);
+    public override bool Equals(object? obj) => Equals(obj as Mfa);
 
     /// <summary>
     /// Hash code for the current alphabet.
@@ -271,20 +267,20 @@ public partial class Cfa : IEquatable<Cfa>, IEnumerable<Transition>, IDfa
     }
 
     /// <summary>
-    /// Indicates whether two specified instances of <see cref="Cfa"/> are equal.
+    /// Indicates whether two specified instances of <see cref="Mfa"/> are equal.
     /// </summary>
-    /// <param name="left">First <see cref="Cfa"/> to compare.</param>
-    /// <param name="right">Second <see cref="Cfa"/> to compare.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Cfa"/> instances are equal.</returns>
-    public static bool operator ==(Cfa left, Cfa right) => left.Equals(right);
+    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Mfa"/> instances are equal.</returns>
+    public static bool operator ==(Mfa left, Mfa right) => left.Equals(right);
 
     /// <summary>
-    /// Indicates whether two specified instances of <see cref="Cfa"/> are not equal.
+    /// Indicates whether two specified instances of <see cref="Mfa"/> are not equal.
     /// </summary>
-    /// <param name="left">First <see cref="Cfa"/> to compare.</param>
-    /// <param name="right">Second <see cref="Cfa"/> to compare.</param>
-    /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Cfa"/> instances are not equal.</returns>
-    public static bool operator !=(Cfa left, Cfa right) => !left.Equals(right);
+    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
+    /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Mfa"/> instances are not equal.</returns>
+    public static bool operator !=(Mfa left, Mfa right) => !left.Equals(right);
 
     /// <summary>
     /// Returns an enumerator that iterates through the transitions.

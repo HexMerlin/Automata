@@ -13,7 +13,7 @@ public static partial class Ops
     /// <remarks>
     /// This operation effectively removes all strings recognized by the subtrahend DFA from the minuend DFA.
     /// </remarks>
-    public static Dfa Difference(IDfa minuend, Cfa subtrahend)
+    public static Dfa Difference(IDfa minuend, Mfa subtrahend)
     {
         var subtrahendComplement = Complement(subtrahend);
 

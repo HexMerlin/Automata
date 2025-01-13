@@ -10,7 +10,7 @@ public static partial class Ops
     /// </summary>
     /// <param name="cfa">The canonical finite automaton to complement.</param>
     /// <returns>A new deterministic finite automaton (DFA) representing the complement of the input CFA.</returns>
-    public static Dfa Complement(Cfa cfa)
+    public static Dfa Complement(Mfa cfa)
     {
         MutableAlphabet alphabet = new(cfa.Alphabet);
 

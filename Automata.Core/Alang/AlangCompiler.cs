@@ -7,6 +7,8 @@ public static class AlangCompiler
 {
     public static IFsa Compile(AlangRegex regex)
     {
+        Nfa fsa = new();
+
         return regex switch
         {
             //Atom atom => new AtomFsa(atom.Symbol),
@@ -20,5 +22,15 @@ public static class AlangCompiler
             _ => throw new InvalidOperationException("Should never be reached. Only for completeness.")
         };
     }
+
+    //private static IFsa Create(Atom atom)
+    //{
+    //    Nfa nfa = new();
+       
+    //}
+
+    //private static MutableAlphabet ExtractAlphabet(AlangRegex regex)
+    //{
+    //}
 
 }
