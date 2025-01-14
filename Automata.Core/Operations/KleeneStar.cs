@@ -7,7 +7,7 @@ public static partial class Ops
     /// </summary>
     /// <param name="source">Automaton to modify</param>
     /// <returns>Modified <paramref name="source"/> with Kleene Star</returns>
-    public static Nfa KleeneStarInPlace(this Nfa source)
+    public static Nfa KleeneStarWith(this Nfa source)
     {
         // Kleene star of an empty language is an empty language
         if (source.IsEmptyLanguage)
