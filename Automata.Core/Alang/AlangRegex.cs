@@ -1,5 +1,6 @@
 ﻿namespace Automata.Core.Alang;
 
+
 /// <summary>
 /// Represents an expression in the <c>Alang</c> (Automata language) used for defining finite-state automata. 
 /// <see cref="AlangRegex"/> has a one-to-one correspondence with Finite State Automata.
@@ -59,6 +60,21 @@ public abstract class AlangRegex
 
         return regex;
     }
+
+    /// <summary>
+    /// Compiles this <see cref="AlangRegex"/> into an automaton using the specified <paramref name="alphabet"/>.
+    /// </summary>
+    /// <param name="alphabet">The alphabet to use for compilation.</param>
+    /// <remarks>The alphabet is extended with any symbols not currently in it.</remarks>
+    /// <returns>An <see cref="IFsa"/> representing the compiled finite state automaton.</returns>
+    public IFsa Compile(Alphabet alphabet) => AlangCompiler.Compile(this, alphabet);
+
+    /// <summary>
+    /// Compiles this <see cref="AlangRegex"/> into an automaton.
+    /// A new <see cref="Alphabet"/> for the automaton is created.
+    /// </summary>
+    /// <returns>An <see cref="IFsa"/> representing the compiled finite state automaton.</returns>
+    public IFsa Compile() => Compile(new Alphabet());
 
     /// <summary>
     /// Parses the rule <c>AlangRegex</c> in the Alang grammar specification.
