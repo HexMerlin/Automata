@@ -8,7 +8,7 @@ public static partial class Ops
     /// </remarks>
     /// <param name="nfa">The input nondeterministic finite automaton.</param>
     /// <returns>A new DFA equivalent to the NFA.</returns>
-    internal static Dfa Deterministic(Nfa nfa)
+    internal static Dfa Deterministic(this Nfa nfa)
     {
         List<Transition> dfaTransitions = [];
         HashSet<int> dfaFinalStates = [];
