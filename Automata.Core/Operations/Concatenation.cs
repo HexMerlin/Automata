@@ -54,7 +54,7 @@ public static partial class Ops
         foreach (EpsilonTransition t in right.EpsilonTransitions())
             source.Add(new EpsilonTransition(t.FromState + stateOffset, t.ToState + stateOffset));
 
-        // Add epsilon-transitions from source's final states to right's initial state
+        // Connect the fsas: Add epsilon-transitions from source's final states to right's initial state
         foreach (int finalState in source.FinalStates)
             source.Add(new EpsilonTransition(finalState, rightInitialStateInSource));
 
