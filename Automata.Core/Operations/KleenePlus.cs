@@ -8,7 +8,7 @@ public static partial class Ops
     /// </summary>
     /// <param name="source">Automaton to modify</param>
     /// <returns>Modified <paramref name="source"/> with Kleene Plus</returns>
-    public static Nfa KleenePlusInPlace(this Nfa source)
+    public static Nfa KleenePlusInWith(this Nfa source)
     {
         // Kleene plus of an empty language is an empty language
         if (source.IsEmptyLanguage)
