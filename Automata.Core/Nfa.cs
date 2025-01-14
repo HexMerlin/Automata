@@ -393,6 +393,6 @@ public class Nfa : IFsa
     /// Epsilon transitions of the DFA, which is always empty.
     /// </summary>
     /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
-    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => epsilonTransitions;
 
 }
