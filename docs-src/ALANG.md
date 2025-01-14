@@ -20,7 +20,7 @@ The parser validates syntactic correctness and generates detailed error messages
 | :small_blue_diamond:Option           | PrimaryRegex `?`                                              |
 | :small_blue_diamond:KleeneStar       | PrimaryRegex `*`                                              |
 | :small_blue_diamond:KleenePlus       | PrimaryRegex `+`                                              |
-| :small_blue_diamond:Complement       | Primary `~`                                                   |
+| :small_blue_diamond:Complement       | PrimaryRegex `~`                                                   |
 | PrimaryRegex          | `(` AlangRegex `)` <br>┃ Symbol <br>┃  Wildcard <br>┃ EmptyLang              |
 | :small_blue_diamond:Symbol           | SymbolChar+                                                   |
 | :small_blue_diamond:Wildcard         | `.`                                                           |
@@ -51,19 +51,6 @@ The root rule AlangRegex must cover the entire input, with no residue.
 | 7          | Wildcard        | `.`                | Terminal           |
 | 7          | Symbol          | string literal     | Terminal           |
 
-
-
-### Operation Definitions
-```
-Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
-Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
-Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }
-Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }
-Option: L? = L ∪ { ε }
-Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
-Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
-Complement: ᒾL = Σ* \ L
-```
 
 ### Whitespace
 - Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.)
@@ -99,3 +86,14 @@ For example:
 - Please note that `()` is not the same as `ε` (empty string).
   For instance, concatenating `()` with any language results in `()`.
 
+### Operation Definitions
+```
+Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
+Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
+Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }
+Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }
+Option: L? = L ∪ { ε }
+Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Complement: ᒾL = Σ* \ L
+```
