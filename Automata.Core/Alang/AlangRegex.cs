@@ -91,7 +91,7 @@ public abstract class AlangRegex
             _ = cursor.TryConsume(Chars.RightParen);
 
             if (regex.IsEmptyString)
-                return new EmptyLang(); // Captured empty parentheses '()' => EmptySet
+                return new EmptyLang(); // Captured empty parentheses '()' => EmptyLang
 
             return regex;
         }

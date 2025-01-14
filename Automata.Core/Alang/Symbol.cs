@@ -5,7 +5,7 @@
 /// </summary>
 /// <remarks>
 /// A Symbol is a atomic unit in the <c>Alang</c> language, consisting of one or more characters that are not
-/// operators or whitespace. They are present as leaf nodes in the resulting parse tree.
+/// operators or whitespace. They are present as leaf nodes in the resulting AST (abstract syntax tree).
 /// </remarks>
 public class Symbol : AlangRegex
 {
