@@ -71,11 +71,12 @@ public class Dfa : IDfa
     /// </remarks>
     public bool IsEmptyLanguage => InitialState == Constants.InvalidState;
 
+  
     /// <summary>
-    /// Indicates whether the DFA accepts the empty sting {ϵ}.
+    /// Indicates whether the DFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
     /// </summary>
-    public bool AcceptsEmptyString => IsFinal(InitialState);
+    public bool AcceptsEpsilon => IsFinal(InitialState);
 
     /// <summary>
     /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
@@ -208,13 +209,6 @@ public class Dfa : IDfa
             Core.Transition.MinTrans(fromState, symbol),
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
-
-  
-    /// <summary>
-    /// Creates a new NFA that recognizes the reverse of the language accepted by this DFA.
-    /// </summary>
-    /// <returns>An NFA representing the reversed DFA.</returns>
-    public Nfa Reversed() => new(this, applyReverseOperation: true);
 
 
     /// <summary>

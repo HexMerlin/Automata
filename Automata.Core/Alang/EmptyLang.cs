@@ -2,10 +2,10 @@
 
 
 /// <summary>
-/// Represents an EmptyLang expression in the <c>Alang</c> (Automata language).
+/// Represents the empty language (∅) in <c>Alang</c> (Automata language).
 /// </summary>
 /// <remarks>
-/// This class is used to define the empty language in Alang expressions.
+/// It is a valid expression in the <c>Alang</c> language, denoted by the empty parentheses <c>()</c>.
 /// </remarks>
 public class EmptyLang : AlangRegex
 {

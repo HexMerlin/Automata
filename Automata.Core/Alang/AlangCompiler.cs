@@ -11,24 +11,22 @@ public static class AlangCompiler
     {
         Symbol symbol => new Mfa(symbol.Value, alphabet),
 
-        Concatenation concatenation =>
-            Compile(concatenation.Left, alphabet).AsNfa()
+        Concatenation concatenation => Compile(concatenation.Left, alphabet).AsNfa()
             .Append(Compile(concatenation.Right, alphabet).AsIDfa()),
 
-        Wildcard => throw new NotImplementedException(),
+        Wildcard => new Mfa(Chars.Wildcard.ToString(), alphabet), //TODO: Wildcard should be replaced by union over Alphabet
 
         Option option => throw new NotImplementedException(),
 
-        KleeneStar kleeneStar => Compile(kleeneStar, alphabet).AsNfa().KleeneStarInPlace(),
+        KleeneStar kleeneStar => Compile(kleeneStar.Operand, alphabet).AsNfa().KleeneStarInPlace(),
 
-        KleenePlus kleenePlus => Compile(kleenePlus, alphabet).AsNfa().KleenePlusInPlace(),
+        KleenePlus kleenePlus => Compile(kleenePlus.Operand, alphabet).AsNfa().KleenePlusInPlace(),
         
-        Union union =>
-            Compile(union.Left, alphabet).AsNfa()
+        Union union => Compile(union.Left, alphabet).AsNfa()
             .UnionWith(Compile(union.Right, alphabet).AsIDfa()),
         
-        Complement complement => throw new NotImplementedException(),
-        
+        Complement complement => Compile(complement.Operand, alphabet).AsMfa().Complement(),
+
         _ => throw new InvalidOperationException("Should never be reached. Only for completeness.")
     };
 

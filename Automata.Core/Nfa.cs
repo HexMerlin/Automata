@@ -104,8 +104,15 @@ public class Nfa : IFsa
     ///<inheritdoc/>
     public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
 
-    ///<inheritdoc/>
-    public bool AcceptsEmptyString
+    /// <summary>
+    /// Indicates whether the NFA accepts ϵ - the empty sting. 
+    /// </summary>
+    /// <remarks>
+    /// Returns <see langword="true"/> <c>iff</c> the NFA has a final state 
+    /// that is either an initial state 
+    /// or can be reached from an initial state on only epsilon transitions.
+    /// </remarks>
+    public bool AcceptsEpsilon
     {
         get
         {

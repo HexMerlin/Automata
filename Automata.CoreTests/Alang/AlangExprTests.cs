@@ -27,7 +27,7 @@ public class AlangExprTests
     public void Parse_ForMultiCharSymbolWithWhitespaces_ReturnsSymbol() => AssertInputParsesToExpectedExpression("  aa1  ", "aa1");
     
     [TestMethod()]
-    public void Parse_ForConcatSymbolWithEmptyLang_ReturnsSame() => AssertInputParsesToExpectedExpression("a1()", "a1()");
+    public void Parse_ForConcatSymbolWithEmptyLang_ReturnsEmptyLang() => AssertInputParsesToExpectedExpression("a1()", "a1()");
 
     [TestMethod()]
     public void Parse_ForMultiCharSymbolWithOption_ReturnsCorrect() => AssertInputParsesToExpectedExpression("a1a?", "a1a?");

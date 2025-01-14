@@ -114,10 +114,10 @@ public partial class Mfa : IDfa
     public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
 
     /// <summary>
-    /// Indicates whether the MFA accepts the empty sting {ϵ}.
+    /// Indicates whether the MFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
     /// </summary>
-    public bool AcceptsEmptyString => IsFinal(InitialState);
+    public bool AcceptsEpsilon => IsFinal(InitialState);
 
     /// <summary>
     /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.

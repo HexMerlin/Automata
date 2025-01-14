@@ -83,8 +83,8 @@ For example:
 - Its automata equivalence is an automaton that does not accept anything (not even the empty string).
 - In most scenarios, `()` is not required when writing a Alang expressions.
   However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
-- Please note that `()` is not the same as `ε` (empty string).
-  For instance, concatenating `()` with any language results in `()`.
+- Please note that `()` is not the same as `{ε}` (the language containing only the empty string).
+  For instance, concatenating any language L with `()` results in `()`.
 
 ### Operation Definitions
 ```

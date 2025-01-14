@@ -17,9 +17,9 @@ public interface IFsa
     bool IsEmptyLanguage { get; }
 
     /// <summary>
-    /// Indicates whether the FSA accepts the empty sting {ϵ}
+    /// Indicates whether the FSA accepts ϵ - the empty sting . 
     /// </summary>
-    bool AcceptsEmptyString { get; }
+    bool AcceptsEpsilon { get; }
 
     /// <summary>
     /// Indicates whether the FSA is epsilon-free (lacks epsilon transitions).

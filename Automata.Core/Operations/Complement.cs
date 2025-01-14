@@ -10,7 +10,7 @@ public static partial class Ops
     /// </summary>
     /// <param name="mfa">A <see cref="Mfa"/> to complement.</param>
     /// <returns>A new deterministic finite automaton (DFA) representing the complement of the input MFA.</returns>
-    public static Dfa Complement(Mfa mfa)
+    public static Dfa Complement(this Mfa mfa)
     {
         Alphabet alphabet = mfa.Alphabet;
 

@@ -4,11 +4,11 @@ public static partial class Ops
     /// <summary>
     /// Minimizes the DFA using Brzozowski's algorithm.
     /// </summary>
-    /// <param name="dfa">The deterministic finite automaton to minimize.</param>
+    /// <param name="source">The deterministic finite automaton to minimize.</param>
     /// <returns>A new minimal DFA.</returns>
-    internal static Dfa Minimal(Dfa dfa)
+    internal static Dfa Minimal(Dfa source)
     {
-        Dfa reversed = Deterministic(dfa.Reversed());
-        return Deterministic(reversed.Reversed());
+        Dfa reversed = Ops.Deterministic(Ops.Reversal(source));
+        return Ops.Deterministic(Ops.Reversal(reversed));
     }
 }
