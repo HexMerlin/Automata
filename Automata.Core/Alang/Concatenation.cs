@@ -19,9 +19,7 @@ public class Concatenation(AlangRegex left, AlangRegex right) : InfixBinary(left
         if (cursor.IsExpressionStart)
         {
             AlangRegex right = Concatenation.Parse(ref cursor); // Recursive call for repeated
-            return right is EmptyLang
-                    ? left
-                    : new Concatenation(left, right);
+            return new Concatenation(left, right);
         }
         return left;
     }
