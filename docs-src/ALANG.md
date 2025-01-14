@@ -27,7 +27,7 @@ The parser validates syntactic correctness and generates detailed error messages
 | :small_blue_diamond:EmptyLang        | `()`                                                          |
 | SymbolChar                           | *any character except operator characters and whitespace*     |
 
-:small_blue_diamond: Denotes a node type that may be included in the resulting parse tree.
+:small_blue_diamond: Denotes an actual node type in the resulting AST (abstract syntax tree) outputed by the parser.
 
 The root rule AlangRegex must cover the entire input, with no residue. 
 
