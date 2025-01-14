@@ -29,7 +29,9 @@ The parser validates syntactic correctness and generates detailed error messages
 
 :small_blue_diamond: Denotes an actual node type in the resulting AST (abstract syntax tree) outputed by the parser.
 
-The root rule AlangRegex must cover the entire input, with no residue. 
+Note to developers: All types marked with a :small_blue_diamond: have corresponding classes with the exact same names in the namespace **Automata.Core.Alang**.
+
+For an input to be valid, the root rule AlangRegex must cover the entire input, with no residue. 
 
 ### Operators
 - Operators with higher precedence levels bind more tightly than those with lower levels.
