@@ -10,10 +10,6 @@ public static partial class Ops
     /// <returns>Modified <paramref name="source"/> with Kleene Plus</returns>
     public static Nfa KleenePlusInWith(this Nfa source)
     {
-        // Kleene plus of an empty language is an empty language
-        if (source.IsEmptyLanguage)
-            return source;
-
         // Create new initial state
         int newInitialState = source.MaxState + 1;
 

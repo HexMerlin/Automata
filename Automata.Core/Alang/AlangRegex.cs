@@ -137,6 +137,27 @@ public abstract class AlangRegex
     /// </summary>
     /// <returns>The expression string of this expression in Alang format.</returns>
     public override string ToString() => AlangExpressionString;
+
+    /// <summary>
+    /// Returns this expression and all its descendant expressions in a depth-first order.
+    /// </summary>
+    /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="AlangRegex"/> representing this expression and all its descendants.</returns>
+    public IEnumerable<AlangRegex> DescendantsAndSelf()
+    {
+        yield return this;
+        if (this is BinaryRegex binary)
+        {
+            foreach (AlangRegex child in binary.Left.DescendantsAndSelf())
+                yield return child;
+            foreach (AlangRegex child in binary.Right.DescendantsAndSelf())
+                yield return child;
+        }
+        else if (this is UnaryRegex unaryRegex)
+        {
+            foreach (AlangRegex child in unaryRegex.Operand.DescendantsAndSelf())
+                yield return child;
+        }
+    }
 }
 
 

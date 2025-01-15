@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Automata.Core;
 
@@ -11,6 +13,7 @@ namespace Automata.Core;
 /// <para>· Any mutation of a DFA is guaranteed to preserve its deterministic property.</para>
 /// <para>· Mutation can make certain states unreachable (contain <c>Dead states</c>).</para>
 /// </remarks>
+[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public class Dfa : IDfa
 {
     #region Data
@@ -64,15 +67,6 @@ public class Dfa : IDfa
     }
 
     /// <summary>
-    /// Indicates whether the language of the DFA is the empty language (∅). This means the DFA does not accept anything, including the empty string (ϵ).
-    /// </summary>
-    /// <remarks>
-    /// Returns <see langword="true"/> only if either; the DFA has no states, or the initial state is not a final state.
-    /// </remarks>
-    public bool IsEmptyLanguage => InitialState == Constants.InvalidState || finalStates.Count == 0;
-
-
-    /// <summary>
     /// Indicates whether the DFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
     /// </summary>
@@ -82,6 +76,13 @@ public class Dfa : IDfa
     /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
     public bool IsEpsilonFree => true;
+
+    /// <summary>
+    /// Indicates whether the DFA has an initial state.
+    /// </summary>
+    /// <returns><see langword="true"/> <c>iff</c> DFA has an initial state.</returns>
+    public bool HasInitialState => InitialState != Constants.InvalidState;
+
 
     /// <summary>
     /// Sets the initial state of the DFA, updating the maximum state number if necessary.
@@ -142,7 +143,7 @@ public class Dfa : IDfa
     /// </returns>
     public bool Add(Transition transition)
     {
-        if (ReachableState(transition.FromState, transition.Symbol) != Constants.InvalidState)
+        if (TryGetReachableState(transition.FromState, transition.Symbol, out _))
             return false; // Cannot add; would introduce nondeterminism
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return orderByFromState.Add(transition);
@@ -204,12 +205,23 @@ public class Dfa : IDfa
     /// <returns>
     /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
     /// </returns>
+    /// <seealso cref="TryGetReachableState(int, int, out int)"/>
     public int ReachableState(int fromState, int symbol)
         => orderByFromState.GetViewBetween(
             Core.Transition.MinTrans(fromState, symbol),
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
 
+    /// <summary>
+    /// Tries to get the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
+    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
+    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
+    /// <seealso cref="ReachableState(int, int)"/>
+    public bool TryGetReachableState(int fromState, int symbol, out int toState)
+        => (toState = ReachableState(fromState, symbol)) != Constants.InvalidState;
 
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.
@@ -231,9 +243,9 @@ public class Dfa : IDfa
             if (symbolIndex == Constants.InvalidSymbolIndex)
                 return false;
 
-            state = ReachableState(state, symbolIndex);
-            if (state == Constants.InvalidState)
-                return false;
+            if (!TryGetReachableState(state, symbolIndex, out state))
+                return false; 
+
         }
         return IsFinal(state);
     }
@@ -309,7 +321,7 @@ public class Dfa : IDfa
     /// </returns>
     internal List<int> StatesInBreadthFirstOrderBySymbol()
     {
-        if (InitialState == Constants.InvalidState)
+        if (!HasInitialState)
             return [];
 
         StringComparer comparer = StringComparer.Ordinal;
@@ -337,7 +349,6 @@ public class Dfa : IDfa
         return statesInOrder;
     }
 
-
     /// <summary>
     /// Maps states to their canonical state numbers in a breadth-first order.
     /// </summary>
@@ -352,7 +363,7 @@ public class Dfa : IDfa
     /// </returns>
     internal Dictionary<int, int> StatesToCanonicalStatesMap()
     {
-        if (InitialState == Constants.InvalidState)
+        if (! HasInitialState)
             return new Dictionary<int, int>();
 
         StringComparer comparer = StringComparer.Ordinal;
@@ -383,7 +394,32 @@ public class Dfa : IDfa
         return stateToCanonicalMap;
     }
 
+    /// <summary>
+    /// Returns a canonical string representation of the DFA's data.
+    /// Used by unit tests and for debugging. 
+    /// </summary>
+    public string ToCanonicalString()
+    {
+        StringBuilder sb = new();
+        sb.Append($"I: {InitialState}");
+        sb.Append($", F#={finalStates.Count}");
 
-
-
+        if (finalStates.Count > 0)
+        {
+            sb.Append($": [{string.Join(", ", finalStates)}]");
+        }
+        sb.Append($", T#={orderByFromState.Count}");
+        if (orderByFromState.Count > 0)
+        {
+            sb.Append(": [");
+            for (int i = 0; i < orderByFromState.Count; i++)
+            {
+                Transition t = orderByFromState.ElementAt(i);
+                sb.Append($"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}");
+                if (i < orderByFromState.Count - 1) sb.Append(", ");
+            }
+            sb.Append(']');
+        }
+        return sb.ToString();
+    }
 }

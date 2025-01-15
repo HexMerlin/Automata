@@ -9,16 +9,12 @@ public static partial class Ops
     /// <returns>Modified <paramref name="source"/> with Kleene Star</returns>
     public static Nfa KleeneStarWith(this Nfa source)
     {
-        // Kleene star of an empty language is an empty language
-        if (source.IsEmptyLanguage)
-            return source;
-
         // Create new initial state
         int newInitialState = source.MaxState + 1;
 
         // Add epsilon transitions from new initial state to original initial states
-        foreach (var state in source.InitialStates)
-            source.Add(new EpsilonTransition(newInitialState, state));
+        foreach (var originalInitialState in source.InitialStates)
+            source.Add(new EpsilonTransition(newInitialState, originalInitialState));
 
         // Remove all initial states
         source.ClearInitialStates();

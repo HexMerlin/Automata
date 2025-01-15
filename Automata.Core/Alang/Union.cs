@@ -1,6 +1,6 @@
 ﻿namespace Automata.Core.Alang;
 
-public class Union(AlangRegex left, AlangRegex right) : InfixBinary(left, right)
+public class Union(AlangRegex left, AlangRegex right) : BinaryRegex(left, right)
 {
     /// <summary>
     /// Parses the rule <c>Union</c> in the Alang grammar specification.

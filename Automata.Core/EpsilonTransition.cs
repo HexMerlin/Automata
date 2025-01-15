@@ -9,20 +9,57 @@ namespace Automata.Core;
 /// <remarks>An epsilon transition is a transition that lacks a symbol.
 /// Epsilon transitions can only exist in non-deterministic finite automata (NFA).
 /// </remarks>
-/// <param name="FromState">The state origin of the transition.</param>
-/// <param name="ToState">The destination state of the transition.</param>
-public readonly record struct EpsilonTransition(int FromState, int ToState) : IComparable<EpsilonTransition>
+public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
 {
-
     /// <summary>
     /// The state origin of the transition.
     /// </summary>
-    public int FromState { get; } = FromState;
+    public int FromState { get; }
 
     /// <summary>
     /// The destination state of the transition.
     /// </summary>
-    public int ToState { get; } = ToState;
+    public int ToState { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EpsilonTransition"/> struct.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="toState">The destination state of the transition.</param>
+    /// <exception cref="ArgumentException">Thrown if any of arguments has a negative value.</exception>
+    public EpsilonTransition(int fromState, int toState)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(fromState, 0, nameof(fromState));
+        ArgumentOutOfRangeException.ThrowIfLessThan(toState, 0, nameof(toState));
+        FromState = fromState;
+        ToState = toState;
+    }
+
+    /// <summary>
+    /// Private enum for private constructor without argument checks.
+    /// </summary>
+    private enum Unchecked { Yes }
+
+    /// <summary>
+    /// Unsafe private constructor that does not check arguments.
+    /// </summary>
+    private EpsilonTransition(int fromState, int toState, Unchecked _)
+    {
+        FromState = fromState;
+        ToState = toState;
+    }
+
+    /// <summary>
+    /// A search key with the minimum possible value for the toState.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static EpsilonTransition MinTransSearchKey(int fromState) => new(fromState, int.MinValue, Unchecked.Yes);
+
+    /// <summary>
+    /// A search key with the maximum possible value for the toState.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static EpsilonTransition MaxTransSearchKey(int fromState) => new(fromState, int.MaxValue, Unchecked.Yes);
 
     /// <summary>
     /// String representation for ε - the empty epsilon string.
@@ -35,7 +72,6 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
     /// </summary>
     /// <returns>A new <see cref="EpsilonTransition"/> with the from and to states swapped.</returns>
     public EpsilonTransition Reverse() => new(ToState, FromState);
-
 
     /// <summary>
     /// Compares the current epsilon transition to another epsilon transition.
@@ -54,10 +90,4 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
     /// <returns>A string that represents the current transition.</returns>
     public override string ToString() => $"{FromState}->{ToState}";
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static EpsilonTransition MinTrans(int fromState) => new(fromState, int.MinValue);
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static EpsilonTransition MaxTrans(int fromState) => new(fromState, int.MaxValue);
 }
-

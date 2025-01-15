@@ -21,6 +21,7 @@ namespace Automata.Core;
 /// <item>Two <see cref="Mfa"/>s recognizing the same language are guaranteed to be identical.</item>
 /// </list>
 /// </remarks>
+[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public partial class Mfa : IDfa, IEquatable<Mfa>
 {
     #region Data
@@ -50,7 +51,17 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// It has zero states and zero transitions.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the MFA.</param>
-    public Mfa(Alphabet alphabet)
+    public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet);
+
+    /// <summary>
+    /// Creates a <see cref="Mfa"/> that represents the empty language (∅).
+    /// It has zero states and zero transitions.
+    /// </summary>
+    /// <remarks>
+    /// Exposed as <see cref="Mfa.CreateEmpty(Alphabet)"/>.
+    /// </remarks>
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    private Mfa(Alphabet alphabet)
     {
         this.Alphabet = alphabet;
         this.StateCount = 0;
@@ -81,7 +92,7 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     {
         this.Alphabet = dfa.Alphabet;
         dfa = Ops.Minimal(dfa); //make sure the dfa is minimal
-        if (dfa.IsEmptyLanguage)
+        if (dfa.FinalStates.Count == 0)
         {
             this.StateCount = 0;
             this.transitions = Array.Empty<Transition>();
@@ -134,6 +145,15 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// Number of transitions in the automaton.
     /// </summary>
     public int TransitionCount => transitions.Length;
+
+    /// <summary>
+    /// Indicates whether the MFA has an initial state.
+    /// </summary>
+    /// <remarks>
+    /// An MFA without an initial state is completely empty (= <see cref="IsEmptyLanguage"/>).
+    /// </remarks>
+    /// <returns><see langword="true"/> <c>iff</c> MFA has an initial state.</returns>
+    public bool HasInitialState => InitialState != Constants.InvalidState;
 
     /// <summary>
     /// Indicates whether the specified state is the initial state.

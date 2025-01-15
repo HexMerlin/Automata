@@ -1,14 +1,14 @@
 ﻿namespace Automata.Core.Alang;
 
 /// <summary>
-/// Postfix unary expression in the Alang language.
+/// Unary expression in the Alang language.
 /// </summary>
 /// <remarks>
 /// Base class for all postfix unary operations in Alang expressions,
 /// such as option (?), Kleene star (*), Kleene plus (+), and complement (~).
 /// </remarks>
 /// <param name="operand">Operand of the postfix unary expression.</param>
-public abstract class UnaryExpr(AlangRegex operand) : AlangRegex()
+public abstract class UnaryRegex(AlangRegex operand) : AlangRegex()
 {
     /// <summary>
     /// Operand of the postfix unary expression.

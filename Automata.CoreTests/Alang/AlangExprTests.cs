@@ -2,10 +2,6 @@
 
 namespace Automata.CoreTests.Alang;
 
-
-//Test cases:
-// (a-a) b => ∅  (should not be b!!)
-
 [TestClass()]
 public class AlangExprTests
 {
@@ -68,7 +64,7 @@ public class AlangExprTests
     public void Parse_ForNestedRedundantParentheses_ReturnsCorrect() => AssertInputParsesToExpectedExpression("(((a1)))", "a1");
 
     [TestMethod()]
-    public void Parse_ForMultiplePostfixWithWhitespace_ReturnsCorrect() => AssertInputParsesToExpectedExpression("a++~b", "a++~b");
+    public void Parse_ForMultiplePostfixWithWhitespace_ReturnsCorrect() => AssertInputParsesToExpectedExpression(" a+ +~ b", "a++~b");
 
     #endregion Valid Expressions Tests
 

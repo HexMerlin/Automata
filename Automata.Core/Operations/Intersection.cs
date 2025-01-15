@@ -15,11 +15,9 @@ public static partial class Ops
     {
         if (ReferenceEquals(a, b))
             throw new ArgumentException("Operands must not be the same instance.");
+        if (!a.HasInitialState || ! b.HasInitialState)
+            return new Dfa(a.Alphabet); // Return an empty DFA if either automaton is empty
 
-        // Intersection with empty language is empty language
-        if (a.IsEmptyLanguage || b.IsEmptyLanguage)
-            return a;
-        
         Dfa dfa = new(a.Alphabet);
 
         Queue<long> stateQueue = new();
@@ -44,14 +42,17 @@ public static partial class Ops
 
             StateView stateA = a.State(qA);
             StateView stateB = b.State(qB);
+
+            var stateATrans = stateA.Transitions;
+
             foreach (Transition tA in stateA.Transitions)
             {
-                // Get the symbol as a string, since we deal with different alphabets
+                // Indexes for the transition symbol can be different in a's and b's alphabets. 
+                // To handle, we extract the symbol as a string, and use that for cross-alphabet lookup.
                 string symbolAsString = a.Alphabet[tA.Symbol];
 
                 // Get the symbol in B's alphabet, if it exists
-                int symB = b.Alphabet[symbolAsString];
-                if (symB == Constants.InvalidSymbolIndex)
+                if (!b.Alphabet.TryGetIndex(symbolAsString, out int symB))
                     continue; // Symbol is not in B's alphabet, so skip it
 
                 Transition tB = stateB.Transition(symB);

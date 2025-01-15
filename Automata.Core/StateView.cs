@@ -35,7 +35,7 @@ public readonly ref struct StateView
     /// <param name="transitions">Filtered transitions from the specified state.</param>
     public StateView(int fromState, ReadOnlySpan<Transition> transitions)
     {
-        int startIndex = transitions.BinarySearch(new Transition(fromState, Constants.InvalidSymbolIndex, Constants.InvalidState));
+        int startIndex = transitions.BinarySearch(Core.Transition.FromStateSearchKey(fromState));
         Debug.Assert(startIndex < 0, $"Binary search returned a non-negative index ({startIndex}), which should be impossible given the search key.");
         startIndex = ~startIndex;
         if (startIndex >= transitions.Length || transitions[startIndex].FromState != fromState)
@@ -43,9 +43,9 @@ public readonly ref struct StateView
             this.Transitions = ReadOnlySpan<Transition>.Empty; // If no matches exist, return an empty span
             return;
         }
-        int endIndex = transitions.Slice(startIndex + 1).BinarySearch(new Transition(fromState + 1, Constants.InvalidSymbolIndex, Constants.InvalidState));
+        int endIndex = transitions.Slice(startIndex + 1).BinarySearch(Core.Transition.FromStateSearchKey(fromState + 1));
         Debug.Assert(endIndex < 0, $"Binary search returned a non-negative index ({endIndex}), which should be impossible given the search key.");
-        endIndex = ~endIndex;
+        endIndex = startIndex + 1 + (~endIndex);
         this.Transitions = transitions[startIndex..endIndex];
     }
 
@@ -56,7 +56,7 @@ public readonly ref struct StateView
     /// <returns>Transition for the specified symbol, or <see cref="Transition.Invalid"/> if no such transition exists.</returns>
     public Transition Transition(int symbol)
     {
-        int index = Transitions.BinarySearch(new Transition(State, symbol, Constants.InvalidState));
+        int index = Transitions.BinarySearch(Core.Transition.FromStateSymbolSearchKey(State, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
         return (index < Transitions.Length && Transitions[index].FromState == State && Transitions[index].Symbol == symbol)

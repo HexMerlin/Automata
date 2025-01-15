@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
 using Automata.Core.Operations;
 
 namespace Automata.Core;
@@ -18,6 +20,7 @@ namespace Automata.Core;
 /// NFAs (in contrast to DFAs) can have multiple initial states.
 /// </para>
 /// </remarks>
+[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public class Nfa : IFsa
 {
     #region Data
@@ -82,12 +85,12 @@ public class Nfa : IFsa
         {
             this.symbolicTransitions = [.. iDfa.Transitions().Select(t => t.Reverse())];
             this.initialStates = [.. iDfa.FinalStates];
-            this.finalStates = [iDfa.InitialState];
+            this.finalStates = iDfa.HasInitialState ? [iDfa.InitialState] : [];
         }
         else
         {
             this.symbolicTransitions = [.. iDfa.Transitions()];
-            this.initialStates = [iDfa.InitialState];
+            this.initialStates = iDfa.HasInitialState ? [iDfa.InitialState] : [];
             this.finalStates = [.. iDfa.FinalStates];
 
         }
@@ -100,10 +103,7 @@ public class Nfa : IFsa
     /// </summary>
     /// <param name="sequences">Sequences to add to the NFA.</param>
     public Nfa(IEnumerable<IEnumerable<string>> sequences) : this(new Alphabet()) => UnionWith(sequences);
-    
-    ///<inheritdoc/>
-    public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
-
+   
     /// <summary>
     /// Indicates whether the NFA accepts ϵ - the empty sting. 
     /// </summary>
@@ -126,6 +126,12 @@ public class Nfa : IFsa
             }
         }
     }
+
+    /// <summary>
+    /// Indicates whether the NFA has any initial states.
+    /// </summary>
+    /// <returns><see langword="true"/> <c>iff</c> the NFA has at least one initial state.</returns>
+    public bool HasInitialState => initialStates.Count > 0;
 
 
     /// <summary>
@@ -181,7 +187,7 @@ public class Nfa : IFsa
     /// <param name="fromState">State from which to start.</param>
     /// <returns>States reachable from the given state on a single epsilon transition.</returns>
     public IEnumerable<int> ReachableStatesOnSingleEpsilon(int fromState)
-        => epsilonTransitions.GetViewBetween(EpsilonTransition.MinTrans(fromState), EpsilonTransition.MaxTrans(fromState)).Select(t => t.ToState);
+        => epsilonTransitions.GetViewBetween(EpsilonTransition.MinTransSearchKey(fromState), EpsilonTransition.MaxTransSearchKey(fromState)).Select(t => t.ToState);
 
     /// <summary>
     /// Extends the provided set of states with their epsilon closure in place.
@@ -235,7 +241,7 @@ public class Nfa : IFsa
     /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<Transition> transitions)
     {
-        MaxState = Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState)));
+        MaxState = transitions.Any() ? Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState))) : MaxState;
         symbolicTransitions.UnionWith(transitions);
     }
 
@@ -245,7 +251,7 @@ public class Nfa : IFsa
     /// <param name="transitions">Transitions to add.</param>
     public void UnionWith(IEnumerable<EpsilonTransition> transitions)
     {
-        MaxState = Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState)));
+        MaxState = MaxState = transitions.Any() ? Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState))) : MaxState;
         epsilonTransitions.UnionWith(transitions);
     }
 
@@ -300,8 +306,11 @@ public class Nfa : IFsa
     /// <param name="condition">If <see langword="true"/>, the state is added; otherwise, it is removed.</param>
     /// <param name="state">State to add or remove.</param>
     /// <param name="set">Set to modify.</param>
+    /// <exception cref="ArgumentException">Thrown when the set contains negative states.</exception>
     private void IncludeIff(bool condition, int state, HashSet<int> set)
     {
+        if (state < 0)
+            throw new ArgumentException("Negative states are not allowed.");
         if (condition)
         {
             set.Add(state);
@@ -316,12 +325,15 @@ public class Nfa : IFsa
     /// <param name="condition">If <see langword="true"/>, the states are added; otherwise, they are removed.</param>
     /// <param name="states">States to add or remove.</param>
     /// <param name="set">Set to modify.</param>
+    /// <exception cref="ArgumentException">Thrown when the set contains negative states.</exception>
     private void IncludeIff(bool condition, IEnumerable<int> states, HashSet<int> set)
     {
+        if (states.Any(s => s < 0))
+            throw new ArgumentException("Negative states are not allowed.");
         if (condition)
         {
             set.UnionWith(states);
-            MaxState = Math.Max(MaxState, states.Max());
+            MaxState = Math.Max(MaxState, states.DefaultIfEmpty(Constants.InvalidState).Max());
         }
         else set.ExceptWith(states);
     }
@@ -357,7 +369,7 @@ public class Nfa : IFsa
     /// <summary>
     /// Clears all initial states.
     /// </summary>
-    public void ClearInitialStates() => finalStates.Clear();
+    public void ClearInitialStates() => initialStates.Clear();
 
     /// <summary>
     /// Clears all final states.
@@ -370,7 +382,6 @@ public class Nfa : IFsa
     /// <remarks>
     /// The alphabet is not cleared.
     /// </remarks>
-    /// <seealso cref="IsEmptyLanguage"/>
     public void ClearAll() => finalStates.Clear();
 
     /// <summary>
@@ -395,4 +406,36 @@ public class Nfa : IFsa
     /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => epsilonTransitions;
 
+    /// <summary>
+    /// Returns a canonical string representation of the DFA's data.
+    /// Used by unit tests and for debugging. 
+    /// </summary>
+    public string ToCanonicalString()
+    {
+        StringBuilder sb = new();
+        sb.Append($"I#= {InitialStates.Count}");
+        if (initialStates.Count > 0)
+            sb.Append($": [{string.Join(", ", initialStates)}]");
+
+        sb.Append($", F#={finalStates.Count}");
+
+        if (finalStates.Count > 0)
+            sb.Append($": [{string.Join(", ", finalStates)}]");
+
+        sb.Append($", T#={symbolicTransitions.Count + epsilonTransitions.Count}");
+        if (symbolicTransitions.Count > 0 || epsilonTransitions.Count > 0)
+        {
+            sb.Append(": [");
+            if (symbolicTransitions.Count > 0)
+                sb.AppendJoin(", ", symbolicTransitions.Select(t => $"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}"));
+            
+            if (epsilonTransitions.Count > 0)
+            {
+                if (symbolicTransitions.Count > 0) sb.Append(", ");
+                sb.AppendJoin(", ", epsilonTransitions.Select(t => $"{t.FromState}->{t.ToState} {EpsilonTransition.Epsilon}"));
+            }
+            sb.Append(']');
+        }
+        return sb.ToString();
+    }
 }

@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="left">The left operand of the concatenation.</param>
 /// <param name="right">The right operand of the concatenation.</param>
-public class Concatenation(AlangRegex left, AlangRegex right) : InfixBinary(left, right)
+public class Concatenation(AlangRegex left, AlangRegex right) : BinaryRegex(left, right)
 {
     /// <summary>
     /// Parses the rule <c>Concatenation</c> in the Alang grammar specification.
@@ -15,7 +15,7 @@ public class Concatenation(AlangRegex left, AlangRegex right) : InfixBinary(left
     /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
     public static AlangRegex Parse(ref AlangCursor cursor)
     {
-        AlangRegex left = UnaryExpr.ParseUnaryRegex(ref cursor);
+        AlangRegex left = UnaryRegex.ParseUnaryRegex(ref cursor);
         if (cursor.IsExpressionStart)
         {
             AlangRegex right = Concatenation.Parse(ref cursor); // Recursive call for repeated

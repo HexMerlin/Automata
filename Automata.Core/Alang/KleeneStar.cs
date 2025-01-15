@@ -7,7 +7,7 @@
 /// The Kleene star operation is a unary postfix operator that denotes zero or more repetitions of the operand expression.
 /// </remarks>
 /// <param name="operand">The operand expression to which the Kleene star operation is applied.</param>
-public class KleeneStar(AlangRegex operand) : UnaryExpr(operand)
+public class KleeneStar(AlangRegex operand) : UnaryRegex(operand)
 {
     /// <inheritdoc/>
     public override int Precedence => 5;

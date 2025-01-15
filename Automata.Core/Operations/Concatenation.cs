@@ -36,13 +36,6 @@ public static partial class Ops
         // Merge the alphabets and get symbol mappings
         Dictionary<int, int> symbolMapRightToSource = source.Alphabet.UnionWith(right.Alphabet);
 
-        // Concatenation with empty language is empty language
-        if (source.IsEmptyLanguage || right.IsEmptyLanguage)
-        {
-            source.ClearAll();
-            return source;
-        }
-
         // Offset right's states to avoid conflicts
         int stateOffset = source.MaxState + 1;
 

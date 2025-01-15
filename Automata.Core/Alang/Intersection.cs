@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="left">The left operand of the intersection expression.</param>
 /// <param name="right">The right operand of the intersection expression.</param>
-public class Intersection(AlangRegex left, AlangRegex right) : InfixBinary(left, right)
+public class Intersection(AlangRegex left, AlangRegex right) : BinaryRegex(left, right)
 {
     /// <summary>
     /// Parses the rule <c>Difference</c> in the Alang grammar specification.

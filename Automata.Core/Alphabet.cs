@@ -72,6 +72,14 @@ public class Alphabet : IEquatable<Alphabet>
     public bool Contains(string symbol) => stringToIndexMap.ContainsKey(symbol);
 
     /// <summary>
+    /// Tries to get the index of the specified symbol.
+    /// </summary>
+    /// <param name="symbol">Symbol whose index to get.</param>
+    /// <param name="index">When this method returns, contains the index of the specified symbol, if the symbol is found; otherwise, -1.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the symbol is found; otherwise, <see langword="false"/>.</returns>
+    public bool TryGetIndex(string symbol, out int index) => stringToIndexMap.TryGetValue(symbol, out index);
+
+    /// <summary>
     /// Index of the specified symbol or adds it if it does not exist.
     /// </summary>
     /// <param name="symbol">Symbol to get or add.</param>

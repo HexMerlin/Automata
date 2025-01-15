@@ -32,6 +32,14 @@ public static partial class Ops
         if (ReferenceEquals(source, other))
             throw new ArgumentException("Operands must not be the same instance.");
 
+       //check if source has no initial states
+       if (!source.InitialStates.Any())
+            return other.AsNfa();
+
+        //check if other has no initial states
+        if (! other.HasInitialState)
+            return source;
+
         // Merge the alphabets and get symbol mappings
         Dictionary<int, int> otherSymbolToSourceSymbolMap = source.Alphabet.UnionWith(other.Alphabet);
 

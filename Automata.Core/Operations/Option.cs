@@ -11,15 +11,13 @@ public static partial class Ops
     /// <returns>The same automaton, with potential modification.</returns>
     public static Nfa OptionWith(this Nfa source)
     {
-        if (source.IsEmptyLanguage)
-            return source; // (empty language)? = empty language
-
         if (source.AcceptsEpsilon)
             return source; // Already accepts epsilon, return source
 
-        int newState = source.MaxState + 1;
-        source.Add(new EpsilonTransition(source.InitialStates.First(), newState));
-        source.SetFinal(newState);
+        int newInitialAndFinalState = source.MaxState + 1;
+        source.SetInitial(newInitialAndFinalState);
+        source.SetFinal(newInitialAndFinalState);
+       
         return source;
     }
 }

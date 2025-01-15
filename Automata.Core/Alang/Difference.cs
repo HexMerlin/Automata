@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="left">The left-hand side expression of the difference.</param>
 /// <param name="right">The right-hand side expression of the difference.</param>
-public class Difference(AlangRegex left, AlangRegex right) : InfixBinary(left, right)
+public class Difference(AlangRegex left, AlangRegex right) : BinaryRegex(left, right)
 {
     /// <summary>
     /// Parses the rule <c>Difference</c> in the Alang grammar specification.

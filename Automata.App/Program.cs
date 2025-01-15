@@ -1,4 +1,4 @@
-using Automata.Core;
+﻿using Automata.Core;
 using Automata.Core.Operations;
 using Automata.Core.Alang;
 using Automata.Visualization;
@@ -13,8 +13,18 @@ public static class Program
 
     public static void Main()
     {
-        AlangRegex regex = AlangRegex.Parse("a | b | c*");
-        
+        //Test cases:
+        // (a-a) b   (should  be empty lang - not b!!)
+
+        //AlangRegex regex = AlangRegex.Parse("(((a-b))|c&d)");
+
+        AlangRegex regex = AlangRegex.Parse("()?");
+        // AlangRegex regex = AlangRegex.Parse("a & a");
+
+        //aa bb
+        //aa aa aa
+        //aa aa bb
+
         //Alphabet alphabet = new Alphabet();
         //var f1 = new Mfa("a", alphabet).AsNfa();
         //var f2 = new Mfa("b", alphabet).AsIDfa();
@@ -26,9 +36,9 @@ public static class Program
         //Display(res);
         // var fsa = m1.AsNfa().UnionWith(m2.AsIDfa());
         // var fsa = m1.AsNfa();
-          IFsa fsa = regex.Compile();
-
-        Graph graph = fsa.CreateGraph();
+        Mfa mfa = regex.Compile();
+        Console.WriteLine("\"" + mfa.ToCanonicalString() + "\"");
+        Graph graph = mfa.CreateGraph();
         GraphView graphView = GraphView.OpenNew(graph);
     } 
 

@@ -50,11 +50,21 @@ public static class GraphFactory
         foreach (Transition transition in fsa.Transitions())
             AddEdge(transition.FromState, alphabet[transition.Symbol], transition.ToState);
 
-        if (!fsa.IsEpsilonFree)
+        if (fsa is Nfa nfa)
         {
-            foreach (EpsilonTransition transition in fsa.EpsilonTransitions())
+            foreach (EpsilonTransition transition in nfa.EpsilonTransitions())
                 AddEdge(transition.FromState, EpsilonTransition.Epsilon, transition.ToState);
+            foreach (var s in nfa.InitialStates)  //ensure any disconnected initial states are included
+                _ = graph.AddNode(s.ToString());
         }
+        else if (fsa is Dfa dfa)
+        {
+            if (dfa.InitialState != Constants.InvalidState) //ensure the initial states is included, if disconnected
+                graph.AddNode(dfa.InitialState.ToString());
+        }
+
+        foreach (var s in fsa.FinalStates)  //ensure any disconnected final states are included
+           _ = graph.AddNode(s.ToString());
 
         graph.ConfigNodes(fsa, displayStateIDs); // configure the appearance of the states
 
@@ -79,7 +89,7 @@ public static class GraphFactory
             node.Label.Text = displayStateIDs ? state.ToString() : "";
 
             //note: a state can be both initial and final
-            //a state that is both will be bold and colored
+            //a state that is both will be double-circled and colored
             if (isFinal)
             {
                 node.Attr.Shape = Shape.DoubleCircle;
@@ -87,8 +97,7 @@ public static class GraphFactory
             }
             if (isInitial)
             {
-                node.Attr.LineWidth = 3;
-                node.Attr.FillColor = Microsoft.Msagl.Drawing.Color.LightBlue; // uncomment for color
+                node.Attr.FillColor = Microsoft.Msagl.Drawing.Color.LightBlue; 
             }
            
         }
