@@ -60,10 +60,7 @@ public class AlangCompilerTests
     public void Compile_ForDoublePostfixOps_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("  a?*  ", "S#=1, F#=1: [0], T#=1: [0->0 a]");
 
     [TestMethod()]
-    public void Compile_ForNestedPrecedence_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("(((a-b))|c&d)", "a-b|c&d");
-
-    [TestMethod()]
-    public void Compile_ForNestedRedundantParentheses_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("(((a1)))", "a1");
+    public void Compile_ForNestedRedundantParentheses_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("(((a1)))", "S#=2, F#=1: [1], T#=1: [0->1 a1]");
 
     [TestMethod()]
     public void Compile_ForIntersectionOfSame_ReturnsSame() => Assert_Compile_ReturnsCorrect("a & a", "S#=2, F#=1: [1], T#=1: [0->1 a]");
@@ -75,7 +72,11 @@ public class AlangCompilerTests
     public void Compile_ForKleenePlusWithComplement_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("a+~ b", "S#=4, F#=1: [2], T#=8: [0->1 a, 0->2 b, 1->1 a, 1->3 b, 2->3 a, 2->2 b, 3->3 a, 3->2 b]");
 
     [TestMethod()]
-    public void Compile_OptionOnEmptyLanguage_ReturnsEpsilonAccepting() => Assert_Compile_ReturnsCorrect("()?", "S#=4, F#=1: [2], T#=8: [0->1 a, 0->2 b, 1->1 a, 1->3 b, 2->3 a, 2->2 b, 3->3 a, 3->2 b]");
+    public void Compile_OptionOnEmptyLanguage_ReturnsEpsilonAccepting() => Assert_Compile_ReturnsCorrect("()?", "S#=1, F#=1: [0], T#=0");
+
+    [TestMethod()]
+    public void Compile_ForCorrectPrecedence_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("a|b  &b", "S#=2, F#=1: [1], T#=2: [0->1 a, 0->1 b]");
+
     #endregion
 
     #region Unsuccessful Compilation Tests
