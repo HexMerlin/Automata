@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Automata.Core.Alang;
 
 namespace Automata.Core;
 
@@ -46,6 +47,12 @@ public readonly record struct EpsilonTransition(int FromState, int ToState) : IC
         int c = FromState.CompareTo(other.FromState);
         return c != 0 ? c : ToState.CompareTo(other.ToState);
     }
+
+    /// <summary>
+    /// String that represents the current transition.
+    /// </summary>
+    /// <returns>A string that represents the current transition.</returns>
+    public override string ToString() => $"{FromState}->{ToState}";
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static EpsilonTransition MinTrans(int fromState) => new(fromState, int.MinValue);

@@ -69,7 +69,7 @@ public readonly record struct Transition(int FromState, int Symbol, int ToState)
     /// String that represents the current transition.
     /// </summary>
     /// <returns>A string that represents the current transition.</returns>
-    public override string ToString() => $"{FromState}=>{ToState} ({Symbol})";
+    public override string ToString() => $"{FromState}->{ToState} ({Symbol})";
 
     /// <summary>
     /// Creates a minimum transition for the given state and symbol.

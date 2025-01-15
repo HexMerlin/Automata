@@ -5,7 +5,9 @@
 /// </summary>
 /// <remarks>
 /// Provides detailed information about the parsing error, including the index in the input where the error occurred and the specific type of error.
+/// All throwing of this exception is done in the <see cref="AlangCursor"/> class.
 /// </remarks>
+/// <seealso cref="AlangCursor"/>
 [Serializable]
 public class AlangFormatException : Exception
 {

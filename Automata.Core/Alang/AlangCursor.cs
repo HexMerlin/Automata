@@ -62,7 +62,7 @@ public ref struct AlangCursor(string input)
     /// To represent an empty set, use parentheses '()' instead.
     /// </remarks>
     public readonly void ShouldNotBeEmpty() 
-        => AlangFormatException.Assert(!IsEmpty, ParseErrorReason.EmptyInput, CursorIndex, "Input cannot be empty. To represent an empty set, use ()");
+        => AlangFormatException.Assert(!IsEmpty, ParseErrorReason.EmptyInput, CursorIndex, "Input cannot be empty. To represent an empty language, use ()");
 
     /// <summary>
     /// Validates that the current character is not an operator.

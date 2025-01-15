@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Text;
+using Automata.Core.Alang;
 using Automata.Core.Operations;
 
 namespace Automata.Core;
@@ -30,11 +32,11 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
 
     private readonly Transition[] transitions;
 
+
     /// <summary>
-    /// The state number with the highest value.
+    /// Number of states in the MFA.
     /// </summary>
-    /// <returns>The maximum state number, or <c>-1</c> if the MFA is empty (has no states).</returns>
-    public int MaxState { get; }
+    public int StateCount { get; }
 
     /// <summary>
     /// Final states of the MFA.
@@ -51,7 +53,7 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     public Mfa(Alphabet alphabet)
     {
         this.Alphabet = alphabet;
-        this.MaxState = Constants.InvalidState;
+        this.StateCount = 0;
         this.transitions = Array.Empty<Transition>();
         this.finalStates = Array.Empty<int>();
     }
@@ -65,7 +67,7 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     {
         this.Alphabet = alphabet;
         int symbol = alphabet.GetOrAdd(singleSymbol);
-        this.MaxState = 1;
+        this.StateCount = 2;
         transitions = [new Transition(InitialState, symbol, MaxState)];
         this.finalStates = [MaxState];
     }
@@ -78,11 +80,18 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     public Mfa(Dfa dfa)
     {
         this.Alphabet = dfa.Alphabet;
-        Dfa minDfa = Ops.Minimal(dfa);
-
+        dfa = Ops.Minimal(dfa); //make sure the dfa is minimal
+        if (dfa.IsEmptyLanguage)
+        {
+            this.StateCount = 0;
+            this.transitions = Array.Empty<Transition>();
+            this.finalStates = Array.Empty<int>();
+            return;
+        }
         var dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
-        this.transitions = minDfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
-        this.finalStates = minDfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
+        this.StateCount = dfaStateToMfaStateMap.Count;
+        this.transitions = dfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
+        this.finalStates = dfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
     }
 
     /// <summary>
@@ -92,9 +101,10 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     public int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
 
     /// <summary>
-    /// Number of states in the MFA.
+    /// The state number with the highest value.
     /// </summary>
-    public int StateCount => MaxState + 1;
+    /// <returns>The maximum state number, or <see cref="Constants.InvalidState"/> (= <c>-1</c>) if the MFA is empty (has no states).</returns>
+    public int MaxState => StateCount - 1;
 
     /// <summary>
     /// Final states of the MFA.
@@ -202,6 +212,9 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
         return true;
     }
 
+    ///<inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as Mfa);
+
     /// <summary>
     /// Indicates whether this MFA is equal to the specified MFA.
     /// </summary>
@@ -210,6 +223,7 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// This method is similar to <see cref="LanguageEquals(Mfa)"/> but is stricter:
     /// <para>It also requires the alphabets of both MFAs to be equal (not just the referenced symbols).</para>
     /// </remarks>
+    /// <seealso cref="LanguageEquals(Mfa)"/>
     /// <returns><see langword="true"/> <c>iff</c> the current Mfa is equal to <paramref name="other"/>.</returns>
     public bool Equals(Mfa? other)
     {
@@ -245,11 +259,47 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     public override int GetHashCode()
     {
         HashCode hash = new();
+        hash.Add(Alphabet);
         hash.Add(InitialState);
         hash.Add(FinalStates);
         for (int i = 0; i < transitions.Length; i++)
             hash.Add(transitions[i]);
         return hash.ToHashCode();
+    }
+
+    /// <summary>
+    /// Returns a canonical string representation of the MFA's data.
+    /// Used by unit tests and for debugging. 
+    /// </summary>
+    /// <example>
+    /// Canonical string for a 2-state MFA, with 2 states, 2 transitions and 1 final state, that accepts the language {a | b}:
+    /// <code>
+    /// S#=2, F#=1: [1]: T#=2: [0->1 a, 0->1 b]
+    /// </code>
+    /// </example>
+    public string ToCanonicalString()
+    {
+        StringBuilder sb = new();
+        sb.Append($"S#={StateCount}");
+        sb.Append($", F#={finalStates.Length}");
+
+        if (finalStates.Length > 0)
+        {
+            sb.Append($": [{string.Join(", ", finalStates)}]");
+        }
+        sb.Append($", T#={transitions.Length}");
+        if (transitions.Length > 0)
+        {
+            sb.Append(": [");
+            for (int i = 0; i < transitions.Length; i++)
+            {
+                Transition t = transitions[i];
+                sb.Append($"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}");
+                if (i < transitions.Length - 1) sb.Append(", ");
+            }
+            sb.Append(']');
+        }     
+       return sb.ToString();
     }
 
 

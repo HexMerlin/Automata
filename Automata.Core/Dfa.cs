@@ -69,9 +69,9 @@ public class Dfa : IDfa
     /// <remarks>
     /// Returns <see langword="true"/> only if either; the DFA has no states, or the initial state is not a final state.
     /// </remarks>
-    public bool IsEmptyLanguage => InitialState == Constants.InvalidState;
+    public bool IsEmptyLanguage => InitialState == Constants.InvalidState || finalStates.Count == 0;
 
-  
+
     /// <summary>
     /// Indicates whether the DFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
@@ -358,22 +358,25 @@ public class Dfa : IDfa
         StringComparer comparer = StringComparer.Ordinal;
 
         Dictionary<int, int> stateToCanonicalMap = new();
-
         Queue<int> queue = new();
 
+        // Enqueue the initial state and add it to the map
         queue.Enqueue(InitialState);
+        stateToCanonicalMap.Add(InitialState, stateToCanonicalMap.Count);
 
         while (queue.Count > 0)
         {
             int state = queue.Dequeue();
-            stateToCanonicalMap.Add(state, stateToCanonicalMap.Count);
 
             foreach (int toState in Transitions(state)
                 .OrderBy(t => Alphabet[t.Symbol], comparer)
                 .Select(t => t.ToState))
             {
                 if (!stateToCanonicalMap.ContainsKey(toState))
+                {
                     queue.Enqueue(toState);
+                    stateToCanonicalMap.Add(toState, stateToCanonicalMap.Count);
+                }
             }
         }
 
