@@ -295,6 +295,92 @@ public class Dfa : IDfa
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
+    ///<summary>
+    /// States of the DFA in breadth-first order, following transitions in lexicographical order of their symbols.
+    /// </summary>
+    /// <remarks>
+    /// This traversal ensures a consistent and well-defined ordering of states.
+    /// At each state, transitions are explored in order sorted lexicographically by their symbol strings using <see cref="StringComparer.Ordinal"/>.
+    /// Transitions with lexicographically smaller symbols are followed before those with larger symbols,
+    /// providing a deterministic sequence of states regardless of the underlying data structures.
+    /// </remarks>
+    /// <returns>
+    /// List of states visited in breadth-first order, starting from the <see cref="InitialState"/>.
+    /// </returns>
+    internal List<int> StatesInBreadthFirstOrderBySymbol()
+    {
+        if (InitialState == Constants.InvalidState)
+            return [];
 
-   
+        StringComparer comparer = StringComparer.Ordinal;
+
+        HashSet<int> visited = new() { InitialState };
+        Queue<int> queue = new();
+        List<int> statesInOrder = new();
+
+        queue.Enqueue(InitialState);
+
+        while (queue.Count > 0)
+        {
+            int state = queue.Dequeue();
+            statesInOrder.Add(state);
+
+            foreach (int nextState in Transitions(state)
+                .OrderBy(t => Alphabet[t.Symbol], comparer)
+                .Select(t => t.ToState))
+            {
+                if (visited.Add(nextState))
+                    queue.Enqueue(nextState);
+            }
+        }
+
+        return statesInOrder;
+    }
+
+
+    /// <summary>
+    /// Maps states to their canonical state numbers in a breadth-first order.
+    /// </summary>
+    /// <remarks>
+    /// This method traverses the DFA in a well-defined breadth-first order and assigns a unique canonical state number to each state.
+    /// A BFS traversal starts in the <see cref="InitialState"/> and processes transitions breadth-first, then in lexicographical order of their symbols, ensuring a consistent and well-defined ordering of states.
+    /// The initial state is always assigned the canonical state number <c>0</c>.
+    /// The resulting map can be used to remap states to their canonical numbers.
+    /// </remarks>
+    /// <returns>
+    /// A dictionary mapping each state to its canonical state number.
+    /// </returns>
+    internal Dictionary<int, int> StatesToCanonicalStatesMap()
+    {
+        if (InitialState == Constants.InvalidState)
+            return new Dictionary<int, int>();
+
+        StringComparer comparer = StringComparer.Ordinal;
+
+        Dictionary<int, int> stateToCanonicalMap = new();
+
+        Queue<int> queue = new();
+
+        queue.Enqueue(InitialState);
+
+        while (queue.Count > 0)
+        {
+            int state = queue.Dequeue();
+            stateToCanonicalMap.Add(state, stateToCanonicalMap.Count);
+
+            foreach (int toState in Transitions(state)
+                .OrderBy(t => Alphabet[t.Symbol], comparer)
+                .Select(t => t.ToState))
+            {
+                if (!stateToCanonicalMap.ContainsKey(toState))
+                    queue.Enqueue(toState);
+            }
+        }
+
+        return stateToCanonicalMap;
+    }
+
+
+
+
 }

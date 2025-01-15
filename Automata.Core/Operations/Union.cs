@@ -12,7 +12,7 @@ public static partial class Ops
     /// <returns>A new deterministic finite automaton representing a union of the two automata.</returns>
     public static IDfa Union(IFsa left, IDfa other)
     {
-        Nfa result = left.AsNfa(enforceNew: true); //Initialize result to clone of other
+        Nfa result = left.AsNfa(); //Initialize result to clone of other
         result.UnionWith(other); //union with other in-place
         return result.AsIDfa();
     }
@@ -29,15 +29,18 @@ public static partial class Ops
     /// <returns>Source automaton <paramref name="source"/></returns>
     public static Nfa UnionWith(this Nfa source, IDfa other)
     {
+        if (ReferenceEquals(source, other))
+            throw new ArgumentException("Operands must not be the same instance.");
+
         // Merge the alphabets and get symbol mappings
-        Dictionary<int, int> symbolMapRightToSource = source.Alphabet.UnionWith(other.Alphabet);
+        Dictionary<int, int> otherSymbolToSourceSymbolMap = source.Alphabet.UnionWith(other.Alphabet);
 
         // Offset other's states to avoid conflicts
         int stateOffset = source.MaxState + 1;
 
         // Add other's transitions to source
         foreach (Transition t in other.Transitions())
-            source.Add(new Transition(t.FromState + stateOffset, symbolMapRightToSource[t.Symbol], t.ToState + stateOffset));
+            source.Add(new Transition(t.FromState + stateOffset, otherSymbolToSourceSymbolMap[t.Symbol], t.ToState + stateOffset));
 
         // Add other's epsilon-transitions to source (if any)
         foreach (EpsilonTransition t in other.EpsilonTransitions())

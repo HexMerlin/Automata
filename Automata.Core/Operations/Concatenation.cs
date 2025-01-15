@@ -13,7 +13,7 @@ public static partial class Ops
     /// <returns>A new deterministic finite automaton representing a concatenation of the two automata.</returns>
     public static IDfa Concatenation(IFsa left, IDfa right)
     {
-        Nfa result = left.AsNfa(enforceNew: true); //Initialize result to clone of left
+        Nfa result = left.AsNfa(); //assert correct type
         result.Append(right); //append right to result in-place
         return result.AsIDfa();
     }
@@ -30,6 +30,9 @@ public static partial class Ops
     /// <returns>Source automaton <paramref name="source"/></returns>
     public static Nfa Append(this Nfa source, IDfa right)
     {
+        if (ReferenceEquals(source, right))
+            throw new ArgumentException("Operands must not be the same instance.");
+
         // Merge the alphabets and get symbol mappings
         Dictionary<int, int> symbolMapRightToSource = source.Alphabet.UnionWith(right.Alphabet);
 

@@ -12,6 +12,9 @@ public static partial class Ops
     /// </returns>
     public static IDfa Difference(IDfa minuend, Mfa subtrahend)
     {
+        if (ReferenceEquals(minuend, subtrahend))
+            throw new ArgumentException("Operands must not be the same instance.");
+
         // Subtract empty language returns the minuend
         if (subtrahend.IsEmptyLanguage)
             return minuend;

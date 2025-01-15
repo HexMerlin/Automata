@@ -13,6 +13,9 @@ public static partial class Ops
     /// </returns>
     public static IDfa Intersection(IDfa a, IDfa b)
     {
+        if (ReferenceEquals(a, b))
+            throw new ArgumentException("Operands must not be the same instance.");
+
         // Intersection with empty language is empty language
         if (a.IsEmptyLanguage || b.IsEmptyLanguage)
             return a;

@@ -78,17 +78,19 @@ public static class GraphFactory
             node.Attr.Shape = Shape.Circle;
             node.Label.Text = displayStateIDs ? state.ToString() : "";
 
-            if (isInitial)
-            {
-                node.Attr.Shape = Shape.Circle;
-                node.Attr.LineWidth = 3;
-                // node.Attr.FillColor = Microsoft.Msagl.Drawing.Color.LightBlue; // uncomment for color
-            }
+            //note: a state can be both initial and final
+            //a state that is both will be bold and colored
             if (isFinal)
             {
                 node.Attr.Shape = Shape.DoubleCircle;
                 node.Attr.LineWidth = 1;
             }
+            if (isInitial)
+            {
+                node.Attr.LineWidth = 3;
+                node.Attr.FillColor = Microsoft.Msagl.Drawing.Color.LightBlue; // uncomment for color
+            }
+           
         }
     }
 }

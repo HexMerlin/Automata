@@ -10,14 +10,16 @@ namespace Automata.Core;
 /// <see cref="Mfa"/> is the most optimized automaton representation, characterized by:
 /// <list type="number">
 /// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions.</item>
-/// <item>Contiguous states: States are in range [0..MaxState].</item>
-/// <item>Initial state is always <c>0</c>.</item>
 /// <item>Minimal memory footprint: Uses a contiguous memory block for data, with minimal overhead.</item>
 /// <item>Performance-optimized for efficient read-only operations.</item>
 /// <item>Immutable: Guarantees structural and behavioral invariance.</item>
+/// <item>Contiguous states: States are in range [0..MaxState].</item>
+/// <item>Initial state is always <c>0</c> for a non-empty <see cref="Mfa"/>.</item>
+/// <item>Canonical topology: States and transitions are canonically ordered.</item>
+/// <item>Two <see cref="Mfa"/>s recognizing the same language are guaranteed to be identical.</item>
 /// </list>
 /// </remarks>
-public partial class Mfa : IDfa
+public partial class Mfa : IDfa, IEquatable<Mfa>
 {
     #region Data
 
@@ -31,7 +33,7 @@ public partial class Mfa : IDfa
     /// <summary>
     /// The state number with the highest value.
     /// </summary>
-    /// <returns>The maximum state number, or <c>-1</c> if the MFA is empty.</returns>
+    /// <returns>The maximum state number, or <c>-1</c> if the MFA is empty (has no states).</returns>
     public int MaxState { get; }
 
     /// <summary>
@@ -42,41 +44,20 @@ public partial class Mfa : IDfa
     #endregion Data
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
+    /// Creates a <see cref="Mfa"/> that represents the empty language (∅).
+    /// It has zero states and zero transitions.
     /// </summary>
-    /// <param name="dfa">A DFA to create from.</param>
-    public Mfa(Dfa dfa)
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    public Mfa(Alphabet alphabet)
     {
-        this.Alphabet = dfa.Alphabet;
-        Dfa minDfa = Ops.Minimal(dfa);
-
-        Dictionary<int, int> dfaToMfaStateMap = new();
-        SortedSet<Transition> transitionSet = new();
-        int maxState = Constants.InvalidState;
-
-        int initialState = GetOrAddMfaState(minDfa.InitialState);
-        Debug.Assert(initialState == 0, "The initial state of a MFA should be 0.");
-
-        foreach (Transition t in minDfa.Transitions())
-            _ = transitionSet.Add(new Transition(GetOrAddMfaState(t.FromState), t.Symbol, GetOrAddMfaState(t.ToState)));
-
-        this.transitions = transitionSet.ToArray();
-        this.finalStates = minDfa.FinalStates.Select(GetOrAddMfaState).OrderBy(s => s).ToArray();
-
-        int GetOrAddMfaState(int dfaState)
-        {
-            if (!dfaToMfaStateMap.TryGetValue(dfaState, out int mfaState))
-            {
-                mfaState = dfaToMfaStateMap.Count;
-                dfaToMfaStateMap[dfaState] = mfaState;
-                maxState = Math.Max(maxState, mfaState);
-            }
-            return mfaState;
-        }
+        this.Alphabet = alphabet;
+        this.MaxState = Constants.InvalidState;
+        this.transitions = Array.Empty<Transition>();
+        this.finalStates = Array.Empty<int>();
     }
 
     /// <summary>
-    /// Creates a new instance of the <see cref="Mfa"/> that accepts a single symbol once.
+    /// Creates a singleton <see cref="Mfa"/> that accepts only the single symbol once.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the MFA.</param>
     /// <param name="singleSymbol">Symbol to be accepted by the MFA.</param>
@@ -87,6 +68,21 @@ public partial class Mfa : IDfa
         this.MaxState = 1;
         transitions = [new Transition(InitialState, symbol, MaxState)];
         this.finalStates = [MaxState];
+    }
+
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
+    /// </summary>
+    /// <param name="dfa">A DFA to create from.</param>
+    public Mfa(Dfa dfa)
+    {
+        this.Alphabet = dfa.Alphabet;
+        Dfa minDfa = Ops.Minimal(dfa);
+
+        var dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
+        this.transitions = minDfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
+        this.finalStates = minDfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
     }
 
     /// <summary>
@@ -181,17 +177,82 @@ public partial class Mfa : IDfa
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
-    /// Hash code for the current alphabet.
+    /// Indicates whether this MFA represent the exact same language as the specified MFA: <c>Language Equality</c>.
     /// </summary>
-    /// <returns>A hash code for the alphabet.</returns>
+    /// <param name="other">MFA to check language equality against.</param>
+    /// <remarks>
+    /// <c>Language Equality</c> means both MFAs represent the same language. Due to the canonical property, <c>Language Equality</c> also means the MFAs are completely identical (identical states, and identical transition arrays).
+    /// <para>The alphabets need however not need to be equal, but every referenced symbol must have the same index in both alphabets.</para>
+    /// </remarks>
+    /// <returns><see langword="true"/> <c>iff</c> the current Mfa represents the same language as<paramref name="other"/>.</returns>
+    public bool LanguageEquals(Mfa other)
+    {
+        if (ReferenceEquals(this, other)) return true;
+        if (!finalStates.AsSpan().SequenceEqual(other.finalStates)) return false;
+        if (!transitions.AsSpan().SequenceEqual(other.transitions)) return false;
+        if (!Alphabet.Equals(other.Alphabet))
+        {
+            for (int i = 0; i < transitions.Length; i++) //check that all symbols have the same index in both alphabets
+            {
+                Transition t = transitions[i];
+                if (Alphabet[t.Symbol] != other.Alphabet[t.Symbol])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Indicates whether this MFA is equal to the specified MFA.
+    /// </summary>
+    /// <param name="other">MFA to compare with.</param>
+    /// <remarks>
+    /// This method is similar to <see cref="LanguageEquals(Mfa)"/> but is stricter:
+    /// <para>It also requires the alphabets of both MFAs to be equal (not just the referenced symbols).</para>
+    /// </remarks>
+    /// <returns><see langword="true"/> <c>iff</c> the current Mfa is equal to <paramref name="other"/>.</returns>
+    public bool Equals(Mfa? other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (!finalStates.AsSpan().SequenceEqual(other.finalStates)) return false;
+        if (!transitions.AsSpan().SequenceEqual(other.transitions)) return false;
+        if (!Alphabet.Equals(other.Alphabet)) return false;
+        return true;
+    }
+
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="Mfa"/> are equal.
+    /// </summary>
+    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the two <see cref="Mfa"/> instances are equal.</returns>
+    public static bool operator ==(Mfa left, Mfa right) => left.Equals(right);
+
+    /// <summary>
+    /// Indicates whether two specified instances of <see cref="Mfa"/> are not equal.
+    /// </summary>
+    /// <param name="left">First <see cref="Mfa"/> to compare.</param>
+    /// <param name="right">Second <see cref="Mfa"/> to compare.</param>
+    /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Mfa"/> instances are not equal.</returns>
+    public static bool operator !=(Mfa left, Mfa right) => !left.Equals(right);
+
+
+    /// <summary>
+    /// Hash code for the current MFA.
+    /// </summary>
+    /// <returns>A hash code for the MFA.</returns>
     public override int GetHashCode()
     {
         HashCode hash = new();
         hash.Add(InitialState);
         hash.Add(FinalStates);
-        hash.Add(Alphabet);
         for (int i = 0; i < transitions.Length; i++)
             hash.Add(transitions[i]);
         return hash.ToHashCode();
     }
+
+
 }
+
+

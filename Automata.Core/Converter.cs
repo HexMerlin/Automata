@@ -9,15 +9,14 @@ public static class Converter
 {
     /// <summary>
     /// Returns <paramref name="fsa"/> as a <see cref="Nfa"/>.
-    /// <para>A new <see cref="Nfa"/> is created if either: <paramref name="fsa"/> is not a <see cref="Nfa"/> or <paramref name="enforceNew"/> = <see langword="true"/>.</para>
-    /// <para>Otherwise, the same object is returned.</para>
+    /// <para>Return the same instance if it already is of the desired type.</para>
+    /// <para>Otherwise, a new object of the desired type is created.</para>
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Nfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
     /// <returns><paramref name="fsa"/> as a <see cref="Nfa"/>.</returns>
-    public static Nfa AsNfa(this IFsa fsa, bool enforceNew = false) => fsa switch
+    public static Nfa AsNfa(this IFsa fsa) => fsa switch
     {
-        Nfa nfa => enforceNew ? new Nfa(nfa) : nfa,
+        Nfa nfa => nfa,
         Dfa dfa => new Nfa(dfa),
         Mfa mfa => new Nfa(mfa),
         _ => throw new NotSupportedException($"Unexpected Fsa type: {fsa.GetType()}")
@@ -25,11 +24,10 @@ public static class Converter
 
     /// <summary>
     /// Returns <paramref name="fsa"/> as a deterministic automaton (<see cref="IDfa"/>).
-    /// <para>A new <see cref="IDfa"/> is created if either: <paramref name="fsa"/> is not a <see cref="IDfa"/> or <paramref name="enforceNew"/> = <see langword="true"/>.</para>
-    /// <para>Otherwise, the same object is returned.</para>
+    /// <para>Return the same instance if it already is of the desired type.</para>
+    /// <para>Otherwise, a new object of the desired type is created.</para>
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="IDfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
     /// <remarks>
     /// Effective conversion: NFA → DFA, DFA → DFA, MFA → MFA. 
     /// </remarks>
@@ -44,8 +42,8 @@ public static class Converter
 
     /// <summary>
     /// Returns <paramref name="fsa"/> as a <see cref="Mfa"/>.
-    /// <para>A new <see cref="Mfa"/> is created if either: <paramref name="fsa"/> is not a <see cref="Mfa"/> or <paramref name="enforceNew"/> = <see langword="true"/>.</para>
-    /// <para>Otherwise, the same object is returned.</para>
+    /// <para>Return the same instance if it already is of the desired type.</para>
+    /// <para>Otherwise, a new object of the desired type is created.</para>
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
     /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Mfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>

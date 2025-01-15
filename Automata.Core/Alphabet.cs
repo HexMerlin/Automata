@@ -11,7 +11,7 @@
 /// Default behavior for operations that create new automata is to use the existing alphabet of the input automata.
 /// If a new alphabet is needed, an explicit creation of a new alphabet is typically required.
 /// </remarks>
-public class Alphabet 
+public class Alphabet : IEquatable<Alphabet>
 {
     #region Data
 
@@ -126,4 +126,22 @@ public class Alphabet
     /// </summary>
     /// <returns>A string representation of the alphabet.</returns>
     public override string ToString() => $"Alphabet, size: {Count}";
+
+    ///<inheritdoc/>
+    public bool Equals(Alphabet? other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (Count != other.Count) return false;
+        return indexToStringMap.SequenceEqual(other.indexToStringMap);
+    }
+
+    ///<inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as Alphabet);
+
+    public static bool operator ==(Alphabet left, Alphabet right) => left.Equals(right);
+
+    public static bool operator !=(Alphabet left, Alphabet right) => !left.Equals(right);
+
+    public override int GetHashCode() => indexToStringMap.Aggregate(new HashCode(), (hash, symbol) => { hash.Add(symbol); return hash; }).ToHashCode();
 }
