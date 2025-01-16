@@ -132,6 +132,72 @@ public class Dfa : IDfa
     public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
+    /// Returns the transition from the given state with the given symbol.
+    /// </summary>
+    /// <param name="fromState">State from which to start.</param>
+    /// <param name="symbol">Symbol to transition on.</param>
+    /// <returns>
+    /// The transition from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
+    /// </returns>
+    //public Transition Transition(int fromState, int symbol)
+    //    => orderByFromState.GetViewBetween(
+    //        Core.Transition.MinTrans(fromState, symbol),
+    //        Core.Transition.MaxTrans(fromState, symbol)
+    //    ).FirstOrDefault(Core.Transition.Invalid);
+
+
+
+    /// <summary>
+    /// Returns the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <returns>
+    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
+    /// </returns>
+    /// <seealso cref="TryTransition(int, int, out int)"/>
+    public int Transition(int fromState, int symbol)
+        => orderByFromState.GetViewBetween(
+            Core.Transition.MinTrans(fromState, symbol),
+            Core.Transition.MaxTrans(fromState, symbol)
+        ).FirstOrDefault(Core.Transition.Invalid).ToState;
+
+    /// <summary>
+    /// Tries to get the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
+    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
+    /// <seealso cref="Transition(int, int)"/>
+    public bool TryTransition(int fromState, int symbol, out int toState)
+        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
+
+    /// <summary>
+    /// Returns the set of transitions from the given state.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <returns>Set of transitions from the given state.</returns>
+    public SortedSet<Transition> Transitions(int fromState)
+        => orderByFromState.GetViewBetween(
+            Core.Transition.MinTrans(fromState),
+            Core.Transition.MaxTrans(fromState)
+        );
+
+    /// <summary>
+    /// Returns a <see cref="StateView"/> of the given state.
+    /// </summary>
+    /// <param name="fromState">The state origin.</param>
+    /// <remarks>
+    /// This method provides a read-only view of the state transitions from the specified state.
+    /// It is primarily for compatibility with contiguous memory representations like <see cref="Mfa"/>.
+    /// When possible, use <see cref="Transitions(int)"/>, which avoids memory allocation and has less overhead.
+    /// </remarks>
+    /// <returns>A <see cref="StateView"/> for the given state.</returns>
+    public StateView State(int fromState)
+        => new StateView(fromState, Transitions(fromState).ToArray());
+
+    /// <summary>
     /// Adds a transition to the DFA, ensuring it remains deterministic.
     /// </summary>
     /// <remarks>
@@ -143,7 +209,7 @@ public class Dfa : IDfa
     /// </returns>
     public bool Add(Transition transition)
     {
-        if (TryGetReachableState(transition.FromState, transition.Symbol, out _))
+        if (TryTransition(transition.FromState, transition.Symbol, out _))
             return false; // Cannot add; would introduce nondeterminism
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return orderByFromState.Add(transition);
@@ -158,70 +224,6 @@ public class Dfa : IDfa
         foreach (Transition transition in transitions)
             Add(transition);
     }
-
-    /// <summary>
-    /// Returns the transition from the given state with the given symbol.
-    /// </summary>
-    /// <param name="fromState">State from which to start.</param>
-    /// <param name="symbol">Symbol to transition on.</param>
-    /// <returns>
-    /// The transition from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
-    /// </returns>
-    public Transition Transition(int fromState, int symbol)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState, symbol),
-            Core.Transition.MaxTrans(fromState, symbol)
-        ).FirstOrDefault(Core.Transition.Invalid);
-
-    /// <summary>
-    /// Returns the set of transitions from the given state.
-    /// </summary>
-    /// <param name="fromState">State from which to start.</param>
-    /// <returns>Set of transitions from the given state.</returns>
-    public SortedSet<Transition> Transitions(int fromState)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState),
-            Core.Transition.MaxTrans(fromState)
-        );
-
-    /// <summary>
-    /// Returns a <see cref="StateView"/> of the given state.
-    /// </summary>
-    /// <param name="fromState">From state.</param>
-    /// <remarks>
-    /// This method provides a read-only view of the state transitions from the specified state.
-    /// It is primarily for compatibility with contiguous memory representations like <see cref="Mfa"/>.
-    /// When possible, use <see cref="Transitions(int)"/>, which avoids memory allocation and has less overhead.
-    /// </remarks>
-    /// <returns>A <see cref="StateView"/> for the given state.</returns>
-    public StateView State(int fromState)
-        => new StateView(fromState, Transitions(fromState).ToArray());
-
-    /// <summary>
-    /// Returns the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">State from which to start.</param>
-    /// <param name="symbol">Symbol to transition on.</param>
-    /// <returns>
-    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
-    /// </returns>
-    /// <seealso cref="TryGetReachableState(int, int, out int)"/>
-    public int ReachableState(int fromState, int symbol)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState, symbol),
-            Core.Transition.MaxTrans(fromState, symbol)
-        ).FirstOrDefault(Core.Transition.Invalid).ToState;
-
-    /// <summary>
-    /// Tries to get the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">State from which to start.</param>
-    /// <param name="symbol">Symbol to transition on.</param>
-    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
-    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
-    /// <seealso cref="ReachableState(int, int)"/>
-    public bool TryGetReachableState(int fromState, int symbol, out int toState)
-        => (toState = ReachableState(fromState, symbol)) != Constants.InvalidState;
 
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.
@@ -243,7 +245,7 @@ public class Dfa : IDfa
             if (symbolIndex == Constants.InvalidSymbolIndex)
                 return false;
 
-            if (!TryGetReachableState(state, symbolIndex, out state))
+            if (!TryTransition(state, symbolIndex, out state))
                 return false; 
 
         }

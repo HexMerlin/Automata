@@ -172,14 +172,14 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// <summary>
     /// Returns the transition from the given state with the given symbol.
     /// </summary>
-    /// <param name="fromState">Source state.</param>
+    /// <param name="fromState">The state origin of the transition.</param>
     /// <param name="symbol">Symbol of the transition.</param>
     /// <returns>
     /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
     /// </returns>
     public Transition Transition(int fromState, int symbol)
     {
-        int index = Array.BinarySearch(transitions, new Transition(fromState, symbol, Constants.InvalidState));
+        int index = Array.BinarySearch(transitions, Core.Transition.FromStateSymbolSearchKey(fromState, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
         return (index < transitions.Length && transitions[index].FromState == fromState && transitions[index].Symbol == symbol)
