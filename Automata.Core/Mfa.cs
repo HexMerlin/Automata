@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Automata.Core.Alang;
 using Automata.Core.Operations;
@@ -31,13 +32,12 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// </summary>
     public Alphabet Alphabet { get; }
 
-    private readonly Transition[] transitions;
-
-
     /// <summary>
     /// Number of states in the MFA.
     /// </summary>
     public int StateCount { get; }
+
+    private readonly Transition[] transitions;
 
     /// <summary>
     /// Final states of the MFA.
@@ -45,29 +45,6 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     private readonly int[] finalStates;
 
     #endregion Data
-
-    /// <summary>
-    /// Creates a <see cref="Mfa"/> that represents the empty language (∅).
-    /// It has zero states and zero transitions.
-    /// </summary>
-    /// <param name="alphabet">Alphabet used by the MFA.</param>
-    public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet);
-
-    /// <summary>
-    /// Creates a <see cref="Mfa"/> that represents the empty language (∅).
-    /// It has zero states and zero transitions.
-    /// </summary>
-    /// <remarks>
-    /// Exposed as <see cref="Mfa.CreateEmpty(Alphabet)"/>.
-    /// </remarks>
-    /// <param name="alphabet">Alphabet used by the MFA.</param>
-    private Mfa(Alphabet alphabet)
-    {
-        this.Alphabet = alphabet;
-        this.StateCount = 0;
-        this.transitions = Array.Empty<Transition>();
-        this.finalStates = Array.Empty<int>();
-    }
 
     /// <summary>
     /// Creates a singleton <see cref="Mfa"/> that accepts only the single symbol once.
@@ -82,7 +59,6 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
         transitions = [new Transition(InitialState, symbol, MaxState)];
         this.finalStates = [MaxState];
     }
-
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
@@ -104,6 +80,33 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
         this.transitions = dfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
         this.finalStates = dfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
     }
+
+    /// <summary>
+    /// Private constructor
+    /// </summary>
+    private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates)
+    {
+        this.Alphabet = alphabet;
+        this.StateCount = stateCount;
+        this.transitions = transitions;
+        this.finalStates = finalStates;
+    }
+
+    /// <summary>
+    /// Creates a <see cref="Mfa"/> that represents the empty language (∅), with a specified alphabet.
+    /// The MFA has zero states and zero transitions.
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet, 0, [], []);
+
+    /// <summary>
+    /// Returns an automaton that accepts one occurrence of any symbol in the specified alphabet.
+    /// It corresponds directly to the "." in Alang expressions.
+    /// </summary>
+    /// <param name="source">Alphabet containing the set of symbols</param>
+    /// <returns>An automaton representing any symbol accepted exactly once.</returns>
+    public static Mfa CreateWildcard(Alphabet alphabet)
+        => new(alphabet, stateCount: 2, transitions: [.. alphabet.SymbolIndices.Select(symbol => new Transition(0, symbol, 1))], finalStates: [1]);
 
     /// <summary>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
@@ -179,7 +182,7 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// </returns>
     public Transition Transition(int fromState, int symbol)
     {
-        int index = Array.BinarySearch(transitions, Core.Transition.FromStateSymbolSearchKey(fromState, symbol));
+        int index = Array.BinarySearch(transitions, Core.Transition.MinTrans(fromState, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
         return (index < transitions.Length && transitions[index].FromState == fromState && transitions[index].Symbol == symbol)

@@ -21,13 +21,25 @@ public class Alphabet : IEquatable<Alphabet>
     #endregion
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Alphabet"/> class.
+    /// Initializes a new empty instance of the <see cref="Alphabet"/> class.
     /// </summary>
     public Alphabet()
     {
         stringToIndexMap = [];
         indexToStringMap = [];
     }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Alphabet"/> class with the specified symbols.
+    /// <param name="symbols">Symbols to initialize the alphabet with.</param>
+    /// </summary>
+    public Alphabet(params string[] symbols) : this() => AddAll(symbols);
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Alphabet"/> class with the specified symbols.
+    /// </summary>
+    /// <param name="symbols">Symbols to initialize the alphabet with.</param>
+    public Alphabet(IEnumerable<string> symbols) : this() => AddAll(symbols);
 
     /// <summary>
     /// Initializes a new cloned instance of the <see cref="Alphabet"/> class from the specified alphabet.
@@ -48,6 +60,12 @@ public class Alphabet : IEquatable<Alphabet>
     /// Read-only collection of symbols in the alphabet.
     /// </summary>
     public IReadOnlyCollection<string> Symbols => indexToStringMap;
+
+    /// <summary>
+    /// Returns an enumerable collection of indices of the symbols in the alphabet.
+    /// This is effectively the integers in range [0 .. Count).
+    /// </summary>
+    public IEnumerable<int> SymbolIndices => Enumerable.Range(0, Count);
 
     /// <summary>
     /// Symbol at the specified index.
@@ -120,7 +138,7 @@ public class Alphabet : IEquatable<Alphabet>
     public void AddAll(IEnumerable<string> symbols)
     {
         foreach (string symbol in symbols)
-            GetOrAdd(symbol);
+            _ = GetOrAdd(symbol);
     }
 
     /// <summary>

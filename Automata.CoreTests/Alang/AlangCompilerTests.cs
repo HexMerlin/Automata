@@ -11,8 +11,7 @@ public class AlangCompilerTests
         var actual = AlangCompiler.Compile(regex, new Alphabet()).ToCanonicalString();
         Assert.AreEqual(expected, actual);
     }
-
-  
+      
     [TestMethod()]
     public void Compile_ForEmptyParenthesesWithWhitespaces_ReturnsEmptyLang() => Assert_Compile_ReturnsCorrect(" () ", "S#=0, F#=0, T#=0");
 
@@ -79,7 +78,114 @@ public class AlangCompilerTests
 
     #endregion
 
-    #region Unsuccessful Compilation Tests
+    //These test focuses on testing the correctness of the automata operations performed by the compiler.
+    #region Language Equivalance Tests for Operation correctness
+
+    private static void Assert_LanguageEquivalence(string alangExpression1, string alangExpression2, params string[] extraSymbols)
+    {
+        var alphabet = new Alphabet(extraSymbols);
+        //Create a Minimal Finite-state Automaton (MFA) for 'alangExpression1'
+        Mfa fsa1 = AlangRegex.Parse(alangExpression1).Compile(alphabet);
+
+        //Create a Minimal Finite-state Automaton (MFA) for 'alangExpression1'
+        Mfa fsa2 = AlangRegex.Parse(alangExpression2).Compile(alphabet);
+
+        Assert.IsTrue(fsa1.LanguageEquals(fsa2));
+    }
+
+    [TestMethod()]
+    public void Compile_ForIntersectionOfUnions_ReturnsCorrect() => Assert_LanguageEquivalence("(a | b) & (a | c)", "a");
+
+    [TestMethod()]
+    public void Compile_ForUnionsWithEmptyLang_ReturnsCorrect() => Assert_LanguageEquivalence("(a+ | b+)* | ()", "(a | b)*");
+
+    [TestMethod()]
+    public void Compile_ForComplementOfUnion_ReturnsCorrect()
+       => Assert_LanguageEquivalence("(a | b)~", "a~ & b~");
+
+    [TestMethod()]
+    public void Compile_ForConcatenationWithEmptyLanguage_ReturnsEmptyLang()
+        => Assert_LanguageEquivalence("a ()", "()");
+
+    [TestMethod()]
+    public void Compile_ForKleeneStarOnEmptyLang_ReturnsEpsilon()
+        => Assert_LanguageEquivalence("()*", "()?");
+   
+    [TestMethod()]
+    public void Compile_OptionKleeneStarOnEmptyLang_ReturnsEpsilon()
+      => Assert_LanguageEquivalence("(()?)*", "()?");
+
+    [TestMethod()]
+    public void Compile_ForDifferenceWithEmptyLang_ReturnsLeftLang()
+        => Assert_LanguageEquivalence("a - ()", "a");
+
+    [TestMethod()]
+    public void Compile_ForUnionWithSelf_ReturnsSameLang()
+        => Assert_LanguageEquivalence("a | a", "a");
+
+    [TestMethod()]
+    public void Compile_ForIntersectionWithEmptyLang_ReturnsEmptyLang()
+        => Assert_LanguageEquivalence("a & ()", "()");
+
+    [TestMethod()]
+    public void Compile_ForKleenePlusOnUnion_ReturnsCorrect()
+        => Assert_LanguageEquivalence("(a | b)+", "(a | b) (a | b)*");
+
+    [TestMethod()]
+    public void Compile_ForDoubleComplement_ReturnsOriginal()
+        => Assert_LanguageEquivalence("a~~", "a");
+
+    [TestMethod()]
+    public void Compile_ForNestedConcatenation_ReturnsCorrect()
+        => Assert_LanguageEquivalence("a (b (c d))", "a b c d");
+
+    [TestMethod()]
+    public void Compile_ForComplexExpression_ReturnsCorrect()
+        => Assert_LanguageEquivalence("((a | b) & (c | d)) - (a & c)", "(b & c) | (b & d) | (a & d)");
+
+
+    [TestMethod()]
+    public void Compile_ForRedundantParentheses_ReturnsSameLang()
+       => Assert_LanguageEquivalence("(((a)))", "a");
+
+    [TestMethod()]
+    public void Compile_ForEmptyLangInComplexOperations_ReturnsCorrect()
+        => Assert_LanguageEquivalence("((a | ()) & b)~", "((a~ | b~) & ()~)");
+
+    [TestMethod()]
+    public void Compile_ForNestedComplement_ReturnsOriginal()
+        => Assert_LanguageEquivalence("a~ ~", "a");
+
+  
+    [TestMethod()]
+    public void Compile_ForComplexDifference_ReturnsCorrect()
+        => Assert_LanguageEquivalence("((a | b) - (b | c)) - d", "a - (b | c | d)");
+
+    [TestMethod()]
+    public void Compile_ForIntersectionOfWildcardAndSymbol_ReturnsSymbol()
+        => Assert_LanguageEquivalence("a & .", "a");
+
+    [TestMethod()]
+    public void Compile_ForDeeplyNestedUnions_ReturnsSimplifiedLang()
+        => Assert_LanguageEquivalence("((a | b) | (c | d)) | ((e | f) | g)", "a | b | c | d | e | f | g");
+
+    [TestMethod()]
+    public void Compile_ForDifferenceLeadingToEmptyLang_ReturnsEmptyLang()
+        => Assert_LanguageEquivalence("a - a", "()");
+      
+    [TestMethod()]
+    public void Compile_ForNestedKleenePlus_ReturnsCorrect()
+       => Assert_LanguageEquivalence("(a a* b)* a a* b", "(a+ b)+");
+
+    [TestMethod()]
+    public void Compile_ForWildCardComplement_ReturnsCorrect()
+       => Assert_LanguageEquivalence(".~", "(a | b)* - (a | b)", "a", "b");
+
+    #endregion Language Equivalance Tests for Operation correctness
+
+    //Invalid Compilation Tests - Primarily test that parser errors are propagated correctly to the Compiler.
+    //The main testing of invalid expressions is done by AlangExprTests.cs
+    #region Invalid Compilation Tests
 
     private static void Assert_Compile_ThrowsCorrectException(string input, ParseErrorReason parseErrorReason)
     {
@@ -97,5 +203,5 @@ public class AlangCompilerTests
 
     
 
-    #endregion
+    #endregion Invalid Compilation Tests
 }

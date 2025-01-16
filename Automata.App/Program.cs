@@ -11,14 +11,31 @@ public static class Program
     public static void Display(IFsa fsa)
         => GraphView.OpenNew(fsa.CreateGraph());
 
+    public static void Display(string alangRegex)
+    => GraphView.OpenNew(AlangRegex.Parse(alangRegex).Compile().CreateGraph());
+
+    public static void Display(string alangRegex, Alphabet alphabet)
+    => GraphView.OpenNew(AlangRegex.Parse(alangRegex).Compile(alphabet).CreateGraph());
+
     public static void Main()
     {
         //Test cases:
         // (a-a) b   (should  be empty lang - not b!!)
 
         //AlangRegex regex = AlangRegex.Parse("(((a-b))|c&d)");
+        //("(a a* b)+ a a* b*", "(a+ b) a+ (a | b)* b*");
+        Alphabet alphabet = new Alphabet("a", "b");
+        //"(a | b)* - (a | b)", "a", "b"
 
-        AlangRegex regex = AlangRegex.Parse("()?");
+        Display(".~", alphabet);
+        Display("(a | b)* - (a | b)", alphabet);
+        //Display("(a+ b)+");
+        return;
+
+        AlangRegex regex = AlangRegex.Parse("(a a* b)+ a a* b*");
+        Console.WriteLine(regex.AlangExpressionString);
+        //"(a+ b (a+ b)*)");
+        
         // AlangRegex regex = AlangRegex.Parse("a & a");
 
         //aa bb

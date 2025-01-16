@@ -61,7 +61,7 @@ public class AlangCompiler
         Symbol symbol => new Mfa(symbol.Value, Alphabet),
 
         // Compiles a Wildcard regex into an automaton.
-        Wildcard => new Mfa(Chars.Wildcard.ToString(), Alphabet).AsMfa(),
+        Wildcard => Mfa.CreateWildcard(Alphabet),
 
         EmptyLang emptyLang => Mfa.CreateEmpty(Alphabet),
 

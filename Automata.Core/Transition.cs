@@ -63,21 +63,31 @@ public readonly record struct Transition : IComparable<Transition>
     public static Transition Invalid => new(Constants.InvalidState, Constants.InvalidSymbolIndex, Constants.InvalidState, Unchecked.Yes);
 
     /// <summary>
-    /// Creates a search key transition with the from state specified.
+    /// Creates a minimum transition for the given state and symbol.
     /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <returns>A <see cref="Transition"/> with the specified <paramref name="fromState"/>, <see cref="Constants.InvalidSymbolIndex"/> as the symbol, and <see cref="Constants.InvalidState"/> as the destination state.</returns>
+    /// <remarks>
+    /// The returned transition will sort directly before any other transition with the given properties.
+    /// This is an invalid Transition, use this only as a search key for binary search. 
+    /// </remarks>
+    /// <param name="fromState">From state.</param>
+    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MinValue"/>).</param>
+    /// <returns>A <see cref="Transition"/> representing the minimum transition.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static Transition FromStateSearchKey(int fromState) => new Transition(fromState, Constants.InvalidSymbolIndex, Constants.InvalidState, Unchecked.Yes);
+    internal static Transition MinTrans(int fromState, int symbol = int.MinValue) => new(fromState, symbol, int.MinValue, Unchecked.Yes);
 
     /// <summary>
-    /// Creates a search key transition with the from state specified.
+    /// Creates a maximum transition for the given state and symbol.
     /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">The symbol for the transition.</param>
-    /// <returns>A <see cref="Transition"/> with the specified <paramref name="fromState"/>, <see cref="Constants.InvalidSymbolIndex"/> as the symbol, and <see cref="Constants.InvalidState"/> as the destination state.</returns>
+    /// <remarks>
+    /// The returned transition will sort directly after any other transition with the given properties.
+    /// This is an invalid Transition, use this only as a search key for binary search. 
+    /// </remarks>
+    /// <param name="fromState">From state.</param>
+    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MaxValue"/>).</param>
+    /// <returns>A <see cref="Transition"/> representing the maximum transition.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static Transition FromStateSymbolSearchKey(int fromState, int symbol) => new Transition(fromState, symbol, Constants.InvalidState, Unchecked.Yes);
+    internal static Transition MaxTrans(int fromState, int symbol = int.MaxValue) => new(fromState, symbol, int.MaxValue, Unchecked.Yes);
+
 
     /// <summary>
     /// Indicates whether the transition is invalid.
@@ -112,22 +122,4 @@ public readonly record struct Transition : IComparable<Transition>
     /// </summary>
     /// <returns>A string that represents the current transition.</returns>
     public override string ToString() => $"{FromState}->{ToState} ({Symbol})";
-
-    /// <summary>
-    /// Creates a minimum transition for the given state and symbol.
-    /// </summary>
-    /// <param name="fromState">From state.</param>
-    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MinValue"/>).</param>
-    /// <returns>A <see cref="Transition"/> representing the minimum transition.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Transition MinTrans(int fromState, int symbol = int.MinValue) => new(fromState, symbol, int.MinValue, Unchecked.Yes);
-
-    /// <summary>
-    /// Creates a maximum transition for the given state and symbol.
-    /// </summary>
-    /// <param name="fromState">From state.</param>
-    /// <param name="symbol">Symbol for the transition (default is <see cref="int.MaxValue"/>).</param>
-    /// <returns>A <see cref="Transition"/> representing the maximum transition.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Transition MaxTrans(int fromState, int symbol = int.MaxValue) => new(fromState, symbol, int.MaxValue, Unchecked.Yes);
 }
