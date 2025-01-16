@@ -19,7 +19,7 @@ public static class Program
         var regex = AlangRegex.Parse("a (b|c)* d"); //Create a regex from a string
         var fsa = regex.Compile(); //Compile the regex to a minimized automaton
 
-
+      
         Console.WriteLine(fsa.ToCanonicalString()); //output the automaton to the console
 
 

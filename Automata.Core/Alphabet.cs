@@ -57,7 +57,7 @@ public class Alphabet : IEquatable<Alphabet>
     public int Count => indexToStringMap.Count;
 
     /// <summary>
-    /// Read-only collection of symbols in the alphabet.
+    /// Readonly collection of symbols in the alphabet.
     /// </summary>
     public IReadOnlyCollection<string> Symbols => indexToStringMap;
 

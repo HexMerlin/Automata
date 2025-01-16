@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 namespace Automata.Core;
 
 /// <summary>
-/// A fast read-only view of a state in an automaton, providing access to transitions from the state.
+/// A fast readonly view of a <c>state</c> in a deterministic automaton, providing access to transitions from this specific state.
 /// </summary>
 /// <remarks>
-/// This struct uses a ReadOnlySpan which is only a view on a contiguous memory sequence of <see cref="Transition"/>. 
+/// This struct uses a ReadOnlySpan as a view on a contiguous memory sequence of <see cref="Transition"/>. 
 /// </remarks>
-public readonly ref struct StateView
+public readonly ref struct StateView 
 {
     #region Data
     /// <summary>
@@ -53,7 +53,7 @@ public readonly ref struct StateView
     }
 
     /// <summary>
-    /// Returns the state reachable from the given state on the given symbol.
+    /// Returns the state reachable from the current state on the specified symbol.
     /// </summary>
     /// <param name="symbol">Symbol for the transition.</param>
     /// <returns>
@@ -71,9 +71,8 @@ public readonly ref struct StateView
     }
 
     /// <summary>
-    /// Tries to get the state reachable from the given state on the given symbol.
+    /// Tries to get the state reachable from the current state on the specified symbol.
     /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
     /// <param name="symbol">Symbol for the transition.</param>
     /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if the method returns false.</param>
     /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>

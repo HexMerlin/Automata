@@ -132,6 +132,14 @@ public class Dfa : IDfa
     public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
+    /// Returns a view of the specified state.
+    /// </summary>
+    /// <param name="fromState">The state origin.</param>
+    /// <returns>A <see cref="StateView"/> for the given state.</returns>
+    public StateView State(int fromState)
+        => new(fromState, Transitions(fromState).ToArray());
+
+    /// <summary>
     /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
     /// <param name="fromState">The state origin of the transition.</param>
@@ -156,30 +164,6 @@ public class Dfa : IDfa
     /// <seealso cref="Transition(int, int)"/>
     public bool TryTransition(int fromState, int symbol, out int toState)
         => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
-
-    /// <summary>
-    /// Returns the set of transitions from the given state.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <returns>Set of transitions from the given state.</returns>
-    public SortedSet<Transition> Transitions(int fromState)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState),
-            Core.Transition.MaxTrans(fromState)
-        );
-
-    /// <summary>
-    /// Returns a <see cref="StateView"/> of the given state.
-    /// </summary>
-    /// <param name="fromState">The state origin.</param>
-    /// <remarks>
-    /// This method provides a read-only view of the state transitions from the specified state.
-    /// It is primarily for compatibility with contiguous memory representations like <see cref="Mfa"/>.
-    /// When possible, use <see cref="Transitions(int)"/>, which avoids memory allocation and has less overhead.
-    /// </remarks>
-    /// <returns>A <see cref="StateView"/> for the given state.</returns>
-    public StateView State(int fromState)
-        => new StateView(fromState, Transitions(fromState).ToArray());
 
     /// <summary>
     /// Adds a transition to the DFA, ensuring it remains deterministic.
@@ -235,6 +219,18 @@ public class Dfa : IDfa
         }
         return IsFinal(state);
     }
+
+
+    /// <summary>
+    /// Returns the set of transitions from the given state.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <returns>Set of transitions from the given state.</returns>
+    private SortedSet<Transition> Transitions(int fromState)
+        => orderByFromState.GetViewBetween(
+            Core.Transition.MinTrans(fromState),
+            Core.Transition.MaxTrans(fromState)
+        );
 
     /// <summary>
     /// Conditionally includes or excludes a state in a set based on the provided condition.
@@ -292,48 +288,6 @@ public class Dfa : IDfa
     /// </summary>
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
     public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
-
-    ///<summary>
-    /// States of the DFA in breadth-first order, following transitions in lexicographical order of their symbols.
-    /// </summary>
-    /// <remarks>
-    /// This traversal ensures a consistent and well-defined ordering of states.
-    /// At each state, transitions are explored in order sorted lexicographically by their symbol strings using <see cref="StringComparer.Ordinal"/>.
-    /// Transitions with lexicographically smaller symbols are followed before those with larger symbols,
-    /// providing a deterministic sequence of states regardless of the underlying data structures.
-    /// </remarks>
-    /// <returns>
-    /// List of states visited in breadth-first order, starting from the <see cref="InitialState"/>.
-    /// </returns>
-    internal List<int> StatesInBreadthFirstOrderBySymbol()
-    {
-        if (!HasInitialState)
-            return [];
-
-        StringComparer comparer = StringComparer.Ordinal;
-
-        HashSet<int> visited = new() { InitialState };
-        Queue<int> queue = new();
-        List<int> statesInOrder = new();
-
-        queue.Enqueue(InitialState);
-
-        while (queue.Count > 0)
-        {
-            int state = queue.Dequeue();
-            statesInOrder.Add(state);
-
-            foreach (int nextState in Transitions(state)
-                .OrderBy(t => Alphabet[t.Symbol], comparer)
-                .Select(t => t.ToState))
-            {
-                if (visited.Add(nextState))
-                    queue.Enqueue(nextState);
-            }
-        }
-
-        return statesInOrder;
-    }
 
     /// <summary>
     /// Maps states to their canonical state numbers in a breadth-first order.
@@ -408,4 +362,6 @@ public class Dfa : IDfa
         }
         return sb.ToString();
     }
+
+
 }

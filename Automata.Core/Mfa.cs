@@ -14,7 +14,7 @@ namespace Automata.Core;
 /// <list type="number">
 /// <item><c>Deterministic</c> and <c>Minimal</c>: The least possible states and transitions.</item>
 /// <item>Minimal memory footprint: Uses a contiguous memory block for data, with minimal overhead.</item>
-/// <item>Performance-optimized for efficient read-only operations.</item>
+/// <item>Performance-optimized for efficient readonly operations.</item>
 /// <item>Immutable: Guarantees structural and behavioral invariance.</item>
 /// <item>Contiguous states: States are in range [0..MaxState].</item>
 /// <item>Initial state is always <c>0</c> for a non-empty <see cref="Mfa"/>.</item>
@@ -191,10 +191,10 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     }
 
     /// <summary>
-    /// Returns a <see cref="StateView"/> for the given state.
+    /// Returns a view of the specified state.
     /// </summary>
-    /// <param name="state">State.</param>
-    /// <returns>A <see cref="StateView"/> containing the transitions from the given state.</returns>
+    /// <param name="fromState">The state origin.</param>
+    /// <returns>A <see cref="StateView"/> for the given state.</returns>
     public StateView State(int state) => new(state, transitions);
 
     /// <summary>
