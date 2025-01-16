@@ -1,7 +1,7 @@
 ﻿namespace Automata.Core;
 
 /// <summary>
-/// Common interface for deterministic finite automata, such as <see cref="Dfa"/> and <see cref="Mfa"/>.
+/// Common interface for deterministic automata, such as <see cref="Dfa"/> and <see cref="Mfa"/>.
 /// </summary>
 public interface IDfa : IFsa
 {

@@ -132,22 +132,6 @@ public class Dfa : IDfa
     public IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
-    /// Returns the transition from the given state with the given symbol.
-    /// </summary>
-    /// <param name="fromState">State from which to start.</param>
-    /// <param name="symbol">Symbol to transition on.</param>
-    /// <returns>
-    /// The transition from the given state on the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
-    /// </returns>
-    //public Transition Transition(int fromState, int symbol)
-    //    => orderByFromState.GetViewBetween(
-    //        Core.Transition.MinTrans(fromState, symbol),
-    //        Core.Transition.MaxTrans(fromState, symbol)
-    //    ).FirstOrDefault(Core.Transition.Invalid);
-
-
-
-    /// <summary>
     /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
     /// <param name="fromState">The state origin of the transition.</param>

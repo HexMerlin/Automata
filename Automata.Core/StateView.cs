@@ -1,20 +1,23 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Automata.Core;
 
 /// <summary>
-/// Read-only view of a state in an automaton, providing access to transitions from the state.
+/// A fast read-only view of a state in an automaton, providing access to transitions from the state.
 /// </summary>
 /// <remarks>
 /// This struct uses a ReadOnlySpan which is only a view on a contiguous memory sequence of <see cref="Transition"/>. 
 /// </remarks>
 public readonly ref struct StateView
 {
+    #region Data
     /// <summary>
     /// Transitions from the current state.
     /// </summary>
     public readonly ReadOnlySpan<Transition> Transitions;
+
+    #endregion Data
 
     /// <summary>
     /// State from which the transitions originate.
@@ -50,18 +53,32 @@ public readonly ref struct StateView
     }
 
     /// <summary>
-    /// Gets the transition for the specified symbol.
+    /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
-    /// <param name="symbol">Symbol for which to get the transition.</param>
-    /// <returns>Transition for the specified symbol, or <see cref="Transition.Invalid"/> if no such transition exists.</returns>
-    public Transition Transition(int symbol)
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <returns>
+    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
+    /// </returns>
+    /// <seealso cref="TryTransition(int, out int)"/>
+    public int Transition(int symbol)
     {
         int index = Transitions.BinarySearch(Core.Transition.MinTrans(State, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
         return (index < Transitions.Length && Transitions[index].FromState == State && Transitions[index].Symbol == symbol)
-            ? Transitions[index]
-            : Core.Transition.Invalid;
+            ? Transitions[index].ToState
+            : Constants.InvalidState;
     }
+
+    /// <summary>
+    /// Tries to get the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if the method returns false.</param>
+    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
+    /// <seealso cref="Transition(int)"/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool TryTransition(int symbol, out int toState) => (toState = Transition(symbol)) != Constants.InvalidState;
 
 }

@@ -55,11 +55,10 @@ public static partial class Ops
                 if (!b.Alphabet.TryGetIndex(symbolAsString, out int symB))
                     continue; // Symbol is not in B's alphabet, so skip it
 
-                Transition tB = stateB.Transition(symB);
-                if (tB.IsInvalid)
+                if (! stateB.TryTransition(symB, out int bToState))
                     continue; // No corresponding transition in B, so skip it
 
-                long toStateLong = Merge(tA.ToState, tB.ToState);
+                long toStateLong = Merge(tA.ToState, bToState);
                 if (!longStateToDfaState.TryGetValue(toStateLong, out int toState))
                 {
                     toState = ++maxState; // Create a new state
