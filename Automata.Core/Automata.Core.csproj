@@ -11,8 +11,8 @@
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>New highly-optimized version with some breaking API-changes</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>New version with many new features</PackageReleaseNotes>
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 

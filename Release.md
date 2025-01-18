@@ -1,8 +1,17 @@
-﻿  🎉**Automata Libraries v1.0.4**
-  Major update with many improvements and optimizations. This version introduces several breaing API changes with previous versions.
+﻿### Latest release:
+  🎉Automata Libraries v1.1.0
+  
+  Update that includes several new features, including support for creating automata from regular expressions in **Alang** (Automata Language).
 
-- [Automata.Core v1.0.4](https://www.nuget.org/packages/Automata.Core)  
-- [Automata.Visualization v1.0.4](https://www.nuget.org/packages/Automata.Visualization)  
+- [Automata.Core v1.1.0](https://www.nuget.org/packages/Automata.Core)  
+- [Automata.Visualization v1.1.0](https://www.nuget.org/packages/Automata.Visualization)  
+
+ 
+ ### Previous releases:
+
+🎉**Automata Libraries v1.0.4**
+Update with many improvements and optimizations. This version introduces several breaing API changes with previous versions.
+
 
  🎉**Automata Libraries v1.0.3**  
  
