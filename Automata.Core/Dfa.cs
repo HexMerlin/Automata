@@ -24,7 +24,7 @@ public class Dfa : FsaDet
 
     private readonly HashSet<int> finalStates = new();
 
-    private readonly SortedSet<Transition> orderByFromState = new();
+    private readonly SortedSet<Transition> transitions = new();
 
     #endregion Data
 
@@ -73,30 +73,9 @@ public class Dfa : FsaDet
     public override int MaxState => maxState;
 
     /// <summary>
-    /// Indicates whether the DFA accepts ϵ - the empty sting. 
-    /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
+    /// Number of transitions in the automaton.
     /// </summary>
-    public override bool AcceptsEpsilon => IsFinal(InitialState);
-
-    /// <summary>
-    /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
-    /// </summary>
-    public override bool IsEpsilonFree => true;
-
-    /// <summary>
-    /// Indicates whether the DFA has an initial state.
-    /// </summary>
-    /// <returns><see langword="true"/> <c>iff</c> DFA has an initial state.</returns>
-    public override bool HasInitialState => initialState != Constants.InvalidState;
-       
-    /// <summary>
-    /// Indicates whether the specified state is the initial state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns>
-    /// <see langword="true"/> <c>iff</c> the specified state is the initial state.
-    /// </returns>
-    public override bool IsInitial(int state) => state == initialState;
+    public override int TransitionCount => transitions.Count;
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
@@ -130,28 +109,16 @@ public class Dfa : FsaDet
     /// </returns>
     /// <seealso cref="TryTransition(int, int, out int)"/>
     public override int Transition(int fromState, int symbol)
-        => orderByFromState.GetViewBetween(
+        => transitions.GetViewBetween(
             Core.Transition.MinTrans(fromState, symbol),
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
 
     /// <summary>
-    /// Tries to get the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol for the transition.</param>
-    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
-    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
-    /// <seealso cref="Transition(int, int)"/>
-    public override bool TryTransition(int fromState, int symbol, out int toState)
-        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
-
-    /// <summary>
     /// Gets the transitions of the DFA.
     /// </summary>
     /// <returns>An collection of transitions.</returns>
-    public override IReadOnlyCollection<Transition> Transitions() => orderByFromState;
-
+    public override IReadOnlyCollection<Transition> Transitions() => transitions;
 
     /// <summary>
     /// Returns the set of transitions from the given state.
@@ -159,16 +126,10 @@ public class Dfa : FsaDet
     /// <param name="fromState">The state origin of the transition.</param>
     /// <returns>Set of transitions from the given state.</returns>
     private SortedSet<Transition> Transitions(int fromState)
-        => orderByFromState.GetViewBetween(
+        => transitions.GetViewBetween(
             Core.Transition.MinTrans(fromState),
             Core.Transition.MaxTrans(fromState)
         );
-
-    /// <summary>
-    /// Gets the epsilon transitions of the DFA, which is always empty.
-    /// </summary>
-    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
-    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     #endregion Accessors
 
@@ -213,7 +174,7 @@ public class Dfa : FsaDet
         if (TryTransition(transition.FromState, transition.Symbol, out _))
             return false; // Cannot add; would introduce nondeterminism
         maxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
-        return orderByFromState.Add(transition);
+        return transitions.Add(transition);
     }
 
     /// <summary>
@@ -334,15 +295,15 @@ public class Dfa : FsaDet
         {
             sb.Append($": [{string.Join(", ", finalStates)}]");
         }
-        sb.Append($", T#={orderByFromState.Count}");
-        if (orderByFromState.Count > 0)
+        sb.Append($", T#={transitions.Count}");
+        if (transitions.Count > 0)
         {
             sb.Append(": [");
-            for (int i = 0; i < orderByFromState.Count; i++)
+            for (int i = 0; i < transitions.Count; i++)
             {
-                Transition t = orderByFromState.ElementAt(i);
+                Transition t = transitions.ElementAt(i);
                 sb.Append($"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}");
-                if (i < orderByFromState.Count - 1) sb.Append(", ");
+                if (i < transitions.Count - 1) sb.Append(", ");
             }
             sb.Append(']');
         }

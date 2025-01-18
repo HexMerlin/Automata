@@ -23,7 +23,7 @@ public class Nfa : Fsa
 {
     #region Data
   
-    private readonly SortedSet<Transition> symbolicTransitions;
+    private readonly SortedSet<Transition> transitions;
     private readonly SortedSet<EpsilonTransition> epsilonTransitions;
 
     private readonly HashSet<int> initialStates;
@@ -48,7 +48,7 @@ public class Nfa : Fsa
     /// <param name="alphabet">Alphabet to use for the NFA.</param>
     public Nfa(Alphabet alphabet) : base(alphabet)
     {
-        symbolicTransitions = [];
+        transitions = [];
         epsilonTransitions = [];
         initialStates = [];
         finalStates = [];
@@ -60,7 +60,7 @@ public class Nfa : Fsa
     /// <param name="nfa">NFA to clone.</param>
     public Nfa(Nfa nfa) : base(nfa.Alphabet)
     {
-        this.symbolicTransitions = [.. nfa.symbolicTransitions];
+        this.transitions = [.. nfa.transitions];
         this.epsilonTransitions = [.. nfa.epsilonTransitions];
         this.initialStates = [.. nfa.initialStates];
         this.finalStates = [.. nfa.finalStates];
@@ -76,13 +76,13 @@ public class Nfa : Fsa
     {
         if (applyReverseOperation)
         {
-            this.symbolicTransitions = [.. fsaDet.Transitions().Select(t => t.Reverse())];
+            this.transitions = [.. fsaDet.Transitions().Select(t => t.Reverse())];
             this.initialStates = [.. fsaDet.FinalStates];
             this.finalStates = fsaDet.HasInitialState ? [fsaDet.InitialState] : [];
         }
         else
         {
-            this.symbolicTransitions = [.. fsaDet.Transitions()];
+            this.transitions = [.. fsaDet.Transitions()];
             this.initialStates = fsaDet.HasInitialState ? [fsaDet.InitialState] : [];
             this.finalStates = [.. fsaDet.FinalStates];
 
@@ -166,7 +166,7 @@ public class Nfa : Fsa
     /// <param name="fromState">State from which to start.</param>
     /// <returns>Set of transitions from the given state.</returns>
     public SortedSet<Transition> Transitions(int fromState)
-        => symbolicTransitions.GetViewBetween(Transition.MinTrans(fromState), Transition.MaxTrans(fromState));
+        => transitions.GetViewBetween(Transition.MinTrans(fromState), Transition.MaxTrans(fromState));
 
     /// <summary>
     /// Returns the transitions from the given state with the given symbol.
@@ -175,13 +175,13 @@ public class Nfa : Fsa
     /// <param name="symbol">Symbol to transition on.</param>
     /// <returns>Transitions from the given state on the given symbol.</returns>
     public SortedSet<Transition> Transitions(int fromState, int symbol)
-        => symbolicTransitions.GetViewBetween(Transition.MinTrans(fromState, symbol), Transition.MaxTrans(fromState, symbol));
+        => transitions.GetViewBetween(Transition.MinTrans(fromState, symbol), Transition.MaxTrans(fromState, symbol));
 
     /// <summary>
     /// Transitions of the DFA.
     /// </summary>
     /// <returns>A collection of transitions.</returns>
-    public override IReadOnlyCollection<Transition> Transitions() => symbolicTransitions;
+    public override IReadOnlyCollection<Transition> Transitions() => transitions;
 
     /// <summary>
     /// Epsilon transitions of the DFA, which is always empty.
@@ -259,7 +259,7 @@ public class Nfa : Fsa
     public void Add(Transition transition)
     {
         MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
-        symbolicTransitions.Add(transition);
+        transitions.Add(transition);
     }
 
     /// <summary>
@@ -279,7 +279,7 @@ public class Nfa : Fsa
     public void UnionWith(IEnumerable<Transition> transitions)
     {
         MaxState = transitions.Any() ? Math.Max(MaxState, transitions.Max(t => Math.Max(t.FromState, t.ToState))) : MaxState;
-        symbolicTransitions.UnionWith(transitions);
+        this.transitions.UnionWith(transitions);
     }
 
     /// <summary>
@@ -426,16 +426,16 @@ public class Nfa : Fsa
         if (finalStates.Count > 0)
             sb.Append($": [{string.Join(", ", finalStates)}]");
 
-        sb.Append($", T#={symbolicTransitions.Count + epsilonTransitions.Count}");
-        if (symbolicTransitions.Count > 0 || epsilonTransitions.Count > 0)
+        sb.Append($", T#={transitions.Count + epsilonTransitions.Count}");
+        if (transitions.Count > 0 || epsilonTransitions.Count > 0)
         {
             sb.Append(": [");
-            if (symbolicTransitions.Count > 0)
-                sb.AppendJoin(", ", symbolicTransitions.Select(t => $"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}"));
+            if (transitions.Count > 0)
+                sb.AppendJoin(", ", transitions.Select(t => $"{t.FromState}->{t.ToState} {Alphabet[t.Symbol]}"));
             
             if (epsilonTransitions.Count > 0)
             {
-                if (symbolicTransitions.Count > 0) sb.Append(", ");
+                if (transitions.Count > 0) sb.Append(", ");
                 sb.AppendJoin(", ", epsilonTransitions.Select(t => $"{t.FromState}->{t.ToState} {EpsilonTransition.Epsilon}"));
             }
             sb.Append(']');

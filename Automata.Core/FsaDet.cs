@@ -12,6 +12,11 @@ public abstract class FsaDet : Fsa
     public FsaDet(Alphabet alphabet) : base(alphabet) { }
 
     /// <summary>
+    /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.
+    /// </summary>
+    public override bool IsEpsilonFree => true;
+
+    /// <summary>
     /// Initial state of the deterministic automaton.
     /// </summary>
     public abstract int InitialState { get; }
@@ -21,6 +26,31 @@ public abstract class FsaDet : Fsa
     /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>
     public abstract int MaxState { get; }
+    
+    /// <summary>
+    /// Indicates whether the automaton accepts ϵ - the empty sting. 
+    /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
+    /// </summary>
+    public override bool AcceptsEpsilon => IsFinal(InitialState);
+
+    /// <summary>
+    /// Number of transitions in the automaton.
+    /// </summary>
+    public abstract int TransitionCount { get; }
+
+
+    /// <summary>
+    /// Indicates whether the automaton has an initial state.
+    /// </summary>
+    /// <returns><see langword="true"/> <c>iff</c> MFA has an initial state.</returns>
+    public override bool HasInitialState => InitialState != Constants.InvalidState;
+
+    /// <summary>
+    /// Indicates whether the specified state is the initial state.
+    /// </summary>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is the initial state.</returns>
+    public override bool IsInitial(int state) => state == InitialState;
 
     /// <summary>
     /// Returns a readonly view of the specified state.
@@ -48,7 +78,14 @@ public abstract class FsaDet : Fsa
     /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
     /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
     /// <seealso cref="Transition(int, int)"/>
-    public abstract bool TryTransition(int fromState, int symbol, out int toState);
+    public bool TryTransition(int fromState, int symbol, out int toState)
+        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
+
+    /// <summary>
+    /// Gets the epsilon transitions of the MFA, which is always empty.
+    /// </summary>
+    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
+    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
     /// Indicates whether the DFA accepts the given sequence of symbols.

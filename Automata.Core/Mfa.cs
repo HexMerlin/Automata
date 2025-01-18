@@ -23,7 +23,7 @@ namespace Automata.Core;
 /// </list>
 /// </remarks>
 [DebuggerDisplay("{ToCanonicalString(),nq}")]
-public partial class Mfa : FsaDet, IEquatable<Mfa>
+public class Mfa : FsaDet, IEquatable<Mfa>
 {
     #region Data
 
@@ -110,6 +110,9 @@ public partial class Mfa : FsaDet, IEquatable<Mfa>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
     /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
+    /// <remarks>
+    /// An MFA without an initial state is completely empty (= <see cref="IsEmptyLanguage"/>).
+    /// </remarks>
     public override int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
 
     /// <summary>
@@ -132,36 +135,9 @@ public partial class Mfa : FsaDet, IEquatable<Mfa>
     public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
 
     /// <summary>
-    /// Indicates whether the MFA accepts ϵ - the empty sting. 
-    /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
-    /// </summary>
-    public override bool AcceptsEpsilon => IsFinal(InitialState);
-
-    /// <summary>
-    /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.
-    /// </summary>
-    public override bool IsEpsilonFree => true;
-
-    /// <summary>
     /// Number of transitions in the automaton.
     /// </summary>
-    public int TransitionCount => transitions.Length;
-
-    /// <summary>
-    /// Indicates whether the MFA has an initial state.
-    /// </summary>
-    /// <remarks>
-    /// An MFA without an initial state is completely empty (= <see cref="IsEmptyLanguage"/>).
-    /// </remarks>
-    /// <returns><see langword="true"/> <c>iff</c> MFA has an initial state.</returns>
-    public override bool HasInitialState => InitialState != Constants.InvalidState;
-
-    /// <summary>
-    /// Indicates whether the specified state is the initial state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the specified state is the initial state.</returns>
-    public override bool IsInitial(int state) => state == InitialState;
+    public override int TransitionCount => transitions.Length;
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
@@ -196,29 +172,12 @@ public partial class Mfa : FsaDet, IEquatable<Mfa>
     }
 
     /// <summary>
-    /// Tries to get the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol for the transition.</param>
-    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
-    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
-    /// <seealso cref="Transition(int, int)"/>
-    public override bool TryTransition(int fromState, int symbol, out int toState)
-        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
-
-    /// <summary>
     /// Returns a view of the specified state.
     /// </summary>
     /// <param name="fromState">The state origin.</param>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>
     public override StateView State(int state) => new(state, transitions);
      
-    /// <summary>
-    /// Gets the epsilon transitions of the MFA, which is always empty.
-    /// </summary>
-    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
-    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
-
     /// <summary>
     /// Indicates whether this MFA represent the exact same language as the specified MFA: <c>Language Equality</c>.
     /// </summary>
@@ -284,6 +243,9 @@ public partial class Mfa : FsaDet, IEquatable<Mfa>
     /// <returns><see langword="false"/> <c>iff</c> the two <see cref="Mfa"/> instances are not equal.</returns>
     public static bool operator !=(Mfa left, Mfa right) => !left.Equals(right);
 
+    #endregion Accessors
+
+    #region Misc Accessors
 
     /// <summary>
     /// Hash code for the current MFA.
@@ -335,5 +297,5 @@ public partial class Mfa : FsaDet, IEquatable<Mfa>
        return sb.ToString();
     }
 
-    #endregion Accessors
+    #endregion Misc Accessors
 }
