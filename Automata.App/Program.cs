@@ -8,33 +8,33 @@ namespace Automata.App;
 
 public static class Program
 {
-    public static void Display(string alangRegex)
-        => GraphView.OpenNew(AlangRegex.Parse(alangRegex).Compile().CreateGraph());
-
     /// <summary>
     /// A sample program that demonstrates how to create a graph from a collection of sequences and display it in a separate window.
     /// </summary>
     public static void Main()
     {
-        var regex = AlangRegex.Parse("a (b|c)* d"); //Create a regex from a string
-        var fsa = regex.Compile(); //Compile the regex to a minimized automaton
+        //Create a regex (for all non-empty permutations of {a, b, c}, where 'a' must be followed by b or c)
+        //var regex = AlangRegex.Parse("(a? (b | c) )+");
+        //var regex = AlangRegex.Parse("(a | b)* (a a) (a | b)* ");
+        //var regex = AlangRegex.Parse("(.* a a .*)");
 
-      
-        Console.WriteLine(fsa.ToCanonicalString()); //output the automaton to the console
+        Mfa fsa = AlangRegex.Compile("(a? (b | c) )+"); // Compile a regex to an FSA
+                
+
+        //var fsa1 = AlangRegex.Compile(".* a a .*", "b");
 
 
+        //var regex = AlangRegex.Parse("(a | b)* a a (a | b)*");
+        // var regex = AlangRegex.Parse(".*");
+        //compile to an FSA
 
-        //Console.WriteLine("Creating graph."); // Write some text output to the console window
+        Console.WriteLine("Creating a graph and display it."); // Write some info to the console window
 
-        //IFsa fsa = new Nfa(sequences).AsMfa(); //Create a minimized automaton from the sequences
+        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
 
-        //Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a displayable graph object (FSA wih layout)
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal window that displays the graph
 
-        ////Graph graph = sequences.CreateGraph(); //Alternatively you can use this command, to replace the 2 lines above
-
-        //GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal interactive window that displays the graph in it
-
-        //Console.WriteLine("Graph is displayed."); // Write some text output to the console window
+        Console.WriteLine("Graph is displayed."); // Write some text output to the console window
     }
 
 }

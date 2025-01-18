@@ -6,15 +6,15 @@ public static partial class Ops
     /// </summary>
     /// <param name="left">First automaton.</param>
     /// <param name="other">Second automaton.</param>
-    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="UnionWith(Nfa, IDfa)"/> when possible to reduce overhead.
+    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="UnionWith(Nfa, FsaDet)"/> when possible to reduce overhead.
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>A new deterministic finite automaton representing a union of the two automata.</returns>
-    public static IDfa Union(IFsa left, IDfa other)
+    public static FsaDet Union(Fsa left, FsaDet other)
     {
         Nfa result = left.AsNfa(); //Initialize result to clone of other
         result.UnionWith(other); //union with other in-place
-        return result.AsIDfa();
+        return result.AsDeterministic();
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ public static partial class Ops
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>Source automaton <paramref name="source"/></returns>
-    public static Nfa UnionWith(this Nfa source, IDfa other)
+    public static Nfa UnionWith(this Nfa source, FsaDet other)
     {
         if (ReferenceEquals(source, other))
             throw new ArgumentException("Operands must not be the same instance.");

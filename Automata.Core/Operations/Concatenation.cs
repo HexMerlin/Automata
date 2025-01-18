@@ -7,15 +7,15 @@ public static partial class Ops
     /// </summary>
     /// <param name="left">The left finite state automaton.</param>
     /// <param name="right">The right finite automaton.</param>
-    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="Append(Nfa, IDfa)"/> when possible to reduce overhead.
+    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="Append(Nfa, FsaDet)"/> when possible to reduce overhead.
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>A new deterministic finite automaton representing a concatenation of the two automata.</returns>
-    public static IDfa Concatenation(IFsa left, IDfa right)
+    public static FsaDet Concatenation(Fsa left, FsaDet right)
     {
         Nfa result = left.AsNfa(); //assert correct type
         result.Append(right); //append right to result in-place
-        return result.AsIDfa();
+        return result.AsDeterministic();
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ public static partial class Ops
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>Source automaton <paramref name="source"/></returns>
-    public static Nfa Append(this Nfa source, IDfa right)
+    public static Nfa Append(this Nfa source, FsaDet right)
     {
         if (ReferenceEquals(source, right))
             throw new ArgumentException("Operands must not be the same instance.");

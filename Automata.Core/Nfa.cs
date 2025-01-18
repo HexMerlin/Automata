@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Text;
-using Automata.Core.Operations;
 
 namespace Automata.Core;
 
@@ -21,14 +19,10 @@ namespace Automata.Core;
 /// </para>
 /// </remarks>
 [DebuggerDisplay("{ToCanonicalString(),nq}")]
-public class Nfa : IFsa
+public class Nfa : Fsa
 {
     #region Data
-    /// <summary>
-    /// Alphabet used by the NFA.
-    /// </summary>
-    public Alphabet Alphabet { get; }
-
+  
     private readonly SortedSet<Transition> symbolicTransitions;
     private readonly SortedSet<EpsilonTransition> epsilonTransitions;
 
@@ -46,13 +40,14 @@ public class Nfa : IFsa
 
     #endregion Data
 
+    #region Constructors
+
     /// <summary>
     /// Initializes a new empty instance of the <see cref="Nfa"/>.
     /// </summary>
     /// <param name="alphabet">Alphabet to use for the NFA.</param>
-    public Nfa(Alphabet alphabet) 
+    public Nfa(Alphabet alphabet) : base(alphabet)
     {
-        this.Alphabet = alphabet;
         symbolicTransitions = [];
         epsilonTransitions = [];
         initialStates = [];
@@ -63,9 +58,8 @@ public class Nfa : IFsa
     /// Initializes a new clone of given <see cref="Nfa"/> with a new cloned alphabet.
     /// </summary>
     /// <param name="nfa">NFA to clone.</param>
-    public Nfa(Nfa nfa)
+    public Nfa(Nfa nfa) : base(nfa.Alphabet)
     {
-        this.Alphabet = nfa.Alphabet;
         this.symbolicTransitions = [.. nfa.symbolicTransitions];
         this.epsilonTransitions = [.. nfa.epsilonTransitions];
         this.initialStates = [.. nfa.initialStates];
@@ -76,26 +70,25 @@ public class Nfa : IFsa
     /// <summary>
     /// Initializes a new instance of the <see cref="Nfa"/> class from a Deterministic automaton.
     /// </summary>
-    /// <param name="iDfa">A deterministic automaton to create an NFA from.</param>
+    /// <param name="fsaDet">A deterministic automaton to create an NFA from.</param>
     /// <param name="applyReverseOperation">If <see langword="true"/>, the NFA is reversed.</param>
-    internal Nfa(IDfa iDfa, bool applyReverseOperation = false) 
+    internal Nfa(FsaDet fsaDet, bool applyReverseOperation = false) : base(fsaDet.Alphabet)
     {
-        this.Alphabet = iDfa.Alphabet;
         if (applyReverseOperation)
         {
-            this.symbolicTransitions = [.. iDfa.Transitions().Select(t => t.Reverse())];
-            this.initialStates = [.. iDfa.FinalStates];
-            this.finalStates = iDfa.HasInitialState ? [iDfa.InitialState] : [];
+            this.symbolicTransitions = [.. fsaDet.Transitions().Select(t => t.Reverse())];
+            this.initialStates = [.. fsaDet.FinalStates];
+            this.finalStates = fsaDet.HasInitialState ? [fsaDet.InitialState] : [];
         }
         else
         {
-            this.symbolicTransitions = [.. iDfa.Transitions()];
-            this.initialStates = iDfa.HasInitialState ? [iDfa.InitialState] : [];
-            this.finalStates = [.. iDfa.FinalStates];
+            this.symbolicTransitions = [.. fsaDet.Transitions()];
+            this.initialStates = fsaDet.HasInitialState ? [fsaDet.InitialState] : [];
+            this.finalStates = [.. fsaDet.FinalStates];
 
         }
         this.epsilonTransitions = [];
-        this.MaxState = iDfa.MaxState;
+        this.MaxState = fsaDet.MaxState;
     }
 
     /// <summary>
@@ -103,7 +96,25 @@ public class Nfa : IFsa
     /// </summary>
     /// <param name="sequences">Sequences to add to the NFA.</param>
     public Nfa(IEnumerable<IEnumerable<string>> sequences) : this(new Alphabet()) => UnionWith(sequences);
-   
+
+    #endregion Constructors
+
+    #region Accessors
+
+    /// <summary>
+    /// Indicates whether the specified state is an initial state.
+    /// </summary>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is an initial state; otherwise, <see langword="false"/>.</returns>
+    public override bool IsInitial(int state) => initialStates.Contains(state);
+
+    /// <summary>
+    /// Indicates whether the specified state is a final state.
+    /// </summary>
+    /// <param name="state">State to check.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state; otherwise, <see langword="false"/>.</returns>
+    public override bool IsFinal(int state) => finalStates.Contains(state);
+
     /// <summary>
     /// Indicates whether the NFA accepts ϵ - the empty sting. 
     /// </summary>
@@ -112,7 +123,7 @@ public class Nfa : IFsa
     /// that is either an initial state 
     /// or can be reached from an initial state on only epsilon transitions.
     /// </remarks>
-    public bool AcceptsEpsilon
+    public override bool AcceptsEpsilon
     {
         get
         {
@@ -131,13 +142,23 @@ public class Nfa : IFsa
     /// Indicates whether the NFA has any initial states.
     /// </summary>
     /// <returns><see langword="true"/> <c>iff</c> the NFA has at least one initial state.</returns>
-    public bool HasInitialState => initialStates.Count > 0;
-
+    public override bool HasInitialState => initialStates.Count > 0;
 
     /// <summary>
     /// Indicates whether the NFA is epsilon-free.
     /// </summary>
-    public bool IsEpsilonFree => epsilonTransitions.Count == 0;
+    public override bool IsEpsilonFree => epsilonTransitions.Count == 0;
+
+
+    /// <summary>
+    /// Initial states of the NFA.
+    /// </summary>
+    public IReadOnlySet<int> InitialStates => initialStates;
+
+    /// <summary>
+    /// Final states of the NFA.
+    /// </summary>
+    public override IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
     /// Returns the set of transitions from the given state.
@@ -155,6 +176,18 @@ public class Nfa : IFsa
     /// <returns>Transitions from the given state on the given symbol.</returns>
     public SortedSet<Transition> Transitions(int fromState, int symbol)
         => symbolicTransitions.GetViewBetween(Transition.MinTrans(fromState, symbol), Transition.MaxTrans(fromState, symbol));
+
+    /// <summary>
+    /// Transitions of the DFA.
+    /// </summary>
+    /// <returns>A collection of transitions.</returns>
+    public override IReadOnlyCollection<Transition> Transitions() => symbolicTransitions;
+
+    /// <summary>
+    /// Epsilon transitions of the DFA, which is always empty.
+    /// </summary>
+    /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
+    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => epsilonTransitions;
 
     /// <summary>
     /// Returns the states reachable from the given states on the given symbol, including epsilon closures.
@@ -214,6 +247,10 @@ public class Nfa : IFsa
     /// <returns>Set of symbols that can be used to transition directly from the given states.</returns>
     public IntSet AvailableSymbols(IEnumerable<int> fromStates)
         => new(fromStates.SelectMany(s => Transitions(s)).Select(t => t.Symbol));
+
+    #endregion Accessors
+
+    #region Mutators
 
     /// <summary>
     /// Adds a symbolic (non-epsilon) transition to the NFA.
@@ -284,21 +321,6 @@ public class Nfa : IFsa
         foreach (IEnumerable<string> sequence in sequences)
             UnionWith(sequence);
     }
-
-    /// <summary>
-    /// Indicates whether the specified state is an initial state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the specified state is an initial state; otherwise, <see langword="false"/>.</returns>
-    public bool IsInitial(int state) => initialStates.Contains(state);
-
-    /// <summary>
-    /// Indicates whether the specified state is a final state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state; otherwise, <see langword="false"/>.</returns>
-    public bool IsFinal(int state) => finalStates.Contains(state);
-
 
     /// <summary>
     /// Adds or removes a state from a set based on a condition.
@@ -384,27 +406,9 @@ public class Nfa : IFsa
     /// </remarks>
     public void ClearAll() => finalStates.Clear();
 
-    /// <summary>
-    /// Initial states of the NFA.
-    /// </summary>
-    public IReadOnlySet<int> InitialStates => initialStates;
+    #endregion Mutators
 
-    /// <summary>
-    /// Final states of the NFA.
-    /// </summary>
-    public IReadOnlyCollection<int> FinalStates => finalStates;
-
-    /// <summary>
-    /// Transitions of the DFA.
-    /// </summary>
-    /// <returns>A collection of transitions.</returns>
-    public IReadOnlyCollection<Transition> Transitions() => symbolicTransitions;
-
-    /// <summary>
-    /// Epsilon transitions of the DFA, which is always empty.
-    /// </summary>
-    /// <returns>A collection of <see cref="EpsilonTransition"/>.</returns>
-    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => epsilonTransitions;
+    #region Misc Accessors
 
     /// <summary>
     /// Returns a canonical string representation of the DFA's data.
@@ -438,4 +442,6 @@ public class Nfa : IFsa
         }
         return sb.ToString();
     }
+
+    #endregion Misc Accessors
 }

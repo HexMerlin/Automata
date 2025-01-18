@@ -16,9 +16,9 @@ public static class GraphFactory
     /// <returns>A graph representing the finite state automaton.</returns>
     public static Graph CreateGraph(this IEnumerable<IEnumerable<string>> sequences, bool minimize = true)
     {
-        IFsa fsa = new Nfa(sequences); // create an NFA from the sequences
+        Fsa fsa = new Nfa(sequences); // create an NFA from the sequences
 
-        fsa = fsa.AsIDfa(); // determinize to DFA
+        fsa = fsa.AsDeterministic(); // determinize to DFA
         if (minimize)
             fsa = fsa.AsMfa(); // minimize the DFA
 
@@ -33,7 +33,7 @@ public static class GraphFactory
     /// <param name="layerDirection">Layout direction of the graph (default: left-to-right).</param>
     /// <param name="directed">Indicates whether the graph is directed (default: true).</param>
     /// <returns>A graph representing the finite state automaton.</returns>
-    public static Graph CreateGraph(this IFsa fsa, bool displayStateIDs = false, LayerDirection layerDirection = LayerDirection.LR, bool directed = true)
+    public static Graph CreateGraph(this Fsa fsa, bool displayStateIDs = false, LayerDirection layerDirection = LayerDirection.LR, bool directed = true)
     {
         Graph graph = new Graph();
         graph.Attr.LayerDirection = layerDirection;
@@ -77,7 +77,7 @@ public static class GraphFactory
     /// <param name="graph">Graph to configure.</param>
     /// <param name="fsa">Finite state automaton represented by the graph.</param>
     /// <param name="displayStateIDs">Indicates whether to display state IDs.</param>
-    private static void ConfigNodes(this Graph graph, IFsa fsa, bool displayStateIDs)
+    private static void ConfigNodes(this Graph graph, Fsa fsa, bool displayStateIDs)
     {
         foreach (Node? node in graph.Nodes)
         {

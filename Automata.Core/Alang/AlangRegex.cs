@@ -43,38 +43,80 @@ public abstract class AlangRegex
     /// </value>
     public bool IsEmptyString => this is Symbol symbol && symbol.Value.Length == 0;
 
+#region Static Methods
     /// <summary>
-    /// Parses the specified input string into an <see cref="AlangRegex"/>.
+    /// Parses the specified regex string into an <see cref="AlangRegex"/>.
     /// </summary>
-    /// <param name="input">The input string to parse.</param>
+    /// <param name="regexString">A regex string on Alang format.</param>
     /// <returns>An <see cref="AlangRegex"/> representing the parsed expression.</returns>
-    /// <exception cref="AlangFormatException">Thrown when the input is invalid.</exception>
-    public static AlangRegex Parse(string input)
+    /// <exception cref="AlangFormatException">Thrown when the regex string is in invalid format.</exception>
+    public static AlangRegex Parse(string regexString)
     {
-        AlangCursor cursor = new(input);
+        AlangCursor cursor = new(regexString);
         cursor.ShouldNotBeEmpty();
-
         AlangRegex regex = ParseAlangRegex(ref cursor);
-
         cursor.ShouldNotBeRightParen();
-
         return regex;
     }
+
+    /// <summary>
+    /// Compiles the specified regex string directly into a finite-state automaton.
+    /// A new <see cref="Alphabet"/> for the automaton is created, containing all symbols in the regex string.
+    /// </summary>
+    /// <param name="regexString">A regex string on Alang format.</param>
+    /// <remarks>
+    /// When possible, consider using a shared single alphabet for multiple automata, for added performance.
+    /// </remarks>
+    /// <returns>An <see cref="Mfa"/> representing the compiled automaton.</returns>
+    /// <exception cref="AlangFormatException">Thrown when the regex string is in invalid format.</exception>
+    public static Mfa Compile(string regexString)
+        => Parse(regexString).Compile();
+
+    /// <summary>
+    /// Compiles the specified regex string directly into a finite-state automaton.
+    /// A new <see cref="Alphabet"/> for the automaton is created, containing all symbols in the regex string and the specified additional symbols.
+    /// </summary>
+    /// <param name="regexString">A regex string on Alang format.</param>
+    /// <param name="addSymbols">Additional symbols to include in the alphabet.</param>
+    /// <remarks>All alphabet symbols will be included in generic constructs, such as '<c>.</c>' (Wildcard) and '<c>~</c>' (Complement)
+    /// <para>When possible, consider using a shared single alphabet for multiple automata, for added performance.</para>
+    /// </remarks>
+    /// <returns>An <see cref="Mfa"/> representing the compiled automaton.</returns>
+    /// <exception cref="AlangFormatException">Thrown when the regex string is in invalid format.</exception>
+    public static Mfa Compile(string regexString, params string[] addSymbols)
+        => Parse(regexString).Compile(addSymbols);
+    
+    #endregion Static Methods
 
     /// <summary>
     /// Compiles this <see cref="AlangRegex"/> into an automaton using the specified <paramref name="alphabet"/>.
     /// </summary>
     /// <param name="alphabet">The alphabet to use for compilation.</param>
     /// <remarks>The alphabet is extended with any symbols not currently in it.</remarks>
-    /// <returns>An <see cref="IFsa"/> representing the compiled finite state automaton.</returns>
+    /// <returns>An <see cref="Mfa"/> representing the compiled finite state automaton.</returns>
     public Mfa Compile(Alphabet alphabet) => AlangCompiler.Compile(this, alphabet);
 
     /// <summary>
     /// Compiles this <see cref="AlangRegex"/> into an automaton.
-    /// A new <see cref="Alphabet"/> for the automaton is created.
+    /// A new <see cref="Alphabet"/> for the automaton is created containing all referenced symbols.
     /// </summary>
-    /// <returns>An <see cref="IFsa"/> representing the compiled finite state automaton.</returns>
+    /// <remarks>
+    /// This method creates a new <see cref="Alphabet"/>.
+    /// <para>When possible, consider using a shared single alphabet for multiple automata, for added performance.</para>
+    /// </remarks>
+    /// <returns>An <see cref="Mfa"/> representing the compiled finite state automaton.</returns>
     public Mfa Compile() => Compile(new Alphabet());
+
+    /// <summary>
+    /// Compiles this <see cref="AlangRegex"/> into an automaton.
+    /// A new <see cref="Alphabet"/> for the automaton is created, containing all referenced symbols and the specified additional symbols.
+    /// </summary>
+    /// <param name="addSymbols">Additional symbols to include in the alphabet.</param>
+    /// <remarks>All alphabet symbols will be included in generic constructs, such as '<c>.</c>' (Wildcard) and '<c>~</c>' (Complement)
+    /// <para>When possible, consider using a shared single alphabet for multiple automata, for added performance.</para>
+    /// </remarks>
+    /// <returns>An <see cref="Mfa"/> representing the compiled finite state automaton.</returns>
+    public Mfa Compile(params string[] addSymbols) => Compile(new Alphabet(addSymbols));
 
     /// <summary>
     /// Parses the rule <c>AlangRegex</c> in the Alang grammar specification.

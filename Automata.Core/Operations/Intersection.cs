@@ -3,7 +3,7 @@
 public static partial class Ops
 {
     /// <summary>
-    /// Computes the intersection of two deterministic finite automata (IDFAs).
+    /// Computes the intersection of two deterministic finite automata.
     /// The resulting automaton accepts only the strings that are accepted by both input automata.
     /// </summary>
     /// <param name="a">The first finite automaton.</param>
@@ -11,7 +11,7 @@ public static partial class Ops
     /// <returns>
     /// A deterministic finite automaton representing the intersection of the two input automata.
     /// </returns>
-    public static IDfa Intersection(IDfa a, IDfa b)
+    public static FsaDet Intersection(FsaDet a, FsaDet b)
     {
         if (ReferenceEquals(a, b))
             throw new ArgumentException("Operands must not be the same instance.");

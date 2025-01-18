@@ -2,24 +2,26 @@
 namespace Automata.Core.Alang;
 
 /// <summary>
-/// Represents a cursor for parsing Alang expressions from an input string.
+/// Represents a cursor for parsing Alang regex strings.
 /// </summary>
 /// <remarks>
-/// A cursor is a lightweight struct that consumes characters from the left of a string input.
-/// The input string is never modified. Instead, the cursor maintains a lightweight span of the remaining input.
-/// The parser in the <see cref="Automata.Core.Alang"/> namespace only needs to create a single cursor instance that is passed along during the parse process.
-/// The contract of the <see cref="AlangCursor"/> is that it always points to a non-white-space character or <see cref="Chars.EOI"/> if the input is empty.
+/// A cursor is a lightweight struct that consumes characters from the left of the input <paramref name="regexString"/> as it is parsed.
+/// For performance, <paramref name="regexString"/> is never split, copied or modified. Instead, the cursor maintains a lightweight span of the remaining regex string.
+/// Also, the parser in the <see cref="Automata.Core.Alang"/> namespace only needs to maintain a single cursor instance through the entire parse process.
+/// The contract of the <see cref="AlangCursor"/> is that it always points to a non-white-space character or <see cref="Chars.EOI"/> if the regex string is empty.
 /// <para>Consequently:</para>
-/// <para>- All methods in <see cref="AlangCursor"/> that move the cursor must ensure on exit that leading whitespace is trimmed.</para>
-/// <para>- All methods in <see cref="AlangCursor"/> can assume on entry that the input is trimmed of leading whitespace.</para>
+/// <para>- All methods in <see cref="AlangCursor"/> that move the cursor must ensure on exit that <c>leading</c>whitespace is skipped.</para>
+/// <para>- All methods in <see cref="AlangCursor"/> can assume on entry that the cursor points to a non-whitespace character.</para>
+/// <para>This struct is also the sole point for throwing all types of parsing exceptions. These are handled by the methods prefixed by <c>Should</c>.</para>
 /// </remarks>
-/// <param name="input">The input string to parse.</param>
-public ref struct AlangCursor(string input)
+/// <param name="regexString">The regex string to parse.</param>
+public ref struct AlangCursor(string regexString)
 {
     #region Data
-    private readonly int OriginalInputLength = input.Length;
+    private readonly int OriginalRegexStringLength = regexString.Length;
 
-    private ReadOnlySpan<char> cursor = input.AsSpan().TrimStart();
+    //This private field is mutated internally by the cursor methods.
+    private ReadOnlySpan<char> cursor = regexString.AsSpan().TrimStart();
 
     #endregion Data
 
@@ -171,11 +173,11 @@ public ref struct AlangCursor(string input)
     /// <summary>
     /// Current position of the cursor in the original input string.
     /// </summary>  
-    public readonly int CursorIndex => OriginalInputLength - cursor.Length;
+    public readonly int CursorIndex => OriginalRegexStringLength - cursor.Length;
 
     /// <summary>
     /// String representation of the remaining input.
     /// </summary>
     /// <returns>A string that represents the remaining input.</returns>
-    public override readonly string ToString() => cursor.IsEmpty ? "<EMPTY>" : $"'{new string(cursor)}'";
+    public override readonly string ToString() => cursor.IsEmpty ? string.Empty : $"'{new string(cursor)}'";
 }

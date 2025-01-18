@@ -3,57 +3,68 @@
 /// <summary>
 /// Finite state automaton (FSA) interface.
 /// </summary>
-public interface IFsa
+public abstract class Fsa
 {
+    #region Data
+
     /// <summary>
     /// Alphabet used by the FSA.
     /// </summary>
-    Alphabet Alphabet { get; }
+    public Alphabet Alphabet { get; }
+
+    #endregion Data
 
     /// <summary>
-    /// Indicates whether the FSA accepts ϵ - the empty sting . 
+    /// Initializes a new instance with the specified alphabet.
     /// </summary>
-    bool AcceptsEpsilon { get; }
+    /// <param name="alphabet">Alphabet used by the automaton.</param>
+    public Fsa(Alphabet alphabet)  
+        => Alphabet = alphabet;
 
     /// <summary>
     /// Indicates whether the FSA is epsilon-free (lacks epsilon transitions).
     /// </summary>
-    bool IsEpsilonFree { get; }
+    public abstract bool IsEpsilonFree { get; }
+
+    /// <summary>
+    /// Indicates whether the FSA accepts ϵ - the empty sting . 
+    /// </summary>
+    public abstract bool AcceptsEpsilon { get; }
 
     /// <summary>
     /// Indicates whether the FSA has an initial state.
     /// </summary>
     /// <returns><see langword="true"/> <c>iff</c> the FSA has at least one initial state.</returns>
-    bool HasInitialState { get; }
+    public abstract bool HasInitialState { get; }
 
     /// <summary>
     /// Final states of the FSA.
     /// </summary>
-    IReadOnlyCollection<int> FinalStates { get; }
+    public abstract IReadOnlyCollection<int> FinalStates { get; }
 
     /// <summary>
     /// Indicates whether the specified state is an initial state.
     /// </summary>
     /// <param name="state">State to check.</param>
     /// <returns><see langword="true"/> <c>iff</c> the specified state is an initial state.</returns>
-    bool IsInitial(int state);
+    public abstract bool IsInitial(int state);
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
     /// <param name="state">State to check.</param>
     /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state.</returns>
-    bool IsFinal(int state);
+    public abstract bool IsFinal(int state);
 
     /// <summary>
     /// Transitions of the FSA.
     /// </summary>
     /// <returns>An enumerable collection of <see cref="Transition"/>.</returns>
-    IReadOnlyCollection<Transition> Transitions();
+    public abstract IReadOnlyCollection<Transition> Transitions();
 
     /// <summary>
     /// Epsilon transitions of the FSA.
     /// </summary>
     /// <returns>An enumerable collection of <see cref="EpsilonTransition"/>.</returns>
-    IReadOnlyCollection<EpsilonTransition> EpsilonTransitions();
+    public abstract IReadOnlyCollection<EpsilonTransition> EpsilonTransitions();
 }

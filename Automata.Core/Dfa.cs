@@ -14,43 +14,28 @@ namespace Automata.Core;
 /// <para>· Mutation can make certain states unreachable (contain <c>Dead states</c>).</para>
 /// </remarks>
 [DebuggerDisplay("{ToCanonicalString(),nq}")]
-public class Dfa : IDfa
+public class Dfa : FsaDet
 {
     #region Data
-    /// <summary>
-    /// Alphabet used by the DFA.
-    /// </summary>
-    public Alphabet Alphabet { get; }
 
-    private readonly SortedSet<Transition> orderByFromState = new();
+    private int initialState = Constants.InvalidState;
 
-    /// <summary>
-    /// Initial state of the DFA.
-    /// </summary>
-    /// <remarks>
-    /// Returns <see cref="Constants.InvalidState"/> if the DFA has no initial state.
-    /// </remarks>
-    public int InitialState { get; private set; } = Constants.InvalidState;
+    private int maxState = Constants.InvalidState;
 
     private readonly HashSet<int> finalStates = new();
 
-    /// <summary>
-    /// Upper limit for the maximum state number in the DFA. 
-    /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
-    /// </summary>
-    /// <remarks>
-    /// This value represents an upper limit for state numbers in the DFA.
-    /// The actual maximum state number may be lower, as removed states are not tracked for performance reasons.
-    /// </remarks>
-    public int MaxState { get; private set; } = Constants.InvalidState;
+    private readonly SortedSet<Transition> orderByFromState = new();
+
     #endregion Data
+
+    #region Constructors
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the DFA.</param>
-    public Dfa(Alphabet alphabet) => Alphabet = alphabet;
-
+    public Dfa(Alphabet alphabet) : base(alphabet) { }
+ 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
     /// </summary>
@@ -65,30 +50,135 @@ public class Dfa : IDfa
         this.finalStates.UnionWith(finalStates);
         UnionWith(transitions);
     }
+    #endregion Constructors
+
+    #region Accessors
+
+    /// <summary>
+    /// Initial state of the DFA.
+    /// </summary>
+    /// <remarks>
+    /// Returns <see cref="Constants.InvalidState"/> if the DFA has no initial state.
+    /// </remarks>
+    public override int InitialState => initialState;
+
+    /// <summary>
+    /// Upper limit for the maximum state number in the DFA. 
+    /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
+    /// </summary>
+    /// <remarks>
+    /// This value represents an upper limit for state numbers in the DFA.
+    /// The actual maximum state number may be lower, as removed states are not tracked for performance reasons.
+    /// </remarks>
+    public override int MaxState => maxState;
 
     /// <summary>
     /// Indicates whether the DFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
     /// </summary>
-    public bool AcceptsEpsilon => IsFinal(InitialState);
+    public override bool AcceptsEpsilon => IsFinal(InitialState);
 
     /// <summary>
     /// Indicates whether the DFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
-    public bool IsEpsilonFree => true;
+    public override bool IsEpsilonFree => true;
 
     /// <summary>
     /// Indicates whether the DFA has an initial state.
     /// </summary>
     /// <returns><see langword="true"/> <c>iff</c> DFA has an initial state.</returns>
-    public bool HasInitialState => InitialState != Constants.InvalidState;
+    public override bool HasInitialState => initialState != Constants.InvalidState;
+       
+    /// <summary>
+    /// Indicates whether the specified state is the initial state.
+    /// </summary>
+    /// <param name="state">State to check.</param>
+    /// <returns>
+    /// <see langword="true"/> <c>iff</c> the specified state is the initial state.
+    /// </returns>
+    public override bool IsInitial(int state) => state == initialState;
 
+    /// <summary>
+    /// Indicates whether the specified state is a final state.
+    /// </summary>
+    /// <param name="state">State to check.</param>
+    /// <returns>
+    /// <see langword="true"/> <c>iff</c> the specified state is a final state.
+    /// </returns>
+    public override bool IsFinal(int state) => finalStates.Contains(state);
+
+    /// <summary>
+    /// Final states of the DFA.
+    /// </summary>
+    public override IReadOnlyCollection<int> FinalStates => finalStates;
+
+    /// <summary>
+    /// Returns a view of the specified state.
+    /// </summary>
+    /// <param name="fromState">The state origin.</param>
+    /// <returns>A <see cref="StateView"/> for the given state.</returns>
+    public override StateView State(int fromState)
+        => new(fromState, Transitions(fromState).ToArray());
+
+    /// <summary>
+    /// Returns the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <returns>
+    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
+    /// </returns>
+    /// <seealso cref="TryTransition(int, int, out int)"/>
+    public override int Transition(int fromState, int symbol)
+        => orderByFromState.GetViewBetween(
+            Core.Transition.MinTrans(fromState, symbol),
+            Core.Transition.MaxTrans(fromState, symbol)
+        ).FirstOrDefault(Core.Transition.Invalid).ToState;
+
+    /// <summary>
+    /// Tries to get the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
+    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
+    /// <seealso cref="Transition(int, int)"/>
+    public override bool TryTransition(int fromState, int symbol, out int toState)
+        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
+
+    /// <summary>
+    /// Gets the transitions of the DFA.
+    /// </summary>
+    /// <returns>An collection of transitions.</returns>
+    public override IReadOnlyCollection<Transition> Transitions() => orderByFromState;
+
+
+    /// <summary>
+    /// Returns the set of transitions from the given state.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <returns>Set of transitions from the given state.</returns>
+    private SortedSet<Transition> Transitions(int fromState)
+        => orderByFromState.GetViewBetween(
+            Core.Transition.MinTrans(fromState),
+            Core.Transition.MaxTrans(fromState)
+        );
+
+    /// <summary>
+    /// Gets the epsilon transitions of the DFA, which is always empty.
+    /// </summary>
+    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
+    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+
+    #endregion Accessors
+
+    #region Mutators
 
     /// <summary>
     /// Sets the initial state of the DFA, updating the maximum state number if necessary.
     /// </summary>
     /// <param name="state">State to set as the initial state.</param>
-    public void SetInitial(int state) => InitialState = UpdateMaxState(state);
+    public void SetInitial(int state) => initialState = UpdateMaxState(state);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
@@ -109,63 +199,6 @@ public class Dfa : IDfa
     public void SetFinal(IEnumerable<int> states, bool final = true) => IncludeIf(final, states, finalStates);
 
     /// <summary>
-    /// Indicates whether the specified state is the initial state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns>
-    /// <see langword="true"/> <c>iff</c> the specified state is the initial state.
-    /// </returns>
-    public bool IsInitial(int state) => state == InitialState;
-
-    /// <summary>
-    /// Indicates whether the specified state is a final state.
-    /// </summary>
-    /// <param name="state">State to check.</param>
-    /// <returns>
-    /// <see langword="true"/> <c>iff</c> the specified state is a final state.
-    /// </returns>
-    public bool IsFinal(int state) => finalStates.Contains(state);
-
-    /// <summary>
-    /// Final states of the DFA.
-    /// </summary>
-    public IReadOnlyCollection<int> FinalStates => finalStates;
-
-    /// <summary>
-    /// Returns a view of the specified state.
-    /// </summary>
-    /// <param name="fromState">The state origin.</param>
-    /// <returns>A <see cref="StateView"/> for the given state.</returns>
-    public StateView State(int fromState)
-        => new(fromState, Transitions(fromState).ToArray());
-
-    /// <summary>
-    /// Returns the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol for the transition.</param>
-    /// <returns>
-    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
-    /// </returns>
-    /// <seealso cref="TryTransition(int, int, out int)"/>
-    public int Transition(int fromState, int symbol)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState, symbol),
-            Core.Transition.MaxTrans(fromState, symbol)
-        ).FirstOrDefault(Core.Transition.Invalid).ToState;
-
-    /// <summary>
-    /// Tries to get the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol for the transition.</param>
-    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
-    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
-    /// <seealso cref="Transition(int, int)"/>
-    public bool TryTransition(int fromState, int symbol, out int toState)
-        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
-
-    /// <summary>
     /// Adds a transition to the DFA, ensuring it remains deterministic.
     /// </summary>
     /// <remarks>
@@ -179,7 +212,7 @@ public class Dfa : IDfa
     {
         if (TryTransition(transition.FromState, transition.Symbol, out _))
             return false; // Cannot add; would introduce nondeterminism
-        MaxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
+        maxState = Math.Max(MaxState, Math.Max(transition.FromState, transition.ToState));
         return orderByFromState.Add(transition);
     }
 
@@ -192,45 +225,6 @@ public class Dfa : IDfa
         foreach (Transition transition in transitions)
             Add(transition);
     }
-
-    /// <summary>
-    /// Indicates whether the DFA accepts the given sequence of symbols.
-    /// </summary>
-    /// <param name="sequence">Sequence of symbols to check.</param>
-    /// <returns>
-    /// <see langword="true"/> <c>iff</c> the DFA accepts the sequence.
-    /// </returns>
-    /// <remarks>
-    /// The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
-    /// If the DFA reaches a final state after processing all symbols, the sequence is accepted.
-    /// </remarks>
-    public bool Accepts(IEnumerable<string> sequence)
-    {
-        int state = InitialState;
-        foreach (string symbol in sequence)
-        {
-            int symbolIndex = Alphabet[symbol];
-            if (symbolIndex == Constants.InvalidSymbolIndex)
-                return false;
-
-            if (!TryTransition(state, symbolIndex, out state))
-                return false; 
-
-        }
-        return IsFinal(state);
-    }
-
-
-    /// <summary>
-    /// Returns the set of transitions from the given state.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <returns>Set of transitions from the given state.</returns>
-    private SortedSet<Transition> Transitions(int fromState)
-        => orderByFromState.GetViewBetween(
-            Core.Transition.MinTrans(fromState),
-            Core.Transition.MaxTrans(fromState)
-        );
 
     /// <summary>
     /// Conditionally includes or excludes a state in a set based on the provided condition.
@@ -273,21 +267,13 @@ public class Dfa : IDfa
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int UpdateMaxState(int state)
     {
-        MaxState = Math.Max(MaxState, state);
+        maxState = Math.Max(MaxState, state);
         return state;
     }
 
-    /// <summary>
-    /// Gets the transitions of the DFA.
-    /// </summary>
-    /// <returns>An collection of transitions.</returns>
-    public IReadOnlyCollection<Transition> Transitions() => orderByFromState;
+    #endregion Mutators
 
-    /// <summary>
-    /// Gets the epsilon transitions of the DFA, which is always empty.
-    /// </summary>
-    /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
-    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+    #region Misc Accessors
 
     /// <summary>
     /// Maps states to their canonical state numbers in a breadth-first order.
@@ -363,5 +349,6 @@ public class Dfa : IDfa
         return sb.ToString();
     }
 
+    #endregion Misc Accessors
 
 }

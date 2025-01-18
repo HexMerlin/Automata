@@ -23,14 +23,9 @@ namespace Automata.Core;
 /// </list>
 /// </remarks>
 [DebuggerDisplay("{ToCanonicalString(),nq}")]
-public partial class Mfa : IDfa, IEquatable<Mfa>
+public partial class Mfa : FsaDet, IEquatable<Mfa>
 {
     #region Data
-
-    /// <summary>
-    /// Alphabet used by the MFA.
-    /// </summary>
-    public Alphabet Alphabet { get; }
 
     /// <summary>
     /// Number of states in the MFA.
@@ -46,14 +41,15 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
 
     #endregion Data
 
+    #region Constructors
+
     /// <summary>
     /// Creates a singleton <see cref="Mfa"/> that accepts only the single symbol once.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the MFA.</param>
     /// <param name="singleSymbol">Symbol to be accepted by the MFA.</param>
-    public Mfa(string singleSymbol, Alphabet alphabet)
+    public Mfa(string singleSymbol, Alphabet alphabet) : base(alphabet)
     {
-        this.Alphabet = alphabet;
         int symbol = alphabet.GetOrAdd(singleSymbol);
         this.StateCount = 2;
         transitions = [new Transition(InitialState, symbol, MaxState)];
@@ -64,9 +60,8 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// Initializes a new instance of the <see cref="Mfa"/> class from an existing <see cref="Dfa"/>.
     /// </summary>
     /// <param name="dfa">A DFA to create from.</param>
-    public Mfa(Dfa dfa)
+    public Mfa(Dfa dfa) : base(dfa.Alphabet)
     {
-        this.Alphabet = dfa.Alphabet;
         dfa = Ops.Minimal(dfa); //make sure the dfa is minimal
         if (dfa.FinalStates.Count == 0)
         {
@@ -84,9 +79,8 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// <summary>
     /// Private constructor
     /// </summary>
-    private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates)
+    private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates) : base(alphabet)
     {
-        this.Alphabet = alphabet;
         this.StateCount = stateCount;
         this.transitions = transitions;
         this.finalStates = finalStates;
@@ -108,22 +102,26 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     public static Mfa CreateWildcard(Alphabet alphabet)
         => new(alphabet, stateCount: 2, transitions: [.. alphabet.SymbolIndices.Select(symbol => new Transition(0, symbol, 1))], finalStates: [1]);
 
+    #endregion Constructors
+
+    #region Accessors
+
     /// <summary>
     /// Initial state. Always <c>0</c> for a non-empty <see cref="Mfa"/>. 
     /// <para>For an empty <see cref="Mfa"/>, the initial state is <see cref="Constants.InvalidState"/>.</para>
     /// </summary>
-    public int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
+    public override int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
 
     /// <summary>
     /// The state number with the highest value.
     /// </summary>
     /// <returns>The maximum state number, or <see cref="Constants.InvalidState"/> (= <c>-1</c>) if the MFA is empty (has no states).</returns>
-    public int MaxState => StateCount - 1;
+    public override int MaxState => StateCount - 1;
 
     /// <summary>
     /// Final states of the MFA.
     /// </summary>
-    public IReadOnlyCollection<int> FinalStates => finalStates;
+    public override IReadOnlyCollection<int> FinalStates => finalStates;
 
     /// <summary>
     /// Indicates whether the language of the MFA is the empty language (∅). This means the MFA does not accept anything, including the empty string (ϵ).
@@ -137,12 +135,12 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// Indicates whether the MFA accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
     /// </summary>
-    public bool AcceptsEpsilon => IsFinal(InitialState);
+    public override bool AcceptsEpsilon => IsFinal(InitialState);
 
     /// <summary>
     /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.
     /// </summary>
-    public bool IsEpsilonFree => true;
+    public override bool IsEpsilonFree => true;
 
     /// <summary>
     /// Number of transitions in the automaton.
@@ -156,58 +154,70 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
     /// An MFA without an initial state is completely empty (= <see cref="IsEmptyLanguage"/>).
     /// </remarks>
     /// <returns><see langword="true"/> <c>iff</c> MFA has an initial state.</returns>
-    public bool HasInitialState => InitialState != Constants.InvalidState;
+    public override bool HasInitialState => InitialState != Constants.InvalidState;
 
     /// <summary>
     /// Indicates whether the specified state is the initial state.
     /// </summary>
     /// <param name="state">State to check.</param>
     /// <returns><see langword="true"/> <c>iff</c> the specified state is the initial state.</returns>
-    public bool IsInitial(int state) => state == InitialState;
+    public override bool IsInitial(int state) => state == InitialState;
 
     /// <summary>
     /// Indicates whether the specified state is a final state.
     /// </summary>
     /// <param name="state">State to check.</param>
     /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state.</returns>
-    public bool IsFinal(int state) => FinalStates.Contains(state);
+    public override bool IsFinal(int state) => FinalStates.Contains(state);
+    
+    /// <summary>
+    /// Gets the transitions of the MFA.
+    /// </summary>
+    /// <returns>An collection of transitions.</returns>
+    public override IReadOnlyCollection<Transition> Transitions() => transitions;
 
     /// <summary>
-    /// Returns the transition from the given state with the given symbol.
+    /// Returns the state reachable from the given state on the given symbol.
     /// </summary>
     /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
     /// <returns>
-    /// The transition from the given state with the given symbol, or <see cref="Transition.Invalid"/> if no such transition exists.
+    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
     /// </returns>
-    public Transition Transition(int fromState, int symbol)
+    /// <seealso cref="TryTransition(int, int, out int)"/>
+    public override int Transition(int fromState, int symbol)
     {
         int index = Array.BinarySearch(transitions, Core.Transition.MinTrans(fromState, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
         return (index < transitions.Length && transitions[index].FromState == fromState && transitions[index].Symbol == symbol)
-            ? transitions[index]
-            : Core.Transition.Invalid;
+            ? transitions[index].ToState
+            : Constants.InvalidState;
     }
+
+    /// <summary>
+    /// Tries to get the state reachable from the given state on the given symbol.
+    /// </summary>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">Symbol for the transition.</param>
+    /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if no state is reachable.</param>
+    /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
+    /// <seealso cref="Transition(int, int)"/>
+    public override bool TryTransition(int fromState, int symbol, out int toState)
+        => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
 
     /// <summary>
     /// Returns a view of the specified state.
     /// </summary>
     /// <param name="fromState">The state origin.</param>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>
-    public StateView State(int state) => new(state, transitions);
-
-    /// <summary>
-    /// Gets the transitions of the MFA.
-    /// </summary>
-    /// <returns>An collection of transitions.</returns>
-    public IReadOnlyCollection<Transition> Transitions() => transitions;
-
+    public override StateView State(int state) => new(state, transitions);
+     
     /// <summary>
     /// Gets the epsilon transitions of the MFA, which is always empty.
     /// </summary>
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
-    public IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
+    public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
     /// Indicates whether this MFA represent the exact same language as the specified MFA: <c>Language Equality</c>.
@@ -325,7 +335,5 @@ public partial class Mfa : IDfa, IEquatable<Mfa>
        return sb.ToString();
     }
 
-
+    #endregion Accessors
 }
-
-

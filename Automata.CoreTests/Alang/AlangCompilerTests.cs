@@ -5,10 +5,9 @@ public class AlangCompilerTests
 {
 
     #region Succesful Compilation Tests
-    private static void Assert_Compile_ReturnsCorrect(string input, string expected)
-    {
-        var regex = AlangRegex.Parse(input);
-        var actual = AlangCompiler.Compile(regex, new Alphabet()).ToCanonicalString();
+    private static void Assert_Compile_ReturnsCorrect(string regexString, string expected)
+    {        
+        var actual = AlangRegex.Compile(regexString).ToCanonicalString();
         Assert.AreEqual(expected, actual);
     }
       
