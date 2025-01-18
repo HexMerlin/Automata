@@ -98,7 +98,7 @@ For example:
 ### Alang expression examples
 `(a? (b | c) )+` : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.
 
-`a+~ b`          : Complement of 'a+' - all sequences that are not 1 or more 'a's.
+`a+~ b`          : Complement of 'a+' - all sequences that are not 1 or more 'a's, followed by a 'b'
 
 `(x1 | x2 | x3)* - (x1 x2 x3)+` : All sequences constaining {x1, x2, x3}, except repetitions of "x1 x2 x3".
 
