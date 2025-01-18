@@ -271,7 +271,7 @@ Thus, the parser resolves all reserved tokens as delimiters: The following are c
 <li>The formal whitespace definition is equivalent to .NET's <code>char.IsWhiteSpace(char c)</code>.</li>
 </ul>
 <h3 id="symbols">Symbols</h3>
-<p>The term <strong>Symbol</strong> have a specific meaning - as defined by automata theory:</p>
+<p><strong>Symbols</strong> have a specific meaning - as formally defined by automata theory:</p>
 <ul>
 <li>User-defined string literals that constitute the <em>atoms</em> of Alang expressions.</li>
 <li>It is equivalent to <strong>symbols</strong> in finite-state automata.</li>
@@ -284,12 +284,12 @@ Thus, the parser resolves all reserved tokens as delimiters: The following are c
 <p>It represents any symbol in the alphabet.</p>
 <p>For example:</p>
 <p><code>. - hello</code>  represents the language of all symbols except 'hello'.</p>
-<p><code>(. - hello).*</code>    represents the language of all sequences, except those starting with 'hello'.</p>
+<p><code>(. - hello).*</code>    represents the language of all sequences, except those containing 'hello'.</p>
 <h3 id="the-empty-language--and-the-language-containing-only-epsilon-ε">The Empty Language ∅ and The Language containing only epsilon {ε}</h3>
 <ul>
 <li><p>The Empty Language ∅ is the language that does not cotain anything.</p>
 <ul>
-<li>It is written in Alang as empty parentheses <code>()</code>.</li>
+<li>It is written in Alang using empty parentheses <code>()</code>.</li>
 <li>Its corresponding grammar rule is <code>EmptyLang</code> and the parse tree type is <code>EmptyLang</code>.</li>
 <li>Its automata equivalence is an automaton that does not accept anything (not even the empty string).</li>
 <li>In most scenarios, <code>()</code> is not required when writing a Alang expressions.
@@ -311,9 +311,9 @@ However, many operations can result in the empty language. For example <code>a -
 </ul>
 <h3 id="alang-expression-examples">Alang expression examples</h3>
 <p><code>(a? (b | c) )+</code> : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.</p>
-<p><code>a+~ b</code>          : Complement of 'a+' - all sequences that are not 1 or more 'a's.</p>
+<p><code>a+~ b</code>          : Complement of 'a+' - all sequences that are not 1 or more 'a's, followed by a 'b'</p>
 <p><code>(x1 | x2 | x3)* - (x1 x2 x3)+</code> : All sequences constaining {x1, x2, x3}, except repetitions of &quot;x1 x2 x3&quot;.</p>
-<p><code>()</code>              : The empty language that does not accept anything. For example, it it the result from <code>hello - hello</code> and from <code>hello &amp; world</code>.</p>
+<p><code>()</code>              : The empty language that does not accept anything. For example, it is the result from <code>hello - hello</code> and from <code>hello &amp; world</code>.</p>
 <h3 id="operation-definitions">Operation Definitions</h3>
 <pre><code>Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
 Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
