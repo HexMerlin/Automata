@@ -1,7 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using Automata.Core.Operations;
-
-namespace Automata.Core.Alang;
+﻿namespace Automata.Core.Alang;
 
 /// <summary>
 /// Compiler that compiles <c>Alang</c> regular expression to <c>Finite-State Automata</c>.
@@ -51,7 +48,7 @@ internal class AlangCompiler
         KleeneStar kleeneStar => Compile(kleeneStar.Operand).AsNfa().KleeneStarWith().AsMfa(),
 
         // Compiles a KleenePlus regex into an automaton.
-        KleenePlus kleenePlus => Compile(kleenePlus.Operand).AsNfa().KleenePlusInWith().AsMfa(),
+        KleenePlus kleenePlus => Compile(kleenePlus.Operand).AsNfa().KleenePlusWith().AsMfa(),
 
         // Compiles a Complement regex into an automaton.
         Complement complement => Compile(complement.Operand).AsMfa().Complement().AsMfa(),

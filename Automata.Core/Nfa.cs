@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Text;
+﻿using System.Text;
 
 namespace Automata.Core;
 
@@ -18,7 +17,6 @@ namespace Automata.Core;
 /// NFAs (in contrast to DFAs) can have multiple initial states.
 /// </para>
 /// </remarks>
-[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public class Nfa : Fsa
 {
     #region Data
@@ -414,7 +412,7 @@ public class Nfa : Fsa
     /// Returns a canonical string representation of the DFA's data.
     /// Used by unit tests and for debugging. 
     /// </summary>
-    public string ToCanonicalString()
+    public override string ToCanonicalString()
     {
         StringBuilder sb = new();
         sb.Append($"I#= {InitialStates.Count}");

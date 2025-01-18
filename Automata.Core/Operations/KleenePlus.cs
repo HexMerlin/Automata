@@ -8,7 +8,7 @@ public static partial class Ops
     /// </summary>
     /// <param name="source">Automaton to modify</param>
     /// <returns>Modified <paramref name="source"/> with Kleene Plus</returns>
-    public static Nfa KleenePlusInWith(this Nfa source)
+    public static Nfa KleenePlusWith(this Nfa source)
     {
         // Create new initial state
         int newInitialState = source.MaxState + 1;

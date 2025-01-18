@@ -1,6 +1,4 @@
-﻿using Automata.Core.Operations;
-
-namespace Automata.Core;
+﻿namespace Automata.Core;
 
 /// <summary>
 /// Static class for conversion between different types of finite state automata.

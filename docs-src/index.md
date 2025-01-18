@@ -25,6 +25,10 @@ Welcome to the documentation for **Automata**.
 
 ## ALANG - A language for definining finite-state automata. 
 
-[Alang grammar specification](ALANG.md)
+**Alang** is a formal language for defining finite-state automata using human-readable regular expressions. 
+It supports many operations, such as union, intersection, complement and set difference, 
+enabling expressions like `(a? (b | c)* - (b b))+`. 
+
+[Alang documentation](ALANG.md)
 
 ---

@@ -1,8 +1,5 @@
 ﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Text;
-using Automata.Core.Alang;
-using Automata.Core.Operations;
 
 namespace Automata.Core;
 
@@ -22,7 +19,6 @@ namespace Automata.Core;
 /// <item>Two <see cref="Mfa"/>s recognizing the same language are guaranteed to be identical.</item>
 /// </list>
 /// </remarks>
-[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public class Mfa : FsaDet, IEquatable<Mfa>
 {
     #region Data
@@ -272,7 +268,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// S#=2, F#=1: [1]: T#=2: [0->1 a, 0->1 b]
     /// </code>
     /// </example>
-    public string ToCanonicalString()
+    public override string ToCanonicalString()
     {
         StringBuilder sb = new();
         sb.Append($"S#={StateCount}");

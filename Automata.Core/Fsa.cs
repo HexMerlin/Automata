@@ -1,8 +1,11 @@
-﻿namespace Automata.Core;
+﻿using System.Diagnostics;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Finite state automaton (FSA) interface.
 /// </summary>
+[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public abstract class Fsa
 {
     #region Data
@@ -67,4 +70,6 @@ public abstract class Fsa
     /// </summary>
     /// <returns>An enumerable collection of <see cref="EpsilonTransition"/>.</returns>
     public abstract IReadOnlyCollection<EpsilonTransition> EpsilonTransitions();
+
+    public abstract string ToCanonicalString();
 }

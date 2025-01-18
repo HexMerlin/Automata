@@ -10,7 +10,7 @@ public static partial class Ops
     /// <returns>
     /// A new <see cref="FsaDet"/> representing the language of the minuend except the language of the subtrahend.
     /// </returns>
-    public static FsaDet Difference(FsaDet minuend, Mfa subtrahend)
+    public static FsaDet Difference(this FsaDet minuend, Mfa subtrahend)
     {
         if (ReferenceEquals(minuend, subtrahend))
             throw new ArgumentException("Operands must not be the same instance.");

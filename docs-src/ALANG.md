@@ -36,11 +36,11 @@ For an input to be valid, the root rule AlangRegex must cover the entire input, 
 ### Operators
 - Operators with higher precedence levels bind more tightly than those with lower levels.
 - Operators of the same precedence level are left-associative (left-to-right).
-
+- All *unary* operators are *postfix operators* and all *binary* operators are *infix* operators.
 
 | Precedence | Operation/Unit  | Operator Character | Position & Arity   |
 |------------|-----------------|--------------------|--------------------|
-| 1          | Union           | L₁ `|` L₂          | Infix Binary       | 
+| 1          | Union           | L₁ `\|` L₂          | Infix Binary       | 
 | 2          | Difference      | L₁ `-` L₂          | Infix Binary       |
 | 3          | Intersection    | L₁ `&` L₂          | Infix Binary       | 
 | 4          | Concatenation   | L₁ L₂              | Infix Implicit     | 
@@ -55,17 +55,19 @@ For an input to be valid, the root rule AlangRegex must cover the entire input, 
 
 
 ### Whitespace
-- Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.)
-- Whitespace is allowed anywhere in the grammar, except within Symbols.
-- Whitespace it is never required unless to separate directly adjacent Symbols or operators. 
+- Multiple Whitespace is allowed anywhere in the grammar, except within Symbols.
+- Whitespace is never required anywhere - except for separating *directly* adjacent Symbols or operators. 
+   Thus, the parser resolves all reserved tokens as delimiters: The following are correcly delimited: `hello+world` or `hello(world)`.
+- Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.).
+- The formal whitespace definition is equivalent to .NET's `char.IsWhiteSpace(char c)`.
 
 ### Symbols 
-**Symbols** have a specific meaning and are defined as:
+The term **Symbol** have a specific meaning - as defined by automata theory:
 - User-defined string literals that constitute the *atoms* of Alang expressions.
-- Directly equivalent to **alphabet symbols** in the context of finite-state automata. 
+- It is equivalent to **symbols** in finite-state automata. 
 - Can contain any characters except reserved operator characters or whitespace.
-- Can never be empty. 
-- They are not to be confused with characters. 
+- They can never be empty. 
+- Symbols are *strings* and are not to be confused with characters, 
  
 ### Wildcard
 A Wildcard is a special token denoted by a `.` (dot).
@@ -78,15 +80,28 @@ For example:
 
 `(. - hello).*`    represents the language of all sequences, except those starting with 'hello'.
 
-### Empty Language ∅
-- The Empty Language (∅) is the language that does not cotain anything. 
-- It written in Alang with an empty pair of parentheses `()`.
-- Its corresponding grammar rule is `EmptyLang` and the parse tree type is `EmptyLang`.
-- Its automata equivalence is an automaton that does not accept anything (not even the empty string).
-- In most scenarios, `()` is not required when writing a Alang expressions.
-  However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
-- Please note that `()` is not the same as `{ε}` (the language containing only the empty string).
-  For instance, concatenating any language L with `()` results in `()`.
+### The Empty Language ∅ and The Language containing only epsilon {ε}
+- The Empty Language ∅ is the language that does not cotain anything.
+    - It is written in Alang as empty parentheses `()`.  
+    - Its corresponding grammar rule is `EmptyLang` and the parse tree type is `EmptyLang`.
+    - Its automata equivalence is an automaton that does not accept anything (not even the empty string).
+    - In most scenarios, `()` is not required when writing a Alang expressions.
+      However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
+- The language containing only the empty string {ε}
+    - It is written in Alang as `()?`, since the Option operator `?` unites the operand with {ε}:  **L? = L ∪ { ε }**
+    - Its automata equivalence is an automaton that only accepts ε.
+- Note that `()` ≠ `{ε}`. For instance:
+    - Concatenating any language `L` with `()` results in `()`.
+    - Concatenating any language `L` with `{ε}` results in L.
+
+### Alang expression examples
+`(a? (b | c) )+` : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.
+
+`a+~ b`          : Complement of 'a+' - all sequences that are not 1 or more 'a's.
+
+`(x1 | x2 | x3)* - (x1 x2 x3)+` : All sequences constaining {x1, x2, x3}, except repetitions of "x1 x2 x3".
+
+`()`              : The empty language that does not accept anything. The results from `hello - hello` and `hello & world`
 
 ### Operation Definitions
 ```
@@ -99,3 +114,18 @@ Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ�
 Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
 Complement: ᒾL = Σ* \ L
 ```
+
+## C# API
+The Alang parser and FSA compiler is provided by the namespace **Automata.Core.Alang**.
+
+Key class: **AlangRegex**
+
+Example usage:
+```csharp
+ AlangRegex regex = AlangRegex.Parse("(a? (b | c) )+");  // Create an Alang regex
+
+ Mfa fsa = regex.Compile(); // Compile the regex to a minimal finite-state automaton
+```
+For more information, see the [Automata documentation](index.md)
+
+

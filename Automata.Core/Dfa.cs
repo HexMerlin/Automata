@@ -13,7 +13,6 @@ namespace Automata.Core;
 /// <para>· Any mutation of a DFA is guaranteed to preserve its deterministic property.</para>
 /// <para>· Mutation can make certain states unreachable (contain <c>Dead states</c>).</para>
 /// </remarks>
-[DebuggerDisplay("{ToCanonicalString(),nq}")]
 public class Dfa : FsaDet
 {
     #region Data
@@ -285,7 +284,7 @@ public class Dfa : FsaDet
     /// Returns a canonical string representation of the DFA's data.
     /// Used by unit tests and for debugging. 
     /// </summary>
-    public string ToCanonicalString()
+    public override string ToCanonicalString()
     {
         StringBuilder sb = new();
         sb.Append($"I: {InitialState}");

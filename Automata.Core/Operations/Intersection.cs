@@ -3,20 +3,20 @@
 public static partial class Ops
 {
     /// <summary>
-    /// Computes the intersection of two deterministic finite automata.
+    /// Intersection of two deterministic finite automata.
     /// The resulting automaton accepts only the strings that are accepted by both input automata.
     /// </summary>
     /// <param name="a">The first finite automaton.</param>
     /// <param name="b">The second finite automaton.</param>
     /// <returns>
-    /// A deterministic finite automaton representing the intersection of the two input automata.
+    /// An new <see cref="Mfa"/> representing the intersection of the two input automata.
     /// </returns>
-    public static FsaDet Intersection(FsaDet a, FsaDet b)
+    public static Mfa Intersection(this FsaDet a, FsaDet b)
     {
         if (ReferenceEquals(a, b))
             throw new ArgumentException("Operands must not be the same instance.");
         if (!a.HasInitialState || ! b.HasInitialState)
-            return new Dfa(a.Alphabet); // Return an empty DFA if either automaton is empty
+            return Mfa.CreateEmpty(a.Alphabet); // Return an empty DFA if either automaton is empty
 
         Dfa dfa = new(a.Alphabet);
 
@@ -69,7 +69,7 @@ public static partial class Ops
                 dfa.Add(new Transition(fromState, symbol, toState));
             }
         }
-        return dfa;
+        return dfa.AsMfa();
     }
 
     /// <summary>
