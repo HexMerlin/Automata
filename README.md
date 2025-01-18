@@ -67,6 +67,10 @@ Console.WriteLine("FSA is displayed."); // Write some info to the console
 ```
 ---
 
+## :blue_book: [Automata documentation](https://hexmerlin.github.io/Automata/index.html).
+
+---
+
 ## :package:  NuGet package Installation
 
 Install the packages via the .NET CLI or Package Manager in Visual Studio.
