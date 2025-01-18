@@ -12,7 +12,7 @@ The parser validates syntactic correctness and generates detailed error messages
 | Grammar Rule                         | Expansion                                                     |
 |--------------------------------------|---------------------------------------------------------------|
 | AlangRegex (root)                    | Union                                                         |
-| :small_blue_diamond:Union            | Difference  (`\|` Difference)*                                 |
+| :small_blue_diamond:Union            | Difference  (`|` Difference)*                                 |
 | :small_blue_diamond:Difference       | Intersection (`-` Intersection)*                              |
 | :small_blue_diamond:Intersection     | Concatenation (`&` Concatenation)*                            |
 | :small_blue_diamond:Concatenation    | UnaryRegex+                                                   |
@@ -40,7 +40,7 @@ For an input to be valid, the root rule AlangRegex must cover the entire input, 
 
 | Precedence | Operation/Unit  | Operator Character | Position & Arity   |
 |------------|-----------------|--------------------|--------------------|
-| 1          | Union           | L₁ `\|` L₂          | Infix Binary       | 
+| 1          | Union           | L₁ `|` L₂          | Infix Binary       | 
 | 2          | Difference      | L₁ `-` L₂          | Infix Binary       |
 | 3          | Intersection    | L₁ `&` L₂          | Infix Binary       | 
 | 4          | Concatenation   | L₁ L₂              | Infix Implicit     | 
@@ -86,13 +86,14 @@ For example:
     - Its corresponding grammar rule is `EmptyLang` and the parse tree type is `EmptyLang`.
     - Its automata equivalence is an automaton that does not accept anything (not even the empty string).
     - In most scenarios, `()` is not required when writing a Alang expressions.
-      However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
+        However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
+
 - The language containing only the empty string {ε}
     - It is written in Alang as `()?`, since the Option operator `?` unites the operand with {ε}:  **L? = L ∪ { ε }**
     - Its automata equivalence is an automaton that only accepts ε.
 - Note that `()` ≠ `{ε}`. For instance:
-    - Concatenating any language `L` with `()` results in `()`.
-    - Concatenating any language `L` with `{ε}` results in L.
+    - Concatenating any language `L` with `()` => `()`.
+    - Concatenating any language `L` with `{ε}` => `L`.
 
 ### Alang expression examples
 `(a? (b | c) )+` : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.
@@ -101,7 +102,7 @@ For example:
 
 `(x1 | x2 | x3)* - (x1 x2 x3)+` : All sequences constaining {x1, x2, x3}, except repetitions of "x1 x2 x3".
 
-`()`              : The empty language that does not accept anything. The results from `hello - hello` and `hello & world`
+`()`              : The empty language that does not accept anything. For example, it it the result from `hello - hello` and from `hello & world`.
 
 ### Operation Definitions
 ```
