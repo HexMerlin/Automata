@@ -62,7 +62,7 @@ For an input to be valid, the root rule AlangRegex must cover the entire input, 
 - The formal whitespace definition is equivalent to .NET's `char.IsWhiteSpace(char c)`.
 
 ### Symbols 
-The term **Symbol** have a specific meaning - as defined by automata theory:
+**Symbols** have a specific meaning - as formally defined by automata theory:
 - User-defined string literals that constitute the *atoms* of Alang expressions.
 - It is equivalent to **symbols** in finite-state automata. 
 - Can contain any characters except reserved operator characters or whitespace.
@@ -78,11 +78,11 @@ For example:
 
 `. - hello`  represents the language of all symbols except 'hello'.
 
-`(. - hello).*`    represents the language of all sequences, except those starting with 'hello'.
+`(. - hello).*`    represents the language of all sequences, except those containing 'hello'.
 
 ### The Empty Language ∅ and The Language containing only epsilon {ε}
 - The Empty Language ∅ is the language that does not cotain anything.
-    - It is written in Alang as empty parentheses `()`.  
+    - It is written in Alang using empty parentheses `()`.  
     - Its corresponding grammar rule is `EmptyLang` and the parse tree type is `EmptyLang`.
     - Its automata equivalence is an automaton that does not accept anything (not even the empty string).
     - In most scenarios, `()` is not required when writing a Alang expressions.
@@ -102,7 +102,7 @@ For example:
 
 `(x1 | x2 | x3)* - (x1 x2 x3)+` : All sequences constaining {x1, x2, x3}, except repetitions of "x1 x2 x3".
 
-`()`              : The empty language that does not accept anything. For example, it it the result from `hello - hello` and from `hello & world`.
+`()`              : The empty language that does not accept anything. For example, it is the result from `hello - hello` and from `hello & world`.
 
 ### Operation Definitions
 ```
