@@ -94,7 +94,7 @@
 
 
   <h1 id="Automata_Core_StateView" data-uid="Automata.Core.StateView" class="text-break">Struct StateView</h1>
-  <div class="markdown level0 summary"><p>Read-only view of a state in an automaton, providing access to transitions from the state.</p>
+  <div class="markdown level0 summary"><p>A fast readonly view of a <code>state</code> in a deterministic automaton, providing access to transitions from this specific state.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -125,7 +125,7 @@
     <pre><code class="lang-csharp hljs">public readonly ref struct StateView</code></pre>
   </div>
   <h5 id="Automata_Core_StateView_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This struct uses a ReadOnlySpan which is only a view on a contiguous memory sequence of <a class="xref" href="Automata.Core.StateView.html#Automata_Core_StateView_Transition_System_Int32_">Transition(int)</a>.</p>
+  <div class="markdown level0 remarks"><p>This struct uses a ReadOnlySpan as a view on a contiguous memory sequence of <a class="xref" href="Automata.Core.StateView.html#Automata_Core_StateView_Transition_System_Int32_">Transition(int)</a>.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -134,7 +134,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView__ctor_System_Int32_Automata_Core_Transition___.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.%23ctor(System.Int32%2CAutomata.Core.Transition%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L29">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L32">View Source</a>
   </span>
   <a id="Automata_Core_StateView__ctor_" data-uid="Automata.Core.StateView.#ctor*"></a>
   <h4 id="Automata_Core_StateView__ctor_System_Int32_Automata_Core_Transition___" data-uid="Automata.Core.StateView.#ctor(System.Int32,Automata.Core.Transition[])">StateView(int, Transition[])</h4>
@@ -174,7 +174,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView__ctor_System_Int32_System_ReadOnlySpan_Automata_Core_Transition__.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.%23ctor(System.Int32%2CSystem.ReadOnlySpan%7BAutomata.Core.Transition%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L36">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L39">View Source</a>
   </span>
   <a id="Automata_Core_StateView__ctor_" data-uid="Automata.Core.StateView.#ctor*"></a>
   <h4 id="Automata_Core_StateView__ctor_System_Int32_System_ReadOnlySpan_Automata_Core_Transition__" data-uid="Automata.Core.StateView.#ctor(System.Int32,System.ReadOnlySpan{Automata.Core.Transition})">StateView(int, ReadOnlySpan&lt;Transition&gt;)</h4>
@@ -216,7 +216,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView_Transitions.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.Transitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L17">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L18">View Source</a>
   </span>
   <h4 id="Automata_Core_StateView_Transitions" data-uid="Automata.Core.StateView.Transitions">Transitions</h4>
   <div class="markdown level1 summary"><p>Transitions from the current state.</p>
@@ -248,7 +248,7 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView_State.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L22">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L25">View Source</a>
   </span>
   <a id="Automata_Core_StateView_State_" data-uid="Automata.Core.StateView.State*"></a>
   <h4 id="Automata_Core_StateView_State" data-uid="Automata.Core.StateView.State">State</h4>
@@ -281,16 +281,16 @@
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView_Transition_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.Transition(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L57">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L63">View Source</a>
   </span>
   <a id="Automata_Core_StateView_Transition_" data-uid="Automata.Core.StateView.Transition*"></a>
   <h4 id="Automata_Core_StateView_Transition_System_Int32_" data-uid="Automata.Core.StateView.Transition(System.Int32)">Transition(int)</h4>
-  <div class="markdown level1 summary"><p>Gets the transition for the specified symbol.</p>
+  <div class="markdown level1 summary"><p>Returns the state reachable from the current state on the specified symbol.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Transition Transition(int symbol)</code></pre>
+    <pre><code class="lang-csharp hljs">public int Transition(int symbol)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -305,7 +305,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">symbol</span></td>
-        <td><p>Symbol for which to get the transition.</p>
+        <td><p>Symbol for the transition.</p>
 </td>
       </tr>
     </tbody>
@@ -320,12 +320,77 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
-        <td><p>Transition for the specified symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The state reachable from the given state on the given symbol. If no such transition exists, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Automata_Core_StateView_Transition_System_Int32__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Automata.Core.StateView.html#Automata_Core_StateView_TryTransition_System_Int32_System_Int32__">TryTransition(int, out int)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_StateView_TryTransition_System_Int32_System_Int32__.md&amp;value=---%0Auid%3A%20Automata.Core.StateView.TryTransition(System.Int32%2CSystem.Int32%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/StateView.cs/#L80">View Source</a>
+  </span>
+  <a id="Automata_Core_StateView_TryTransition_" data-uid="Automata.Core.StateView.TryTransition*"></a>
+  <h4 id="Automata_Core_StateView_TryTransition_System_Int32_System_Int32__" data-uid="Automata.Core.StateView.TryTransition(System.Int32,System.Int32@)">TryTransition(int, out int)</h4>
+  <div class="markdown level1 summary"><p>Tries to get the state reachable from the current state on the specified symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryTransition(int symbol, out int toState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>Symbol for the transition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">toState</span></td>
+        <td><p>The reachable state, or <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> if the method returns false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> a reachable state exists.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_StateView_TryTransition_System_Int32_System_Int32___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Automata.Core.StateView.html#Automata_Core_StateView_Transition_System_Int32_">Transition(int)</a></div>
+  </div>
 
 </article>
                 </div>

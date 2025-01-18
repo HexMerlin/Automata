@@ -100,15 +100,36 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">Dfa</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Automata.Core.IDfa.html">IDfa</a></div>
-    <div><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></div>
+    <div class="level1"><a class="xref" href="Automata.Core.Fsa.html">Fsa</a></div>
+    <div class="level2"><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></div>
+    <div class="level3"><span class="xref">Dfa</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsEpsilonFree">FsaDet.IsEpsilonFree</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_AcceptsEpsilon">FsaDet.AcceptsEpsilon</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_HasInitialState">FsaDet.HasInitialState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsInitial_System_Int32_">FsaDet.IsInitial(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_System_Int32_System_Int32_System_Int32__">FsaDet.TryTransition(int, int, out int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_EpsilonTransitions">FsaDet.EpsilonTransitions()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_System_Collections_Generic_IEnumerable_System_String__">FsaDet.Accepts(IEnumerable&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_Alphabet">Fsa.Alphabet</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -135,45 +156,29 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Dfa_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Dfa : IDfa, IFsa</code></pre>
+    <pre><code class="lang-csharp hljs">public class Dfa : FsaDet</code></pre>
   </div>
   <h5 id="Automata_Core_Dfa_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>A DFA is a finite state machine that accepts or rejects finite sequences of symbols.
-It is always deterministic and does not contain epsilon transitions.</p>
+  <div class="markdown level0 remarks"><p>A DFA is a finite state machine that accepts or rejects finite sequences of symbols.</p>
+<p>· A DFA cannot contain epsilon transitions</p><p>· Any mutation of a DFA is guaranteed to preserve its deterministic property.</p><p>· Mutation can make certain states unreachable (contain <code>Dead states</code>).</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa__ctor.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa__ctor_Automata_Core_Alphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.%23ctor(Automata.Core.Alphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L45">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L36">View Source</a>
   </span>
   <a id="Automata_Core_Dfa__ctor_" data-uid="Automata.Core.Dfa.#ctor*"></a>
-  <h4 id="Automata_Core_Dfa__ctor" data-uid="Automata.Core.Dfa.#ctor">Dfa()</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Dfa.html">Dfa</a> class with an empty alphabet.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dfa()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa__ctor_Automata_Core_MutableAlphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.%23ctor(Automata.Core.MutableAlphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L51">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa__ctor_" data-uid="Automata.Core.Dfa.#ctor*"></a>
-  <h4 id="Automata_Core_Dfa__ctor_Automata_Core_MutableAlphabet_" data-uid="Automata.Core.Dfa.#ctor(Automata.Core.MutableAlphabet)">Dfa(MutableAlphabet)</h4>
+  <h4 id="Automata_Core_Dfa__ctor_Automata_Core_Alphabet_" data-uid="Automata.Core.Dfa.#ctor(Automata.Core.Alphabet)">Dfa(Alphabet)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Dfa.html">Dfa</a> class with the specified alphabet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dfa(MutableAlphabet alphabet)</code></pre>
+    <pre><code class="lang-csharp hljs">public Dfa(Alphabet alphabet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -186,7 +191,7 @@ It is always deterministic and does not contain epsilon transitions.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Automata.Core.MutableAlphabet.html">MutableAlphabet</a></td>
+        <td><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></td>
         <td><span class="parametername">alphabet</span></td>
         <td><p>Alphabet used by the DFA.</p>
 </td>
@@ -197,41 +202,10 @@ It is always deterministic and does not contain epsilon transitions.</p>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Alphabet.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Alphabet%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L18">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_Alphabet_" data-uid="Automata.Core.Dfa.Alphabet*"></a>
-  <h4 id="Automata_Core_Dfa_Alphabet" data-uid="Automata.Core.Dfa.Alphabet">Alphabet</h4>
-  <div class="markdown level1 summary"><p>Alphabet used by the DFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MutableAlphabet Alphabet { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.MutableAlphabet.html">MutableAlphabet</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_FinalStates.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.FinalStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L123">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L91">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_FinalStates_" data-uid="Automata.Core.Dfa.FinalStates*"></a>
   <h4 id="Automata_Core_Dfa_FinalStates" data-uid="Automata.Core.Dfa.FinalStates">FinalStates</h4>
@@ -240,7 +214,7 @@ It is always deterministic and does not contain epsilon transitions.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;int&gt; FinalStates { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override IReadOnlyCollection&lt;int&gt; FinalStates { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -252,17 +226,19 @@ It is always deterministic and does not contain epsilon transitions.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_FinalStates">Fsa.FinalStates</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_InitialState.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.InitialState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L28">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L62">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_InitialState_" data-uid="Automata.Core.Dfa.InitialState*"></a>
   <h4 id="Automata_Core_Dfa_InitialState" data-uid="Automata.Core.Dfa.InitialState">InitialState</h4>
@@ -271,7 +247,7 @@ It is always deterministic and does not contain epsilon transitions.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int InitialState { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override int InitialState { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -288,86 +264,27 @@ It is always deterministic and does not contain epsilon transitions.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_InitialState">FsaDet.InitialState</a></div>
   <h5 id="Automata_Core_Dfa_InitialState_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Returns <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> if the DFA has no initial state.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L71">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_IsEmpty_" data-uid="Automata.Core.Dfa.IsEmpty*"></a>
-  <h4 id="Automata_Core_Dfa_IsEmpty" data-uid="Automata.Core.Dfa.IsEmpty">IsEmpty</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the DFA is empty. A DFA is considered empty if it has no initial state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsEmpty { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_IsEpsilonFree.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.IsEpsilonFree%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L76">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_IsEpsilonFree_" data-uid="Automata.Core.Dfa.IsEpsilonFree*"></a>
-  <h4 id="Automata_Core_Dfa_IsEpsilonFree" data-uid="Automata.Core.Dfa.IsEpsilonFree">IsEpsilonFree</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the DFA is epsilon-free. Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsEpsilonFree { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_MaxState.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.MaxState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L39">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L72">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_MaxState_" data-uid="Automata.Core.Dfa.MaxState*"></a>
   <h4 id="Automata_Core_Dfa_MaxState" data-uid="Automata.Core.Dfa.MaxState">MaxState</h4>
-  <div class="markdown level1 summary"><p>Upper bound for the maximum state number in the DFA.</p>
+  <div class="markdown level1 summary"><p>Upper limit for the maximum state number in the DFA.</p>
+<p>A value (<a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Dfa_MaxState">MaxState</a> + 1) is guaranteed to be an unused state number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MaxState { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override int MaxState { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -384,47 +301,29 @@ It is always deterministic and does not contain epsilon transitions.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_MaxState">FsaDet.MaxState</a></div>
   <h5 id="Automata_Core_Dfa_MaxState_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This value represents an upper limit for state numbers in the DFA.
 The actual maximum state number may be lower, as removed states are not tracked for performance reasons.</p>
 </div>
-  <h3 id="methods">Methods
-</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_TransitionCount.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.TransitionCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L261">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L77">View Source</a>
   </span>
-  <a id="Automata_Core_Dfa_Accepts_" data-uid="Automata.Core.Dfa.Accepts*"></a>
-  <h4 id="Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__" data-uid="Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})">Accepts(IEnumerable&lt;string&gt;)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the DFA accepts the given sequence of symbols.</p>
+  <a id="Automata_Core_Dfa_TransitionCount_" data-uid="Automata.Core.Dfa.TransitionCount*"></a>
+  <h4 id="Automata_Core_Dfa_TransitionCount" data-uid="Automata.Core.Dfa.TransitionCount">TransitionCount</h4>
+  <div class="markdown level1 summary"><p>Number of transitions in the automaton.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Accepts(IEnumerable&lt;string&gt; sequence)</code></pre>
+    <pre><code class="lang-csharp hljs">public override int TransitionCount { get; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td><span class="parametername">sequence</span></td>
-        <td><p>Sequence of symbols to check.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -434,23 +333,21 @@ The actual maximum state number may be lower, as removed states are not tracked 
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the DFA accepts the sequence.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
-If the DFA reaches a final state after processing all symbols, the sequence is accepted.</p>
-</div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TransitionCount">FsaDet.TransitionCount</a></div>
+  <h3 id="methods">Methods
+</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Add_Automata_Core_Transition_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Add(Automata.Core.Transition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L135">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L163">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_Add_" data-uid="Automata.Core.Dfa.Add*"></a>
   <h4 id="Automata_Core_Dfa_Add_Automata_Core_Transition_" data-uid="Automata.Core.Dfa.Add(Automata.Core.Transition)">Add(Transition)</h4>
@@ -501,42 +398,10 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_EpsilonTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.EpsilonTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L217">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_EpsilonTransitions_" data-uid="Automata.Core.Dfa.EpsilonTransitions*"></a>
-  <h4 id="Automata_Core_Dfa_EpsilonTransitions" data-uid="Automata.Core.Dfa.EpsilonTransitions">EpsilonTransitions()</h4>
-  <div class="markdown level1 summary"><p>Gets the epsilon transitions of the DFA, which is always empty.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;EpsilonTransition&gt; EpsilonTransitions()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>&gt;</td>
-        <td><p>An empty enumerable collection of <a class="xref" href="Automata.Core.EpsilonTransition.html">EpsilonTransition</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_IsFinal_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.IsFinal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L118">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L86">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_IsFinal_" data-uid="Automata.Core.Dfa.IsFinal*"></a>
   <h4 id="Automata_Core_Dfa_IsFinal_System_Int32_" data-uid="Automata.Core.Dfa.IsFinal(System.Int32)">IsFinal(int)</h4>
@@ -545,7 +410,7 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsFinal(int state)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool IsFinal(int state)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -582,186 +447,14 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_IsInitial_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.IsInitial(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L109">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_IsInitial_" data-uid="Automata.Core.Dfa.IsInitial*"></a>
-  <h4 id="Automata_Core_Dfa_IsInitial_System_Int32_" data-uid="Automata.Core.Dfa.IsInitial(System.Int32)">IsInitial(int)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the specified state is the initial state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsInitial(int state)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>State to check.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the specified state is the initial state.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Minimized.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Minimized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L232">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_Minimized_" data-uid="Automata.Core.Dfa.Minimized*"></a>
-  <h4 id="Automata_Core_Dfa_Minimized" data-uid="Automata.Core.Dfa.Minimized">Minimized()</h4>
-  <div class="markdown level1 summary"><p>Minimizes the DFA using Brzozowski's algorithm.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dfa Minimized()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
-        <td><p>A minimized DFA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Automata_Core_Dfa_Minimized_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This algorithm involves reversing the DFA, determinizing it, reversing it again, and determinizing it once more.</p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_ReachableState_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.ReachableState(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L198">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_ReachableState_" data-uid="Automata.Core.Dfa.ReachableState*"></a>
-  <h4 id="Automata_Core_Dfa_ReachableState_System_Int32_System_Int32_" data-uid="Automata.Core.Dfa.ReachableState(System.Int32,System.Int32)">ReachableState(int, int)</h4>
-  <div class="markdown level1 summary"><p>Returns the state reachable from the given state on the given symbol.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ReachableState(int fromState, int symbol)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">fromState</span></td>
-        <td><p>State from which to start.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">symbol</span></td>
-        <td><p>Symbol to transition on.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The state reachable from the given state on the given symbol. If no such transition exists, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Reversed.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Reversed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L223">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_Reversed_" data-uid="Automata.Core.Dfa.Reversed*"></a>
-  <h4 id="Automata_Core_Dfa_Reversed" data-uid="Automata.Core.Dfa.Reversed">Reversed()</h4>
-  <div class="markdown level1 summary"><p>Creates a new NFA that recognizes the reverse of the language accepted by this DFA.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Nfa Reversed()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
-        <td><p>An NFA representing the reversed DFA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_IsFinal_System_Int32_">Fsa.IsFinal(int)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.SetFinal(System.Collections.Generic.IEnumerable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L100">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L151">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_SetFinal_" data-uid="Automata.Core.Dfa.SetFinal*"></a>
   <h4 id="Automata_Core_Dfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Automata.Core.Dfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">SetFinal(IEnumerable&lt;int&gt;, bool)</h4>
@@ -801,7 +494,7 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_SetFinal_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.SetFinal(System.Int32%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L91">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L142">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_SetFinal_" data-uid="Automata.Core.Dfa.SetFinal*"></a>
   <h4 id="Automata_Core_Dfa_SetFinal_System_Int32_System_Boolean_" data-uid="Automata.Core.Dfa.SetFinal(System.Int32,System.Boolean)">SetFinal(int, bool)</h4>
@@ -841,7 +534,7 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_SetInitial_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.SetInitial(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L82">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L133">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_SetInitial_" data-uid="Automata.Core.Dfa.SetInitial*"></a>
   <h4 id="Automata_Core_Dfa_SetInitial_System_Int32_" data-uid="Automata.Core.Dfa.SetInitial(System.Int32)">SetInitial(int)</h4>
@@ -875,16 +568,16 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_State_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.State(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L187">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L98">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_State_" data-uid="Automata.Core.Dfa.State*"></a>
   <h4 id="Automata_Core_Dfa_State_System_Int32_" data-uid="Automata.Core.Dfa.State(System.Int32)">State(int)</h4>
-  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Automata.Core.StateView.html">StateView</a> of the given state.</p>
+  <div class="markdown level1 summary"><p>Returns a view of the specified state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StateView State(int fromState)</code></pre>
+    <pre><code class="lang-csharp hljs">public override StateView State(int fromState)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -899,7 +592,7 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">fromState</span></td>
-        <td><p>From state.</p>
+        <td><p>The state origin.</p>
 </td>
       </tr>
     </tbody>
@@ -920,26 +613,24 @@ If the DFA reaches a final state after processing all symbols, the sequence is a
       </tr>
     </tbody>
   </table>
-  <h5 id="Automata_Core_Dfa_State_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method provides a read-only view of the state transitions from the specified state.
-It is primarily for compatibility with contiguous memory representations like <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.
-When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Dfa_Transitions_System_Int32_">Transitions(int)</a>, which avoids memory allocation and has less overhead.</p>
-</div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_State_System_Int32_">FsaDet.State(int)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_SymbolicTransitions.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.SymbolicTransitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_ToCanonicalString.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.ToCanonicalString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L211">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L279">View Source</a>
   </span>
-  <a id="Automata_Core_Dfa_SymbolicTransitions_" data-uid="Automata.Core.Dfa.SymbolicTransitions*"></a>
-  <h4 id="Automata_Core_Dfa_SymbolicTransitions" data-uid="Automata.Core.Dfa.SymbolicTransitions">SymbolicTransitions()</h4>
-  <div class="markdown level1 summary"><p>Gets the transitions of the DFA.</p>
+  <a id="Automata_Core_Dfa_ToCanonicalString_" data-uid="Automata.Core.Dfa.ToCanonicalString*"></a>
+  <h4 id="Automata_Core_Dfa_ToCanonicalString" data-uid="Automata.Core.Dfa.ToCanonicalString">ToCanonicalString()</h4>
+  <div class="markdown level1 summary"><p>Returns a canonical string representation of the DFA's data.
+Used by unit tests and for debugging.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Transition&gt; SymbolicTransitions()</code></pre>
+    <pre><code class="lang-csharp hljs">public override string ToCanonicalString()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -951,91 +642,28 @@ When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Df
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
-        <td><p>An enumerable collection of transitions.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_ToCFA.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.ToCFA%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L242">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_ToCFA_" data-uid="Automata.Core.Dfa.ToCFA*"></a>
-  <h4 id="Automata_Core_Dfa_ToCFA" data-uid="Automata.Core.Dfa.ToCFA">ToCFA()</h4>
-  <div class="markdown level1 summary"><p>Converts the DFA to a canonical finite automaton (CFA).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Cfa ToCFA()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></td>
-        <td><p>A CFA representing the DFA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_ToNFA.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.ToNFA%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L248">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_ToNFA_" data-uid="Automata.Core.Dfa.ToNFA*"></a>
-  <h4 id="Automata_Core_Dfa_ToNFA" data-uid="Automata.Core.Dfa.ToNFA">ToNFA()</h4>
-  <div class="markdown level1 summary"><p>Converts the DFA to a nondeterministic finite automaton (NFA).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Nfa ToNFA()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
-        <td><p>An NFA representing the DFA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_ToCanonicalString">Fsa.ToCanonicalString()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Transition_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Transition(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L160">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L102">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_Transition_" data-uid="Automata.Core.Dfa.Transition*"></a>
   <h4 id="Automata_Core_Dfa_Transition_System_Int32_System_Int32_" data-uid="Automata.Core.Dfa.Transition(System.Int32,System.Int32)">Transition(int, int)</h4>
-  <div class="markdown level1 summary"><p>Returns the transition from the given state with the given symbol.</p>
+  <div class="markdown level1 summary"><p>Returns the state reachable from the given state on the given symbol.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Transition Transition(int fromState, int symbol)</code></pre>
+    <pre><code class="lang-csharp hljs">public override int Transition(int fromState, int symbol)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1050,13 +678,13 @@ When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Df
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">fromState</span></td>
-        <td><p>State from which to start.</p>
+        <td><p>The state origin of the transition.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">symbol</span></td>
-        <td><p>Symbol to transition on.</p>
+        <td><p>Symbol for the transition.</p>
 </td>
       </tr>
     </tbody>
@@ -1066,51 +694,39 @@ When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Df
     <thead>
       <tr>
         <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Transition.html">Transition</a></td>
-        <td><p>The transition from the given state on the given symbol, or <a class="xref" href="Automata.Core.Transition.html#Automata_Core_Transition_Invalid">Invalid</a> if no such transition exists.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Transitions_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Transitions(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L171">View Source</a>
-  </span>
-  <a id="Automata_Core_Dfa_Transitions_" data-uid="Automata.Core.Dfa.Transitions*"></a>
-  <h4 id="Automata_Core_Dfa_Transitions_System_Int32_" data-uid="Automata.Core.Dfa.Transitions(System.Int32)">Transitions(int)</h4>
-  <div class="markdown level1 summary"><p>Returns the set of transitions from the given state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SortedSet&lt;Transition&gt; Transitions(int fromState)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">fromState</span></td>
-        <td><p>State from which to start.</p>
+        <td><p>The state reachable from the given state on the given symbol. If no such transition exists, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_System_Int32_System_Int32_">FsaDet.Transition(int, int)</a></div>
+  <h5 id="Automata_Core_Dfa_Transition_System_Int32_System_Int32__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_System_Int32_System_Int32_System_Int32__">TryTransition</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, out <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_Transitions.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.Transitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L112">View Source</a>
+  </span>
+  <a id="Automata_Core_Dfa_Transitions_" data-uid="Automata.Core.Dfa.Transitions*"></a>
+  <h4 id="Automata_Core_Dfa_Transitions" data-uid="Automata.Core.Dfa.Transitions">Transitions()</h4>
+  <div class="markdown level1 summary"><p>Gets the transitions of the DFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyCollection&lt;Transition&gt; Transitions()</code></pre>
+  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
@@ -1121,18 +737,20 @@ When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Df
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
-        <td><p>Set of transitions from the given state.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>An collection of transitions.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_Transitions">Fsa.Transitions()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Dfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__.md&amp;value=---%0Auid%3A%20Automata.Core.Dfa.UnionWith(System.Collections.Generic.IEnumerable%7BAutomata.Core.Transition%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/DFA.cs/#L146">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Dfa.cs/#L175">View Source</a>
   </span>
   <a id="Automata_Core_Dfa_UnionWith_" data-uid="Automata.Core.Dfa.UnionWith*"></a>
   <h4 id="Automata_Core_Dfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__" data-uid="Automata.Core.Dfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})">UnionWith(IEnumerable&lt;Transition&gt;)</h4>
@@ -1161,12 +779,27 @@ When possible, use <a class="xref" href="Automata.Core.Dfa.html#Automata_Core_Df
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
+  <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Automata.Core.IDfa.html">IDfa</a>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsDeterministic_Automata_Core_Fsa_">Converter.AsDeterministic(Fsa)</a>
   </div>
   <div>
-      <a class="xref" href="Automata.Core.IFsa.html">IFsa</a>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsMfa_Automata_Core_Fsa_">Converter.AsMfa(Fsa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsNfa_Automata_Core_Fsa_">Converter.AsNfa(Fsa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_">Ops.Difference(FsaDet, Mfa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_Automata_Core_FsaDet_Automata_Core_FsaDet_">Ops.Intersection(FsaDet, FsaDet)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Overlaps_Automata_Core_FsaDet_Automata_Core_FsaDet_">Ops.Overlaps(FsaDet, FsaDet)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_">Ops.Reversal(FsaDet)</a>
   </div>
 
 </article>

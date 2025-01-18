@@ -94,7 +94,7 @@
 
 
   <h1 id="Automata_Core_Alang_AlangCursor" data-uid="Automata.Core.Alang.AlangCursor" class="text-break">Struct AlangCursor</h1>
-  <div class="markdown level0 summary"><p>Represents a cursor for parsing Alang expressions from an input string.</p>
+  <div class="markdown level0 summary"><p>Represents a cursor for parsing Alang regex strings.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -122,11 +122,11 @@
     <pre><code class="lang-csharp hljs">public ref struct AlangCursor</code></pre>
   </div>
   <h5 id="Automata_Core_Alang_AlangCursor_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>A cursor is a lightweight struct that consumes characters from the left of a string input.
-The input string is never modified. Instead, the cursor maintains a lightweight span of the remaining input.
-The parser in the <a class="xref" href="Automata.Core.Alang.html">Automata.Core.Alang</a> namespace only needs to create a single cursor instance that is passed along during the parse process.
-The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> is that it always points to a non-white-space character or <a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_EOI">EOI</a> if the input is empty.</p>
-<p>Consequently:</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> that move the cursor must ensure on exit that leading whitespace is trimmed.</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> can assume on entry that the input is trimmed of leading whitespace.</p>
+  <div class="markdown level0 remarks"><p>A cursor is a lightweight struct that consumes characters from the left of the input <code class="paramref">regexString</code> as it is parsed.
+For performance, <code class="paramref">regexString</code> is never split, copied or modified. Instead, the cursor maintains a lightweight span of the remaining regex string.
+Also, the parser in the <a class="xref" href="Automata.Core.Alang.html">Automata.Core.Alang</a> namespace only needs to maintain a single cursor instance through the entire parse process.
+The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> is that it always points to a non-white-space character or <a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_EOI">EOI</a> if the regex string is empty.</p>
+<p>Consequently:</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> that move the cursor must ensure on exit that <code>leading</code>whitespace is skipped.</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> can assume on entry that the cursor points to a non-whitespace character.</p><p>This struct is also the sole point for throwing all types of parsing exceptions. These are handled by the methods prefixed by <code>Should</code>.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -135,16 +135,16 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor__ctor_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.%23ctor(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L17">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L18">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor__ctor_" data-uid="Automata.Core.Alang.AlangCursor.#ctor*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor__ctor_System_String_" data-uid="Automata.Core.Alang.AlangCursor.#ctor(System.String)">AlangCursor(string)</h4>
-  <div class="markdown level1 summary"><p>Represents a cursor for parsing Alang expressions from an input string.</p>
+  <div class="markdown level1 summary"><p>Represents a cursor for parsing Alang regex strings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AlangCursor(string input)</code></pre>
+    <pre><code class="lang-csharp hljs">public AlangCursor(string regexString)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -158,18 +158,18 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input string to parse.</p>
+        <td><span class="parametername">regexString</span></td>
+        <td><p>The regex string to parse.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Automata_Core_Alang_AlangCursor__ctor_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A cursor is a lightweight struct that consumes characters from the left of a string input.
-The input string is never modified. Instead, the cursor maintains a lightweight span of the remaining input.
-The parser in the <a class="xref" href="Automata.Core.Alang.html">Automata.Core.Alang</a> namespace only needs to create a single cursor instance that is passed along during the parse process.
-The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> is that it always points to a non-white-space character or <a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_EOI">EOI</a> if the input is empty.</p>
-<p>Consequently:</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> that move the cursor must ensure on exit that leading whitespace is trimmed.</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> can assume on entry that the input is trimmed of leading whitespace.</p>
+  <div class="markdown level1 remarks"><p>A cursor is a lightweight struct that consumes characters from the left of the input <code class="paramref">regexString</code> as it is parsed.
+For performance, <code class="paramref">regexString</code> is never split, copied or modified. Instead, the cursor maintains a lightweight span of the remaining regex string.
+Also, the parser in the <a class="xref" href="Automata.Core.Alang.html">Automata.Core.Alang</a> namespace only needs to maintain a single cursor instance through the entire parse process.
+The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> is that it always points to a non-white-space character or <a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_EOI">EOI</a> if the regex string is empty.</p>
+<p>Consequently:</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> that move the cursor must ensure on exit that <code>leading</code>whitespace is skipped.</p><p>- All methods in <a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a> can assume on entry that the cursor points to a non-whitespace character.</p><p>This struct is also the sole point for throwing all types of parsing exceptions. These are handled by the methods prefixed by <code>Should</code>.</p>
 </div>
   <h3 id="properties">Properties
 </h3>
@@ -178,7 +178,7 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_CursorIndex.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.CursorIndex%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L201">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L176">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_CursorIndex_" data-uid="Automata.Core.Alang.AlangCursor.CursorIndex*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_CursorIndex" data-uid="Automata.Core.Alang.AlangCursor.CursorIndex">CursorIndex</h4>
@@ -209,7 +209,7 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_IsEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.IsEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L26">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L31">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_IsEmpty_" data-uid="Automata.Core.Alang.AlangCursor.IsEmpty*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_IsEmpty" data-uid="Automata.Core.Alang.AlangCursor.IsEmpty">IsEmpty</h4>
@@ -240,7 +240,7 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_IsExpressionStart.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.IsExpressionStart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L37">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L42">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_IsExpressionStart_" data-uid="Automata.Core.Alang.AlangCursor.IsExpressionStart*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_IsExpressionStart" data-uid="Automata.Core.Alang.AlangCursor.IsExpressionStart">IsExpressionStart</h4>
@@ -272,7 +272,7 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_NextAsString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.NextAsString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L196">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L171">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_NextAsString_" data-uid="Automata.Core.Alang.AlangCursor.NextAsString*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_NextAsString" data-uid="Automata.Core.Alang.AlangCursor.NextAsString">NextAsString</h4>
@@ -302,19 +302,19 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ConsumeAtom.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ConsumeAtom%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ConsumeSymbol.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ConsumeSymbol%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L180">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L155">View Source</a>
   </span>
-  <a id="Automata_Core_Alang_AlangCursor_ConsumeAtom_" data-uid="Automata.Core.Alang.AlangCursor.ConsumeAtom*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_ConsumeAtom" data-uid="Automata.Core.Alang.AlangCursor.ConsumeAtom">ConsumeAtom()</h4>
-  <div class="markdown level1 summary"><p>Consumes an <a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a> from the input.</p>
+  <a id="Automata_Core_Alang_AlangCursor_ConsumeSymbol_" data-uid="Automata.Core.Alang.AlangCursor.ConsumeSymbol*"></a>
+  <h4 id="Automata_Core_Alang_AlangCursor_ConsumeSymbol" data-uid="Automata.Core.Alang.AlangCursor.ConsumeSymbol">ConsumeSymbol()</h4>
+  <div class="markdown level1 summary"><p>Consumes an <a class="xref" href="Automata.Core.Alang.Symbol.html">Symbol</a> from the input.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Atom ConsumeAtom()</code></pre>
+    <pre><code class="lang-csharp hljs">public Symbol ConsumeSymbol()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -326,53 +326,21 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a></td>
-        <td><p>The consumed <a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a>.</p>
+        <td><a class="xref" href="Automata.Core.Alang.Symbol.html">Symbol</a></td>
+        <td><p>The consumed <a class="xref" href="Automata.Core.Alang.Symbol.html">Symbol</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Automata_Core_Alang_AlangCursor_ConsumeAtom_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method will return an empty (invalid) <a class="xref" href="Automata.Core.Alang.Atom.html">Atom</a> if no characters could be consumed. It is up to the calling code to handle this.</p>
+  <h5 id="Automata_Core_Alang_AlangCursor_ConsumeSymbol_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method will return an empty (invalid) <a class="xref" href="Automata.Core.Alang.Symbol.html">Symbol</a> if no characters could be consumed. It is up to the calling code to handle this.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ConsumeRightParen.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ConsumeRightParen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L136">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangCursor_ConsumeRightParen_" data-uid="Automata.Core.Alang.AlangCursor.ConsumeRightParen*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_ConsumeRightParen" data-uid="Automata.Core.Alang.AlangCursor.ConsumeRightParen">ConsumeRightParen()</h4>
-  <div class="markdown level1 summary"><p>Consumes a right parenthesis (<a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_RightParen">RightParen</a>) from the input, advancing the cursor.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ConsumeRightParen()</code></pre>
-  </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
-        <td><p>Thrown when the next character is not a right parenthesis.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_Is_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.Is(System.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L44">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L49">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_Is_" data-uid="Automata.Core.Alang.AlangCursor.Is*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_Is_System_Char_" data-uid="Automata.Core.Alang.AlangCursor.Is(System.Char)">Is(char)</h4>
@@ -420,10 +388,111 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_IsNot_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.IsNot(System.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L56">View Source</a>
+  </span>
+  <a id="Automata_Core_Alang_AlangCursor_IsNot_" data-uid="Automata.Core.Alang.AlangCursor.IsNot*"></a>
+  <h4 id="Automata_Core_Alang_AlangCursor_IsNot_System_Char_" data-uid="Automata.Core.Alang.AlangCursor.IsNot(System.Char)">IsNot(char)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the first character in the remaining input is not the specified character.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsNot(char c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>The character to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the first character is NOT the specified character.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ShouldBeRightOperand_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(System.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L98">View Source</a>
+  </span>
+  <a id="Automata_Core_Alang_AlangCursor_ShouldBeRightOperand_" data-uid="Automata.Core.Alang.AlangCursor.ShouldBeRightOperand*"></a>
+  <h4 id="Automata_Core_Alang_AlangCursor_ShouldBeRightOperand_System_Char_" data-uid="Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(System.Char)">ShouldBeRightOperand(char)</h4>
+  <div class="markdown level1 summary"><p>Validates that there is right operand after a binary operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void ShouldBeRightOperand(char binaryOperator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
+        <td><span class="parametername">binaryOperator</span></td>
+        <td><p>The preceding binary operator character. (Only used for better informed error messages if validation fails).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
+        <td><p>Thrown when the current character is not a right parenthesis ')'.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ShouldBeRightParen.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ShouldBeRightParen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L87">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L90">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_ShouldBeRightParen_" data-uid="Automata.Core.Alang.AlangCursor.ShouldBeRightParen*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_ShouldBeRightParen" data-uid="Automata.Core.Alang.AlangCursor.ShouldBeRightParen">ShouldBeRightParen()</h4>
@@ -455,7 +524,7 @@ The contract of the <a class="xref" href="Automata.Core.Alang.AlangCursor.html">
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ShouldNotBeEmpty.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ShouldNotBeEmpty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L54">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L66">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_ShouldNotBeEmpty_" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeEmpty*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_ShouldNotBeEmpty" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeEmpty">ShouldNotBeEmpty()</h4>
@@ -491,7 +560,7 @@ To represent an empty set, use parentheses '()' instead.</p>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ShouldNotBeOperator.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ShouldNotBeOperator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L67">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L76">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_ShouldNotBeOperator_" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeOperator*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_ShouldNotBeOperator" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeOperator">ShouldNotBeOperator()</h4>
@@ -526,7 +595,7 @@ To represent an empty set, use parentheses '()' instead.</p>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ShouldNotBeRightParen.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ShouldNotBeRightParen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L77">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L83">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_ShouldNotBeRightParen_" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeRightParen*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_ShouldNotBeRightParen" data-uid="Automata.Core.Alang.AlangCursor.ShouldNotBeRightParen">ShouldNotBeRightParen()</h4>
@@ -558,7 +627,7 @@ To represent an empty set, use parentheses '()' instead.</p>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_ToString.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L207">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L182">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_ToString_" data-uid="Automata.Core.Alang.AlangCursor.ToString*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_ToString" data-uid="Automata.Core.Alang.AlangCursor.ToString">ToString()</h4>
@@ -592,7 +661,7 @@ To represent an empty set, use parentheses '()' instead.</p>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsume_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsume(System.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L147">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L107">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_TryConsume_" data-uid="Automata.Core.Alang.AlangCursor.TryConsume*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_TryConsume_System_Char_" data-uid="Automata.Core.Alang.AlangCursor.TryConsume(System.Char)">TryConsume(char)</h4>
@@ -643,7 +712,7 @@ To represent an empty set, use parentheses '()' instead.</p>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeAny_System_Char___.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeAny(System.Char%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L162">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L122">View Source</a>
   </span>
   <a id="Automata_Core_Alang_AlangCursor_TryConsumeAny_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeAny*"></a>
   <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeAny_System_Char___" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeAny(System.Char[])">TryConsumeAny(params char[])</h4>
@@ -693,53 +762,38 @@ To represent an empty set, use parentheses '()' instead.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeDifferenceOperator.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeBinaryOperator_System_Char_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(System.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L118">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L139">View Source</a>
   </span>
-  <a id="Automata_Core_Alang_AlangCursor_TryConsumeDifferenceOperator_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeDifferenceOperator" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator">TryConsumeDifferenceOperator()</h4>
-  <div class="markdown level1 summary"><p>Tries to consume a difference operator (<a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_Difference">Difference</a>) from the input and advances the cursor if successful.</p>
+  <a id="Automata_Core_Alang_AlangCursor_TryConsumeBinaryOperator_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator*"></a>
+  <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeBinaryOperator_System_Char_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(System.Char)">TryConsumeBinaryOperator(char)</h4>
+  <div class="markdown level1 summary"><p>Tries to consume a binary operator from the input and advances the cursor if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryConsumeDifferenceOperator()</code></pre>
+    <pre><code class="lang-csharp hljs">public bool TryConsumeBinaryOperator(char binaryOperator)</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the difference operator was successfully consumed.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
+        <td><span class="parametername">binaryOperator</span></td>
+        <td><p>The binary operator character to attempt to consume.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeIntersectionOperator.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L124">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangCursor_TryConsumeIntersectionOperator_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeIntersectionOperator" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator">TryConsumeIntersectionOperator()</h4>
-  <div class="markdown level1 summary"><p>Tries to consume an intersection operator (<a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_Intersection">Intersection</a>) from the input and advances the cursor if successful.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryConsumeIntersectionOperator()</code></pre>
-  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
@@ -752,73 +806,23 @@ To represent an empty set, use parentheses '()' instead.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the intersection operator was successfully consumed.</p>
+<code>iff</code> the binary operator was successfully consumed and the next character is a valid expression start.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeLeftParen.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeLeftParen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L130">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangCursor_TryConsumeLeftParen_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeLeftParen*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeLeftParen" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeLeftParen">TryConsumeLeftParen()</h4>
-  <div class="markdown level1 summary"><p>Tries to consume a left parenthesis (<a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_LeftParen">LeftParen</a>) from the input and advances the cursor if successful.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryConsumeLeftParen()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Description</th>
+        <th>Condition</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the left parenthesis was successfully consumed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_AlangCursor_TryConsumeUnionOperator.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/AlangCursor.cs/#L112">View Source</a>
-  </span>
-  <a id="Automata_Core_Alang_AlangCursor_TryConsumeUnionOperator_" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator*"></a>
-  <h4 id="Automata_Core_Alang_AlangCursor_TryConsumeUnionOperator" data-uid="Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator">TryConsumeUnionOperator()</h4>
-  <div class="markdown level1 summary"><p>Tries to consume a union operator (<a class="xref" href="Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_Union">Union</a>) from the input and advances the cursor if successful.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryConsumeUnionOperator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-<code>iff</code> the union operator was successfully consumed.</p>
+        <td><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></td>
+        <td><p>Thrown when the binary operator was consumed but the next character was not <a class="xref" href="Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_IsExpressionStart">IsExpressionStart</a> .</p>
 </td>
       </tr>
     </tbody>

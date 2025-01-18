@@ -100,26 +100,44 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="Automata.Core.Alang.AlangExpr.html">AlangExpr</a></div>
-    <div class="level2"><a class="xref" href="Automata.Core.Alang.UnaryExpr.html">UnaryExpr</a></div>
+    <div class="level1"><a class="xref" href="Automata.Core.Alang.AlangRegex.html">AlangRegex</a></div>
+    <div class="level2"><a class="xref" href="Automata.Core.Alang.UnaryRegex.html">UnaryRegex</a></div>
     <div class="level3"><span class="xref">Option</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand">UnaryExpr.Operand</a>
+      <a class="xref" href="Automata.Core.Alang.UnaryRegex.html#Automata_Core_Alang_UnaryRegex_Operand">UnaryRegex.Operand</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmptyString">AlangExpr.IsEmptyString</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_IsEmptyString">AlangRegex.IsEmptyString</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Parse_System_String_">AlangExpr.Parse(string)</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Parse_System_String_">AlangRegex.Parse(string)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_">AlangExpr.Param(AlangExpr, AlangExpr)</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_">AlangRegex.Compile(string)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ToString">AlangExpr.ToString()</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_System_String___">AlangRegex.Compile(string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_Automata_Core_Alphabet_">AlangRegex.Compile(Alphabet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile">AlangRegex.Compile()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String___">AlangRegex.Compile(params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Param_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_">AlangRegex.Param(AlangRegex, AlangRegex)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_ToString">AlangRegex.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_DescendantsAndSelf">AlangRegex.DescendantsAndSelf()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -144,7 +162,7 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Alang_Option_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Option : UnaryExpr</code></pre>
+    <pre><code class="lang-csharp hljs">public class Option : UnaryRegex</code></pre>
   </div>
   <h5 id="Automata_Core_Alang_Option_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>An option expression matches zero or one occurrence of its operand.</p>
@@ -153,19 +171,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangExpr_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.Option.%23ctor(Automata.Core.Alang.AlangExpr)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangRegex_.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.Option.%23ctor(Automata.Core.Alang.AlangRegex)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Alang/Option.cs/#L10">View Source</a>
   </span>
   <a id="Automata_Core_Alang_Option__ctor_" data-uid="Automata.Core.Alang.Option.#ctor*"></a>
-  <h4 id="Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangExpr_" data-uid="Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangExpr)">Option(AlangExpr)</h4>
+  <h4 id="Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangRegex_" data-uid="Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangRegex)">Option(AlangRegex)</h4>
   <div class="markdown level1 summary"><p>Represents an option expression in the Alang language.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Option(AlangExpr operand)</code></pre>
+    <pre><code class="lang-csharp hljs">public Option(AlangRegex operand)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -178,14 +196,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Automata.Core.Alang.AlangExpr.html">AlangExpr</a></td>
+        <td><a class="xref" href="Automata.Core.Alang.AlangRegex.html">AlangRegex</a></td>
         <td><span class="parametername">operand</span></td>
         <td><p>The operand of the option expression.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangExpr__remarks">Remarks</h5>
+  <h5 id="Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangRegex__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>An option expression matches zero or one occurrence of its operand.</p>
 </div>
   <h3 id="properties">Properties
@@ -217,12 +235,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>A string representing the expression in Alang syntax.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString">AlangExpr.AlangExpressionString</a></div>
+  <div><a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_AlangExpressionString">AlangRegex.AlangExpressionString</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_Option_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.Option.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -232,7 +251,7 @@
   </span>
   <a id="Automata_Core_Alang_Option_Precedence_" data-uid="Automata.Core.Alang.Option.Precedence*"></a>
   <h4 id="Automata_Core_Alang_Option_Precedence" data-uid="Automata.Core.Alang.Option.Precedence">Precedence</h4>
-  <div class="markdown level1 summary"><p>Precedence level of this expression according to Alang grammar specification.</p>
+  <div class="markdown level1 summary"><p>Precedence level of this expression according to the Alang grammar specification.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -250,12 +269,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
+        <td><p>An integer representing the precedence level of the expression.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Precedence">AlangExpr.Precedence</a></div>
+  <div><a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Precedence">AlangRegex.Precedence</a></div>
 
 </article>
                 </div>

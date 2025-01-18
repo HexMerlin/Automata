@@ -94,7 +94,7 @@
 
 <p><strong>Alang</strong> is a formal language for defining finite-state automata using human-readable regular expressions.
 It supports many operations, such as union, intersection, complement and set difference,
-enabling expressions like &quot;(a (b | c)* - (b b))?&quot;.
+enabling expressions like &quot;(a? (b | c)* - (b b))+&quot;.
 Alang's syntax is defined by the <em>Alang Grammar</em> which is an LL(1) context-free grammar.
 The Alang parser is optimized for fast parsing of very large inputs.
 The parser validates syntactic correctness and generates detailed error messages for invalid inputs.</p>
@@ -102,81 +102,87 @@ The parser validates syntactic correctness and generates detailed error messages
 <table>
 <thead>
 <tr>
-<th>Rule</th>
+<th>Grammar Rule</th>
 <th>Expansion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>AlangExpr (root)</td>
+<td>AlangRegex (root)</td>
 <td>Union</td>
 </tr>
 <tr>
 <td>🔹Union</td>
-<td>Difference  ('|' Difference)*</td>
+<td>Difference  (<code>\|</code> Difference)*</td>
 </tr>
 <tr>
 <td>🔹Difference</td>
-<td>Intersection ('-' Intersection)*</td>
+<td>Intersection (<code>-</code> Intersection)*</td>
 </tr>
 <tr>
 <td>🔹Intersection</td>
-<td>Concatenation ('&amp;' Concatenation)*</td>
+<td>Concatenation (<code>&amp;</code> Concatenation)*</td>
 </tr>
 <tr>
 <td>🔹Concatenation</td>
-<td>UnaryExpr+</td>
+<td>UnaryRegex+</td>
 </tr>
 <tr>
-<td>UnaryExpr</td>
-<td>PrimaryExpr<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)*</td>
+<td>UnaryRegex</td>
+<td>PrimaryRegex<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)*</td>
 </tr>
 <tr>
 <td>🔹Option</td>
-<td>PrimaryExpr '?'</td>
+<td>PrimaryRegex <code>?</code></td>
 </tr>
 <tr>
 <td>🔹KleeneStar</td>
-<td>PrimaryExpr '*'</td>
+<td>PrimaryRegex <code>*</code></td>
 </tr>
 <tr>
 <td>🔹KleenePlus</td>
-<td>PrimaryExpr '+'</td>
+<td>PrimaryRegex <code>+</code></td>
 </tr>
 <tr>
 <td>🔹Complement</td>
-<td>Primary '~'</td>
+<td>PrimaryRegex <code>~</code></td>
 </tr>
 <tr>
-<td>PrimaryExpr</td>
-<td>'(' AlangExpr ')' <br>┃ Atom <br>┃  Wildcard <br>┃ EmptySet</td>
+<td>PrimaryRegex</td>
+<td><code>(</code> AlangRegex <code>)</code> <br>┃ Symbol <br>┃  Wildcard <br>┃ EmptyLang</td>
 </tr>
 <tr>
-<td>🔹Atom</td>
-<td>AtomChar+</td>
+<td>🔹Symbol</td>
+<td>SymbolChar+</td>
 </tr>
 <tr>
 <td>🔹Wildcard</td>
-<td>'.'</td>
+<td><code>.</code></td>
 </tr>
 <tr>
-<td>🔹EmptySet</td>
-<td>'(' ')'</td>
+<td>🔹EmptyLang</td>
+<td><code>()</code></td>
 </tr>
 <tr>
-<td>AtomChar</td>
+<td>SymbolChar</td>
 <td><em>any character except operator characters and whitespace</em></td>
 </tr>
 </tbody>
 </table>
-<p>🔹 Denotes a node-type that can be included in the resulting parse tree.</p>
-<p>The root rule AlangExpr must cover the entire input, with no residue.</p>
-<h2 id="operators-ordered-by-precedence-lowest-to-highest">Operators Ordered by Precedence (Lowest-to-Highest)</h2>
+<p>🔹 Denotes an actual node type in the resulting AST (abstract syntax tree) outputed by the parser.</p>
+<p>Note to developers: All types marked with a 🔹 have corresponding classes with the exact same names in the namespace <strong>Automata.Core.Alang</strong>.</p>
+<p>For an input to be valid, the root rule AlangRegex must cover the entire input, with no residue.</p>
+<h3 id="operators">Operators</h3>
+<ul>
+<li>Operators with higher precedence levels bind more tightly than those with lower levels.</li>
+<li>Operators of the same precedence level are left-associative (left-to-right).</li>
+<li>All <em>unary</em> operators are <em>postfix operators</em> and all <em>binary</em> operators are <em>infix</em> operators.</li>
+</ul>
 <table>
 <thead>
 <tr>
 <th>Precedence</th>
-<th>Operation</th>
+<th>Operation/Unit</th>
 <th>Operator Character</th>
 <th>Position &amp; Arity</th>
 </tr>
@@ -185,86 +191,148 @@ The parser validates syntactic correctness and generates detailed error messages
 <tr>
 <td>1</td>
 <td>Union</td>
-<td>x | x</td>
+<td>L₁ <code>\|</code> L₂</td>
 <td>Infix Binary</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Difference</td>
-<td>x - x</td>
+<td>L₁ <code>-</code> L₂</td>
 <td>Infix Binary</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Intersection</td>
-<td>x &amp; x</td>
+<td>L₁ <code>&amp;</code> L₂</td>
 <td>Infix Binary</td>
 </tr>
 <tr>
 <td>4</td>
 <td>Concatenation</td>
-<td>x x</td>
+<td>L₁ L₂</td>
 <td>Infix Implicit</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Option</td>
-<td>x?</td>
+<td>L <code>?</code></td>
 <td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Kleene Star</td>
-<td>x*</td>
+<td>L<code>*</code></td>
 <td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Kleene Plus</td>
-<td>x+</td>
+<td>L<code>+</code></td>
 <td>Postfix Unary</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Complement</td>
-<td>x~</td>
+<td>L<code>~</code></td>
 <td>Postfix Unary</td>
 </tr>
 <tr>
 <td>6</td>
 <td>Group</td>
-<td>( x )</td>
+<td><code>(</code> L <code>)</code></td>
 <td>Enclosing Unary</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Empty set</td>
-<td>()</td>
+<td>EmptyLang</td>
+<td><code>()</code></td>
 <td>Empty parentheses</td>
 </tr>
 <tr>
 <td>7</td>
 <td>Wildcard</td>
-<td>.</td>
-<td>Atomic leaf</td>
+<td><code>.</code></td>
+<td>Terminal</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Atom</td>
+<td>Symbol</td>
 <td>string literal</td>
-<td>Atomic leaf</td>
+<td>Terminal</td>
 </tr>
 </tbody>
 </table>
-<h2 id="notes">Notes</h2>
+<h3 id="whitespace">Whitespace</h3>
 <ul>
-<li>Operators with higher precedence levels bind more tightly than those with lower levels.</li>
-<li>Operators of the same precedence level are left-associative (left-to-right).</li>
-<li><em>Whitespace</em> denotes any whitespace character (i.e. space, tab, newline, etc.)</li>
-<li>Atoms are user defined (alphabet symbols) and can contain any characters except for the operator characters and whitespace.</li>
-<li>Wildcard '.' matches exactly one “Atom” in the alphabet.</li>
-<li>Whitespace is allowed anywhere in the grammar, but it is never required unless to separate directly adjacent atoms.</li>
+<li>Multiple Whitespace is allowed anywhere in the grammar, except within Symbols.</li>
+<li>Whitespace is never required anywhere - except for separating <em>directly</em> adjacent Symbols or operators.
+Thus, the parser resolves all reserved tokens as delimiters: The following are correcly delimited: <code>hello+world</code> or <code>hello(world)</code>.</li>
+<li>Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.).</li>
+<li>The formal whitespace definition is equivalent to .NET's <code>char.IsWhiteSpace(char c)</code>.</li>
 </ul>
+<h3 id="symbols">Symbols</h3>
+<p>The term <strong>Symbol</strong> have a specific meaning - as defined by automata theory:</p>
+<ul>
+<li>User-defined string literals that constitute the <em>atoms</em> of Alang expressions.</li>
+<li>It is equivalent to <strong>symbols</strong> in finite-state automata.</li>
+<li>Can contain any characters except reserved operator characters or whitespace.</li>
+<li>They can never be empty.</li>
+<li>Symbols are <em>strings</em> and are not to be confused with characters,</li>
+</ul>
+<h3 id="wildcard">Wildcard</h3>
+<p>A Wildcard is a special token denoted by a <code>.</code> (dot).</p>
+<p>It represents any symbol in the alphabet.</p>
+<p>For example:</p>
+<p><code>. - hello</code>  represents the language of all symbols except 'hello'.</p>
+<p><code>(. - hello).*</code>    represents the language of all sequences, except those starting with 'hello'.</p>
+<h3 id="the-empty-language--and-the-language-containing-only-epsilon-ε">The Empty Language ∅ and The Language containing only epsilon {ε}</h3>
+<ul>
+<li>The Empty Language ∅ is the language that does not cotain anything.
+<ul>
+<li>It is written in Alang as empty parentheses <code>()</code>.</li>
+<li>Its corresponding grammar rule is <code>EmptyLang</code> and the parse tree type is <code>EmptyLang</code>.</li>
+<li>Its automata equivalence is an automaton that does not accept anything (not even the empty string).</li>
+<li>In most scenarios, <code>()</code> is not required when writing a Alang expressions.
+However, many operations can result in the empty language. For example <code>a - (a | b)</code> is equivalent to <code>()</code>.</li>
+</ul>
+</li>
+<li>The language containing only the empty string {ε}
+<ul>
+<li>It is written in Alang as <code>()?</code>, since the Option operator <code>?</code> unites the operand with {ε}:  <strong>L? = L ∪ { ε }</strong></li>
+<li>Its automata equivalence is an automaton that only accepts ε.</li>
+</ul>
+</li>
+<li>Note that <code>()</code> ≠ <code>{ε}</code>. For instance:
+<ul>
+<li>Concatenating any language <code>L</code> with <code>()</code> results in <code>()</code>.</li>
+<li>Concatenating any language <code>L</code> with <code>{ε}</code> results in L.</li>
+</ul>
+</li>
+</ul>
+<h3 id="alang-expression-examples">Alang expression examples</h3>
+<p><code>(a? (b | c) )+</code> : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.</p>
+<p><code>a+~ b</code>          : Complement of 'a+' - all sequences that are not 1 or more 'a's.</p>
+<p><code>(x1 | x2 | x3)* - (x1 x2 x3)+</code> : All sequences constaining {x1, x2, x3}, except repetitions of &quot;x1 x2 x3&quot;.</p>
+<p><code>()</code>              : The empty language that does not accept anything. The results from <code>hello - hello</code> and <code>hello &amp; world</code></p>
+<h3 id="operation-definitions">Operation Definitions</h3>
+<pre><code>Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
+Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
+Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }
+Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }
+Option: L? = L ∪ { ε }
+Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Complement: ᒾL = Σ* \ L
+</code></pre>
+<h2 id="c-api">C# API</h2>
+<p>The Alang parser and FSA compiler is provided by the namespace <strong>Automata.Core.Alang</strong>.</p>
+<p>Key class: <strong>AlangRegex</strong></p>
+<p>Example usage:</p>
+<pre><code class="lang-csharp"> AlangRegex regex = AlangRegex.Parse(&quot;(a? (b | c) )+&quot;);  // Create an Alang regex
+
+ Mfa fsa = regex.Compile(); // Compile the regex to a minimal finite-state automaton
+</code></pre>
+<p>For more information, see the <a href="index.html">Automata documentation</a></p>
 
 </article>
                 </div>

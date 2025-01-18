@@ -100,22 +100,40 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="Automata.Core.Alang.AlangExpr.html">AlangExpr</a></div>
+    <div class="level1"><a class="xref" href="Automata.Core.Alang.AlangRegex.html">AlangRegex</a></div>
     <div class="level2"><span class="xref">Wildcard</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmptyString">AlangExpr.IsEmptyString</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_IsEmptyString">AlangRegex.IsEmptyString</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Parse_System_String_">AlangExpr.Parse(string)</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Parse_System_String_">AlangRegex.Parse(string)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_">AlangExpr.Param(AlangExpr, AlangExpr)</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_">AlangRegex.Compile(string)</a>
     </div>
     <div>
-      <a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ToString">AlangExpr.ToString()</a>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_System_String___">AlangRegex.Compile(string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_Automata_Core_Alphabet_">AlangRegex.Compile(Alphabet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile">AlangRegex.Compile()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String___">AlangRegex.Compile(params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Param_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_">AlangRegex.Param(AlangRegex, AlangRegex)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_ToString">AlangRegex.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_DescendantsAndSelf">AlangRegex.DescendantsAndSelf()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -140,10 +158,10 @@
   <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
   <h5 id="Automata_Core_Alang_Wildcard_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Wildcard : AlangExpr</code></pre>
+    <pre><code class="lang-csharp hljs">public class Wildcard : AlangRegex</code></pre>
   </div>
   <h5 id="Automata_Core_Alang_Wildcard_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>A wildcard that matches any atom in the Alphabet.</p>
+  <div class="markdown level0 remarks"><p>A wildcard that matches any Symbol.</p>
 </div>
   <h3 id="properties">Properties
 </h3>
@@ -174,12 +192,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>A string representing the expression in Alang syntax.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString">AlangExpr.AlangExpressionString</a></div>
+  <div><a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_AlangExpressionString">AlangRegex.AlangExpressionString</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Alang_Wildcard_Precedence.md&amp;value=---%0Auid%3A%20Automata.Core.Alang.Wildcard.Precedence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -189,7 +208,7 @@
   </span>
   <a id="Automata_Core_Alang_Wildcard_Precedence_" data-uid="Automata.Core.Alang.Wildcard.Precedence*"></a>
   <h4 id="Automata_Core_Alang_Wildcard_Precedence" data-uid="Automata.Core.Alang.Wildcard.Precedence">Precedence</h4>
-  <div class="markdown level1 summary"><p>Precedence level of this expression according to Alang grammar specification.</p>
+  <div class="markdown level1 summary"><p>Precedence level of this expression according to the Alang grammar specification.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -207,12 +226,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
+        <td><p>An integer representing the precedence level of the expression.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Precedence">AlangExpr.Precedence</a></div>
+  <div><a class="xref" href="Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Precedence">AlangRegex.Precedence</a></div>
 
 </article>
                 </div>

@@ -98,15 +98,7 @@ public class Dfa : FsaDet
     public override StateView State(int fromState)
         => new(fromState, Transitions(fromState).ToArray());
 
-    /// <summary>
-    /// Returns the state reachable from the given state on the given symbol.
-    /// </summary>
-    /// <param name="fromState">The state origin of the transition.</param>
-    /// <param name="symbol">Symbol for the transition.</param>
-    /// <returns>
-    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
-    /// </returns>
-    /// <seealso cref="TryTransition(int, int, out int)"/>
+    ///<inheritdoc/>
     public override int Transition(int fromState, int symbol)
         => transitions.GetViewBetween(
             Core.Transition.MinTrans(fromState, symbol),

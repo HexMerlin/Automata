@@ -97,23 +97,29 @@
     <h3 id="classes">
 Classes
 </h3>
-      <h5><a class="xref" href="Automata.Core.CanonicalAlphabet.html">CanonicalAlphabet</a></h5>
-      <section><p>Immutable and optimized representation of an alphabet with contiguous, ordered symbols.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.Cfa.html">Cfa</a></h5>
-      <section><p>Canonical Finite-state Automaton (CFA).</p>
+      <h5><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></h5>
+      <section><p>An alphabet associated with a finite state automaton.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.Constants.html">Constants</a></h5>
       <section><p>Class representing automata related constants.</p>
 </section>
+      <h5><a class="xref" href="Automata.Core.Converter.html">Converter</a></h5>
+      <section><p>Static class for conversion between different types of finite state automata.</p>
+</section>
       <h5><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></h5>
       <section><p>Deterministic finite automaton (DFA).</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Fsa.html">Fsa</a></h5>
+      <section><p>Finite state automaton (FSA) interface.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></h5>
+      <section><p>Common interface for deterministic automata, such as <a class="xref" href="Automata.Core.Dfa.html">Dfa</a> and <a class="xref" href="Automata.Core.Mfa.html">Mfa</a>.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.IntSet.html">IntSet</a></h5>
       <section><p>Immutable set of integers.</p>
 </section>
-      <h5><a class="xref" href="Automata.Core.MutableAlphabet.html">MutableAlphabet</a></h5>
-      <section><p>Mutable alphabet associated with a finite state automaton.</p>
+      <h5><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></h5>
+      <section><p>Minimal Finite-state Automaton (MFA).</p>
 </section>
       <h5><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></h5>
       <section><p>Nondeterministic finite automaton (NFA).</p>
@@ -125,22 +131,10 @@ Structs
       <section><p>An epsilon transition in an automaton, defined by a starting state and an ending state.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.StateView.html">StateView</a></h5>
-      <section><p>Read-only view of a state in an automaton, providing access to transitions from the state.</p>
+      <section><p>A fast readonly view of a <code>state</code> in a deterministic automaton, providing access to transitions from this specific state.</p>
 </section>
       <h5><a class="xref" href="Automata.Core.Transition.html">Transition</a></h5>
       <section><p>Represents a (symbolic) transition in an automaton, defined by a starting state, a symbol, and an ending state.</p>
-</section>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-      <h5><a class="xref" href="Automata.Core.IAlphabet.html">IAlphabet</a></h5>
-      <section><p>Common interface for an alphabet associated with a finite state automaton.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.IDfa.html">IDfa</a></h5>
-      <section><p>Common interface for deterministic finite automata, such as <a class="xref" href="Automata.Core.Dfa.html">Dfa</a> and <a class="xref" href="Automata.Core.Cfa.html">Cfa</a>.</p>
-</section>
-      <h5><a class="xref" href="Automata.Core.IFsa.html">IFsa</a></h5>
-      <section><p>Finite state automaton (FSA) interface.</p>
 </section>
 
 

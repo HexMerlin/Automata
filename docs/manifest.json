@@ -22,16 +22,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.AlangExpr.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Alang.AlangExpr.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "../docs/obj/api/Automata.Core.Alang.AlangFormatException.yml",
       "output": {
         ".html": {
@@ -42,10 +32,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Atom.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.AlangRegex.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.Alang.Atom.html"
+          "relative_path": "Automata.Core.Alang.AlangRegex.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.BinaryRegex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.BinaryRegex.html"
         }
       },
       "version": ""
@@ -92,20 +92,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.EmptySet.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.EmptyLang.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.Alang.EmptySet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.InfixBinary.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Alang.InfixBinary.html"
+          "relative_path": "Automata.Core.Alang.EmptyLang.html"
         }
       },
       "version": ""
@@ -152,20 +142,30 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.ParseErrorType.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.ParseErrorReason.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.Alang.ParseErrorType.html"
+          "relative_path": "Automata.Core.Alang.ParseErrorReason.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.UnaryExpr.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.Symbol.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.Alang.UnaryExpr.html"
+          "relative_path": "Automata.Core.Alang.Symbol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alang.UnaryRegex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Alang.UnaryRegex.html"
         }
       },
       "version": ""
@@ -202,20 +202,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.CanonicalAlphabet.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Alphabet.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.CanonicalAlphabet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.Cfa.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.Cfa.html"
+          "relative_path": "Automata.Core.Alphabet.html"
         }
       },
       "version": ""
@@ -226,6 +216,16 @@
       "output": {
         ".html": {
           "relative_path": "Automata.Core.Constants.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Converter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Converter.html"
         }
       },
       "version": ""
@@ -252,30 +252,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.IAlphabet.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Fsa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.IAlphabet.html"
+          "relative_path": "Automata.Core.Fsa.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.IDfa.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.FsaDet.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.IDfa.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.IFsa.yml",
-      "output": {
-        ".html": {
-          "relative_path": "Automata.Core.IFsa.html"
+          "relative_path": "Automata.Core.FsaDet.html"
         }
       },
       "version": ""
@@ -292,10 +282,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "../docs/obj/api/Automata.Core.MutableAlphabet.yml",
+      "source_relative_path": "../docs/obj/api/Automata.Core.Mfa.yml",
       "output": {
         ".html": {
-          "relative_path": "Automata.Core.MutableAlphabet.html"
+          "relative_path": "Automata.Core.Mfa.html"
         }
       },
       "version": ""

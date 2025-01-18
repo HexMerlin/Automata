@@ -38,32 +38,19 @@ references:
   fullName.vb: Automata.Core.Alang.AlangCursor.New
   nameWithType: AlangCursor.AlangCursor
   nameWithType.vb: AlangCursor.New
-- uid: Automata.Core.Alang.AlangCursor.ConsumeAtom
-  name: ConsumeAtom()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeAtom
-  commentId: M:Automata.Core.Alang.AlangCursor.ConsumeAtom
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeAtom()
-  nameWithType: AlangCursor.ConsumeAtom()
-- uid: Automata.Core.Alang.AlangCursor.ConsumeAtom*
-  name: ConsumeAtom
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeAtom_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.ConsumeAtom
+- uid: Automata.Core.Alang.AlangCursor.ConsumeSymbol
+  name: ConsumeSymbol()
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeSymbol
+  commentId: M:Automata.Core.Alang.AlangCursor.ConsumeSymbol
+  fullName: Automata.Core.Alang.AlangCursor.ConsumeSymbol()
+  nameWithType: AlangCursor.ConsumeSymbol()
+- uid: Automata.Core.Alang.AlangCursor.ConsumeSymbol*
+  name: ConsumeSymbol
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeSymbol_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.ConsumeSymbol
   isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeAtom
-  nameWithType: AlangCursor.ConsumeAtom
-- uid: Automata.Core.Alang.AlangCursor.ConsumeRightParen
-  name: ConsumeRightParen()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeRightParen
-  commentId: M:Automata.Core.Alang.AlangCursor.ConsumeRightParen
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeRightParen()
-  nameWithType: AlangCursor.ConsumeRightParen()
-- uid: Automata.Core.Alang.AlangCursor.ConsumeRightParen*
-  name: ConsumeRightParen
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ConsumeRightParen_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.ConsumeRightParen
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.ConsumeRightParen
-  nameWithType: AlangCursor.ConsumeRightParen
+  fullName: Automata.Core.Alang.AlangCursor.ConsumeSymbol
+  nameWithType: AlangCursor.ConsumeSymbol
 - uid: Automata.Core.Alang.AlangCursor.CursorIndex
   name: CursorIndex
   href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_CursorIndex
@@ -119,6 +106,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangCursor.IsExpressionStart
   nameWithType: AlangCursor.IsExpressionStart
+- uid: Automata.Core.Alang.AlangCursor.IsNot(System.Char)
+  name: IsNot(char)
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_IsNot_System_Char_
+  commentId: M:Automata.Core.Alang.AlangCursor.IsNot(System.Char)
+  name.vb: IsNot(Char)
+  fullName: Automata.Core.Alang.AlangCursor.IsNot(char)
+  fullName.vb: Automata.Core.Alang.AlangCursor.IsNot(Char)
+  nameWithType: AlangCursor.IsNot(char)
+  nameWithType.vb: AlangCursor.IsNot(Char)
+- uid: Automata.Core.Alang.AlangCursor.IsNot*
+  name: IsNot
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_IsNot_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.IsNot
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangCursor.IsNot
+  nameWithType: AlangCursor.IsNot
 - uid: Automata.Core.Alang.AlangCursor.NextAsString
   name: NextAsString
   href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_NextAsString
@@ -132,6 +135,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangCursor.NextAsString
   nameWithType: AlangCursor.NextAsString
+- uid: Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(System.Char)
+  name: ShouldBeRightOperand(char)
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ShouldBeRightOperand_System_Char_
+  commentId: M:Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(System.Char)
+  name.vb: ShouldBeRightOperand(Char)
+  fullName: Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(char)
+  fullName.vb: Automata.Core.Alang.AlangCursor.ShouldBeRightOperand(Char)
+  nameWithType: AlangCursor.ShouldBeRightOperand(char)
+  nameWithType.vb: AlangCursor.ShouldBeRightOperand(Char)
+- uid: Automata.Core.Alang.AlangCursor.ShouldBeRightOperand*
+  name: ShouldBeRightOperand
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ShouldBeRightOperand_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.ShouldBeRightOperand
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangCursor.ShouldBeRightOperand
+  nameWithType: AlangCursor.ShouldBeRightOperand
 - uid: Automata.Core.Alang.AlangCursor.ShouldBeRightParen
   name: ShouldBeRightParen()
   href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_ShouldBeRightParen
@@ -229,265 +248,272 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.AlangCursor.TryConsumeAny
   nameWithType: AlangCursor.TryConsumeAny
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator
-  name: TryConsumeDifferenceOperator()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeDifferenceOperator
-  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator()
-  nameWithType: AlangCursor.TryConsumeDifferenceOperator()
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator*
-  name: TryConsumeDifferenceOperator
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeDifferenceOperator_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator
+- uid: Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(System.Char)
+  name: TryConsumeBinaryOperator(char)
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeBinaryOperator_System_Char_
+  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(System.Char)
+  name.vb: TryConsumeBinaryOperator(Char)
+  fullName: Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(char)
+  fullName.vb: Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator(Char)
+  nameWithType: AlangCursor.TryConsumeBinaryOperator(char)
+  nameWithType.vb: AlangCursor.TryConsumeBinaryOperator(Char)
+- uid: Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator*
+  name: TryConsumeBinaryOperator
+  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeBinaryOperator_
+  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator
   isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeDifferenceOperator
-  nameWithType: AlangCursor.TryConsumeDifferenceOperator
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator
-  name: TryConsumeIntersectionOperator()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeIntersectionOperator
-  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator()
-  nameWithType: AlangCursor.TryConsumeIntersectionOperator()
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator*
-  name: TryConsumeIntersectionOperator
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeIntersectionOperator_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeIntersectionOperator
-  nameWithType: AlangCursor.TryConsumeIntersectionOperator
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeLeftParen
-  name: TryConsumeLeftParen()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeLeftParen
-  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeLeftParen
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeLeftParen()
-  nameWithType: AlangCursor.TryConsumeLeftParen()
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeLeftParen*
-  name: TryConsumeLeftParen
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeLeftParen_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeLeftParen
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeLeftParen
-  nameWithType: AlangCursor.TryConsumeLeftParen
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator
-  name: TryConsumeUnionOperator()
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeUnionOperator
-  commentId: M:Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator()
-  nameWithType: AlangCursor.TryConsumeUnionOperator()
-- uid: Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator*
-  name: TryConsumeUnionOperator
-  href: Automata.Core.Alang.AlangCursor.html#Automata_Core_Alang_AlangCursor_TryConsumeUnionOperator_
-  commentId: Overload:Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangCursor.TryConsumeUnionOperator
-  nameWithType: AlangCursor.TryConsumeUnionOperator
-- uid: Automata.Core.Alang.AlangExpr
-  name: AlangExpr
-  href: Automata.Core.Alang.AlangExpr.html
-  commentId: T:Automata.Core.Alang.AlangExpr
-  fullName: Automata.Core.Alang.AlangExpr
-  nameWithType: AlangExpr
-- uid: Automata.Core.Alang.AlangExpr.#ctor
-  name: AlangExpr()
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr__ctor
-  commentId: M:Automata.Core.Alang.AlangExpr.#ctor
-  name.vb: New()
-  fullName: Automata.Core.Alang.AlangExpr.AlangExpr()
-  fullName.vb: Automata.Core.Alang.AlangExpr.New()
-  nameWithType: AlangExpr.AlangExpr()
-  nameWithType.vb: AlangExpr.New()
-- uid: Automata.Core.Alang.AlangExpr.#ctor*
-  name: AlangExpr
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr__ctor_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.Alang.AlangExpr.AlangExpr
-  fullName.vb: Automata.Core.Alang.AlangExpr.New
-  nameWithType: AlangExpr.AlangExpr
-  nameWithType.vb: AlangExpr.New
-- uid: Automata.Core.Alang.AlangExpr.AlangExpressionString
-  name: AlangExpressionString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString
-  commentId: P:Automata.Core.Alang.AlangExpr.AlangExpressionString
-  fullName: Automata.Core.Alang.AlangExpr.AlangExpressionString
-  nameWithType: AlangExpr.AlangExpressionString
-- uid: Automata.Core.Alang.AlangExpr.AlangExpressionString*
-  name: AlangExpressionString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_AlangExpressionString_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.AlangExpressionString
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.AlangExpressionString
-  nameWithType: AlangExpr.AlangExpressionString
-- uid: Automata.Core.Alang.AlangExpr.IsEmptyString
-  name: IsEmptyString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmptyString
-  commentId: P:Automata.Core.Alang.AlangExpr.IsEmptyString
-  fullName: Automata.Core.Alang.AlangExpr.IsEmptyString
-  nameWithType: AlangExpr.IsEmptyString
-- uid: Automata.Core.Alang.AlangExpr.IsEmptyString*
-  name: IsEmptyString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_IsEmptyString_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.IsEmptyString
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.IsEmptyString
-  nameWithType: AlangExpr.IsEmptyString
-- uid: Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: Param(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Param_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  fullName: Automata.Core.Alang.AlangExpr.Param(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: AlangExpr.Param(AlangExpr, AlangExpr)
-- uid: Automata.Core.Alang.AlangExpr.Param*
-  name: Param
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Param_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.Param
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.Param
-  nameWithType: AlangExpr.Param
-- uid: Automata.Core.Alang.AlangExpr.Parse(System.String)
-  name: Parse(string)
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Parse_System_String_
-  commentId: M:Automata.Core.Alang.AlangExpr.Parse(System.String)
-  name.vb: Parse(String)
-  fullName: Automata.Core.Alang.AlangExpr.Parse(string)
-  fullName.vb: Automata.Core.Alang.AlangExpr.Parse(String)
-  nameWithType: AlangExpr.Parse(string)
-  nameWithType.vb: AlangExpr.Parse(String)
-- uid: Automata.Core.Alang.AlangExpr.Parse*
-  name: Parse
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Parse_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.Parse
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.Parse
-  nameWithType: AlangExpr.Parse
-- uid: Automata.Core.Alang.AlangExpr.Precedence
-  name: Precedence
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Precedence
-  commentId: P:Automata.Core.Alang.AlangExpr.Precedence
-  fullName: Automata.Core.Alang.AlangExpr.Precedence
-  nameWithType: AlangExpr.Precedence
-- uid: Automata.Core.Alang.AlangExpr.Precedence*
-  name: Precedence
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_Precedence_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.Precedence
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.Precedence
-  nameWithType: AlangExpr.Precedence
-- uid: Automata.Core.Alang.AlangExpr.ToString
-  name: ToString()
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ToString
-  commentId: M:Automata.Core.Alang.AlangExpr.ToString
-  fullName: Automata.Core.Alang.AlangExpr.ToString()
-  nameWithType: AlangExpr.ToString()
-- uid: Automata.Core.Alang.AlangExpr.ToString*
-  name: ToString
-  href: Automata.Core.Alang.AlangExpr.html#Automata_Core_Alang_AlangExpr_ToString_
-  commentId: Overload:Automata.Core.Alang.AlangExpr.ToString
-  isSpec: "True"
-  fullName: Automata.Core.Alang.AlangExpr.ToString
-  nameWithType: AlangExpr.ToString
+  fullName: Automata.Core.Alang.AlangCursor.TryConsumeBinaryOperator
+  nameWithType: AlangCursor.TryConsumeBinaryOperator
 - uid: Automata.Core.Alang.AlangFormatException
   name: AlangFormatException
   href: Automata.Core.Alang.AlangFormatException.html
   commentId: T:Automata.Core.Alang.AlangFormatException
   fullName: Automata.Core.Alang.AlangFormatException
   nameWithType: AlangFormatException
-- uid: Automata.Core.Alang.AlangFormatException.#ctor(System.Int32,Automata.Core.Alang.ParseErrorType,System.String)
-  name: AlangFormatException(int, ParseErrorType, string)
-  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException__ctor_System_Int32_Automata_Core_Alang_ParseErrorType_System_String_
-  commentId: M:Automata.Core.Alang.AlangFormatException.#ctor(System.Int32,Automata.Core.Alang.ParseErrorType,System.String)
-  name.vb: New(Integer, ParseErrorType, String)
-  fullName: Automata.Core.Alang.AlangFormatException.AlangFormatException(int, Automata.Core.Alang.ParseErrorType, string)
-  fullName.vb: Automata.Core.Alang.AlangFormatException.New(Integer, Automata.Core.Alang.ParseErrorType, String)
-  nameWithType: AlangFormatException.AlangFormatException(int, ParseErrorType, string)
-  nameWithType.vb: AlangFormatException.New(Integer, ParseErrorType, String)
-- uid: Automata.Core.Alang.AlangFormatException.#ctor*
-  name: AlangFormatException
-  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException__ctor_
-  commentId: Overload:Automata.Core.Alang.AlangFormatException.#ctor
+- uid: Automata.Core.Alang.AlangFormatException.Assert(System.Boolean,Automata.Core.Alang.ParseErrorReason,System.Int32,System.String)
+  name: Assert(bool, ParseErrorReason, int, string)
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_Assert_System_Boolean_Automata_Core_Alang_ParseErrorReason_System_Int32_System_String_
+  commentId: M:Automata.Core.Alang.AlangFormatException.Assert(System.Boolean,Automata.Core.Alang.ParseErrorReason,System.Int32,System.String)
+  name.vb: Assert(Boolean, ParseErrorReason, Integer, String)
+  fullName: Automata.Core.Alang.AlangFormatException.Assert(bool, Automata.Core.Alang.ParseErrorReason, int, string)
+  fullName.vb: Automata.Core.Alang.AlangFormatException.Assert(Boolean, Automata.Core.Alang.ParseErrorReason, Integer, String)
+  nameWithType: AlangFormatException.Assert(bool, ParseErrorReason, int, string)
+  nameWithType.vb: AlangFormatException.Assert(Boolean, ParseErrorReason, Integer, String)
+- uid: Automata.Core.Alang.AlangFormatException.Assert*
+  name: Assert
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_Assert_
+  commentId: Overload:Automata.Core.Alang.AlangFormatException.Assert
   isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.Alang.AlangFormatException.AlangFormatException
-  fullName.vb: Automata.Core.Alang.AlangFormatException.New
-  nameWithType: AlangFormatException.AlangFormatException
-  nameWithType.vb: AlangFormatException.New
-- uid: Automata.Core.Alang.AlangFormatException.ErrorType
-  name: ErrorType
-  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ErrorType
-  commentId: F:Automata.Core.Alang.AlangFormatException.ErrorType
-  fullName: Automata.Core.Alang.AlangFormatException.ErrorType
-  nameWithType: AlangFormatException.ErrorType
+  fullName: Automata.Core.Alang.AlangFormatException.Assert
+  nameWithType: AlangFormatException.Assert
+- uid: Automata.Core.Alang.AlangFormatException.ErrorReason
+  name: ErrorReason
+  href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_ErrorReason
+  commentId: F:Automata.Core.Alang.AlangFormatException.ErrorReason
+  fullName: Automata.Core.Alang.AlangFormatException.ErrorReason
+  nameWithType: AlangFormatException.ErrorReason
 - uid: Automata.Core.Alang.AlangFormatException.Index
   name: Index
   href: Automata.Core.Alang.AlangFormatException.html#Automata_Core_Alang_AlangFormatException_Index
   commentId: F:Automata.Core.Alang.AlangFormatException.Index
   fullName: Automata.Core.Alang.AlangFormatException.Index
   nameWithType: AlangFormatException.Index
-- uid: Automata.Core.Alang.Atom
-  name: Atom
-  href: Automata.Core.Alang.Atom.html
-  commentId: T:Automata.Core.Alang.Atom
-  fullName: Automata.Core.Alang.Atom
-  nameWithType: Atom
-- uid: Automata.Core.Alang.Atom.#ctor(System.String)
-  name: Atom(string)
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom__ctor_System_String_
-  commentId: M:Automata.Core.Alang.Atom.#ctor(System.String)
-  name.vb: New(String)
-  fullName: Automata.Core.Alang.Atom.Atom(string)
-  fullName.vb: Automata.Core.Alang.Atom.New(String)
-  nameWithType: Atom.Atom(string)
-  nameWithType.vb: Atom.New(String)
-- uid: Automata.Core.Alang.Atom.#ctor*
-  name: Atom
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom__ctor_
-  commentId: Overload:Automata.Core.Alang.Atom.#ctor
+- uid: Automata.Core.Alang.AlangRegex
+  name: AlangRegex
+  href: Automata.Core.Alang.AlangRegex.html
+  commentId: T:Automata.Core.Alang.AlangRegex
+  fullName: Automata.Core.Alang.AlangRegex
+  nameWithType: AlangRegex
+- uid: Automata.Core.Alang.AlangRegex.#ctor
+  name: AlangRegex()
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex__ctor
+  commentId: M:Automata.Core.Alang.AlangRegex.#ctor
+  name.vb: New()
+  fullName: Automata.Core.Alang.AlangRegex.AlangRegex()
+  fullName.vb: Automata.Core.Alang.AlangRegex.New()
+  nameWithType: AlangRegex.AlangRegex()
+  nameWithType.vb: AlangRegex.New()
+- uid: Automata.Core.Alang.AlangRegex.#ctor*
+  name: AlangRegex
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex__ctor_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.Alang.Atom.Atom
-  fullName.vb: Automata.Core.Alang.Atom.New
-  nameWithType: Atom.Atom
-  nameWithType.vb: Atom.New
-- uid: Automata.Core.Alang.Atom.AlangExpressionString
+  fullName: Automata.Core.Alang.AlangRegex.AlangRegex
+  fullName.vb: Automata.Core.Alang.AlangRegex.New
+  nameWithType: AlangRegex.AlangRegex
+  nameWithType.vb: AlangRegex.New
+- uid: Automata.Core.Alang.AlangRegex.AlangExpressionString
   name: AlangExpressionString
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_AlangExpressionString
-  commentId: P:Automata.Core.Alang.Atom.AlangExpressionString
-  fullName: Automata.Core.Alang.Atom.AlangExpressionString
-  nameWithType: Atom.AlangExpressionString
-- uid: Automata.Core.Alang.Atom.AlangExpressionString*
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_AlangExpressionString
+  commentId: P:Automata.Core.Alang.AlangRegex.AlangExpressionString
+  fullName: Automata.Core.Alang.AlangRegex.AlangExpressionString
+  nameWithType: AlangRegex.AlangExpressionString
+- uid: Automata.Core.Alang.AlangRegex.AlangExpressionString*
   name: AlangExpressionString
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_AlangExpressionString_
-  commentId: Overload:Automata.Core.Alang.Atom.AlangExpressionString
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Atom.AlangExpressionString
-  nameWithType: Atom.AlangExpressionString
-- uid: Automata.Core.Alang.Atom.Precedence
+  fullName: Automata.Core.Alang.AlangRegex.AlangExpressionString
+  nameWithType: AlangRegex.AlangExpressionString
+- uid: Automata.Core.Alang.AlangRegex.Compile
+  name: Compile()
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile
+  commentId: M:Automata.Core.Alang.AlangRegex.Compile
+  fullName: Automata.Core.Alang.AlangRegex.Compile()
+  nameWithType: AlangRegex.Compile()
+- uid: Automata.Core.Alang.AlangRegex.Compile(Automata.Core.Alphabet)
+  name: Compile(Alphabet)
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alang.AlangRegex.Compile(Automata.Core.Alphabet)
+  fullName: Automata.Core.Alang.AlangRegex.Compile(Automata.Core.Alphabet)
+  nameWithType: AlangRegex.Compile(Alphabet)
+- uid: Automata.Core.Alang.AlangRegex.Compile(System.String)
+  name: Compile(string)
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_
+  commentId: M:Automata.Core.Alang.AlangRegex.Compile(System.String)
+  name.vb: Compile(String)
+  fullName: Automata.Core.Alang.AlangRegex.Compile(string)
+  fullName.vb: Automata.Core.Alang.AlangRegex.Compile(String)
+  nameWithType: AlangRegex.Compile(string)
+  nameWithType.vb: AlangRegex.Compile(String)
+- uid: Automata.Core.Alang.AlangRegex.Compile(System.String,System.String[])
+  name: Compile(string, params string[])
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String_System_String___
+  commentId: M:Automata.Core.Alang.AlangRegex.Compile(System.String,System.String[])
+  name.vb: Compile(String, ParamArray String())
+  fullName: Automata.Core.Alang.AlangRegex.Compile(string, params string[])
+  fullName.vb: Automata.Core.Alang.AlangRegex.Compile(String, ParamArray String())
+  nameWithType: AlangRegex.Compile(string, params string[])
+  nameWithType.vb: AlangRegex.Compile(String, ParamArray String())
+- uid: Automata.Core.Alang.AlangRegex.Compile(System.String[])
+  name: Compile(params string[])
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_System_String___
+  commentId: M:Automata.Core.Alang.AlangRegex.Compile(System.String[])
+  name.vb: Compile(ParamArray String())
+  fullName: Automata.Core.Alang.AlangRegex.Compile(params string[])
+  fullName.vb: Automata.Core.Alang.AlangRegex.Compile(ParamArray String())
+  nameWithType: AlangRegex.Compile(params string[])
+  nameWithType.vb: AlangRegex.Compile(ParamArray String())
+- uid: Automata.Core.Alang.AlangRegex.Compile*
+  name: Compile
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Compile_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.Compile
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangRegex.Compile
+  nameWithType: AlangRegex.Compile
+- uid: Automata.Core.Alang.AlangRegex.DescendantsAndSelf
+  name: DescendantsAndSelf()
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_DescendantsAndSelf
+  commentId: M:Automata.Core.Alang.AlangRegex.DescendantsAndSelf
+  fullName: Automata.Core.Alang.AlangRegex.DescendantsAndSelf()
+  nameWithType: AlangRegex.DescendantsAndSelf()
+- uid: Automata.Core.Alang.AlangRegex.DescendantsAndSelf*
+  name: DescendantsAndSelf
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_DescendantsAndSelf_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.DescendantsAndSelf
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangRegex.DescendantsAndSelf
+  nameWithType: AlangRegex.DescendantsAndSelf
+- uid: Automata.Core.Alang.AlangRegex.IsEmptyString
+  name: IsEmptyString
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_IsEmptyString
+  commentId: P:Automata.Core.Alang.AlangRegex.IsEmptyString
+  fullName: Automata.Core.Alang.AlangRegex.IsEmptyString
+  nameWithType: AlangRegex.IsEmptyString
+- uid: Automata.Core.Alang.AlangRegex.IsEmptyString*
+  name: IsEmptyString
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_IsEmptyString_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.IsEmptyString
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangRegex.IsEmptyString
+  nameWithType: AlangRegex.IsEmptyString
+- uid: Automata.Core.Alang.AlangRegex.Param(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: Param(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Param_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.AlangRegex.Param(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  fullName: Automata.Core.Alang.AlangRegex.Param(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: AlangRegex.Param(AlangRegex, AlangRegex)
+- uid: Automata.Core.Alang.AlangRegex.Param*
+  name: Param
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Param_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.Param
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangRegex.Param
+  nameWithType: AlangRegex.Param
+- uid: Automata.Core.Alang.AlangRegex.Parse(System.String)
+  name: Parse(string)
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Parse_System_String_
+  commentId: M:Automata.Core.Alang.AlangRegex.Parse(System.String)
+  name.vb: Parse(String)
+  fullName: Automata.Core.Alang.AlangRegex.Parse(string)
+  fullName.vb: Automata.Core.Alang.AlangRegex.Parse(String)
+  nameWithType: AlangRegex.Parse(string)
+  nameWithType.vb: AlangRegex.Parse(String)
+- uid: Automata.Core.Alang.AlangRegex.Parse*
+  name: Parse
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Parse_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.Parse
+  isSpec: "True"
+  fullName: Automata.Core.Alang.AlangRegex.Parse
+  nameWithType: AlangRegex.Parse
+- uid: Automata.Core.Alang.AlangRegex.Precedence
   name: Precedence
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_Precedence
-  commentId: P:Automata.Core.Alang.Atom.Precedence
-  fullName: Automata.Core.Alang.Atom.Precedence
-  nameWithType: Atom.Precedence
-- uid: Automata.Core.Alang.Atom.Precedence*
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Precedence
+  commentId: P:Automata.Core.Alang.AlangRegex.Precedence
+  fullName: Automata.Core.Alang.AlangRegex.Precedence
+  nameWithType: AlangRegex.Precedence
+- uid: Automata.Core.Alang.AlangRegex.Precedence*
   name: Precedence
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_Precedence_
-  commentId: Overload:Automata.Core.Alang.Atom.Precedence
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_Precedence_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.Precedence
   isSpec: "True"
-  fullName: Automata.Core.Alang.Atom.Precedence
-  nameWithType: Atom.Precedence
-- uid: Automata.Core.Alang.Atom.Symbol
-  name: Symbol
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_Symbol
-  commentId: P:Automata.Core.Alang.Atom.Symbol
-  fullName: Automata.Core.Alang.Atom.Symbol
-  nameWithType: Atom.Symbol
-- uid: Automata.Core.Alang.Atom.Symbol*
-  name: Symbol
-  href: Automata.Core.Alang.Atom.html#Automata_Core_Alang_Atom_Symbol_
-  commentId: Overload:Automata.Core.Alang.Atom.Symbol
+  fullName: Automata.Core.Alang.AlangRegex.Precedence
+  nameWithType: AlangRegex.Precedence
+- uid: Automata.Core.Alang.AlangRegex.ToString
+  name: ToString()
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_ToString
+  commentId: M:Automata.Core.Alang.AlangRegex.ToString
+  fullName: Automata.Core.Alang.AlangRegex.ToString()
+  nameWithType: AlangRegex.ToString()
+- uid: Automata.Core.Alang.AlangRegex.ToString*
+  name: ToString
+  href: Automata.Core.Alang.AlangRegex.html#Automata_Core_Alang_AlangRegex_ToString_
+  commentId: Overload:Automata.Core.Alang.AlangRegex.ToString
   isSpec: "True"
-  fullName: Automata.Core.Alang.Atom.Symbol
-  nameWithType: Atom.Symbol
+  fullName: Automata.Core.Alang.AlangRegex.ToString
+  nameWithType: AlangRegex.ToString
+- uid: Automata.Core.Alang.BinaryRegex
+  name: BinaryRegex
+  href: Automata.Core.Alang.BinaryRegex.html
+  commentId: T:Automata.Core.Alang.BinaryRegex
+  fullName: Automata.Core.Alang.BinaryRegex
+  nameWithType: BinaryRegex
+- uid: Automata.Core.Alang.BinaryRegex.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: BinaryRegex(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex__ctor_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.BinaryRegex.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex, AlangRegex)
+  fullName: Automata.Core.Alang.BinaryRegex.BinaryRegex(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.BinaryRegex.New(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: BinaryRegex.BinaryRegex(AlangRegex, AlangRegex)
+  nameWithType.vb: BinaryRegex.New(AlangRegex, AlangRegex)
+- uid: Automata.Core.Alang.BinaryRegex.#ctor*
+  name: BinaryRegex
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex__ctor_
+  commentId: Overload:Automata.Core.Alang.BinaryRegex.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Automata.Core.Alang.BinaryRegex.BinaryRegex
+  fullName.vb: Automata.Core.Alang.BinaryRegex.New
+  nameWithType: BinaryRegex.BinaryRegex
+  nameWithType.vb: BinaryRegex.New
+- uid: Automata.Core.Alang.BinaryRegex.Left
+  name: Left
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex_Left
+  commentId: P:Automata.Core.Alang.BinaryRegex.Left
+  fullName: Automata.Core.Alang.BinaryRegex.Left
+  nameWithType: BinaryRegex.Left
+- uid: Automata.Core.Alang.BinaryRegex.Left*
+  name: Left
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex_Left_
+  commentId: Overload:Automata.Core.Alang.BinaryRegex.Left
+  isSpec: "True"
+  fullName: Automata.Core.Alang.BinaryRegex.Left
+  nameWithType: BinaryRegex.Left
+- uid: Automata.Core.Alang.BinaryRegex.Right
+  name: Right
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex_Right
+  commentId: P:Automata.Core.Alang.BinaryRegex.Right
+  fullName: Automata.Core.Alang.BinaryRegex.Right
+  nameWithType: BinaryRegex.Right
+- uid: Automata.Core.Alang.BinaryRegex.Right*
+  name: Right
+  href: Automata.Core.Alang.BinaryRegex.html#Automata_Core_Alang_BinaryRegex_Right_
+  commentId: Overload:Automata.Core.Alang.BinaryRegex.Right
+  isSpec: "True"
+  fullName: Automata.Core.Alang.BinaryRegex.Right
+  nameWithType: BinaryRegex.Right
 - uid: Automata.Core.Alang.Chars
   name: Chars
   href: Automata.Core.Alang.Chars.html
@@ -524,22 +550,6 @@ references:
   commentId: F:Automata.Core.Alang.Chars.Invalid
   fullName: Automata.Core.Alang.Chars.Invalid
   nameWithType: Chars.Invalid
-- uid: Automata.Core.Alang.Chars.IsAtomChar(System.Char)
-  name: IsAtomChar(char)
-  href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_IsAtomChar_System_Char_
-  commentId: M:Automata.Core.Alang.Chars.IsAtomChar(System.Char)
-  name.vb: IsAtomChar(Char)
-  fullName: Automata.Core.Alang.Chars.IsAtomChar(char)
-  fullName.vb: Automata.Core.Alang.Chars.IsAtomChar(Char)
-  nameWithType: Chars.IsAtomChar(char)
-  nameWithType.vb: Chars.IsAtomChar(Char)
-- uid: Automata.Core.Alang.Chars.IsAtomChar*
-  name: IsAtomChar
-  href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_IsAtomChar_
-  commentId: Overload:Automata.Core.Alang.Chars.IsAtomChar
-  isSpec: "True"
-  fullName: Automata.Core.Alang.Chars.IsAtomChar
-  nameWithType: Chars.IsAtomChar
 - uid: Automata.Core.Alang.Chars.IsExpressionStart(System.Char)
   name: IsExpressionStart(char)
   href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_IsExpressionStart_System_Char_
@@ -572,6 +582,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Chars.IsOperator
   nameWithType: Chars.IsOperator
+- uid: Automata.Core.Alang.Chars.IsSymbolChar(System.Char)
+  name: IsSymbolChar(char)
+  href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_IsSymbolChar_System_Char_
+  commentId: M:Automata.Core.Alang.Chars.IsSymbolChar(System.Char)
+  name.vb: IsSymbolChar(Char)
+  fullName: Automata.Core.Alang.Chars.IsSymbolChar(char)
+  fullName.vb: Automata.Core.Alang.Chars.IsSymbolChar(Char)
+  nameWithType: Chars.IsSymbolChar(char)
+  nameWithType.vb: Chars.IsSymbolChar(Char)
+- uid: Automata.Core.Alang.Chars.IsSymbolChar*
+  name: IsSymbolChar
+  href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_IsSymbolChar_
+  commentId: Overload:Automata.Core.Alang.Chars.IsSymbolChar
+  isSpec: "True"
+  fullName: Automata.Core.Alang.Chars.IsSymbolChar
+  nameWithType: Chars.IsSymbolChar
 - uid: Automata.Core.Alang.Chars.KleenePlus
   name: KleenePlus
   href: Automata.Core.Alang.Chars.html#Automata_Core_Alang_Chars_KleenePlus
@@ -620,15 +646,15 @@ references:
   commentId: T:Automata.Core.Alang.Complement
   fullName: Automata.Core.Alang.Complement
   nameWithType: Complement
-- uid: Automata.Core.Alang.Complement.#ctor(Automata.Core.Alang.AlangExpr)
-  name: Complement(AlangExpr)
-  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Complement.#ctor(Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.Complement.Complement(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Complement.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: Complement.Complement(AlangExpr)
-  nameWithType.vb: Complement.New(AlangExpr)
+- uid: Automata.Core.Alang.Complement.#ctor(Automata.Core.Alang.AlangRegex)
+  name: Complement(AlangRegex)
+  href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement__ctor_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Complement.#ctor(Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex)
+  fullName: Automata.Core.Alang.Complement.Complement(Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Complement.New(Automata.Core.Alang.AlangRegex)
+  nameWithType: Complement.Complement(AlangRegex)
+  nameWithType.vb: Complement.New(AlangRegex)
 - uid: Automata.Core.Alang.Complement.#ctor*
   name: Complement
   href: Automata.Core.Alang.Complement.html#Automata_Core_Alang_Complement__ctor_
@@ -671,15 +697,15 @@ references:
   commentId: T:Automata.Core.Alang.Concatenation
   fullName: Automata.Core.Alang.Concatenation
   nameWithType: Concatenation
-- uid: Automata.Core.Alang.Concatenation.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: Concatenation(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation__ctor_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Concatenation.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr, AlangExpr)
-  fullName: Automata.Core.Alang.Concatenation.Concatenation(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Concatenation.New(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: Concatenation.Concatenation(AlangExpr, AlangExpr)
-  nameWithType.vb: Concatenation.New(AlangExpr, AlangExpr)
+- uid: Automata.Core.Alang.Concatenation.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: Concatenation(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation__ctor_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Concatenation.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex, AlangRegex)
+  fullName: Automata.Core.Alang.Concatenation.Concatenation(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Concatenation.New(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: Concatenation.Concatenation(AlangRegex, AlangRegex)
+  nameWithType.vb: Concatenation.New(AlangRegex, AlangRegex)
 - uid: Automata.Core.Alang.Concatenation.#ctor*
   name: Concatenation
   href: Automata.Core.Alang.Concatenation.html#Automata_Core_Alang_Concatenation__ctor_
@@ -738,15 +764,15 @@ references:
   commentId: T:Automata.Core.Alang.Difference
   fullName: Automata.Core.Alang.Difference
   nameWithType: Difference
-- uid: Automata.Core.Alang.Difference.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: Difference(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference__ctor_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Difference.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr, AlangExpr)
-  fullName: Automata.Core.Alang.Difference.Difference(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Difference.New(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: Difference.Difference(AlangExpr, AlangExpr)
-  nameWithType.vb: Difference.New(AlangExpr, AlangExpr)
+- uid: Automata.Core.Alang.Difference.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: Difference(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference__ctor_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Difference.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex, AlangRegex)
+  fullName: Automata.Core.Alang.Difference.Difference(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Difference.New(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: Difference.Difference(AlangRegex, AlangRegex)
+  nameWithType.vb: Difference.New(AlangRegex, AlangRegex)
 - uid: Automata.Core.Alang.Difference.#ctor*
   name: Difference
   href: Automata.Core.Alang.Difference.html#Automata_Core_Alang_Difference__ctor_
@@ -783,123 +809,72 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Difference.Precedence
   nameWithType: Difference.Precedence
-- uid: Automata.Core.Alang.EmptySet
-  name: EmptySet
-  href: Automata.Core.Alang.EmptySet.html
-  commentId: T:Automata.Core.Alang.EmptySet
-  fullName: Automata.Core.Alang.EmptySet
-  nameWithType: EmptySet
-- uid: Automata.Core.Alang.EmptySet.#ctor
-  name: EmptySet()
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet__ctor
-  commentId: M:Automata.Core.Alang.EmptySet.#ctor
+- uid: Automata.Core.Alang.EmptyLang
+  name: EmptyLang
+  href: Automata.Core.Alang.EmptyLang.html
+  commentId: T:Automata.Core.Alang.EmptyLang
+  fullName: Automata.Core.Alang.EmptyLang
+  nameWithType: EmptyLang
+- uid: Automata.Core.Alang.EmptyLang.#ctor
+  name: EmptyLang()
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang__ctor
+  commentId: M:Automata.Core.Alang.EmptyLang.#ctor
   name.vb: New()
-  fullName: Automata.Core.Alang.EmptySet.EmptySet()
-  fullName.vb: Automata.Core.Alang.EmptySet.New()
-  nameWithType: EmptySet.EmptySet()
-  nameWithType.vb: EmptySet.New()
-- uid: Automata.Core.Alang.EmptySet.#ctor*
-  name: EmptySet
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet__ctor_
-  commentId: Overload:Automata.Core.Alang.EmptySet.#ctor
+  fullName: Automata.Core.Alang.EmptyLang.EmptyLang()
+  fullName.vb: Automata.Core.Alang.EmptyLang.New()
+  nameWithType: EmptyLang.EmptyLang()
+  nameWithType.vb: EmptyLang.New()
+- uid: Automata.Core.Alang.EmptyLang.#ctor*
+  name: EmptyLang
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang__ctor_
+  commentId: Overload:Automata.Core.Alang.EmptyLang.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.Alang.EmptySet.EmptySet
-  fullName.vb: Automata.Core.Alang.EmptySet.New
-  nameWithType: EmptySet.EmptySet
-  nameWithType.vb: EmptySet.New
-- uid: Automata.Core.Alang.EmptySet.AlangExpressionString
+  fullName: Automata.Core.Alang.EmptyLang.EmptyLang
+  fullName.vb: Automata.Core.Alang.EmptyLang.New
+  nameWithType: EmptyLang.EmptyLang
+  nameWithType.vb: EmptyLang.New
+- uid: Automata.Core.Alang.EmptyLang.AlangExpressionString
   name: AlangExpressionString
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_AlangExpressionString
-  commentId: P:Automata.Core.Alang.EmptySet.AlangExpressionString
-  fullName: Automata.Core.Alang.EmptySet.AlangExpressionString
-  nameWithType: EmptySet.AlangExpressionString
-- uid: Automata.Core.Alang.EmptySet.AlangExpressionString*
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang_AlangExpressionString
+  commentId: P:Automata.Core.Alang.EmptyLang.AlangExpressionString
+  fullName: Automata.Core.Alang.EmptyLang.AlangExpressionString
+  nameWithType: EmptyLang.AlangExpressionString
+- uid: Automata.Core.Alang.EmptyLang.AlangExpressionString*
   name: AlangExpressionString
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_AlangExpressionString_
-  commentId: Overload:Automata.Core.Alang.EmptySet.AlangExpressionString
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.EmptyLang.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.EmptySet.AlangExpressionString
-  nameWithType: EmptySet.AlangExpressionString
-- uid: Automata.Core.Alang.EmptySet.Precedence
+  fullName: Automata.Core.Alang.EmptyLang.AlangExpressionString
+  nameWithType: EmptyLang.AlangExpressionString
+- uid: Automata.Core.Alang.EmptyLang.Precedence
   name: Precedence
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_Precedence
-  commentId: P:Automata.Core.Alang.EmptySet.Precedence
-  fullName: Automata.Core.Alang.EmptySet.Precedence
-  nameWithType: EmptySet.Precedence
-- uid: Automata.Core.Alang.EmptySet.Precedence*
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang_Precedence
+  commentId: P:Automata.Core.Alang.EmptyLang.Precedence
+  fullName: Automata.Core.Alang.EmptyLang.Precedence
+  nameWithType: EmptyLang.Precedence
+- uid: Automata.Core.Alang.EmptyLang.Precedence*
   name: Precedence
-  href: Automata.Core.Alang.EmptySet.html#Automata_Core_Alang_EmptySet_Precedence_
-  commentId: Overload:Automata.Core.Alang.EmptySet.Precedence
+  href: Automata.Core.Alang.EmptyLang.html#Automata_Core_Alang_EmptyLang_Precedence_
+  commentId: Overload:Automata.Core.Alang.EmptyLang.Precedence
   isSpec: "True"
-  fullName: Automata.Core.Alang.EmptySet.Precedence
-  nameWithType: EmptySet.Precedence
-- uid: Automata.Core.Alang.InfixBinary
-  name: InfixBinary
-  href: Automata.Core.Alang.InfixBinary.html
-  commentId: T:Automata.Core.Alang.InfixBinary
-  fullName: Automata.Core.Alang.InfixBinary
-  nameWithType: InfixBinary
-- uid: Automata.Core.Alang.InfixBinary.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: InfixBinary(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary__ctor_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.InfixBinary.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr, AlangExpr)
-  fullName: Automata.Core.Alang.InfixBinary.InfixBinary(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.InfixBinary.New(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: InfixBinary.InfixBinary(AlangExpr, AlangExpr)
-  nameWithType.vb: InfixBinary.New(AlangExpr, AlangExpr)
-- uid: Automata.Core.Alang.InfixBinary.#ctor*
-  name: InfixBinary
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary__ctor_
-  commentId: Overload:Automata.Core.Alang.InfixBinary.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.Alang.InfixBinary.InfixBinary
-  fullName.vb: Automata.Core.Alang.InfixBinary.New
-  nameWithType: InfixBinary.InfixBinary
-  nameWithType.vb: InfixBinary.New
-- uid: Automata.Core.Alang.InfixBinary.Left
-  name: Left
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary_Left
-  commentId: P:Automata.Core.Alang.InfixBinary.Left
-  fullName: Automata.Core.Alang.InfixBinary.Left
-  nameWithType: InfixBinary.Left
-- uid: Automata.Core.Alang.InfixBinary.Left*
-  name: Left
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary_Left_
-  commentId: Overload:Automata.Core.Alang.InfixBinary.Left
-  isSpec: "True"
-  fullName: Automata.Core.Alang.InfixBinary.Left
-  nameWithType: InfixBinary.Left
-- uid: Automata.Core.Alang.InfixBinary.Right
-  name: Right
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary_Right
-  commentId: P:Automata.Core.Alang.InfixBinary.Right
-  fullName: Automata.Core.Alang.InfixBinary.Right
-  nameWithType: InfixBinary.Right
-- uid: Automata.Core.Alang.InfixBinary.Right*
-  name: Right
-  href: Automata.Core.Alang.InfixBinary.html#Automata_Core_Alang_InfixBinary_Right_
-  commentId: Overload:Automata.Core.Alang.InfixBinary.Right
-  isSpec: "True"
-  fullName: Automata.Core.Alang.InfixBinary.Right
-  nameWithType: InfixBinary.Right
+  fullName: Automata.Core.Alang.EmptyLang.Precedence
+  nameWithType: EmptyLang.Precedence
 - uid: Automata.Core.Alang.Intersection
   name: Intersection
   href: Automata.Core.Alang.Intersection.html
   commentId: T:Automata.Core.Alang.Intersection
   fullName: Automata.Core.Alang.Intersection
   nameWithType: Intersection
-- uid: Automata.Core.Alang.Intersection.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: Intersection(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection__ctor_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Intersection.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr, AlangExpr)
-  fullName: Automata.Core.Alang.Intersection.Intersection(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Intersection.New(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: Intersection.Intersection(AlangExpr, AlangExpr)
-  nameWithType.vb: Intersection.New(AlangExpr, AlangExpr)
+- uid: Automata.Core.Alang.Intersection.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: Intersection(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection__ctor_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Intersection.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex, AlangRegex)
+  fullName: Automata.Core.Alang.Intersection.Intersection(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Intersection.New(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: Intersection.Intersection(AlangRegex, AlangRegex)
+  nameWithType.vb: Intersection.New(AlangRegex, AlangRegex)
 - uid: Automata.Core.Alang.Intersection.#ctor*
   name: Intersection
   href: Automata.Core.Alang.Intersection.html#Automata_Core_Alang_Intersection__ctor_
@@ -942,15 +917,15 @@ references:
   commentId: T:Automata.Core.Alang.KleenePlus
   fullName: Automata.Core.Alang.KleenePlus
   nameWithType: KleenePlus
-- uid: Automata.Core.Alang.KleenePlus.#ctor(Automata.Core.Alang.AlangExpr)
-  name: KleenePlus(AlangExpr)
-  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.KleenePlus.#ctor(Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.KleenePlus.KleenePlus(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.KleenePlus.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: KleenePlus.KleenePlus(AlangExpr)
-  nameWithType.vb: KleenePlus.New(AlangExpr)
+- uid: Automata.Core.Alang.KleenePlus.#ctor(Automata.Core.Alang.AlangRegex)
+  name: KleenePlus(AlangRegex)
+  href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus__ctor_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.KleenePlus.#ctor(Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex)
+  fullName: Automata.Core.Alang.KleenePlus.KleenePlus(Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.KleenePlus.New(Automata.Core.Alang.AlangRegex)
+  nameWithType: KleenePlus.KleenePlus(AlangRegex)
+  nameWithType.vb: KleenePlus.New(AlangRegex)
 - uid: Automata.Core.Alang.KleenePlus.#ctor*
   name: KleenePlus
   href: Automata.Core.Alang.KleenePlus.html#Automata_Core_Alang_KleenePlus__ctor_
@@ -993,15 +968,15 @@ references:
   commentId: T:Automata.Core.Alang.KleeneStar
   fullName: Automata.Core.Alang.KleeneStar
   nameWithType: KleeneStar
-- uid: Automata.Core.Alang.KleeneStar.#ctor(Automata.Core.Alang.AlangExpr)
-  name: KleeneStar(AlangExpr)
-  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.KleeneStar.#ctor(Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.KleeneStar.KleeneStar(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.KleeneStar.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: KleeneStar.KleeneStar(AlangExpr)
-  nameWithType.vb: KleeneStar.New(AlangExpr)
+- uid: Automata.Core.Alang.KleeneStar.#ctor(Automata.Core.Alang.AlangRegex)
+  name: KleeneStar(AlangRegex)
+  href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar__ctor_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.KleeneStar.#ctor(Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex)
+  fullName: Automata.Core.Alang.KleeneStar.KleeneStar(Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.KleeneStar.New(Automata.Core.Alang.AlangRegex)
+  nameWithType: KleeneStar.KleeneStar(AlangRegex)
+  nameWithType.vb: KleeneStar.New(AlangRegex)
 - uid: Automata.Core.Alang.KleeneStar.#ctor*
   name: KleeneStar
   href: Automata.Core.Alang.KleeneStar.html#Automata_Core_Alang_KleeneStar__ctor_
@@ -1044,15 +1019,15 @@ references:
   commentId: T:Automata.Core.Alang.Option
   fullName: Automata.Core.Alang.Option
   nameWithType: Option
-- uid: Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangExpr)
-  name: Option(AlangExpr)
-  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.Option.Option(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Option.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: Option.Option(AlangExpr)
-  nameWithType.vb: Option.New(AlangExpr)
+- uid: Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangRegex)
+  name: Option(AlangRegex)
+  href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option__ctor_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Option.#ctor(Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex)
+  fullName: Automata.Core.Alang.Option.Option(Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Option.New(Automata.Core.Alang.AlangRegex)
+  nameWithType: Option.Option(AlangRegex)
+  nameWithType.vb: Option.New(AlangRegex)
 - uid: Automata.Core.Alang.Option.#ctor*
   name: Option
   href: Automata.Core.Alang.Option.html#Automata_Core_Alang_Option__ctor_
@@ -1089,101 +1064,159 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Option.Precedence
   nameWithType: Option.Precedence
-- uid: Automata.Core.Alang.ParseErrorType
-  name: ParseErrorType
-  href: Automata.Core.Alang.ParseErrorType.html
-  commentId: T:Automata.Core.Alang.ParseErrorType
-  fullName: Automata.Core.Alang.ParseErrorType
-  nameWithType: ParseErrorType
-- uid: Automata.Core.Alang.ParseErrorType.EmptyInput
+- uid: Automata.Core.Alang.ParseErrorReason
+  name: ParseErrorReason
+  href: Automata.Core.Alang.ParseErrorReason.html
+  commentId: T:Automata.Core.Alang.ParseErrorReason
+  fullName: Automata.Core.Alang.ParseErrorReason
+  nameWithType: ParseErrorReason
+- uid: Automata.Core.Alang.ParseErrorReason.EmptyInput
   name: EmptyInput
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_EmptyInput
-  commentId: F:Automata.Core.Alang.ParseErrorType.EmptyInput
-  fullName: Automata.Core.Alang.ParseErrorType.EmptyInput
-  nameWithType: ParseErrorType.EmptyInput
-- uid: Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
-  name: ExpectedBeginExpressionOrEOI
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_ExpectedBeginExpressionOrEOI
-  commentId: F:Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
-  fullName: Automata.Core.Alang.ParseErrorType.ExpectedBeginExpressionOrEOI
-  nameWithType: ParseErrorType.ExpectedBeginExpressionOrEOI
-- uid: Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
+  href: Automata.Core.Alang.ParseErrorReason.html#Automata_Core_Alang_ParseErrorReason_EmptyInput
+  commentId: F:Automata.Core.Alang.ParseErrorReason.EmptyInput
+  fullName: Automata.Core.Alang.ParseErrorReason.EmptyInput
+  nameWithType: ParseErrorReason.EmptyInput
+- uid: Automata.Core.Alang.ParseErrorReason.MissingClosingParenthesis
   name: MissingClosingParenthesis
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_MissingClosingParenthesis
-  commentId: F:Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
-  fullName: Automata.Core.Alang.ParseErrorType.MissingClosingParenthesis
-  nameWithType: ParseErrorType.MissingClosingParenthesis
-- uid: Automata.Core.Alang.ParseErrorType.MissingRightOperand
+  href: Automata.Core.Alang.ParseErrorReason.html#Automata_Core_Alang_ParseErrorReason_MissingClosingParenthesis
+  commentId: F:Automata.Core.Alang.ParseErrorReason.MissingClosingParenthesis
+  fullName: Automata.Core.Alang.ParseErrorReason.MissingClosingParenthesis
+  nameWithType: ParseErrorReason.MissingClosingParenthesis
+- uid: Automata.Core.Alang.ParseErrorReason.MissingRightOperand
   name: MissingRightOperand
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_MissingRightOperand
-  commentId: F:Automata.Core.Alang.ParseErrorType.MissingRightOperand
-  fullName: Automata.Core.Alang.ParseErrorType.MissingRightOperand
-  nameWithType: ParseErrorType.MissingRightOperand
-- uid: Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
+  href: Automata.Core.Alang.ParseErrorReason.html#Automata_Core_Alang_ParseErrorReason_MissingRightOperand
+  commentId: F:Automata.Core.Alang.ParseErrorReason.MissingRightOperand
+  fullName: Automata.Core.Alang.ParseErrorReason.MissingRightOperand
+  nameWithType: ParseErrorReason.MissingRightOperand
+- uid: Automata.Core.Alang.ParseErrorReason.UnexpectedClosingParenthesis
   name: UnexpectedClosingParenthesis
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_UnexpectedClosingParenthesis
-  commentId: F:Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
-  fullName: Automata.Core.Alang.ParseErrorType.UnexpectedClosingParenthesis
-  nameWithType: ParseErrorType.UnexpectedClosingParenthesis
-- uid: Automata.Core.Alang.ParseErrorType.UnexpectedOperator
+  href: Automata.Core.Alang.ParseErrorReason.html#Automata_Core_Alang_ParseErrorReason_UnexpectedClosingParenthesis
+  commentId: F:Automata.Core.Alang.ParseErrorReason.UnexpectedClosingParenthesis
+  fullName: Automata.Core.Alang.ParseErrorReason.UnexpectedClosingParenthesis
+  nameWithType: ParseErrorReason.UnexpectedClosingParenthesis
+- uid: Automata.Core.Alang.ParseErrorReason.UnexpectedOperator
   name: UnexpectedOperator
-  href: Automata.Core.Alang.ParseErrorType.html#Automata_Core_Alang_ParseErrorType_UnexpectedOperator
-  commentId: F:Automata.Core.Alang.ParseErrorType.UnexpectedOperator
-  fullName: Automata.Core.Alang.ParseErrorType.UnexpectedOperator
-  nameWithType: ParseErrorType.UnexpectedOperator
-- uid: Automata.Core.Alang.UnaryExpr
-  name: UnaryExpr
-  href: Automata.Core.Alang.UnaryExpr.html
-  commentId: T:Automata.Core.Alang.UnaryExpr
-  fullName: Automata.Core.Alang.UnaryExpr
-  nameWithType: UnaryExpr
-- uid: Automata.Core.Alang.UnaryExpr.#ctor(Automata.Core.Alang.AlangExpr)
-  name: UnaryExpr(AlangExpr)
-  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr__ctor_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.UnaryExpr.#ctor(Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr)
-  fullName: Automata.Core.Alang.UnaryExpr.UnaryExpr(Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.UnaryExpr.New(Automata.Core.Alang.AlangExpr)
-  nameWithType: UnaryExpr.UnaryExpr(AlangExpr)
-  nameWithType.vb: UnaryExpr.New(AlangExpr)
-- uid: Automata.Core.Alang.UnaryExpr.#ctor*
-  name: UnaryExpr
-  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr__ctor_
-  commentId: Overload:Automata.Core.Alang.UnaryExpr.#ctor
+  href: Automata.Core.Alang.ParseErrorReason.html#Automata_Core_Alang_ParseErrorReason_UnexpectedOperator
+  commentId: F:Automata.Core.Alang.ParseErrorReason.UnexpectedOperator
+  fullName: Automata.Core.Alang.ParseErrorReason.UnexpectedOperator
+  nameWithType: ParseErrorReason.UnexpectedOperator
+- uid: Automata.Core.Alang.Symbol
+  name: Symbol
+  href: Automata.Core.Alang.Symbol.html
+  commentId: T:Automata.Core.Alang.Symbol
+  fullName: Automata.Core.Alang.Symbol
+  nameWithType: Symbol
+- uid: Automata.Core.Alang.Symbol.#ctor(System.String)
+  name: Symbol(string)
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol__ctor_System_String_
+  commentId: M:Automata.Core.Alang.Symbol.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Automata.Core.Alang.Symbol.Symbol(string)
+  fullName.vb: Automata.Core.Alang.Symbol.New(String)
+  nameWithType: Symbol.Symbol(string)
+  nameWithType.vb: Symbol.New(String)
+- uid: Automata.Core.Alang.Symbol.#ctor*
+  name: Symbol
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol__ctor_
+  commentId: Overload:Automata.Core.Alang.Symbol.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.Alang.UnaryExpr.UnaryExpr
-  fullName.vb: Automata.Core.Alang.UnaryExpr.New
-  nameWithType: UnaryExpr.UnaryExpr
-  nameWithType.vb: UnaryExpr.New
-- uid: Automata.Core.Alang.UnaryExpr.Operand
-  name: Operand
-  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand
-  commentId: P:Automata.Core.Alang.UnaryExpr.Operand
-  fullName: Automata.Core.Alang.UnaryExpr.Operand
-  nameWithType: UnaryExpr.Operand
-- uid: Automata.Core.Alang.UnaryExpr.Operand*
-  name: Operand
-  href: Automata.Core.Alang.UnaryExpr.html#Automata_Core_Alang_UnaryExpr_Operand_
-  commentId: Overload:Automata.Core.Alang.UnaryExpr.Operand
+  fullName: Automata.Core.Alang.Symbol.Symbol
+  fullName.vb: Automata.Core.Alang.Symbol.New
+  nameWithType: Symbol.Symbol
+  nameWithType.vb: Symbol.New
+- uid: Automata.Core.Alang.Symbol.AlangExpressionString
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_AlangExpressionString
+  commentId: P:Automata.Core.Alang.Symbol.AlangExpressionString
+  fullName: Automata.Core.Alang.Symbol.AlangExpressionString
+  nameWithType: Symbol.AlangExpressionString
+- uid: Automata.Core.Alang.Symbol.AlangExpressionString*
+  name: AlangExpressionString
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_AlangExpressionString_
+  commentId: Overload:Automata.Core.Alang.Symbol.AlangExpressionString
   isSpec: "True"
-  fullName: Automata.Core.Alang.UnaryExpr.Operand
-  nameWithType: UnaryExpr.Operand
+  fullName: Automata.Core.Alang.Symbol.AlangExpressionString
+  nameWithType: Symbol.AlangExpressionString
+- uid: Automata.Core.Alang.Symbol.Precedence
+  name: Precedence
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_Precedence
+  commentId: P:Automata.Core.Alang.Symbol.Precedence
+  fullName: Automata.Core.Alang.Symbol.Precedence
+  nameWithType: Symbol.Precedence
+- uid: Automata.Core.Alang.Symbol.Precedence*
+  name: Precedence
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_Precedence_
+  commentId: Overload:Automata.Core.Alang.Symbol.Precedence
+  isSpec: "True"
+  fullName: Automata.Core.Alang.Symbol.Precedence
+  nameWithType: Symbol.Precedence
+- uid: Automata.Core.Alang.Symbol.Value
+  name: Value
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_Value
+  commentId: P:Automata.Core.Alang.Symbol.Value
+  fullName: Automata.Core.Alang.Symbol.Value
+  nameWithType: Symbol.Value
+- uid: Automata.Core.Alang.Symbol.Value*
+  name: Value
+  href: Automata.Core.Alang.Symbol.html#Automata_Core_Alang_Symbol_Value_
+  commentId: Overload:Automata.Core.Alang.Symbol.Value
+  isSpec: "True"
+  fullName: Automata.Core.Alang.Symbol.Value
+  nameWithType: Symbol.Value
+- uid: Automata.Core.Alang.UnaryRegex
+  name: UnaryRegex
+  href: Automata.Core.Alang.UnaryRegex.html
+  commentId: T:Automata.Core.Alang.UnaryRegex
+  fullName: Automata.Core.Alang.UnaryRegex
+  nameWithType: UnaryRegex
+- uid: Automata.Core.Alang.UnaryRegex.#ctor(Automata.Core.Alang.AlangRegex)
+  name: UnaryRegex(AlangRegex)
+  href: Automata.Core.Alang.UnaryRegex.html#Automata_Core_Alang_UnaryRegex__ctor_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.UnaryRegex.#ctor(Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex)
+  fullName: Automata.Core.Alang.UnaryRegex.UnaryRegex(Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.UnaryRegex.New(Automata.Core.Alang.AlangRegex)
+  nameWithType: UnaryRegex.UnaryRegex(AlangRegex)
+  nameWithType.vb: UnaryRegex.New(AlangRegex)
+- uid: Automata.Core.Alang.UnaryRegex.#ctor*
+  name: UnaryRegex
+  href: Automata.Core.Alang.UnaryRegex.html#Automata_Core_Alang_UnaryRegex__ctor_
+  commentId: Overload:Automata.Core.Alang.UnaryRegex.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Automata.Core.Alang.UnaryRegex.UnaryRegex
+  fullName.vb: Automata.Core.Alang.UnaryRegex.New
+  nameWithType: UnaryRegex.UnaryRegex
+  nameWithType.vb: UnaryRegex.New
+- uid: Automata.Core.Alang.UnaryRegex.Operand
+  name: Operand
+  href: Automata.Core.Alang.UnaryRegex.html#Automata_Core_Alang_UnaryRegex_Operand
+  commentId: P:Automata.Core.Alang.UnaryRegex.Operand
+  fullName: Automata.Core.Alang.UnaryRegex.Operand
+  nameWithType: UnaryRegex.Operand
+- uid: Automata.Core.Alang.UnaryRegex.Operand*
+  name: Operand
+  href: Automata.Core.Alang.UnaryRegex.html#Automata_Core_Alang_UnaryRegex_Operand_
+  commentId: Overload:Automata.Core.Alang.UnaryRegex.Operand
+  isSpec: "True"
+  fullName: Automata.Core.Alang.UnaryRegex.Operand
+  nameWithType: UnaryRegex.Operand
 - uid: Automata.Core.Alang.Union
   name: Union
   href: Automata.Core.Alang.Union.html
   commentId: T:Automata.Core.Alang.Union
   fullName: Automata.Core.Alang.Union
   nameWithType: Union
-- uid: Automata.Core.Alang.Union.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name: Union(AlangExpr, AlangExpr)
-  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union__ctor_Automata_Core_Alang_AlangExpr_Automata_Core_Alang_AlangExpr_
-  commentId: M:Automata.Core.Alang.Union.#ctor(Automata.Core.Alang.AlangExpr,Automata.Core.Alang.AlangExpr)
-  name.vb: New(AlangExpr, AlangExpr)
-  fullName: Automata.Core.Alang.Union.Union(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  fullName.vb: Automata.Core.Alang.Union.New(Automata.Core.Alang.AlangExpr, Automata.Core.Alang.AlangExpr)
-  nameWithType: Union.Union(AlangExpr, AlangExpr)
-  nameWithType.vb: Union.New(AlangExpr, AlangExpr)
+- uid: Automata.Core.Alang.Union.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name: Union(AlangRegex, AlangRegex)
+  href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union__ctor_Automata_Core_Alang_AlangRegex_Automata_Core_Alang_AlangRegex_
+  commentId: M:Automata.Core.Alang.Union.#ctor(Automata.Core.Alang.AlangRegex,Automata.Core.Alang.AlangRegex)
+  name.vb: New(AlangRegex, AlangRegex)
+  fullName: Automata.Core.Alang.Union.Union(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  fullName.vb: Automata.Core.Alang.Union.New(Automata.Core.Alang.AlangRegex, Automata.Core.Alang.AlangRegex)
+  nameWithType: Union.Union(AlangRegex, AlangRegex)
+  nameWithType.vb: Union.New(AlangRegex, AlangRegex)
 - uid: Automata.Core.Alang.Union.#ctor*
   name: Union
   href: Automata.Core.Alang.Union.html#Automata_Core_Alang_Union__ctor_
@@ -1252,516 +1285,304 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alang.Wildcard.Precedence
   nameWithType: Wildcard.Precedence
-- uid: Automata.Core.CanonicalAlphabet
-  name: CanonicalAlphabet
-  href: Automata.Core.CanonicalAlphabet.html
-  commentId: T:Automata.Core.CanonicalAlphabet
-  fullName: Automata.Core.CanonicalAlphabet
-  nameWithType: CanonicalAlphabet
-- uid: Automata.Core.CanonicalAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
-  name: CanonicalAlphabet(IEnumerable<string>)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet__ctor_System_Collections_Generic_IEnumerable_System_String__
-  commentId: M:Automata.Core.CanonicalAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
+- uid: Automata.Core.Alphabet
+  name: Alphabet
+  href: Automata.Core.Alphabet.html
+  commentId: T:Automata.Core.Alphabet
+  fullName: Automata.Core.Alphabet
+  nameWithType: Alphabet
+- uid: Automata.Core.Alphabet.#ctor
+  name: Alphabet()
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor
+  commentId: M:Automata.Core.Alphabet.#ctor
+  name.vb: New()
+  fullName: Automata.Core.Alphabet.Alphabet()
+  fullName.vb: Automata.Core.Alphabet.New()
+  nameWithType: Alphabet.Alphabet()
+  nameWithType.vb: Alphabet.New()
+- uid: Automata.Core.Alphabet.#ctor(Automata.Core.Alphabet)
+  name: Alphabet(Alphabet)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alphabet.#ctor(Automata.Core.Alphabet)
+  name.vb: New(Alphabet)
+  fullName: Automata.Core.Alphabet.Alphabet(Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Alphabet.New(Automata.Core.Alphabet)
+  nameWithType: Alphabet.Alphabet(Alphabet)
+  nameWithType.vb: Alphabet.New(Alphabet)
+- uid: Automata.Core.Alphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
+  name: Alphabet(IEnumerable<string>)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:Automata.Core.Alphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
   name.vb: New(IEnumerable(Of String))
-  fullName: Automata.Core.CanonicalAlphabet.CanonicalAlphabet(System.Collections.Generic.IEnumerable<string>)
-  fullName.vb: Automata.Core.CanonicalAlphabet.New(System.Collections.Generic.IEnumerable(Of String))
-  nameWithType: CanonicalAlphabet.CanonicalAlphabet(IEnumerable<string>)
-  nameWithType.vb: CanonicalAlphabet.New(IEnumerable(Of String))
-- uid: Automata.Core.CanonicalAlphabet.#ctor*
-  name: CanonicalAlphabet
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet__ctor_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.#ctor
+  fullName: Automata.Core.Alphabet.Alphabet(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: Automata.Core.Alphabet.New(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: Alphabet.Alphabet(IEnumerable<string>)
+  nameWithType.vb: Alphabet.New(IEnumerable(Of String))
+- uid: Automata.Core.Alphabet.#ctor(System.String[])
+  name: Alphabet(params string[])
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor_System_String___
+  commentId: M:Automata.Core.Alphabet.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: Automata.Core.Alphabet.Alphabet(params string[])
+  fullName.vb: Automata.Core.Alphabet.New(ParamArray String())
+  nameWithType: Alphabet.Alphabet(params string[])
+  nameWithType.vb: Alphabet.New(ParamArray String())
+- uid: Automata.Core.Alphabet.#ctor*
+  name: Alphabet
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet__ctor_
+  commentId: Overload:Automata.Core.Alphabet.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.CanonicalAlphabet.CanonicalAlphabet
-  fullName.vb: Automata.Core.CanonicalAlphabet.New
-  nameWithType: CanonicalAlphabet.CanonicalAlphabet
-  nameWithType.vb: CanonicalAlphabet.New
-- uid: Automata.Core.CanonicalAlphabet.CanonicalStringComparer
-  name: CanonicalStringComparer
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_CanonicalStringComparer
-  commentId: P:Automata.Core.CanonicalAlphabet.CanonicalStringComparer
-  fullName: Automata.Core.CanonicalAlphabet.CanonicalStringComparer
-  nameWithType: CanonicalAlphabet.CanonicalStringComparer
-- uid: Automata.Core.CanonicalAlphabet.CanonicalStringComparer*
-  name: CanonicalStringComparer
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_CanonicalStringComparer_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.CanonicalStringComparer
+  fullName: Automata.Core.Alphabet.Alphabet
+  fullName.vb: Automata.Core.Alphabet.New
+  nameWithType: Alphabet.Alphabet
+  nameWithType.vb: Alphabet.New
+- uid: Automata.Core.Alphabet.AddAll(System.Collections.Generic.IEnumerable{System.String})
+  name: AddAll(IEnumerable<string>)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_AddAll_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:Automata.Core.Alphabet.AddAll(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: AddAll(IEnumerable(Of String))
+  fullName: Automata.Core.Alphabet.AddAll(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: Automata.Core.Alphabet.AddAll(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: Alphabet.AddAll(IEnumerable<string>)
+  nameWithType.vb: Alphabet.AddAll(IEnumerable(Of String))
+- uid: Automata.Core.Alphabet.AddAll*
+  name: AddAll
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_AddAll_
+  commentId: Overload:Automata.Core.Alphabet.AddAll
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.CanonicalStringComparer
-  nameWithType: CanonicalAlphabet.CanonicalStringComparer
-- uid: Automata.Core.CanonicalAlphabet.Contains(System.String)
+  fullName: Automata.Core.Alphabet.AddAll
+  nameWithType: Alphabet.AddAll
+- uid: Automata.Core.Alphabet.Contains(System.String)
   name: Contains(string)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Contains_System_String_
-  commentId: M:Automata.Core.CanonicalAlphabet.Contains(System.String)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Contains_System_String_
+  commentId: M:Automata.Core.Alphabet.Contains(System.String)
   name.vb: Contains(String)
-  fullName: Automata.Core.CanonicalAlphabet.Contains(string)
-  fullName.vb: Automata.Core.CanonicalAlphabet.Contains(String)
-  nameWithType: CanonicalAlphabet.Contains(string)
-  nameWithType.vb: CanonicalAlphabet.Contains(String)
-- uid: Automata.Core.CanonicalAlphabet.Contains*
+  fullName: Automata.Core.Alphabet.Contains(string)
+  fullName.vb: Automata.Core.Alphabet.Contains(String)
+  nameWithType: Alphabet.Contains(string)
+  nameWithType.vb: Alphabet.Contains(String)
+- uid: Automata.Core.Alphabet.Contains*
   name: Contains
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Contains_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Contains
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Contains_
+  commentId: Overload:Automata.Core.Alphabet.Contains
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.Contains
-  nameWithType: CanonicalAlphabet.Contains
-- uid: Automata.Core.CanonicalAlphabet.Count
+  fullName: Automata.Core.Alphabet.Contains
+  nameWithType: Alphabet.Contains
+- uid: Automata.Core.Alphabet.Count
   name: Count
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Count
-  commentId: P:Automata.Core.CanonicalAlphabet.Count
-  fullName: Automata.Core.CanonicalAlphabet.Count
-  nameWithType: CanonicalAlphabet.Count
-- uid: Automata.Core.CanonicalAlphabet.Count*
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Count
+  commentId: P:Automata.Core.Alphabet.Count
+  fullName: Automata.Core.Alphabet.Count
+  nameWithType: Alphabet.Count
+- uid: Automata.Core.Alphabet.Count*
   name: Count
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Count_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Count
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Count_
+  commentId: Overload:Automata.Core.Alphabet.Count
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.Count
-  nameWithType: CanonicalAlphabet.Count
-- uid: Automata.Core.CanonicalAlphabet.Empty
-  name: Empty
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Empty
-  commentId: P:Automata.Core.CanonicalAlphabet.Empty
-  fullName: Automata.Core.CanonicalAlphabet.Empty
-  nameWithType: CanonicalAlphabet.Empty
-- uid: Automata.Core.CanonicalAlphabet.Empty*
-  name: Empty
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Empty_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Empty
-  isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.Empty
-  nameWithType: CanonicalAlphabet.Empty
-- uid: Automata.Core.CanonicalAlphabet.Equals(Automata.Core.CanonicalAlphabet)
-  name: Equals(CanonicalAlphabet?)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Equals_Automata_Core_CanonicalAlphabet_
-  commentId: M:Automata.Core.CanonicalAlphabet.Equals(Automata.Core.CanonicalAlphabet)
-  name.vb: Equals(CanonicalAlphabet)
-  fullName: Automata.Core.CanonicalAlphabet.Equals(Automata.Core.CanonicalAlphabet?)
-  fullName.vb: Automata.Core.CanonicalAlphabet.Equals(Automata.Core.CanonicalAlphabet)
-  nameWithType: CanonicalAlphabet.Equals(CanonicalAlphabet?)
-  nameWithType.vb: CanonicalAlphabet.Equals(CanonicalAlphabet)
-- uid: Automata.Core.CanonicalAlphabet.Equals(System.Object)
+  fullName: Automata.Core.Alphabet.Count
+  nameWithType: Alphabet.Count
+- uid: Automata.Core.Alphabet.Equals(Automata.Core.Alphabet)
+  name: Equals(Alphabet?)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Equals_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alphabet.Equals(Automata.Core.Alphabet)
+  name.vb: Equals(Alphabet)
+  fullName: Automata.Core.Alphabet.Equals(Automata.Core.Alphabet?)
+  fullName.vb: Automata.Core.Alphabet.Equals(Automata.Core.Alphabet)
+  nameWithType: Alphabet.Equals(Alphabet?)
+  nameWithType.vb: Alphabet.Equals(Alphabet)
+- uid: Automata.Core.Alphabet.Equals(System.Object)
   name: Equals(object?)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Equals_System_Object_
-  commentId: M:Automata.Core.CanonicalAlphabet.Equals(System.Object)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Equals_System_Object_
+  commentId: M:Automata.Core.Alphabet.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: Automata.Core.CanonicalAlphabet.Equals(object?)
-  fullName.vb: Automata.Core.CanonicalAlphabet.Equals(Object)
-  nameWithType: CanonicalAlphabet.Equals(object?)
-  nameWithType.vb: CanonicalAlphabet.Equals(Object)
-- uid: Automata.Core.CanonicalAlphabet.Equals*
+  fullName: Automata.Core.Alphabet.Equals(object?)
+  fullName.vb: Automata.Core.Alphabet.Equals(Object)
+  nameWithType: Alphabet.Equals(object?)
+  nameWithType.vb: Alphabet.Equals(Object)
+- uid: Automata.Core.Alphabet.Equals*
   name: Equals
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Equals_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Equals
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Equals_
+  commentId: Overload:Automata.Core.Alphabet.Equals
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.Equals
-  nameWithType: CanonicalAlphabet.Equals
-- uid: Automata.Core.CanonicalAlphabet.GetHashCode
+  fullName: Automata.Core.Alphabet.Equals
+  nameWithType: Alphabet.Equals
+- uid: Automata.Core.Alphabet.GetHashCode
   name: GetHashCode()
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_GetHashCode
-  commentId: M:Automata.Core.CanonicalAlphabet.GetHashCode
-  fullName: Automata.Core.CanonicalAlphabet.GetHashCode()
-  nameWithType: CanonicalAlphabet.GetHashCode()
-- uid: Automata.Core.CanonicalAlphabet.GetHashCode*
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetHashCode
+  commentId: M:Automata.Core.Alphabet.GetHashCode
+  fullName: Automata.Core.Alphabet.GetHashCode()
+  nameWithType: Alphabet.GetHashCode()
+- uid: Automata.Core.Alphabet.GetHashCode*
   name: GetHashCode
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_GetHashCode_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.GetHashCode
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetHashCode_
+  commentId: Overload:Automata.Core.Alphabet.GetHashCode
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.GetHashCode
-  nameWithType: CanonicalAlphabet.GetHashCode
-- uid: Automata.Core.CanonicalAlphabet.Item(System.Int32)
+  fullName: Automata.Core.Alphabet.GetHashCode
+  nameWithType: Alphabet.GetHashCode
+- uid: Automata.Core.Alphabet.GetOrAdd(System.String)
+  name: GetOrAdd(string)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetOrAdd_System_String_
+  commentId: M:Automata.Core.Alphabet.GetOrAdd(System.String)
+  name.vb: GetOrAdd(String)
+  fullName: Automata.Core.Alphabet.GetOrAdd(string)
+  fullName.vb: Automata.Core.Alphabet.GetOrAdd(String)
+  nameWithType: Alphabet.GetOrAdd(string)
+  nameWithType.vb: Alphabet.GetOrAdd(String)
+- uid: Automata.Core.Alphabet.GetOrAdd*
+  name: GetOrAdd
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_GetOrAdd_
+  commentId: Overload:Automata.Core.Alphabet.GetOrAdd
+  isSpec: "True"
+  fullName: Automata.Core.Alphabet.GetOrAdd
+  nameWithType: Alphabet.GetOrAdd
+- uid: Automata.Core.Alphabet.Item(System.Int32)
   name: this[int]
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Item_System_Int32_
-  commentId: P:Automata.Core.CanonicalAlphabet.Item(System.Int32)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_System_Int32_
+  commentId: P:Automata.Core.Alphabet.Item(System.Int32)
   name.vb: this[](Integer)
-  fullName: Automata.Core.CanonicalAlphabet.this[int]
-  fullName.vb: Automata.Core.CanonicalAlphabet.this[](Integer)
-  nameWithType: CanonicalAlphabet.this[int]
-  nameWithType.vb: CanonicalAlphabet.this[](Integer)
-- uid: Automata.Core.CanonicalAlphabet.Item(System.String)
+  fullName: Automata.Core.Alphabet.this[int]
+  fullName.vb: Automata.Core.Alphabet.this[](Integer)
+  nameWithType: Alphabet.this[int]
+  nameWithType.vb: Alphabet.this[](Integer)
+- uid: Automata.Core.Alphabet.Item(System.String)
   name: this[string]
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Item_System_String_
-  commentId: P:Automata.Core.CanonicalAlphabet.Item(System.String)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_System_String_
+  commentId: P:Automata.Core.Alphabet.Item(System.String)
   name.vb: this[](String)
-  fullName: Automata.Core.CanonicalAlphabet.this[string]
-  fullName.vb: Automata.Core.CanonicalAlphabet.this[](String)
-  nameWithType: CanonicalAlphabet.this[string]
-  nameWithType.vb: CanonicalAlphabet.this[](String)
-- uid: Automata.Core.CanonicalAlphabet.Item*
+  fullName: Automata.Core.Alphabet.this[string]
+  fullName.vb: Automata.Core.Alphabet.this[](String)
+  nameWithType: Alphabet.this[string]
+  nameWithType.vb: Alphabet.this[](String)
+- uid: Automata.Core.Alphabet.Item*
   name: this
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Item_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Item
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Item_
+  commentId: Overload:Automata.Core.Alphabet.Item
   isSpec: "True"
   name.vb: this[]
-  fullName: Automata.Core.CanonicalAlphabet.this
-  fullName.vb: Automata.Core.CanonicalAlphabet.this[]
-  nameWithType: CanonicalAlphabet.this
-  nameWithType.vb: CanonicalAlphabet.this[]
-- uid: Automata.Core.CanonicalAlphabet.StringToIndexMap
-  name: StringToIndexMap
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_StringToIndexMap
-  commentId: F:Automata.Core.CanonicalAlphabet.StringToIndexMap
-  fullName: Automata.Core.CanonicalAlphabet.StringToIndexMap
-  nameWithType: CanonicalAlphabet.StringToIndexMap
-- uid: Automata.Core.CanonicalAlphabet.Symbols
-  name: Symbols
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Symbols
-  commentId: P:Automata.Core.CanonicalAlphabet.Symbols
-  fullName: Automata.Core.CanonicalAlphabet.Symbols
-  nameWithType: CanonicalAlphabet.Symbols
-- uid: Automata.Core.CanonicalAlphabet.Symbols*
-  name: Symbols
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_Symbols_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.Symbols
+  fullName: Automata.Core.Alphabet.this
+  fullName.vb: Automata.Core.Alphabet.this[]
+  nameWithType: Alphabet.this
+  nameWithType.vb: Alphabet.this[]
+- uid: Automata.Core.Alphabet.SymbolIndices
+  name: SymbolIndices
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_SymbolIndices
+  commentId: P:Automata.Core.Alphabet.SymbolIndices
+  fullName: Automata.Core.Alphabet.SymbolIndices
+  nameWithType: Alphabet.SymbolIndices
+- uid: Automata.Core.Alphabet.SymbolIndices*
+  name: SymbolIndices
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_SymbolIndices_
+  commentId: Overload:Automata.Core.Alphabet.SymbolIndices
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.Symbols
-  nameWithType: CanonicalAlphabet.Symbols
-- uid: Automata.Core.CanonicalAlphabet.ToString
+  fullName: Automata.Core.Alphabet.SymbolIndices
+  nameWithType: Alphabet.SymbolIndices
+- uid: Automata.Core.Alphabet.Symbols
+  name: Symbols
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Symbols
+  commentId: P:Automata.Core.Alphabet.Symbols
+  fullName: Automata.Core.Alphabet.Symbols
+  nameWithType: Alphabet.Symbols
+- uid: Automata.Core.Alphabet.Symbols*
+  name: Symbols
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Symbols_
+  commentId: Overload:Automata.Core.Alphabet.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.Alphabet.Symbols
+  nameWithType: Alphabet.Symbols
+- uid: Automata.Core.Alphabet.ToString
   name: ToString()
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_ToString
-  commentId: M:Automata.Core.CanonicalAlphabet.ToString
-  fullName: Automata.Core.CanonicalAlphabet.ToString()
-  nameWithType: CanonicalAlphabet.ToString()
-- uid: Automata.Core.CanonicalAlphabet.ToString*
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_ToString
+  commentId: M:Automata.Core.Alphabet.ToString
+  fullName: Automata.Core.Alphabet.ToString()
+  nameWithType: Alphabet.ToString()
+- uid: Automata.Core.Alphabet.ToString*
   name: ToString
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_ToString_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.ToString
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_ToString_
+  commentId: Overload:Automata.Core.Alphabet.ToString
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.ToString
-  nameWithType: CanonicalAlphabet.ToString
-- uid: Automata.Core.CanonicalAlphabet.ToStringExpanded
+  fullName: Automata.Core.Alphabet.ToString
+  nameWithType: Alphabet.ToString
+- uid: Automata.Core.Alphabet.ToStringExpanded
   name: ToStringExpanded()
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_ToStringExpanded
-  commentId: M:Automata.Core.CanonicalAlphabet.ToStringExpanded
-  fullName: Automata.Core.CanonicalAlphabet.ToStringExpanded()
-  nameWithType: CanonicalAlphabet.ToStringExpanded()
-- uid: Automata.Core.CanonicalAlphabet.ToStringExpanded*
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_ToStringExpanded
+  commentId: M:Automata.Core.Alphabet.ToStringExpanded
+  fullName: Automata.Core.Alphabet.ToStringExpanded()
+  nameWithType: Alphabet.ToStringExpanded()
+- uid: Automata.Core.Alphabet.ToStringExpanded*
   name: ToStringExpanded
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_ToStringExpanded_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.ToStringExpanded
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_ToStringExpanded_
+  commentId: Overload:Automata.Core.Alphabet.ToStringExpanded
   isSpec: "True"
-  fullName: Automata.Core.CanonicalAlphabet.ToStringExpanded
-  nameWithType: CanonicalAlphabet.ToStringExpanded
-- uid: Automata.Core.CanonicalAlphabet.op_Equality(Automata.Core.CanonicalAlphabet,Automata.Core.CanonicalAlphabet)
-  name: operator ==(CanonicalAlphabet, CanonicalAlphabet)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_op_Equality_Automata_Core_CanonicalAlphabet_Automata_Core_CanonicalAlphabet_
-  commentId: M:Automata.Core.CanonicalAlphabet.op_Equality(Automata.Core.CanonicalAlphabet,Automata.Core.CanonicalAlphabet)
-  name.vb: =(CanonicalAlphabet, CanonicalAlphabet)
-  fullName: Automata.Core.CanonicalAlphabet.operator ==(Automata.Core.CanonicalAlphabet, Automata.Core.CanonicalAlphabet)
-  fullName.vb: Automata.Core.CanonicalAlphabet.=(Automata.Core.CanonicalAlphabet, Automata.Core.CanonicalAlphabet)
-  nameWithType: CanonicalAlphabet.operator ==(CanonicalAlphabet, CanonicalAlphabet)
-  nameWithType.vb: CanonicalAlphabet.=(CanonicalAlphabet, CanonicalAlphabet)
-- uid: Automata.Core.CanonicalAlphabet.op_Equality*
+  fullName: Automata.Core.Alphabet.ToStringExpanded
+  nameWithType: Alphabet.ToStringExpanded
+- uid: Automata.Core.Alphabet.TryGetIndex(System.String,System.Int32@)
+  name: TryGetIndex(string, out int)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_TryGetIndex_System_String_System_Int32__
+  commentId: M:Automata.Core.Alphabet.TryGetIndex(System.String,System.Int32@)
+  name.vb: TryGetIndex(String, Integer)
+  fullName: Automata.Core.Alphabet.TryGetIndex(string, out int)
+  fullName.vb: Automata.Core.Alphabet.TryGetIndex(String, Integer)
+  nameWithType: Alphabet.TryGetIndex(string, out int)
+  nameWithType.vb: Alphabet.TryGetIndex(String, Integer)
+- uid: Automata.Core.Alphabet.TryGetIndex*
+  name: TryGetIndex
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_TryGetIndex_
+  commentId: Overload:Automata.Core.Alphabet.TryGetIndex
+  isSpec: "True"
+  fullName: Automata.Core.Alphabet.TryGetIndex
+  nameWithType: Alphabet.TryGetIndex
+- uid: Automata.Core.Alphabet.UnionWith(Automata.Core.Alphabet)
+  name: UnionWith(Alphabet)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_UnionWith_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alphabet.UnionWith(Automata.Core.Alphabet)
+  fullName: Automata.Core.Alphabet.UnionWith(Automata.Core.Alphabet)
+  nameWithType: Alphabet.UnionWith(Alphabet)
+- uid: Automata.Core.Alphabet.UnionWith*
+  name: UnionWith
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_UnionWith_
+  commentId: Overload:Automata.Core.Alphabet.UnionWith
+  isSpec: "True"
+  fullName: Automata.Core.Alphabet.UnionWith
+  nameWithType: Alphabet.UnionWith
+- uid: Automata.Core.Alphabet.op_Equality(Automata.Core.Alphabet,Automata.Core.Alphabet)
+  name: operator ==(Alphabet, Alphabet)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_op_Equality_Automata_Core_Alphabet_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alphabet.op_Equality(Automata.Core.Alphabet,Automata.Core.Alphabet)
+  name.vb: =(Alphabet, Alphabet)
+  fullName: Automata.Core.Alphabet.operator ==(Automata.Core.Alphabet, Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Alphabet.=(Automata.Core.Alphabet, Automata.Core.Alphabet)
+  nameWithType: Alphabet.operator ==(Alphabet, Alphabet)
+  nameWithType.vb: Alphabet.=(Alphabet, Alphabet)
+- uid: Automata.Core.Alphabet.op_Equality*
   name: operator ==
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_op_Equality_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.op_Equality
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_op_Equality_
+  commentId: Overload:Automata.Core.Alphabet.op_Equality
   isSpec: "True"
   name.vb: =
-  fullName: Automata.Core.CanonicalAlphabet.operator ==
-  fullName.vb: Automata.Core.CanonicalAlphabet.=
-  nameWithType: CanonicalAlphabet.operator ==
-  nameWithType.vb: CanonicalAlphabet.=
-- uid: Automata.Core.CanonicalAlphabet.op_Inequality(Automata.Core.CanonicalAlphabet,Automata.Core.CanonicalAlphabet)
-  name: operator !=(CanonicalAlphabet, CanonicalAlphabet)
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_op_Inequality_Automata_Core_CanonicalAlphabet_Automata_Core_CanonicalAlphabet_
-  commentId: M:Automata.Core.CanonicalAlphabet.op_Inequality(Automata.Core.CanonicalAlphabet,Automata.Core.CanonicalAlphabet)
-  name.vb: <>(CanonicalAlphabet, CanonicalAlphabet)
-  fullName: Automata.Core.CanonicalAlphabet.operator !=(Automata.Core.CanonicalAlphabet, Automata.Core.CanonicalAlphabet)
-  fullName.vb: Automata.Core.CanonicalAlphabet.<>(Automata.Core.CanonicalAlphabet, Automata.Core.CanonicalAlphabet)
-  nameWithType: CanonicalAlphabet.operator !=(CanonicalAlphabet, CanonicalAlphabet)
-  nameWithType.vb: CanonicalAlphabet.<>(CanonicalAlphabet, CanonicalAlphabet)
-- uid: Automata.Core.CanonicalAlphabet.op_Inequality*
+  fullName: Automata.Core.Alphabet.operator ==
+  fullName.vb: Automata.Core.Alphabet.=
+  nameWithType: Alphabet.operator ==
+  nameWithType.vb: Alphabet.=
+- uid: Automata.Core.Alphabet.op_Inequality(Automata.Core.Alphabet,Automata.Core.Alphabet)
+  name: operator !=(Alphabet, Alphabet)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_op_Inequality_Automata_Core_Alphabet_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Alphabet.op_Inequality(Automata.Core.Alphabet,Automata.Core.Alphabet)
+  name.vb: <>(Alphabet, Alphabet)
+  fullName: Automata.Core.Alphabet.operator !=(Automata.Core.Alphabet, Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Alphabet.<>(Automata.Core.Alphabet, Automata.Core.Alphabet)
+  nameWithType: Alphabet.operator !=(Alphabet, Alphabet)
+  nameWithType.vb: Alphabet.<>(Alphabet, Alphabet)
+- uid: Automata.Core.Alphabet.op_Inequality*
   name: operator !=
-  href: Automata.Core.CanonicalAlphabet.html#Automata_Core_CanonicalAlphabet_op_Inequality_
-  commentId: Overload:Automata.Core.CanonicalAlphabet.op_Inequality
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_op_Inequality_
+  commentId: Overload:Automata.Core.Alphabet.op_Inequality
   isSpec: "True"
   name.vb: <>
-  fullName: Automata.Core.CanonicalAlphabet.operator !=
-  fullName.vb: Automata.Core.CanonicalAlphabet.<>
-  nameWithType: CanonicalAlphabet.operator !=
-  nameWithType.vb: CanonicalAlphabet.<>
-- uid: Automata.Core.Cfa
-  name: Cfa
-  href: Automata.Core.Cfa.html
-  commentId: T:Automata.Core.Cfa
-  fullName: Automata.Core.Cfa
-  nameWithType: Cfa
-- uid: Automata.Core.Cfa.#ctor(Automata.Core.IFsa)
-  name: Cfa(IFsa)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa__ctor_Automata_Core_IFsa_
-  commentId: M:Automata.Core.Cfa.#ctor(Automata.Core.IFsa)
-  name.vb: New(IFsa)
-  fullName: Automata.Core.Cfa.Cfa(Automata.Core.IFsa)
-  fullName.vb: Automata.Core.Cfa.New(Automata.Core.IFsa)
-  nameWithType: Cfa.Cfa(IFsa)
-  nameWithType.vb: Cfa.New(IFsa)
-- uid: Automata.Core.Cfa.#ctor*
-  name: Cfa
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa__ctor_
-  commentId: Overload:Automata.Core.Cfa.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Automata.Core.Cfa.Cfa
-  fullName.vb: Automata.Core.Cfa.New
-  nameWithType: Cfa.Cfa
-  nameWithType.vb: Cfa.New
-- uid: Automata.Core.Cfa.Alphabet
-  name: Alphabet
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Alphabet
-  commentId: P:Automata.Core.Cfa.Alphabet
-  fullName: Automata.Core.Cfa.Alphabet
-  nameWithType: Cfa.Alphabet
-- uid: Automata.Core.Cfa.Alphabet*
-  name: Alphabet
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Alphabet_
-  commentId: Overload:Automata.Core.Cfa.Alphabet
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.Alphabet
-  nameWithType: Cfa.Alphabet
-- uid: Automata.Core.Cfa.EpsilonTransitions
-  name: EpsilonTransitions()
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_EpsilonTransitions
-  commentId: M:Automata.Core.Cfa.EpsilonTransitions
-  fullName: Automata.Core.Cfa.EpsilonTransitions()
-  nameWithType: Cfa.EpsilonTransitions()
-- uid: Automata.Core.Cfa.EpsilonTransitions*
-  name: EpsilonTransitions
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_EpsilonTransitions_
-  commentId: Overload:Automata.Core.Cfa.EpsilonTransitions
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.EpsilonTransitions
-  nameWithType: Cfa.EpsilonTransitions
-- uid: Automata.Core.Cfa.Equals(Automata.Core.Cfa)
-  name: Equals(Cfa?)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Equals_Automata_Core_Cfa_
-  commentId: M:Automata.Core.Cfa.Equals(Automata.Core.Cfa)
-  name.vb: Equals(Cfa)
-  fullName: Automata.Core.Cfa.Equals(Automata.Core.Cfa?)
-  fullName.vb: Automata.Core.Cfa.Equals(Automata.Core.Cfa)
-  nameWithType: Cfa.Equals(Cfa?)
-  nameWithType.vb: Cfa.Equals(Cfa)
-- uid: Automata.Core.Cfa.Equals(System.Object)
-  name: Equals(object?)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Equals_System_Object_
-  commentId: M:Automata.Core.Cfa.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: Automata.Core.Cfa.Equals(object?)
-  fullName.vb: Automata.Core.Cfa.Equals(Object)
-  nameWithType: Cfa.Equals(object?)
-  nameWithType.vb: Cfa.Equals(Object)
-- uid: Automata.Core.Cfa.Equals*
-  name: Equals
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Equals_
-  commentId: Overload:Automata.Core.Cfa.Equals
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.Equals
-  nameWithType: Cfa.Equals
-- uid: Automata.Core.Cfa.FinalStates
-  name: FinalStates
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_FinalStates
-  commentId: F:Automata.Core.Cfa.FinalStates
-  fullName: Automata.Core.Cfa.FinalStates
-  nameWithType: Cfa.FinalStates
-- uid: Automata.Core.Cfa.GetEnumerator
-  name: GetEnumerator()
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_GetEnumerator
-  commentId: M:Automata.Core.Cfa.GetEnumerator
-  fullName: Automata.Core.Cfa.GetEnumerator()
-  nameWithType: Cfa.GetEnumerator()
-- uid: Automata.Core.Cfa.GetEnumerator*
-  name: GetEnumerator
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_GetEnumerator_
-  commentId: Overload:Automata.Core.Cfa.GetEnumerator
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.GetEnumerator
-  nameWithType: Cfa.GetEnumerator
-- uid: Automata.Core.Cfa.GetHashCode
-  name: GetHashCode()
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_GetHashCode
-  commentId: M:Automata.Core.Cfa.GetHashCode
-  fullName: Automata.Core.Cfa.GetHashCode()
-  nameWithType: Cfa.GetHashCode()
-- uid: Automata.Core.Cfa.GetHashCode*
-  name: GetHashCode
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_GetHashCode_
-  commentId: Overload:Automata.Core.Cfa.GetHashCode
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.GetHashCode
-  nameWithType: Cfa.GetHashCode
-- uid: Automata.Core.Cfa.InitialState
-  name: InitialState
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_InitialState
-  commentId: P:Automata.Core.Cfa.InitialState
-  fullName: Automata.Core.Cfa.InitialState
-  nameWithType: Cfa.InitialState
-- uid: Automata.Core.Cfa.InitialState*
-  name: InitialState
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_InitialState_
-  commentId: Overload:Automata.Core.Cfa.InitialState
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.InitialState
-  nameWithType: Cfa.InitialState
-- uid: Automata.Core.Cfa.IsEmpty
-  name: IsEmpty
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsEmpty
-  commentId: P:Automata.Core.Cfa.IsEmpty
-  fullName: Automata.Core.Cfa.IsEmpty
-  nameWithType: Cfa.IsEmpty
-- uid: Automata.Core.Cfa.IsEmpty*
-  name: IsEmpty
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsEmpty_
-  commentId: Overload:Automata.Core.Cfa.IsEmpty
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.IsEmpty
-  nameWithType: Cfa.IsEmpty
-- uid: Automata.Core.Cfa.IsEpsilonFree
-  name: IsEpsilonFree
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsEpsilonFree
-  commentId: P:Automata.Core.Cfa.IsEpsilonFree
-  fullName: Automata.Core.Cfa.IsEpsilonFree
-  nameWithType: Cfa.IsEpsilonFree
-- uid: Automata.Core.Cfa.IsEpsilonFree*
-  name: IsEpsilonFree
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsEpsilonFree_
-  commentId: Overload:Automata.Core.Cfa.IsEpsilonFree
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.IsEpsilonFree
-  nameWithType: Cfa.IsEpsilonFree
-- uid: Automata.Core.Cfa.IsFinal(System.Int32)
-  name: IsFinal(int)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsFinal_System_Int32_
-  commentId: M:Automata.Core.Cfa.IsFinal(System.Int32)
-  name.vb: IsFinal(Integer)
-  fullName: Automata.Core.Cfa.IsFinal(int)
-  fullName.vb: Automata.Core.Cfa.IsFinal(Integer)
-  nameWithType: Cfa.IsFinal(int)
-  nameWithType.vb: Cfa.IsFinal(Integer)
-- uid: Automata.Core.Cfa.IsFinal*
-  name: IsFinal
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsFinal_
-  commentId: Overload:Automata.Core.Cfa.IsFinal
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.IsFinal
-  nameWithType: Cfa.IsFinal
-- uid: Automata.Core.Cfa.IsInitial(System.Int32)
-  name: IsInitial(int)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsInitial_System_Int32_
-  commentId: M:Automata.Core.Cfa.IsInitial(System.Int32)
-  name.vb: IsInitial(Integer)
-  fullName: Automata.Core.Cfa.IsInitial(int)
-  fullName.vb: Automata.Core.Cfa.IsInitial(Integer)
-  nameWithType: Cfa.IsInitial(int)
-  nameWithType.vb: Cfa.IsInitial(Integer)
-- uid: Automata.Core.Cfa.IsInitial*
-  name: IsInitial
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_IsInitial_
-  commentId: Overload:Automata.Core.Cfa.IsInitial
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.IsInitial
-  nameWithType: Cfa.IsInitial
-- uid: Automata.Core.Cfa.State(System.Int32)
-  name: State(int)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_State_System_Int32_
-  commentId: M:Automata.Core.Cfa.State(System.Int32)
-  name.vb: State(Integer)
-  fullName: Automata.Core.Cfa.State(int)
-  fullName.vb: Automata.Core.Cfa.State(Integer)
-  nameWithType: Cfa.State(int)
-  nameWithType.vb: Cfa.State(Integer)
-- uid: Automata.Core.Cfa.State*
-  name: State
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_State_
-  commentId: Overload:Automata.Core.Cfa.State
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.State
-  nameWithType: Cfa.State
-- uid: Automata.Core.Cfa.StateCount
-  name: StateCount
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_StateCount
-  commentId: F:Automata.Core.Cfa.StateCount
-  fullName: Automata.Core.Cfa.StateCount
-  nameWithType: Cfa.StateCount
-- uid: Automata.Core.Cfa.SymbolicTransitions
-  name: SymbolicTransitions()
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_SymbolicTransitions
-  commentId: M:Automata.Core.Cfa.SymbolicTransitions
-  fullName: Automata.Core.Cfa.SymbolicTransitions()
-  nameWithType: Cfa.SymbolicTransitions()
-- uid: Automata.Core.Cfa.SymbolicTransitions*
-  name: SymbolicTransitions
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_SymbolicTransitions_
-  commentId: Overload:Automata.Core.Cfa.SymbolicTransitions
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.SymbolicTransitions
-  nameWithType: Cfa.SymbolicTransitions
-- uid: Automata.Core.Cfa.Transition(System.Int32,System.Int32)
-  name: Transition(int, int)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Transition_System_Int32_System_Int32_
-  commentId: M:Automata.Core.Cfa.Transition(System.Int32,System.Int32)
-  name.vb: Transition(Integer, Integer)
-  fullName: Automata.Core.Cfa.Transition(int, int)
-  fullName.vb: Automata.Core.Cfa.Transition(Integer, Integer)
-  nameWithType: Cfa.Transition(int, int)
-  nameWithType.vb: Cfa.Transition(Integer, Integer)
-- uid: Automata.Core.Cfa.Transition*
-  name: Transition
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_Transition_
-  commentId: Overload:Automata.Core.Cfa.Transition
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.Transition
-  nameWithType: Cfa.Transition
-- uid: Automata.Core.Cfa.TransitionCount
-  name: TransitionCount
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_TransitionCount
-  commentId: P:Automata.Core.Cfa.TransitionCount
-  fullName: Automata.Core.Cfa.TransitionCount
-  nameWithType: Cfa.TransitionCount
-- uid: Automata.Core.Cfa.TransitionCount*
-  name: TransitionCount
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_TransitionCount_
-  commentId: Overload:Automata.Core.Cfa.TransitionCount
-  isSpec: "True"
-  fullName: Automata.Core.Cfa.TransitionCount
-  nameWithType: Cfa.TransitionCount
-- uid: Automata.Core.Cfa.op_Equality(Automata.Core.Cfa,Automata.Core.Cfa)
-  name: operator ==(Cfa, Cfa)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_op_Equality_Automata_Core_Cfa_Automata_Core_Cfa_
-  commentId: M:Automata.Core.Cfa.op_Equality(Automata.Core.Cfa,Automata.Core.Cfa)
-  name.vb: =(Cfa, Cfa)
-  fullName: Automata.Core.Cfa.operator ==(Automata.Core.Cfa, Automata.Core.Cfa)
-  fullName.vb: Automata.Core.Cfa.=(Automata.Core.Cfa, Automata.Core.Cfa)
-  nameWithType: Cfa.operator ==(Cfa, Cfa)
-  nameWithType.vb: Cfa.=(Cfa, Cfa)
-- uid: Automata.Core.Cfa.op_Equality*
-  name: operator ==
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_op_Equality_
-  commentId: Overload:Automata.Core.Cfa.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: Automata.Core.Cfa.operator ==
-  fullName.vb: Automata.Core.Cfa.=
-  nameWithType: Cfa.operator ==
-  nameWithType.vb: Cfa.=
-- uid: Automata.Core.Cfa.op_Inequality(Automata.Core.Cfa,Automata.Core.Cfa)
-  name: operator !=(Cfa, Cfa)
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_op_Inequality_Automata_Core_Cfa_Automata_Core_Cfa_
-  commentId: M:Automata.Core.Cfa.op_Inequality(Automata.Core.Cfa,Automata.Core.Cfa)
-  name.vb: <>(Cfa, Cfa)
-  fullName: Automata.Core.Cfa.operator !=(Automata.Core.Cfa, Automata.Core.Cfa)
-  fullName.vb: Automata.Core.Cfa.<>(Automata.Core.Cfa, Automata.Core.Cfa)
-  nameWithType: Cfa.operator !=(Cfa, Cfa)
-  nameWithType.vb: Cfa.<>(Cfa, Cfa)
-- uid: Automata.Core.Cfa.op_Inequality*
-  name: operator !=
-  href: Automata.Core.Cfa.html#Automata_Core_Cfa_op_Inequality_
-  commentId: Overload:Automata.Core.Cfa.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: Automata.Core.Cfa.operator !=
-  fullName.vb: Automata.Core.Cfa.<>
-  nameWithType: Cfa.operator !=
-  nameWithType.vb: Cfa.<>
+  fullName: Automata.Core.Alphabet.operator !=
+  fullName.vb: Automata.Core.Alphabet.<>
+  nameWithType: Alphabet.operator !=
+  nameWithType.vb: Alphabet.<>
 - uid: Automata.Core.Constants
   name: Constants
   href: Automata.Core.Constants.html
@@ -1780,30 +1601,66 @@ references:
   commentId: F:Automata.Core.Constants.InvalidSymbolIndex
   fullName: Automata.Core.Constants.InvalidSymbolIndex
   nameWithType: Constants.InvalidSymbolIndex
+- uid: Automata.Core.Converter
+  name: Converter
+  href: Automata.Core.Converter.html
+  commentId: T:Automata.Core.Converter
+  fullName: Automata.Core.Converter
+  nameWithType: Converter
+- uid: Automata.Core.Converter.AsDeterministic(Automata.Core.Fsa)
+  name: AsDeterministic(Fsa)
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsDeterministic_Automata_Core_Fsa_
+  commentId: M:Automata.Core.Converter.AsDeterministic(Automata.Core.Fsa)
+  fullName: Automata.Core.Converter.AsDeterministic(Automata.Core.Fsa)
+  nameWithType: Converter.AsDeterministic(Fsa)
+- uid: Automata.Core.Converter.AsDeterministic*
+  name: AsDeterministic
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsDeterministic_
+  commentId: Overload:Automata.Core.Converter.AsDeterministic
+  isSpec: "True"
+  fullName: Automata.Core.Converter.AsDeterministic
+  nameWithType: Converter.AsDeterministic
+- uid: Automata.Core.Converter.AsMfa(Automata.Core.Fsa)
+  name: AsMfa(Fsa)
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsMfa_Automata_Core_Fsa_
+  commentId: M:Automata.Core.Converter.AsMfa(Automata.Core.Fsa)
+  fullName: Automata.Core.Converter.AsMfa(Automata.Core.Fsa)
+  nameWithType: Converter.AsMfa(Fsa)
+- uid: Automata.Core.Converter.AsMfa*
+  name: AsMfa
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsMfa_
+  commentId: Overload:Automata.Core.Converter.AsMfa
+  isSpec: "True"
+  fullName: Automata.Core.Converter.AsMfa
+  nameWithType: Converter.AsMfa
+- uid: Automata.Core.Converter.AsNfa(Automata.Core.Fsa)
+  name: AsNfa(Fsa)
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsNfa_Automata_Core_Fsa_
+  commentId: M:Automata.Core.Converter.AsNfa(Automata.Core.Fsa)
+  fullName: Automata.Core.Converter.AsNfa(Automata.Core.Fsa)
+  nameWithType: Converter.AsNfa(Fsa)
+- uid: Automata.Core.Converter.AsNfa*
+  name: AsNfa
+  href: Automata.Core.Converter.html#Automata_Core_Converter_AsNfa_
+  commentId: Overload:Automata.Core.Converter.AsNfa
+  isSpec: "True"
+  fullName: Automata.Core.Converter.AsNfa
+  nameWithType: Converter.AsNfa
 - uid: Automata.Core.Dfa
   name: Dfa
   href: Automata.Core.Dfa.html
   commentId: T:Automata.Core.Dfa
   fullName: Automata.Core.Dfa
   nameWithType: Dfa
-- uid: Automata.Core.Dfa.#ctor
-  name: Dfa()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor
-  commentId: M:Automata.Core.Dfa.#ctor
-  name.vb: New()
-  fullName: Automata.Core.Dfa.Dfa()
-  fullName.vb: Automata.Core.Dfa.New()
-  nameWithType: Dfa.Dfa()
-  nameWithType.vb: Dfa.New()
-- uid: Automata.Core.Dfa.#ctor(Automata.Core.MutableAlphabet)
-  name: Dfa(MutableAlphabet)
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_Automata_Core_MutableAlphabet_
-  commentId: M:Automata.Core.Dfa.#ctor(Automata.Core.MutableAlphabet)
-  name.vb: New(MutableAlphabet)
-  fullName: Automata.Core.Dfa.Dfa(Automata.Core.MutableAlphabet)
-  fullName.vb: Automata.Core.Dfa.New(Automata.Core.MutableAlphabet)
-  nameWithType: Dfa.Dfa(MutableAlphabet)
-  nameWithType.vb: Dfa.New(MutableAlphabet)
+- uid: Automata.Core.Dfa.#ctor(Automata.Core.Alphabet)
+  name: Dfa(Alphabet)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Dfa.#ctor(Automata.Core.Alphabet)
+  name.vb: New(Alphabet)
+  fullName: Automata.Core.Dfa.Dfa(Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Dfa.New(Automata.Core.Alphabet)
+  nameWithType: Dfa.Dfa(Alphabet)
+  nameWithType.vb: Dfa.New(Alphabet)
 - uid: Automata.Core.Dfa.#ctor*
   name: Dfa
   href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_
@@ -1814,22 +1671,6 @@ references:
   fullName.vb: Automata.Core.Dfa.New
   nameWithType: Dfa.Dfa
   nameWithType.vb: Dfa.New
-- uid: Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})
-  name: Accepts(IEnumerable<string>)
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Accepts_System_Collections_Generic_IEnumerable_System_String__
-  commentId: M:Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable{System.String})
-  name.vb: Accepts(IEnumerable(Of String))
-  fullName: Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable<string>)
-  fullName.vb: Automata.Core.Dfa.Accepts(System.Collections.Generic.IEnumerable(Of String))
-  nameWithType: Dfa.Accepts(IEnumerable<string>)
-  nameWithType.vb: Dfa.Accepts(IEnumerable(Of String))
-- uid: Automata.Core.Dfa.Accepts*
-  name: Accepts
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Accepts_
-  commentId: Overload:Automata.Core.Dfa.Accepts
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.Accepts
-  nameWithType: Dfa.Accepts
 - uid: Automata.Core.Dfa.Add(Automata.Core.Transition)
   name: Add(Transition)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_Add_Automata_Core_Transition_
@@ -1843,32 +1684,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.Add
   nameWithType: Dfa.Add
-- uid: Automata.Core.Dfa.Alphabet
-  name: Alphabet
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Alphabet
-  commentId: P:Automata.Core.Dfa.Alphabet
-  fullName: Automata.Core.Dfa.Alphabet
-  nameWithType: Dfa.Alphabet
-- uid: Automata.Core.Dfa.Alphabet*
-  name: Alphabet
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Alphabet_
-  commentId: Overload:Automata.Core.Dfa.Alphabet
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.Alphabet
-  nameWithType: Dfa.Alphabet
-- uid: Automata.Core.Dfa.EpsilonTransitions
-  name: EpsilonTransitions()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_EpsilonTransitions
-  commentId: M:Automata.Core.Dfa.EpsilonTransitions
-  fullName: Automata.Core.Dfa.EpsilonTransitions()
-  nameWithType: Dfa.EpsilonTransitions()
-- uid: Automata.Core.Dfa.EpsilonTransitions*
-  name: EpsilonTransitions
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_EpsilonTransitions_
-  commentId: Overload:Automata.Core.Dfa.EpsilonTransitions
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.EpsilonTransitions
-  nameWithType: Dfa.EpsilonTransitions
 - uid: Automata.Core.Dfa.FinalStates
   name: FinalStates
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_FinalStates
@@ -1895,32 +1710,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.InitialState
   nameWithType: Dfa.InitialState
-- uid: Automata.Core.Dfa.IsEmpty
-  name: IsEmpty
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEmpty
-  commentId: P:Automata.Core.Dfa.IsEmpty
-  fullName: Automata.Core.Dfa.IsEmpty
-  nameWithType: Dfa.IsEmpty
-- uid: Automata.Core.Dfa.IsEmpty*
-  name: IsEmpty
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEmpty_
-  commentId: Overload:Automata.Core.Dfa.IsEmpty
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.IsEmpty
-  nameWithType: Dfa.IsEmpty
-- uid: Automata.Core.Dfa.IsEpsilonFree
-  name: IsEpsilonFree
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEpsilonFree
-  commentId: P:Automata.Core.Dfa.IsEpsilonFree
-  fullName: Automata.Core.Dfa.IsEpsilonFree
-  nameWithType: Dfa.IsEpsilonFree
-- uid: Automata.Core.Dfa.IsEpsilonFree*
-  name: IsEpsilonFree
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsEpsilonFree_
-  commentId: Overload:Automata.Core.Dfa.IsEpsilonFree
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.IsEpsilonFree
-  nameWithType: Dfa.IsEpsilonFree
 - uid: Automata.Core.Dfa.IsFinal(System.Int32)
   name: IsFinal(int)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsFinal_System_Int32_
@@ -1937,22 +1726,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.IsFinal
   nameWithType: Dfa.IsFinal
-- uid: Automata.Core.Dfa.IsInitial(System.Int32)
-  name: IsInitial(int)
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsInitial_System_Int32_
-  commentId: M:Automata.Core.Dfa.IsInitial(System.Int32)
-  name.vb: IsInitial(Integer)
-  fullName: Automata.Core.Dfa.IsInitial(int)
-  fullName.vb: Automata.Core.Dfa.IsInitial(Integer)
-  nameWithType: Dfa.IsInitial(int)
-  nameWithType.vb: Dfa.IsInitial(Integer)
-- uid: Automata.Core.Dfa.IsInitial*
-  name: IsInitial
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_IsInitial_
-  commentId: Overload:Automata.Core.Dfa.IsInitial
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.IsInitial
-  nameWithType: Dfa.IsInitial
 - uid: Automata.Core.Dfa.MaxState
   name: MaxState
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_MaxState
@@ -1966,48 +1739,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.MaxState
   nameWithType: Dfa.MaxState
-- uid: Automata.Core.Dfa.Minimized
-  name: Minimized()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimized
-  commentId: M:Automata.Core.Dfa.Minimized
-  fullName: Automata.Core.Dfa.Minimized()
-  nameWithType: Dfa.Minimized()
-- uid: Automata.Core.Dfa.Minimized*
-  name: Minimized
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimized_
-  commentId: Overload:Automata.Core.Dfa.Minimized
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.Minimized
-  nameWithType: Dfa.Minimized
-- uid: Automata.Core.Dfa.ReachableState(System.Int32,System.Int32)
-  name: ReachableState(int, int)
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ReachableState_System_Int32_System_Int32_
-  commentId: M:Automata.Core.Dfa.ReachableState(System.Int32,System.Int32)
-  name.vb: ReachableState(Integer, Integer)
-  fullName: Automata.Core.Dfa.ReachableState(int, int)
-  fullName.vb: Automata.Core.Dfa.ReachableState(Integer, Integer)
-  nameWithType: Dfa.ReachableState(int, int)
-  nameWithType.vb: Dfa.ReachableState(Integer, Integer)
-- uid: Automata.Core.Dfa.ReachableState*
-  name: ReachableState
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ReachableState_
-  commentId: Overload:Automata.Core.Dfa.ReachableState
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.ReachableState
-  nameWithType: Dfa.ReachableState
-- uid: Automata.Core.Dfa.Reversed
-  name: Reversed()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Reversed
-  commentId: M:Automata.Core.Dfa.Reversed
-  fullName: Automata.Core.Dfa.Reversed()
-  nameWithType: Dfa.Reversed()
-- uid: Automata.Core.Dfa.Reversed*
-  name: Reversed
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Reversed_
-  commentId: Overload:Automata.Core.Dfa.Reversed
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.Reversed
-  nameWithType: Dfa.Reversed
 - uid: Automata.Core.Dfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name: SetFinal(IEnumerable<int>, bool)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
@@ -2065,45 +1796,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.State
   nameWithType: Dfa.State
-- uid: Automata.Core.Dfa.SymbolicTransitions
-  name: SymbolicTransitions()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SymbolicTransitions
-  commentId: M:Automata.Core.Dfa.SymbolicTransitions
-  fullName: Automata.Core.Dfa.SymbolicTransitions()
-  nameWithType: Dfa.SymbolicTransitions()
-- uid: Automata.Core.Dfa.SymbolicTransitions*
-  name: SymbolicTransitions
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_SymbolicTransitions_
-  commentId: Overload:Automata.Core.Dfa.SymbolicTransitions
+- uid: Automata.Core.Dfa.ToCanonicalString
+  name: ToCanonicalString()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCanonicalString
+  commentId: M:Automata.Core.Dfa.ToCanonicalString
+  fullName: Automata.Core.Dfa.ToCanonicalString()
+  nameWithType: Dfa.ToCanonicalString()
+- uid: Automata.Core.Dfa.ToCanonicalString*
+  name: ToCanonicalString
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCanonicalString_
+  commentId: Overload:Automata.Core.Dfa.ToCanonicalString
   isSpec: "True"
-  fullName: Automata.Core.Dfa.SymbolicTransitions
-  nameWithType: Dfa.SymbolicTransitions
-- uid: Automata.Core.Dfa.ToCFA
-  name: ToCFA()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCFA
-  commentId: M:Automata.Core.Dfa.ToCFA
-  fullName: Automata.Core.Dfa.ToCFA()
-  nameWithType: Dfa.ToCFA()
-- uid: Automata.Core.Dfa.ToCFA*
-  name: ToCFA
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCFA_
-  commentId: Overload:Automata.Core.Dfa.ToCFA
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.ToCFA
-  nameWithType: Dfa.ToCFA
-- uid: Automata.Core.Dfa.ToNFA
-  name: ToNFA()
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToNFA
-  commentId: M:Automata.Core.Dfa.ToNFA
-  fullName: Automata.Core.Dfa.ToNFA()
-  nameWithType: Dfa.ToNFA()
-- uid: Automata.Core.Dfa.ToNFA*
-  name: ToNFA
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToNFA_
-  commentId: Overload:Automata.Core.Dfa.ToNFA
-  isSpec: "True"
-  fullName: Automata.Core.Dfa.ToNFA
-  nameWithType: Dfa.ToNFA
+  fullName: Automata.Core.Dfa.ToCanonicalString
+  nameWithType: Dfa.ToCanonicalString
 - uid: Automata.Core.Dfa.Transition(System.Int32,System.Int32)
   name: Transition(int, int)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_Transition_System_Int32_System_Int32_
@@ -2120,15 +1825,25 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.Transition
   nameWithType: Dfa.Transition
-- uid: Automata.Core.Dfa.Transitions(System.Int32)
-  name: Transitions(int)
-  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Transitions_System_Int32_
-  commentId: M:Automata.Core.Dfa.Transitions(System.Int32)
-  name.vb: Transitions(Integer)
-  fullName: Automata.Core.Dfa.Transitions(int)
-  fullName.vb: Automata.Core.Dfa.Transitions(Integer)
-  nameWithType: Dfa.Transitions(int)
-  nameWithType.vb: Dfa.Transitions(Integer)
+- uid: Automata.Core.Dfa.TransitionCount
+  name: TransitionCount
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_TransitionCount
+  commentId: P:Automata.Core.Dfa.TransitionCount
+  fullName: Automata.Core.Dfa.TransitionCount
+  nameWithType: Dfa.TransitionCount
+- uid: Automata.Core.Dfa.TransitionCount*
+  name: TransitionCount
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_TransitionCount_
+  commentId: Overload:Automata.Core.Dfa.TransitionCount
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.TransitionCount
+  nameWithType: Dfa.TransitionCount
+- uid: Automata.Core.Dfa.Transitions
+  name: Transitions()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Transitions
+  commentId: M:Automata.Core.Dfa.Transitions
+  fullName: Automata.Core.Dfa.Transitions()
+  nameWithType: Dfa.Transitions()
 - uid: Automata.Core.Dfa.Transitions*
   name: Transitions
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_Transitions_
@@ -2209,38 +1924,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.EpsilonTransition.FromState
   nameWithType: EpsilonTransition.FromState
-- uid: Automata.Core.EpsilonTransition.MaxTrans(System.Int32)
-  name: MaxTrans(int)
-  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_MaxTrans_System_Int32_
-  commentId: M:Automata.Core.EpsilonTransition.MaxTrans(System.Int32)
-  name.vb: MaxTrans(Integer)
-  fullName: Automata.Core.EpsilonTransition.MaxTrans(int)
-  fullName.vb: Automata.Core.EpsilonTransition.MaxTrans(Integer)
-  nameWithType: EpsilonTransition.MaxTrans(int)
-  nameWithType.vb: EpsilonTransition.MaxTrans(Integer)
-- uid: Automata.Core.EpsilonTransition.MaxTrans*
-  name: MaxTrans
-  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_MaxTrans_
-  commentId: Overload:Automata.Core.EpsilonTransition.MaxTrans
-  isSpec: "True"
-  fullName: Automata.Core.EpsilonTransition.MaxTrans
-  nameWithType: EpsilonTransition.MaxTrans
-- uid: Automata.Core.EpsilonTransition.MinTrans(System.Int32)
-  name: MinTrans(int)
-  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_MinTrans_System_Int32_
-  commentId: M:Automata.Core.EpsilonTransition.MinTrans(System.Int32)
-  name.vb: MinTrans(Integer)
-  fullName: Automata.Core.EpsilonTransition.MinTrans(int)
-  fullName.vb: Automata.Core.EpsilonTransition.MinTrans(Integer)
-  nameWithType: EpsilonTransition.MinTrans(int)
-  nameWithType.vb: EpsilonTransition.MinTrans(Integer)
-- uid: Automata.Core.EpsilonTransition.MinTrans*
-  name: MinTrans
-  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_MinTrans_
-  commentId: Overload:Automata.Core.EpsilonTransition.MinTrans
-  isSpec: "True"
-  fullName: Automata.Core.EpsilonTransition.MinTrans
-  nameWithType: EpsilonTransition.MinTrans
 - uid: Automata.Core.EpsilonTransition.Reverse
   name: Reverse()
   href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_Reverse
@@ -2267,246 +1950,376 @@ references:
   isSpec: "True"
   fullName: Automata.Core.EpsilonTransition.ToState
   nameWithType: EpsilonTransition.ToState
-- uid: Automata.Core.IAlphabet
-  name: IAlphabet
-  href: Automata.Core.IAlphabet.html
-  commentId: T:Automata.Core.IAlphabet
-  fullName: Automata.Core.IAlphabet
-  nameWithType: IAlphabet
-- uid: Automata.Core.IAlphabet.Contains(System.String)
-  name: Contains(string)
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Contains_System_String_
-  commentId: M:Automata.Core.IAlphabet.Contains(System.String)
-  name.vb: Contains(String)
-  fullName: Automata.Core.IAlphabet.Contains(string)
-  fullName.vb: Automata.Core.IAlphabet.Contains(String)
-  nameWithType: IAlphabet.Contains(string)
-  nameWithType.vb: IAlphabet.Contains(String)
-- uid: Automata.Core.IAlphabet.Contains*
-  name: Contains
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Contains_
-  commentId: Overload:Automata.Core.IAlphabet.Contains
-  isSpec: "True"
-  fullName: Automata.Core.IAlphabet.Contains
-  nameWithType: IAlphabet.Contains
-- uid: Automata.Core.IAlphabet.Count
-  name: Count
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Count
-  commentId: P:Automata.Core.IAlphabet.Count
-  fullName: Automata.Core.IAlphabet.Count
-  nameWithType: IAlphabet.Count
-- uid: Automata.Core.IAlphabet.Count*
-  name: Count
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Count_
-  commentId: Overload:Automata.Core.IAlphabet.Count
-  isSpec: "True"
-  fullName: Automata.Core.IAlphabet.Count
-  nameWithType: IAlphabet.Count
-- uid: Automata.Core.IAlphabet.Item(System.Int32)
-  name: this[int]
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Item_System_Int32_
-  commentId: P:Automata.Core.IAlphabet.Item(System.Int32)
-  name.vb: this[](Integer)
-  fullName: Automata.Core.IAlphabet.this[int]
-  fullName.vb: Automata.Core.IAlphabet.this[](Integer)
-  nameWithType: IAlphabet.this[int]
-  nameWithType.vb: IAlphabet.this[](Integer)
-- uid: Automata.Core.IAlphabet.Item(System.String)
-  name: this[string]
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Item_System_String_
-  commentId: P:Automata.Core.IAlphabet.Item(System.String)
-  name.vb: this[](String)
-  fullName: Automata.Core.IAlphabet.this[string]
-  fullName.vb: Automata.Core.IAlphabet.this[](String)
-  nameWithType: IAlphabet.this[string]
-  nameWithType.vb: IAlphabet.this[](String)
-- uid: Automata.Core.IAlphabet.Item*
-  name: this
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Item_
-  commentId: Overload:Automata.Core.IAlphabet.Item
-  isSpec: "True"
-  name.vb: this[]
-  fullName: Automata.Core.IAlphabet.this
-  fullName.vb: Automata.Core.IAlphabet.this[]
-  nameWithType: IAlphabet.this
-  nameWithType.vb: IAlphabet.this[]
-- uid: Automata.Core.IAlphabet.Symbols
-  name: Symbols
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Symbols
-  commentId: P:Automata.Core.IAlphabet.Symbols
-  fullName: Automata.Core.IAlphabet.Symbols
-  nameWithType: IAlphabet.Symbols
-- uid: Automata.Core.IAlphabet.Symbols*
-  name: Symbols
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_Symbols_
-  commentId: Overload:Automata.Core.IAlphabet.Symbols
-  isSpec: "True"
-  fullName: Automata.Core.IAlphabet.Symbols
-  nameWithType: IAlphabet.Symbols
-- uid: Automata.Core.IAlphabet.ToString
+- uid: Automata.Core.EpsilonTransition.ToString
   name: ToString()
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_ToString
-  commentId: M:Automata.Core.IAlphabet.ToString
-  fullName: Automata.Core.IAlphabet.ToString()
-  nameWithType: IAlphabet.ToString()
-- uid: Automata.Core.IAlphabet.ToString*
+  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_ToString
+  commentId: M:Automata.Core.EpsilonTransition.ToString
+  fullName: Automata.Core.EpsilonTransition.ToString()
+  nameWithType: EpsilonTransition.ToString()
+- uid: Automata.Core.EpsilonTransition.ToString*
   name: ToString
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_ToString_
-  commentId: Overload:Automata.Core.IAlphabet.ToString
+  href: Automata.Core.EpsilonTransition.html#Automata_Core_EpsilonTransition_ToString_
+  commentId: Overload:Automata.Core.EpsilonTransition.ToString
   isSpec: "True"
-  fullName: Automata.Core.IAlphabet.ToString
-  nameWithType: IAlphabet.ToString
-- uid: Automata.Core.IAlphabet.ToStringExpanded
-  name: ToStringExpanded()
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_ToStringExpanded
-  commentId: M:Automata.Core.IAlphabet.ToStringExpanded
-  fullName: Automata.Core.IAlphabet.ToStringExpanded()
-  nameWithType: IAlphabet.ToStringExpanded()
-- uid: Automata.Core.IAlphabet.ToStringExpanded*
-  name: ToStringExpanded
-  href: Automata.Core.IAlphabet.html#Automata_Core_IAlphabet_ToStringExpanded_
-  commentId: Overload:Automata.Core.IAlphabet.ToStringExpanded
+  fullName: Automata.Core.EpsilonTransition.ToString
+  nameWithType: EpsilonTransition.ToString
+- uid: Automata.Core.Fsa
+  name: Fsa
+  href: Automata.Core.Fsa.html
+  commentId: T:Automata.Core.Fsa
+  fullName: Automata.Core.Fsa
+  nameWithType: Fsa
+- uid: Automata.Core.Fsa.#ctor(Automata.Core.Alphabet)
+  name: Fsa(Alphabet)
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa__ctor_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Fsa.#ctor(Automata.Core.Alphabet)
+  name.vb: New(Alphabet)
+  fullName: Automata.Core.Fsa.Fsa(Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Fsa.New(Automata.Core.Alphabet)
+  nameWithType: Fsa.Fsa(Alphabet)
+  nameWithType.vb: Fsa.New(Alphabet)
+- uid: Automata.Core.Fsa.#ctor*
+  name: Fsa
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa__ctor_
+  commentId: Overload:Automata.Core.Fsa.#ctor
   isSpec: "True"
-  fullName: Automata.Core.IAlphabet.ToStringExpanded
-  nameWithType: IAlphabet.ToStringExpanded
-- uid: Automata.Core.IDfa
-  name: IDfa
-  href: Automata.Core.IDfa.html
-  commentId: T:Automata.Core.IDfa
-  fullName: Automata.Core.IDfa
-  nameWithType: IDfa
-- uid: Automata.Core.IDfa.InitialState
-  name: InitialState
-  href: Automata.Core.IDfa.html#Automata_Core_IDfa_InitialState
-  commentId: P:Automata.Core.IDfa.InitialState
-  fullName: Automata.Core.IDfa.InitialState
-  nameWithType: IDfa.InitialState
-- uid: Automata.Core.IDfa.InitialState*
-  name: InitialState
-  href: Automata.Core.IDfa.html#Automata_Core_IDfa_InitialState_
-  commentId: Overload:Automata.Core.IDfa.InitialState
+  name.vb: New
+  fullName: Automata.Core.Fsa.Fsa
+  fullName.vb: Automata.Core.Fsa.New
+  nameWithType: Fsa.Fsa
+  nameWithType.vb: Fsa.New
+- uid: Automata.Core.Fsa.AcceptsEpsilon
+  name: AcceptsEpsilon
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_AcceptsEpsilon
+  commentId: P:Automata.Core.Fsa.AcceptsEpsilon
+  fullName: Automata.Core.Fsa.AcceptsEpsilon
+  nameWithType: Fsa.AcceptsEpsilon
+- uid: Automata.Core.Fsa.AcceptsEpsilon*
+  name: AcceptsEpsilon
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_AcceptsEpsilon_
+  commentId: Overload:Automata.Core.Fsa.AcceptsEpsilon
   isSpec: "True"
-  fullName: Automata.Core.IDfa.InitialState
-  nameWithType: IDfa.InitialState
-- uid: Automata.Core.IDfa.State(System.Int32)
-  name: State(int)
-  href: Automata.Core.IDfa.html#Automata_Core_IDfa_State_System_Int32_
-  commentId: M:Automata.Core.IDfa.State(System.Int32)
-  name.vb: State(Integer)
-  fullName: Automata.Core.IDfa.State(int)
-  fullName.vb: Automata.Core.IDfa.State(Integer)
-  nameWithType: IDfa.State(int)
-  nameWithType.vb: IDfa.State(Integer)
-- uid: Automata.Core.IDfa.State*
-  name: State
-  href: Automata.Core.IDfa.html#Automata_Core_IDfa_State_
-  commentId: Overload:Automata.Core.IDfa.State
-  isSpec: "True"
-  fullName: Automata.Core.IDfa.State
-  nameWithType: IDfa.State
-- uid: Automata.Core.IFsa
-  name: IFsa
-  href: Automata.Core.IFsa.html
-  commentId: T:Automata.Core.IFsa
-  fullName: Automata.Core.IFsa
-  nameWithType: IFsa
-- uid: Automata.Core.IFsa.Alphabet
+  fullName: Automata.Core.Fsa.AcceptsEpsilon
+  nameWithType: Fsa.AcceptsEpsilon
+- uid: Automata.Core.Fsa.Alphabet
   name: Alphabet
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_Alphabet
-  commentId: P:Automata.Core.IFsa.Alphabet
-  fullName: Automata.Core.IFsa.Alphabet
-  nameWithType: IFsa.Alphabet
-- uid: Automata.Core.IFsa.Alphabet*
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_Alphabet
+  commentId: P:Automata.Core.Fsa.Alphabet
+  fullName: Automata.Core.Fsa.Alphabet
+  nameWithType: Fsa.Alphabet
+- uid: Automata.Core.Fsa.Alphabet*
   name: Alphabet
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_Alphabet_
-  commentId: Overload:Automata.Core.IFsa.Alphabet
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_Alphabet_
+  commentId: Overload:Automata.Core.Fsa.Alphabet
   isSpec: "True"
-  fullName: Automata.Core.IFsa.Alphabet
-  nameWithType: IFsa.Alphabet
-- uid: Automata.Core.IFsa.EpsilonTransitions
+  fullName: Automata.Core.Fsa.Alphabet
+  nameWithType: Fsa.Alphabet
+- uid: Automata.Core.Fsa.EpsilonTransitions
   name: EpsilonTransitions()
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_EpsilonTransitions
-  commentId: M:Automata.Core.IFsa.EpsilonTransitions
-  fullName: Automata.Core.IFsa.EpsilonTransitions()
-  nameWithType: IFsa.EpsilonTransitions()
-- uid: Automata.Core.IFsa.EpsilonTransitions*
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_EpsilonTransitions
+  commentId: M:Automata.Core.Fsa.EpsilonTransitions
+  fullName: Automata.Core.Fsa.EpsilonTransitions()
+  nameWithType: Fsa.EpsilonTransitions()
+- uid: Automata.Core.Fsa.EpsilonTransitions*
   name: EpsilonTransitions
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_EpsilonTransitions_
-  commentId: Overload:Automata.Core.IFsa.EpsilonTransitions
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_EpsilonTransitions_
+  commentId: Overload:Automata.Core.Fsa.EpsilonTransitions
   isSpec: "True"
-  fullName: Automata.Core.IFsa.EpsilonTransitions
-  nameWithType: IFsa.EpsilonTransitions
-- uid: Automata.Core.IFsa.IsEmpty
-  name: IsEmpty
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsEmpty
-  commentId: P:Automata.Core.IFsa.IsEmpty
-  fullName: Automata.Core.IFsa.IsEmpty
-  nameWithType: IFsa.IsEmpty
-- uid: Automata.Core.IFsa.IsEmpty*
-  name: IsEmpty
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsEmpty_
-  commentId: Overload:Automata.Core.IFsa.IsEmpty
+  fullName: Automata.Core.Fsa.EpsilonTransitions
+  nameWithType: Fsa.EpsilonTransitions
+- uid: Automata.Core.Fsa.FinalStates
+  name: FinalStates
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_FinalStates
+  commentId: P:Automata.Core.Fsa.FinalStates
+  fullName: Automata.Core.Fsa.FinalStates
+  nameWithType: Fsa.FinalStates
+- uid: Automata.Core.Fsa.FinalStates*
+  name: FinalStates
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_FinalStates_
+  commentId: Overload:Automata.Core.Fsa.FinalStates
   isSpec: "True"
-  fullName: Automata.Core.IFsa.IsEmpty
-  nameWithType: IFsa.IsEmpty
-- uid: Automata.Core.IFsa.IsEpsilonFree
+  fullName: Automata.Core.Fsa.FinalStates
+  nameWithType: Fsa.FinalStates
+- uid: Automata.Core.Fsa.HasInitialState
+  name: HasInitialState
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_HasInitialState
+  commentId: P:Automata.Core.Fsa.HasInitialState
+  fullName: Automata.Core.Fsa.HasInitialState
+  nameWithType: Fsa.HasInitialState
+- uid: Automata.Core.Fsa.HasInitialState*
+  name: HasInitialState
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_HasInitialState_
+  commentId: Overload:Automata.Core.Fsa.HasInitialState
+  isSpec: "True"
+  fullName: Automata.Core.Fsa.HasInitialState
+  nameWithType: Fsa.HasInitialState
+- uid: Automata.Core.Fsa.IsEpsilonFree
   name: IsEpsilonFree
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsEpsilonFree
-  commentId: P:Automata.Core.IFsa.IsEpsilonFree
-  fullName: Automata.Core.IFsa.IsEpsilonFree
-  nameWithType: IFsa.IsEpsilonFree
-- uid: Automata.Core.IFsa.IsEpsilonFree*
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsEpsilonFree
+  commentId: P:Automata.Core.Fsa.IsEpsilonFree
+  fullName: Automata.Core.Fsa.IsEpsilonFree
+  nameWithType: Fsa.IsEpsilonFree
+- uid: Automata.Core.Fsa.IsEpsilonFree*
   name: IsEpsilonFree
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsEpsilonFree_
-  commentId: Overload:Automata.Core.IFsa.IsEpsilonFree
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsEpsilonFree_
+  commentId: Overload:Automata.Core.Fsa.IsEpsilonFree
   isSpec: "True"
-  fullName: Automata.Core.IFsa.IsEpsilonFree
-  nameWithType: IFsa.IsEpsilonFree
-- uid: Automata.Core.IFsa.IsFinal(System.Int32)
+  fullName: Automata.Core.Fsa.IsEpsilonFree
+  nameWithType: Fsa.IsEpsilonFree
+- uid: Automata.Core.Fsa.IsFinal(System.Int32)
   name: IsFinal(int)
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsFinal_System_Int32_
-  commentId: M:Automata.Core.IFsa.IsFinal(System.Int32)
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsFinal_System_Int32_
+  commentId: M:Automata.Core.Fsa.IsFinal(System.Int32)
   name.vb: IsFinal(Integer)
-  fullName: Automata.Core.IFsa.IsFinal(int)
-  fullName.vb: Automata.Core.IFsa.IsFinal(Integer)
-  nameWithType: IFsa.IsFinal(int)
-  nameWithType.vb: IFsa.IsFinal(Integer)
-- uid: Automata.Core.IFsa.IsFinal*
+  fullName: Automata.Core.Fsa.IsFinal(int)
+  fullName.vb: Automata.Core.Fsa.IsFinal(Integer)
+  nameWithType: Fsa.IsFinal(int)
+  nameWithType.vb: Fsa.IsFinal(Integer)
+- uid: Automata.Core.Fsa.IsFinal*
   name: IsFinal
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsFinal_
-  commentId: Overload:Automata.Core.IFsa.IsFinal
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsFinal_
+  commentId: Overload:Automata.Core.Fsa.IsFinal
   isSpec: "True"
-  fullName: Automata.Core.IFsa.IsFinal
-  nameWithType: IFsa.IsFinal
-- uid: Automata.Core.IFsa.IsInitial(System.Int32)
+  fullName: Automata.Core.Fsa.IsFinal
+  nameWithType: Fsa.IsFinal
+- uid: Automata.Core.Fsa.IsInitial(System.Int32)
   name: IsInitial(int)
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsInitial_System_Int32_
-  commentId: M:Automata.Core.IFsa.IsInitial(System.Int32)
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsInitial_System_Int32_
+  commentId: M:Automata.Core.Fsa.IsInitial(System.Int32)
   name.vb: IsInitial(Integer)
-  fullName: Automata.Core.IFsa.IsInitial(int)
-  fullName.vb: Automata.Core.IFsa.IsInitial(Integer)
-  nameWithType: IFsa.IsInitial(int)
-  nameWithType.vb: IFsa.IsInitial(Integer)
-- uid: Automata.Core.IFsa.IsInitial*
+  fullName: Automata.Core.Fsa.IsInitial(int)
+  fullName.vb: Automata.Core.Fsa.IsInitial(Integer)
+  nameWithType: Fsa.IsInitial(int)
+  nameWithType.vb: Fsa.IsInitial(Integer)
+- uid: Automata.Core.Fsa.IsInitial*
   name: IsInitial
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_IsInitial_
-  commentId: Overload:Automata.Core.IFsa.IsInitial
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_IsInitial_
+  commentId: Overload:Automata.Core.Fsa.IsInitial
   isSpec: "True"
-  fullName: Automata.Core.IFsa.IsInitial
-  nameWithType: IFsa.IsInitial
-- uid: Automata.Core.IFsa.SymbolicTransitions
-  name: SymbolicTransitions()
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_SymbolicTransitions
-  commentId: M:Automata.Core.IFsa.SymbolicTransitions
-  fullName: Automata.Core.IFsa.SymbolicTransitions()
-  nameWithType: IFsa.SymbolicTransitions()
-- uid: Automata.Core.IFsa.SymbolicTransitions*
-  name: SymbolicTransitions
-  href: Automata.Core.IFsa.html#Automata_Core_IFsa_SymbolicTransitions_
-  commentId: Overload:Automata.Core.IFsa.SymbolicTransitions
+  fullName: Automata.Core.Fsa.IsInitial
+  nameWithType: Fsa.IsInitial
+- uid: Automata.Core.Fsa.ToCanonicalString
+  name: ToCanonicalString()
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_ToCanonicalString
+  commentId: M:Automata.Core.Fsa.ToCanonicalString
+  fullName: Automata.Core.Fsa.ToCanonicalString()
+  nameWithType: Fsa.ToCanonicalString()
+- uid: Automata.Core.Fsa.ToCanonicalString*
+  name: ToCanonicalString
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_ToCanonicalString_
+  commentId: Overload:Automata.Core.Fsa.ToCanonicalString
   isSpec: "True"
-  fullName: Automata.Core.IFsa.SymbolicTransitions
-  nameWithType: IFsa.SymbolicTransitions
+  fullName: Automata.Core.Fsa.ToCanonicalString
+  nameWithType: Fsa.ToCanonicalString
+- uid: Automata.Core.Fsa.Transitions
+  name: Transitions()
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_Transitions
+  commentId: M:Automata.Core.Fsa.Transitions
+  fullName: Automata.Core.Fsa.Transitions()
+  nameWithType: Fsa.Transitions()
+- uid: Automata.Core.Fsa.Transitions*
+  name: Transitions
+  href: Automata.Core.Fsa.html#Automata_Core_Fsa_Transitions_
+  commentId: Overload:Automata.Core.Fsa.Transitions
+  isSpec: "True"
+  fullName: Automata.Core.Fsa.Transitions
+  nameWithType: Fsa.Transitions
+- uid: Automata.Core.FsaDet
+  name: FsaDet
+  href: Automata.Core.FsaDet.html
+  commentId: T:Automata.Core.FsaDet
+  fullName: Automata.Core.FsaDet
+  nameWithType: FsaDet
+- uid: Automata.Core.FsaDet.#ctor(Automata.Core.Alphabet)
+  name: FsaDet(Alphabet)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet__ctor_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.FsaDet.#ctor(Automata.Core.Alphabet)
+  name.vb: New(Alphabet)
+  fullName: Automata.Core.FsaDet.FsaDet(Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.FsaDet.New(Automata.Core.Alphabet)
+  nameWithType: FsaDet.FsaDet(Alphabet)
+  nameWithType.vb: FsaDet.New(Alphabet)
+- uid: Automata.Core.FsaDet.#ctor*
+  name: FsaDet
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet__ctor_
+  commentId: Overload:Automata.Core.FsaDet.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Automata.Core.FsaDet.FsaDet
+  fullName.vb: Automata.Core.FsaDet.New
+  nameWithType: FsaDet.FsaDet
+  nameWithType.vb: FsaDet.New
+- uid: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable{System.String})
+  name: Accepts(IEnumerable<string>)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Accepts(IEnumerable(Of String))
+  fullName: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: FsaDet.Accepts(IEnumerable<string>)
+  nameWithType.vb: FsaDet.Accepts(IEnumerable(Of String))
+- uid: Automata.Core.FsaDet.Accepts*
+  name: Accepts
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_
+  commentId: Overload:Automata.Core.FsaDet.Accepts
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.Accepts
+  nameWithType: FsaDet.Accepts
+- uid: Automata.Core.FsaDet.AcceptsEpsilon
+  name: AcceptsEpsilon
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_AcceptsEpsilon
+  commentId: P:Automata.Core.FsaDet.AcceptsEpsilon
+  fullName: Automata.Core.FsaDet.AcceptsEpsilon
+  nameWithType: FsaDet.AcceptsEpsilon
+- uid: Automata.Core.FsaDet.AcceptsEpsilon*
+  name: AcceptsEpsilon
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_AcceptsEpsilon_
+  commentId: Overload:Automata.Core.FsaDet.AcceptsEpsilon
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.AcceptsEpsilon
+  nameWithType: FsaDet.AcceptsEpsilon
+- uid: Automata.Core.FsaDet.EpsilonTransitions
+  name: EpsilonTransitions()
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_EpsilonTransitions
+  commentId: M:Automata.Core.FsaDet.EpsilonTransitions
+  fullName: Automata.Core.FsaDet.EpsilonTransitions()
+  nameWithType: FsaDet.EpsilonTransitions()
+- uid: Automata.Core.FsaDet.EpsilonTransitions*
+  name: EpsilonTransitions
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_EpsilonTransitions_
+  commentId: Overload:Automata.Core.FsaDet.EpsilonTransitions
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.EpsilonTransitions
+  nameWithType: FsaDet.EpsilonTransitions
+- uid: Automata.Core.FsaDet.HasInitialState
+  name: HasInitialState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_HasInitialState
+  commentId: P:Automata.Core.FsaDet.HasInitialState
+  fullName: Automata.Core.FsaDet.HasInitialState
+  nameWithType: FsaDet.HasInitialState
+- uid: Automata.Core.FsaDet.HasInitialState*
+  name: HasInitialState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_HasInitialState_
+  commentId: Overload:Automata.Core.FsaDet.HasInitialState
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.HasInitialState
+  nameWithType: FsaDet.HasInitialState
+- uid: Automata.Core.FsaDet.InitialState
+  name: InitialState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_InitialState
+  commentId: P:Automata.Core.FsaDet.InitialState
+  fullName: Automata.Core.FsaDet.InitialState
+  nameWithType: FsaDet.InitialState
+- uid: Automata.Core.FsaDet.InitialState*
+  name: InitialState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_InitialState_
+  commentId: Overload:Automata.Core.FsaDet.InitialState
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.InitialState
+  nameWithType: FsaDet.InitialState
+- uid: Automata.Core.FsaDet.IsEpsilonFree
+  name: IsEpsilonFree
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsEpsilonFree
+  commentId: P:Automata.Core.FsaDet.IsEpsilonFree
+  fullName: Automata.Core.FsaDet.IsEpsilonFree
+  nameWithType: FsaDet.IsEpsilonFree
+- uid: Automata.Core.FsaDet.IsEpsilonFree*
+  name: IsEpsilonFree
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsEpsilonFree_
+  commentId: Overload:Automata.Core.FsaDet.IsEpsilonFree
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.IsEpsilonFree
+  nameWithType: FsaDet.IsEpsilonFree
+- uid: Automata.Core.FsaDet.IsInitial(System.Int32)
+  name: IsInitial(int)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsInitial_System_Int32_
+  commentId: M:Automata.Core.FsaDet.IsInitial(System.Int32)
+  name.vb: IsInitial(Integer)
+  fullName: Automata.Core.FsaDet.IsInitial(int)
+  fullName.vb: Automata.Core.FsaDet.IsInitial(Integer)
+  nameWithType: FsaDet.IsInitial(int)
+  nameWithType.vb: FsaDet.IsInitial(Integer)
+- uid: Automata.Core.FsaDet.IsInitial*
+  name: IsInitial
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsInitial_
+  commentId: Overload:Automata.Core.FsaDet.IsInitial
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.IsInitial
+  nameWithType: FsaDet.IsInitial
+- uid: Automata.Core.FsaDet.MaxState
+  name: MaxState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_MaxState
+  commentId: P:Automata.Core.FsaDet.MaxState
+  fullName: Automata.Core.FsaDet.MaxState
+  nameWithType: FsaDet.MaxState
+- uid: Automata.Core.FsaDet.MaxState*
+  name: MaxState
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_MaxState_
+  commentId: Overload:Automata.Core.FsaDet.MaxState
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.MaxState
+  nameWithType: FsaDet.MaxState
+- uid: Automata.Core.FsaDet.State(System.Int32)
+  name: State(int)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_State_System_Int32_
+  commentId: M:Automata.Core.FsaDet.State(System.Int32)
+  name.vb: State(Integer)
+  fullName: Automata.Core.FsaDet.State(int)
+  fullName.vb: Automata.Core.FsaDet.State(Integer)
+  nameWithType: FsaDet.State(int)
+  nameWithType.vb: FsaDet.State(Integer)
+- uid: Automata.Core.FsaDet.State*
+  name: State
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_State_
+  commentId: Overload:Automata.Core.FsaDet.State
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.State
+  nameWithType: FsaDet.State
+- uid: Automata.Core.FsaDet.Transition(System.Int32,System.Int32)
+  name: Transition(int, int)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_System_Int32_System_Int32_
+  commentId: M:Automata.Core.FsaDet.Transition(System.Int32,System.Int32)
+  name.vb: Transition(Integer, Integer)
+  fullName: Automata.Core.FsaDet.Transition(int, int)
+  fullName.vb: Automata.Core.FsaDet.Transition(Integer, Integer)
+  nameWithType: FsaDet.Transition(int, int)
+  nameWithType.vb: FsaDet.Transition(Integer, Integer)
+- uid: Automata.Core.FsaDet.Transition*
+  name: Transition
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_
+  commentId: Overload:Automata.Core.FsaDet.Transition
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.Transition
+  nameWithType: FsaDet.Transition
+- uid: Automata.Core.FsaDet.TransitionCount
+  name: TransitionCount
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_TransitionCount
+  commentId: P:Automata.Core.FsaDet.TransitionCount
+  fullName: Automata.Core.FsaDet.TransitionCount
+  nameWithType: FsaDet.TransitionCount
+- uid: Automata.Core.FsaDet.TransitionCount*
+  name: TransitionCount
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_TransitionCount_
+  commentId: Overload:Automata.Core.FsaDet.TransitionCount
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.TransitionCount
+  nameWithType: FsaDet.TransitionCount
+- uid: Automata.Core.FsaDet.TryTransition(System.Int32,System.Int32,System.Int32@)
+  name: TryTransition(int, int, out int)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_System_Int32_System_Int32_System_Int32__
+  commentId: M:Automata.Core.FsaDet.TryTransition(System.Int32,System.Int32,System.Int32@)
+  name.vb: TryTransition(Integer, Integer, Integer)
+  fullName: Automata.Core.FsaDet.TryTransition(int, int, out int)
+  fullName.vb: Automata.Core.FsaDet.TryTransition(Integer, Integer, Integer)
+  nameWithType: FsaDet.TryTransition(int, int, out int)
+  nameWithType.vb: FsaDet.TryTransition(Integer, Integer, Integer)
+- uid: Automata.Core.FsaDet.TryTransition*
+  name: TryTransition
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_
+  commentId: Overload:Automata.Core.FsaDet.TryTransition
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.TryTransition
+  nameWithType: FsaDet.TryTransition
 - uid: Automata.Core.IntSet
   name: IntSet
   href: Automata.Core.IntSet.html
@@ -2739,201 +2552,331 @@ references:
   isSpec: "True"
   fullName: Automata.Core.IntSet.ToString
   nameWithType: IntSet.ToString
-- uid: Automata.Core.MutableAlphabet
-  name: MutableAlphabet
-  href: Automata.Core.MutableAlphabet.html
-  commentId: T:Automata.Core.MutableAlphabet
-  fullName: Automata.Core.MutableAlphabet
-  nameWithType: MutableAlphabet
-- uid: Automata.Core.MutableAlphabet.#ctor
-  name: MutableAlphabet()
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor
-  commentId: M:Automata.Core.MutableAlphabet.#ctor
-  name.vb: New()
-  fullName: Automata.Core.MutableAlphabet.MutableAlphabet()
-  fullName.vb: Automata.Core.MutableAlphabet.New()
-  nameWithType: MutableAlphabet.MutableAlphabet()
-  nameWithType.vb: MutableAlphabet.New()
-- uid: Automata.Core.MutableAlphabet.#ctor(Automata.Core.CanonicalAlphabet)
-  name: MutableAlphabet(CanonicalAlphabet)
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor_Automata_Core_CanonicalAlphabet_
-  commentId: M:Automata.Core.MutableAlphabet.#ctor(Automata.Core.CanonicalAlphabet)
-  name.vb: New(CanonicalAlphabet)
-  fullName: Automata.Core.MutableAlphabet.MutableAlphabet(Automata.Core.CanonicalAlphabet)
-  fullName.vb: Automata.Core.MutableAlphabet.New(Automata.Core.CanonicalAlphabet)
-  nameWithType: MutableAlphabet.MutableAlphabet(CanonicalAlphabet)
-  nameWithType.vb: MutableAlphabet.New(CanonicalAlphabet)
-- uid: Automata.Core.MutableAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
-  name: MutableAlphabet(IEnumerable<string>)
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor_System_Collections_Generic_IEnumerable_System_String__
-  commentId: M:Automata.Core.MutableAlphabet.#ctor(System.Collections.Generic.IEnumerable{System.String})
-  name.vb: New(IEnumerable(Of String))
-  fullName: Automata.Core.MutableAlphabet.MutableAlphabet(System.Collections.Generic.IEnumerable<string>)
-  fullName.vb: Automata.Core.MutableAlphabet.New(System.Collections.Generic.IEnumerable(Of String))
-  nameWithType: MutableAlphabet.MutableAlphabet(IEnumerable<string>)
-  nameWithType.vb: MutableAlphabet.New(IEnumerable(Of String))
-- uid: Automata.Core.MutableAlphabet.#ctor*
-  name: MutableAlphabet
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet__ctor_
-  commentId: Overload:Automata.Core.MutableAlphabet.#ctor
+- uid: Automata.Core.Mfa
+  name: Mfa
+  href: Automata.Core.Mfa.html
+  commentId: T:Automata.Core.Mfa
+  fullName: Automata.Core.Mfa
+  nameWithType: Mfa
+- uid: Automata.Core.Mfa.#ctor(Automata.Core.Dfa)
+  name: Mfa(Dfa)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa__ctor_Automata_Core_Dfa_
+  commentId: M:Automata.Core.Mfa.#ctor(Automata.Core.Dfa)
+  name.vb: New(Dfa)
+  fullName: Automata.Core.Mfa.Mfa(Automata.Core.Dfa)
+  fullName.vb: Automata.Core.Mfa.New(Automata.Core.Dfa)
+  nameWithType: Mfa.Mfa(Dfa)
+  nameWithType.vb: Mfa.New(Dfa)
+- uid: Automata.Core.Mfa.#ctor(System.String,Automata.Core.Alphabet)
+  name: Mfa(string, Alphabet)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa__ctor_System_String_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Mfa.#ctor(System.String,Automata.Core.Alphabet)
+  name.vb: New(String, Alphabet)
+  fullName: Automata.Core.Mfa.Mfa(string, Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Mfa.New(String, Automata.Core.Alphabet)
+  nameWithType: Mfa.Mfa(string, Alphabet)
+  nameWithType.vb: Mfa.New(String, Alphabet)
+- uid: Automata.Core.Mfa.#ctor*
+  name: Mfa
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa__ctor_
+  commentId: Overload:Automata.Core.Mfa.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Automata.Core.MutableAlphabet.MutableAlphabet
-  fullName.vb: Automata.Core.MutableAlphabet.New
-  nameWithType: MutableAlphabet.MutableAlphabet
-  nameWithType.vb: MutableAlphabet.New
-- uid: Automata.Core.MutableAlphabet.AddAll(System.Collections.Generic.IEnumerable{System.String})
-  name: AddAll(IEnumerable<string>)
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_AddAll_System_Collections_Generic_IEnumerable_System_String__
-  commentId: M:Automata.Core.MutableAlphabet.AddAll(System.Collections.Generic.IEnumerable{System.String})
-  name.vb: AddAll(IEnumerable(Of String))
-  fullName: Automata.Core.MutableAlphabet.AddAll(System.Collections.Generic.IEnumerable<string>)
-  fullName.vb: Automata.Core.MutableAlphabet.AddAll(System.Collections.Generic.IEnumerable(Of String))
-  nameWithType: MutableAlphabet.AddAll(IEnumerable<string>)
-  nameWithType.vb: MutableAlphabet.AddAll(IEnumerable(Of String))
-- uid: Automata.Core.MutableAlphabet.AddAll*
-  name: AddAll
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_AddAll_
-  commentId: Overload:Automata.Core.MutableAlphabet.AddAll
+  fullName: Automata.Core.Mfa.Mfa
+  fullName.vb: Automata.Core.Mfa.New
+  nameWithType: Mfa.Mfa
+  nameWithType.vb: Mfa.New
+- uid: Automata.Core.Mfa.CreateEmpty(Automata.Core.Alphabet)
+  name: CreateEmpty(Alphabet)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateEmpty_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Mfa.CreateEmpty(Automata.Core.Alphabet)
+  fullName: Automata.Core.Mfa.CreateEmpty(Automata.Core.Alphabet)
+  nameWithType: Mfa.CreateEmpty(Alphabet)
+- uid: Automata.Core.Mfa.CreateEmpty*
+  name: CreateEmpty
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateEmpty_
+  commentId: Overload:Automata.Core.Mfa.CreateEmpty
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.AddAll
-  nameWithType: MutableAlphabet.AddAll
-- uid: Automata.Core.MutableAlphabet.Contains(System.String)
-  name: Contains(string)
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Contains_System_String_
-  commentId: M:Automata.Core.MutableAlphabet.Contains(System.String)
-  name.vb: Contains(String)
-  fullName: Automata.Core.MutableAlphabet.Contains(string)
-  fullName.vb: Automata.Core.MutableAlphabet.Contains(String)
-  nameWithType: MutableAlphabet.Contains(string)
-  nameWithType.vb: MutableAlphabet.Contains(String)
-- uid: Automata.Core.MutableAlphabet.Contains*
-  name: Contains
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Contains_
-  commentId: Overload:Automata.Core.MutableAlphabet.Contains
+  fullName: Automata.Core.Mfa.CreateEmpty
+  nameWithType: Mfa.CreateEmpty
+- uid: Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)
+  name: CreateWildcard(Alphabet)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateWildcard_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)
+  fullName: Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)
+  nameWithType: Mfa.CreateWildcard(Alphabet)
+- uid: Automata.Core.Mfa.CreateWildcard*
+  name: CreateWildcard
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateWildcard_
+  commentId: Overload:Automata.Core.Mfa.CreateWildcard
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.Contains
-  nameWithType: MutableAlphabet.Contains
-- uid: Automata.Core.MutableAlphabet.Count
-  name: Count
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Count
-  commentId: P:Automata.Core.MutableAlphabet.Count
-  fullName: Automata.Core.MutableAlphabet.Count
-  nameWithType: MutableAlphabet.Count
-- uid: Automata.Core.MutableAlphabet.Count*
-  name: Count
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Count_
-  commentId: Overload:Automata.Core.MutableAlphabet.Count
+  fullName: Automata.Core.Mfa.CreateWildcard
+  nameWithType: Mfa.CreateWildcard
+- uid: Automata.Core.Mfa.Equals(Automata.Core.Mfa)
+  name: Equals(Mfa?)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Equals_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Mfa.Equals(Automata.Core.Mfa)
+  name.vb: Equals(Mfa)
+  fullName: Automata.Core.Mfa.Equals(Automata.Core.Mfa?)
+  fullName.vb: Automata.Core.Mfa.Equals(Automata.Core.Mfa)
+  nameWithType: Mfa.Equals(Mfa?)
+  nameWithType.vb: Mfa.Equals(Mfa)
+- uid: Automata.Core.Mfa.Equals(System.Object)
+  name: Equals(object?)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Equals_System_Object_
+  commentId: M:Automata.Core.Mfa.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: Automata.Core.Mfa.Equals(object?)
+  fullName.vb: Automata.Core.Mfa.Equals(Object)
+  nameWithType: Mfa.Equals(object?)
+  nameWithType.vb: Mfa.Equals(Object)
+- uid: Automata.Core.Mfa.Equals*
+  name: Equals
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Equals_
+  commentId: Overload:Automata.Core.Mfa.Equals
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.Count
-  nameWithType: MutableAlphabet.Count
-- uid: Automata.Core.MutableAlphabet.GetOrAdd(System.String)
-  name: GetOrAdd(string)
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_GetOrAdd_System_String_
-  commentId: M:Automata.Core.MutableAlphabet.GetOrAdd(System.String)
-  name.vb: GetOrAdd(String)
-  fullName: Automata.Core.MutableAlphabet.GetOrAdd(string)
-  fullName.vb: Automata.Core.MutableAlphabet.GetOrAdd(String)
-  nameWithType: MutableAlphabet.GetOrAdd(string)
-  nameWithType.vb: MutableAlphabet.GetOrAdd(String)
-- uid: Automata.Core.MutableAlphabet.GetOrAdd*
-  name: GetOrAdd
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_GetOrAdd_
-  commentId: Overload:Automata.Core.MutableAlphabet.GetOrAdd
+  fullName: Automata.Core.Mfa.Equals
+  nameWithType: Mfa.Equals
+- uid: Automata.Core.Mfa.FinalStates
+  name: FinalStates
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_FinalStates
+  commentId: P:Automata.Core.Mfa.FinalStates
+  fullName: Automata.Core.Mfa.FinalStates
+  nameWithType: Mfa.FinalStates
+- uid: Automata.Core.Mfa.FinalStates*
+  name: FinalStates
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_FinalStates_
+  commentId: Overload:Automata.Core.Mfa.FinalStates
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.GetOrAdd
-  nameWithType: MutableAlphabet.GetOrAdd
-- uid: Automata.Core.MutableAlphabet.Item(System.Int32)
-  name: this[int]
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Item_System_Int32_
-  commentId: P:Automata.Core.MutableAlphabet.Item(System.Int32)
-  name.vb: this[](Integer)
-  fullName: Automata.Core.MutableAlphabet.this[int]
-  fullName.vb: Automata.Core.MutableAlphabet.this[](Integer)
-  nameWithType: MutableAlphabet.this[int]
-  nameWithType.vb: MutableAlphabet.this[](Integer)
-- uid: Automata.Core.MutableAlphabet.Item(System.String)
-  name: this[string]
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Item_System_String_
-  commentId: P:Automata.Core.MutableAlphabet.Item(System.String)
-  name.vb: this[](String)
-  fullName: Automata.Core.MutableAlphabet.this[string]
-  fullName.vb: Automata.Core.MutableAlphabet.this[](String)
-  nameWithType: MutableAlphabet.this[string]
-  nameWithType.vb: MutableAlphabet.this[](String)
-- uid: Automata.Core.MutableAlphabet.Item*
-  name: this
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Item_
-  commentId: Overload:Automata.Core.MutableAlphabet.Item
+  fullName: Automata.Core.Mfa.FinalStates
+  nameWithType: Mfa.FinalStates
+- uid: Automata.Core.Mfa.GetHashCode
+  name: GetHashCode()
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_GetHashCode
+  commentId: M:Automata.Core.Mfa.GetHashCode
+  fullName: Automata.Core.Mfa.GetHashCode()
+  nameWithType: Mfa.GetHashCode()
+- uid: Automata.Core.Mfa.GetHashCode*
+  name: GetHashCode
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_GetHashCode_
+  commentId: Overload:Automata.Core.Mfa.GetHashCode
   isSpec: "True"
-  name.vb: this[]
-  fullName: Automata.Core.MutableAlphabet.this
-  fullName.vb: Automata.Core.MutableAlphabet.this[]
-  nameWithType: MutableAlphabet.this
-  nameWithType.vb: MutableAlphabet.this[]
-- uid: Automata.Core.MutableAlphabet.Symbols
-  name: Symbols
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Symbols
-  commentId: P:Automata.Core.MutableAlphabet.Symbols
-  fullName: Automata.Core.MutableAlphabet.Symbols
-  nameWithType: MutableAlphabet.Symbols
-- uid: Automata.Core.MutableAlphabet.Symbols*
-  name: Symbols
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_Symbols_
-  commentId: Overload:Automata.Core.MutableAlphabet.Symbols
+  fullName: Automata.Core.Mfa.GetHashCode
+  nameWithType: Mfa.GetHashCode
+- uid: Automata.Core.Mfa.InitialState
+  name: InitialState
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_InitialState
+  commentId: P:Automata.Core.Mfa.InitialState
+  fullName: Automata.Core.Mfa.InitialState
+  nameWithType: Mfa.InitialState
+- uid: Automata.Core.Mfa.InitialState*
+  name: InitialState
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_InitialState_
+  commentId: Overload:Automata.Core.Mfa.InitialState
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.Symbols
-  nameWithType: MutableAlphabet.Symbols
-- uid: Automata.Core.MutableAlphabet.ToString
-  name: ToString()
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_ToString
-  commentId: M:Automata.Core.MutableAlphabet.ToString
-  fullName: Automata.Core.MutableAlphabet.ToString()
-  nameWithType: MutableAlphabet.ToString()
-- uid: Automata.Core.MutableAlphabet.ToString*
-  name: ToString
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_ToString_
-  commentId: Overload:Automata.Core.MutableAlphabet.ToString
+  fullName: Automata.Core.Mfa.InitialState
+  nameWithType: Mfa.InitialState
+- uid: Automata.Core.Mfa.IsEmptyLanguage
+  name: IsEmptyLanguage
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_IsEmptyLanguage
+  commentId: P:Automata.Core.Mfa.IsEmptyLanguage
+  fullName: Automata.Core.Mfa.IsEmptyLanguage
+  nameWithType: Mfa.IsEmptyLanguage
+- uid: Automata.Core.Mfa.IsEmptyLanguage*
+  name: IsEmptyLanguage
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_IsEmptyLanguage_
+  commentId: Overload:Automata.Core.Mfa.IsEmptyLanguage
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.ToString
-  nameWithType: MutableAlphabet.ToString
-- uid: Automata.Core.MutableAlphabet.ToStringExpanded
-  name: ToStringExpanded()
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_ToStringExpanded
-  commentId: M:Automata.Core.MutableAlphabet.ToStringExpanded
-  fullName: Automata.Core.MutableAlphabet.ToStringExpanded()
-  nameWithType: MutableAlphabet.ToStringExpanded()
-- uid: Automata.Core.MutableAlphabet.ToStringExpanded*
-  name: ToStringExpanded
-  href: Automata.Core.MutableAlphabet.html#Automata_Core_MutableAlphabet_ToStringExpanded_
-  commentId: Overload:Automata.Core.MutableAlphabet.ToStringExpanded
+  fullName: Automata.Core.Mfa.IsEmptyLanguage
+  nameWithType: Mfa.IsEmptyLanguage
+- uid: Automata.Core.Mfa.IsFinal(System.Int32)
+  name: IsFinal(int)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_IsFinal_System_Int32_
+  commentId: M:Automata.Core.Mfa.IsFinal(System.Int32)
+  name.vb: IsFinal(Integer)
+  fullName: Automata.Core.Mfa.IsFinal(int)
+  fullName.vb: Automata.Core.Mfa.IsFinal(Integer)
+  nameWithType: Mfa.IsFinal(int)
+  nameWithType.vb: Mfa.IsFinal(Integer)
+- uid: Automata.Core.Mfa.IsFinal*
+  name: IsFinal
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_IsFinal_
+  commentId: Overload:Automata.Core.Mfa.IsFinal
   isSpec: "True"
-  fullName: Automata.Core.MutableAlphabet.ToStringExpanded
-  nameWithType: MutableAlphabet.ToStringExpanded
+  fullName: Automata.Core.Mfa.IsFinal
+  nameWithType: Mfa.IsFinal
+- uid: Automata.Core.Mfa.LanguageEquals(Automata.Core.Mfa)
+  name: LanguageEquals(Mfa)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Mfa.LanguageEquals(Automata.Core.Mfa)
+  fullName: Automata.Core.Mfa.LanguageEquals(Automata.Core.Mfa)
+  nameWithType: Mfa.LanguageEquals(Mfa)
+- uid: Automata.Core.Mfa.LanguageEquals*
+  name: LanguageEquals
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_LanguageEquals_
+  commentId: Overload:Automata.Core.Mfa.LanguageEquals
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.LanguageEquals
+  nameWithType: Mfa.LanguageEquals
+- uid: Automata.Core.Mfa.MaxState
+  name: MaxState
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_MaxState
+  commentId: P:Automata.Core.Mfa.MaxState
+  fullName: Automata.Core.Mfa.MaxState
+  nameWithType: Mfa.MaxState
+- uid: Automata.Core.Mfa.MaxState*
+  name: MaxState
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_MaxState_
+  commentId: Overload:Automata.Core.Mfa.MaxState
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.MaxState
+  nameWithType: Mfa.MaxState
+- uid: Automata.Core.Mfa.State(System.Int32)
+  name: State(int)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_State_System_Int32_
+  commentId: M:Automata.Core.Mfa.State(System.Int32)
+  name.vb: State(Integer)
+  fullName: Automata.Core.Mfa.State(int)
+  fullName.vb: Automata.Core.Mfa.State(Integer)
+  nameWithType: Mfa.State(int)
+  nameWithType.vb: Mfa.State(Integer)
+- uid: Automata.Core.Mfa.State*
+  name: State
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_State_
+  commentId: Overload:Automata.Core.Mfa.State
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.State
+  nameWithType: Mfa.State
+- uid: Automata.Core.Mfa.StateCount
+  name: StateCount
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_StateCount
+  commentId: P:Automata.Core.Mfa.StateCount
+  fullName: Automata.Core.Mfa.StateCount
+  nameWithType: Mfa.StateCount
+- uid: Automata.Core.Mfa.StateCount*
+  name: StateCount
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_StateCount_
+  commentId: Overload:Automata.Core.Mfa.StateCount
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.StateCount
+  nameWithType: Mfa.StateCount
+- uid: Automata.Core.Mfa.ToCanonicalString
+  name: ToCanonicalString()
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_ToCanonicalString
+  commentId: M:Automata.Core.Mfa.ToCanonicalString
+  fullName: Automata.Core.Mfa.ToCanonicalString()
+  nameWithType: Mfa.ToCanonicalString()
+- uid: Automata.Core.Mfa.ToCanonicalString*
+  name: ToCanonicalString
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_ToCanonicalString_
+  commentId: Overload:Automata.Core.Mfa.ToCanonicalString
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.ToCanonicalString
+  nameWithType: Mfa.ToCanonicalString
+- uid: Automata.Core.Mfa.Transition(System.Int32,System.Int32)
+  name: Transition(int, int)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Transition_System_Int32_System_Int32_
+  commentId: M:Automata.Core.Mfa.Transition(System.Int32,System.Int32)
+  name.vb: Transition(Integer, Integer)
+  fullName: Automata.Core.Mfa.Transition(int, int)
+  fullName.vb: Automata.Core.Mfa.Transition(Integer, Integer)
+  nameWithType: Mfa.Transition(int, int)
+  nameWithType.vb: Mfa.Transition(Integer, Integer)
+- uid: Automata.Core.Mfa.Transition*
+  name: Transition
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Transition_
+  commentId: Overload:Automata.Core.Mfa.Transition
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.Transition
+  nameWithType: Mfa.Transition
+- uid: Automata.Core.Mfa.TransitionCount
+  name: TransitionCount
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_TransitionCount
+  commentId: P:Automata.Core.Mfa.TransitionCount
+  fullName: Automata.Core.Mfa.TransitionCount
+  nameWithType: Mfa.TransitionCount
+- uid: Automata.Core.Mfa.TransitionCount*
+  name: TransitionCount
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_TransitionCount_
+  commentId: Overload:Automata.Core.Mfa.TransitionCount
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.TransitionCount
+  nameWithType: Mfa.TransitionCount
+- uid: Automata.Core.Mfa.Transitions
+  name: Transitions()
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Transitions
+  commentId: M:Automata.Core.Mfa.Transitions
+  fullName: Automata.Core.Mfa.Transitions()
+  nameWithType: Mfa.Transitions()
+- uid: Automata.Core.Mfa.Transitions*
+  name: Transitions
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_Transitions_
+  commentId: Overload:Automata.Core.Mfa.Transitions
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.Transitions
+  nameWithType: Mfa.Transitions
+- uid: Automata.Core.Mfa.op_Equality(Automata.Core.Mfa,Automata.Core.Mfa)
+  name: operator ==(Mfa, Mfa)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_op_Equality_Automata_Core_Mfa_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Mfa.op_Equality(Automata.Core.Mfa,Automata.Core.Mfa)
+  name.vb: =(Mfa, Mfa)
+  fullName: Automata.Core.Mfa.operator ==(Automata.Core.Mfa, Automata.Core.Mfa)
+  fullName.vb: Automata.Core.Mfa.=(Automata.Core.Mfa, Automata.Core.Mfa)
+  nameWithType: Mfa.operator ==(Mfa, Mfa)
+  nameWithType.vb: Mfa.=(Mfa, Mfa)
+- uid: Automata.Core.Mfa.op_Equality*
+  name: operator ==
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_op_Equality_
+  commentId: Overload:Automata.Core.Mfa.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: Automata.Core.Mfa.operator ==
+  fullName.vb: Automata.Core.Mfa.=
+  nameWithType: Mfa.operator ==
+  nameWithType.vb: Mfa.=
+- uid: Automata.Core.Mfa.op_Inequality(Automata.Core.Mfa,Automata.Core.Mfa)
+  name: operator !=(Mfa, Mfa)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_op_Inequality_Automata_Core_Mfa_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Mfa.op_Inequality(Automata.Core.Mfa,Automata.Core.Mfa)
+  name.vb: <>(Mfa, Mfa)
+  fullName: Automata.Core.Mfa.operator !=(Automata.Core.Mfa, Automata.Core.Mfa)
+  fullName.vb: Automata.Core.Mfa.<>(Automata.Core.Mfa, Automata.Core.Mfa)
+  nameWithType: Mfa.operator !=(Mfa, Mfa)
+  nameWithType.vb: Mfa.<>(Mfa, Mfa)
+- uid: Automata.Core.Mfa.op_Inequality*
+  name: operator !=
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_op_Inequality_
+  commentId: Overload:Automata.Core.Mfa.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: Automata.Core.Mfa.operator !=
+  fullName.vb: Automata.Core.Mfa.<>
+  nameWithType: Mfa.operator !=
+  nameWithType.vb: Mfa.<>
 - uid: Automata.Core.Nfa
   name: Nfa
   href: Automata.Core.Nfa.html
   commentId: T:Automata.Core.Nfa
   fullName: Automata.Core.Nfa
   nameWithType: Nfa
-- uid: Automata.Core.Nfa.#ctor
-  name: Nfa()
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor
-  commentId: M:Automata.Core.Nfa.#ctor
-  name.vb: New()
-  fullName: Automata.Core.Nfa.Nfa()
-  fullName.vb: Automata.Core.Nfa.New()
-  nameWithType: Nfa.Nfa()
-  nameWithType.vb: Nfa.New()
-- uid: Automata.Core.Nfa.#ctor(Automata.Core.MutableAlphabet)
-  name: Nfa(MutableAlphabet)
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_Automata_Core_MutableAlphabet_
-  commentId: M:Automata.Core.Nfa.#ctor(Automata.Core.MutableAlphabet)
-  name.vb: New(MutableAlphabet)
-  fullName: Automata.Core.Nfa.Nfa(Automata.Core.MutableAlphabet)
-  fullName.vb: Automata.Core.Nfa.New(Automata.Core.MutableAlphabet)
-  nameWithType: Nfa.Nfa(MutableAlphabet)
-  nameWithType.vb: Nfa.New(MutableAlphabet)
+- uid: Automata.Core.Nfa.#ctor(Automata.Core.Alphabet)
+  name: Nfa(Alphabet)
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Nfa.#ctor(Automata.Core.Alphabet)
+  name.vb: New(Alphabet)
+  fullName: Automata.Core.Nfa.Nfa(Automata.Core.Alphabet)
+  fullName.vb: Automata.Core.Nfa.New(Automata.Core.Alphabet)
+  nameWithType: Nfa.Nfa(Alphabet)
+  nameWithType.vb: Nfa.New(Alphabet)
+- uid: Automata.Core.Nfa.#ctor(Automata.Core.Nfa)
+  name: Nfa(Nfa)
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_Automata_Core_Nfa_
+  commentId: M:Automata.Core.Nfa.#ctor(Automata.Core.Nfa)
+  name.vb: New(Nfa)
+  fullName: Automata.Core.Nfa.Nfa(Automata.Core.Nfa)
+  fullName.vb: Automata.Core.Nfa.New(Automata.Core.Nfa)
+  nameWithType: Nfa.Nfa(Nfa)
+  nameWithType.vb: Nfa.New(Nfa)
 - uid: Automata.Core.Nfa.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})
   name: Nfa(IEnumerable<IEnumerable<string>>)
   href: Automata.Core.Nfa.html#Automata_Core_Nfa__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___
@@ -2953,6 +2896,19 @@ references:
   fullName.vb: Automata.Core.Nfa.New
   nameWithType: Nfa.Nfa
   nameWithType.vb: Nfa.New
+- uid: Automata.Core.Nfa.AcceptsEpsilon
+  name: AcceptsEpsilon
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_AcceptsEpsilon
+  commentId: P:Automata.Core.Nfa.AcceptsEpsilon
+  fullName: Automata.Core.Nfa.AcceptsEpsilon
+  nameWithType: Nfa.AcceptsEpsilon
+- uid: Automata.Core.Nfa.AcceptsEpsilon*
+  name: AcceptsEpsilon
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_AcceptsEpsilon_
+  commentId: Overload:Automata.Core.Nfa.AcceptsEpsilon
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.AcceptsEpsilon
+  nameWithType: Nfa.AcceptsEpsilon
 - uid: Automata.Core.Nfa.Add(Automata.Core.EpsilonTransition)
   name: Add(EpsilonTransition)
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_Add_Automata_Core_EpsilonTransition_
@@ -2972,19 +2928,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Nfa.Add
   nameWithType: Nfa.Add
-- uid: Automata.Core.Nfa.Alphabet
-  name: Alphabet
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Alphabet
-  commentId: P:Automata.Core.Nfa.Alphabet
-  fullName: Automata.Core.Nfa.Alphabet
-  nameWithType: Nfa.Alphabet
-- uid: Automata.Core.Nfa.Alphabet*
-  name: Alphabet
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Alphabet_
-  commentId: Overload:Automata.Core.Nfa.Alphabet
-  isSpec: "True"
-  fullName: Automata.Core.Nfa.Alphabet
-  nameWithType: Nfa.Alphabet
 - uid: Automata.Core.Nfa.AvailableSymbols(System.Collections.Generic.IEnumerable{System.Int32})
   name: AvailableSymbols(IEnumerable<int>)
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_AvailableSymbols_System_Collections_Generic_IEnumerable_System_Int32__
@@ -3001,6 +2944,58 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Nfa.AvailableSymbols
   nameWithType: Nfa.AvailableSymbols
+- uid: Automata.Core.Nfa.ClearAll
+  name: ClearAll()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearAll
+  commentId: M:Automata.Core.Nfa.ClearAll
+  fullName: Automata.Core.Nfa.ClearAll()
+  nameWithType: Nfa.ClearAll()
+- uid: Automata.Core.Nfa.ClearAll*
+  name: ClearAll
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearAll_
+  commentId: Overload:Automata.Core.Nfa.ClearAll
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.ClearAll
+  nameWithType: Nfa.ClearAll
+- uid: Automata.Core.Nfa.ClearFinalStates
+  name: ClearFinalStates()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearFinalStates
+  commentId: M:Automata.Core.Nfa.ClearFinalStates
+  fullName: Automata.Core.Nfa.ClearFinalStates()
+  nameWithType: Nfa.ClearFinalStates()
+- uid: Automata.Core.Nfa.ClearFinalStates*
+  name: ClearFinalStates
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearFinalStates_
+  commentId: Overload:Automata.Core.Nfa.ClearFinalStates
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.ClearFinalStates
+  nameWithType: Nfa.ClearFinalStates
+- uid: Automata.Core.Nfa.ClearInitialStates
+  name: ClearInitialStates()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearInitialStates
+  commentId: M:Automata.Core.Nfa.ClearInitialStates
+  fullName: Automata.Core.Nfa.ClearInitialStates()
+  nameWithType: Nfa.ClearInitialStates()
+- uid: Automata.Core.Nfa.ClearInitialStates*
+  name: ClearInitialStates
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ClearInitialStates_
+  commentId: Overload:Automata.Core.Nfa.ClearInitialStates
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.ClearInitialStates
+  nameWithType: Nfa.ClearInitialStates
+- uid: Automata.Core.Nfa.EpsilonTransitions
+  name: EpsilonTransitions()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_EpsilonTransitions
+  commentId: M:Automata.Core.Nfa.EpsilonTransitions
+  fullName: Automata.Core.Nfa.EpsilonTransitions()
+  nameWithType: Nfa.EpsilonTransitions()
+- uid: Automata.Core.Nfa.EpsilonTransitions*
+  name: EpsilonTransitions
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_EpsilonTransitions_
+  commentId: Overload:Automata.Core.Nfa.EpsilonTransitions
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.EpsilonTransitions
+  nameWithType: Nfa.EpsilonTransitions
 - uid: Automata.Core.Nfa.FinalStates
   name: FinalStates
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_FinalStates
@@ -3014,6 +3009,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Nfa.FinalStates
   nameWithType: Nfa.FinalStates
+- uid: Automata.Core.Nfa.HasInitialState
+  name: HasInitialState
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_HasInitialState
+  commentId: P:Automata.Core.Nfa.HasInitialState
+  fullName: Automata.Core.Nfa.HasInitialState
+  nameWithType: Nfa.HasInitialState
+- uid: Automata.Core.Nfa.HasInitialState*
+  name: HasInitialState
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_HasInitialState_
+  commentId: Overload:Automata.Core.Nfa.HasInitialState
+  isSpec: "True"
+  fullName: Automata.Core.Nfa.HasInitialState
+  nameWithType: Nfa.HasInitialState
 - uid: Automata.Core.Nfa.InitialStates
   name: InitialStates
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_InitialStates
@@ -3027,19 +3035,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Nfa.InitialStates
   nameWithType: Nfa.InitialStates
-- uid: Automata.Core.Nfa.IsEmpty
-  name: IsEmpty
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEmpty
-  commentId: P:Automata.Core.Nfa.IsEmpty
-  fullName: Automata.Core.Nfa.IsEmpty
-  nameWithType: Nfa.IsEmpty
-- uid: Automata.Core.Nfa.IsEmpty*
-  name: IsEmpty
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEmpty_
-  commentId: Overload:Automata.Core.Nfa.IsEmpty
-  isSpec: "True"
-  fullName: Automata.Core.Nfa.IsEmpty
-  nameWithType: Nfa.IsEmpty
 - uid: Automata.Core.Nfa.IsEpsilonFree
   name: IsEpsilonFree
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_IsEpsilonFree
@@ -3212,45 +3207,25 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Nfa.SetInitial
   nameWithType: Nfa.SetInitial
-- uid: Automata.Core.Nfa.ToCfa
-  name: ToCfa()
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToCfa
-  commentId: M:Automata.Core.Nfa.ToCfa
-  fullName: Automata.Core.Nfa.ToCfa()
-  nameWithType: Nfa.ToCfa()
-- uid: Automata.Core.Nfa.ToCfa*
-  name: ToCfa
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToCfa_
-  commentId: Overload:Automata.Core.Nfa.ToCfa
+- uid: Automata.Core.Nfa.ToCanonicalString
+  name: ToCanonicalString()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToCanonicalString
+  commentId: M:Automata.Core.Nfa.ToCanonicalString
+  fullName: Automata.Core.Nfa.ToCanonicalString()
+  nameWithType: Nfa.ToCanonicalString()
+- uid: Automata.Core.Nfa.ToCanonicalString*
+  name: ToCanonicalString
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToCanonicalString_
+  commentId: Overload:Automata.Core.Nfa.ToCanonicalString
   isSpec: "True"
-  fullName: Automata.Core.Nfa.ToCfa
-  nameWithType: Nfa.ToCfa
-- uid: Automata.Core.Nfa.ToDfa
-  name: ToDfa()
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToDfa
-  commentId: M:Automata.Core.Nfa.ToDfa
-  fullName: Automata.Core.Nfa.ToDfa()
-  nameWithType: Nfa.ToDfa()
-- uid: Automata.Core.Nfa.ToDfa*
-  name: ToDfa
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToDfa_
-  commentId: Overload:Automata.Core.Nfa.ToDfa
-  isSpec: "True"
-  fullName: Automata.Core.Nfa.ToDfa
-  nameWithType: Nfa.ToDfa
-- uid: Automata.Core.Nfa.ToMinimizedDFA
-  name: ToMinimizedDFA()
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToMinimizedDFA
-  commentId: M:Automata.Core.Nfa.ToMinimizedDFA
-  fullName: Automata.Core.Nfa.ToMinimizedDFA()
-  nameWithType: Nfa.ToMinimizedDFA()
-- uid: Automata.Core.Nfa.ToMinimizedDFA*
-  name: ToMinimizedDFA
-  href: Automata.Core.Nfa.html#Automata_Core_Nfa_ToMinimizedDFA_
-  commentId: Overload:Automata.Core.Nfa.ToMinimizedDFA
-  isSpec: "True"
-  fullName: Automata.Core.Nfa.ToMinimizedDFA
-  nameWithType: Nfa.ToMinimizedDFA
+  fullName: Automata.Core.Nfa.ToCanonicalString
+  nameWithType: Nfa.ToCanonicalString
+- uid: Automata.Core.Nfa.Transitions
+  name: Transitions()
+  href: Automata.Core.Nfa.html#Automata_Core_Nfa_Transitions
+  commentId: M:Automata.Core.Nfa.Transitions
+  fullName: Automata.Core.Nfa.Transitions()
+  nameWithType: Nfa.Transitions()
 - uid: Automata.Core.Nfa.Transitions(System.Int32)
   name: Transitions(int)
   href: Automata.Core.Nfa.html#Automata_Core_Nfa_Transitions_System_Int32_
@@ -3331,12 +3306,25 @@ references:
   commentId: T:Automata.Core.Operations.Ops
   fullName: Automata.Core.Operations.Ops
   nameWithType: Ops
-- uid: Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
-  name: Complement(Cfa)
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_Automata_Core_Cfa_
-  commentId: M:Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
-  fullName: Automata.Core.Operations.Ops.Complement(Automata.Core.Cfa)
-  nameWithType: Ops.Complement(Cfa)
+- uid: Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)
+  name: Append(Nfa, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Append(Automata.Core.Nfa, Automata.Core.FsaDet)
+  nameWithType: Ops.Append(Nfa, FsaDet)
+- uid: Automata.Core.Operations.Ops.Append*
+  name: Append
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_
+  commentId: Overload:Automata.Core.Operations.Ops.Append
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Append
+  nameWithType: Ops.Append
+- uid: Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)
+  name: Complement(Mfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)
+  fullName: Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)
+  nameWithType: Ops.Complement(Mfa)
 - uid: Automata.Core.Operations.Ops.Complement*
   name: Complement
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_
@@ -3344,12 +3332,25 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Operations.Ops.Complement
   nameWithType: Ops.Complement
-- uid: Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa,Automata.Core.Cfa)
-  name: Difference(IDfa, Cfa)
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_IDfa_Automata_Core_Cfa_
-  commentId: M:Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa,Automata.Core.Cfa)
-  fullName: Automata.Core.Operations.Ops.Difference(Automata.Core.IDfa, Automata.Core.Cfa)
-  nameWithType: Ops.Difference(IDfa, Cfa)
+- uid: Automata.Core.Operations.Ops.Concatenation(Automata.Core.Fsa,Automata.Core.FsaDet)
+  name: Concatenation(Fsa, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Concatenation_Automata_Core_Fsa_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Concatenation(Automata.Core.Fsa,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Concatenation(Automata.Core.Fsa, Automata.Core.FsaDet)
+  nameWithType: Ops.Concatenation(Fsa, FsaDet)
+- uid: Automata.Core.Operations.Ops.Concatenation*
+  name: Concatenation
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Concatenation_
+  commentId: Overload:Automata.Core.Operations.Ops.Concatenation
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Concatenation
+  nameWithType: Ops.Concatenation
+- uid: Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet,Automata.Core.Mfa)
+  name: Difference(FsaDet, Mfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet,Automata.Core.Mfa)
+  fullName: Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet, Automata.Core.Mfa)
+  nameWithType: Ops.Difference(FsaDet, Mfa)
 - uid: Automata.Core.Operations.Ops.Difference*
   name: Difference
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_
@@ -3357,12 +3358,12 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Operations.Ops.Difference
   nameWithType: Ops.Difference
-- uid: Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
-  name: Intersection(IDfa, IDfa)
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_Automata_Core_IDfa_Automata_Core_IDfa_
-  commentId: M:Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa,Automata.Core.IDfa)
-  fullName: Automata.Core.Operations.Ops.Intersection(Automata.Core.IDfa, Automata.Core.IDfa)
-  nameWithType: Ops.Intersection(IDfa, IDfa)
+- uid: Automata.Core.Operations.Ops.Intersection(Automata.Core.FsaDet,Automata.Core.FsaDet)
+  name: Intersection(FsaDet, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_Automata_Core_FsaDet_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Intersection(Automata.Core.FsaDet,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Intersection(Automata.Core.FsaDet, Automata.Core.FsaDet)
+  nameWithType: Ops.Intersection(FsaDet, FsaDet)
 - uid: Automata.Core.Operations.Ops.Intersection*
   name: Intersection
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_
@@ -3370,19 +3371,97 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Operations.Ops.Intersection
   nameWithType: Ops.Intersection
-- uid: Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
-  name: ToDfa(Nfa)
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ToDfa_Automata_Core_Nfa_
-  commentId: M:Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
-  fullName: Automata.Core.Operations.Ops.ToDfa(Automata.Core.Nfa)
-  nameWithType: Ops.ToDfa(Nfa)
-- uid: Automata.Core.Operations.Ops.ToDfa*
-  name: ToDfa
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ToDfa_
-  commentId: Overload:Automata.Core.Operations.Ops.ToDfa
+- uid: Automata.Core.Operations.Ops.KleenePlusWith(Automata.Core.Nfa)
+  name: KleenePlusWith(Nfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_KleenePlusWith_Automata_Core_Nfa_
+  commentId: M:Automata.Core.Operations.Ops.KleenePlusWith(Automata.Core.Nfa)
+  fullName: Automata.Core.Operations.Ops.KleenePlusWith(Automata.Core.Nfa)
+  nameWithType: Ops.KleenePlusWith(Nfa)
+- uid: Automata.Core.Operations.Ops.KleenePlusWith*
+  name: KleenePlusWith
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_KleenePlusWith_
+  commentId: Overload:Automata.Core.Operations.Ops.KleenePlusWith
   isSpec: "True"
-  fullName: Automata.Core.Operations.Ops.ToDfa
-  nameWithType: Ops.ToDfa
+  fullName: Automata.Core.Operations.Ops.KleenePlusWith
+  nameWithType: Ops.KleenePlusWith
+- uid: Automata.Core.Operations.Ops.KleeneStarWith(Automata.Core.Nfa)
+  name: KleeneStarWith(Nfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_KleeneStarWith_Automata_Core_Nfa_
+  commentId: M:Automata.Core.Operations.Ops.KleeneStarWith(Automata.Core.Nfa)
+  fullName: Automata.Core.Operations.Ops.KleeneStarWith(Automata.Core.Nfa)
+  nameWithType: Ops.KleeneStarWith(Nfa)
+- uid: Automata.Core.Operations.Ops.KleeneStarWith*
+  name: KleeneStarWith
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_KleeneStarWith_
+  commentId: Overload:Automata.Core.Operations.Ops.KleeneStarWith
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.KleeneStarWith
+  nameWithType: Ops.KleeneStarWith
+- uid: Automata.Core.Operations.Ops.OptionWith(Automata.Core.Nfa)
+  name: OptionWith(Nfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_OptionWith_Automata_Core_Nfa_
+  commentId: M:Automata.Core.Operations.Ops.OptionWith(Automata.Core.Nfa)
+  fullName: Automata.Core.Operations.Ops.OptionWith(Automata.Core.Nfa)
+  nameWithType: Ops.OptionWith(Nfa)
+- uid: Automata.Core.Operations.Ops.OptionWith*
+  name: OptionWith
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_OptionWith_
+  commentId: Overload:Automata.Core.Operations.Ops.OptionWith
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.OptionWith
+  nameWithType: Ops.OptionWith
+- uid: Automata.Core.Operations.Ops.Overlaps(Automata.Core.FsaDet,Automata.Core.FsaDet)
+  name: Overlaps(FsaDet, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Overlaps_Automata_Core_FsaDet_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Overlaps(Automata.Core.FsaDet,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Overlaps(Automata.Core.FsaDet, Automata.Core.FsaDet)
+  nameWithType: Ops.Overlaps(FsaDet, FsaDet)
+- uid: Automata.Core.Operations.Ops.Overlaps*
+  name: Overlaps
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Overlaps_
+  commentId: Overload:Automata.Core.Operations.Ops.Overlaps
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Overlaps
+  nameWithType: Ops.Overlaps
+- uid: Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)
+  name: Reversal(FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)
+  nameWithType: Ops.Reversal(FsaDet)
+- uid: Automata.Core.Operations.Ops.Reversal*
+  name: Reversal
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Reversal_
+  commentId: Overload:Automata.Core.Operations.Ops.Reversal
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Reversal
+  nameWithType: Ops.Reversal
+- uid: Automata.Core.Operations.Ops.Union(Automata.Core.Fsa,Automata.Core.FsaDet)
+  name: Union(Fsa, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Union_Automata_Core_Fsa_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.Union(Automata.Core.Fsa,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.Union(Automata.Core.Fsa, Automata.Core.FsaDet)
+  nameWithType: Ops.Union(Fsa, FsaDet)
+- uid: Automata.Core.Operations.Ops.Union*
+  name: Union
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Union_
+  commentId: Overload:Automata.Core.Operations.Ops.Union
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.Union
+  nameWithType: Ops.Union
+- uid: Automata.Core.Operations.Ops.UnionWith(Automata.Core.Nfa,Automata.Core.FsaDet)
+  name: UnionWith(Nfa, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.UnionWith(Automata.Core.Nfa,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.UnionWith(Automata.Core.Nfa, Automata.Core.FsaDet)
+  nameWithType: Ops.UnionWith(Nfa, FsaDet)
+- uid: Automata.Core.Operations.Ops.UnionWith*
+  name: UnionWith
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_UnionWith_
+  commentId: Overload:Automata.Core.Operations.Ops.UnionWith
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.UnionWith
+  nameWithType: Ops.UnionWith
 - uid: Automata.Core.StateView
   name: StateView
   href: Automata.Core.StateView.html
@@ -3452,21 +3531,28 @@ references:
   commentId: F:Automata.Core.StateView.Transitions
   fullName: Automata.Core.StateView.Transitions
   nameWithType: StateView.Transitions
+- uid: Automata.Core.StateView.TryTransition(System.Int32,System.Int32@)
+  name: TryTransition(int, out int)
+  href: Automata.Core.StateView.html#Automata_Core_StateView_TryTransition_System_Int32_System_Int32__
+  commentId: M:Automata.Core.StateView.TryTransition(System.Int32,System.Int32@)
+  name.vb: TryTransition(Integer, Integer)
+  fullName: Automata.Core.StateView.TryTransition(int, out int)
+  fullName.vb: Automata.Core.StateView.TryTransition(Integer, Integer)
+  nameWithType: StateView.TryTransition(int, out int)
+  nameWithType.vb: StateView.TryTransition(Integer, Integer)
+- uid: Automata.Core.StateView.TryTransition*
+  name: TryTransition
+  href: Automata.Core.StateView.html#Automata_Core_StateView_TryTransition_
+  commentId: Overload:Automata.Core.StateView.TryTransition
+  isSpec: "True"
+  fullName: Automata.Core.StateView.TryTransition
+  nameWithType: StateView.TryTransition
 - uid: Automata.Core.Transition
   name: Transition
   href: Automata.Core.Transition.html
   commentId: T:Automata.Core.Transition
   fullName: Automata.Core.Transition
   nameWithType: Transition
-- uid: Automata.Core.Transition.#ctor
-  name: Transition()
-  href: Automata.Core.Transition.html#Automata_Core_Transition__ctor
-  commentId: M:Automata.Core.Transition.#ctor
-  name.vb: New()
-  fullName: Automata.Core.Transition.Transition()
-  fullName.vb: Automata.Core.Transition.New()
-  nameWithType: Transition.Transition()
-  nameWithType.vb: Transition.New()
 - uid: Automata.Core.Transition.#ctor(System.Int32,System.Int32,System.Int32)
   name: Transition(int, int, int)
   href: Automata.Core.Transition.html#Automata_Core_Transition__ctor_System_Int32_System_Int32_System_Int32_
@@ -3538,38 +3624,6 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Transition.IsInvalid
   nameWithType: Transition.IsInvalid
-- uid: Automata.Core.Transition.MaxTrans(System.Int32,System.Int32)
-  name: MaxTrans(int, int)
-  href: Automata.Core.Transition.html#Automata_Core_Transition_MaxTrans_System_Int32_System_Int32_
-  commentId: M:Automata.Core.Transition.MaxTrans(System.Int32,System.Int32)
-  name.vb: MaxTrans(Integer, Integer)
-  fullName: Automata.Core.Transition.MaxTrans(int, int)
-  fullName.vb: Automata.Core.Transition.MaxTrans(Integer, Integer)
-  nameWithType: Transition.MaxTrans(int, int)
-  nameWithType.vb: Transition.MaxTrans(Integer, Integer)
-- uid: Automata.Core.Transition.MaxTrans*
-  name: MaxTrans
-  href: Automata.Core.Transition.html#Automata_Core_Transition_MaxTrans_
-  commentId: Overload:Automata.Core.Transition.MaxTrans
-  isSpec: "True"
-  fullName: Automata.Core.Transition.MaxTrans
-  nameWithType: Transition.MaxTrans
-- uid: Automata.Core.Transition.MinTrans(System.Int32,System.Int32)
-  name: MinTrans(int, int)
-  href: Automata.Core.Transition.html#Automata_Core_Transition_MinTrans_System_Int32_System_Int32_
-  commentId: M:Automata.Core.Transition.MinTrans(System.Int32,System.Int32)
-  name.vb: MinTrans(Integer, Integer)
-  fullName: Automata.Core.Transition.MinTrans(int, int)
-  fullName.vb: Automata.Core.Transition.MinTrans(Integer, Integer)
-  nameWithType: Transition.MinTrans(int, int)
-  nameWithType.vb: Transition.MinTrans(Integer, Integer)
-- uid: Automata.Core.Transition.MinTrans*
-  name: MinTrans
-  href: Automata.Core.Transition.html#Automata_Core_Transition_MinTrans_
-  commentId: Overload:Automata.Core.Transition.MinTrans
-  isSpec: "True"
-  fullName: Automata.Core.Transition.MinTrans
-  nameWithType: Transition.MinTrans
 - uid: Automata.Core.Transition.Reverse
   name: Reverse()
   href: Automata.Core.Transition.html#Automata_Core_Transition_Reverse
@@ -3634,15 +3688,15 @@ references:
   commentId: T:Automata.Visualization.GraphFactory
   fullName: Automata.Visualization.GraphFactory
   nameWithType: GraphFactory
-- uid: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.IFsa,System.Boolean,Microsoft.Msagl.Drawing.LayerDirection,System.Boolean)
-  name: CreateGraph(IFsa, bool, LayerDirection, bool)
-  href: Automata.Visualization.GraphFactory.html#Automata_Visualization_GraphFactory_CreateGraph_Automata_Core_IFsa_System_Boolean_Microsoft_Msagl_Drawing_LayerDirection_System_Boolean_
-  commentId: M:Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.IFsa,System.Boolean,Microsoft.Msagl.Drawing.LayerDirection,System.Boolean)
-  name.vb: CreateGraph(IFsa, Boolean, LayerDirection, Boolean)
-  fullName: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.IFsa, bool, Microsoft.Msagl.Drawing.LayerDirection, bool)
-  fullName.vb: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.IFsa, Boolean, Microsoft.Msagl.Drawing.LayerDirection, Boolean)
-  nameWithType: GraphFactory.CreateGraph(IFsa, bool, LayerDirection, bool)
-  nameWithType.vb: GraphFactory.CreateGraph(IFsa, Boolean, LayerDirection, Boolean)
+- uid: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.Fsa,System.Boolean,Microsoft.Msagl.Drawing.LayerDirection,System.Boolean)
+  name: CreateGraph(Fsa, bool, LayerDirection, bool)
+  href: Automata.Visualization.GraphFactory.html#Automata_Visualization_GraphFactory_CreateGraph_Automata_Core_Fsa_System_Boolean_Microsoft_Msagl_Drawing_LayerDirection_System_Boolean_
+  commentId: M:Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.Fsa,System.Boolean,Microsoft.Msagl.Drawing.LayerDirection,System.Boolean)
+  name.vb: CreateGraph(Fsa, Boolean, LayerDirection, Boolean)
+  fullName: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.Fsa, bool, Microsoft.Msagl.Drawing.LayerDirection, bool)
+  fullName.vb: Automata.Visualization.GraphFactory.CreateGraph(Automata.Core.Fsa, Boolean, Microsoft.Msagl.Drawing.LayerDirection, Boolean)
+  nameWithType: GraphFactory.CreateGraph(Fsa, bool, LayerDirection, bool)
+  nameWithType.vb: GraphFactory.CreateGraph(Fsa, Boolean, LayerDirection, Boolean)
 - uid: Automata.Visualization.GraphFactory.CreateGraph(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}},System.Boolean)
   name: CreateGraph(IEnumerable<IEnumerable<string>>, bool)
   href: Automata.Visualization.GraphFactory.html#Automata_Visualization_GraphFactory_CreateGraph_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_String___System_Boolean_
