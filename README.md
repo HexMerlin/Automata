@@ -8,6 +8,7 @@
 ---
 
 The **Automata** library provides functionality for working with finite-state automata.
+The libary is highly optimized and is also ideal for very large automata.
 
 :star: Example Features:
   - Create automata from regular expressions, sequences or other data.
