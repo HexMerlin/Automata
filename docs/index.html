@@ -113,6 +113,47 @@ It supports many operations, such as union, intersection, complement and set dif
 enabling expressions like <code>(a? (b | c)* - (b b))+</code>.</p>
 <p><a href="ALANG.html">Alang documentation</a></p>
 <hr>
+<h2 id="automaton-types">Automaton types</h2>
+<p>The automaton types in the Automata library are:</p>
+<table>
+<thead>
+<tr>
+<th>C# class</th>
+<th>Automaton type</th>
+<th>Mutable</th>
+<th>Internal Representation</th>
+<th>Transition/state access</th>
+<th>Memory Footprint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Nfa</code></td>
+<td>Non-deterministic FSA</td>
+<td>Yes</td>
+<td>Dual Red-Black Trees</td>
+<td>O(log n)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><code>Dfa</code></td>
+<td>Determinsitic FSA</td>
+<td>Yes</td>
+<td>Red-Black Tree</td>
+<td>O(log n)</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><code>Mfa</code></td>
+<td>Minimal Canonical FSA</td>
+<td>No</td>
+<td>Contiguous memory block</td>
+<td>O(log n)</td>
+<td>Very low</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h2 id="c-examples-create-and-operate-on-automata">C# Examples: Create and Operate on Automata</h2>
 <p>The following examples creates FSAs from regular expressions in <code>Alang</code>.</p>
 <h3 id="-example-console-application-using-automatacore">📄 Example: Console application using <code>Automata.Core</code></h3>

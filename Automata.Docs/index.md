@@ -32,7 +32,17 @@ enabling expressions like `(a? (b | c)* - (b b))+`.
 [Alang documentation](ALANG.md)
 
 ---
+## Automaton types
 
+The automaton types in the Automata library are:
+
+| C# class | Automaton type        | Mutable | Internal Representation  | Transition/state access | Memory Footprint  |
+|----------------------------------|---------|---------|--------------- |-------------------------|-------------------|
+| `Nfa`    | Non-deterministic FSA | Yes     | Dual Red-Black Trees     | O(log n)                | Medium            |
+| `Dfa`    | Determinsitic FSA     | Yes     | Red-Black Tree           | O(log n)                | Low               |
+| `Mfa`    | Minimal Canonical FSA | No      | Contiguous memory block  | O(log n)                | Very low          |
+
+---
 ## C# Examples: Create and Operate on Automata
 
 The following examples creates FSAs from regular expressions in `Alang`. 
