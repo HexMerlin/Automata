@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Alang (Automata Language) | Automata Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Alang (Automata Language) | Automata Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/config.css">
+      <link rel="stylesheet" href="styles/singulink.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
+  
+  <meta property="docfx:rel" content="">
+  
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="index.html">
+              <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+              <span class="brand-title">Automata Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="index.html">
+                          <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+                          <span class="brand-title">Automata Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Docs/ALANG.md/#L1" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="">
+<h1 id="alang-automata-language">Alang (Automata Language)</h1>
+
+<p><strong>Alang</strong> is a formal language for defining finite-state automata using human-readable regular expressions.
+It supports many operations, such as union, intersection, complement and set difference,
+enabling expressions like &quot;(a? (b | c)* - (b b))+&quot;.
+Alang's syntax is defined by the <em>Alang Grammar</em> which is an LL(1) context-free grammar.
+The Alang parser is optimized for fast parsing of very large inputs.
+The parser validates syntactic correctness and generates detailed error messages for invalid inputs.</p>
+<h2 id="alang-grammar-specification">Alang Grammar Specification</h2>
+<table>
+<thead>
+<tr>
+<th>Grammar Rule</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlangRegex (root)</td>
+<td>Union</td>
+</tr>
+<tr>
+<td>🔹Union</td>
+<td>Difference  (<code>|</code> Difference)*</td>
+</tr>
+<tr>
+<td>🔹Difference</td>
+<td>Intersection (<code>-</code> Intersection)*</td>
+</tr>
+<tr>
+<td>🔹Intersection</td>
+<td>Concatenation (<code>&amp;</code> Concatenation)*</td>
+</tr>
+<tr>
+<td>🔹Concatenation</td>
+<td>UnaryRegex+</td>
+</tr>
+<tr>
+<td>UnaryRegex</td>
+<td>PrimaryRegex<br> (Option <br>┃ KleeneStar <br>┃ KleenePlus <br>┃ Complement)*</td>
+</tr>
+<tr>
+<td>🔹Option</td>
+<td>PrimaryRegex <code>?</code></td>
+</tr>
+<tr>
+<td>🔹KleeneStar</td>
+<td>PrimaryRegex <code>*</code></td>
+</tr>
+<tr>
+<td>🔹KleenePlus</td>
+<td>PrimaryRegex <code>+</code></td>
+</tr>
+<tr>
+<td>🔹Complement</td>
+<td>PrimaryRegex <code>~</code></td>
+</tr>
+<tr>
+<td>PrimaryRegex</td>
+<td><code>(</code> AlangRegex <code>)</code> <br>┃ Symbol <br>┃  Wildcard <br>┃ EmptyLang</td>
+</tr>
+<tr>
+<td>🔹Symbol</td>
+<td>SymbolChar+</td>
+</tr>
+<tr>
+<td>🔹Wildcard</td>
+<td><code>.</code></td>
+</tr>
+<tr>
+<td>🔹EmptyLang</td>
+<td><code>()</code></td>
+</tr>
+<tr>
+<td>SymbolChar</td>
+<td><em>any character except operator characters and whitespace</em></td>
+</tr>
+</tbody>
+</table>
+<p>🔹 Denotes an actual node type in the resulting AST (abstract syntax tree) outputed by the parser.</p>
+<p>Note to developers: All types marked with a 🔹 have corresponding classes with the exact same names in the namespace <strong>Automata.Core.Alang</strong>.</p>
+<p>For an input to be valid, the root rule AlangRegex must cover the entire input, with no residue.</p>
+<h3 id="operators">Operators</h3>
+<ul>
+<li>Operators with higher precedence levels bind more tightly than those with lower levels.</li>
+<li>Operators of the same precedence level are left-associative (left-to-right).</li>
+<li>All <em>unary</em> operators are <em>postfix operators</em> and all <em>binary</em> operators are <em>infix</em> operators.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Precedence</th>
+<th>Operation/Unit</th>
+<th>Operator Character</th>
+<th>Position &amp; Arity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Union</td>
+<td>L₁ <code>|</code> L₂</td>
+<td>Infix Binary</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Difference</td>
+<td>L₁ <code>-</code> L₂</td>
+<td>Infix Binary</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Intersection</td>
+<td>L₁ <code>&amp;</code> L₂</td>
+<td>Infix Binary</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Concatenation</td>
+<td>L₁ L₂</td>
+<td>Infix Implicit</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Option</td>
+<td>L <code>?</code></td>
+<td>Postfix Unary</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kleene Star</td>
+<td>L<code>*</code></td>
+<td>Postfix Unary</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kleene Plus</td>
+<td>L<code>+</code></td>
+<td>Postfix Unary</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Complement</td>
+<td>L<code>~</code></td>
+<td>Postfix Unary</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Group</td>
+<td><code>(</code> L <code>)</code></td>
+<td>Enclosing Unary</td>
+</tr>
+<tr>
+<td>7</td>
+<td>EmptyLang</td>
+<td><code>()</code></td>
+<td>Empty parentheses</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Wildcard</td>
+<td><code>.</code></td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Symbol</td>
+<td>string literal</td>
+<td>Terminal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="whitespace">Whitespace</h3>
+<ul>
+<li>Multiple Whitespace is allowed anywhere in the grammar, except within Symbols.</li>
+<li>Whitespace is never required anywhere - except for separating <em>directly</em> adjacent Symbols or operators.
+Thus, the parser resolves all reserved tokens as delimiters: The following are correcly delimited: <code>hello+world</code> or <code>hello(world)</code>.</li>
+<li>Whitespace denotes any whitespace character (i.e. space, tab, newline, etc.).</li>
+<li>The formal whitespace definition is equivalent to .NET's <code>char.IsWhiteSpace(char c)</code>.</li>
+</ul>
+<h3 id="symbols">Symbols</h3>
+<p><strong>Symbols</strong> have a specific meaning - as formally defined by automata theory:</p>
+<ul>
+<li>User-defined string literals that constitute the <em>atoms</em> of Alang expressions.</li>
+<li>It is equivalent to <strong>symbols</strong> in finite-state automata.</li>
+<li>Can contain any characters except reserved operator characters or whitespace.</li>
+<li>They can never be empty.</li>
+<li>Symbols are <em>strings</em> and are not to be confused with characters,</li>
+</ul>
+<h3 id="wildcard">Wildcard</h3>
+<p>A Wildcard is a special token denoted by a <code>.</code> (dot).</p>
+<p>It represents any symbol in the alphabet.</p>
+<p>For example:</p>
+<p><code>. - hello</code>  represents the language of all symbols except 'hello'.</p>
+<p><code>(. - hello).*</code>    represents the language of all sequences, except those containing 'hello'.</p>
+<h3 id="the-empty-language--and-the-language-containing-only-epsilon-ε">The Empty Language ∅ and The Language containing only epsilon {ε}</h3>
+<ul>
+<li><p>The Empty Language ∅ is the language that does not cotain anything.</p>
+<ul>
+<li>It is written in Alang using empty parentheses <code>()</code>.</li>
+<li>Its corresponding grammar rule is <code>EmptyLang</code> and the parse tree type is <code>EmptyLang</code>.</li>
+<li>Its automata equivalence is an automaton that does not accept anything (not even the empty string).</li>
+<li>In most scenarios, <code>()</code> is not required when writing a Alang expressions.
+However, many operations can result in the empty language. For example <code>a - (a | b)</code> is equivalent to <code>()</code>.</li>
+</ul>
+</li>
+<li><p>The language containing only the empty string {ε}</p>
+<ul>
+<li>It is written in Alang as <code>()?</code>, since the Option operator <code>?</code> unites the operand with {ε}:  <strong>L? = L ∪ { ε }</strong></li>
+<li>Its automata equivalence is an automaton that only accepts ε.</li>
+</ul>
+</li>
+<li><p>Note that <code>()</code> ≠ <code>{ε}</code>. For instance:</p>
+<ul>
+<li>Concatenating any language <code>L</code> with <code>()</code> =&gt; <code>()</code>.</li>
+<li>Concatenating any language <code>L</code> with <code>{ε}</code> =&gt; <code>L</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="alang-expression-examples">Alang expression examples</h3>
+<p><code>(a? (b | c) )+</code> : All sequences from the set {a, b, c} where any 'a' must be followed by 'b' or 'c'.</p>
+<p><code>a+~ b</code>          : Complement of 'a+' - all sequences that are not 1 or more 'a's, followed by a 'b'</p>
+<p><code>(x1 | x2 | x3)* - (x1 x2 x3)+</code> : All sequences constaining {x1, x2, x3}, except repetitions of &quot;x1 x2 x3&quot;.</p>
+<p><code>()</code>              : The empty language that does not accept anything. For example, it is the result from <code>hello - hello</code> and from <code>hello &amp; world</code>.</p>
+<h3 id="operation-definitions">Operation Definitions</h3>
+<pre><code>Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
+Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
+Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }
+Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }
+Option: L? = L ∪ { ε }
+Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
+Complement: ᒾL = Σ* \ L
+</code></pre>
+<h2 id="c-api">C# API</h2>
+<p>The Alang parser and FSA compiler is provided by the namespace <strong>Automata.Core.Alang</strong>.</p>
+<p>Key class: <strong>AlangRegex</strong></p>
+<p>Example usage:</p>
+<pre><code class="lang-csharp"> AlangRegex regex = AlangRegex.Parse(&quot;(a? (b | c) )+&quot;);  // Create an Alang regex
+
+ Mfa fsa = regex.Compile(); // Compile the regex to a minimal finite-state automaton
+</code></pre>
+<p>For more information, see the <a href="index.html">Automata documentation</a></p>
+
+</article>
+                </div>
+
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="styles/docfx.js"></script>
+        <script type="text/javascript" src="styles/main.js"></script>
+        <script type="text/javascript" src="styles/singulink.js"></script>    </body>
+</html>
