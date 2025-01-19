@@ -3306,19 +3306,6 @@ references:
   commentId: T:Automata.Core.Operations.Ops
   fullName: Automata.Core.Operations.Ops
   nameWithType: Ops
-- uid: Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)
-  name: Append(Nfa, FsaDet)
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_
-  commentId: M:Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)
-  fullName: Automata.Core.Operations.Ops.Append(Automata.Core.Nfa, Automata.Core.FsaDet)
-  nameWithType: Ops.Append(Nfa, FsaDet)
-- uid: Automata.Core.Operations.Ops.Append*
-  name: Append
-  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_
-  commentId: Overload:Automata.Core.Operations.Ops.Append
-  isSpec: "True"
-  fullName: Automata.Core.Operations.Ops.Append
-  nameWithType: Ops.Append
 - uid: Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)
   name: Complement(Mfa)
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_
@@ -3345,6 +3332,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Operations.Ops.Concatenation
   nameWithType: Ops.Concatenation
+- uid: Automata.Core.Operations.Ops.ConcatenationWith(Automata.Core.Nfa,Automata.Core.FsaDet)
+  name: ConcatenationWith(Nfa, FsaDet)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ConcatenationWith_Automata_Core_Nfa_Automata_Core_FsaDet_
+  commentId: M:Automata.Core.Operations.Ops.ConcatenationWith(Automata.Core.Nfa,Automata.Core.FsaDet)
+  fullName: Automata.Core.Operations.Ops.ConcatenationWith(Automata.Core.Nfa, Automata.Core.FsaDet)
+  nameWithType: Ops.ConcatenationWith(Nfa, FsaDet)
+- uid: Automata.Core.Operations.Ops.ConcatenationWith*
+  name: ConcatenationWith
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ConcatenationWith_
+  commentId: Overload:Automata.Core.Operations.Ops.ConcatenationWith
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.ConcatenationWith
+  nameWithType: Ops.ConcatenationWith
 - uid: Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet,Automata.Core.Mfa)
   name: Difference(FsaDet, Mfa)
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_

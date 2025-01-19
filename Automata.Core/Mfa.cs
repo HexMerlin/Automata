@@ -47,7 +47,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     public Mfa(string singleSymbol, Alphabet alphabet) : base(alphabet)
     {
         int symbol = alphabet.GetOrAdd(singleSymbol);
-        this.StateCount = 2;
+        StateCount = 2;
         transitions = [new Transition(InitialState, symbol, MaxState)];
         this.finalStates = [MaxState];
     }
@@ -61,13 +61,13 @@ public class Mfa : FsaDet, IEquatable<Mfa>
         dfa = Ops.Minimal(dfa); //make sure the dfa is minimal
         if (dfa.FinalStates.Count == 0)
         {
-            this.StateCount = 0;
-            this.transitions = Array.Empty<Transition>();
-            this.finalStates = Array.Empty<int>();
+            StateCount = 0;
+            this.transitions = [];
+            this.finalStates = [];
             return;
         }
-        var dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
-        this.StateCount = dfaStateToMfaStateMap.Count;
+        Dictionary<int, int> dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
+        StateCount = dfaStateToMfaStateMap.Count;
         this.transitions = dfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
         this.finalStates = dfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
     }
@@ -77,7 +77,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// </summary>
     private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates) : base(alphabet)
     {
-        this.StateCount = stateCount;
+        StateCount = stateCount;
         this.transitions = transitions;
         this.finalStates = finalStates;
     }
@@ -93,7 +93,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// Returns an automaton that accepts one occurrence of any symbol in the specified alphabet.
     /// It corresponds directly to the "." in Alang expressions.
     /// </summary>
-    /// <param name="source">Alphabet containing the set of symbols</param>
+    /// <param name="alphabet">Alphabet containing the set of symbols</param>
     /// <returns>An automaton representing any symbol accepted exactly once.</returns>
     public static Mfa CreateWildcard(Alphabet alphabet)
         => new(alphabet, stateCount: 2, transitions: [.. alphabet.SymbolIndices.Select(symbol => new Transition(0, symbol, 1))], finalStates: [1]);
@@ -164,7 +164,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// </summary>
     /// <param name="fromState">The state origin.</param>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>
-    public override StateView State(int state) => new(state, transitions);
+    public override StateView State(int fromState) => new(fromState, transitions);
      
     /// <summary>
     /// Indicates whether this MFA represent the exact same language as the specified MFA: <c>Language Equality</c>.

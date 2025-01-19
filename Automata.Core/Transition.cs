@@ -28,9 +28,9 @@ public readonly record struct Transition : IComparable<Transition>
     /// <summary>
     /// Initializes a new instance of the <see cref="Transition"/> struct.
     /// </summary>
-    /// <param name="FromState">The state origin of the transition.</param>
-    /// <param name="Symbol">The symbol for the transition.</param>
-    /// <param name="ToState">The destination state of the transition.</param>
+    /// <param name="fromState">The state origin of the transition.</param>
+    /// <param name="symbol">The symbol for the transition.</param>
+    /// <param name="toState">The destination state of the transition.</param>
     /// <exception cref="ArgumentException">Thrown if any of arguments has a negative value.</exception>
     public Transition(int fromState, int symbol, int toState) 
     {
@@ -98,7 +98,7 @@ public readonly record struct Transition : IComparable<Transition>
     /// Reverses the transition.
     /// </summary>
     /// <returns>A new <see cref="Transition"/> with the from and to states swapped.</returns>
-    public Transition Reverse() => new Transition(ToState, Symbol, FromState);
+    public Transition Reverse() => new(ToState, Symbol, FromState);
 
     /// <summary>
     /// Compares the current transition to another transition.

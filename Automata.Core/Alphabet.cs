@@ -165,9 +165,12 @@ public class Alphabet : IEquatable<Alphabet>
     ///<inheritdoc/>
     public override bool Equals(object? obj) => Equals(obj as Alphabet);
 
+    ///<inheritdoc/>
     public static bool operator ==(Alphabet left, Alphabet right) => left.Equals(right);
 
+    ///<inheritdoc/>
     public static bool operator !=(Alphabet left, Alphabet right) => !left.Equals(right);
-
+    
+    ///<inheritdoc/>
     public override int GetHashCode() => indexToStringMap.Aggregate(new HashCode(), (hash, symbol) => { hash.Add(symbol); return hash; }).ToHashCode();
 }

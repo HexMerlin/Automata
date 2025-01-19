@@ -16,6 +16,7 @@
     <PackageReleaseNotes>New version with many new features</PackageReleaseNotes>
     <PackageProjectUrl>https://hexmerlin.github.io/Automata/index.html</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

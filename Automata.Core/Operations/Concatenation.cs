@@ -7,19 +7,19 @@ public static partial class Ops
     /// </summary>
     /// <param name="left">The left finite state automaton.</param>
     /// <param name="right">The right finite automaton.</param>
-    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="Append(Nfa, FsaDet)"/> when possible to reduce overhead.
-    /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
+    /// <remarks>Creates a new automaton. For optimal performance, use <see cref="ConcatenationWith(Nfa, FsaDet)"/> when possible to reduce overhead.
+    /// <para>The resulting alphabet will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>A new deterministic finite automaton representing a concatenation of the two automata.</returns>
     public static FsaDet Concatenation(Fsa left, FsaDet right)
     {
         Nfa result = left.AsNfa(); //assert correct type
-        result.Append(right); //append right to result in-place
+        result.ConcatenationWith(right); //append right to result in-place
         return result.AsDeterministic();
     }
 
     /// <summary>
-    /// Appends another automaton to the source automaton (in-place concatenation).
+    /// Mutating concatenation: Appends another automaton to the source automaton.
     /// </summary>
     /// <param name="source">Source automaton to append to.</param>
     /// <param name="right">Automaton to append.</param>
@@ -28,7 +28,7 @@ public static partial class Ops
     /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>Source automaton <paramref name="source"/></returns>
-    public static Nfa Append(this Nfa source, FsaDet right)
+    public static Nfa ConcatenationWith(this Nfa source, FsaDet right)
     {
         if (ReferenceEquals(source, right))
             throw new ArgumentException("Operands must not be the same instance.");
@@ -50,7 +50,7 @@ public static partial class Ops
         foreach (EpsilonTransition t in right.EpsilonTransitions())
             source.Add(new EpsilonTransition(t.FromState + stateOffset, t.ToState + stateOffset));
 
-        // Connect the fsas: Add epsilon-transitions from source's final states to right's initial state
+        // Connect the two automata: Add epsilon-transitions from source's final states to right's initial state
         foreach (int finalState in source.FinalStates)
             source.Add(new EpsilonTransition(finalState, rightInitialStateInSource));
 

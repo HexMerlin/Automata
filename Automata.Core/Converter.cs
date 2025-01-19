@@ -44,7 +44,6 @@ public static class Converter
     /// <para>Otherwise, a new object of the desired type is created.</para>
     /// </summary>
     /// <param name="fsa">Finite state automaton to convert.</param>
-    /// <param name="enforceNew">If <see langword="true"/>, a new <see cref="Mfa"/> is created even if <paramref name="fsa"/> is already a <see cref="Nfa"/>. Default: <see langword="false"/></param>
     /// <returns><paramref name="fsa"/> as a <see cref="Mfa"/>.</returns>
     public static Mfa AsMfa(this Fsa fsa) => fsa switch
     {

@@ -5,15 +5,15 @@ public static partial class Ops
     /// Creates union of two finite state automata.
     /// </summary>
     /// <param name="left">First automaton.</param>
-    /// <param name="other">Second automaton.</param>
+    /// <param name="right">Second automaton.</param>
     /// <remarks>Creates a new automaton. For optimal performance, use <see cref="UnionWith(Nfa, FsaDet)"/> when possible to reduce overhead.
-    /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
+    /// <para>Resulting alphabet of <paramref name="left"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
     /// </remarks>
     /// <returns>A new deterministic finite automaton representing a union of the two automata.</returns>
-    public static FsaDet Union(Fsa left, FsaDet other)
+    public static FsaDet Union(Fsa left, FsaDet right)
     {
         Nfa result = left.AsNfa(); //Initialize result to clone of other
-        result.UnionWith(other); //union with other in-place
+        result.UnionWith(right); //union with other in-place
         return result.AsDeterministic();
     }
 
@@ -24,7 +24,7 @@ public static partial class Ops
     /// <param name="other">Automaton to union with.</param>
     /// <remarks>
     /// This operation mutates <paramref name="source"/> to represent the union of the two automata.
-    /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="right"/>.</para>
+    /// <para>Resulting alphabet of <paramref name="source"/> will be the union of both alphabets, irrespective of whether all symbols were referenced by <paramref name="other"/>.</para>
     /// </remarks>
     /// <returns>Source automaton <paramref name="source"/></returns>
     public static Nfa UnionWith(this Nfa source, FsaDet other)

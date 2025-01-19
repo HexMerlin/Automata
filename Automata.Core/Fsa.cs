@@ -71,5 +71,9 @@ public abstract class Fsa
     /// <returns>An enumerable collection of <see cref="EpsilonTransition"/>.</returns>
     public abstract IReadOnlyCollection<EpsilonTransition> EpsilonTransitions();
 
+    /// <summary>
+    /// Returns a canonical string representation of the MFA's data.
+    /// Used by unit tests and for debugging. 
+    /// </summary>
     public abstract string ToCanonicalString();
 }

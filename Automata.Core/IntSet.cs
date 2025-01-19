@@ -74,13 +74,64 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     public override string ToString()
         => Count <= 10 ? string.Join(", ", Members) : string.Join(", ", Members.Take(10)) + ", ...";
 
+    /// <summary>
+    /// Indicates whether the set contains the specified <paramref name="item"/>.
+    /// </summary>
+    /// <param name="item">The item to locate in the set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set contains the specified <paramref name="item"/>.</returns>
     public bool Contains(int item) => Members.Contains(item);
+
+    /// <summary>
+    /// Indicates whether the set is a proper subset of the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set is a proper subset of the specified collection.</returns>
     public bool IsProperSubsetOf(IEnumerable<int> other) => Members.IsProperSubsetOf(other);
+
+    /// <summary>
+    /// Indicates whether the set is a proper superset of the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set is a proper superset of the specified collection.</returns>
     public bool IsProperSupersetOf(IEnumerable<int> other) => Members.IsProperSupersetOf(other);
+
+    /// <summary>
+    /// Indicates whether the set is a subset of the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set is a subset of the specified collection.</returns>
     public bool IsSubsetOf(IEnumerable<int> other) => Members.IsSubsetOf(other);
+
+    /// <summary>
+    /// Indicates whether the set is a superset of the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set is a superset of the specified collection.</returns>
     public bool IsSupersetOf(IEnumerable<int> other) => Members.IsSupersetOf(other);
+
+    /// <summary>
+    /// Indicates whether the set overlaps with the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set overlaps with the specified collection.</returns>
     public bool Overlaps(IEnumerable<int> other) => Members.Overlaps(other);
+
+    /// <summary>
+    /// Indicates whether the set is equal to the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the set is equal to the specified collection.</returns>
     public bool SetEquals(IEnumerable<int> other) => Members.SetEquals(other);
+
+    /// <summary>
+    /// Returns an enumerator that iterates through the set.
+    /// </summary>
+    /// <returns>An enumerator for the set.</returns>
     public IEnumerator<int> GetEnumerator() => Members.GetEnumerator();
+
+    /// <summary>
+    /// Returns an enumerator that iterates through the set.
+    /// </summary>
+    /// <returns>An enumerator for the set.</returns>
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

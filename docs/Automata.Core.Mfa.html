@@ -522,7 +522,8 @@ It corresponds directly to the &quot;.&quot; in Alang expressions.</p>
       <tr>
         <td><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></td>
         <td><span class="parametername">alphabet</span></td>
-        <td></td>
+        <td><p>Alphabet containing the set of symbols</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -809,7 +810,7 @@ It corresponds directly to the &quot;.&quot; in Alang expressions.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override StateView State(int state)</code></pre>
+    <pre><code class="lang-csharp hljs">public override StateView State(int fromState)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -823,8 +824,9 @@ It corresponds directly to the &quot;.&quot; in Alang expressions.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">state</span></td>
-        <td></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state origin.</p>
+</td>
       </tr>
     </tbody>
   </table>

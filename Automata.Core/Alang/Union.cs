@@ -1,5 +1,10 @@
 ﻿namespace Automata.Core.Alang;
 
+/// <summary>
+/// Represents a Union expression in the Alang grammar specification.
+/// </summary>
+/// <param name="left">The left operand of the union expression.</param>
+/// <param name="right">The right operand of the union expression.</param>
 public class Union(AlangRegex left, AlangRegex right) : BinaryRegex(left, right)
 {
     /// <summary>

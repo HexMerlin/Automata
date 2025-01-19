@@ -3,24 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35507.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Visualization", "Automata.Visualization\Automata.Visualization.csproj", "{E647217E-991F-441F-AA8C-20A1F263B0BD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.App", "Automata.App\Automata.App.csproj", "{3C358BE7-4B0F-4754-B327-F7011ECD9931}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Build DocFX docs_README.txt = Build DocFX docs_README.txt
-		.github\copilot-instructions.md = .github\copilot-instructions.md
 		README.md = README.md
 		Release.md = Release.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Core", "Automata.Core\Automata.Core.csproj", "{11BBFBA4-41BF-415E-A585-7F873040F1A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Docs", "Automata.Docs\Automata.Docs.csproj", "{3BDEA192-EEFC-F03B-4E81-48D2F8A537CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.CoreTests", "Automata.CoreTests\Automata.CoreTests.csproj", "{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Core", "Automata.Core\Automata.Core.csproj", "{9D927B34-1E8C-2E3E-8A5A-61053EEDEC2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Docs", "Automata.Docs\Automata.Docs.csproj", "{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.CoreTests", "Automata.CoreTests\Automata.CoreTests.csproj", "{64299F08-6BD7-509D-2D44-99112D6504EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Visualization", "Automata.Visualization\Automata.Visualization.csproj", "{AA4A9BFF-766B-A93A-9080-799E511719AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.App", "Automata.App\Automata.App.csproj", "{C73E7AA6-D759-A7A0-62A2-13A98743A941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,32 +26,29 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E647217E-991F-441F-AA8C-20A1F263B0BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C358BE7-4B0F-4754-B327-F7011ECD9931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C358BE7-4B0F-4754-B327-F7011ECD9931}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C358BE7-4B0F-4754-B327-F7011ECD9931}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C358BE7-4B0F-4754-B327-F7011ECD9931}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11BBFBA4-41BF-415E-A585-7F873040F1A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BDEA192-EEFC-F03B-4E81-48D2F8A537CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BDEA192-EEFC-F03B-4E81-48D2F8A537CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BDEA192-EEFC-F03B-4E81-48D2F8A537CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BDEA192-EEFC-F03B-4E81-48D2F8A537CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D927B34-1E8C-2E3E-8A5A-61053EEDEC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D927B34-1E8C-2E3E-8A5A-61053EEDEC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D927B34-1E8C-2E3E-8A5A-61053EEDEC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D927B34-1E8C-2E3E-8A5A-61053EEDEC2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64299F08-6BD7-509D-2D44-99112D6504EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64299F08-6BD7-509D-2D44-99112D6504EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64299F08-6BD7-509D-2D44-99112D6504EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64299F08-6BD7-509D-2D44-99112D6504EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4A9BFF-766B-A93A-9080-799E511719AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4A9BFF-766B-A93A-9080-799E511719AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4A9BFF-766B-A93A-9080-799E511719AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4A9BFF-766B-A93A-9080-799E511719AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02B43C61-CCCB-48D1-BE9D-AA85C2110079}

@@ -1,25 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
-		<OutputType>Library</OutputType>
-		<!-- Define the output directory for docfx -->
-		<DocsOutputDir>$(SolutionDir)\docs</DocsOutputDir>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <!-- Define the output directory for docfx -->
+    <DocsOutputDir>$(SolutionDir)\docs</DocsOutputDir>
+  </PropertyGroup>
 
+  <!-- Target to run docfx during the build process -->
+  <Target Name="BuildDocs" AfterTargets="Build">
+    <Exec Command="docfx docfx.json" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)\docfx.json')" StandardOutputImportance="High" StandardErrorImportance="High" />
+  </Target>
 
-	<!-- Target to run docfx during the build process -->
-	<Target Name="BuildDocs" AfterTargets="Build">
-		<Exec Command="docfx build docfx.json" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)\docfx.json')" StandardOutputImportance="High" StandardErrorImportance="High" />
-	</Target>
-
-	<!-- Target to clean the docs output directory and intermediate output folders during the clean process -->
-	<Target Name="CleanDocs" BeforeTargets="Clean">
-		<!-- Remove the docs output directory if it exists -->
-		<RemoveDir Directories="$(DocsOutputDir)" Condition="Exists('$(DocsOutputDir)')" />
-		<RemoveDir Directories="obj" Condition="Exists('obj')" />
-		<RemoveDir Directories="bin" Condition="Exists('bin')" />
-	</Target>
+  <!-- Target to clean the docs output directory and intermediate output folders during the clean process -->
+  <Target Name="CleanDocs" BeforeTargets="Clean">
+    <!-- Remove the docs output directory if it exists -->
+    <RemoveDir Directories="$(DocsOutputDir)" Condition="Exists('$(DocsOutputDir)')" />
+    <RemoveDir Directories="obj" Condition="Exists('obj')" />
+    <RemoveDir Directories="bin" Condition="Exists('bin')" />
+  </Target>
 
 </Project>
 

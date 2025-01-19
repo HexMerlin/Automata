@@ -136,66 +136,6 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Append(Automata.Core.Nfa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Concatenation.cs/#L31">View Source</a>
-  </span>
-  <a id="Automata_Core_Operations_Ops_Append_" data-uid="Automata.Core.Operations.Ops.Append*"></a>
-  <h4 id="Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)">Append(Nfa, FsaDet)</h4>
-  <div class="markdown level1 summary"><p>Appends another automaton to the source automaton (in-place concatenation).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Nfa Append(this Nfa source, FsaDet right)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
-        <td><span class="parametername">source</span></td>
-        <td><p>Source automaton to append to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
-        <td><span class="parametername">right</span></td>
-        <td><p>Automaton to append.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
-        <td><p>Source automaton <code class="paramref">source</code></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This operation mutates <code class="paramref">source</code>.</p>
-<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -301,7 +241,67 @@
     </tbody>
   </table>
   <h5 id="Automata_Core_Operations_Ops_Concatenation_Automata_Core_Fsa_Automata_Core_FsaDet__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Creates a new automaton. For optimal performance, use <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_">Append(Nfa, FsaDet)</a> when possible to reduce overhead.
+  <div class="markdown level1 remarks"><p>Creates a new automaton. For optimal performance, use <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_ConcatenationWith_Automata_Core_Nfa_Automata_Core_FsaDet_">ConcatenationWith(Nfa, FsaDet)</a> when possible to reduce overhead.
+<p>The resulting alphabet will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_ConcatenationWith_Automata_Core_Nfa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.ConcatenationWith(Automata.Core.Nfa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Concatenation.cs/#L31">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_ConcatenationWith_" data-uid="Automata.Core.Operations.Ops.ConcatenationWith*"></a>
+  <h4 id="Automata_Core_Operations_Ops_ConcatenationWith_Automata_Core_Nfa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.ConcatenationWith(Automata.Core.Nfa,Automata.Core.FsaDet)">ConcatenationWith(Nfa, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Mutating concatenation: Appends another automaton to the source automaton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa ConcatenationWith(this Nfa source, FsaDet right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source automaton to append to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Automaton to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>Source automaton <code class="paramref">source</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Ops_ConcatenationWith_Automata_Core_Nfa_Automata_Core_FsaDet__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This operation mutates <code class="paramref">source</code>.</p>
 <p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -690,7 +690,7 @@ The resulting value is <a href="https://learn.microsoft.com/dotnet/csharp/langua
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FsaDet Union(Fsa left, FsaDet other)</code></pre>
+    <pre><code class="lang-csharp hljs">public static FsaDet Union(Fsa left, FsaDet right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -710,7 +710,7 @@ The resulting value is <a href="https://learn.microsoft.com/dotnet/csharp/langua
       </tr>
       <tr>
         <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
-        <td><span class="parametername">other</span></td>
+        <td><span class="parametername">right</span></td>
         <td><p>Second automaton.</p>
 </td>
       </tr>
@@ -734,7 +734,7 @@ The resulting value is <a href="https://learn.microsoft.com/dotnet/csharp/langua
   </table>
   <h5 id="Automata_Core_Operations_Ops_Union_Automata_Core_Fsa_Automata_Core_FsaDet__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Creates a new automaton. For optimal performance, use <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet_">UnionWith(Nfa, FsaDet)</a> when possible to reduce overhead.
-<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+<p>Resulting alphabet of <code class="paramref">left</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -794,7 +794,7 @@ The resulting value is <a href="https://learn.microsoft.com/dotnet/csharp/langua
   </table>
   <h5 id="Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This operation mutates <code class="paramref">source</code> to represent the union of the two automata.</p>
-<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">other</code>.</p>
 </div>
 
 </article>

@@ -39,7 +39,7 @@ internal class AlangCompiler
 
         // Compiles a Concatenation regex into an automaton.
         Concatenation concatenation => Compile(concatenation.Left).AsNfa()
-            .Append(Compile(concatenation.Right).AsDeterministic()).AsMfa(),
+            .ConcatenationWith(Compile(concatenation.Right).AsDeterministic()).AsMfa(),
 
         // Compiles an Option regex into an automaton.
         Option option => Compile(option.Operand).AsNfa().OptionWith().AsMfa(),
