@@ -12,7 +12,7 @@
           ]
         }
       ],
-      "dest": "../docs/obj/api",
+      "dest": "obj/api",
       "disableGitFeatures": false,
     }
   ],
@@ -20,13 +20,13 @@
   "build": {
     "content": [
       { "files": ["*.md"] },
-      { "files": ["**/*.yml"], "src": "../docs/obj/api" },
+      { "files": ["**/*.yml"], "src": "obj/api" },
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
      "resource": [
-      { "files": ["images/**/*.svg", "images/**/*.ico", "images/**/*.png"] } // Explicitly mark as resources
+      { "files": ["images/**/*"] }
     ],
     "output": "../docs",
     "template": [

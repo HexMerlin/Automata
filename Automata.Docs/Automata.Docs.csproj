@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Ensure all files in Automata.Docs are visible in Solution Explorer -->
+		<None Include="**/*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="bin\**" />
+	  <Compile Remove="obj\**" />
+	  <EmbeddedResource Remove="bin\**" />
+	  <EmbeddedResource Remove="obj\**" />
+	  <None Remove="bin\**" />
+	  <None Remove="obj\**" />
+	</ItemGroup>
+
+	<Target Name="BuildDocs" AfterTargets="Build">
+		<Exec Command="docfx docfx.json" WorkingDirectory="$(MSBuildProjectDirectory)" StandardOutputImportance="High" StandardErrorImportance="High" />
+	</Target>
+
+</Project>
