@@ -5,9 +5,9 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Automata API Documentation | Automata Docs </title>
+      <title>Namespace Automata.Core.Alang | Automata Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Automata API Documentation | Automata Docs ">
+      <meta name="title" content="Namespace Automata.Core.Alang | Automata Docs ">
       <meta name="generator" content="docfx ">
   
       <link rel="shortcut icon" href="images/favicon.ico">
@@ -86,88 +86,79 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Docs/index.md/#L1" class="contribution-link">Edit this page</a>
                          </div>
 
-                    <article class="content wrap" id="_content" data-uid="">
-<h1 id="automata-documentation">Automata documentation</h1>
+                    <article class="content wrap" id="_content" data-uid="Automata.Core.Alang">
 
-<p>Welcome to the documentation for <strong>Automata</strong>.</p>
-<hr>
-<h2 id="api-documentation">API Documentation</h2>
-<ul>
-<li><a class="xref" href="Automata.Core.html">Automata.Core</a>
-<ul>
-<li><a class="xref" href="Automata.Core.Alang.html">Automata.Core.Alang</a></li>
-<li><a class="xref" href="Automata.Core.Operations.html">Automata.Core.Operations</a></li>
-</ul>
-</li>
-<li><a class="xref" href="Automata.Visualization.html">Automata.Visualization</a></li>
-</ul>
-<hr>
-<p><a href="https://github.com/HexMerlin/Automata">Automata source code repo at GitHub</a></p>
-<hr>
-<h2 id="alang---a-language-for-definining-finite-state-automata">ALANG - A language for definining finite-state automata.</h2>
-<p><strong>Alang</strong> is a formal language for defining finite-state automata using human-readable regular expressions.
-It supports many operations, such as union, intersection, complement and set difference,
-enabling expressions like <code>(a? (b | c)* - (b b))+</code>.</p>
-<p><a href="ALANG.html">Alang documentation</a></p>
-<hr>
-<h2 id="c-examples-create-and-operate-on-automata">C# Examples: Create and Operate on Automata</h2>
-<p>The following examples creates FSAs from regular expressions in <code>Alang</code>.</p>
-<h3 id="-example-console-application-using-automatacore">📄 Example: Console application using <code>Automata.Core</code></h3>
-<pre><code class="lang-csharp">using Automata.Core;
-using Automata.Core.Alang;
-using Automata.Core.Operations;
+  <h1 id="Automata_Core_Alang" data-uid="Automata.Core.Alang" class="text-break">Namespace Automata.Core.Alang</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h5><a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a></h5>
+      <section><p>Represents an exception thrown when an error occurs during parsing of Alang expressions.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.AlangRegex.html">AlangRegex</a></h5>
+      <section><p>Represents an expression in the <code>Alang</code> (Automata language) used for defining finite-state automata.
+<a class="xref" href="Automata.Core.Alang.AlangRegex.html">AlangRegex</a> has a one-to-one correspondence with Finite State Automata.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.BinaryRegex.html">BinaryRegex</a></h5>
+      <section><p>Represents a binary infix expression in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Chars.html">Chars</a></h5>
+      <section><p>Character definitions and utility methods for Alang.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Complement.html">Complement</a></h5>
+      <section><p>Represents a complement expression in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Concatenation.html">Concatenation</a></h5>
+      <section><p>Represents a concatenation operation in the Alang grammar.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Difference.html">Difference</a></h5>
+      <section><p>Represents a difference expression in the <code>Alang</code> grammar.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.EmptyLang.html">EmptyLang</a></h5>
+      <section><p>Represents the empty language (∅) in <code>Alang</code> (Automata language).</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Intersection.html">Intersection</a></h5>
+      <section><p>Represents an intersection expression in the Alang grammar specification.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.KleenePlus.html">KleenePlus</a></h5>
+      <section><p>Represents a Kleene plus unary expression in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.KleeneStar.html">KleeneStar</a></h5>
+      <section><p>Represents a Kleene star operation in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Option.html">Option</a></h5>
+      <section><p>Represents an option expression in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Symbol.html">Symbol</a></h5>
+      <section><p>Symbol in the <code>Alang</code> language used for defining finite-state automata.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.UnaryRegex.html">UnaryRegex</a></h5>
+      <section><p>Unary expression in the Alang language.</p>
+</section>
+      <h5><a class="xref" href="Automata.Core.Alang.Union.html">Union</a></h5>
+      <section></section>
+      <h5><a class="xref" href="Automata.Core.Alang.Wildcard.html">Wildcard</a></h5>
+      <section><p>Represents a wildcard expression in the <code>Alang</code> (Automata language).</p>
+</section>
+    <h3 id="structs">
+Structs
+</h3>
+      <h5><a class="xref" href="Automata.Core.Alang.AlangCursor.html">AlangCursor</a></h5>
+      <section><p>Represents a cursor for parsing Alang regex strings.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h5><a class="xref" href="Automata.Core.Alang.ParseErrorReason.html">ParseErrorReason</a></h5>
+      <section><p>Reason for parsing errors in Alang expressions.
+Specifies the reason for a <a class="xref" href="Automata.Core.Alang.AlangFormatException.html">AlangFormatException</a>.</p>
+</section>
 
-namespace Automata.App;
-
-public static class Program
-{
-    public static void Main()
-    {
-        // Compile a regex to a FSA (all sequences of {a, b, c} where any 'a' must be followed by 'b' or 'c')
-        var fsa = AlangRegex.Compile(&quot;(a? (b | c) )+&quot;);
-
-        // Compile two other automata
-        var test1 = AlangRegex.Compile(&quot;a b b c b&quot;);
-        var test2 = AlangRegex.Compile(&quot;a b a a b&quot;);
-
-        // Test the language overlap of the FSA with the two test regexes
-        Console.WriteLine(fsa.Overlaps(test1)); //output: true
-        Console.WriteLine(fsa.Overlaps(test2)); //output: false
-    }
-}
-
-</code></pre>
-<hr>
-<h3 id="-example-console-application-using-automatavisualization">📄 Example: Console application using <code>Automata.Visualization</code></h3>
-<p>The application will display the following automaton in a new window:</p>
-<p><img src="images/automaton_example_1.svg" alt="Example image"></p>
-<pre><code class="lang-csharp">using Automata.Core;
-using Automata.Core.Alang;
-using Automata.Core.Operations;
-using Automata.Visualization;
-
-namespace Automata.App;
-public static class Program
-{
-    public static void Main()
-    {
-        var fsa = AlangRegex.Compile(&quot;(a? (b | c) )+&quot;);  // Create an FSA from a regex
-
-        Console.WriteLine(&quot;Creating a minimal FSA and displaying it.&quot;); // Write some info to the console
-
-        var graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
-
-        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal window that displays the graph
-
-        Console.WriteLine(&quot;FSA is displayed.&quot;); // Write some info to the console
-    }
-}
-
-</code></pre>
-<hr>
 
 </article>
                 </div>

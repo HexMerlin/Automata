@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Ops | Automata Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Ops | Automata Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/config.css">
+      <link rel="stylesheet" href="styles/singulink.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="">
+  
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="index.html">
+              <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+              <span class="brand-title">Automata Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="index.html">
+                          <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+                          <span class="brand-title">Automata Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="Automata.Core.Operations.Ops">
+
+
+
+  <h1 id="Automata_Core_Operations_Ops" data-uid="Automata.Core.Operations.Ops" class="text-break">Class Ops</h1>
+  <div class="markdown level0 summary"><p>Provides operations for finite automata.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Ops</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a>.<a class="xref" href="Automata.Core.Operations.html">Operations</a></h6>
+  <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
+  <h5 id="Automata_Core_Operations_Ops_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Ops</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Append(Automata.Core.Nfa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Concatenation.cs/#L31">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Append_" data-uid="Automata.Core.Operations.Ops.Append*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Append(Automata.Core.Nfa,Automata.Core.FsaDet)">Append(Nfa, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Appends another automaton to the source automaton (in-place concatenation).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa Append(this Nfa source, FsaDet right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source automaton to append to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Automaton to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>Source automaton <code class="paramref">source</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This operation mutates <code class="paramref">source</code>.</p>
+<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Complement.cs/#L13">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Complement_" data-uid="Automata.Core.Operations.Ops.Complement*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_" data-uid="Automata.Core.Operations.Ops.Complement(Automata.Core.Mfa)">Complement(Mfa)</h4>
+  <div class="markdown level1 summary"><p>Complement of a given MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dfa Complement(this Mfa mfa)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">mfa</span></td>
+        <td><p>A <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> to complement.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
+        <td><p>A new deterministic finite automaton (DFA) representing the complement of the input MFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Concatenation_Automata_Core_Fsa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Concatenation(Automata.Core.Fsa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Concatenation.cs/#L14">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Concatenation_" data-uid="Automata.Core.Operations.Ops.Concatenation*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Concatenation_Automata_Core_Fsa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Concatenation(Automata.Core.Fsa,Automata.Core.FsaDet)">Concatenation(Fsa, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Concatenates two finite state automata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FsaDet Concatenation(Fsa left, FsaDet right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Fsa.html">Fsa</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The left finite state automaton.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The right finite automaton.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><p>A new deterministic finite automaton representing a concatenation of the two automata.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Ops_Concatenation_Automata_Core_Fsa_Automata_Core_FsaDet__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Creates a new automaton. For optimal performance, use <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Append_Automata_Core_Nfa_Automata_Core_FsaDet_">Append(Nfa, FsaDet)</a> when possible to reduce overhead.
+<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet%2CAutomata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Difference.cs/#L13">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Difference_" data-uid="Automata.Core.Operations.Ops.Difference*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_" data-uid="Automata.Core.Operations.Ops.Difference(Automata.Core.FsaDet,Automata.Core.Mfa)">Difference(FsaDet, Mfa)</h4>
+  <div class="markdown level1 summary"><p>Computes the difference between two deterministic finite automata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FsaDet Difference(this FsaDet minuend, Mfa subtrahend)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">minuend</span></td>
+        <td><p>The automaton from which to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">subtrahend</span></td>
+        <td><p>The automaton whose language will be subtracted from the minuend.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><p>A new <a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a> representing the language of the minuend except the language of the subtrahend.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Intersection_Automata_Core_FsaDet_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Intersection(Automata.Core.FsaDet%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Intersection.cs/#L14">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Intersection_" data-uid="Automata.Core.Operations.Ops.Intersection*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Intersection_Automata_Core_FsaDet_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Intersection(Automata.Core.FsaDet,Automata.Core.FsaDet)">Intersection(FsaDet, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Intersection of two deterministic finite automata.
+The resulting automaton accepts only the strings that are accepted by both input automata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mfa Intersection(this FsaDet a, FsaDet b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>The first finite automaton.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>The second finite automaton.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><p>An new <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> representing the intersection of the two input automata.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_KleenePlusWith_Automata_Core_Nfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.KleenePlusWith(Automata.Core.Nfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/KleenePlus.cs/#L11">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_KleenePlusWith_" data-uid="Automata.Core.Operations.Ops.KleenePlusWith*"></a>
+  <h4 id="Automata_Core_Operations_Ops_KleenePlusWith_Automata_Core_Nfa_" data-uid="Automata.Core.Operations.Ops.KleenePlusWith(Automata.Core.Nfa)">KleenePlusWith(Nfa)</h4>
+  <div class="markdown level1 summary"><p>Adds a Kleene plus closure (one or many) to the specified automaton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa KleenePlusWith(this Nfa source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Automaton to modify</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>Modified <code class="paramref">source</code> with Kleene Plus</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_KleeneStarWith_Automata_Core_Nfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.KleeneStarWith(Automata.Core.Nfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/KleeneStar.cs/#L10">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_KleeneStarWith_" data-uid="Automata.Core.Operations.Ops.KleeneStarWith*"></a>
+  <h4 id="Automata_Core_Operations_Ops_KleeneStarWith_Automata_Core_Nfa_" data-uid="Automata.Core.Operations.Ops.KleeneStarWith(Automata.Core.Nfa)">KleeneStarWith(Nfa)</h4>
+  <div class="markdown level1 summary"><p>Adds a Kleene star closure to the specified automaton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa KleeneStarWith(this Nfa source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Automaton to modify</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>Modified <code class="paramref">source</code> with Kleene Star</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_OptionWith_Automata_Core_Nfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.OptionWith(Automata.Core.Nfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Option.cs/#L12">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_OptionWith_" data-uid="Automata.Core.Operations.Ops.OptionWith*"></a>
+  <h4 id="Automata_Core_Operations_Ops_OptionWith_Automata_Core_Nfa_" data-uid="Automata.Core.Operations.Ops.OptionWith(Automata.Core.Nfa)">OptionWith(Nfa)</h4>
+  <div class="markdown level1 summary"><p>Applying Optional closure (?).
+Ensures the NFA accepts the empty string (ε), modifying it to represent L? = L ∪ {ε}.
+If the NFA already accepts ε, it is returned unmodified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa OptionWith(this Nfa source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source NFA to modify in place.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>The same automaton, with potential modification.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Overlaps_Automata_Core_FsaDet_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Overlaps(Automata.Core.FsaDet%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Overlaps.cs/#L19">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Overlaps_" data-uid="Automata.Core.Operations.Ops.Overlaps*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Overlaps_Automata_Core_FsaDet_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Overlaps(Automata.Core.FsaDet,Automata.Core.FsaDet)">Overlaps(FsaDet, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the languages of two deterministic finite automata overlap.
+The resulting value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a><code>iff</code> there exists at least one string accepted by both input automata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Overlaps(this FsaDet fsa, FsaDet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">fsa</span></td>
+        <td><p>The first finite automaton.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The second finite automaton.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> there exists at least one string accepted by both input automata.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Reversal.cs/#L10">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Reversal_" data-uid="Automata.Core.Operations.Ops.Reversal*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)">Reversal(FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Creates a new NFA that recognizes the reversal of the language accepted by the given automaton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa Reversal(this FsaDet source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>A new NFA representing the reversed automaton.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_Union_Automata_Core_Fsa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.Union(Automata.Core.Fsa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Union.cs/#L13">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_Union_" data-uid="Automata.Core.Operations.Ops.Union*"></a>
+  <h4 id="Automata_Core_Operations_Ops_Union_Automata_Core_Fsa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.Union(Automata.Core.Fsa,Automata.Core.FsaDet)">Union(Fsa, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Creates union of two finite state automata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FsaDet Union(Fsa left, FsaDet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Fsa.html">Fsa</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>First automaton.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Second automaton.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><p>A new deterministic finite automaton representing a union of the two automata.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Ops_Union_Automata_Core_Fsa_Automata_Core_FsaDet__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Creates a new automaton. For optimal performance, use <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet_">UnionWith(Nfa, FsaDet)</a> when possible to reduce overhead.
+<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet_.md&amp;value=---%0Auid%3A%20Automata.Core.Operations.Ops.UnionWith(Automata.Core.Nfa%2CAutomata.Core.FsaDet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Operations/Union.cs/#L30">View Source</a>
+  </span>
+  <a id="Automata_Core_Operations_Ops_UnionWith_" data-uid="Automata.Core.Operations.Ops.UnionWith*"></a>
+  <h4 id="Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet_" data-uid="Automata.Core.Operations.Ops.UnionWith(Automata.Core.Nfa,Automata.Core.FsaDet)">UnionWith(Nfa, FsaDet)</h4>
+  <div class="markdown level1 summary"><p>Unites the source automaton with another automaton (in-place union).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Nfa UnionWith(this Nfa source, FsaDet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source automaton to mutate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Automaton to union with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Nfa.html">Nfa</a></td>
+        <td><p>Source automaton <code class="paramref">source</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Operations_Ops_UnionWith_Automata_Core_Nfa_Automata_Core_FsaDet__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This operation mutates <code class="paramref">source</code> to represent the union of the two automata.</p>
+<p>Resulting alphabet of <code class="paramref">source</code> will be the union of both alphabets, irrespective of whether all symbols were referenced by <code class="paramref">right</code>.</p>
+</div>
+
+</article>
+                </div>
+
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="styles/docfx.js"></script>
+        <script type="text/javascript" src="styles/main.js"></script>
+        <script type="text/javascript" src="styles/singulink.js"></script>    </body>
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Mfa | Automata Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Mfa | Automata Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/config.css">
+      <link rel="stylesheet" href="styles/singulink.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="">
+  
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="index.html">
+              <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+              <span class="brand-title">Automata Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="index.html">
+                          <img src="images/logo.svg" alt="Automata Docs" class="logomark">
+                          <span class="brand-title">Automata Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                         <div id="contribution">
+                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                         </div>
+
+                    <article class="content wrap" id="_content" data-uid="Automata.Core.Mfa">
+
+
+
+  <h1 id="Automata_Core_Mfa" data-uid="Automata.Core.Mfa" class="text-break">Class Mfa</h1>
+  <div class="markdown level0 summary"><p>Minimal Finite-state Automaton (MFA).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="Automata.Core.Fsa.html">Fsa</a></div>
+    <div class="level2"><a class="xref" href="Automata.Core.FsaDet.html">FsaDet</a></div>
+    <div class="level3"><span class="xref">Mfa</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Automata.Core.Mfa.html">Mfa</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsEpsilonFree">FsaDet.IsEpsilonFree</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_AcceptsEpsilon">FsaDet.AcceptsEpsilon</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_HasInitialState">FsaDet.HasInitialState</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_IsInitial_System_Int32_">FsaDet.IsInitial(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_System_Int32_System_Int32_System_Int32__">FsaDet.TryTransition(int, int, out int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_EpsilonTransitions">FsaDet.EpsilonTransitions()</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_System_Collections_Generic_IEnumerable_System_String__">FsaDet.Accepts(IEnumerable&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_Alphabet">Fsa.Alphabet</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Automata.html">Automata</a>.<a class="xref" href="Automata.Core.html">Core</a></h6>
+  <h6><strong>Assembly</strong>: Automata.Core.dll</h6>
+  <h5 id="Automata_Core_Mfa_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Mfa : FsaDet, IEquatable&lt;Mfa&gt;</code></pre>
+  </div>
+  <h5 id="Automata_Core_Mfa_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><a class="xref" href="Automata.Core.Mfa.html">Mfa</a> is the most optimized automaton representation, characterized by:</p>
+<ol><li><code>Deterministic</code> and <code>Minimal</code>: The least possible states and transitions.</li><li>Minimal memory footprint: Uses a contiguous memory block for data, with minimal overhead.</li><li>Performance-optimized for efficient readonly operations.</li><li>Immutable: Guarantees structural and behavioral invariance.</li><li>Contiguous states: States are in range [0..MaxState].</li><li>Initial state is always <code>0</code> for a non-empty <a class="xref" href="Automata.Core.Mfa.html">Mfa</a>.</li><li>Canonical topology: States and transitions are canonically ordered.</li><li>Two <a class="xref" href="Automata.Core.Mfa.html">Mfa</a>s recognizing the same language are guaranteed to be identical.</li></ol>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa__ctor_Automata_Core_Dfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.%23ctor(Automata.Core.Dfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L59">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa__ctor_" data-uid="Automata.Core.Mfa.#ctor*"></a>
+  <h4 id="Automata_Core_Mfa__ctor_Automata_Core_Dfa_" data-uid="Automata.Core.Mfa.#ctor(Automata.Core.Dfa)">Mfa(Dfa)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> class from an existing <a class="xref" href="Automata.Core.Dfa.html">Dfa</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mfa(Dfa dfa)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Dfa.html">Dfa</a></td>
+        <td><span class="parametername">dfa</span></td>
+        <td><p>A DFA to create from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa__ctor_System_String_Automata_Core_Alphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.%23ctor(System.String%2CAutomata.Core.Alphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L47">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa__ctor_" data-uid="Automata.Core.Mfa.#ctor*"></a>
+  <h4 id="Automata_Core_Mfa__ctor_System_String_Automata_Core_Alphabet_" data-uid="Automata.Core.Mfa.#ctor(System.String,Automata.Core.Alphabet)">Mfa(string, Alphabet)</h4>
+  <div class="markdown level1 summary"><p>Creates a singleton <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> that accepts only the single symbol once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mfa(string singleSymbol, Alphabet alphabet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">singleSymbol</span></td>
+        <td><p>Symbol to be accepted by the MFA.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></td>
+        <td><span class="parametername">alphabet</span></td>
+        <td><p>Alphabet used by the MFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_FinalStates.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.FinalStates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L123">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_FinalStates_" data-uid="Automata.Core.Mfa.FinalStates*"></a>
+  <h4 id="Automata_Core_Mfa_FinalStates" data-uid="Automata.Core.Mfa.FinalStates">FinalStates</h4>
+  <div class="markdown level1 summary"><p>Final states of the MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyCollection&lt;int&gt; FinalStates { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_FinalStates">Fsa.FinalStates</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_InitialState.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.InitialState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L112">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_InitialState_" data-uid="Automata.Core.Mfa.InitialState*"></a>
+  <h4 id="Automata_Core_Mfa_InitialState" data-uid="Automata.Core.Mfa.InitialState">InitialState</h4>
+  <div class="markdown level1 summary"><p>Initial state. Always <code>0</code> for a non-empty <a class="xref" href="Automata.Core.Mfa.html">Mfa</a>.</p>
+<p>For an empty <a class="xref" href="Automata.Core.Mfa.html">Mfa</a>, the initial state is <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int InitialState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_InitialState">FsaDet.InitialState</a></div>
+  <h5 id="Automata_Core_Mfa_InitialState_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An MFA without an initial state is completely empty (= <a class="xref" href="Automata.Core.Mfa.html#Automata_Core_Mfa_IsEmptyLanguage">IsEmptyLanguage</a>).</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_IsEmptyLanguage.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.IsEmptyLanguage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L131">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_IsEmptyLanguage_" data-uid="Automata.Core.Mfa.IsEmptyLanguage*"></a>
+  <h4 id="Automata_Core_Mfa_IsEmptyLanguage" data-uid="Automata.Core.Mfa.IsEmptyLanguage">IsEmptyLanguage</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the language of the MFA is the empty language (∅). This means the MFA does not accept anything, including the empty string (ϵ).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEmptyLanguage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Mfa_IsEmptyLanguage_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> only if either; the MFA has no states, or the initial state is not a final state.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_MaxState.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.MaxState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L118">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_MaxState_" data-uid="Automata.Core.Mfa.MaxState*"></a>
+  <h4 id="Automata_Core_Mfa_MaxState" data-uid="Automata.Core.Mfa.MaxState">MaxState</h4>
+  <div class="markdown level1 summary"><p>The state number with the highest value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int MaxState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The maximum state number, or <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> (= <code>-1</code>) if the MFA is empty (has no states).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_MaxState">FsaDet.MaxState</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_StateCount.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.StateCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L29">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_StateCount_" data-uid="Automata.Core.Mfa.StateCount*"></a>
+  <h4 id="Automata_Core_Mfa_StateCount" data-uid="Automata.Core.Mfa.StateCount">StateCount</h4>
+  <div class="markdown level1 summary"><p>Number of states in the MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StateCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_TransitionCount.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.TransitionCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L136">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_TransitionCount_" data-uid="Automata.Core.Mfa.TransitionCount*"></a>
+  <h4 id="Automata_Core_Mfa_TransitionCount" data-uid="Automata.Core.Mfa.TransitionCount">TransitionCount</h4>
+  <div class="markdown level1 summary"><p>Number of transitions in the automaton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int TransitionCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TransitionCount">FsaDet.TransitionCount</a></div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_CreateEmpty_Automata_Core_Alphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.CreateEmpty(Automata.Core.Alphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L90">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_CreateEmpty_" data-uid="Automata.Core.Mfa.CreateEmpty*"></a>
+  <h4 id="Automata_Core_Mfa_CreateEmpty_Automata_Core_Alphabet_" data-uid="Automata.Core.Mfa.CreateEmpty(Automata.Core.Alphabet)">CreateEmpty(Alphabet)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> that represents the empty language (∅), with a specified alphabet.
+The MFA has zero states and zero transitions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mfa CreateEmpty(Alphabet alphabet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></td>
+        <td><span class="parametername">alphabet</span></td>
+        <td><p>Alphabet used by the MFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_CreateWildcard_Automata_Core_Alphabet_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L98">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_CreateWildcard_" data-uid="Automata.Core.Mfa.CreateWildcard*"></a>
+  <h4 id="Automata_Core_Mfa_CreateWildcard_Automata_Core_Alphabet_" data-uid="Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)">CreateWildcard(Alphabet)</h4>
+  <div class="markdown level1 summary"><p>Returns an automaton that accepts one occurrence of any symbol in the specified alphabet.
+It corresponds directly to the &quot;.&quot; in Alang expressions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mfa CreateWildcard(Alphabet alphabet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Alphabet.html">Alphabet</a></td>
+        <td><span class="parametername">alphabet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><p>An automaton representing any symbol accepted exactly once.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_Equals_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.Equals(Automata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L208">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_Equals_" data-uid="Automata.Core.Mfa.Equals*"></a>
+  <h4 id="Automata_Core_Mfa_Equals_Automata_Core_Mfa_" data-uid="Automata.Core.Mfa.Equals(Automata.Core.Mfa)">Equals(Mfa?)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether this MFA is equal to the specified MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Mfa? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>MFA to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the current Mfa is equal to <code class="paramref">other</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Mfa_Equals_Automata_Core_Mfa__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is similar to <a class="xref" href="Automata.Core.Mfa.html#Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa_">LanguageEquals(Mfa)</a> but is stricter:</p>
+<p>It also requires the alphabets of both MFAs to be equal (not just the referenced symbols).</p>
+</div>
+  <h5 id="Automata_Core_Mfa_Equals_Automata_Core_Mfa__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Automata.Core.Mfa.html#Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa_">LanguageEquals(Mfa)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L196">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_Equals_" data-uid="Automata.Core.Mfa.Equals*"></a>
+  <h4 id="Automata_Core_Mfa_Equals_System_Object_" data-uid="Automata.Core.Mfa.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare with the current object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_GetHashCode.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L242">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_GetHashCode_" data-uid="Automata.Core.Mfa.GetHashCode*"></a>
+  <h4 id="Automata_Core_Mfa_GetHashCode" data-uid="Automata.Core.Mfa.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Hash code for the current MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>A hash code for the MFA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_IsFinal_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.IsFinal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L143">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_IsFinal_" data-uid="Automata.Core.Mfa.IsFinal*"></a>
+  <h4 id="Automata_Core_Mfa_IsFinal_System_Int32_" data-uid="Automata.Core.Mfa.IsFinal(System.Int32)">IsFinal(int)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the specified state is a final state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsFinal(int state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>State to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the specified state is a final state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_IsFinal_System_Int32_">Fsa.IsFinal(int)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.LanguageEquals(Automata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L178">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_LanguageEquals_" data-uid="Automata.Core.Mfa.LanguageEquals*"></a>
+  <h4 id="Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa_" data-uid="Automata.Core.Mfa.LanguageEquals(Automata.Core.Mfa)">LanguageEquals(Mfa)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether this MFA represent the exact same language as the specified MFA: <code>Language Equality</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LanguageEquals(Mfa other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>MFA to check language equality against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the current Mfa represents the same language as<code class="paramref">other</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Automata_Core_Mfa_LanguageEquals_Automata_Core_Mfa__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><code>Language Equality</code> means both MFAs represent the same language. Due to the canonical property, <code>Language Equality</code> also means the MFAs are completely identical (identical states, and identical transition arrays).</p>
+<p>The alphabets need however not need to be equal, but every referenced symbol must have the same index in both alphabets.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_State_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.State(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L167">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_State_" data-uid="Automata.Core.Mfa.State*"></a>
+  <h4 id="Automata_Core_Mfa_State_System_Int32_" data-uid="Automata.Core.Mfa.State(System.Int32)">State(int)</h4>
+  <div class="markdown level1 summary"><p>Returns a view of the specified state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override StateView State(int state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.StateView.html">StateView</a></td>
+        <td><p>A <a class="xref" href="Automata.Core.StateView.html">StateView</a> for the given state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_State_System_Int32_">FsaDet.State(int)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_ToCanonicalString.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.ToCanonicalString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L263">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_ToCanonicalString_" data-uid="Automata.Core.Mfa.ToCanonicalString*"></a>
+  <h4 id="Automata_Core_Mfa_ToCanonicalString" data-uid="Automata.Core.Mfa.ToCanonicalString">ToCanonicalString()</h4>
+  <div class="markdown level1 summary"><p>Returns a canonical string representation of the MFA's data.
+Used by unit tests and for debugging.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToCanonicalString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_ToCanonicalString">Fsa.ToCanonicalString()</a></div>
+  <h5 id="Automata_Core_Mfa_ToCanonicalString_examples">Examples</h5>
+  <p>Canonical string for a 2-state MFA, with 2 states, 2 transitions and 1 final state, that accepts the language {a | b}:</p>
+<pre><code class="lang-csharp">S#=2, F#=1: [1]: T#=2: [0-&gt;1 a, 0-&gt;1 b]</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_Transition_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.Transition(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L152">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_Transition_" data-uid="Automata.Core.Mfa.Transition*"></a>
+  <h4 id="Automata_Core_Mfa_Transition_System_Int32_System_Int32_" data-uid="Automata.Core.Mfa.Transition(System.Int32,System.Int32)">Transition(int, int)</h4>
+  <div class="markdown level1 summary"><p>Returns the state reachable from the given state on the given symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Transition(int fromState, int symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fromState</span></td>
+        <td><p>The state origin of the transition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td><p>Symbol for the transition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The state reachable from the given state on the given symbol. If no such transition exists, <a class="xref" href="Automata.Core.Constants.html#Automata_Core_Constants_InvalidState">InvalidState</a> is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_System_Int32_System_Int32_">FsaDet.Transition(int, int)</a></div>
+  <h5 id="Automata_Core_Mfa_Transition_System_Int32_System_Int32__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Automata.Core.FsaDet.html#Automata_Core_FsaDet_TryTransition_System_Int32_System_Int32_System_Int32__">TryTransition</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, out <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_Transitions.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.Transitions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L149">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_Transitions_" data-uid="Automata.Core.Mfa.Transitions*"></a>
+  <h4 id="Automata_Core_Mfa_Transitions" data-uid="Automata.Core.Mfa.Transitions">Transitions()</h4>
+  <div class="markdown level1 summary"><p>Gets the transitions of the MFA.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyCollection&lt;Transition&gt; Transitions()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Automata.Core.Transition.html">Transition</a>&gt;</td>
+        <td><p>An collection of transitions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Automata.Core.Fsa.html#Automata_Core_Fsa_Transitions">Fsa.Transitions()</a></div>
+  <h3 id="operators">Operators
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_op_Equality_Automata_Core_Mfa_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.op_Equality(Automata.Core.Mfa%2CAutomata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L224">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_op_Equality_" data-uid="Automata.Core.Mfa.op_Equality*"></a>
+  <h4 id="Automata_Core_Mfa_op_Equality_Automata_Core_Mfa_Automata_Core_Mfa_" data-uid="Automata.Core.Mfa.op_Equality(Automata.Core.Mfa,Automata.Core.Mfa)">operator ==(Mfa, Mfa)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether two specified instances of <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Mfa left, Mfa right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>First <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Second <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+<code>iff</code> the two <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> instances are equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Mfa_op_Inequality_Automata_Core_Mfa_Automata_Core_Mfa_.md&amp;value=---%0Auid%3A%20Automata.Core.Mfa.op_Inequality(Automata.Core.Mfa%2CAutomata.Core.Mfa)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Mfa.cs/#L232">View Source</a>
+  </span>
+  <a id="Automata_Core_Mfa_op_Inequality_" data-uid="Automata.Core.Mfa.op_Inequality*"></a>
+  <h4 id="Automata_Core_Mfa_op_Inequality_Automata_Core_Mfa_Automata_Core_Mfa_" data-uid="Automata.Core.Mfa.op_Inequality(Automata.Core.Mfa,Automata.Core.Mfa)">operator !=(Mfa, Mfa)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether two specified instances of <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> are not equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Mfa left, Mfa right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>First <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Automata.Core.Mfa.html">Mfa</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Second <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+<code>iff</code> the two <a class="xref" href="Automata.Core.Mfa.html">Mfa</a> instances are not equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsDeterministic_Automata_Core_Fsa_">Converter.AsDeterministic(Fsa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsMfa_Automata_Core_Fsa_">Converter.AsMfa(Fsa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Converter.html#Automata_Core_Converter_AsNfa_Automata_Core_Fsa_">Converter.AsNfa(Fsa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Difference_Automata_Core_FsaDet_Automata_Core_Mfa_">Ops.Difference(FsaDet, Mfa)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Intersection_Automata_Core_FsaDet_Automata_Core_FsaDet_">Ops.Intersection(FsaDet, FsaDet)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Overlaps_Automata_Core_FsaDet_Automata_Core_FsaDet_">Ops.Overlaps(FsaDet, FsaDet)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_">Ops.Reversal(FsaDet)</a>
+  </div>
+  <div>
+      <a class="xref" href="Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Complement_Automata_Core_Mfa_">Ops.Complement(Mfa)</a>
+  </div>
+
+</article>
+                </div>
+
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="styles/docfx.js"></script>
+        <script type="text/javascript" src="styles/main.js"></script>
+        <script type="text/javascript" src="styles/singulink.js"></script>    </body>
+</html>
