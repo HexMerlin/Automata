@@ -17,12 +17,18 @@ public abstract class Fsa
 
     #endregion Data
 
+    #region Constructors
+
     /// <summary>
     /// Initializes a new instance with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the automaton.</param>
     public Fsa(Alphabet alphabet)  
         => Alphabet = alphabet;
+
+    #endregion Constructors
+
+    #region Accessors
 
     /// <summary>
     /// Indicates whether the FSA is epsilon-free (lacks epsilon transitions).
@@ -76,4 +82,6 @@ public abstract class Fsa
     /// Used by unit tests and for debugging. 
     /// </summary>
     public abstract string ToCanonicalString();
+
+    #endregion Accessors
 }

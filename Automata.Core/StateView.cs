@@ -20,18 +20,6 @@ public readonly ref struct StateView
     #endregion Data
 
     /// <summary>
-    /// State from which the transitions originate.
-    /// </summary>
-    public int State => Transitions.Length > 0 ? Transitions[0].FromState : Constants.InvalidState;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="StateView"/> struct with a specified state and unfiltered transitions.
-    /// </summary>
-    /// <param name="fromState">State from which the transitions originate.</param>
-    /// <param name="transitions">Filtered transitions from the specified state.</param>
-    public StateView(int fromState, Transition[] transitions) : this(fromState, new ReadOnlySpan<Transition>(transitions)) { }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="StateView"/> struct with a specified state and unfiltered transitions.
     /// </summary>
     /// <param name="fromState">State from which the transitions originate.</param>
@@ -51,6 +39,21 @@ public readonly ref struct StateView
         endIndex = startIndex + 1 + (~endIndex);
         this.Transitions = transitions[startIndex..endIndex];
     }
+
+    #region Accessors
+
+    /// <summary>
+    /// State from which the transitions originate.
+    /// </summary>
+    public int State => Transitions.Length > 0 ? Transitions[0].FromState : Constants.InvalidState;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StateView"/> struct with a specified state and unfiltered transitions.
+    /// </summary>
+    /// <param name="fromState">State from which the transitions originate.</param>
+    /// <param name="transitions">Filtered transitions from the specified state.</param>
+    public StateView(int fromState, Transition[] transitions) : this(fromState, new ReadOnlySpan<Transition>(transitions)) { }
+
 
     /// <summary>
     /// Returns the state reachable from the current state on the specified symbol.
@@ -80,4 +83,5 @@ public readonly ref struct StateView
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool TryTransition(int symbol, out int toState) => (toState = Transition(symbol)) != Constants.InvalidState;
 
+    #endregion Accessors
 }

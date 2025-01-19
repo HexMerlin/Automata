@@ -5,11 +5,17 @@
 /// </summary>
 public abstract class FsaDet : Fsa
 {
+    #region Constructors
+
     /// <summary>
     /// Initializes a new instance with the specified alphabet.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the automaton.</param>
     public FsaDet(Alphabet alphabet) : base(alphabet) { }
+
+    #endregion Constructors
+
+    #region Accessors
 
     /// <summary>
     /// Indicates whether the MFA is epsilon-free. Always returns <see langword="true"/>.
@@ -37,7 +43,6 @@ public abstract class FsaDet : Fsa
     /// Number of transitions in the automaton.
     /// </summary>
     public abstract int TransitionCount { get; }
-
 
     /// <summary>
     /// Indicates whether the automaton has an initial state.
@@ -113,4 +118,6 @@ public abstract class FsaDet : Fsa
         }
         return IsFinal(state);
     }
+
+    #endregion Accessors
 }

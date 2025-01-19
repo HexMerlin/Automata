@@ -16,7 +16,10 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     /// Members of the set.
     /// </summary>
     private FrozenSet<int> Members { get; }
-    #endregion
+
+    #endregion Data
+
+    #region Constructors
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IntSet"/> class with the specified elements.
@@ -38,6 +41,10 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     /// <param name="elements">Elements to include in the set.</param>
     public IntSet(ISet<int> elements)
         => Members = elements.ToFrozenSet();
+
+    #endregion Constructors
+
+    #region Accessors
 
     /// <summary>
     /// Number of elements in the set.
@@ -134,4 +141,6 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     /// </summary>
     /// <returns>An enumerator for the set.</returns>
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+    #endregion Accessors
 }

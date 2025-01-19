@@ -9,6 +9,7 @@ namespace Automata.Core;
 /// <remarks>A <see cref="Transition"/> always has a (non-epsilon) symbol and cannot represent an epsilon transition</remarks>
 public readonly record struct Transition : IComparable<Transition>
 {
+    #region Data
 
     /// <summary>
     /// The state origin of the transition.
@@ -24,6 +25,10 @@ public readonly record struct Transition : IComparable<Transition>
     /// The destination state of the transition.
     /// </summary>
     public int ToState { get; }
+
+    #endregion Data
+
+    #region Accessors
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Transition"/> struct.
@@ -122,4 +127,6 @@ public readonly record struct Transition : IComparable<Transition>
     /// </summary>
     /// <returns>A string that represents the current transition.</returns>
     public override string ToString() => $"{FromState}->{ToState} ({Symbol})";
+
+    #endregion Accessors
 }

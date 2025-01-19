@@ -11,6 +11,8 @@ namespace Automata.Core;
 /// </remarks>
 public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
 {
+    #region Data
+
     /// <summary>
     /// The state origin of the transition.
     /// </summary>
@@ -20,6 +22,8 @@ public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
     /// The destination state of the transition.
     /// </summary>
     public int ToState { get; }
+
+    #endregion Data
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EpsilonTransition"/> struct.
