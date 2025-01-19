@@ -3,7 +3,7 @@
 namespace Automata.Core;
 
 /// <summary>
-/// Finite state automaton (FSA) interface.
+/// Common base class for all Finite state automata.
 /// </summary>
 [DebuggerDisplay("{ToCanonicalString(),nq}")]
 public abstract class Fsa
