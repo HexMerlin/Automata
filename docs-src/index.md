@@ -37,7 +37,7 @@ enabling expressions like `(a? (b | c)* - (b b))+`.
 
 The following examples creates FSAs from regular expressions in `Alang`. 
 
-### :page_facing_up: `Automata.Core` example Console application:
+### :page_facing_up: Example: Console application using `Automata.Core`
 ```csharp
 using Automata.Core;
 using Automata.Core.Alang;
@@ -65,11 +65,11 @@ public static class Program
 ```
 ---
 
-### :page_facing_up: `Automata.Visualization` example Console application:
+### :page_facing_up: Example: Console application using `Automata.Visualization`
 
 The application will display the following automaton in a new window:
 
-![Example image](xref:automaton_example_1.svg)
+![Example image](automaton_example_1.svg)
 
 ```csharp
 using Automata.Core;
