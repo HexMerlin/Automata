@@ -113,6 +113,61 @@ It supports many operations, such as union, intersection, complement and set dif
 enabling expressions like <code>(a? (b | c)* - (b b))+</code>.</p>
 <p><a href="ALANG.html">Alang documentation</a></p>
 <hr>
+<h2 id="c-examples-create-and-operate-on-automata">C# Examples: Create and Operate on Automata</h2>
+<p>The following examples creates FSAs from regular expressions in <code>Alang</code>.</p>
+<h3 id="-automatacore-example-console-application">📄 <code>Automata.Core</code> example Console application:</h3>
+<pre><code class="lang-csharp">using Automata.Core;
+using Automata.Core.Alang;
+using Automata.Core.Operations;
+
+namespace Automata.App;
+
+public static class Program
+{
+    public static void Main()
+    {
+        // Compile a regex to a FSA (all sequences of {a, b, c} where any 'a' must be followed by 'b' or 'c')
+        var fsa = AlangRegex.Compile(&quot;(a? (b | c) )+&quot;);
+
+        // Compile two other automata
+        var test1 = AlangRegex.Compile(&quot;a b b c b&quot;);
+        var test2 = AlangRegex.Compile(&quot;a b a a b&quot;);
+
+        // Test the language overlap of the FSA with the two test regexes
+        Console.WriteLine(fsa.Overlaps(test1)); //output: true
+        Console.WriteLine(fsa.Overlaps(test2)); //output: false
+    }
+}
+
+</code></pre>
+<hr>
+<h3 id="-automatavisualization-example-console-application">📄 <code>Automata.Visualization</code> example Console application:</h3>
+<p>The application will display the following automaton in a new window:</p>
+<p><img src="xref:automaton_example_1.svg" alt="Example image"></p>
+<pre><code class="lang-csharp">using Automata.Core;
+using Automata.Core.Alang;
+using Automata.Core.Operations;
+using Automata.Visualization;
+
+namespace Automata.App;
+public static class Program
+{
+    public static void Main()
+    {
+        var fsa = AlangRegex.Compile(&quot;(a? (b | c) )+&quot;);  // Create an FSA from a regex
+
+        Console.WriteLine(&quot;Creating a minimal FSA and displaying it.&quot;); // Write some info to the console
+
+        var graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
+
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal window that displays the graph
+
+        Console.WriteLine(&quot;FSA is displayed.&quot;); // Write some info to the console
+    }
+}
+
+</code></pre>
+<hr>
 
 </article>
                 </div>
