@@ -7,6 +7,7 @@
           "src": "../",
           "files": ["**/*.csproj"],
           "exclude": [
+            "Automata.Docs/Automata.Docs.csproj",
             "Automata.App/Automata.App.csproj",
             "Automata.CoreTests/Automata.CoreTests.csproj"
           ]

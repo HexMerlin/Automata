@@ -14,16 +14,16 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.1.0</Version>
     <PackageReleaseNotes>New version with many new features</PackageReleaseNotes>
-    <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://hexmerlin.github.io/Automata/index.html</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\docs-src\images\logo.png">
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\README.md">
+    <None Include="..\Automata.Docs\images\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -35,6 +35,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Automata.Core\Automata.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Automata.Docs\" />
   </ItemGroup>
 
 </Project>

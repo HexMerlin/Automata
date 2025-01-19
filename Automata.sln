@@ -18,17 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Core", "Automata.Core\Automata.Core.csproj", "{11BBFBA4-41BF-415E-A585-7F873040F1A7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-src", "docs-src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-	ProjectSection(SolutionItems) = preProject
-		docs-src\.nojekyll = docs-src\.nojekyll
-		docs-src\ALANG.md = docs-src\ALANG.md
-		docs-src\automaton_example_1.svg = docs-src\automaton_example_1.svg
-		docs-src\docfx.json = docs-src\docfx.json
-		docs-src\images\favicon.ico = docs-src\images\favicon.ico
-		docs-src\index.md = docs-src\index.md
-		docs-src\images\logo.svg = docs-src\images\logo.svg
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.CoreTests", "Automata.CoreTests\Automata.CoreTests.csproj", "{D57B02E2-F03D-47FA-AFF0-181DC5C26D9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Docs", "Automata.Docs\Automata.Docs.csproj", "{E1A3CD7E-DBF0-498C-A683-641B3A5EAFEF}"

@@ -3,24 +3,23 @@
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
 		<OutputType>Library</OutputType>
+		<!-- Define the output directory for docfx -->
+		<DocsOutputDir>$(SolutionDir)\docs</DocsOutputDir>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<!-- Ensure all files in Automata.Docs are visible in Solution Explorer -->
-		<None Include="**/*" />
-	</ItemGroup>
 
-	<ItemGroup>
-	  <Compile Remove="bin\**" />
-	  <Compile Remove="obj\**" />
-	  <EmbeddedResource Remove="bin\**" />
-	  <EmbeddedResource Remove="obj\**" />
-	  <None Remove="bin\**" />
-	  <None Remove="obj\**" />
-	</ItemGroup>
-
+	<!-- Target to run docfx during the build process -->
 	<Target Name="BuildDocs" AfterTargets="Build">
-		<Exec Command="docfx docfx.json" WorkingDirectory="$(MSBuildProjectDirectory)" StandardOutputImportance="High" StandardErrorImportance="High" />
+		<Exec Command="docfx build docfx.json" WorkingDirectory="$(MSBuildProjectDirectory)" Condition="Exists('$(MSBuildProjectDirectory)\docfx.json')" StandardOutputImportance="High" StandardErrorImportance="High" />
+	</Target>
+
+	<!-- Target to clean the docs output directory and intermediate output folders during the clean process -->
+	<Target Name="CleanDocs" BeforeTargets="Clean">
+		<!-- Remove the docs output directory if it exists -->
+		<RemoveDir Directories="$(DocsOutputDir)" Condition="Exists('$(DocsOutputDir)')" />
+		<RemoveDir Directories="obj" Condition="Exists('obj')" />
+		<RemoveDir Directories="bin" Condition="Exists('bin')" />
 	</Target>
 
 </Project>
+
