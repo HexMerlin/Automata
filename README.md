@@ -30,7 +30,7 @@ It offers a lightweight and clean solution without visualization features.
 
 The following example utilizes regular expressions written in `Alang`. 
 `Alang` (**Automata Language**) is a language for defining automata using regular operations).
-Read more about `Alang` in the  [Automata documentation](https://hexmerlin.github.io/Automata/index.html).
+Read more about `Alang` in the  [Automata documentation](https://hexmerlin.github.io/Automata/ALANG.html).
 ```csharp
 // Compile a regex to a FSA (all sequences of {a, b, c} where any 'a' must be followed by 'b' or 'c')
 var fsa = AlangRegex.Compile("(a? (b | c) )+");
