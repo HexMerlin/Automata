@@ -69,7 +69,7 @@ public static class Program
 
 The application will display the following automaton in a new window:
 
-![Example image](xref: automaton_example_1.svg)
+![Example image](images/automaton_example_1.svg)
 
 ```csharp
 using Automata.Core;

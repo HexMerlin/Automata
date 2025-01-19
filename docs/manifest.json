@@ -405,6 +405,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/automaton_example_1.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/automaton_example_1.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/favicon.ico",
       "output": {
         "resource": {
