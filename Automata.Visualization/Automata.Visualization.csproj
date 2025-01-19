@@ -20,6 +20,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Automata.Docs\**" />
+    <EmbeddedResource Remove="Automata.Docs\**" />
+    <None Remove="Automata.Docs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -36,10 +42,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Automata.Core\Automata.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Automata.Docs\" />
   </ItemGroup>
 
 </Project>
