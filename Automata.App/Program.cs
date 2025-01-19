@@ -1,7 +1,7 @@
 ﻿using Automata.Core;
 using Automata.Core.Alang;
+using Automata.Core.Operations;
 using Automata.Visualization;
-using Microsoft.Msagl.Drawing;
 
 namespace Automata.App;
 public static class Program
@@ -15,7 +15,7 @@ public static class Program
 
         Console.WriteLine("Creating a minimal FSA and displaying it."); // Write some info to the console
 
-        Graph graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
+        var graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
 
         GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal window that displays the graph
 

@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-src", "docs-src", "{02
 	ProjectSection(SolutionItems) = preProject
 		docs-src\.nojekyll = docs-src\.nojekyll
 		docs-src\ALANG.md = docs-src\ALANG.md
+		docs-src\automaton_example_1.svg = docs-src\automaton_example_1.svg
 		docs-src\docfx.json = docs-src\docfx.json
 		docs-src\images\favicon.ico = docs-src\images\favicon.ico
 		docs-src\index.md = docs-src\index.md

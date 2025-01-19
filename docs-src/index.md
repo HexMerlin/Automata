@@ -32,3 +32,67 @@ enabling expressions like `(a? (b | c)* - (b b))+`.
 [Alang documentation](ALANG.md)
 
 ---
+
+## C# Examples: Create and Operate on Automata
+
+The following examples creates FSAs from regular expressions in `Alang`. 
+
+### :page_facing_up: `Automata.Core` example Console application:
+```csharp
+using Automata.Core;
+using Automata.Core.Alang;
+using Automata.Core.Operations;
+
+namespace Automata.App;
+
+public static class Program
+{
+    public static void Main()
+    {
+        // Compile a regex to a FSA (all sequences of {a, b, c} where any 'a' must be followed by 'b' or 'c')
+        var fsa = AlangRegex.Compile("(a? (b | c) )+");
+
+        // Compile two other automata
+        var test1 = AlangRegex.Compile("a b b c b");
+        var test2 = AlangRegex.Compile("a b a a b");
+
+        // Test the language overlap of the FSA with the two test regexes
+        Console.WriteLine(fsa.Overlaps(test1)); //output: true
+        Console.WriteLine(fsa.Overlaps(test2)); //output: false
+    }
+}
+
+```
+---
+
+### :page_facing_up: `Automata.Visualization` example Console application:
+
+The application will display the following automaton in a new window:
+
+![Example image](automaton_example_1.svg)
+
+```csharp
+using Automata.Core;
+using Automata.Core.Alang;
+using Automata.Core.Operations;
+using Automata.Visualization;
+
+namespace Automata.App;
+public static class Program
+{
+    public static void Main()
+    {
+        var fsa = AlangRegex.Compile("(a? (b | c) )+");  // Create an FSA from a regex
+
+        Console.WriteLine("Creating a minimal FSA and displaying it."); // Write some info to the console
+
+        var graph = fsa.CreateGraph(displayStateIDs: true); // Create a graph object (FSA with layout) 
+
+        GraphView graphView = GraphView.OpenNew(graph); // Open a new non-modal window that displays the graph
+
+        Console.WriteLine("FSA is displayed."); // Write some info to the console
+    }
+}
+
+```
+---

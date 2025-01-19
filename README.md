@@ -18,7 +18,7 @@ The **Automata** library provides functionality for working with finite-state au
   - Visualize automata as graphs (Automata.Visualization).
 ---
 
-![Example image](automaton_example_1.svg)
+![Example image](docs-src/automaton_example_1.svg)
 ---
 
 ## :hammer: Automata.Core - Core Library
