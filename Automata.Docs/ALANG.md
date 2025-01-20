@@ -116,6 +116,19 @@ Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n �
 Complement: ᒾL = Σ* \ L
 ```
 
+### Operation Definitions
+
+```math
+\text{Union: } L_1 \cup L_2 = \{ w \mid w \in L_1 \text{ or } w \in L_2 \}
+\text{Difference: } L_1 - L_2 = \{ w \mid w \in L_1 \text{ and } w \notin L_2 \}
+\text{Intersection: } L_1 \cap L_2 = \{ w \mid w \in L_1 \text{ and } w \in L_2 \}
+\text{Concatenation: } L_1 \cdot L_2 = \{ w \mid w = uv, u \in L_1, v \in L_2 \}
+\text{Option: } L? = L \cup \{ \varepsilon \}
+\text{Kleene Star: } L^* = \bigcup_{n=0}^\infty L^n, \text{ where } L^0 = \{ \varepsilon \}, L^n = L \cdot L^{n-1} \text{ for } n \geq 1
+\text{Kleene Plus: } L^+ = \bigcup_{n=1}^\infty L^n, \text{ where } L^n = L \cdot L^{n-1} \text{ for } n \geq 1
+\text{Complement: } \neg L = \Sigma^* \setminus L
+```
+
 ## C# API
 The Alang parser and FSA compiler is provided by the namespace **Automata.Core.Alang**.
 
