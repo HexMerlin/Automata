@@ -84,13 +84,13 @@ For example:
 - The Empty Language ∅ is the language that does not cotain anything.
     - It is written in Alang using empty parentheses `()`.  
     - Its corresponding grammar rule is `EmptyLang` and the parse tree type is `EmptyLang`.
-    - Its automata equivalence is an automaton that does not accept anything (not even the empty string).
+    - Its automaton equivalence is an automaton that does not accept anything (not even the empty string).
     - In most scenarios, `()` is not required when writing a Alang expressions.
         However, many operations can result in the empty language. For example `a - (a | b)` is equivalent to `()`.
 
 - The language containing only the empty string {ε}
     - It is written in Alang as `()?`, since the Option operator `?` unites the operand with {ε}:  **L? = L ∪ { ε }**
-    - Its automata equivalence is an automaton that only accepts ε.
+    - Its automaton equivalence is an automaton that only accepts ε.
 - Note that `()` ≠ `{ε}`. For instance:
     - Concatenating any language `L` with `()` => `()`.
     - Concatenating any language `L` with `{ε}` => `L`.

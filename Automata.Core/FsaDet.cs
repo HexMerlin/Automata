@@ -1,7 +1,7 @@
 ﻿namespace Automata.Core;
 
 /// <summary>
-/// Common interface for deterministic automata, such as <see cref="Dfa"/> and <see cref="Mfa"/>.
+/// Common base class for deterministic automata, such as <see cref="Dfa"/> and <see cref="Mfa"/>.
 /// </summary>
 public abstract class FsaDet : Fsa
 {
