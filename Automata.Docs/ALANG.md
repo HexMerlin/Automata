@@ -106,27 +106,17 @@ For example:
 
 ### Operation Definitions
 ```
-Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }
-Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }
-Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }
-Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }
-Option: L? = L ∪ { ε }
-Kleene Star: L* = ⋃ₙ₌₀^∞ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
-Kleene Plus: L⁺ = ⋃ₙ₌₁^∞ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1
-Complement: ᒾL = Σ* \ L
-```
-
 ### Operation Definitions
 
-```math
-\text{Union: } L_1 \cup L_2 = \{ w \mid w \in L_1 \text{ or } w \in L_2 \}
-\text{Difference: } L_1 - L_2 = \{ w \mid w \in L_1 \text{ and } w \notin L_2 \}
-\text{Intersection: } L_1 \cap L_2 = \{ w \mid w \in L_1 \text{ and } w \in L_2 \}
-\text{Concatenation: } L_1 \cdot L_2 = \{ w \mid w = uv, u \in L_1, v \in L_2 \}
-\text{Option: } L? = L \cup \{ \varepsilon \}
-\text{Kleene Star: } L^* = \bigcup_{n=0}^\infty L^n, \text{ where } L^0 = \{ \varepsilon \}, L^n = L \cdot L^{n-1} \text{ for } n \geq 1
-\text{Kleene Plus: } L^+ = \bigcup_{n=1}^\infty L^n, \text{ where } L^n = L \cdot L^{n-1} \text{ for } n \geq 1
-\text{Complement: } \neg L = \Sigma^* \setminus L
+Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }  
+Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }  
+Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }  
+Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }  
+Option: L? = L ∪ { ε }  
+Kleene Star: L* = ⋃ₙ₌₀ⁿ Lⁿ, where L⁰ = { ε }, Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1  
+Kleene Plus: L⁺ = ⋃ₙ₌₁ⁿ Lⁿ, where Lⁿ = L ⋅ Lⁿ⁻¹ for n ≥ 1  
+Complement: ᒾL = Σ* \ L  
+
 ```
 
 ## C# API
