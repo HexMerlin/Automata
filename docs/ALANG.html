@@ -315,9 +315,7 @@ However, many operations can result in the empty language. For example <code>a -
 <p><code>(x1 | x2 | x3)* - (x1 x2 x3)+</code> : All sequences constaining {x1, x2, x3}, except repetitions of &quot;x1 x2 x3&quot;.</p>
 <p><code>()</code>              : The empty language that does not accept anything. For example, it is the result from <code>hello - hello</code> and from <code>hello &amp; world</code>.</p>
 <h3 id="operation-definitions">Operation Definitions</h3>
-<pre><code>### Operation Definitions
-
-Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }  
+<pre><code>Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }  
 Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }  
 Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }  
 Concatenation: L₁ ⋅ L₂ = { w | w = uv, u ∈ L₁, v ∈ L₂ }  

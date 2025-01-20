@@ -106,8 +106,6 @@ For example:
 
 ### Operation Definitions
 ```
-### Operation Definitions
-
 Union: L₁ ∪ L₂ = { w | w ∈ L₁ or w ∈ L₂ }  
 Difference: L₁ - L₂ = { w | w ∈ L₁ and w ∉ L₂ }  
 Intersection: L₁ ∩ L₂ = { w | w ∈ L₁ and w ∈ L₂ }  
