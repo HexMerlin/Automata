@@ -14,19 +14,18 @@
         }
       ],
       "dest": "obj/api",
-      "disableGitFeatures": false,
+      "disableGitFeatures": false
     }
   ],
-
   "build": {
     "content": [
       { "files": ["*.md"] },
-      { "files": ["**/*.yml"], "src": "obj/api" },
+      { "files": ["**/*.yml"], "src": "obj/api" }
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
-     "resource": [
+    "resource": [
       { "files": ["images/**/*"] }
     ],
     "output": "../docs",
@@ -34,6 +33,12 @@
       "default",
       "templates/singulinkfx"
     ],
+    "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "math"
+      ]
+    },
     "globalMetadata": {
       "_appName": "Automata Docs",
       "_appTitle": "Automata Docs",
