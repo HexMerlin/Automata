@@ -6,7 +6,6 @@
     <!-- Define the output directory for docfx -->
     <DocsOutputDir>$(SolutionDir)\docs</DocsOutputDir>
     <!-- Disable NuGet package restore -->
-    <RestoreProjectStyle>None</RestoreProjectStyle>
   </PropertyGroup>
 
   <!-- Target to run docfx during the build process -->
