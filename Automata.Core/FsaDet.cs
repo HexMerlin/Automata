@@ -1,4 +1,6 @@
-﻿namespace Automata.Core;
+﻿using System.Diagnostics.Metrics;
+
+namespace Automata.Core;
 
 /// <summary>
 /// Common base class for deterministic automata, such as <see cref="Dfa"/> and <see cref="Mfa"/>.
@@ -32,7 +34,7 @@ public abstract class FsaDet : Fsa
     /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>
     public abstract int MaxState { get; }
-    
+
     /// <summary>
     /// Indicates whether the automaton accepts ϵ - the empty sting. 
     /// <para>Returns <see langword="true"/> <c>iff</c> an InitialState exists and it is also a final state.</para>
@@ -87,37 +89,86 @@ public abstract class FsaDet : Fsa
         => (toState = Transition(fromState, symbol)) != Constants.InvalidState;
 
     /// <summary>
-    /// Gets the epsilon transitions of the MFA, which is always empty.
+    /// Epsilon transitions of the MFA, which is always empty.
     /// </summary>
     /// <returns>An empty collection of <see cref="EpsilonTransition"/>.</returns>
     public override IReadOnlyCollection<EpsilonTransition> EpsilonTransitions() => Array.Empty<EpsilonTransition>();
 
     /// <summary>
-    /// Indicates whether the DFA accepts the given sequence of symbols.
+    /// Indicates whether the automaton accepts the given sequence of symbols as integers.
     /// </summary>
     /// <param name="sequence">Sequence of symbols to check.</param>
     /// <returns>
-    /// <see langword="true"/> <c>iff</c> the DFA accepts the sequence.
+    /// <see langword="true"/> <c>iff</c> the automaton accepts the sequence.
     /// </returns>
     /// <remarks>
-    /// The DFA processes each symbol in the sequence, transitioning between states according to its transition function.
-    /// If the DFA reaches a final state after processing all symbols, the sequence is accepted.
+    /// The automaton processes each symbol in the sequence, transitioning between states according to its transition function.
+    /// If the automaton reaches a final state after processing all symbols, the sequence is accepted.
     /// </remarks>
-    public bool Accepts(IEnumerable<string> sequence)
+    public bool Accepts(IEnumerable<int> sequence)
     {
         int state = InitialState;
-        foreach (string symbol in sequence)
+        foreach (int symbol in sequence)
         {
-            int symbolIndex = Alphabet[symbol];
-            if (symbolIndex == Constants.InvalidSymbolIndex)
-                return false;
+            if (state == Constants.InvalidState)
+                break;
 
-            if (!TryTransition(state, symbolIndex, out state))
-                return false;
-
+            state = Transition(state, symbol);
         }
         return IsFinal(state);
     }
+
+
+    /// <summary>
+    /// Indicates whether the automaton accepts the given sequence of symbols as strings.
+    /// </summary>
+    /// <param name="sequence">Sequence of symbols to check.</param>
+    /// <returns>
+    /// <see langword="true"/> <c>iff</c> the automaton accepts the sequence.
+    /// </returns>
+    /// <remarks>
+    /// The automaton processes each symbol in the sequence, transitioning between states according to its transition function.
+    /// If the automaton reaches a final state after processing all symbols, the sequence is accepted.
+    /// </remarks>
+    public bool Accepts(IEnumerable<string> sequence)
+        => Accepts(sequence.Select(symbol => Alphabet[symbol]));
+
+    /// <summary>
+    /// Sequence of states visited by the automaton for the given input sequence as integers.
+    /// </summary>
+    /// <param name="sequence">Sequence of input symbols.</param>
+    /// <returns>
+    /// An <see cref="IEnumerable{T}"/> of state indices representing the path taken by the automaton.
+    /// </returns>
+    /// <remarks>
+    /// The method yields each state as it is visited. The result sequence may be partial, if the entire input is not accepted by this automaton.
+    /// For a complete path, the number of states is sequence.Length + 1, with the last state being a final state.
+    /// </remarks>
+    public IEnumerable<int> StatePath(IEnumerable<int> sequence)
+    {
+        int state = InitialState;
+        foreach (int symbol in sequence)
+        {
+            if (state == Constants.InvalidState)
+                break;
+
+            yield return state;
+            state = Transition(state, symbol);
+        }
+    }
+
+    /// <summary>
+    /// Sequence of states visited by the automaton for the given input sequence as string.
+    /// </summary>
+    /// <param name="sequence">Sequence of input symbols.</param>
+    /// <returns>
+    /// An <see cref="IEnumerable{T}"/> of state indices representing the path taken by the automaton.
+    /// </returns>
+    /// <remarks>
+    /// The method yields each state as it is visited. The result sequence may be partial, if the entire input is not accepted by this automaton.
+    /// </remarks>
+    public IEnumerable<int> StatePath(IEnumerable<string> sequence)
+        => StatePath(sequence.Select(symbol => Alphabet[symbol]));
 
     #endregion Accessors
 }
