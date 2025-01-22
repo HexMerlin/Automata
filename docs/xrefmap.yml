@@ -1661,6 +1661,15 @@ references:
   fullName.vb: Automata.Core.Dfa.New(Automata.Core.Alphabet)
   nameWithType: Dfa.Dfa(Alphabet)
   nameWithType.vb: Dfa.New(Alphabet)
+- uid: Automata.Core.Dfa.#ctor(Automata.Core.Mfa)
+  name: Dfa(Mfa)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Dfa.#ctor(Automata.Core.Mfa)
+  name.vb: New(Mfa)
+  fullName: Automata.Core.Dfa.Dfa(Automata.Core.Mfa)
+  fullName.vb: Automata.Core.Dfa.New(Automata.Core.Mfa)
+  nameWithType: Dfa.Dfa(Mfa)
+  nameWithType.vb: Dfa.New(Mfa)
 - uid: Automata.Core.Dfa.#ctor*
   name: Dfa
   href: Automata.Core.Dfa.html#Automata_Core_Dfa__ctor_
@@ -2149,6 +2158,15 @@ references:
   fullName.vb: Automata.Core.FsaDet.New
   nameWithType: FsaDet.FsaDet
   nameWithType.vb: FsaDet.New
+- uid: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable{System.Int32})
+  name: Accepts(IEnumerable<int>)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_System_Collections_Generic_IEnumerable_System_Int32__
+  commentId: M:Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable{System.Int32})
+  name.vb: Accepts(IEnumerable(Of Integer))
+  fullName: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable<int>)
+  fullName.vb: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable(Of Integer))
+  nameWithType: FsaDet.Accepts(IEnumerable<int>)
+  nameWithType.vb: FsaDet.Accepts(IEnumerable(Of Integer))
 - uid: Automata.Core.FsaDet.Accepts(System.Collections.Generic.IEnumerable{System.String})
   name: Accepts(IEnumerable<string>)
   href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Accepts_System_Collections_Generic_IEnumerable_System_String__
@@ -2275,6 +2293,31 @@ references:
   isSpec: "True"
   fullName: Automata.Core.FsaDet.State
   nameWithType: FsaDet.State
+- uid: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable{System.Int32})
+  name: StatePath(IEnumerable<int>)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_StatePath_System_Collections_Generic_IEnumerable_System_Int32__
+  commentId: M:Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable{System.Int32})
+  name.vb: StatePath(IEnumerable(Of Integer))
+  fullName: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable<int>)
+  fullName.vb: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable(Of Integer))
+  nameWithType: FsaDet.StatePath(IEnumerable<int>)
+  nameWithType.vb: FsaDet.StatePath(IEnumerable(Of Integer))
+- uid: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable{System.String})
+  name: StatePath(IEnumerable<string>)
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_StatePath_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: StatePath(IEnumerable(Of String))
+  fullName: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: Automata.Core.FsaDet.StatePath(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: FsaDet.StatePath(IEnumerable<string>)
+  nameWithType.vb: FsaDet.StatePath(IEnumerable(Of String))
+- uid: Automata.Core.FsaDet.StatePath*
+  name: StatePath
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_StatePath_
+  commentId: Overload:Automata.Core.FsaDet.StatePath
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.StatePath
+  nameWithType: FsaDet.StatePath
 - uid: Automata.Core.FsaDet.Transition(System.Int32,System.Int32)
   name: Transition(int, int)
   href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_System_Int32_System_Int32_
@@ -3423,6 +3466,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Operations.Ops.Overlaps
   nameWithType: Ops.Overlaps
+- uid: Automata.Core.Operations.Ops.PrefixClosure(Automata.Core.Mfa)
+  name: PrefixClosure(Mfa)
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_PrefixClosure_Automata_Core_Mfa_
+  commentId: M:Automata.Core.Operations.Ops.PrefixClosure(Automata.Core.Mfa)
+  fullName: Automata.Core.Operations.Ops.PrefixClosure(Automata.Core.Mfa)
+  nameWithType: Ops.PrefixClosure(Mfa)
+- uid: Automata.Core.Operations.Ops.PrefixClosure*
+  name: PrefixClosure
+  href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_PrefixClosure_
+  commentId: Overload:Automata.Core.Operations.Ops.PrefixClosure
+  isSpec: "True"
+  fullName: Automata.Core.Operations.Ops.PrefixClosure
+  nameWithType: Ops.PrefixClosure
 - uid: Automata.Core.Operations.Ops.Reversal(Automata.Core.FsaDet)
   name: Reversal(FsaDet)
   href: Automata.Core.Operations.Ops.html#Automata_Core_Operations_Ops_Reversal_Automata_Core_FsaDet_

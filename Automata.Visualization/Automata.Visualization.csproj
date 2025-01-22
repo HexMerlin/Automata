@@ -12,11 +12,12 @@
     <PackageTags>automata; csharp; graph; finite-state-machine; dfa; nfa; fsa; minimize; minimization; msagl</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>New version with many new features</PackageReleaseNotes>
+    <Version>1.1.2</Version>
+    <PackageReleaseNotes>Minor additions</PackageReleaseNotes>
     <PackageProjectUrl>https://hexmerlin.github.io/Automata/index.html</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Configurations>Debug;Release;Docs Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

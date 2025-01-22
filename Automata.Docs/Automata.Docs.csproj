@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.Build.NoTargets/3.7.56">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <OutputType>Library</OutputType>
+	<TargetFramework>net45</TargetFramework>
     <!-- Define the output directory for docfx -->
     <DocsOutputDir>$(SolutionDir)\docs</DocsOutputDir>
+    <Configurations>Debug;Release;Docs Release</Configurations>
     <!-- Disable NuGet package restore -->
   </PropertyGroup>
 

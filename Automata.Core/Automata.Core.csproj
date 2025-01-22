@@ -11,11 +11,12 @@
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>New version with many new features</PackageReleaseNotes>
+    <Version>1.1.2</Version>
+    <PackageReleaseNotes>Minor additions</PackageReleaseNotes>
     <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://hexmerlin.github.io/Automata/index.html</PackageProjectUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Configurations>Debug;Release;Docs Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

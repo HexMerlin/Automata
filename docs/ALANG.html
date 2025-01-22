@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Docs/ALANG.md/#L1" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/blob/dev/Automata.Docs/ALANG.md/#L1" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="">
@@ -291,7 +291,7 @@ Thus, the parser resolves all reserved tokens as delimiters: The following are c
 <ul>
 <li>It is written in Alang using empty parentheses <code>()</code>.</li>
 <li>Its corresponding grammar rule is <code>EmptyLang</code> and the parse tree type is <code>EmptyLang</code>.</li>
-<li>Its automata equivalence is an automaton that does not accept anything (not even the empty string).</li>
+<li>Its automaton equivalence is an automaton that does not accept anything (not even the empty string).</li>
 <li>In most scenarios, <code>()</code> is not required when writing a Alang expressions.
 However, many operations can result in the empty language. For example <code>a - (a | b)</code> is equivalent to <code>()</code>.</li>
 </ul>
@@ -299,7 +299,7 @@ However, many operations can result in the empty language. For example <code>a -
 <li><p>The language containing only the empty string {ε}</p>
 <ul>
 <li>It is written in Alang as <code>()?</code>, since the Option operator <code>?</code> unites the operand with {ε}:  <strong>L? = L ∪ { ε }</strong></li>
-<li>Its automata equivalence is an automaton that only accepts ε.</li>
+<li>Its automaton equivalence is an automaton that only accepts ε.</li>
 </ul>
 </li>
 <li><p>Note that <code>()</code> ≠ <code>{ε}</code>. For instance:</p>

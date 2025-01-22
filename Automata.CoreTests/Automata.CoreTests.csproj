@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageIcon>logo.png</PackageIcon>
+    <Configurations>Debug;Release;Docs Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
