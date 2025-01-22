@@ -34,7 +34,18 @@ public class Dfa : FsaDet
     /// </summary>
     /// <param name="alphabet">Alphabet used by the DFA.</param>
     public Dfa(Alphabet alphabet) : base(alphabet) { }
- 
+
+    /// <summary>
+    /// Initializes a new instance of a <see cref="Dfa"/> class from an existing <see cref="Mfa"/>.
+    /// <para>
+    /// The resulting DFA is not only isomorphic to the original MFA but also graphically identical, 
+    /// preserving identical state and transition IDs, and <see cref="MaxState"/>.
+    /// </para>
+    /// </summary>
+    /// <param name="mfa">The MFA to convert into a DFA.</param>
+    public Dfa(Mfa mfa) : this(mfa.Alphabet, mfa.Transitions(), mfa.InitialState, mfa.FinalStates) 
+        => this.maxState = mfa.MaxState;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
     /// </summary>
@@ -46,7 +57,6 @@ public class Dfa : FsaDet
     {
         SetInitial(initialState);
         SetFinal(finalStates);
-        this.finalStates.UnionWith(finalStates);
         UnionWith(transitions);
     }
     #endregion Constructors
