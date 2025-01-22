@@ -40,6 +40,12 @@ public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
     }
 
     /// <summary>
+    /// String representation for ε - the empty epsilon string.
+    /// Epsilon is not part of any alphabet; the symbol is used solely for output purposes, never for computation.
+    /// </summary>
+    public const string Epsilon = "ε";
+
+    /// <summary>
     /// Private enum for private constructor without argument checks.
     /// </summary>
     private enum Unchecked { Yes }
@@ -64,12 +70,6 @@ public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static EpsilonTransition MaxTransSearchKey(int fromState) => new(fromState, int.MaxValue, Unchecked.Yes);
-
-    /// <summary>
-    /// String representation for ε - the empty epsilon string.
-    /// Epsilon is not part of any alphabet; the symbol is used solely for output purposes, never for computation.
-    /// </summary>
-    public const string Epsilon = "ε";
 
     /// <summary>
     /// Reverses the epsilon transition.
