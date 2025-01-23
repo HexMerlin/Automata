@@ -24,8 +24,10 @@ public readonly ref struct StateView
     /// </summary>
     /// <param name="fromState">State from which the transitions originate.</param>
     /// <param name="transitions">Filtered transitions from the specified state.</param>
+    /// <exception cref="ArgumentOutOfRangeException">If <paramref name="fromState"/> is negative.</exception>
     public StateView(int fromState, ReadOnlySpan<Transition> transitions)
     {
+        fromState.ShouldNotBeNegative();
         int startIndex = transitions.BinarySearch(Core.Transition.MinTrans(fromState));
         Debug.Assert(startIndex < 0, $"Binary search returned a non-negative index ({startIndex}), which should be impossible given the search key.");
         startIndex = ~startIndex;
@@ -56,15 +58,17 @@ public readonly ref struct StateView
 
 
     /// <summary>
-    /// Returns the state reachable from the current state on the specified symbol.
+    /// State reachable from the current state on <paramref name="symbol"/>.
     /// </summary>
-    /// <param name="symbol">Symbol for the transition.</param>
+    /// <param name="symbol">Symbol of the transition.</param>
+    /// <exception cref="ArgumentOutOfRangeException">If <paramref name="symbol"/> is negative.</exception>
     /// <returns>
-    /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
+    /// State reachable from the current state on <paramref name="symbol"/>; <see cref="Constants.InvalidState"/> if no such transition exists.
     /// </returns>
     /// <seealso cref="TryTransition(int, out int)"/>
     public int Transition(int symbol)
     {
+        symbol.ShouldNotBeNegative();
         int index = Transitions.BinarySearch(Core.Transition.MinTrans(State, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point
@@ -78,6 +82,7 @@ public readonly ref struct StateView
     /// </summary>
     /// <param name="symbol">Symbol for the transition.</param>
     /// <param name="toState">The reachable state, or <see cref="Constants.InvalidState"/> if the method returns false.</param>
+    /// <exception cref="ArgumentOutOfRangeException">If <paramref name="symbol"/> is negative.</exception>
     /// <returns><see langword="true"/> <c>iff</c> a reachable state exists.</returns>
     /// <seealso cref="Transition(int)"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

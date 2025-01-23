@@ -1601,6 +1601,44 @@ references:
   commentId: F:Automata.Core.Constants.InvalidSymbolIndex
   fullName: Automata.Core.Constants.InvalidSymbolIndex
   nameWithType: Constants.InvalidSymbolIndex
+- uid: Automata.Core.Contract
+  name: Contract
+  href: Automata.Core.Contract.html
+  commentId: T:Automata.Core.Contract
+  fullName: Automata.Core.Contract
+  nameWithType: Contract
+- uid: Automata.Core.Contract.ShouldBeInRange(System.Int32,System.Range,System.String)
+  name: ShouldBeInRange(int, Range, string)
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldBeInRange_System_Int32_System_Range_System_String_
+  commentId: M:Automata.Core.Contract.ShouldBeInRange(System.Int32,System.Range,System.String)
+  name.vb: ShouldBeInRange(Integer, Range, String)
+  fullName: Automata.Core.Contract.ShouldBeInRange(int, System.Range, string)
+  fullName.vb: Automata.Core.Contract.ShouldBeInRange(Integer, System.Range, String)
+  nameWithType: Contract.ShouldBeInRange(int, Range, string)
+  nameWithType.vb: Contract.ShouldBeInRange(Integer, Range, String)
+- uid: Automata.Core.Contract.ShouldBeInRange*
+  name: ShouldBeInRange
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldBeInRange_
+  commentId: Overload:Automata.Core.Contract.ShouldBeInRange
+  isSpec: "True"
+  fullName: Automata.Core.Contract.ShouldBeInRange
+  nameWithType: Contract.ShouldBeInRange
+- uid: Automata.Core.Contract.ShouldNotBeNegative(System.Int32,System.String)
+  name: ShouldNotBeNegative(int, string)
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldNotBeNegative_System_Int32_System_String_
+  commentId: M:Automata.Core.Contract.ShouldNotBeNegative(System.Int32,System.String)
+  name.vb: ShouldNotBeNegative(Integer, String)
+  fullName: Automata.Core.Contract.ShouldNotBeNegative(int, string)
+  fullName.vb: Automata.Core.Contract.ShouldNotBeNegative(Integer, String)
+  nameWithType: Contract.ShouldNotBeNegative(int, string)
+  nameWithType.vb: Contract.ShouldNotBeNegative(Integer, String)
+- uid: Automata.Core.Contract.ShouldNotBeNegative*
+  name: ShouldNotBeNegative
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldNotBeNegative_
+  commentId: Overload:Automata.Core.Contract.ShouldNotBeNegative
+  isSpec: "True"
+  fullName: Automata.Core.Contract.ShouldNotBeNegative
+  nameWithType: Contract.ShouldNotBeNegative
 - uid: Automata.Core.Converter
   name: Converter
   href: Automata.Core.Converter.html
@@ -1805,6 +1843,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.State
   nameWithType: Dfa.State
+- uid: Automata.Core.Dfa.StateRange
+  name: StateRange
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_StateRange
+  commentId: P:Automata.Core.Dfa.StateRange
+  fullName: Automata.Core.Dfa.StateRange
+  nameWithType: Dfa.StateRange
+- uid: Automata.Core.Dfa.StateRange*
+  name: StateRange
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_StateRange_
+  commentId: Overload:Automata.Core.Dfa.StateRange
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.StateRange
+  nameWithType: Dfa.StateRange
 - uid: Automata.Core.Dfa.ToCanonicalString
   name: ToCanonicalString()
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCanonicalString
@@ -2318,6 +2369,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.FsaDet.StatePath
   nameWithType: FsaDet.StatePath
+- uid: Automata.Core.FsaDet.StateRange
+  name: StateRange
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_StateRange
+  commentId: P:Automata.Core.FsaDet.StateRange
+  fullName: Automata.Core.FsaDet.StateRange
+  nameWithType: FsaDet.StateRange
+- uid: Automata.Core.FsaDet.StateRange*
+  name: StateRange
+  href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_StateRange_
+  commentId: Overload:Automata.Core.FsaDet.StateRange
+  isSpec: "True"
+  fullName: Automata.Core.FsaDet.StateRange
+  nameWithType: FsaDet.StateRange
 - uid: Automata.Core.FsaDet.Transition(System.Int32,System.Int32)
   name: Transition(int, int)
   href: Automata.Core.FsaDet.html#Automata_Core_FsaDet_Transition_System_Int32_System_Int32_
@@ -2803,6 +2867,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Mfa.StateCount
   nameWithType: Mfa.StateCount
+- uid: Automata.Core.Mfa.StateRange
+  name: StateRange
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_StateRange
+  commentId: P:Automata.Core.Mfa.StateRange
+  fullName: Automata.Core.Mfa.StateRange
+  nameWithType: Mfa.StateRange
+- uid: Automata.Core.Mfa.StateRange*
+  name: StateRange
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_StateRange_
+  commentId: Overload:Automata.Core.Mfa.StateRange
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.StateRange
+  nameWithType: Mfa.StateRange
 - uid: Automata.Core.Mfa.ToCanonicalString
   name: ToCanonicalString()
   href: Automata.Core.Mfa.html#Automata_Core_Mfa_ToCanonicalString

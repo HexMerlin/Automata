@@ -30,6 +30,12 @@ public abstract class FsaDet : Fsa
     public abstract int InitialState { get; }
 
     /// <summary>
+    /// Range of states in this automaton.
+    /// <para>Any value from <see cref="Range.End"/> and higher is guaranteed to be free and not used by the automaton.</para>
+    /// </summary>
+    public abstract Range StateRange { get; }
+
+    /// <summary>
     /// Upper limit for the maximum state number in the DFA. 
     /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>
@@ -63,6 +69,7 @@ public abstract class FsaDet : Fsa
     /// Returns a readonly view of the specified state.
     /// </summary>
     /// <param name="fromState">State from which to get the state view.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> is negative.</exception>
     /// <returns>A <see cref="StateView"/> representing the state view from the specified state.</returns>
     public abstract StateView State(int fromState);
 
@@ -71,6 +78,7 @@ public abstract class FsaDet : Fsa
     /// </summary>
     /// <param name="fromState">The state origin of the transition.</param>
     /// <param name="symbol">Symbol for the transition.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> is negative.</exception>
     /// <returns>
     /// The state reachable from the given state on the given symbol. If no such transition exists, <see cref="Constants.InvalidState"/> is returned.
     /// </returns>
@@ -147,14 +155,21 @@ public abstract class FsaDet : Fsa
     public IEnumerable<int> StatePath(IEnumerable<int> sequence)
     {
         int state = InitialState;
+        if (state == Constants.InvalidState)
+            yield break;
+
+        yield return state;
+        
         foreach (int symbol in sequence)
         {
+            state = Transition(state, symbol);
+
             if (state == Constants.InvalidState)
-                break;
+                yield break;
 
             yield return state;
-            state = Transition(state, symbol);
         }
+        
     }
 
     /// <summary>

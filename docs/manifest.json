@@ -282,6 +282,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Automata.Core.Contract.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.Contract.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Automata.Core.Converter.yml",
       "output": {
         ".html": {

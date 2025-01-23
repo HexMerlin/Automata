@@ -39,12 +39,9 @@ public readonly record struct Transition : IComparable<Transition>
     /// <exception cref="ArgumentException">Thrown if any of arguments has a negative value.</exception>
     public Transition(int fromState, int symbol, int toState) 
     {
-        ArgumentOutOfRangeException.ThrowIfLessThan(fromState, 0, nameof(fromState));
-        ArgumentOutOfRangeException.ThrowIfLessThan(symbol, 0, nameof(symbol));
-        ArgumentOutOfRangeException.ThrowIfLessThan(toState, 0, nameof(toState));
-        FromState = fromState;
-        Symbol = symbol;
-        ToState = toState;
+        FromState = fromState.ShouldNotBeNegative();
+        Symbol = symbol.ShouldNotBeNegative();
+        ToState = toState.ShouldNotBeNegative();
     }
 
     /// <summary>

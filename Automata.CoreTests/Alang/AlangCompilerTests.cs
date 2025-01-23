@@ -180,6 +180,10 @@ public class AlangCompilerTests
     public void Compile_ForWildCardComplement_ReturnsCorrect()
        => Assert_LanguageEquivalence(".~", "(a | b)* - (a | b)", "a", "b");
 
+    [TestMethod()]
+    public void Compile_ForNestedComplement_ReturnsEmptyLang()
+   => Assert_LanguageEquivalence("()~~", "()");
+
     #endregion Language Equivalance Tests for Operation correctness
 
     //Invalid Compilation Tests - Primarily test that parser errors are propagated correctly to the Compiler.

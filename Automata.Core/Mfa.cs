@@ -69,17 +69,25 @@ public class Mfa : FsaDet, IEquatable<Mfa>
         Dictionary<int, int> dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
         StateCount = dfaStateToMfaStateMap.Count;
         this.transitions = dfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
+        Array.Sort(this.transitions); //sorting using default Transition comparer is crucial
+
         this.finalStates = dfa.FinalStates.Select(s => dfaStateToMfaStateMap[s]).OrderBy(s => s).ToArray();
     }
 
     /// <summary>
     /// Private constructor
     /// </summary>
-    private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates) : base(alphabet)
+    private Mfa(Alphabet alphabet, int stateCount, Transition[] transitions, int[] finalStates, bool performSorting) : base(alphabet)
     {
         StateCount = stateCount;
         this.transitions = transitions;
         this.finalStates = finalStates;
+
+        if (performSorting)
+        {
+            Array.Sort(this.transitions);
+            Array.Sort(this.finalStates);
+        }
     }
 
     /// <summary>
@@ -87,7 +95,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// The MFA has zero states and zero transitions.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the MFA.</param>
-    public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet, 0, [], []);
+    public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet, 0, [], [], performSorting: false);
 
     /// <summary>
     /// Returns an automaton that accepts one occurrence of any symbol in the specified alphabet.
@@ -96,7 +104,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// <param name="alphabet">Alphabet containing the set of symbols</param>
     /// <returns>An automaton representing any symbol accepted exactly once.</returns>
     public static Mfa CreateWildcard(Alphabet alphabet)
-        => new(alphabet, stateCount: 2, transitions: [.. alphabet.SymbolIndices.Select(symbol => new Transition(0, symbol, 1))], finalStates: [1]);
+        => new(alphabet, stateCount: 2, transitions: [.. alphabet.SymbolIndices.Select(symbol => new Transition(0, symbol, 1))], finalStates: [1], performSorting: true);
 
     #endregion Constructors
 
@@ -110,6 +118,16 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// An MFA without an initial state is completely empty (= <see cref="IsEmptyLanguage"/>).
     /// </remarks>
     public override int InitialState => StateCount > 0 ? 0 : Constants.InvalidState;
+
+    /// <summary>
+    /// Range covering all states in the automaton.
+    /// </summary>
+    /// <remarks>
+    /// States are contiguous without gaps; all states lie within this range. The exclusive <see cref="Range.End"/> equals both <see cref="StateCount"/> and the next unused state ID.
+    /// <para>For non-empty automata: <c>StateRange = [0, <see cref="StateCount"/>)</c>.</para>
+    /// <para>For empty automata: <c>StateRange = [−1, −1)</c>.</para>
+    /// </remarks>
+    public override Range StateRange => StateCount > 0 ? new(0, StateCount) : new Range(Constants.InvalidState, Constants.InvalidState);
 
     /// <summary>
     /// The state number with the highest value.
@@ -151,6 +169,8 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     ///<inheritdoc/>
     public override int Transition(int fromState, int symbol)
     {
+        fromState.ShouldBeInRange(StateRange);
+
         int index = Array.BinarySearch(transitions, Core.Transition.MinTrans(fromState, symbol));
         Debug.Assert(index < 0, $"Binary search returned a non-negative index ({index}), which should be impossible given the search key.");
         index = ~index; // Get the insertion point

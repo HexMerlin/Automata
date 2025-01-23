@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Automata.Core;
 
@@ -162,18 +163,20 @@ public class Nfa : Fsa
     /// Returns the set of transitions from the given state.
     /// </summary>
     /// <param name="fromState">State from which to start.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> is negative.</exception>
     /// <returns>Set of transitions from the given state.</returns>
     public SortedSet<Transition> Transitions(int fromState)
-        => transitions.GetViewBetween(Transition.MinTrans(fromState), Transition.MaxTrans(fromState));
+        => transitions.GetViewBetween(Transition.MinTrans(fromState.ShouldNotBeNegative()), Transition.MaxTrans(fromState));
 
     /// <summary>
     /// Returns the transitions from the given state with the given symbol.
     /// </summary>
     /// <param name="fromState">State from which to start.</param>
     /// <param name="symbol">Symbol to transition on.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> or <paramref name="symbol"/> is negative.</exception>
     /// <returns>Transitions from the given state on the given symbol.</returns>
     public SortedSet<Transition> Transitions(int fromState, int symbol)
-        => transitions.GetViewBetween(Transition.MinTrans(fromState, symbol), Transition.MaxTrans(fromState, symbol));
+        => transitions.GetViewBetween(Transition.MinTrans(fromState.ShouldNotBeNegative(), symbol.ShouldNotBeNegative()), Transition.MaxTrans(fromState, symbol));
 
     /// <summary>
     /// Transitions of the DFA.
@@ -192,9 +195,11 @@ public class Nfa : Fsa
     /// </summary>
     /// <param name="fromStates">States from which to start.</param>
     /// <param name="symbol">Symbol to transition on.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="symbol"/> is negative.</exception>
     /// <returns>States reachable from the given states on the given symbol, including epsilon closures.</returns>
     public IntSet ReachableStates(IEnumerable<int> fromStates, int symbol)
     {
+        symbol.ShouldNotBeNegative();
         HashSet<int> intermediateStates = fromStates.ToHashSet();
         ReachableStatesOnEpsilonInPlace(intermediateStates);
         HashSet<int> toStates = intermediateStates.SelectMany(s => ReachableStatesOnSingleSymbol(s, symbol)).ToHashSet();
@@ -207,6 +212,7 @@ public class Nfa : Fsa
     /// </summary>
     /// <param name="fromState">State from which to start.</param>
     /// <param name="symbol">Symbol to transition on.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> or <paramref name="symbol"/> is negative.</exception>
     /// <returns>States reachable from the given state on the given symbol.</returns>
     public IEnumerable<int> ReachableStatesOnSingleSymbol(int fromState, int symbol)
         => Transitions(fromState, symbol).Select(t => t.ToState);
@@ -216,9 +222,10 @@ public class Nfa : Fsa
     /// If the input state has an epsilon loop on itself, it will be included in the result.
     /// </summary>
     /// <param name="fromState">State from which to start.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> is negative.</exception>
     /// <returns>States reachable from the given state on a single epsilon transition.</returns>
     public IEnumerable<int> ReachableStatesOnSingleEpsilon(int fromState)
-        => epsilonTransitions.GetViewBetween(EpsilonTransition.MinTransSearchKey(fromState), EpsilonTransition.MaxTransSearchKey(fromState)).Select(t => t.ToState);
+        => epsilonTransitions.GetViewBetween(EpsilonTransition.MinTransSearchKey(fromState.ShouldNotBeNegative()), EpsilonTransition.MaxTransSearchKey(fromState)).Select(t => t.ToState);
 
     /// <summary>
     /// Extends the provided set of states with their epsilon closure in place.
@@ -333,8 +340,7 @@ public class Nfa : Fsa
             throw new ArgumentException("Negative states are not allowed.");
         if (condition)
         {
-            set.Add(state);
-            MaxState = Math.Max(MaxState, state);
+            set.Add(VerifyAndUpdateMaxState(state));
         }
         else set.Remove(state);
     }
@@ -352,10 +358,27 @@ public class Nfa : Fsa
             throw new ArgumentException("Negative states are not allowed.");
         if (condition)
         {
-            set.UnionWith(states);
-            MaxState = Math.Max(MaxState, states.DefaultIfEmpty(Constants.InvalidState).Max());
+            foreach (int state in states)
+                set.Add(VerifyAndUpdateMaxState(state));
         }
         else set.ExceptWith(states);
+    }
+
+    /// <summary>
+    /// Asserts that the state is non-negative and updates the maximum state number if the provided state is greater.
+    /// </summary>
+    /// <param name="state">State to compare and potentially update.</param>
+    /// <returns>The input state.</returns>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="state"/> is negative.</exception>
+    /// <remarks>
+    /// This method ensures that the state is valid (non-negative) and updates the <see cref="MaxState"/> if the provided state exceeds the current maximum state.
+    /// </remarks>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private int VerifyAndUpdateMaxState(int state)
+    {
+        state.ShouldNotBeNegative();
+        MaxState = Math.Max(MaxState, state);
+        return state;
     }
 
     /// <summary>
@@ -402,7 +425,14 @@ public class Nfa : Fsa
     /// <remarks>
     /// The alphabet is not cleared.
     /// </remarks>
-    public void ClearAll() => finalStates.Clear();
+    public void ClearAll()
+    {
+        initialStates.Clear();
+        finalStates.Clear();
+        transitions.Clear();
+        epsilonTransitions.Clear();
+        MaxState = Constants.InvalidState;
+    }
 
     #endregion Mutators
 

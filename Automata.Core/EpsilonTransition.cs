@@ -33,10 +33,8 @@ public readonly record struct EpsilonTransition : IComparable<EpsilonTransition>
     /// <exception cref="ArgumentException">Thrown if any of arguments has a negative value.</exception>
     public EpsilonTransition(int fromState, int toState)
     {
-        ArgumentOutOfRangeException.ThrowIfLessThan(fromState, 0, nameof(fromState));
-        ArgumentOutOfRangeException.ThrowIfLessThan(toState, 0, nameof(toState));
-        FromState = fromState;
-        ToState = toState;
+        FromState = fromState.ShouldNotBeNegative();
+        ToState = toState.ShouldNotBeNegative();
     }
 
     /// <summary>

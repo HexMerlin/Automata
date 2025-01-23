@@ -72,6 +72,19 @@ public class Dfa : FsaDet
     public override int InitialState => initialState;
 
     /// <summary>
+    /// Range encompassing all states of the automaton.
+    /// </summary>
+    /// <remarks>
+    /// All states lies inside this range; but contiguity of states is not guaranteed.
+    /// <para>Exclusive <see cref="Range.End"/> equals the minimal unused state ID.</para>
+    /// <para>Non-empty automata: <c>StateRange = [0, <see cref="MaxState"/> + 1)</c>.</para>
+    /// <para>Empty automata: <c>StateRange = [−1, −1)</c>).</para>
+    /// </remarks>
+    public override Range StateRange => initialState != Constants.InvalidState
+        ? new Range(0, maxState + 1)
+        : new Range(Constants.InvalidState, Constants.InvalidState);
+
+    /// <summary>
     /// Upper limit for the maximum state number in the DFA. 
     /// <para>A value (<see cref="MaxState"/> + 1) is guaranteed to be an unused state number.</para>
     /// </summary>
@@ -104,6 +117,7 @@ public class Dfa : FsaDet
     /// Returns a view of the specified state.
     /// </summary>
     /// <param name="fromState">The state origin.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="fromState"/> is negative.</exception>
     /// <returns>A <see cref="StateView"/> for the given state.</returns>
     public override StateView State(int fromState)
         => new(fromState, Transitions(fromState).ToArray());
@@ -111,7 +125,7 @@ public class Dfa : FsaDet
     ///<inheritdoc/>
     public override int Transition(int fromState, int symbol)
         => transitions.GetViewBetween(
-            Core.Transition.MinTrans(fromState, symbol),
+            Core.Transition.MinTrans(fromState.ShouldNotBeNegative(), symbol.ShouldNotBeNegative()),
             Core.Transition.MaxTrans(fromState, symbol)
         ).FirstOrDefault(Core.Transition.Invalid).ToState;
 
@@ -128,7 +142,7 @@ public class Dfa : FsaDet
     /// <returns>Set of transitions from the given state.</returns>
     private SortedSet<Transition> Transitions(int fromState)
         => transitions.GetViewBetween(
-            Core.Transition.MinTrans(fromState),
+            Core.Transition.MinTrans(fromState.ShouldNotBeNegative()),
             Core.Transition.MaxTrans(fromState)
         );
 
@@ -140,7 +154,8 @@ public class Dfa : FsaDet
     /// Sets the initial state of the DFA, updating the maximum state number if necessary.
     /// </summary>
     /// <param name="state">State to set as the initial state.</param>
-    public void SetInitial(int state) => initialState = UpdateMaxState(state);
+    
+    public void SetInitial(int state) => initialState = VerifyAndUpdateMaxState(state);
 
     /// <summary>
     /// Sets the specified state as a final state or removes it from the final states.
@@ -197,7 +212,7 @@ public class Dfa : FsaDet
     private void IncludeIf(bool condition, int state, HashSet<int> set)
     {
         if (condition)
-            set.Add(UpdateMaxState(state));
+            set.Add(VerifyAndUpdateMaxState(state));
         else
             set.Remove(state);
     }
@@ -213,7 +228,7 @@ public class Dfa : FsaDet
         if (condition)
         {
             foreach (int state in states)
-                set.Add(UpdateMaxState(state));
+                set.Add(VerifyAndUpdateMaxState(state));
         }
         else
         {
@@ -222,13 +237,18 @@ public class Dfa : FsaDet
     }
 
     /// <summary>
-    /// Updates the maximum state number if the provided state is greater.
+    /// Asserts that the state is non-negative and updates the maximum state number if the provided state is greater.
     /// </summary>
     /// <param name="state">State to compare and potentially update.</param>
     /// <returns>The input state.</returns>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="state"/> is negative.</exception>
+    /// <remarks>
+    /// This method ensures that the state is valid (non-negative) and updates the <see cref="MaxState"/> if the provided state exceeds the current maximum state.
+    /// </remarks>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private int UpdateMaxState(int state)
+    private int VerifyAndUpdateMaxState(int state)
     {
+        state.ShouldNotBeNegative();
         maxState = Math.Max(MaxState, state);
         return state;
     }

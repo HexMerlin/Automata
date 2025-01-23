@@ -14,7 +14,7 @@ public static partial class Ops
     {
         Alphabet alphabet = mfa.Alphabet;
 
-        int initialState = mfa.InitialState;
+        int initialState = 0; //setting explicitly to 0, since the MFA might be empty and have no initial state. 
 
         // Notice: The line below is also adding a new final 'trap state' to the DFA, hence the +1.
         var finalStates = Enumerable.Range(0, mfa.StateCount + 1).Except(mfa.FinalStates);
