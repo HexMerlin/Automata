@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Visualization", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.App", "Automata.App\Automata.App.csproj", "{C73E7AA6-D759-A7A0-62A2-13A98743A941}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automata.Profiling", "Automata.Profiling\Automata.Profiling.csproj", "{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,12 @@ Global
 		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Docs Release|Any CPU.Build.0 = Docs Release|Any CPU
 		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C73E7AA6-D759-A7A0-62A2-13A98743A941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Docs Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Docs Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1D3E5A-F554-437A-B4F1-C2AB6C979E14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
