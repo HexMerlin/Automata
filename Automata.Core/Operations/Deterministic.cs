@@ -34,7 +34,7 @@ public static partial class Ops
                 dfaTransitions.Add(new Transition(dfaFromState, symbol, dfaToState));
             }
         }
-        return new Dfa(nfa.Alphabet, dfaTransitions, dfaInitialState, dfaFinalStates);
+        return new Dfa(nfa.Alphabet, dfaInitialState, dfaFinalStates, dfaTransitions);
 
         int GetOrAddState(IntSet combinedState)
         {
