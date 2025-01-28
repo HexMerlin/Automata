@@ -420,7 +420,7 @@ public class Nfa : Fsa
     public void ClearFinalStates() => finalStates.Clear();
 
     /// <summary>
-    /// Clears all states and transitions. The resulting NFA will be equivalent to the empty language (∅).
+    /// Clears all states and transitions. The NFA will be equivalent to the empty language (∅).
     /// </summary>
     /// <remarks>
     /// The alphabet is not cleared.
