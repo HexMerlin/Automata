@@ -83,9 +83,16 @@ public class Alphabet : IEquatable<Alphabet>
     public int this[string symbol] => stringToIndexMap.TryGetValue(symbol, out int index) ? index : Constants.InvalidSymbolIndex;
 
     /// <summary>
-    /// Indicates whether the alphabet contains the specified symbol.
+    /// Indicates whether the alphabet contains the specified symbol as an integer.
     /// </summary>
-    /// <param name="symbol">Symbol to locate in the alphabet.</param>
+    /// <param name="symbol">Symbol index to locate in the alphabet.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the symbol is found; otherwise, <see langword="false"/>.</returns>
+    public bool Contains(int symbol) => symbol >= 0 && symbol < this.Count;
+
+    /// <summary>
+    /// Indicates whether the alphabet contains the specified symbol as a string.
+    /// </summary>
+    /// <param name="symbol">Symbol string to locate in the alphabet.</param>
     /// <returns><see langword="true"/> <c>iff</c> the symbol is found; otherwise, <see langword="false"/>.</returns>
     public bool Contains(string symbol) => stringToIndexMap.ContainsKey(symbol);
 
