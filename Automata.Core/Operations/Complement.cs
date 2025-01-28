@@ -20,7 +20,7 @@ public static partial class Ops
         var finalStates = Enumerable.Range(0, mfa.StateCount + 1).Except(mfa.FinalStates);
         int trapState = mfa.StateCount;
 
-        Dfa dfa = new Dfa(alphabet, mfa.Transitions(), initialState, finalStates);
+        Dfa dfa = new Dfa(alphabet, initialState, finalStates, mfa.Transitions());
 
         // Iterate over all states in DFA (including the trap state) and add transitions to the trap state for all missing symbols in the alphabet.
         // Consequently, the new trap state will have a self-loop for all symbols in the alphabet.
