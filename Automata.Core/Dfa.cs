@@ -43,22 +43,57 @@ public class Dfa : FsaDet
     /// </para>
     /// </summary>
     /// <param name="mfa">The MFA to convert into a DFA.</param>
-    public Dfa(Mfa mfa) : this(mfa.Alphabet, mfa.Transitions(), mfa.InitialState, mfa.FinalStates) 
+    public Dfa(Mfa mfa) : this(mfa.Alphabet, mfa.InitialState, mfa.FinalStates, mfa.Transitions())
         => this.maxState = mfa.MaxState;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Dfa"/> class with the specified alphabet, transitions, initial state, and final states.
     /// </summary>
     /// <param name="alphabet">Alphabet used by the DFA.</param>
-    /// <param name="transitions">Transitions of the DFA.</param>
     /// <param name="initialState">Initial state of the DFA.</param>
     /// <param name="finalStates">Final states of the DFA.</param>
-    internal Dfa(Alphabet alphabet, IEnumerable<Transition> transitions, int initialState, IEnumerable<int> finalStates) : this(alphabet)
+    /// <param name="transitions">Transitions of the DFA.</param>
+    internal Dfa(Alphabet alphabet, int initialState, IEnumerable<int> finalStates, IEnumerable<Transition> transitions) : this(alphabet)
     {
         SetInitial(initialState);
         SetFinal(finalStates);
         UnionWith(transitions);
     }
+
+    /// <summary>
+    /// Private constructor of the <see cref="Dfa"/> class with the specified alphabet, initial state, maximum state, final states, and transitions.
+    /// <para>
+    /// Unsafe constructor that does not validate any arguments.
+    /// </para>
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the DFA.</param>
+    /// <param name="initialState">Initial state of the DFA.</param>
+    /// <param name="maxState">Maximum state number in the DFA.</param>
+    /// <param name="finalStates">Set of final states in the DFA.</param>
+    /// <param name="transitions">Set of transitions in the DFA.</param>
+    private Dfa(Alphabet alphabet, int initialState, int maxState, HashSet<int> finalStates, SortedSet<Transition> transitions) : base(alphabet)
+    {
+        this.initialState = initialState;
+        this.maxState = maxState;
+        this.finalStates = finalStates;
+        this.transitions = transitions;
+    }
+
+    /// <summary>
+    /// Creates a <see cref="Dfa"/> that represents the empty language (∅), with a specified alphabet.
+    /// The DFA has zero states and zero transitions.
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    public static Dfa CreateEmpty(Alphabet alphabet) => new(alphabet);
+
+    /// <summary>
+    /// Creates a <see cref="Mfa"/> that represents the language <c>{ϵ}</c>, with a specified alphabet.
+    /// The DFA has a single initial, final state and zero transitions.
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the DFA.</param>
+    public static Dfa CreateEpsilonAccepting(Alphabet alphabet) => new(alphabet, 0, 0, [0], []);
+
+
     #endregion Constructors
 
     #region Accessors
@@ -203,6 +238,192 @@ public class Dfa : FsaDet
             Add(transition);
     }
 
+
+    /// <summary>
+    /// Trim the DFA in-place to only include states and transitions that are both accessible and co-accessible.
+    /// Thus, all states and transitions that are not on a path from the initial state to a final state are removed.
+    /// </summary>
+    /// <returns>
+    /// A tuple containing post-trim information:
+    /// <list type="bullet">
+    /// <item><description>Remaining trimmed states.</description></item>
+    /// <item><description>Remaining transitions in reversed form. This can be used for back-tracking in the DFA.</description></item>
+    /// </list>
+    /// </returns>
+    public (HashSet<int> allStates, SortedSet<Transition> reverseTransitions) Trim()
+    {
+        if (!HasInitialState)
+        {
+            ClearAll();
+            return ([], []);
+        }
+        HashSet<int> reachable = new() { InitialState };
+        Queue<int> queue = new();
+        queue.Enqueue(InitialState);
+        while (queue.Count > 0)
+        {
+            int fromState = queue.Dequeue();
+            foreach (Transition t in Transitions(fromState))
+                if (reachable.Add(t.ToState))
+                    queue.Enqueue(t.ToState);
+        }
+
+        SortedSet<Transition> reverseTrans = new(transitions.Select(t => new Transition(t.ToState, t.Symbol, t.FromState)));
+        HashSet<int> reachingFinal = new(FinalStates);
+
+        foreach (var f in FinalStates)
+            queue.Enqueue(f);
+
+        while (queue.Count > 0)
+        {
+            int state = queue.Dequeue();
+            IEnumerable<int> fromStates = reverseTrans.GetViewBetween(Core.Transition.MinTrans(state), Core.Transition.MaxTrans(state))
+                    .Select(t => t.ToState); //'.ToState' means actually getting fromStates since we are operating on reverseTrans
+
+            foreach (int fromState in fromStates)
+                if (reachingFinal.Add(fromState))
+                    queue.Enqueue(fromState);
+        }
+
+        reachable.IntersectWith(reachingFinal); // keep only co-accessible states
+        initialState = reachable.Contains(InitialState) ? InitialState : Constants.InvalidState;
+        transitions.RemoveWhere(t => !reachable.Contains(t.FromState) || !reachable.Contains(t.ToState));
+        reverseTrans.RemoveWhere(t => !reachable.Contains(t.FromState) || !reachable.Contains(t.ToState));
+        finalStates.IntersectWith(reachable);
+        return (reachable, reverseTrans);
+    }
+
+    internal Dfa Minimal()
+    {
+        //return Minimal_Brzozowski();
+        return Minimal_Hopcroft();
+    }
+
+    /// <summary>
+    /// Returns a new minimal DFA using Brzozowski's algorithm.
+    /// </summary>
+    /// <returns>A new minimal DFA.</returns>
+    /// <seealso cref="Minimal_Hopcroft"></seealso>
+    internal Dfa Minimal_Brzozowski()
+    {
+        Dfa reversed = Ops.Deterministic(Ops.Reversal(this));
+        Dfa min = Ops.Deterministic(Ops.Reversal(reversed));
+        if (min.TransitionCount == 0 && !AcceptsEpsilon)
+            min.ClearAll();
+        return min;
+    }
+
+    /// <summary>
+    /// Returns a new minimal DFA using Hopcroft's algorithm.
+    /// Current instance will be trimmed (to only include states and transitions that are both accessible and co-accessible).
+    /// </summary>
+    /// <returns>A new minimal DFA.</returns>
+    /// <seealso cref="Trim"></seealso>
+    /// <seealso cref="Minimal_Brzozowski"></seealso>"/>
+    internal Dfa Minimal_Hopcroft()
+    {
+        // Return simple if DFA has no initial state or no transitions or no final states
+        if (! HasInitialState || TransitionCount == 0 || FinalStates.Count == 0) 
+            return AcceptsEpsilon ? Dfa.CreateEpsilonAccepting(Alphabet) : Dfa.CreateEmpty(Alphabet);
+
+        // Step 1: Trim the DFA in-place and get trim information
+        (HashSet<int> allStates, SortedSet<Transition> reverseTransitions) = Trim();
+
+        // Step 2: Partition initialization
+        var finalStates = new IntSet(this.finalStates.Intersect(allStates));
+        var nonFinalStates = new IntSet(allStates.Except(this.finalStates));
+        var partitions = new List<IntSet> { finalStates };
+        if (nonFinalStates.Count > 0) partitions.Add(nonFinalStates);
+        var workSet = new HashSet<IntSet>(partitions);
+
+        // Step 3: Refinement loop
+        while (workSet.Count > 0)
+        {
+            // Extract and remove a partition from the work set
+            var currentPartition = workSet.First();
+            workSet.Remove(currentPartition);
+
+            foreach (var symbol in Alphabet.SymbolIndices)
+            {
+                // Get states that transition into the current partition on this symbol
+                var fromStates = currentPartition
+                    .SelectMany(state => reverseTransitions.GetViewBetween(
+                        Core.Transition.MinTrans(state, symbol), Core.Transition.MaxTrans(state, symbol))
+                    .Select(t => t.ToState))
+                    .ToArray();
+
+                if (fromStates.Length == 0) continue;
+
+                // Refine partitions based on X
+                for (int i = partitions.Count - 1; i >= 0; i--)
+                {
+                    var partition = partitions[i];
+                    var intersection = new IntSet(partition.Intersect(fromStates));
+                    var difference = new IntSet(partition.Except(fromStates));
+
+                    if (intersection.Count > 0 && difference.Count > 0)
+                    {
+                        // Split partition
+                        partitions[i] = intersection;
+                        partitions.Add(difference);
+
+                        // Update the work set
+                        if (workSet.Contains(partition))
+                        {
+                            // Remove the original partition and add the new splits
+                            workSet.Remove(partition);
+                            workSet.Add(intersection);
+                            workSet.Add(difference);
+                        }
+                        else
+                        {
+                            // Add only the smaller split for efficiency
+                            workSet.Add(intersection.Count <= difference.Count ? intersection : difference);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Step 4: Build minimized MFA
+
+        Dictionary<int, int> dfaStateToMinStateMap = partitions
+            .SelectMany((partition, index) => partition.Select(state => (state, index)))
+            .ToDictionary(pair => pair.state, pair => pair.index);
+
+        SortedSet<Transition> minTransitions = new();
+      
+        foreach (var transition in Transitions())
+        {
+            if (dfaStateToMinStateMap.TryGetValue(transition.FromState, out var fromState) &&
+                dfaStateToMinStateMap.TryGetValue(transition.ToState, out var toState))
+            {
+                minTransitions.Add(new Transition(fromState, transition.Symbol, toState));
+            }
+        }
+        int initialState = dfaStateToMinStateMap[InitialState];
+      
+        var minFinalStates = this.finalStates
+            .Where(s => dfaStateToMinStateMap.ContainsKey(s))
+            .Select(s => dfaStateToMinStateMap[s]).ToHashSet();
+
+        return new Dfa(Alphabet, initialState, partitions.Count - 1, minFinalStates, minTransitions);
+    }
+
+    /// <summary>
+    /// Clears all states and transitions. The DFA will be equivalent to the empty language (∅).
+    /// </summary>
+    /// <remarks>
+    /// The alphabet is not cleared.
+    /// </remarks>
+    public void ClearAll()
+    {
+        initialState = Constants.InvalidState;
+        maxState = Constants.InvalidState;
+        finalStates.Clear();
+        transitions.Clear();
+    }
+
     /// <summary>
     /// Conditionally includes or excludes a state in a set based on the provided condition.
     /// </summary>
@@ -274,7 +495,7 @@ public class Dfa : FsaDet
         if (! HasInitialState)
             return new Dictionary<int, int>();
 
-        StringComparer comparer = StringComparer.Ordinal;
+        StringComparer comparer = StringComparer.Ordinal; //Default canonical string comparer
 
         Dictionary<int, int> stateToCanonicalMap = new();
         Queue<int> queue = new();
