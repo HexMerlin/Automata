@@ -131,6 +131,20 @@ public class IntSet : IEquatable<IntSet>, IReadOnlySet<int>
     public bool SetEquals(IEnumerable<int> other) => Members.SetEquals(other);
 
     /// <summary>
+    /// Intersection of the current set with the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns>A new <see cref="IntSet"/> that are both in the current set and in the specified collection.</returns>
+    public IntSet Intersect(IEnumerable<int> other) => new(Members.Intersect(other));
+
+    /// <summary>
+    /// Difference of the current set with the specified collection.
+    /// </summary>
+    /// <param name="other">The collection to compare to the current set.</param>
+    /// <returns>A new <see cref="IntSet"/> containing elements that are in the current set but not in the specified collection.</returns>
+    public IntSet Except(IEnumerable<int> other) => new(Members.Except(other));
+
+    /// <summary>
     /// Returns an enumerator that iterates through the set.
     /// </summary>
     /// <returns>An enumerator for the set.</returns>
