@@ -59,8 +59,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     public Mfa(Dfa dfa) : base(dfa.Alphabet)
     {
         dfa = dfa.Minimal(); //make sure the dfa is minimal
-        // Return simple if DFA has no initial state or no transitions or no final states
-       
+             
         Dictionary<int, int> dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
         StateCount = dfaStateToMfaStateMap.Count;
 
