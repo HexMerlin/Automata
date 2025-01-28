@@ -1,7 +1,4 @@
-﻿
-using System.Collections;
-using System.Collections.Frozen;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Automata.Core;
 
@@ -11,18 +8,24 @@ namespace Automata.Core;
 [DebuggerDisplay("{ToString()}")]
 public class IntSet : HashSet<int>, IEquatable<IntSet>
 {
-   
     #region Constructors
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IntSet"/> class with the specified elements.
     /// </summary>
     /// <param name="elements">Elements to include in the set.</param>
-    public IntSet(IEnumerable<int> elements) : base(elements) {}
+    public IntSet(IEnumerable<int> elements) : base(elements) { }
 
-    #endregion Constructors
+    private IntSet() : base() { }
 
-    #region Accessors
+    public (IntSet intersection, IntSet difference) Split(IEnumerable<int> other)
+    {
+        var intersection = new IntSet(this);
+        intersection.IntersectWith(other);
+        var difference = new IntSet(this);
+        difference.IntersectWith(intersection);
+        return (intersection, difference);
+    }
 
     /// <summary>
     /// Indicates whether the current set is equal to another set.
@@ -55,7 +58,7 @@ public class IntSet : HashSet<int>, IEquatable<IntSet>
         }
         return hash;
     }
- 
+
     /// <summary>
     /// String that represents the current set.
     /// </summary>
@@ -63,6 +66,21 @@ public class IntSet : HashSet<int>, IEquatable<IntSet>
     public override string ToString()
         => Count <= 10 ? string.Join(", ", this) : string.Join(", ", this.Take(10)) + ", ...";
 
+    /// <summary>
+    /// Equality operator.
+    /// </summary>
+    /// <param name="left">Left operand.</param>
+    /// <param name="right">Right operand.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the operands are equal.</returns>
+    public static bool operator ==(IntSet? left, IntSet? right) => Equals(left, right);
+
+    /// <summary>
+    /// Inequality operator.
+    /// </summary>
+    /// <param name="left">Left operand.</param>
+    /// <param name="right">Right operand.</param>
+    /// <returns><see langword="true"/> <c>iff</c> the operands are not equal.</returns>
+    public static bool operator !=(IntSet? left, IntSet? right) => !Equals(left, right);
 
     #endregion Accessors
 }
