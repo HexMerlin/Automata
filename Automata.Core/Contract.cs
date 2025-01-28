@@ -17,6 +17,7 @@ public static class Contract
     /// <exception cref="ArgumentOutOfRangeException">
     /// Thrown <c>iff</c> <paramref name="value"/> is not within <paramref name="range"/>.
     /// </exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ShouldBeInRange(
         this int value,
         Range range,
@@ -38,6 +39,7 @@ public static class Contract
     /// <exception cref="ArgumentOutOfRangeException">
     /// Thrown <c>iff</c> <paramref name="value"/> is negative.
     /// </exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ShouldNotBeNegative(
         this int value,
         [CallerArgumentExpression(nameof(value))] string paramName = "")
