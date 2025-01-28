@@ -58,16 +58,12 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// <param name="dfa">A DFA to create from.</param>
     public Mfa(Dfa dfa) : base(dfa.Alphabet)
     {
-        dfa = Ops.Minimal(dfa); //make sure the dfa is minimal
-        if (dfa.FinalStates.Count == 0)
-        {
-            StateCount = 0;
-            this.transitions = [];
-            this.finalStates = [];
-            return;
-        }
+        dfa = dfa.Minimal(); //make sure the dfa is minimal
+        // Return simple if DFA has no initial state or no transitions or no final states
+       
         Dictionary<int, int> dfaStateToMfaStateMap = dfa.StatesToCanonicalStatesMap();
         StateCount = dfaStateToMfaStateMap.Count;
+
         this.transitions = dfa.Transitions().Select(t => new Transition(dfaStateToMfaStateMap[t.FromState], t.Symbol, dfaStateToMfaStateMap[t.ToState])).ToArray();
         Array.Sort(this.transitions); //sorting using default Transition comparer is crucial
 
@@ -96,6 +92,13 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// </summary>
     /// <param name="alphabet">Alphabet used by the MFA.</param>
     public static Mfa CreateEmpty(Alphabet alphabet) => new(alphabet, 0, [], [], performSorting: false);
+
+    /// <summary>
+    /// Creates a <see cref="Mfa"/> that represents the language <c>{ϵ}</c>, with a specified alphabet.
+    /// The MFA has a single initial, final state and zero transitions.
+    /// </summary>
+    /// <param name="alphabet">Alphabet used by the MFA.</param>
+    public static Mfa CreateEpsilonAccepting(Alphabet alphabet) => new(alphabet, 1, [], [0], performSorting: false);
 
     /// <summary>
     /// Returns an automaton that accepts one occurrence of any symbol in the specified alphabet.
@@ -144,9 +147,9 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// Indicates whether the language of the MFA is the empty language (∅). This means the MFA does not accept anything, including the empty string (ϵ).
     /// </summary>
     /// <remarks>
-    /// Returns <see langword="true"/> only if either; the MFA has no states, or the initial state is not a final state.
+    /// Returns <see langword="true"/> only if either; the MFA has no states.
     /// </remarks>
-    public bool IsEmptyLanguage => MaxState == Constants.InvalidState;
+    public bool IsEmptyLanguage => StateCount == 0;
 
     /// <summary>
     /// Number of transitions in the automaton.
@@ -158,7 +161,7 @@ public class Mfa : FsaDet, IEquatable<Mfa>
     /// </summary>
     /// <param name="state">State to check.</param>
     /// <returns><see langword="true"/> <c>iff</c> the specified state is a final state.</returns>
-    public override bool IsFinal(int state) => FinalStates.Contains(state);
+    public override bool IsFinal(int state) => Array.BinarySearch(finalStates, state) >= 0;
     
     /// <summary>
     /// Gets the transitions of the MFA.
