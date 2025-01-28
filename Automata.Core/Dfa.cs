@@ -293,10 +293,17 @@ public class Dfa : FsaDet
         return (reachable, reverseTrans);
     }
 
+    /// <summary>
+    /// Returns a new minimal DFA.
+    /// </summary>
+    /// <remarks>Switchable in code between Brzozowski's and Hopcroft's algorithms</remarks>
+    /// <returns>A new minimal DFA.</returns>
+    /// <seealso cref="Minimal_Hopcroft"></seealso>
+    /// <seealso cref="Minimal_Brzozowski"/>
     internal Dfa Minimal()
     {
-        //return Minimal_Brzozowski();
-        return Minimal_Hopcroft();
+       // return Minimal_Brzozowski();
+        return Minimal_Hopcroft(); //The Brzozowski implementation is currently faster on average, due to a fast implementation of both the Powerset construction the reverse algorithms.
     }
 
     /// <summary>
@@ -349,12 +356,10 @@ public class Dfa : FsaDet
                 var fromStates = currentPartition
                     .SelectMany(state => reverseTransitions.GetViewBetween(
                         Core.Transition.MinTrans(state, symbol), Core.Transition.MaxTrans(state, symbol))
-                    .Select(t => t.ToState))
-                    .ToArray();
+                    .Select(t => t.ToState)).ToArray();
 
-                if (fromStates.Length == 0) continue;
 
-                // Refine partitions based on X
+                // Refine partitions based on fromStates
                 for (int i = partitions.Count - 1; i >= 0; i--)
                 {
                     var partition = partitions[i];
@@ -370,9 +375,8 @@ public class Dfa : FsaDet
                         // Update the work set
                         if (workSet.Contains(partition))
                         {
-                            // Remove the original partition and add the new splits
-                            workSet.Remove(partition);
-                            workSet.Add(intersection);
+                            workSet.Remove(partition); // Remove the existing partition 
+                            workSet.Add(intersection); // Add the new splits
                             workSet.Add(difference);
                         }
                         else
