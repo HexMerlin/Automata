@@ -103,7 +103,7 @@ public readonly record struct Transition : IComparable<Transition>
     public Transition Reverse() => new(ToState, Symbol, FromState);
 
     /// <summary>
-    /// Compares the current transition to another transition.
+    /// Compares the current transition to another transition by default order: {FromState, Symbol, ToState}.
     /// </summary>
     /// <param name="other">Other transition to compare to.</param>
     /// <returns>An integer that indicates the relative order of the objects being compared.</returns>
@@ -117,7 +117,6 @@ public readonly record struct Transition : IComparable<Transition>
 
         return ToState.CompareTo(other.ToState);
     }
-
 
     /// <summary>
     /// String that represents the current transition.
