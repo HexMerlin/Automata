@@ -67,8 +67,8 @@ public class AlangCompilerTests
     public void Compile_ForDifferenceWithDisjunct_ReturnsLeft() => Assert_Compile_ReturnsCorrect("a - b", "S#=2, F#=1: [1], T#=1: [0->1 a]");
 
     [TestMethod()]
-    public void Compile_ForKleenePlusWithComplement_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("a+~ b", "S#=4, F#=1: [2], T#=8: [0->1 a, 0->2 b, 1->1 a, 1->3 b, 2->3 a, 2->2 b, 3->3 a, 3->2 b]");
-
+    public void Compile_ForKleenePlusWithComplement_ReturnsCorrect() => Assert_Compile_ReturnsCorrect("a+~ b", "S#=5, F#=1: [2], T#=10: [0->1 a, 0->2 b, 1->1 a, 1->3 b, 2->4 a, 2->2 b, 3->4 a, 3->2 b, 4->4 a, 4->2 b]");
+    
     [TestMethod()]
     public void Compile_OptionOnEmptyLanguage_ReturnsEpsilonAccepting() => Assert_Compile_ReturnsCorrect("()?", "S#=1, F#=1: [0], T#=0");
 
