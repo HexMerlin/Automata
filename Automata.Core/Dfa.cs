@@ -302,8 +302,8 @@ public class Dfa : FsaDet
     /// <seealso cref="Minimal_Brzozowski"/>
     internal Dfa Minimal()
     {
-       // return Minimal_Brzozowski();
-        return Minimal_Hopcroft(); //The Brzozowski implementation is currently faster on average, due to a fast implementation of both the Powerset construction the reverse algorithms.
+        return Minimal_Brzozowski();
+        //return Minimal_Hopcroft(); 
     }
 
     /// <summary>
@@ -336,82 +336,9 @@ public class Dfa : FsaDet
         // Step 1: Trim the DFA in-place and get trim information
         (HashSet<int> allStates, SortedSet<Transition> reverseTransitions) = Trim();
 
-        // Step 2: Partition initialization
-        var finalStates = new IntSet(this.finalStates.Intersect(allStates));
-        var nonFinalStates = new IntSet(allStates.Except(this.finalStates));
-        var partitions = new List<IntSet> { finalStates };
-        if (nonFinalStates.Count > 0) partitions.Add(nonFinalStates);
-        var workSet = new HashSet<IntSet>(partitions);
+        //Add the rest of code here for the full implementation of Hopcroft's algorithm
 
-        // Step 3: Refinement loop
-        while (workSet.Count > 0)
-        {
-            // Extract and remove a partition from the work set
-            var currentPartition = workSet.First();
-            workSet.Remove(currentPartition);
-
-            foreach (var symbol in Alphabet.SymbolIndices)
-            {
-                // Get states that transition into the current partition on this symbol
-                var fromStates = currentPartition
-                    .SelectMany(state => reverseTransitions.GetViewBetween(
-                        Core.Transition.MinTrans(state, symbol), Core.Transition.MaxTrans(state, symbol))
-                    .Select(t => t.ToState)).ToArray();
-
-
-                // Refine partitions based on fromStates
-                for (int i = partitions.Count - 1; i >= 0; i--)
-                {
-                    var partition = partitions[i];
-                    var intersection = new IntSet(partition.Intersect(fromStates));
-                    var difference = new IntSet(partition.Except(fromStates));
-
-                    if (intersection.Count > 0 && difference.Count > 0)
-                    {
-                        // Split partition
-                        partitions[i] = intersection;
-                        partitions.Add(difference);
-
-                        // Update the work set
-                        if (workSet.Contains(partition))
-                        {
-                            workSet.Remove(partition); // Remove the existing partition 
-                            workSet.Add(intersection); // Add the new splits
-                            workSet.Add(difference);
-                        }
-                        else
-                        {
-                            // Add only the smaller split for efficiency
-                            workSet.Add(intersection.Count <= difference.Count ? intersection : difference);
-                        }
-                    }
-                }
-            }
-        }
-
-        // Step 4: Build minimized MFA
-
-        Dictionary<int, int> dfaStateToMinStateMap = partitions
-            .SelectMany((partition, index) => partition.Select(state => (state, index)))
-            .ToDictionary(pair => pair.state, pair => pair.index);
-
-        SortedSet<Transition> minTransitions = new();
-      
-        foreach (var transition in Transitions())
-        {
-            if (dfaStateToMinStateMap.TryGetValue(transition.FromState, out var fromState) &&
-                dfaStateToMinStateMap.TryGetValue(transition.ToState, out var toState))
-            {
-                minTransitions.Add(new Transition(fromState, transition.Symbol, toState));
-            }
-        }
-        int initialState = dfaStateToMinStateMap[InitialState];
-      
-        var minFinalStates = this.finalStates
-            .Where(s => dfaStateToMinStateMap.ContainsKey(s))
-            .Select(s => dfaStateToMinStateMap[s]).ToHashSet();
-
-        return new Dfa(Alphabet, initialState, partitions.Count - 1, minFinalStates, minTransitions);
+        throw new NotImplementedException();
     }
 
     /// <summary>
