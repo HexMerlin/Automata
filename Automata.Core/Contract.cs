@@ -29,7 +29,7 @@ public static class Contract
     }
 
     /// <summary>
-    /// Assert <paramref name="value"/> is not negative.
+    /// Asserts <paramref name="value"/> is not negative.
     /// </summary>
     /// <param name="value">Value to validate.</param>
     /// <param name="paramName">Captured automatically.</param>
@@ -48,4 +48,25 @@ public static class Contract
         return value;
     }
 
+
+    /// <summary>
+    /// Asserts <paramref name="value"/> is greater than or equal to <paramref name="other"/>.
+    /// </summary>
+    /// <param name="value">Value to validate.</param>
+    /// <param name="other">Value to compare against.</param>
+    /// <param name="paramName">Captured automatically.</param>
+    /// <returns>
+    /// <paramref name="value"/> <c>iff</c> <paramref name="value"/> is greater than or equal to <paramref name="other"/>.
+    /// </returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown <c>iff</c> <paramref name="value"/> is less than <paramref name="other"/>.
+    /// </exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static int ShouldBeGreaterThanOrEqual(
+        this int value, int other,
+        [CallerArgumentExpression(nameof(value))] string paramName = "")
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(value, other, paramName);
+        return value;
+    }
 }
