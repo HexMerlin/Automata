@@ -90,6 +90,24 @@ public readonly record struct Transition : IComparable<Transition>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Transition MaxTrans(int fromState, int symbol = int.MaxValue) => new(fromState, symbol, int.MaxValue, Unchecked.Yes);
 
+    /// <summary>
+    /// Min search key used for reverse sorted transitions (using <see cref="ComparerByToState"/>).
+    /// </summary>
+    /// <param name="toState">A given toState</param>
+    /// <returns>A transition that will be less than all other transitions with the same <see cref="ToState"/></returns>
+    /// <seealso cref="Transition.ComparerByToState"/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static Transition MinTransReverse(int toState) => new(int.MinValue, int.MinValue, toState, Unchecked.Yes);
+
+    /// <summary>
+    /// Max search key used for reverse sorted transitions (using <see cref="ComparerByToState"/>).
+    /// </summary>
+    /// <param name="toState">A given toState</param>
+    /// <returns>A transition that will be greater than all other transitions with the same <see cref="ToState"/></returns>
+    /// <seealso cref="Transition.ComparerByToState"/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static Transition MaxTransReverse(int toState) => new(int.MaxValue, int.MaxValue, toState, Unchecked.Yes);
+
 
     /// <summary>
     /// Indicates whether the transition is invalid.
@@ -117,6 +135,21 @@ public readonly record struct Transition : IComparable<Transition>
 
         return ToState.CompareTo(other.ToState);
     }
+
+    /// <summary>
+    /// A comparer that compares transitions by their to states.
+    /// </summary>
+    /// <returns>A comparer that compares transitions in reversed order: {ToState, Symbol, FromState}.</returns>
+    public static Comparer<Transition> ComparerByToState() => Comparer<Transition>.Create((t1, t2) =>
+    {
+        int c = t1.ToState.CompareTo(t2.ToState);
+        if (c != 0) return c;
+
+        c = t1.Symbol.CompareTo(t2.Symbol);
+        if (c != 0) return c;
+
+        return t1.FromState.CompareTo(t2.FromState);
+    });
 
     /// <summary>
     /// String that represents the current transition.
