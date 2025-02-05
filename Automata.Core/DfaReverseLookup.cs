@@ -19,33 +19,33 @@ public class DfaReverseLookup
     private readonly Dictionary<int, int[]> toState_Symbols;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DfaReverseLookup"/> class using the specified DFA.
+    /// All states in the DFA after trimming.
     /// </summary>
-    /// <param name="dfa">The DFA to initialize the reverse lookup from.</param>
-    public DfaReverseLookup(Dfa dfa) : this(dfa.Transitions().ToArray()) { }
+    public ISet<int> AllStates { get; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DfaReverseLookup"/> class using the specified transitions.
+    /// Initializes a new instance of the <see cref="DfaReverseLookup"/> class using the specified DFA.
     /// </summary>
-    /// <param name="transitions">Array of unique transitions to initialize the reverse lookup from.</param>
-    private DfaReverseLookup(Transition[] transitions)
+    /// <remarks>Initially, this method perform a trim operation on the DFA that removes states that are not both accessible and co-accessible.</remarks>
+    /// <param name="dfa">The DFA to initialize the reverse lookup from.</param>
+    public DfaReverseLookup(Dfa dfa)
     {
-        if (transitions.Length == 0)
+        (AllStates, Transition[] reverseTransitions) = dfa.Trim();
+      
+        if (reverseTransitions.Length == 0)
             return;
-
-        Array.Sort(transitions, ComparerByToState());
-
-        this.toStateSymbol_FromStates = new Dictionary<(int, int), int[]>(transitions.Length);
-        this.toState_Symbols = new Dictionary<int, int[]>(transitions.Length);
+      
+        this.toStateSymbol_FromStates = new Dictionary<(int, int), int[]>(reverseTransitions.Length);
+        this.toState_Symbols = new Dictionary<int, int[]>(reverseTransitions.Length);
 
         int start = 0;
-        (int toState, int symbol) = (transitions[0].ToState, transitions[0].Symbol);
+        (int toState, int symbol) = (reverseTransitions[0].ToState, reverseTransitions[0].Symbol);
 
         var symbolsList = new List<int> { symbol }; // Track symbols for the current toState
 
-        for (int i = 1; i < transitions.Length; i++)
+        for (int i = 1; i < reverseTransitions.Length; i++)
         {
-            var transition = transitions[i];
+            var transition = reverseTransitions[i];
 
             if (transition.ToState != toState) // New toState encountered
             {
@@ -60,7 +60,7 @@ public class DfaReverseLookup
 
             if (transition.ToState != toState || transition.Symbol != symbol) // New (toState, symbol) pair
             {
-                toStateSymbol_FromStates[(toState, symbol)] = ExtractFromStates(transitions, start, i);
+                toStateSymbol_FromStates[(toState, symbol)] = ExtractFromStates(reverseTransitions, start, i);
                 start = i;
             }
 
@@ -68,18 +68,9 @@ public class DfaReverseLookup
         }
 
         // Store last segments
-        toStateSymbol_FromStates[(toState, symbol)] = ExtractFromStates(transitions, start, transitions.Length);
+        toStateSymbol_FromStates[(toState, symbol)] = ExtractFromStates(reverseTransitions, start, reverseTransitions.Length);
         toState_Symbols[toState] = symbolsList.ToArray();
     }
-
-    /// <summary>
-    /// Gets the array of from-states for the specified to-state and symbol.
-    /// The returned states are unique and ordered.
-    /// </summary>
-    /// <param name="toState">The destination state.</param>
-    /// <param name="symbol">The transition symbol.</param>
-    /// <returns>Array of from-states.</returns>
-    public int[] FromStates(int toState, int symbol) => toStateSymbol_FromStates[(toState, symbol)];
 
     /// <summary>
     /// Gets the array of symbols for the specified to-state.
@@ -87,7 +78,47 @@ public class DfaReverseLookup
     /// </summary>
     /// <param name="toState">The destination state.</param>
     /// <returns>Array of symbols.</returns>
-    public int[] Symbols(int toState) => toState_Symbols[toState];
+    public int[] Symbols(int toState) => toState_Symbols.TryGetValue(toState, out int[]? symbols) ? symbols : [];
+
+    /// <summary>
+    /// The set of states that can transition to the specified state with the specified symbol.
+    /// </summary>
+    /// <param name="toState">The destination state.</param>
+    /// <param name="symbol">The transition symbol.</param>
+    /// <returns>Set of from-states.</returns>
+    public IntSet FromStates(int toState, int symbol)
+    {
+        if (toStateSymbol_FromStates.TryGetValue((toState, symbol), out int[]? fromStateArray))
+            return new IntSet(fromStateArray);
+        return new IntSet([]);
+    }
+
+    /// <summary>
+    /// The set of states that can transition to any of the specified to-states with the specified symbol.
+    /// </summary>
+    /// <param name="toStates">Set of destination states.</param>
+    /// <param name="symbol">The transition symbol.</param>
+    /// <returns>Set of from-states.</returns>
+    public IntSet FromStates(IntSet toStates, int symbol)
+    {
+        HashSet<int> fromStates = new HashSet<int>();
+        foreach (int toState in toStates)
+            if (toStateSymbol_FromStates.TryGetValue((toState, symbol), out int[]? fromStateArray))
+                fromStates.UnionWith(fromStateArray);
+        return new IntSet(fromStates);
+    }
+
+    /// <summary>
+    /// Adds the symbols for the specified to-states to the provided set of symbols.
+    /// </summary>
+    /// <param name="toStates">Set of destination states.</param>
+    /// <param name="symbols">Set of symbols to add to.</param>
+    public void AddSymbols(IntSet toStates, HashSet<int> symbols)
+    {
+        foreach (int toState in toStates)
+            if (toState_Symbols.TryGetValue(toState, out int[]? symbolArray))
+                symbols.UnionWith(symbolArray);
+    }
 
     /// <summary>
     /// Extracts the 'FromState' values from a segment of transitions.
@@ -104,19 +135,5 @@ public class DfaReverseLookup
         return result;
     }
 
-    /// <summary>
-    /// A comparer that compares transitions by their to states.
-    /// </summary>
-    /// <returns>A comparer that compares transitions in reversed order: {ToState, Symbol, FromState}.</returns>
-    private static Comparer<Transition> ComparerByToState() => Comparer<Transition>.Create((t1, t2) =>
-    {
-        int c = t1.ToState.CompareTo(t2.ToState);
-        if (c != 0) return c;
-
-        c = t1.Symbol.CompareTo(t2.Symbol);
-        if (c != 0) return c;
-
-        return t1.FromState.CompareTo(t2.FromState);
-    });
 }
 
