@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Automata.Core;
@@ -181,6 +180,13 @@ public class Dfa : FsaDet
             Core.Transition.MaxTrans(fromState)
         );
 
+    /// <summary>
+    /// Returns the set of symbols (no duplicates) for transitions from the specified state.
+    /// </summary>
+    /// <param name="fromState">State from which to get the symbols.</param>
+    /// <returns>An enumerable collection of symbols for transitions from the specified state.</returns>
+    public IEnumerable<int> Symbols(int fromState) => Transitions(fromState).Select(t => t.Symbol);
+
     #endregion Accessors
 
     #region Mutators
@@ -189,7 +195,7 @@ public class Dfa : FsaDet
     /// Sets the initial state of the DFA, updating the maximum state number if necessary.
     /// </summary>
     /// <param name="state">State to set as the initial state.</param>
-    
+
     public void SetInitial(int state) => initialState = VerifyAndUpdateMaxState(state);
 
     /// <summary>
@@ -238,7 +244,6 @@ public class Dfa : FsaDet
             Add(transition);
     }
 
-
     /// <summary>
     /// Trim the DFA in-place to only include states and transitions that are both accessible and co-accessible.
     /// Thus, all states and transitions that are not on a path from the initial state to a final state are removed.
@@ -250,61 +255,59 @@ public class Dfa : FsaDet
     /// <item><description>Remaining transitions in reversed form. This can be used for back-tracking in the DFA.</description></item>
     /// </list>
     /// </returns>
-    public (HashSet<int> allStates, SortedSet<Transition> reverseTransitions) Trim()
+    public (HashSet<int> allStates, Transition[] reverseTransitions) Trim()
     {
         if (!HasInitialState)
         {
             ClearAll();
             return ([], []);
         }
-        HashSet<int> reachable = new() { InitialState };
+        HashSet<int> reachableFromInitial = new() { InitialState };
         Queue<int> queue = new();
         queue.Enqueue(InitialState);
         while (queue.Count > 0)
         {
             int fromState = queue.Dequeue();
             foreach (Transition t in Transitions(fromState))
-                if (reachable.Add(t.ToState))
+                if (reachableFromInitial.Add(t.ToState))
                     queue.Enqueue(t.ToState);
         }
 
-        SortedSet<Transition> reverseTrans = new(transitions.Select(t => new Transition(t.ToState, t.Symbol, t.FromState)));
-        HashSet<int> reachingFinal = new(FinalStates);
-
-        foreach (var f in FinalStates)
+        transitions.RemoveWhere(t => !reachableFromInitial.Contains(t.FromState) || !reachableFromInitial.Contains(t.ToState));
+        
+        SortedSet<Transition> reverseTrans = new SortedSet<Transition>(transitions, Core.Transition.ComparerByToState());
+        finalStates.IntersectWith(reachableFromInitial);
+       
+        foreach (int f in finalStates)
             queue.Enqueue(f);
 
+        HashSet<int> onPathInitialToFinal = new(finalStates);
         while (queue.Count > 0)
         {
-            int state = queue.Dequeue();
-            IEnumerable<int> fromStates = reverseTrans.GetViewBetween(Core.Transition.MinTrans(state), Core.Transition.MaxTrans(state))
-                    .Select(t => t.ToState); //'.ToState' means actually getting fromStates since we are operating on reverseTrans
+            int toState = queue.Dequeue();
+            IEnumerable<int> fromStates = reverseTrans.GetViewBetween(Core.Transition.MinTransReverse(toState), Core.Transition.MaxTransReverse(toState))
+                    .Select(t => t.FromState);
 
-            foreach (int fromState in fromStates)
-                if (reachingFinal.Add(fromState))
+            foreach (int fromState in fromStates) {
+              if (onPathInitialToFinal.Add(fromState))
                     queue.Enqueue(fromState);
+            }  
         }
 
-        reachable.IntersectWith(reachingFinal); // keep only co-accessible states
-        initialState = reachable.Contains(InitialState) ? InitialState : Constants.InvalidState;
-        transitions.RemoveWhere(t => !reachable.Contains(t.FromState) || !reachable.Contains(t.ToState));
-        reverseTrans.RemoveWhere(t => !reachable.Contains(t.FromState) || !reachable.Contains(t.ToState));
-        finalStates.IntersectWith(reachable);
-        return (reachable, reverseTrans);
+        initialState = onPathInitialToFinal.Contains(InitialState) ? InitialState : Constants.InvalidState;
+        transitions.RemoveWhere(t => !onPathInitialToFinal.Contains(t.FromState) || !onPathInitialToFinal.Contains(t.ToState));
+
+        return (onPathInitialToFinal, reverseTrans.ToArray());
     }
 
     /// <summary>
-    /// Returns a new minimal DFA.
+    /// Returns a new minimal DFA. Uses Hopcroft's algorithm as default.
     /// </summary>
-    /// <remarks>Switchable in code between Brzozowski's and Hopcroft's algorithms</remarks>
+    /// <param name="useHopcroftAlgorithm">If <see langword="true"/>, uses Hopcroft's algorithm; otherwise, uses Brzozowski's algorithm.</param>
     /// <returns>A new minimal DFA.</returns>
-    /// <seealso cref="Minimal_Hopcroft"></seealso>
+    /// <seealso cref="Minimal_Hopcroft"/>
     /// <seealso cref="Minimal_Brzozowski"/>
-    internal Dfa Minimal()
-    {
-        return Minimal_Brzozowski();
-        //return Minimal_Hopcroft(); 
-    }
+    public Dfa Minimal(bool useHopcroftAlgorithm = true) => useHopcroftAlgorithm ? Minimal_Hopcroft() : Minimal_Brzozowski();
 
     /// <summary>
     /// Returns a new minimal DFA using Brzozowski's algorithm.
@@ -326,20 +329,100 @@ public class Dfa : FsaDet
     /// </summary>
     /// <returns>A new minimal DFA.</returns>
     /// <seealso cref="Trim"></seealso>
-    /// <seealso cref="Minimal_Brzozowski"></seealso>"/>
-    internal Dfa Minimal_Hopcroft()
+    /// <seealso cref="Minimal_Brzozowski"></seealso>
+    public Dfa Minimal_Hopcroft()
     {
-        // Return simple if DFA has no initial state or no transitions or no final states
-        if (! HasInitialState || TransitionCount == 0 || FinalStates.Count == 0) 
+        if (!HasInitialState || TransitionCount == 0 || FinalStates.Count == 0)
             return AcceptsEpsilon ? Dfa.CreateEpsilonAccepting(Alphabet) : Dfa.CreateEmpty(Alphabet);
+          
+        DfaReverseLookup reverseLookup = new(this);
+        ISet<int> allStates = reverseLookup.AllStates;
 
-        // Step 1: Trim the DFA in-place and get trim information
-        (HashSet<int> allStates, SortedSet<Transition> reverseTransitions) = Trim();
+        var finalBlock = new IntSet(this.finalStates);
+        var nonFinalBlock = new IntSet(allStates.Except(this.finalStates));
 
-        //Add the rest of code here for the full implementation of Hopcroft's algorithm
+        var P = new HashSet<IntSet> { finalBlock };
+        if (nonFinalBlock.Count > 0)
+            P.Add(nonFinalBlock);
 
-        throw new NotImplementedException();
+        HashSet<IntSet> W = [finalBlock];
+        if (nonFinalBlock.Count > 0)
+            W.Add(nonFinalBlock);
+
+        HashSet<int> involvedSymbols = new();
+        List<IntSet> blocksToSplit = new List<IntSet>();
+
+        while (W.Count > 0)
+        {
+            IntSet A = W.First();
+            W.Remove(A);
+
+            involvedSymbols.Clear();
+            reverseLookup.AddSymbols(A, involvedSymbols);
+
+            foreach (int symbol in involvedSymbols)
+            {
+                IntSet X = reverseLookup.FromStates(A, symbol);
+
+                if (X.Count == 0) continue;
+
+                blocksToSplit.Clear();
+                foreach (IntSet Y in P)
+                {
+                    if (X.Overlaps(Y) && Y != X)
+                        blocksToSplit.Add(Y);
+                }
+             
+                foreach (var Y in blocksToSplit)
+                {
+                    IntSet intersection = new IntSet(Y.Intersect(X));
+                    IntSet difference = new IntSet(Y.Except(X));
+                    P.Remove(Y);
+                    P.Add(intersection);
+                    P.Add(difference);
+
+                    if (W.Contains(Y))
+                    {
+                        W.Remove(Y);
+                        W.Add(intersection);
+                        W.Add(difference);
+                    }
+                    else
+                    {
+                        IntSet smallestBlock = 
+                            intersection.Count <= difference.Count ? intersection : difference;
+                        W.Add(smallestBlock);
+                    }
+                }
+            }
+        }
+
+        var dfaStateToMinimalStateMap = new Dictionary<int, int>();
+        int blockIndex = 0;
+        foreach (var block in P)
+        {
+            foreach (int state in block)
+                dfaStateToMinimalStateMap[state] = blockIndex;
+            blockIndex++;
+        }
+
+        List<Transition> minTransitions = new List<Transition>();
+
+        foreach (var transition in transitions)
+        {
+            int fromState = dfaStateToMinimalStateMap[transition.FromState];
+            int toState = dfaStateToMinimalStateMap[transition.ToState];
+            minTransitions.Add(new Transition(fromState, transition.Symbol, toState));
+        }
+
+        IEnumerable<int> finalStates = this.finalStates.Select(q => dfaStateToMinimalStateMap[q]);
+
+        var minDfa = new Dfa(Alphabet, dfaStateToMinimalStateMap.ContainsKey(InitialState) ? dfaStateToMinimalStateMap[InitialState] : Constants.InvalidState, finalStates, minTransitions);
+
+        return minDfa;
     }
+
+
 
     /// <summary>
     /// Clears all states and transitions. The DFA will be equivalent to the empty language (∅).
