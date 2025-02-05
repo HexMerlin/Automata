@@ -1,4 +1,6 @@
-﻿namespace Automata.Core.Tests;
+﻿using Automata.Core;
+
+namespace Automata.Core.Tests;
 
 [TestClass()]
 public class DfaReverseLookupTests
@@ -8,7 +10,7 @@ public class DfaReverseLookupTests
     {
         string[] sequences = ["_1 0 1", "1 1 1", "1 0 _2 1", "_1 1 2", "_1 2 _2 1", "_1 1 3 _4 1", "_1 _2 0 1", "1 _2 4 _4 1", "1 0 0 1", "1 _3 1 _3 1", "1 _1 1 1", "1 1 1 _3 1", "_1 3 1 1", "_1 0 2 _3 1", "_1 1 _1 _2 1", "_1 _2 4 _3 1", "1 _3 5 _3 1", "_1 0 1 2", "1 0 2 _2 1", "_1 _1 0 _1 1", "1 0 1 _1 1", "1 _1 _2 0 1", "_1 2 _1 0 1", "1 _1 0 0 1", "_1 3 _2 1 1", "_1 1 0 _3 2", "_1 _2 1 _2 2", "1 _3 4 _2 2"];
         Dfa dfa = (Dfa)new Nfa(sequences.Select(s => s.Split(' '))).AsDeterministic();
-        dfa = dfa.Minimal_Brzozowski();
+        dfa = dfa.Minimal(useHopcroftAlgorithm: false);
         return dfa;
     }
 
