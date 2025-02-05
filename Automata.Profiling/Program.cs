@@ -42,8 +42,7 @@ internal class Program
 
         }
 
-        //org: 400
-        for (int seqIndex = 0; seqIndex < 80; seqIndex++)
+        for (int seqIndex = 0; seqIndex < 400; seqIndex++)
         {
             int seqLength = random.Next(3, 12);
             string[] seqArr = Enumerable.Range(1, seqLength).Select(i => symbols[random.Next(symbols.Length)]).ToArray();
