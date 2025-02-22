@@ -11,7 +11,7 @@
     <Copyright>MIT License</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.3</Version>
+    <Version>1.1.4</Version>
     <PackageReleaseNotes>Improvements and bug fixes</PackageReleaseNotes>
     <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://hexmerlin.github.io/Automata/index.html</PackageProjectUrl>
