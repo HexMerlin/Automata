@@ -312,6 +312,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Automata.Core.DfaReverseLookup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Automata.Core.DfaReverseLookup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Automata.Core.EpsilonTransition.yml",
       "output": {
         ".html": {

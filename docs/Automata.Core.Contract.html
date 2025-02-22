@@ -86,7 +86,7 @@
                         </div>
 
                          <div id="contribution">
-                               <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Contract.md&amp;value=---%0Auid%3A%20Automata.Core.Contract%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                               <a href="https://github.com/HexMerlin/Automata/new/main/apiSpec/new?filename=Automata_Core_Contract.md&amp;value=---%0Auid%3A%20Automata.Core.Contract%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="Automata.Core.Contract">
@@ -136,10 +136,90 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Contract_ShouldBeInRange_System_Int32_System_Range_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Contract.ShouldBeInRange(System.Int32%2CSystem.Range%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/main/apiSpec/new?filename=Automata_Core_Contract_ShouldBeGreaterThanOrEqual_System_Int32_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Contract.ShouldBeGreaterThanOrEqual(System.Int32%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Contract.cs/#L20">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/main/Automata.Core/Contract.cs/#L64">View Source</a>
+  </span>
+  <a id="Automata_Core_Contract_ShouldBeGreaterThanOrEqual_" data-uid="Automata.Core.Contract.ShouldBeGreaterThanOrEqual*"></a>
+  <h4 id="Automata_Core_Contract_ShouldBeGreaterThanOrEqual_System_Int32_System_Int32_System_String_" data-uid="Automata.Core.Contract.ShouldBeGreaterThanOrEqual(System.Int32,System.Int32,System.String)">ShouldBeGreaterThanOrEqual(int, int, string)</h4>
+  <div class="markdown level1 summary"><p>Asserts <code class="paramref">value</code> is greater than or equal to <code class="paramref">other</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ShouldBeGreaterThanOrEqual(this int value, int other, string paramName = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to validate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Value to compare against.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">paramName</span></td>
+        <td><p>Captured automatically.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p><code class="paramref">value</code>
+<code>iff</code>
+<code class="paramref">value</code> is greater than or equal to <code class="paramref">other</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown <code>iff</code><code class="paramref">value</code> is less than <code class="paramref">other</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/HexMerlin/Automata/new/main/apiSpec/new?filename=Automata_Core_Contract_ShouldBeInRange_System_Int32_System_Range_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Contract.ShouldBeInRange(System.Int32%2CSystem.Range%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/HexMerlin/Automata/blob/main/Automata.Core/Contract.cs/#L20">View Source</a>
   </span>
   <a id="Automata_Core_Contract_ShouldBeInRange_" data-uid="Automata.Core.Contract.ShouldBeInRange*"></a>
   <h4 id="Automata_Core_Contract_ShouldBeInRange_System_Int32_System_Range_System_String_" data-uid="Automata.Core.Contract.ShouldBeInRange(System.Int32,System.Range,System.String)">ShouldBeInRange(int, Range, string)</h4>
@@ -216,14 +296,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/HexMerlin/Automata/new/master/apiSpec/new?filename=Automata_Core_Contract_ShouldNotBeNegative_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Contract.ShouldNotBeNegative(System.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/HexMerlin/Automata/new/main/apiSpec/new?filename=Automata_Core_Contract_ShouldNotBeNegative_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Automata.Core.Contract.ShouldNotBeNegative(System.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/HexMerlin/Automata/blob/master/Automata.Core/Contract.cs/#L41">View Source</a>
+    <a href="https://github.com/HexMerlin/Automata/blob/main/Automata.Core/Contract.cs/#L42">View Source</a>
   </span>
   <a id="Automata_Core_Contract_ShouldNotBeNegative_" data-uid="Automata.Core.Contract.ShouldNotBeNegative*"></a>
   <h4 id="Automata_Core_Contract_ShouldNotBeNegative_System_Int32_System_String_" data-uid="Automata.Core.Contract.ShouldNotBeNegative(System.Int32,System.String)">ShouldNotBeNegative(int, string)</h4>
-  <div class="markdown level1 summary"><p>Assert <code class="paramref">value</code> is not negative.</p>
+  <div class="markdown level1 summary"><p>Asserts <code class="paramref">value</code> is not negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

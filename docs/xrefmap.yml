@@ -1353,6 +1353,15 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Alphabet.AddAll
   nameWithType: Alphabet.AddAll
+- uid: Automata.Core.Alphabet.Contains(System.Int32)
+  name: Contains(int)
+  href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Contains_System_Int32_
+  commentId: M:Automata.Core.Alphabet.Contains(System.Int32)
+  name.vb: Contains(Integer)
+  fullName: Automata.Core.Alphabet.Contains(int)
+  fullName.vb: Automata.Core.Alphabet.Contains(Integer)
+  nameWithType: Alphabet.Contains(int)
+  nameWithType.vb: Alphabet.Contains(Integer)
 - uid: Automata.Core.Alphabet.Contains(System.String)
   name: Contains(string)
   href: Automata.Core.Alphabet.html#Automata_Core_Alphabet_Contains_System_String_
@@ -1607,6 +1616,22 @@ references:
   commentId: T:Automata.Core.Contract
   fullName: Automata.Core.Contract
   nameWithType: Contract
+- uid: Automata.Core.Contract.ShouldBeGreaterThanOrEqual(System.Int32,System.Int32,System.String)
+  name: ShouldBeGreaterThanOrEqual(int, int, string)
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldBeGreaterThanOrEqual_System_Int32_System_Int32_System_String_
+  commentId: M:Automata.Core.Contract.ShouldBeGreaterThanOrEqual(System.Int32,System.Int32,System.String)
+  name.vb: ShouldBeGreaterThanOrEqual(Integer, Integer, String)
+  fullName: Automata.Core.Contract.ShouldBeGreaterThanOrEqual(int, int, string)
+  fullName.vb: Automata.Core.Contract.ShouldBeGreaterThanOrEqual(Integer, Integer, String)
+  nameWithType: Contract.ShouldBeGreaterThanOrEqual(int, int, string)
+  nameWithType.vb: Contract.ShouldBeGreaterThanOrEqual(Integer, Integer, String)
+- uid: Automata.Core.Contract.ShouldBeGreaterThanOrEqual*
+  name: ShouldBeGreaterThanOrEqual
+  href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldBeGreaterThanOrEqual_
+  commentId: Overload:Automata.Core.Contract.ShouldBeGreaterThanOrEqual
+  isSpec: "True"
+  fullName: Automata.Core.Contract.ShouldBeGreaterThanOrEqual
+  nameWithType: Contract.ShouldBeGreaterThanOrEqual
 - uid: Automata.Core.Contract.ShouldBeInRange(System.Int32,System.Range,System.String)
   name: ShouldBeInRange(int, Range, string)
   href: Automata.Core.Contract.html#Automata_Core_Contract_ShouldBeInRange_System_Int32_System_Range_System_String_
@@ -1731,6 +1756,45 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.Add
   nameWithType: Dfa.Add
+- uid: Automata.Core.Dfa.ClearAll
+  name: ClearAll()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ClearAll
+  commentId: M:Automata.Core.Dfa.ClearAll
+  fullName: Automata.Core.Dfa.ClearAll()
+  nameWithType: Dfa.ClearAll()
+- uid: Automata.Core.Dfa.ClearAll*
+  name: ClearAll
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_ClearAll_
+  commentId: Overload:Automata.Core.Dfa.ClearAll
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.ClearAll
+  nameWithType: Dfa.ClearAll
+- uid: Automata.Core.Dfa.CreateEmpty(Automata.Core.Alphabet)
+  name: CreateEmpty(Alphabet)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_CreateEmpty_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Dfa.CreateEmpty(Automata.Core.Alphabet)
+  fullName: Automata.Core.Dfa.CreateEmpty(Automata.Core.Alphabet)
+  nameWithType: Dfa.CreateEmpty(Alphabet)
+- uid: Automata.Core.Dfa.CreateEmpty*
+  name: CreateEmpty
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_CreateEmpty_
+  commentId: Overload:Automata.Core.Dfa.CreateEmpty
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.CreateEmpty
+  nameWithType: Dfa.CreateEmpty
+- uid: Automata.Core.Dfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  name: CreateEpsilonAccepting(Alphabet)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_CreateEpsilonAccepting_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Dfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  fullName: Automata.Core.Dfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  nameWithType: Dfa.CreateEpsilonAccepting(Alphabet)
+- uid: Automata.Core.Dfa.CreateEpsilonAccepting*
+  name: CreateEpsilonAccepting
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_CreateEpsilonAccepting_
+  commentId: Overload:Automata.Core.Dfa.CreateEpsilonAccepting
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.CreateEpsilonAccepting
+  nameWithType: Dfa.CreateEpsilonAccepting
 - uid: Automata.Core.Dfa.FinalStates
   name: FinalStates
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_FinalStates
@@ -1786,6 +1850,35 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.MaxState
   nameWithType: Dfa.MaxState
+- uid: Automata.Core.Dfa.Minimal(System.Boolean)
+  name: Minimal(bool)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimal_System_Boolean_
+  commentId: M:Automata.Core.Dfa.Minimal(System.Boolean)
+  name.vb: Minimal(Boolean)
+  fullName: Automata.Core.Dfa.Minimal(bool)
+  fullName.vb: Automata.Core.Dfa.Minimal(Boolean)
+  nameWithType: Dfa.Minimal(bool)
+  nameWithType.vb: Dfa.Minimal(Boolean)
+- uid: Automata.Core.Dfa.Minimal*
+  name: Minimal
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimal_
+  commentId: Overload:Automata.Core.Dfa.Minimal
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.Minimal
+  nameWithType: Dfa.Minimal
+- uid: Automata.Core.Dfa.Minimal_Hopcroft
+  name: Minimal_Hopcroft()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimal_Hopcroft
+  commentId: M:Automata.Core.Dfa.Minimal_Hopcroft
+  fullName: Automata.Core.Dfa.Minimal_Hopcroft()
+  nameWithType: Dfa.Minimal_Hopcroft()
+- uid: Automata.Core.Dfa.Minimal_Hopcroft*
+  name: Minimal_Hopcroft
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Minimal_Hopcroft_
+  commentId: Overload:Automata.Core.Dfa.Minimal_Hopcroft
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.Minimal_Hopcroft
+  nameWithType: Dfa.Minimal_Hopcroft
 - uid: Automata.Core.Dfa.SetFinal(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
   name: SetFinal(IEnumerable<int>, bool)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_SetFinal_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_
@@ -1856,6 +1949,22 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.StateRange
   nameWithType: Dfa.StateRange
+- uid: Automata.Core.Dfa.Symbols(System.Int32)
+  name: Symbols(int)
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Symbols_System_Int32_
+  commentId: M:Automata.Core.Dfa.Symbols(System.Int32)
+  name.vb: Symbols(Integer)
+  fullName: Automata.Core.Dfa.Symbols(int)
+  fullName.vb: Automata.Core.Dfa.Symbols(Integer)
+  nameWithType: Dfa.Symbols(int)
+  nameWithType.vb: Dfa.Symbols(Integer)
+- uid: Automata.Core.Dfa.Symbols*
+  name: Symbols
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Symbols_
+  commentId: Overload:Automata.Core.Dfa.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.Symbols
+  nameWithType: Dfa.Symbols
 - uid: Automata.Core.Dfa.ToCanonicalString
   name: ToCanonicalString()
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_ToCanonicalString
@@ -1911,6 +2020,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.Transitions
   nameWithType: Dfa.Transitions
+- uid: Automata.Core.Dfa.Trim
+  name: Trim()
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Trim
+  commentId: M:Automata.Core.Dfa.Trim
+  fullName: Automata.Core.Dfa.Trim()
+  nameWithType: Dfa.Trim()
+- uid: Automata.Core.Dfa.Trim*
+  name: Trim
+  href: Automata.Core.Dfa.html#Automata_Core_Dfa_Trim_
+  commentId: Overload:Automata.Core.Dfa.Trim
+  isSpec: "True"
+  fullName: Automata.Core.Dfa.Trim
+  nameWithType: Dfa.Trim
 - uid: Automata.Core.Dfa.UnionWith(System.Collections.Generic.IEnumerable{Automata.Core.Transition})
   name: UnionWith(IEnumerable<Transition>)
   href: Automata.Core.Dfa.html#Automata_Core_Dfa_UnionWith_System_Collections_Generic_IEnumerable_Automata_Core_Transition__
@@ -1927,6 +2049,101 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Dfa.UnionWith
   nameWithType: Dfa.UnionWith
+- uid: Automata.Core.DfaReverseLookup
+  name: DfaReverseLookup
+  href: Automata.Core.DfaReverseLookup.html
+  commentId: T:Automata.Core.DfaReverseLookup
+  fullName: Automata.Core.DfaReverseLookup
+  nameWithType: DfaReverseLookup
+- uid: Automata.Core.DfaReverseLookup.#ctor(Automata.Core.Dfa)
+  name: DfaReverseLookup(Dfa)
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup__ctor_Automata_Core_Dfa_
+  commentId: M:Automata.Core.DfaReverseLookup.#ctor(Automata.Core.Dfa)
+  name.vb: New(Dfa)
+  fullName: Automata.Core.DfaReverseLookup.DfaReverseLookup(Automata.Core.Dfa)
+  fullName.vb: Automata.Core.DfaReverseLookup.New(Automata.Core.Dfa)
+  nameWithType: DfaReverseLookup.DfaReverseLookup(Dfa)
+  nameWithType.vb: DfaReverseLookup.New(Dfa)
+- uid: Automata.Core.DfaReverseLookup.#ctor*
+  name: DfaReverseLookup
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup__ctor_
+  commentId: Overload:Automata.Core.DfaReverseLookup.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Automata.Core.DfaReverseLookup.DfaReverseLookup
+  fullName.vb: Automata.Core.DfaReverseLookup.New
+  nameWithType: DfaReverseLookup.DfaReverseLookup
+  nameWithType.vb: DfaReverseLookup.New
+- uid: Automata.Core.DfaReverseLookup.AddSymbols(Automata.Core.IntSet,System.Collections.Generic.HashSet{System.Int32})
+  name: AddSymbols(IntSet, HashSet<int>)
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_AddSymbols_Automata_Core_IntSet_System_Collections_Generic_HashSet_System_Int32__
+  commentId: M:Automata.Core.DfaReverseLookup.AddSymbols(Automata.Core.IntSet,System.Collections.Generic.HashSet{System.Int32})
+  name.vb: AddSymbols(IntSet, HashSet(Of Integer))
+  fullName: Automata.Core.DfaReverseLookup.AddSymbols(Automata.Core.IntSet, System.Collections.Generic.HashSet<int>)
+  fullName.vb: Automata.Core.DfaReverseLookup.AddSymbols(Automata.Core.IntSet, System.Collections.Generic.HashSet(Of Integer))
+  nameWithType: DfaReverseLookup.AddSymbols(IntSet, HashSet<int>)
+  nameWithType.vb: DfaReverseLookup.AddSymbols(IntSet, HashSet(Of Integer))
+- uid: Automata.Core.DfaReverseLookup.AddSymbols*
+  name: AddSymbols
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_AddSymbols_
+  commentId: Overload:Automata.Core.DfaReverseLookup.AddSymbols
+  isSpec: "True"
+  fullName: Automata.Core.DfaReverseLookup.AddSymbols
+  nameWithType: DfaReverseLookup.AddSymbols
+- uid: Automata.Core.DfaReverseLookup.AllStates
+  name: AllStates
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_AllStates
+  commentId: P:Automata.Core.DfaReverseLookup.AllStates
+  fullName: Automata.Core.DfaReverseLookup.AllStates
+  nameWithType: DfaReverseLookup.AllStates
+- uid: Automata.Core.DfaReverseLookup.AllStates*
+  name: AllStates
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_AllStates_
+  commentId: Overload:Automata.Core.DfaReverseLookup.AllStates
+  isSpec: "True"
+  fullName: Automata.Core.DfaReverseLookup.AllStates
+  nameWithType: DfaReverseLookup.AllStates
+- uid: Automata.Core.DfaReverseLookup.FromStates(Automata.Core.IntSet,System.Int32)
+  name: FromStates(IntSet, int)
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_FromStates_Automata_Core_IntSet_System_Int32_
+  commentId: M:Automata.Core.DfaReverseLookup.FromStates(Automata.Core.IntSet,System.Int32)
+  name.vb: FromStates(IntSet, Integer)
+  fullName: Automata.Core.DfaReverseLookup.FromStates(Automata.Core.IntSet, int)
+  fullName.vb: Automata.Core.DfaReverseLookup.FromStates(Automata.Core.IntSet, Integer)
+  nameWithType: DfaReverseLookup.FromStates(IntSet, int)
+  nameWithType.vb: DfaReverseLookup.FromStates(IntSet, Integer)
+- uid: Automata.Core.DfaReverseLookup.FromStates(System.Int32,System.Int32)
+  name: FromStates(int, int)
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_FromStates_System_Int32_System_Int32_
+  commentId: M:Automata.Core.DfaReverseLookup.FromStates(System.Int32,System.Int32)
+  name.vb: FromStates(Integer, Integer)
+  fullName: Automata.Core.DfaReverseLookup.FromStates(int, int)
+  fullName.vb: Automata.Core.DfaReverseLookup.FromStates(Integer, Integer)
+  nameWithType: DfaReverseLookup.FromStates(int, int)
+  nameWithType.vb: DfaReverseLookup.FromStates(Integer, Integer)
+- uid: Automata.Core.DfaReverseLookup.FromStates*
+  name: FromStates
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_FromStates_
+  commentId: Overload:Automata.Core.DfaReverseLookup.FromStates
+  isSpec: "True"
+  fullName: Automata.Core.DfaReverseLookup.FromStates
+  nameWithType: DfaReverseLookup.FromStates
+- uid: Automata.Core.DfaReverseLookup.Symbols(System.Int32)
+  name: Symbols(int)
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_Symbols_System_Int32_
+  commentId: M:Automata.Core.DfaReverseLookup.Symbols(System.Int32)
+  name.vb: Symbols(Integer)
+  fullName: Automata.Core.DfaReverseLookup.Symbols(int)
+  fullName.vb: Automata.Core.DfaReverseLookup.Symbols(Integer)
+  nameWithType: DfaReverseLookup.Symbols(int)
+  nameWithType.vb: DfaReverseLookup.Symbols(Integer)
+- uid: Automata.Core.DfaReverseLookup.Symbols*
+  name: Symbols
+  href: Automata.Core.DfaReverseLookup.html#Automata_Core_DfaReverseLookup_Symbols_
+  commentId: Overload:Automata.Core.DfaReverseLookup.Symbols
+  isSpec: "True"
+  fullName: Automata.Core.DfaReverseLookup.Symbols
+  nameWithType: DfaReverseLookup.Symbols
 - uid: Automata.Core.EpsilonTransition
   name: EpsilonTransition
   href: Automata.Core.EpsilonTransition.html
@@ -2433,15 +2650,6 @@ references:
   commentId: T:Automata.Core.IntSet
   fullName: Automata.Core.IntSet
   nameWithType: IntSet
-- uid: Automata.Core.IntSet.#ctor(System.Collections.Generic.HashSet{System.Int32})
-  name: IntSet(HashSet<int>)
-  href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_System_Collections_Generic_HashSet_System_Int32__
-  commentId: M:Automata.Core.IntSet.#ctor(System.Collections.Generic.HashSet{System.Int32})
-  name.vb: New(HashSet(Of Integer))
-  fullName: Automata.Core.IntSet.IntSet(System.Collections.Generic.HashSet<int>)
-  fullName.vb: Automata.Core.IntSet.New(System.Collections.Generic.HashSet(Of Integer))
-  nameWithType: IntSet.IntSet(HashSet<int>)
-  nameWithType.vb: IntSet.New(HashSet(Of Integer))
 - uid: Automata.Core.IntSet.#ctor(System.Collections.Generic.IEnumerable{System.Int32})
   name: IntSet(IEnumerable<int>)
   href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_System_Collections_Generic_IEnumerable_System_Int32__
@@ -2451,15 +2659,6 @@ references:
   fullName.vb: Automata.Core.IntSet.New(System.Collections.Generic.IEnumerable(Of Integer))
   nameWithType: IntSet.IntSet(IEnumerable<int>)
   nameWithType.vb: IntSet.New(IEnumerable(Of Integer))
-- uid: Automata.Core.IntSet.#ctor(System.Collections.Generic.ISet{System.Int32})
-  name: IntSet(ISet<int>)
-  href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_System_Collections_Generic_ISet_System_Int32__
-  commentId: M:Automata.Core.IntSet.#ctor(System.Collections.Generic.ISet{System.Int32})
-  name.vb: New(ISet(Of Integer))
-  fullName: Automata.Core.IntSet.IntSet(System.Collections.Generic.ISet<int>)
-  fullName.vb: Automata.Core.IntSet.New(System.Collections.Generic.ISet(Of Integer))
-  nameWithType: IntSet.IntSet(ISet<int>)
-  nameWithType.vb: IntSet.New(ISet(Of Integer))
 - uid: Automata.Core.IntSet.#ctor*
   name: IntSet
   href: Automata.Core.IntSet.html#Automata_Core_IntSet__ctor_
@@ -2659,6 +2858,44 @@ references:
   isSpec: "True"
   fullName: Automata.Core.IntSet.ToString
   nameWithType: IntSet.ToString
+- uid: Automata.Core.IntSet.op_Equality(Automata.Core.IntSet,Automata.Core.IntSet)
+  name: operator ==(IntSet, IntSet)
+  href: Automata.Core.IntSet.html#Automata_Core_IntSet_op_Equality_Automata_Core_IntSet_Automata_Core_IntSet_
+  commentId: M:Automata.Core.IntSet.op_Equality(Automata.Core.IntSet,Automata.Core.IntSet)
+  name.vb: =(IntSet, IntSet)
+  fullName: Automata.Core.IntSet.operator ==(Automata.Core.IntSet, Automata.Core.IntSet)
+  fullName.vb: Automata.Core.IntSet.=(Automata.Core.IntSet, Automata.Core.IntSet)
+  nameWithType: IntSet.operator ==(IntSet, IntSet)
+  nameWithType.vb: IntSet.=(IntSet, IntSet)
+- uid: Automata.Core.IntSet.op_Equality*
+  name: operator ==
+  href: Automata.Core.IntSet.html#Automata_Core_IntSet_op_Equality_
+  commentId: Overload:Automata.Core.IntSet.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: Automata.Core.IntSet.operator ==
+  fullName.vb: Automata.Core.IntSet.=
+  nameWithType: IntSet.operator ==
+  nameWithType.vb: IntSet.=
+- uid: Automata.Core.IntSet.op_Inequality(Automata.Core.IntSet,Automata.Core.IntSet)
+  name: operator !=(IntSet, IntSet)
+  href: Automata.Core.IntSet.html#Automata_Core_IntSet_op_Inequality_Automata_Core_IntSet_Automata_Core_IntSet_
+  commentId: M:Automata.Core.IntSet.op_Inequality(Automata.Core.IntSet,Automata.Core.IntSet)
+  name.vb: <>(IntSet, IntSet)
+  fullName: Automata.Core.IntSet.operator !=(Automata.Core.IntSet, Automata.Core.IntSet)
+  fullName.vb: Automata.Core.IntSet.<>(Automata.Core.IntSet, Automata.Core.IntSet)
+  nameWithType: IntSet.operator !=(IntSet, IntSet)
+  nameWithType.vb: IntSet.<>(IntSet, IntSet)
+- uid: Automata.Core.IntSet.op_Inequality*
+  name: operator !=
+  href: Automata.Core.IntSet.html#Automata_Core_IntSet_op_Inequality_
+  commentId: Overload:Automata.Core.IntSet.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: Automata.Core.IntSet.operator !=
+  fullName.vb: Automata.Core.IntSet.<>
+  nameWithType: IntSet.operator !=
+  nameWithType.vb: IntSet.<>
 - uid: Automata.Core.Mfa
   name: Mfa
   href: Automata.Core.Mfa.html
@@ -2706,6 +2943,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Mfa.CreateEmpty
   nameWithType: Mfa.CreateEmpty
+- uid: Automata.Core.Mfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  name: CreateEpsilonAccepting(Alphabet)
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateEpsilonAccepting_Automata_Core_Alphabet_
+  commentId: M:Automata.Core.Mfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  fullName: Automata.Core.Mfa.CreateEpsilonAccepting(Automata.Core.Alphabet)
+  nameWithType: Mfa.CreateEpsilonAccepting(Alphabet)
+- uid: Automata.Core.Mfa.CreateEpsilonAccepting*
+  name: CreateEpsilonAccepting
+  href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateEpsilonAccepting_
+  commentId: Overload:Automata.Core.Mfa.CreateEpsilonAccepting
+  isSpec: "True"
+  fullName: Automata.Core.Mfa.CreateEpsilonAccepting
+  nameWithType: Mfa.CreateEpsilonAccepting
 - uid: Automata.Core.Mfa.CreateWildcard(Automata.Core.Alphabet)
   name: CreateWildcard(Alphabet)
   href: Automata.Core.Mfa.html#Automata_Core_Mfa_CreateWildcard_Automata_Core_Alphabet_
@@ -3718,6 +3968,19 @@ references:
   isSpec: "True"
   fullName: Automata.Core.Transition.CompareTo
   nameWithType: Transition.CompareTo
+- uid: Automata.Core.Transition.ComparerByToState
+  name: ComparerByToState()
+  href: Automata.Core.Transition.html#Automata_Core_Transition_ComparerByToState
+  commentId: M:Automata.Core.Transition.ComparerByToState
+  fullName: Automata.Core.Transition.ComparerByToState()
+  nameWithType: Transition.ComparerByToState()
+- uid: Automata.Core.Transition.ComparerByToState*
+  name: ComparerByToState
+  href: Automata.Core.Transition.html#Automata_Core_Transition_ComparerByToState_
+  commentId: Overload:Automata.Core.Transition.ComparerByToState
+  isSpec: "True"
+  fullName: Automata.Core.Transition.ComparerByToState
+  nameWithType: Transition.ComparerByToState
 - uid: Automata.Core.Transition.FromState
   name: FromState
   href: Automata.Core.Transition.html#Automata_Core_Transition_FromState
