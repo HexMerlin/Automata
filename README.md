@@ -1,4 +1,4 @@
-﻿# :repeat_one: Automata: A light-weight library for Finite-State Automata 
+# <img src="docs/images/logo.svg" alt="Logo" height="40"/>  Automata: A light-weight library for Finite-State Automata
 [![NuGet Version](https://img.shields.io/nuget/v/Automata.Core)](https://www.nuget.org/packages/Automata.Core)   **Automata.Core** - Core library (zero-dependency library, optimal if you do not need visualization).
 
 [![NuGet Version](https://img.shields.io/nuget/v/Automata.Visualization)](https://www.nuget.org/packages/Automata.Visualization)  **Automata.Visualization** - Full library that also includes visualization and rendering of automata.
